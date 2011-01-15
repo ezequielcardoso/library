@@ -1,0 +1,631 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>俞敏洪文本演讲</title>
+<style type="text/css">  
+#divUpControl{position:absolute; width:320px; left:10px; top:10px; z-index:1; text-align: right} 
+#divDownControl{position:absolute; width:320px; left:10px; top:270px; z-index:1; text-align: right} 
+#divContainer{position:absolute; width:320px; height:240px; overflow:hidden; top:30px; left:10px; clip:rect(0px,320px,240px,0px); visibility:hidden} 
+#divContent{position:absolute; top:0px; left:0px} 
+</style>
+<style type="text/css">  
+#divUpControl{
+	position:absolute;
+	width:3px;
+	left:803px;
+	top:128px;
+	z-index:1;
+	text-align: right;
+	height: 17px;
+} 
+#divDownControl{
+	position:absolute;
+	width:4px;
+	left:803px;
+	top:162px;
+	z-index:1;
+	text-align: right;
+	height: 17px;
+} 
+#divContainer{position:absolute; width:34px; height:30px; overflow:hidden; top:15.125pc; left:834px; clip:rect(0px,320px,240px,0); visibility:hidden} 
+#divContent{position:absolute; top:-459px; left:4px} 
+.style3 {
+	color: #00FFFF;
+	font-size: 36px;
+}
+.style1 {	font-size: 18px;
+	font-weight: bold;
+	color: #0000FF;
+}
+.bgt {
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+}
+</style>
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<script language="JavaScript">// begin absolutely positioned scrollable area object scripts 
+// Extension developed by David G. Miles 
+// Original Scrollable Area code developed by Thomas Brattli 
+function verifyCompatibleBrowser(){ 
+    this.ver=navigator.appVersion 
+    this.dom=document.getElementById?1:0 
+    this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0; 
+    this.ie4=(document.all && !this.dom)?1:0; 
+    this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+ 
+    this.ns4=(document.layers && !this.dom)?1:0; 
+    this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5) 
+    return this 
+} 
+bw=new verifyCompatibleBrowser() 
+ 
+ 
+var speed=50 
+ 
+var loop, timer 
+ 
+function ConstructObject(obj,nest){ 
+    nest=(!nest) ? '':'document.'+nest+'.' 
+    this.el=bw.dom?document.getElementById(obj):bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.css=bw.dom?document.getElementById(obj).style:bw.ie4?document.all[obj].style:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.scrollHeight=bw.ns4?this.css.document.height:this.el.offsetHeight 
+    this.clipHeight=bw.ns4?this.css.clip.height:this.el.offsetHeight 
+    this.up=MoveAreaUp;this.down=MoveAreaDown; 
+    this.MoveArea=MoveArea; this.x; this.y; 
+    this.obj = obj + "Object" 
+    eval(this.obj + "=this") 
+    return this 
+} 
+function MoveArea(x,y){ 
+    this.x=x;this.y=y 
+    this.css.left=this.x 
+    this.css.top=this.y 
+} 
+ 
+function MoveAreaDown(move){ 
+	if(this.y>-this.scrollHeight+objContainer.clipHeight){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".down("+move+")",speed) 
+	} 
+} 
+function MoveAreaUp(move){ 
+	if(this.y<0){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".up("+move+")",speed) 
+	} 
+} 
+ 
+function PerformScroll(speed){ 
+	if(initialised){ 
+		loop=true; 
+		if(speed>0) objScroller.down(speed) 
+		else objScroller.up(speed) 
+	} 
+} 
+ 
+function CeaseScroll(){ 
+    loop=false 
+    if(timer) clearTimeout(timer) 
+} 
+var initialised; 
+function InitialiseScrollableArea(){ 
+    objContainer=new ConstructObject('divContainer') 
+    objScroller=new ConstructObject('divContent','divContainer') 
+    objScroller.MoveArea(0,0) 
+    objContainer.css.visibility='visible' 
+    initialised=true; 
+} 
+// end absolutely positioned scrollable area object scripts 
+
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function flevDivPositionValue(sDiv, sProperty) { // v2.1, Marja Ribbers-de Vroed, FlevOOware
+	this.opera = (window.opera); // Opera 5+
+	this.ns4 = (document.layers); // Netscape 4.x
+	this.ns6 = (document.getElementById && !document.all && !this.opera); // Netscape 6+
+	this.ie = (document.all);  // Internet Explorer 4+
+    var sValue = ""; docObj = eval("MM_findObj('" + sDiv + "')"); if (docObj == null) {return 0;}
+	if ((sProperty == "left") || (sProperty == "top")) {
+		if (!this.ns4) {docObj = docObj.style;} 
+		sValue = eval("docObj." + sProperty);
+		if ((this.ie) && (sValue == "")) { // IE (on PC) bug with nested layers
+			if (sProperty == "top") { sValue = eval(sDiv + ".offsetTop"); } 
+			else { sValue = eval(sDiv + ".offsetLeft"); } 
+		};
+	}
+	else {
+		if (this.opera) {
+			docObj = docObj.style;
+			if (sProperty == "height") { sValue = docObj.pixelHeight; } 
+			else if (sProperty == "width") { sValue = docObj.pixelWidth; } 
+		}
+		else if (this.ns4) {sValue = eval("docObj.clip." + sProperty);} 
+		else if (this.ns6) {sValue = document.defaultView.getComputedStyle(docObj, "").getPropertyValue(sProperty); } 
+	    else if (this.ie) { 
+			if (sProperty == "width") { sValue = eval(sDiv + ".offsetWidth"); } 
+			else if (sProperty == "height") { sValue = eval(sDiv + ".offsetHeight"); } 
+		}
+   	}
+	sValue = (sValue == "") ? 0 : sValue; 
+	if (isNaN(sValue)) { if (sValue.indexOf('px') > 0) { sValue = sValue.substring(0,sValue.indexOf('px')); } } 
+	return parseInt(sValue); 
+}
+
+function flevPersistentLayer() { // v3.3, Marja Ribbers-de Vroed, FlevOOware
+	var sD = arguments[0], oD = eval("MM_findObj('" + sD + "')"), iWW, iWH, iSX, iSY, iT = 10, sS = "";
+	if (!document.layers) {oD = oD.style;}
+	if (oD.tmpTimeout != null) {clearTimeout(oD.tmpTimeout);}
+	var sXL = arguments[1], sXC = arguments[2], sXR = arguments[3], sYT = arguments[4], sYC = arguments[5], sYB = arguments[6];
+	var iS = (arguments.length > 7) ? parseInt(arguments[7]) : 0, iPx = (arguments.length > 8) ? parseInt(arguments[8]) : 0;
+	if (window.innerWidth) { // NS4, NS6 and Opera
+		var oW = window; iWW = oW.innerWidth; iWH = oW.innerHeight; iSX = oW.pageXOffset; iSY = oW.pageYOffset; }
+	else if (document.documentElement && document.documentElement.clientWidth) { // IE6 in standards compliant mode
+		var oDE = document.documentElement; iWW = oDE.clientWidth; iWH = oDE.clientHeight; iSX = oDE.scrollLeft; iSY = oDE.scrollTop; }
+	else if (document.body) { // IE4+
+		var oDB = document.body; iWW = oDB.clientWidth; iWH = oDB.clientHeight; iSX = oDB.scrollLeft; iSY = oDB.scrollTop; }
+	else {return;}
+	var iCX = iNX = flevDivPositionValue(sD, 'left'), iCY = iNY = flevDivPositionValue(sD, 'top');
+	if (sXL != "") {iNX = iSX + parseInt(sXL);} 
+	else if (sXC != "") {iNX = Math.round(iSX + (iWW/2) - (flevDivPositionValue(sD, 'width')/2));}
+	else if (sXR != "") {iNX = iSX + iWW - (flevDivPositionValue(sD, 'width') + parseInt(sXR));}
+	if (sYT != "") {iNY = iSY + parseInt(sYT);}
+	else if (sYC != "") {iNY = Math.round(iSY + (iWH/2) - (flevDivPositionValue(sD, 'height')/2));}
+	else if (sYB != "") {iNY = iSY + (iWH - flevDivPositionValue(sD, 'height') - parseInt(sYB));}
+	if ((iCX != iNX) || (iCY != iNY)) {
+		if (iS > 0) {
+			if (iPx > 0) { iT = iS;
+				var iPxX = iPx, iPxY = iPx, iMX = Math.abs(iCX - iNX), iMY = Math.abs(iCY - iNY);
+				// take care of diagonal movement
+				if (iMX < iMY) {iPxY = (iMX != 0) ? ((iMY/iMX)*iPx) : iPx;}
+				else {iPxX = (iMY != 0) ? ((iMX/iMY)*iPx) : iPx;}
+				if (iPxX >= iMX) {iPxX = Math.min(Math.ceil(iPxX), iPx);}
+				if (iPxY >= iMY) {iPxY = Math.min(Math.ceil(iPxY), iPx);}
+				// temporary X/Y coordinates
+				if ((iCX < iNX) && (iCX + iPxX < iNX)) {iNX = iCX + iPxX;}
+				if ((iCX > iNX) && (iCX - iPxX > iNX)) {iNX = iCX - iPxX;}
+				if ((iCY < iNY) && (iCY + iPxY < iNY)) {iNY = iCY + iPxY;}
+				if ((iCY > iNY) && (iCY - iPxY > iNY)) {iNY = iCY - iPxY;} }
+			else { 
+				var iMX = ((iNX - iCX) / iS), iMY = ((iNY - iCY) / iS); 
+				iMX = (iMX > 0) ? Math.ceil(iMX) : Math.floor(iMX); iNX = iCX + iMX; 
+				iMY = (iMY > 0) ? Math.ceil(iMY) : Math.floor(iMY); iNY = iCY + iMY; } }
+		if ((parseInt(navigator.appVersion)>4 || navigator.userAgent.indexOf("MSIE")>-1) && (!window.opera)) {sS="px";}
+		if (iMX != 0) {eval("oD.left = '" + iNX + sS + "'");}
+		if (iMY != 0) {eval("oD.top = '" + iNY + sS + "'");} }
+	var sF = "flevPersistentLayer('" + sD + "','" + sXL + "','" + sXC + "','" + sXR + "','" + sYT + "','" + sYC + "','" + sYB + "'," + iS + "," + iPx + ")";
+	oD.tmpTimeout = setTimeout(sF,10);
+}
+
+function flevInitPersistentLayer() { // v3.3, Marja Ribbers-de Vroed, FlevOOware
+	if (arguments.length < 8) {return;}
+	var sD = arguments[0]; if (sD == "") {return;}
+	var	oD = eval("MM_findObj('" + sD + "')"); if (!oD) {return;}
+	var iCSS = parseInt(arguments[1]);
+	var sXL = arguments[2], sXC = arguments[3], sXR = arguments[4], sYT = arguments[5], sYC = arguments[6], sYB = arguments[7];
+	var iS = (arguments.length > 8) ? parseInt(arguments[8]) : 0, iPx = (arguments.length > 9) ? parseInt(arguments[9]) : 0;
+	if (iCSS != 0) { if (!document.layers) {oD = oD.style;} sXL = parseInt(oD.left), sYT = parseInt(oD.top);}
+	var sF = "flevPersistentLayer('" + sD + "','" + sXL + "','" + sXC + "','" + sXR + "','" + sYT + "','" + sYC + "','" + sYB + "'," + iS + "," + iPx + ")";
+	eval(sF);
+}
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1998, 1999, 2000, 2001, 2002, 2003, 2004 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_initTimelines() { //v4.0
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    var ns4 = (ns && parseInt(navigator.appVersion) == 4);
+    var ns5 = (ns && parseInt(navigator.appVersion) > 4);
+    document.MM_Time = new Array(1);
+    document.MM_Time[0] = new Array(0);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0].lastFrame = 0;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+<!-- Begin
+
+var Message="欢迎光临 有事请联系  成凯 qq 464653893";
+
+var place=1;
+
+function scrollIn() {
+
+window.status=Message.substring(0, place);
+
+if (place >= Message.length) {
+
+place=1;
+
+window.setTimeout("scrollOut()",300); 
+
+} else {
+
+place++;
+
+window.setTimeout("scrollIn()",50); 
+
+   } 
+
+}
+
+function scrollOut() {
+
+window.status=Message.substring(place, Message.length);
+
+if (place >= Message.length) {
+
+place=1;
+
+window.setTimeout("scrollIn()", 100);
+
+} else {
+
+place++;
+
+window.setTimeout("scrollOut()", 50);
+
+   }
+
+}
+
+// End -->
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</SCRIPT>
+</head>
+
+<body onLoad="InitialiseScrollableArea();flevInitPersistentLayer('Layer1',0,'','','20','60','','',10);MM_timelinePlay('Timeline1');scrollIn()   ;MM_preloadImages('photo/shouye2.gif','photo/mengxiang2.gif','photo/xiingnian2.gif','photo/zhihui2.gif','photo/xingdong2.gif','photo/chenggong2.gif')">
+<!-- begin absolutely positioned scrollable area object-->
+<div id="divUpControl"><a href="javascript:;" onMouseOver="PerformScroll(7)" onMouseOut="CeaseScroll()"></a> </div>
+<div id="divDownControl"> <a href="javascript:;" onMouseOver="PerformScroll(7)" onMouseOut="CeaseScroll()"></a> </div>
+<div id="divContainer">
+  <div id="divContent"> <b></b>
+      
+</b> </div>
+</div>
+<!-- end absolutely positioned scrollable area object -->
+<DIV id=img1 style="Z-INDEX: 100; LEFT: -1px; WIDTH: 59px; POSITION: absolute; TOP: 240px; HEIGHT: 61px;
+ visibility: visible;"><img src="photo/u=2134931497,604546041&fm=0&gp=0.gif" width="130" height="130"></DIV>
+<div id="Layer1" style="position:absolute; left:881px; top:115px; width:74px; height:90px; z-index:101"><img src="photo/qqvs360.jpg" width="120" height="120"></div>
+
+<div id="bgt" style="position:absolute; left:444px; top:353px; width:605px; height:622px; z-index:106; overflow: scroll; visibility: visible; background-image: url(photo/bgt.gif); layer-background-image: url(photo/bgt.gif); border: 1px none #000000;" class="bgt">
+  <div class="Section0"  style="layout-grid:15.6000pt;
+" >
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;俞敏洪励志演讲</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-right:-4.6200pt; margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >人的生活方式有两种，第一种是像草一样活着。你尽管活着，每年还在成长，但是你毕竟是一颗草；你吸收雨露阳光，但是长不大。人们可以踩过你，人们不会因为你的痛苦而产生痛苦；人们不会因为你被踩了，而来怜悯你，因为人们本身就没看到你。所以，我们每一个人都应该像树一样成长。即使我们现在什么都不是，但是只要你有树的种子，即使被人踩到泥土中间，你依然能够吸收泥土的养分，自己成长起来。也许两年、三年你长不大，但是十年、八年、二十年，你一定能长成参天大树，当你长成参天大树以后，遥远的地方，人们就能看到你；走近你，你能给人一片绿色、一片阴凉，你能帮助别人。即使人们离开你以后，回头一看，你依然是地平线上一道美丽的风景线。树，活着是美丽的风景，死了依然是栋梁之才。活着死了都有用，这就是我们每一个同学做人的标准和成长的标准。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >当一个人为别人活着的时候，就非常麻烦。因为别人的标准是不一样的，没有坚持了自己的追求而想要的东西，你的尊严和自尊是得不到保证的，因为你总是在飘摇中间。对于我们来说，保持自己尊严和自尊的最好的方法是什么呢？就是说你有一个梦想，通过从最基本的一个步骤，你就可以开始追求。比如说最后你想取代我，成为新东方的董事长和总裁，你能不能做到？只要你有足够的心态和足够做事情的方法，以及胸怀，肯定是能做到的。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >凡是想要一下子把一件事情干成的人，就算他干成这件事情，他也没有基础，因为等于是在沙滩上造的房子，最后一定会倒塌。只有慢慢地一步一步把事情干成的，每一步都给自己打下坚实的基础，每一步都给自己一个良好的交代，再重新向未来更高去走每一步的人，他才能够把事情真正地做成功。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >当你决定了一辈子干什么以后，你就要坚定不移地干下去，就不要随便地换。你可以像一条河流一样，越流越宽阔，但是千万不要再想去变成另外一条河，或者变成一座高山。有了这样一个目标以后，你生命就不会摇晃，不会因为有某种机会，你就到处乱窜，这样你才能够做出事情。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >我们未来生活的一种重要能力，叫做忍辱负重的能力。很多社会名流会遇到很多很多你不能忍受的事情，但是你不得不忍受。而你不忍受就不可能成功。为什么，因为你不忍辱负重，你就没有时间，你就没有空间，没有走向未来的空间。如果你想走向未来，最后变得更加强大、更加繁荣，你就必须要做好给自己留下足够的时间和空间。轮到我们自己的生命，要想为一个伟大的目标而奋斗的时候，你排除也得必须排除，你生命中一切琐碎的干扰，因此你就必须忍辱负重。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >不管我们是什么年龄，我们哪能做一时气不过的事情。这个世界上让你气不过的事情太多了，只有你气得过的时候，这个世界才在你面前才能展开最光辉的一面。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >我有这么一个比喻，每一条河流都有自己不同的生命曲线。长江和黄河的曲线，是绝对不一样的。但是每一条河流都有自己的梦想，那就是奔向大海。所以不管黄河是多么的曲折，绕过了多少的障碍；长江拐的弯不如黄河多，但是她冲破了悬崖峭壁，用的方式是不一样的，但是最后都走到了大海。当我们遇到困难时，不管是冲过去还是绕过去，只要我们能过去就行。我希望大家能使自己的生命向梦想流过去，像长江、黄河一样流到自己梦想的尽头，进入宽阔的海洋，使自己的生命变得开阔，使自己的事业变得开阔。但是并不是你想流就能流过去，其实这里面就具备了一种精神，毫无疑问就是水的精神。我们的生命有时候会是泥沙，尽管你也跟着水一起往前流，但是由于你个性的缺陷，面对困难的退步或者说胆怯，你可能慢慢地就会像泥沙一样沉淀下去，一旦你沉淀下去，也许你不用为前进而努力了，但是你却永远见不得阳光了。你沉淀了下去，上面的泥沙就会不断地把你压住，最后你会暗无天日。所以我建议大家，不管你现在的生命是什么样的，一定要有水的精神。哪怕被污染了，也能洗净自己。像水一样，不断地积蓄自己的力量，不断地冲破障碍，当你发现时机不到的时候，把自己的厚度给积累起来，当有一天时机来临的时候，你就能够奔腾入海，成就自己的生命。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >渡过难关是一种心态，你想要跨过去的话，就必然能跨过去。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >很多人在工作的时候，带着怨气和怨恨在工作，你的工作就远做不好。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >如何能够把事情做得更成功的几个要点。第一要点，如何尽可能把自己的长期目标和短期目标结合起来。我们要先分清楚，哪些事情是我们想一辈子干的事情，哪些事情是一下子干完，我们就可以不用干的事情。中国有句话叫急事慢做，你越着急的事情，你做的越仔细、越认真，越能把事情做好。而你越着急的事情，做的越快反而越做的七零八落，我把这个急事也叫做大事。第二个要素就是要决定自己一辈子干什么。那么还有一个我觉得非常重要的，就是平时做事情的时候，对时间的计划性。还有一点，就是成功要自我约束。任何时候，当你前面面临一个巨大的诱惑，和其它任何可能产生诱惑的时候，如果你觉得自己停不下来，你千万别去追那个东西。因为你追了那个东西停不下来，最后栽跟头的一定就是你。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >千万记住一点，做任何事情的时间都是能挤出来的。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >伟大与平凡的不同之处，一个平凡的人每天过着琐碎的生活，但是他把琐碎堆砌出来，还是一堆琐碎的生命。所谓伟大的人，是把一堆琐碎的事情，通过一个伟大的目标，每天积累起来以后，变成一个伟大的事业。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >我的核心价值观就是，以善为生，用善良的心态来对待自己的生命和别人的生命。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >有两句话我是比较欣赏的。生命是一种过程；事业一种结果。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >我们每一个人是活在每一天的，假如说你每一天不高兴，你把所有的每一天都组合起来，就是你一辈子不高兴。但是假如你每一天都高兴了，其实你一辈子就是幸福快乐的。有一次我在往黄河边上走的时候，我就用矿泉水瓶灌了一瓶水。大家知道黄河水特别的浑，后来我就放在路边，大概有一个小时左右。让我非常吃惊的发现，四分之三已经变成了非常清澈的一瓶水，而只有四分之一呢，是沉淀下来的泥沙。假如说我们把这瓶水，清水部分比喻我们的幸福和快乐，而把那个浑浊的那个沉淀的泥沙，比喻我们痛苦的话，你就明白了；当你摇晃一下以后，你的生命中整个充满的是浑浊，也就是充满的都是痛苦和烦恼。但是当你把心静下来的以后，尽管泥沙总的份量一点都没有减少，但是它沉淀在你的心中，因为你的心比较沉静，所以就再也不会被搅和起来，因此你的生命的四分之三，就一定是幸福和快乐的。</span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " > 人的生命道路其实很不平坦，靠你一个人是绝对走不完的，这个世界上只有你跟别人在一起，为了同一个目标一起做事情的时候，才能把这件事情做成。一个人的力量很有限，但是一群人的力量是无限的。当五个手指头伸出来的时候，它是五个手指头，但是当你把五个手指头握起来的时候，它是一个拳头。未来除了是你自己成功，一定要跟别人一起成功，跟别人团结在一起，形成我们，你才能把事情做成功。</span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " >本篇文章来源于<font face="Times New Roman" >[</font><font face="宋体" >成功励志网</font><font face="Times New Roman" >,www.winfirm.net]</font><font face="宋体" >，原文链接地址：</font><font face="Times New Roman" >http://www.winfirm.net/article/yuminghongspeech.ht</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+  </div>
+</div>
+<table width="834" height="100" border="1" align="center">
+  <tr>
+    <td width="100" height="100"><img src="photo/88.gif" width="100" height="100"></td>
+    <td width="612"><img src="photo/qq.jpg" width="615" height="100"></td>
+    <td width="100" height="100"><img src="photo/&#26080;&#26631;&#39064;.gif" width="100" height="100"></td>
+  </tr>
+</table>
+<SCRIPT src="js/js.js">// begin absolutely positioned scrollable area object scripts 
+// Extension developed by David G. Miles 
+// Original Scrollable Area code developed by Thomas Brattli 
+function verifyCompatibleBrowser(){ 
+    this.ver=navigator.appVersion 
+    this.dom=document.getElementById?1:0 
+    this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0; 
+    this.ie4=(document.all && !this.dom)?1:0; 
+    this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+ 
+    this.ns4=(document.layers && !this.dom)?1:0; 
+    this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5) 
+    return this 
+} 
+bw=new verifyCompatibleBrowser() 
+ 
+ 
+var speed=50 
+ 
+var loop, timer 
+ 
+function ConstructObject(obj,nest){ 
+    nest=(!nest) ? '':'document.'+nest+'.' 
+    this.el=bw.dom?document.getElementById(obj):bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.css=bw.dom?document.getElementById(obj).style:bw.ie4?document.all[obj].style:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.scrollHeight=bw.ns4?this.css.document.height:this.el.offsetHeight 
+    this.clipHeight=bw.ns4?this.css.clip.height:this.el.offsetHeight 
+    this.up=MoveAreaUp;this.down=MoveAreaDown; 
+    this.MoveArea=MoveArea; this.x; this.y; 
+    this.obj = obj + "Object" 
+    eval(this.obj + "=this") 
+    return this 
+} 
+function MoveArea(x,y){ 
+    this.x=x;this.y=y 
+    this.css.left=this.x 
+    this.css.top=this.y 
+} 
+ 
+function MoveAreaDown(move){ 
+	if(this.y>-this.scrollHeight+objContainer.clipHeight){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".down("+move+")",speed) 
+	} 
+} 
+function MoveAreaUp(move){ 
+	if(this.y<0){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".up("+move+")",speed) 
+	} 
+} 
+ 
+function PerformScroll(speed){ 
+	if(initialised){ 
+		loop=true; 
+		if(speed>0) objScroller.down(speed) 
+		else objScroller.up(speed) 
+	} 
+} 
+ 
+function CeaseScroll(){ 
+    loop=false 
+    if(timer) clearTimeout(timer) 
+} 
+var initialised; 
+function InitialiseScrollableArea(){ 
+    objContainer=new ConstructObject('divContainer') 
+    objScroller=new ConstructObject('divContent','divContainer') 
+    objScroller.MoveArea(0,0) 
+    objContainer.css.visibility='visible' 
+    initialised=true; 
+} 
+// end absolutely positioned scrollable area object scripts 
+
+</SCRIPT>
+<table width="833" height="50" border="1" align="center">
+  <tr>
+    <td width="120"><img src="photo/lizhiwang.gif" width="120" height="50"></td>
+    <td width="90"><a href="index.htm" target="_top" onClick="MM_nbGroup('down','group1','shouye1','',1)" onMouseOver="MM_nbGroup('over','shouye1','photo/shouye2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/shouye1.gif" name="shouye1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="mex_1.html" target="_top" onClick="MM_nbGroup('down','group1','mengxiang1','',1)" onMouseOver="MM_nbGroup('over','mengxiang1','photo/mengxiang2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/mengxiang1.gif" name="mengxiang1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="xinn_1.html" target="_top" onClick="MM_nbGroup('down','group1','xingnian1','',1)" onMouseOver="MM_nbGroup('over','xingnian1','photo/xiingnian2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/xingnian1.gif" name="xingnian1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="zhih_1.html" target="_top" onClick="MM_nbGroup('down','group1','zhihui1','',1)" onMouseOver="MM_nbGroup('over','zhihui1','photo/zhihui2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/zhihui1.gif" name="zhihui1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="xind_1.html" target="_top" onClick="MM_nbGroup('down','group1','xingdong1','',1)" onMouseOver="MM_nbGroup('over','xingdong1','photo/xingdong2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/xingdong1.gif" name="xingdong1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="chengg_1.html" target="_top" onClick="MM_nbGroup('down','group1','chenggong1','',1)" onMouseOver="MM_nbGroup('over','chenggong1','photo/chenggong2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/chenggong1.gif" name="chenggong1" width="90" height="50" border="0"></a></td>
+    <td width="121"><embed src="MP3/背景音乐 非常非常好听的电台背景音乐 钢琴.wav" width="10" height="10" loop="ture"></embed> <table width="25" height="19" border="0">
+      <tr>
+        <td width="135"><div align="right"></div></td>
+      </tr>
+    </table>      </td>
+  </tr>
+</table>
+<table width="833" height="25" border="0" align="center">
+  <tr>
+    <td width="557"><img src="photo/qqa.JPG" width="25" height="25" align="absmiddle">你当前位置》<img src="photo/jt.GIF" width="8" height="11">首页<img src="photo/jt.GIF" width="8" height="11">梦想<img src="photo/jt.GIF" width="8" height="11">俞敏洪文本演讲</td>
+    <td width="245"><script language="javascript"> 
+<!-- 
+now = new Date() 
+hour = now.getHours() 
+{ document.write(now.toLocaleString()) }
+/ -->
+</script>
+<style type="text/css">
+.spanstyle {
+COLOR: #00cccc; FONT-FAMILY: 宋体; FONT-SIZE: 10pt; POSITION: absolute; TOP: -50px; VISIBILITY: visible
+}
+</style></td>
+  </tr>
+</table>
+<table width="837" height="759" border="1" align="center">
+  <tr>
+    <td width="209" height="753" valign="top"><table width="209" height="748" border="0">
+      <tr>
+        <td width="200" height="200" align="left" valign="top"><img src="photo/zhx.gif" width="200" height="200"></td>
+      </tr>
+      <tr>
+        <td height="25"><div align="center"><a href="zwjj.html">自我简介</a></div></td>
+      </tr>
+      <tr>
+        <td height="20"><div align="center"><a href="zhuche.html">交流论坛</a></div></td>
+      </tr>
+      <tr>
+        <td height="21"><div align="center"><a href="mailto:464653893qq.com">联系我</a></div></td>
+      </tr>
+      <tr>
+        <td width="200" height="100"><img src="photo/piao_guo.gif" width="200" height="100"></td>
+      </tr>
+      <tr>
+        <td height="364"><div align="center">	        <img src="photo/zuixinxiaox.gif" width="150" height="30"></div>
+		   <marquee direction=up onmouseover=this.stop() scrollamount=5 onmouseout=this.start()>
+		   <p align="center"><a href="mex_2.html">俞敏洪</a></p>
+           <p align="center"><a href="xin_2.html">马云</a></p>
+           <p align="center"><a href="zhih_2.html">李开复</a></p>
+           <p align="center"><a href="xind_2.html">史玉柱</a></p>
+           <p align="center"><a href="chengg_2.html">牛根生</a></p>
+           <p align="center"><img src="photo/hello_cc.gif" width="200" height="114"></p>
+		   </marquee>
+		   </p>
+		  </td>
+      </tr>
+    </table></td>
+    <td width="612" align="left" valign="top"><table width="613" height="753" border="0">
+      <tr>
+        <td height="97"><img src="photo/ymh.jpg" width="100" height="100"><img src="photo/ymh.jpg" width="100" height="100"><img src="photo/ymh.jpg" width="100" height="100"><img src="photo/ymh.jpg" width="100" height="100"><img src="photo/ymh.jpg" width="100" height="100"><img src="photo/ymh.jpg" width="100" height="100"></td>
+      </tr>
+      <tr>
+        <td height="534"><div align="left"> 
+        </div></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="862" height="100" border="0" align="center" background="photo/1.jpg">
+  <tr>
+    <td width="856" nowrap>
+	<marquee direction=left onmouseover=this.stop() scrollamount=5 onmouseout=this.start()>
+	<img src="photo/lkf.jpg" width="100" height="100"> <img src="photo/gtm.jpg" width="100" height="100">
+    <img src="photo/my.jpg" width="100" height="100"> <img src="photo/mht.jpg" width="100" height="100">
+    <img src="photo/ngs.jpg" width="100" height="100"> <img src="photo/ymh.jpg" width="100" height="100"> <img src="photo/zhw.jpg" width="100" height="100">	<img src="photo/syz.jpg" width="100" height="100">
+	</marquee>    </td>
+  </tr>
+</table>
+<table width="846" height="100" border="0" align="center">
+  <tr>
+    <td width="840"><img src="photo/yejiao.gif" width="840" height="100"></td>
+  </tr>
+</table>
+<table width="800" height="100" border="0" align="center">
+  <tr>
+    <td>
+	<marquee direction=left onmouseover=this.stop() scrollamount=5 onmouseout=this.start()>
+  <tr>
+    <td><SCRIPT LANGUAGE="JavaScript">
+
+
+
+<!-- hide
+
+
+
+function goHist(a) 
+
+
+
+{
+
+
+
+   history.go(a);
+
+
+
+}
+
+
+
+//-->
+
+
+
+        </script>
+      </center>
+      <script type="text/javascript">
+swfobject.registerObject("FLVPlayer");
+      </script>
+</body>
+</html>

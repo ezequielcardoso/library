@@ -1,0 +1,636 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>牛根生文本演讲</title>
+<style type="text/css">  
+#divUpControl{position:absolute; width:320px; left:10px; top:10px; z-index:1; text-align: right} 
+#divDownControl{position:absolute; width:320px; left:10px; top:270px; z-index:1; text-align: right} 
+#divContainer{position:absolute; width:320px; height:240px; overflow:hidden; top:30px; left:10px; clip:rect(0px,320px,240px,0px); visibility:hidden} 
+#divContent{position:absolute; top:0px; left:0px} 
+</style>
+<style type="text/css">  
+#divUpControl{
+	position:absolute;
+	width:3px;
+	left:803px;
+	top:128px;
+	z-index:1;
+	text-align: right;
+	height: 17px;
+} 
+#divDownControl{
+	position:absolute;
+	width:4px;
+	left:803px;
+	top:162px;
+	z-index:1;
+	text-align: right;
+	height: 17px;
+} 
+#divContainer{position:absolute; width:34px; height:30px; overflow:hidden; top:15.125pc; left:834px; clip:rect(0px,320px,240px,0); visibility:hidden} 
+#divContent{position:absolute; top:-459px; left:4px} 
+.bgt {
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+}
+</style>
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<script language="JavaScript">// begin absolutely positioned scrollable area object scripts 
+// Extension developed by David G. Miles 
+// Original Scrollable Area code developed by Thomas Brattli 
+function verifyCompatibleBrowser(){ 
+    this.ver=navigator.appVersion 
+    this.dom=document.getElementById?1:0 
+    this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0; 
+    this.ie4=(document.all && !this.dom)?1:0; 
+    this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+ 
+    this.ns4=(document.layers && !this.dom)?1:0; 
+    this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5) 
+    return this 
+} 
+bw=new verifyCompatibleBrowser() 
+ 
+ 
+var speed=50 
+ 
+var loop, timer 
+ 
+function ConstructObject(obj,nest){ 
+    nest=(!nest) ? '':'document.'+nest+'.' 
+    this.el=bw.dom?document.getElementById(obj):bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.css=bw.dom?document.getElementById(obj).style:bw.ie4?document.all[obj].style:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.scrollHeight=bw.ns4?this.css.document.height:this.el.offsetHeight 
+    this.clipHeight=bw.ns4?this.css.clip.height:this.el.offsetHeight 
+    this.up=MoveAreaUp;this.down=MoveAreaDown; 
+    this.MoveArea=MoveArea; this.x; this.y; 
+    this.obj = obj + "Object" 
+    eval(this.obj + "=this") 
+    return this 
+} 
+function MoveArea(x,y){ 
+    this.x=x;this.y=y 
+    this.css.left=this.x 
+    this.css.top=this.y 
+} 
+ 
+function MoveAreaDown(move){ 
+	if(this.y>-this.scrollHeight+objContainer.clipHeight){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".down("+move+")",speed) 
+	} 
+} 
+function MoveAreaUp(move){ 
+	if(this.y<0){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".up("+move+")",speed) 
+	} 
+} 
+ 
+function PerformScroll(speed){ 
+	if(initialised){ 
+		loop=true; 
+		if(speed>0) objScroller.down(speed) 
+		else objScroller.up(speed) 
+	} 
+} 
+ 
+function CeaseScroll(){ 
+    loop=false 
+    if(timer) clearTimeout(timer) 
+} 
+var initialised; 
+function InitialiseScrollableArea(){ 
+    objContainer=new ConstructObject('divContainer') 
+    objScroller=new ConstructObject('divContent','divContainer') 
+    objScroller.MoveArea(0,0) 
+    objContainer.css.visibility='visible' 
+    initialised=true; 
+} 
+// end absolutely positioned scrollable area object scripts 
+
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function flevDivPositionValue(sDiv, sProperty) { // v2.1, Marja Ribbers-de Vroed, FlevOOware
+	this.opera = (window.opera); // Opera 5+
+	this.ns4 = (document.layers); // Netscape 4.x
+	this.ns6 = (document.getElementById && !document.all && !this.opera); // Netscape 6+
+	this.ie = (document.all);  // Internet Explorer 4+
+    var sValue = ""; docObj = eval("MM_findObj('" + sDiv + "')"); if (docObj == null) {return 0;}
+	if ((sProperty == "left") || (sProperty == "top")) {
+		if (!this.ns4) {docObj = docObj.style;} 
+		sValue = eval("docObj." + sProperty);
+		if ((this.ie) && (sValue == "")) { // IE (on PC) bug with nested layers
+			if (sProperty == "top") { sValue = eval(sDiv + ".offsetTop"); } 
+			else { sValue = eval(sDiv + ".offsetLeft"); } 
+		};
+	}
+	else {
+		if (this.opera) {
+			docObj = docObj.style;
+			if (sProperty == "height") { sValue = docObj.pixelHeight; } 
+			else if (sProperty == "width") { sValue = docObj.pixelWidth; } 
+		}
+		else if (this.ns4) {sValue = eval("docObj.clip." + sProperty);} 
+		else if (this.ns6) {sValue = document.defaultView.getComputedStyle(docObj, "").getPropertyValue(sProperty); } 
+	    else if (this.ie) { 
+			if (sProperty == "width") { sValue = eval(sDiv + ".offsetWidth"); } 
+			else if (sProperty == "height") { sValue = eval(sDiv + ".offsetHeight"); } 
+		}
+   	}
+	sValue = (sValue == "") ? 0 : sValue; 
+	if (isNaN(sValue)) { if (sValue.indexOf('px') > 0) { sValue = sValue.substring(0,sValue.indexOf('px')); } } 
+	return parseInt(sValue); 
+}
+
+function flevPersistentLayer() { // v3.3, Marja Ribbers-de Vroed, FlevOOware
+	var sD = arguments[0], oD = eval("MM_findObj('" + sD + "')"), iWW, iWH, iSX, iSY, iT = 10, sS = "";
+	if (!document.layers) {oD = oD.style;}
+	if (oD.tmpTimeout != null) {clearTimeout(oD.tmpTimeout);}
+	var sXL = arguments[1], sXC = arguments[2], sXR = arguments[3], sYT = arguments[4], sYC = arguments[5], sYB = arguments[6];
+	var iS = (arguments.length > 7) ? parseInt(arguments[7]) : 0, iPx = (arguments.length > 8) ? parseInt(arguments[8]) : 0;
+	if (window.innerWidth) { // NS4, NS6 and Opera
+		var oW = window; iWW = oW.innerWidth; iWH = oW.innerHeight; iSX = oW.pageXOffset; iSY = oW.pageYOffset; }
+	else if (document.documentElement && document.documentElement.clientWidth) { // IE6 in standards compliant mode
+		var oDE = document.documentElement; iWW = oDE.clientWidth; iWH = oDE.clientHeight; iSX = oDE.scrollLeft; iSY = oDE.scrollTop; }
+	else if (document.body) { // IE4+
+		var oDB = document.body; iWW = oDB.clientWidth; iWH = oDB.clientHeight; iSX = oDB.scrollLeft; iSY = oDB.scrollTop; }
+	else {return;}
+	var iCX = iNX = flevDivPositionValue(sD, 'left'), iCY = iNY = flevDivPositionValue(sD, 'top');
+	if (sXL != "") {iNX = iSX + parseInt(sXL);} 
+	else if (sXC != "") {iNX = Math.round(iSX + (iWW/2) - (flevDivPositionValue(sD, 'width')/2));}
+	else if (sXR != "") {iNX = iSX + iWW - (flevDivPositionValue(sD, 'width') + parseInt(sXR));}
+	if (sYT != "") {iNY = iSY + parseInt(sYT);}
+	else if (sYC != "") {iNY = Math.round(iSY + (iWH/2) - (flevDivPositionValue(sD, 'height')/2));}
+	else if (sYB != "") {iNY = iSY + (iWH - flevDivPositionValue(sD, 'height') - parseInt(sYB));}
+	if ((iCX != iNX) || (iCY != iNY)) {
+		if (iS > 0) {
+			if (iPx > 0) { iT = iS;
+				var iPxX = iPx, iPxY = iPx, iMX = Math.abs(iCX - iNX), iMY = Math.abs(iCY - iNY);
+				// take care of diagonal movement
+				if (iMX < iMY) {iPxY = (iMX != 0) ? ((iMY/iMX)*iPx) : iPx;}
+				else {iPxX = (iMY != 0) ? ((iMX/iMY)*iPx) : iPx;}
+				if (iPxX >= iMX) {iPxX = Math.min(Math.ceil(iPxX), iPx);}
+				if (iPxY >= iMY) {iPxY = Math.min(Math.ceil(iPxY), iPx);}
+				// temporary X/Y coordinates
+				if ((iCX < iNX) && (iCX + iPxX < iNX)) {iNX = iCX + iPxX;}
+				if ((iCX > iNX) && (iCX - iPxX > iNX)) {iNX = iCX - iPxX;}
+				if ((iCY < iNY) && (iCY + iPxY < iNY)) {iNY = iCY + iPxY;}
+				if ((iCY > iNY) && (iCY - iPxY > iNY)) {iNY = iCY - iPxY;} }
+			else { 
+				var iMX = ((iNX - iCX) / iS), iMY = ((iNY - iCY) / iS); 
+				iMX = (iMX > 0) ? Math.ceil(iMX) : Math.floor(iMX); iNX = iCX + iMX; 
+				iMY = (iMY > 0) ? Math.ceil(iMY) : Math.floor(iMY); iNY = iCY + iMY; } }
+		if ((parseInt(navigator.appVersion)>4 || navigator.userAgent.indexOf("MSIE")>-1) && (!window.opera)) {sS="px";}
+		if (iMX != 0) {eval("oD.left = '" + iNX + sS + "'");}
+		if (iMY != 0) {eval("oD.top = '" + iNY + sS + "'");} }
+	var sF = "flevPersistentLayer('" + sD + "','" + sXL + "','" + sXC + "','" + sXR + "','" + sYT + "','" + sYC + "','" + sYB + "'," + iS + "," + iPx + ")";
+	oD.tmpTimeout = setTimeout(sF,10);
+}
+
+function flevInitPersistentLayer() { // v3.3, Marja Ribbers-de Vroed, FlevOOware
+	if (arguments.length < 8) {return;}
+	var sD = arguments[0]; if (sD == "") {return;}
+	var	oD = eval("MM_findObj('" + sD + "')"); if (!oD) {return;}
+	var iCSS = parseInt(arguments[1]);
+	var sXL = arguments[2], sXC = arguments[3], sXR = arguments[4], sYT = arguments[5], sYC = arguments[6], sYB = arguments[7];
+	var iS = (arguments.length > 8) ? parseInt(arguments[8]) : 0, iPx = (arguments.length > 9) ? parseInt(arguments[9]) : 0;
+	if (iCSS != 0) { if (!document.layers) {oD = oD.style;} sXL = parseInt(oD.left), sYT = parseInt(oD.top);}
+	var sF = "flevPersistentLayer('" + sD + "','" + sXL + "','" + sXC + "','" + sXR + "','" + sYT + "','" + sYC + "','" + sYB + "'," + iS + "," + iPx + ")";
+	eval(sF);
+}
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1998, 1999, 2000, 2001, 2002, 2003, 2004 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j]; 
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_initTimelines() { //v4.0
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    var ns4 = (ns && parseInt(navigator.appVersion) == 4);
+    var ns5 = (ns && parseInt(navigator.appVersion) > 4);
+    document.MM_Time = new Array(1);
+    document.MM_Time[0] = new Array(0);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0].lastFrame = 0;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+<!-- Begin
+
+var Message="欢迎光临 有事请联系  成凯 qq 464653893";
+
+var place=1;
+
+function scrollIn() {
+
+window.status=Message.substring(0, place);
+
+if (place >= Message.length) {
+
+place=1;
+
+window.setTimeout("scrollOut()",300); 
+
+} else {
+
+place++;
+
+window.setTimeout("scrollIn()",50); 
+
+   } 
+
+}
+
+function scrollOut() {
+
+window.status=Message.substring(place, Message.length);
+
+if (place >= Message.length) {
+
+place=1;
+
+window.setTimeout("scrollIn()", 100);
+
+} else {
+
+place++;
+
+window.setTimeout("scrollOut()", 50);
+
+   }
+
+}
+
+// End -->
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</SCRIPT>
+</head>
+
+<body onLoad="InitialiseScrollableArea();flevInitPersistentLayer('Layer1',0,'','','20','60','','',10);MM_timelinePlay('Timeline1');scrollIn()   ;MM_preloadImages('photo/shouye2.gif','photo/mengxiang2.gif','photo/xiingnian2.gif','photo/zhihui2.gif','photo/xingdong2.gif','photo/chenggong2.gif')">
+<!-- begin absolutely positioned scrollable area object-->
+<div id="divUpControl"><a href="javascript:;" onMouseOver="PerformScroll(7)" onMouseOut="CeaseScroll()"></a> </div>
+<div id="divDownControl"> <a href="javascript:;" onMouseOver="PerformScroll(7)" onMouseOut="CeaseScroll()"></a> </div>
+<div id="divContainer">
+  <div id="divContent"> <b></b>
+      
+</b> </div>
+</div>
+<!-- end absolutely positioned scrollable area object -->
+<DIV id=img1 style="Z-INDEX: 100; LEFT: -1px; WIDTH: 59px; POSITION: absolute; TOP: 240px; HEIGHT: 61px;
+ visibility: visible;"><img src="photo/u=2134931497,604546041&fm=0&gp=0.gif" width="130" height="130"></DIV>
+<div id="Layer1" style="position:absolute; left:881px; top:115px; width:74px; height:90px; z-index:101"><img src="photo/qqvs360.jpg" width="120" height="120"></div>
+
+<div id="bgt" style="position:absolute; left:444px; top:353px; width:605px; height:622px; z-index:106; overflow: scroll; visibility: visible; background-image: url(photo/bgt.gif); layer-background-image: url(photo/bgt.gif); border: 1px none #000000;" class="bgt">
+  <div class="Section0"  style="layout-grid:15.6000pt;
+" >
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; text-align:center; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;牛根生励志演讲<o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-right:-4.6200pt; margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'宋体'; " >&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    <P><STRONG>流放北大，面壁十年图破壁</STRONG></P>
+    <P>　　与伊利风雨同舟了16载的牛根生就这样来到了北京大学，整天骑着一辆破自行车穿梭于各个教室之间。当老牛坐在教室里听课的时候，坐在他旁边的都是18岁左右的学生，老牛当时已经40岁。“我当时也不知道是光荣呢还是可耻？到了北大，人家问你是干啥的？整天跟一些小姑娘和小伙子坐在一起，看起来不和谐啊。好在我在社科院有一个文凭，当时办的是教师进修，我就自封了一个访问学者。”访问学者并不好当，牛根生必须首先化解掉内心的委屈和痛楚，方才能静下心来融入到陌生的校园环境当中去。</P>
+    <P>　　从伊利开始就跟随牛根生的一个部下告诉记者：老牛从北大回来之后，无论是看问题的角度或者做事情的方法又比过去成熟了许多。老牛利用这一段时间重新审视了自己在伊利16年的各种经验和教训，让原本在企业中形成的应激反应模式转换成理性的思维模式。面壁十年图破壁，当他结束学习的时候，蒙牛的草稿或许已经在他的脑中形成了。</P>
+    <P><STRONG>　　破釜沉舟，置之死地而后生</STRONG></P>
+    <P>　　“我这样的人你们要吗？”1998年年底的一天，已经正式从伊利辞职的牛根生溜达着去了呼和浩特的人才市场，他站在一家公司的招聘柜台前询问来招聘的人。“你多大了？”对方问。“40岁。”老牛回答。“对不起，你这样的年龄在我们企业属于安排下岗的一列。”对方直言不讳笑着回答。</P>
+    <P>　　既然没有新东家赏识，老牛打算自己做点事情解决生计。牛根生一开始想开一家海鲜大排档，房子选好了，模式考虑好了，结果是一种无形的力量让这个计划难产。直到这个时候，牛根生才意识到，自己虽然离开了伊利，但伊利那种罩在他头上的阴影并没有散去。</P>
+    <P>　　就在这个时候，原来跟随牛根生的一帮兄弟纷纷被伊利免职，他们一起找到牛根生，希望牛根生带领他们重新闯出一条新路。这几个人分别是：伊利原液态奶总经理杨文俊，伊利原总工程师邱连军，伊利原冷冻事业部总经理孙玉斌，伊利原广告策划部总经理孙先红。除了伊利人事和财务的头，伊利各个事业部的头都到了牛根生这里。</P>
+    <P>　　牛根生想了想自己的困境，然后对他们说：哀兵必胜！既然什么都不让我们干，我们就再打造一个伊利！大家起个新名字吧。结果，大家起了一个名字叫蒙牛。</P>
+    <P><STRONG>　秘密谈判，虚拟经营</STRONG></P>
+    <P>　　万事开头难！就在呼和浩特市一间53平方米的楼房内，牛根生从家里搬来了沙发、桌子和床，蒙牛的发展奇迹由此拉开序幕。知己知彼，百战不殆！牛根生知道自己的短板是无市场、无工厂、无奶源，他也知道自己的长板是人才。跟随牛根生的这批人原先都是伊利液态奶、冰激凌、策划营销的一把手，他们在生产、经营、销售、市场、原料设备方面在行业内都是顶尖的人才，老牛决定采取虚拟经营的方式，用人才换资源。因为伊利从中作梗，开始虚拟经营的几次谈判被搅黄了，牛根生只好明修栈道，暗渡陈仓。1999年2月，牛根生经过秘密谈判和哈尔滨的一家乳品企业签订了合作协议，牛根生派杨文俊等8人全面接管了这家公司。通过他们的管理给这家企业带来很好的效益的同时，蒙牛的产品也由这家工厂新鲜出炉。老牛是个明白人，借鸡下蛋只不过是权宜之计！1999年1月到4月，身处呼和浩特的牛根生一边对远在哈尔滨工厂的8人团队遥控指挥，开始生产第一批蒙牛产品，同时摇身一变成了民工头，在距离呼和浩特和林格尔县一片比较荒凉的不毛之地上热火朝天地建起了自己的工厂。</P>
+    <P><STRONG>　　广告牌被砸，因祸得福</STRONG></P>
+    <P>　　1999年4月1日，呼和浩特市的老百姓一觉醒来，主要街道旁边的300块广告牌全是蒙牛的广告：向伊利学习，为民族工业争气，争创内蒙古乳业第二品牌！5月1日，就在老百姓讨论“蒙牛”的余热还没有结束的时候，48块“蒙牛”的广告牌一夜之间被砸得面目全非。蒙牛的广告牌被砸反而使得社会关注蒙牛的热度再次升温，蒙牛开始变得“愈神秘，愈美丽”。当时的<FONT 
+color=#ca0300>媒体</FONT>记者顺藤摸瓜找到了蒙牛的代言人，发现此人竟然是伊利曾经主管生产经营的副总裁牛根生。牛根生不愿意接受<FONT 
+color=#ca0300>媒体</FONT>采访，但是很愿意和记者聊聊，聊的过程，记者发现呼和浩特竟然还有这样一位极具个性的企业家。</P>
+    <P>　　蒙牛的广告牌到底是谁砸的？牛根生没有给出答案，在老牛看来，答案是众人皆知，但他宁愿让大家伙心照不宣。</P>
+    <P>　　蒙牛到底是谁的企业？牛根生说注册人不是他，因为环境险恶不允许他出头露面。</P>
+    <P>　　蒙牛是在克隆伊利吗？牛根生说不是克隆而是补缺，他提到了可口可乐和百事可乐、宝马和奔驰共同竞争却能发展得更好的例子。</P>
+    <P><STRONG>　　韬光养晦，得道多助</STRONG></P>
+    <P>　　1999年初，牛根生虽然隐姓埋名躲在幕后，也没有逃脱继续受打压的命运。竞争对手为了封杀蒙牛，争夺奶源，蒙牛有的牛奶车半路被截，牛奶被当场倒掉。</P>
+    <P>　　为了减少冲突和不必要的麻烦，同时最大限度地保护自己，牛根生很快制定了收奶三不干政策：凡是伊利等大企业有奶站的地方蒙牛不干(不建奶站)；凡是非奶站的牛奶，蒙牛不干(不收)；凡是跟伊利收购标准、价格不一致的事，蒙牛不干。</P>
+    <P>　　同时，牛根生启动“中国乳都”的概念，通过公益广告的形式打出“我们共同的品牌——中国乳都·呼和浩特”的口号，在众多场合提到伊利时都把伊利放在自己的前边，在所有的口径上都将内蒙古所有的乳品企业打上“一荣俱荣，一损俱损”的烙印。这样做的直接结果是，蒙牛赢得了政府的支持，使自己的命运和内蒙古的经济发展大局捆绑在一起，抬高竞争对手的同时保护了自己。</P>
+    <P>　　牛根生又不是三头六臂，他就是一天不睡觉，顶多也只有24个小时，他怎么能够同时操作这么多事情而又让阵脚不乱呢？</P>
+    <P>　　“一个人死了如果还可以重新活一次，那么第二次生命，他肯定能做成任何事情。重新做人不太可能，但是重新做企业是有可能的。我在做蒙牛之前，养牛、种草、干乳业，我已经做了21年，公司从小到大、从无到有的整个过程我都经历过。21年之后，我又重新从零开始做乳业，我就回过头来想过去经历的那些事情：当时，我每一年都做些什么事情，现在重新来做，做对的事情能否提高效率？那些曾经犯过的错误能否不再犯？这就是熟能生巧、厚积薄发。”老牛如是说。</P>
+    <P><STRONG>　　我对伊利的感情不比蒙牛少</STRONG></P>
+    <P>　　2003年，伊利为了庆祝股份制创立十周年而举行了一场声势浩大的庆祝活动。令郑俊怀和所有伊利人没有想到的是，牛根生不请自去。老牛当场对伊利的员工说了一番至情感人的话：我在伊利干了16年，在蒙牛才干了5年。我最好的年华，奉献给了伊利，在这里流过的泪、淌过的汗、洒过的血，比在蒙牛多得多！所以，要说感情，我对伊利的感情，实际上不比对蒙牛的少。活动结束，牛根生得到了一套茶具，这套茶具如今整整齐齐地摆放在老牛办公桌对面的茶几上。或许这证明了老牛对伊利的复杂感情，或许这让老牛始终要提醒自己些什么。但是，无论如何，牛根生在伊利的这招情感行动收到了效果，至少是让那些认识或者不认识牛根生的伊利员工对老牛有了些另外的看法。</P>
+    <P><STRONG>　　捐献股份的哲学思考</STRONG></P>
+    <P>　　2004年6月10日，蒙牛正式于香港联交所主板上市，成为第一家在香港上市的中国内地乳制品企业。按照《福布斯》的排名，当时牛根生身价1.35亿美元，中国富豪排行榜107位。让人大跌眼镜的是，就在外界对牛根生的财富议论纷纷的时候，牛根生却把自己的股份全部捐出，10亿人民币，说不要就不要，老牛将他的散财之举发挥到了极致。</P>
+    <P>　　2005年，蒙牛在董事会下边又成立了顾问委员会，副董事长，总工程师，副总经理，各个部门年龄大的不适应岗位但有经验的元老，都招进顾问委员会，老牛说：我是主任，这样就会让务实的就去务实，务虚的就去务虚。</P>
+    <P>　　“别人笑我太疯癫，我笑他人看不穿。不见五陵豪杰墓，无花无酒锄作田。”老牛自导自演了一场人生大戏，只有老牛才知道自己能够从这场戏里得到什么。</P>
+    <p align="left" class=p0  style="margin-right:-4.6200pt; margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><font face="Times New Roman" >t</font></span><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+    <p align="left" class=p0  style="margin-bottom:0pt; margin-top:0pt; " ><span style="mso-spacerun:'yes'; font-size:10.5000pt; font-family:'Times New Roman'; " ><o:p></o:p></span></p>
+  </div>
+</div>
+<table width="834" height="100" border="1" align="center">
+  <tr>
+    <td width="100" height="100"><img src="photo/88.gif" width="100" height="100"></td>
+    <td width="612"><img src="photo/qq.jpg" width="615" height="100"></td>
+    <td width="100" height="100"><img src="photo/&#26080;&#26631;&#39064;.gif" width="100" height="100"></td>
+  </tr>
+</table>
+<SCRIPT src="js/js.js">// begin absolutely positioned scrollable area object scripts 
+// Extension developed by David G. Miles 
+// Original Scrollable Area code developed by Thomas Brattli 
+function verifyCompatibleBrowser(){ 
+    this.ver=navigator.appVersion 
+    this.dom=document.getElementById?1:0 
+    this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0; 
+    this.ie4=(document.all && !this.dom)?1:0; 
+    this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0; 
+ 
+    this.ns4=(document.layers && !this.dom)?1:0; 
+    this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5) 
+    return this 
+} 
+bw=new verifyCompatibleBrowser() 
+ 
+ 
+var speed=50 
+ 
+var loop, timer 
+ 
+function ConstructObject(obj,nest){ 
+    nest=(!nest) ? '':'document.'+nest+'.' 
+    this.el=bw.dom?document.getElementById(obj):bw.ie4?document.all[obj]:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.css=bw.dom?document.getElementById(obj).style:bw.ie4?document.all[obj].style:bw.ns4?eval(nest+'document.'+obj):0; 
+    this.scrollHeight=bw.ns4?this.css.document.height:this.el.offsetHeight 
+    this.clipHeight=bw.ns4?this.css.clip.height:this.el.offsetHeight 
+    this.up=MoveAreaUp;this.down=MoveAreaDown; 
+    this.MoveArea=MoveArea; this.x; this.y; 
+    this.obj = obj + "Object" 
+    eval(this.obj + "=this") 
+    return this 
+} 
+function MoveArea(x,y){ 
+    this.x=x;this.y=y 
+    this.css.left=this.x 
+    this.css.top=this.y 
+} 
+ 
+function MoveAreaDown(move){ 
+	if(this.y>-this.scrollHeight+objContainer.clipHeight){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".down("+move+")",speed) 
+	} 
+} 
+function MoveAreaUp(move){ 
+	if(this.y<0){ 
+    this.MoveArea(0,this.y-move) 
+    if(loop) setTimeout(this.obj+".up("+move+")",speed) 
+	} 
+} 
+ 
+function PerformScroll(speed){ 
+	if(initialised){ 
+		loop=true; 
+		if(speed>0) objScroller.down(speed) 
+		else objScroller.up(speed) 
+	} 
+} 
+ 
+function CeaseScroll(){ 
+    loop=false 
+    if(timer) clearTimeout(timer) 
+} 
+var initialised; 
+function InitialiseScrollableArea(){ 
+    objContainer=new ConstructObject('divContainer') 
+    objScroller=new ConstructObject('divContent','divContainer') 
+    objScroller.MoveArea(0,0) 
+    objContainer.css.visibility='visible' 
+    initialised=true; 
+} 
+// end absolutely positioned scrollable area object scripts 
+
+</SCRIPT>
+<table width="833" height="50" border="1" align="center">
+  <tr>
+    <td width="120"><img src="photo/lizhiwang.gif" width="120" height="50"></td>
+    <td width="90"><a href="index.htm" target="_top" onClick="MM_nbGroup('down','group1','shouye1','',1)" onMouseOver="MM_nbGroup('over','shouye1','photo/shouye2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/shouye1.gif" name="shouye1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="mex_1.html" target="_top" onClick="MM_nbGroup('down','group1','mengxiang1','',1)" onMouseOver="MM_nbGroup('over','mengxiang1','photo/mengxiang2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/mengxiang1.gif" name="mengxiang1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="xinn_1.html" target="_top" onClick="MM_nbGroup('down','group1','xingnian1','',1)" onMouseOver="MM_nbGroup('over','xingnian1','photo/xiingnian2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/xingnian1.gif" name="xingnian1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="zhih_1.html" target="_top" onClick="MM_nbGroup('down','group1','zhihui1','',1)" onMouseOver="MM_nbGroup('over','zhihui1','photo/zhihui2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/zhihui1.gif" name="zhihui1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="xind_1.html" target="_top" onClick="MM_nbGroup('down','group1','xingdong1','',1)" onMouseOver="MM_nbGroup('over','xingdong1','photo/xingdong2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/xingdong1.gif" name="xingdong1" width="90" height="50" border="0"></a></td>
+    <td width="90"><a href="chengg_1.html" target="_top" onClick="MM_nbGroup('down','group1','chenggong1','',1)" onMouseOver="MM_nbGroup('over','chenggong1','photo/chenggong2.gif','',1)" onMouseOut="MM_nbGroup('out')"><img src="photo/chenggong1.gif" name="chenggong1" width="90" height="50" border="0"></a></td>
+    <td width="121"><embed src="MP3/背景音乐 非常非常好听的电台背景音乐 钢琴.wav" width="10" height="10" loop="ture"></embed> <table width="25" height="19" border="0">
+      <tr>
+        <td width="135"><div align="right"></div></td>
+      </tr>
+    </table>      </td>
+  </tr>
+</table>
+<table width="833" height="25" border="0" align="center">
+  <tr>
+    <td width="557"><img src="photo/qqa.JPG" width="25" height="25" align="absmiddle">你当前位置》<img src="photo/jt.GIF" width="8" height="11">首页<img src="photo/jt.GIF" width="8" height="11">梦想<img src="photo/jt.GIF" width="8" height="11">牛根生文本演讲</td>
+    <td width="245"><script language="javascript"> 
+<!-- 
+now = new Date() 
+hour = now.getHours() 
+{ document.write(now.toLocaleString()) }
+/ -->
+</script>
+<style type="text/css">
+.spanstyle {
+COLOR: #00cccc; FONT-FAMILY: 宋体; FONT-SIZE: 10pt; POSITION: absolute; TOP: -50px; VISIBILITY: visible
+}
+</style></td>
+  </tr>
+</table>
+<table width="837" height="759" border="1" align="center">
+  <tr>
+    <td width="209" height="753" valign="top"><table width="209" height="748" border="0">
+      <tr>
+        <td width="200" height="200" align="left" valign="top"><img src="photo/zhx.gif" width="200" height="200"></td>
+      </tr>
+      <tr>
+        <td height="25"><div align="center"><a href="zwjj.html">自我简介</a></div></td>
+      </tr>
+      <tr>
+        <td height="20"><div align="center"><a href="zhuche.html">交流论坛</a></div></td>
+      </tr>
+      <tr>
+        <td height="21"><div align="center"><a href="mailto:464653893qq.com">联系我</a></div></td>
+      </tr>
+      <tr>
+        <td width="200" height="100"><img src="photo/piao_guo.gif" width="200" height="100"></td>
+      </tr>
+      <tr>
+        <td height="364"><div align="center">	        <img src="photo/zuixinxiaox.gif" width="150" height="30"></div>
+		   <marquee direction=up onmouseover=this.stop() scrollamount=5 onmouseout=this.start()>
+		   <p align="center"><a href="mex_2.html">俞敏洪</a></p>
+           <p align="center"><a href="xin_2.html">马云</a></p>
+           <p align="center"><a href="zhih_2.html">李开复</a></p>
+           <p align="center"><a href="xind_2.html">史玉柱</a></p>
+           <p align="center"><a href="chengg_2.html">牛根生</a></p>
+           <p align="center"><img src="photo/hello_cc.gif" width="200" height="114"></p>
+		   </marquee>
+		   </p>
+		  </td>
+      </tr>
+    </table></td>
+    <td width="612" align="left" valign="top"><table width="613" height="753" border="0">
+      <tr>
+        <td height="97"><img src="photo/ngs.jpg" width="100" height="100"><img src="photo/ngs.jpg" width="100" height="100"><img src="photo/ngs.jpg" width="100" height="100"><img src="photo/ngs.jpg" width="100" height="100"><img src="photo/ngs.jpg" width="100" height="100"><img src="photo/ngs.jpg" width="100" height="100"></td>
+      </tr>
+      <tr>
+        <td height="534"><div align="left"> 
+        </div></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="862" height="100" border="0" align="center" background="photo/1.jpg">
+  <tr>
+    <td width="856" nowrap>
+	<marquee direction=left onmouseover=this.stop() scrollamount=5 onmouseout=this.start()>
+	<img src="photo/lkf.jpg" width="100" height="100"> <img src="photo/gtm.jpg" width="100" height="100">
+    <img src="photo/my.jpg" width="100" height="100"> <img src="photo/mht.jpg" width="100" height="100">
+    <img src="photo/ngs.jpg" width="100" height="100"> <img src="photo/ymh.jpg" width="100" height="100"> <img src="photo/zhw.jpg" width="100" height="100">	<img src="photo/syz.jpg" width="100" height="100">
+	</marquee>    </td>
+  </tr>
+</table>
+<table width="846" height="100" border="0" align="center">
+  <tr>
+    <td width="840"><img src="photo/yejiao.gif" width="840" height="100"></td>
+  </tr>
+</table>
+<table width="800" height="100" border="0" align="center">
+  <tr>
+    <td>
+	<marquee direction=left onmouseover=this.stop() scrollamount=5 onmouseout=this.start()>
+  <tr>
+    <td><SCRIPT LANGUAGE="JavaScript">
+
+
+
+<!-- hide
+
+
+
+function goHist(a) 
+
+
+
+{
+
+
+
+   history.go(a);
+
+
+
+}
+
+
+
+//-->
+
+
+
+        </script>
+      </center>
+      <script type="text/javascript">
+swfobject.registerObject("FLVPlayer");
+      </script>
+</body>
+</html>
