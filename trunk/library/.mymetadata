@@ -2,8 +2,8 @@
 <project-module
   type="WEB"
   name="library"
-  id="myeclipse.1295168080968"
-  context-root="/library"
+  id="myeclipse.1295173495656"
+  context-root="/"
   j2ee-spec="5.0"
   archive="library.war">
   <attributes>
