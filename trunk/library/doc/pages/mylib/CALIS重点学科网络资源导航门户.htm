@@ -1,0 +1,227 @@
+
+
+
+
+
+
+<html>
+<head>
+<link href="search.css" rel="stylesheet" type="text/css">
+<title>CALIS重点学科网络资源导航门户</title>
+<script language="javascript" src="common.js"></script>
+<script language="javaScript" src="input.js"></script>
+<script language="JavaScript">
+function go(n){
+    document.forms[1].page.value=n;
+    document.forms[1].isfirst.value=0;
+    document.forms[1].actionid.value="0401";
+    document.forms[1].submit();
+}
+  
+function addart(objid,internalid){
+    if(confirm("您确认把这个文献放入收藏夹吗？"))
+      location.href="./addfavorite?objid="+objid+"&internalid="+internalid;
+    else
+      return false
+}
+  
+function openwin(objid,internalid){
+  var url= "detail.jsp?objid="+objid+"&recordid="+internalid;
+  //var det="detail.jsp?detail=" + escape("objid="+objid+"&recordid="+internalid);
+  //alert(det);
+  //var aaa=encodeURI('sss中国');
+  window.open(url,'_blank','width=800,height=600,left=0,top=0,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes');
+  
+}
+  
+function research(objid,fldname,constr){
+  	document.brief_form.isfirst.value=1;
+  	document.brief_form.op.value=2;
+  	document.brief_form.actionid="0301";
+  	document.brief_form.fldname.value = fldname;
+  	document.brief_form.linkcond.value = constr;
+    document.brief_form.submit();
+}
+  
+function turn(){
+  	var pageno = document.brief_form.pageno.value;
+  	var pagecount = document.brief_form.pagecount.value;
+  	if(pageno==''){
+  		alert("请输入跳转页码！");
+      	document.brief_form.pageno.focus();
+  		return false;
+  	}
+  	else if(isNaN(pageno)){
+  		alert("跳转页码输入不正确，请重新输入！");
+        document.brief_form.pageno.focus();
+  		return false;
+  	}
+  	else if((parseInt(pageno)<1)||(parseInt(pageno)>parseInt(pagecount))){
+  		alert("跳转页码为1到"+pagecount+"之间的整数，请重新输入！");
+      	document.brief_form.pageno.focus();
+  		return false;
+  	}
+  	else{
+  		document.brief_form.page.value = pageno;
+  		document.brief_form.isfirst.value=0;
+  		document.brief_form.actionid.value="0401";
+   		document.brief_form.submit();
+   		return true;
+  	}
+}
+
+function moreinfo(){
+  	document.brief_form.isfirst.value=0;
+  	document.brief_form.allfirst.value=1;
+  	document.brief_form.isall.value=1;
+   	document.brief_form.submit();
+}
+
+function PressKey(){
+   if (event.keyCode==13)
+      turn();
+}
+  
+function PressKey1(){
+   if (event.keyCode==13)      
+      dosecondsearch();
+}
+
+function getselect(){
+
+	if (document.brief_form.secondfield.value=="Type"){
+	
+		div1.style.display="none";
+		div2.style.display="block";
+		div3.style.display="none";
+		div4.style.display="none";
+		
+	}
+	else if (document.brief_form.secondfield.value=="Format"){
+	
+		div1.style.display="none";		
+		div2.style.display="none";
+		div3.style.display="block";
+		div4.style.display="none";
+	}
+	
+	else if (document.brief_form.secondfield.value=="Language"){
+	
+		div1.style.display="none";
+		div2.style.display="none";
+		div3.style.display="none";
+		div4.style.display="block";
+	}
+	
+	else{
+	
+		div1.style.display="block";
+		div2.style.display="none";
+		div3.style.display="none";
+		div4.style.display="none";
+	}
+}
+function checkword(){
+var s = document.forms[0].searchword.value;
+if(Trim(s) != '')
+	document.forms[0].submit();
+}
+function changeorder(){
+    document.forms[1].isfirst.value=0;
+    document.forms[1].actionid.value="0401";
+    document.forms[1].submit();
+}
+</script>
+</head>
+
+
+
+<body topmargin="0" leftmargin="0" class="table">
+
+
+<table width="785" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+  	<td width="100" align="right"><div style="FONT-SIZE:12px; FONT-FAMILY:宋体">&nbsp;</div></td>
+    <td width="685" align="right">
+      <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#B8B8B8">
+        <tr bgcolor="#ECECEC">
+          <td width="100%" height="20" align="center" style="FONT-SIZE: 12px; FONT-FAMILY: 宋体">
+           <a href="main.jsp" class="b">首页</a> | <a href="login.jsp" class="b">登录</a> | <a href="alllibs.jsp" class="b">参建馆</a> | <a href="allnews.jsp" class="b">关于我们</a> | <a href="allnotice.jsp" class="b">公告</a> | <a href="faq.jsp" class="b">FAQ</a> | <a href="inquiry.jsp" class="b">在线调查</a> | <a href="advise.jsp" class="b">资源推荐</a> | <a href="help.jsp" class="b">帮助</a> | <a href="map.jsp" class="b">地图</a> | <a href="http://www.lib.xjtu.edu.cn/lib75/daohangku/dhk.htm" target="blank" class="b">建设专栏</a> 
+          </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="800" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="800"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="380"><img src="images/title2.jpg" width="368" height="73" border="0" usemap="#Map"></td>
+          <td valign="bottom">
+            <table height="38" border="0" cellspacing="0" cellpadding="0">
+            <form name="simpleform" method="post" action="brief.jsp">
+              <tr> 
+                <td width="7"></td>
+                <td width="335"> <table width="330"  height="38" border="0" cellspacing="0" cellpadding="0" background="images/input_bg.jpg">
+                    <tr> 
+                      <td width="6" height="38"><img src="images/input_l.jpg" width="6" height="38"></td>
+                      <td> <input type="text" name="searchword" class="t2"> 
+                      </td>
+                      <td width="74" align="right"><img src="images/detail_r.jpg" width="68" height="38" border="0" usemap="#MapMap"></td>
+                    </tr>
+                  </table></td>
+                <td width="69">
+                <div align="right"><a href="searchadv.jsp" class="a">高级检索</a><br><a href="classifymain.jsp" class="a">分类浏览</a><br><a href=# onclick="javascript:alert('您未登录，不能保存策略！');" class="a">保存策略</a></div>
+                </td>
+              </tr>
+              <tr><td colspan="3" height="6"></td></tr>
+            <input type="hidden" name="objid" value="1">
+          	<input type="hidden" name="op" value="0">
+			<input type="hidden" name="type" value="1">
+			<input type="hidden" name="isfirst" value="1">
+			<input type="hidden" name="actionid" value="0301"> <!--用于记录日志-->
+            </form>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <map name="Map">
+      	<area shape="rect" coords="50,24,364,70" href="main.jsp">
+      </map>
+      <map name="MapMap">
+        <area shape="rect" coords="2,4,64,34" href="#" onclick="javascript:checkword();return false;">
+      </map>
+    </td>
+  </tr>
+  <tr>
+    <td height="5">&nbsp;</td>
+  </tr>
+</table>
+<form name="brief_form" method="post" action="brief.jsp"  onsubmit="javascript:checkword();return false;">
+<table align="center" width="800" height="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+	<input type="hidden" name="isfirst" value="">
+	<input type="hidden" name="isall" value="0">
+	<input type="hidden" name="allfirst" value="">
+	<input type="hidden" name="issecond" value="">
+	<input type="hidden" name="fldname" value="">
+	<input type="hidden" name="linkcond" value=""> <!--用于链接检索-->
+	<input type="hidden" name="objid" value="1">
+	<input type="hidden" name="type" value="1">
+	<input type="hidden" name="op" value="0">
+	<input type="hidden" name="catid" value="">
+	<input type="hidden" name="page" value="">
+	<input type="hidden" name="parentid" value="">
+	<input type="hidden" name="actionid" value="0301"> <!--用于记录日志-->	
+    </td>
+  </tr>
+  <tr><td valign="top" width="100%" height="100%">
+  <table width="100%" valign="top" cellspacing="0" cellpadding="0">
+  <tr><td height='40'>&nbsp;没有符合条件的记录。</td></tr>
+  </table>
+  </td></tr>
+</table>
+</form>
+</body>
+</html>
