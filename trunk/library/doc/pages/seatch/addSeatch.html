@@ -1,0 +1,219 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+<title>&quot;广水&quot;用水终端服务综合业务管理平台</title>
+<script language="JavaScript">
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="../images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="../images/sj.gif";
+//treePic.src = '../images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+
+function addFitting()
+{
+  
+	var fitlist=document.productInfor.so;
+	var proFit=document.productInfor.target;
+	 if(fitlist.options.length>0){
+   var optLen=fitlist.selectedIndex;
+   
+    var targetOpt=new Option(fitlist.options[optLen].text);
+	var len=proFit.options.length;
+	proFit.options[len]=targetOpt;
+	}
+	else{
+	  alert("配件库为空，不能添加配件！");
+	}
+}
+
+function outFitting()
+{
+   //  var fitList=document.getElementById("source")	
+	var proFit=document.productInfor.target;
+   if(proFit.options.length>0){
+   var optLen=proFit.selectedIndex;
+	proFit.options[optLen]=null;
+	}
+	else{
+	  alert("产品配件已为空。");
+	}
+	
+}
+
+
+
+
+
+    </script>
+</head>
+<body>
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbecff">
+  <tr>
+    <td height="4" background="../images/bodybg.jpg"></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="10" valign="top"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+          
+            <tr>
+              <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"   class="title_border">
+                  <tr>
+                    <td width="19%" height="25" style="text-align:left"><strong>&nbsp;<img src="../images/cl0.gif" align="absmiddle"  >增加套餐</strong></td>
+                    <td width="81%" height="25"   class=body1 style="text-align:left"><img src="../images/02a.gif"  > 当前位置：销售管理 &gt;&gt;增加套餐</td>
+                  </tr>
+              </table></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="10" valign="top"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" >
+            <tr>
+              <td height="30" class="body1">&nbsp;
+                <input type="button" class="btn" onClick="alert('新套餐添加成功.');window.location='seatchList.html'" value="增 加">
+                &nbsp;
+                <input type="button" class="btn" onClick="document.getElementById('productInfor').reset();" value="重填">
+                &nbsp;
+                <input type="button" class="btn"  onClick="window.history.back(-1);" value="返回">
+                </td>
+            </tr>
+          </table>
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ebebeb"  borderColorLight="#ebebeb"
+	borderColorDark="#ffffff" id="LM1"  >
+              <TR>
+                <TD align="left" class="body">&nbsp;</TD>
+              </TR>
+          </TABLE></td>
+      </tr>
+      <tr>
+        <td valign="top">
+        <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:5px">
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="189" height="33" background="../images/titleb_01.jpg" class="title1">&nbsp;</td>
+                  <td background="../images/titleb_02.jpg">&nbsp;</td>
+                  <td width="213" align="right" background="../images/titleb_03.jpg" style="padding-bottom:10px">&nbsp;&nbsp;</td>
+                </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td valign="top">
+            <form action="" method="post" name="seatchInfor" id="productInfor">
+<table width="70%" border="1" align="center" cellpadding="0"
+									cellspacing="0" bordercolor="#bcc3c9"
+									bordercolorlight="#bcc3c9" bordercolordark="#ffffff"
+									bgcolor="#dbecff" style="margin-top:5px">
+                              <tr>
+                                <td width="18%" align="right" bgcolor="#F4F5F9"> 套餐编号: </td>
+                                <td width="33%" align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;"><input type="text"  name="seathNum" id="seathNum"
+												value="" style="width:200px; border-style:solid; border-color:#bcc3c9; border-width:1px;" />                                </td>
+                                <td width="13%" align="right" bgcolor="#F4F5F9"> 套餐名称: </td>
+                                <td width="36%" align="left"  bgcolor="#F4F5F9"
+											style="padding-left:10px;"><input type="text" name="seathName" id="seathName"
+												value="" style="width:300px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /></td>
+                              </tr>
+                              <tr>
+                                <td width="18%" align="right" bgcolor="#F4F5F9">配套产品: </td>
+                                <td width="33%" align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;"><select name="products" style="width:200px" size="5" id="products">
+                                  </select>
+                                   <table width="100%">
+                                    <tr align="right">
+                                      <td width="88%"><a href="javascript:window.showModalDialog('../product1/productList.html','dialogWidth=300px');">添加</a></td>
+                                      <td width="12%"><a href="#">移除</a></td>
+                                    </tr>
+                                  </table></td>
+                                <td width="13%" align="right" bgcolor="#F4F5F9"> 服务列表: </td>
+                                <td width="36%" align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;">
+                                            <select name="products2" style="width:200px" size="5" id="services"></select>
+                                           <table width="100%">                   
+                                         <tr align="right">
+                                           <td width="88%"><a href="javascript:window.showModalDialog('serviceListForChonse.html');">添加</a></td>
+                                           <td width="12%"><a href="#">移除</a></td>
+                                           </tr>
+                                           </table>                                </td>
+                              <tr>
+                                <td align="right" bgcolor="#F4F5F9"> 产品套餐价: </td>
+                                <td align="left" bgcolor="#F4F5F9" style="padding-left:10px;"><input type="text" size="25" value="" style="width:100px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /></td>
+                                <td align="right" bgcolor="#F4F5F9"> 服务套餐价: </td>
+                                <td align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;"><input type="text" size="25" value="" style="width:100px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /> </td>
+                              </tr>
+                              <tr>
+                                <td align="right" bgcolor="#F4F5F9">套餐总价</td>
+                                <td colspan="3" align="left" bgcolor="#F4F5F9" style="padding-left:10px;"><input type="text" size="25" value="" style="width:200px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /></td>
+                              </tr>
+                              <tr bgcolor="#FAFBFC">
+                                <td width="18%" align="right" bgcolor="#F4F5F9"> 产品备注: </td>
+                                <td width="33%" align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;"><textarea name="fitting" id="fitting" cols="45" rows="3" style=" width:200px; border-style:solid; border-color:#bcc3c9; border-width:1px;"></textarea></td>
+                                <td width="13%" align="right" bgcolor="#F4F5F9"> 服务备注: </td>
+                                <td width="36%" align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;"><textarea name="textarea"  cols="45" rows="3"
+												style=" width:200px; border-style:solid; border-color:#bcc3c9; border-width:1px;"></textarea>                                </td>
+                              </tr>
+                              <tr bgcolor="#FAFBFC">
+                                <td align="right" bgcolor="#F4F5F9">套餐备注</td>
+                                <td colspan="3" align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;"><textarea name="fitting2" id="fitting2" cols="45" rows="3" style=" width:600px; border-style:solid; border-color:#bcc3c9; border-width:1px;"></textarea></td>
+                              </tr>
+                            </table>
+            </form>
+             </td>
+          </tr>
+        </table>
+         
+          <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td height="30" align="center"  class="body" >&nbsp;</td>
+              </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+</body>
+</html>

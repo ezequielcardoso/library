@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="include/css/style.css" type="text/css" rel="stylesheet">
+<title>广州市自来水综合业务管理平台</title>
+<script language="JavaScript">
+
+function selectProduct()
+{
+   document.getElementById("selectProduct").style.display="";
+}
+function showDIV()
+{
+	if(document.getElementById("dv_1").style.display=="none"){
+   document.getElementById("dv_1").style.display="";
+   }
+   else{
+   document.getElementById("dv_1").style.display="none";
+   }
+}
+
+
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="images/sj.gif";
+//treePic.src = 'images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+var productID=0;
+function productFunc(productId)
+{
+productID=productId;
+var editBTN=document.getElementById("edit");
+var recordBTN=document.getElementById("sellRecord");
+editBTN.disabled="";
+recordBTN.disabled="";
+
+}
+
+
+function editProduct(){
+if(productID!=0){
+var productId=document.getElementById("product_"+productID).value;
+window.location="productCURD!getProduct.action?productId="+productId+"";
+  }
+ else{
+   alert("请先选择要查看的产品！");
+  return false;
+ }
+}
+
+function showSellRecord()
+{
+
+if(productID!=0){
+ 
+//var clientId=document.getElementById("client_"+clientID).value;
+//window.location="sellRecordCURD!qureyClientSellRecords.action?clientId="+clientId+"";  //根据客户编号，查找购买记录
+window.location="sellRecordList.html";  //根据客户编号，查找购买记
+ }
+else{
+  alert("请先选择要查看的产品！");
+ return false;
+ }
+}
+
+
+    </script>
+</head>
+<body bgcolor="#dbecff">
+		&nbsp;
+		</td>
+		<TD width="1" background="../images/line_down.gif"  ><IMG SRC="../images/spacer.gif" WIDTH=1  ></TD>
+		<TD  valign="top" width=599 > 
+<!-- 右边内容开始 -->
+<table align=center  width="95%" border="0" cellpadding="0" cellspacing="0" ><tr><td align="left"  height=25><span class="h2">借还查询</span></td></tr><tr><td class="tddotline"></td></tr></table>
+<FORM action="borrowed_query_list.html" method=POST id=form1 name=form1 >
+
+<TABLE WIDTH=60% ALIGN=center BORDER=0 CELLSPACING=0 CELLPADDING=0>
+	<TR>
+		<TD class=tdborder1a align=right >查询方式：</TD>
+		<TD class=tdborder2a >
+			<select  size="1" name="nCxfs"  class=smallInput >
+				<option selected value="1"> 查询借阅情况 </option>
+				<option value="2"> 查询归还情况 </option>
+
+			</select>
+		</TD>
+	</TR>
+
+	<TR>
+		<TD class=tdborder3 align=right >读者证号：</TD>
+		<TD class=tdborder4 ><input type="text"   name="user"  class=smallInput ></TD>
+	</TR>
+	<TR>
+
+		<TD class=tdborder3 align=right >读者密码：</TD>
+		<TD class=tdborder4 ><input type="password"   name="pw"  class=smallInput ></TD>
+	</TR>
+
+
+
+	<TR>
+		<TD  class=tdborder3 align=center  colspan=2>
+		<INPUT type="submit"  value="检 索" id=submit1 name=submit1 class="buttonface">
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<INPUT type="reset" value="重 写" id=reset1 name=reset1  class="buttonface" >
+		</A>
+		</TD>		
+	</TR>
+</TABLE>
+</FORM>
+
+<!-- 右边内容结束 -->
+
+</body>
+</html>

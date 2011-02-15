@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+		<title>广州市自来水综合业务管理平台</title>
+		<script language="JavaScript">
+        function insertclient(){
+              window.location="../shop/shopManage.html";
+            
+           
+        }
+ 
+    </script>
+
+
+
+	</head>
+
+
+	<body>
+
+					<form action=""  method="post" id="clientInfor" name="clientInfor">
+						<table width="100%" border="1" bgcolor="#F4F5F9" cellspacing="0"  >
+							<tr>
+								<td  align="right" bgcolor="#F4F5F9">
+									店铺名称:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<input type="text" name="clientName" id="clientName" value="" />
+								</td>
+								<td  align="right" bgcolor="#F4F5F9">
+									店铺类型:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<select id="clientType" name="clientType">
+										<option value="1" selected>
+											个体
+										</option>
+										<option value="2">
+											企业
+										</option>
+									</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td align="right" bgcolor="#F4F5F9">
+									店铺负责人:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<input type="text" name="linkMan" id="linkMan"
+										 />
+
+								</td>
+								<td align="right" bgcolor="#F4F5F9">
+									证件类型:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<select id="provice" name="provice">
+										<option value="身份证" selected="selected">
+											身份证
+										</option>
+									
+										<option value="军官证">
+											军官证
+										</option>
+									</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td align="right" bgcolor="#F4F5F9">
+									营业执照:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<input type="text" id="mobilePhone" name="mobilePhone" value=""
+										 />
+								</td>
+								<td align="right" bgcolor="#F4F5F9">
+									联系电话:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<input type="text" id="mobilePhone" name="mobilePhone" value="">
+
+								</td>
+							</tr>
+							<tr>
+								<td align="right" bgcolor="#F4F5F9">
+									卡号类型:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<select id="provice" name="provice">
+
+										<option value="请选择" selected="selected">
+											请选择
+										</option>
+										<option value="工商银行">
+											工商银行
+										</option>
+										<option value="建设银行">
+											建设银行
+										</option>
+										<option value="农业银行">
+											农业银行
+										</option>
+									</select>
+								</td>
+								<td align="right" bgcolor="#F4F5F9">
+									银行账号:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<input type="text" id="mobilePhone" name="mobilePhone" value=""
+										>
+
+								</td>
+							</tr>
+							<tr>
+								<td align="right" bgcolor="#F4F5F9">
+									邮箱:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<input type="text" id="mobilePhone" name="mobilePhone" value=""
+										/>
+								</td>
+								<td align="right" bgcolor="#F4F5F9">
+									地址:
+								</td>
+								<td align="left" bgcolor="#F4F5F9" >
+									<input type="text" id="mobilePhone" name="mobilePhone" value=""
+										>
+
+								</td>
+							</tr>
+
+
+
+							<tr bgcolor="#FAFBFC">
+								<td  align="right" bgcolor="#F4F5F9">
+									备注:
+								</td>
+								<td colspan="3" align="left" bgcolor="#F4F5F9"
+									>
+									<textarea id="address" name="address"
+										style="width: 600px; "></textarea>
+								</td>
+							</tr>
+								<tr>
+				                 <td  align="center" class="body" colspan="4">
+					              <input type="button" class="btn" value="保存"
+					                  	onclick="insertclient()">
+				 	
+				</td>
+			</tr>
+						</table>
+					</form>
+
+	</body>
+</html>
+
