@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../include/js/datePicker/calendar/WdatePicker.js"></script>
+<title>广州市自来水综合业务管理平台</title>
+<script language="JavaScript">
+       
+ 
+    </script>
+
+
+
+</head>
+
+
+<body>
+  <table width="99%" border="0" align="center" cellpadding="0"
+						cellspacing="0" bgcolor="#f1f8ff"
+						style="border: 0px solid #2686d2; margin-top: 5px">
+						<tr>
+							<td valign="top">
+								<form action="" method="post"
+									id="clientInfor" name="clientInfor">
+									<table width="100%" border="1" align="center" cellpadding="0"
+										cellspacing="0" bordercolor="#bcc3c9"
+										borderColorLight="#bcc3c9" borderColorDark="#ffffff"
+										bgcolor="#FFFFFF" style="margin-top: 5px">
+										<tr>
+											<td width="23%" align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">投诉日期: </span> 
+											</td>
+											<td align="left" bgcolor="#F4F5F9"
+												 colspan="6">
+												<input  name=txtkeyvalue type="text" style="height: 20px;" class="input2" id="txtkeyvalue" value=""  onClick="WdatePicker();" >
+											</td>
+										
+										
+
+										<tr
+											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+											onMouseOut="this.style.backgroundColor='';">
+											<td align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">用户名称:  </span> 
+											</td>
+											<td align="left" bgcolor="#F4F5F9" colspan="2"
+												>
+												<input type="text" name="clientName" id="clientName" style="height: 20px;" value="" style="border: 1px solid rgb(188, 195, 201);">
+												 <img src="../images1/listview.gif" width="16" height="16" align="absmiddle" >
+
+											</td>
+											<td align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">联系电话:</span> 
+											</td>
+											<td align="left" bgcolor="#F4F5F9" colspan="2"
+												>
+												<input type="text" id="phone" name="phone" value=""
+													style="height: 20px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
+											</td>
+										</tr>
+									
+											<tr
+											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+											onMouseOut="this.style.backgroundColor='';">
+											<td align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">反映内容:</span> 
+											</td>
+											<td align="left" bgcolor="#F4F5F9" colspan="5"
+												>
+												<textarea id="address" name="address" style="border: 1px solid rgb(188, 195, 201); width: 800px;"></textarea>
+											</td>
+											
+										</tr>
+										
+
+										<tr
+											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+											onMouseOut="this.style.backgroundColor='';">
+											<td align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">被反应部门:  
+											</td>
+											<td align="left" bgcolor="#F4F5F9" 
+												>
+												<input type="text" id="mobilePhone" name="mobilePhone" value=""
+													style="height: 20px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
+											</td>
+											<td align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">投诉人受理:</span>  
+											</td>
+											<td align="left" bgcolor="#F4F5F9" 
+												>
+												<input type="text" id="mobilePhone" name="mobilePhone" value=""
+													style="height: 20px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
+													<img src="../images1/listview.gif" width="16" height="16" align="absmiddle" >
+											</td>
+											<td align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">部门处理日期: </span> 
+											</td>
+											<td align="left" bgcolor="#F4F5F9" 
+												>
+												<input type="text" id="mobilePhone" name="mobilePhone" value=""
+													style="height: 20px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" onClick="WdatePicker();"/>
+											</td>
+											
+											
+										</tr>
+											<tr  bgcolor="#FAFBFC"
+											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+											onMouseOut="this.style.backgroundColor='';">
+											<td  align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">部门处理意见: </span>
+											</td>
+											<td colspan="5" align="left" bgcolor="#F4F5F9"
+											>
+											
+											
+												<input type="text" id="mobilePhone" name="mobilePhone" value="" style="border: 1px solid rgb(188, 195, 201); height: 20px;">&nbsp;
+											</td>
+										</tr>
+
+										<tr
+											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+											onMouseOut="this.style.backgroundColor='';">
+											<td align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">办理结果：</span> 
+											</td>
+											<td align="left" bgcolor="#F4F5F9" colspan="5"
+												>
+												<textarea id="address" name="address" style="border: 1px solid rgb(188, 195, 201); width: 800px;"></textarea>
+											</td>
+											
+										</tr>
+									
+										<tr  bgcolor="#FAFBFC"
+											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+											onMouseOut="this.style.backgroundColor='';">
+											<td  align="right" bgcolor="#F4F5F9"><span style="font-size: 10.5pt; font-family: 宋体;">客服人员: </span> 
+											</td>
+											<td colspan="5" align="left" bgcolor="#F4F5F9"
+											>
+											
+											
+												<input type="text" id="mobilePhone" name="mobilePhone" value="" style="border: 1px solid rgb(188, 195, 201); height: 20px;"> <img src="../images1/listview.gif" width="16" height="16" align="absmiddle" >
+											</td>
+										</tr>
+										<tr  bgcolor="#FAFBFC"
+											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+											onMouseOut="this.style.backgroundColor='';">
+											
+											<td colspan="6" align="center" bgcolor="#F4F5F9">
+											    <input type="button" class="btn"  value="保存">
+												<input type="button" class="btn"  value="打印">
+											</td>
+										</tr>
+										
+									</table>
+								</form>
+							</td>
+						</tr>
+					</table>
+         
+      
+          
+      
+    
+ 
+
+
+</body>
+</html>
+

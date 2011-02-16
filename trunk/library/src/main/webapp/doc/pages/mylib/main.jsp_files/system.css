@@ -1,0 +1,117 @@
+/* CSS Document */
+.t1 {  font-size: 12px;  border: 1px #2C2B2A solid; background-color: #FFFFFF;width:406;height:20;}
+
+.t2 {  font-size: 12px;  border: 1px #2C2B2A solid; background-color: #FFFFFF;width:260;height:20;}
+
+.t3 {  font-size: 9pt;  border: 1px #2C2B2A solid; background-color: #FFFFFF;width:260;height:20;}
+
+.t4 {  font-size: 9pt;  border: 1px #174B24 solid; background-color: #FFFFFF;width:50;height:20;}
+
+.t5 {  font-size: 9pt;  border: 1px #174B24 solid; background-color: #FFFFFF;width:150;height:20;}
+
+
+A:link {
+	FONT-SIZE: 12px; COLOR: #0712BA; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #0712BA; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #ff0000; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+
+A.a:link {
+	FONT-SIZE: 12px; COLOR: #0712BA; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.a:visited {
+	FONT-SIZE: 12px; COLOR: #0712BA; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.a:hover {
+	FONT-SIZE: 12px; COLOR: #ff0000; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+
+A.b:link {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.b:visited {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.b:hover {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+
+A.c:link {
+	FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+A.c:visited {
+	FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+A.c:hover {
+	FONT-SIZE: 14px; COLOR: #FF0000; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+
+TD { FONT-SIZE: 12px; FONT-FAMILY: "宋体" } 
+
+OPTION { FONT-SIZE:12px; FONT-FAMILY: 宋体 } 
+
+BODY {
+	FONT-SIZE: 9pt; 
+	FONT-FAMILY: "Verdana", "Arial", "宋体";
+	scrollbar-face-color:#F2F4F5;
+	scrollbar-highlight-color:#66A1CF;
+	scrollbar-3dlight-color:#FEEAC5;
+	scrollbar-darkshadow-color:#66A1CF;
+	scrollbar-shadow-color:#FEEAC5;
+	scrollbar-arrow-color:#66A1CF;
+	scrollbar-track-color:#F2F4F5;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+.Button1{color:#174B24; BACKGROUND-COLOR: #E5E3D8; BORDER-BOTTOM: 1pt solid; BORDER-LEFT:1pt solid; BORDER-RIGHT:1pt solid; BORDER-TOP: 1pt solid; HEIGHT: 20px; WIDTH: 70px;font-size: 9pt;cursor:hand;}
+
+.Button2{color:#000000; BACKGROUND-COLOR: #ECECEC; BORDER-BOTTOM: 1pt solid; BORDER-LEFT:1pt solid; BORDER-RIGHT:1pt solid; BORDER-TOP: 1pt solid; HEIGHT: 20px; WIDTH: 50px;font-size: 9pt;cursor:hand;}
+
+.Button3{color:#000000; BACKGROUND-COLOR: #ECECEC; BORDER-BOTTOM: 1pt solid; BORDER-LEFT:1pt solid; BORDER-RIGHT:1pt solid; BORDER-TOP: 1pt solid; HEIGHT: 20px; WIDTH: 30px; font-size: 9pt;cursor:hand;}
+
+.Button4{color:#000000; BACKGROUND-COLOR: #ECECEC; BORDER-BOTTOM: 1pt solid; BORDER-LEFT:1pt solid; BORDER-RIGHT:1pt solid; BORDER-TOP: 1pt solid; HEIGHT: 20px; WIDTH: 70px; font-size: 9pt;cursor:hand;}
+
+
+.input0 {  font-size: 9pt;  border: 1px #2C2B2A solid; background-color: #FFFFFF;width:150;height:20;}
+.input1 {  font-size: 9pt;  border: 1px #2C2B2A solid; background-color: #FFFFFF;width:300;height:20;}
+.input2 {  font-size: 9pt;  border: 1px #2C2B2A solid; background-color: #FFFFFF;width:565;height:340;}
+.input3 {  font-size: 9pt;  border: 1px #2C2B2A solid; background-color: #FFFFFF;width:90;height:20;}
+.input4 {  font-size: 9pt;  border: 1px #174B24 solid; background-color: #EAEAEA;width:125;height:20;}
+
+.table_title{ 
+	FONT-SIZE: 9pt; 
+	FONT-FAMILY: 宋体; 
+	background-color:#55AAF3;
+	color:#ffffff; 
+}
+ 
+.tr_board{ 
+	background-color:#E8F5FD;
+	color:#000000;
+} 
+
+.td_board{ 
+	background-color:#55AAF3;
+	color:#000000;
+} 
+
+SELECT { 
+	BORDER-TOP-WIDTH: 1px; 
+	BORDER-LEFT-WIDTH: 1px; 
+	FONT-SIZE: 9pt; 
+	BORDER-LEFT-COLOR: #000000; 
+	BORDER-BOTTOM-WIDTH: 1px; 
+	BORDER-BOTTOM-COLOR: #000000; 
+	BORDER-TOP-COLOR: #000000; 
+	FONT-FAMILY: 宋体; 
+	BACKGROUND-COLOR: #FFFFFF; 
+	BORDER-RIGHT-WIDTH: 1px; 
+	BORDER-RIGHT-COLOR: #000000 
+} 

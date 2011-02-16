@@ -1,0 +1,82 @@
+/* CSS Document */
+*{padding:0;margin:0 auto}
+body{scrollbar-face-color: #064acf;
+  scrollbar-highlight-color: #a5d4f9;
+  scrollbar-shadow-color: #a5d4f9;
+  scrollbar-arrow-color: #dce7f9;
+  scrollbar-base-color: #a5d4f9;
+  scrollbar-dark-shadow-color: #dce7f9;
+  scrollbar-3dlight-color:#a5d4f9;  
+  scrollbar-darkshadow-color:#a5d4f9;
+  scrollbar-track-color:#a5d4f9;}
+td{font-size: 12px;color: #000}
+a:active {outline:none;blr:expression(this.onFocus=this.blur());}
+img,a .img{border:0px}
+a:link{FONT-SIZE: 12px;TEXT-DECORATION: none;color:#000}
+a:visited{FONT-SIZE: 12px; TEXT-DECORATION: none;color:#000}
+a:hover{FONT-SIZE: 12px; TEXT-DECORATION:none;color:#ff0000}
+.input1{width:120px;height:22px;color:#ffffff;BORDER: #bce6f6 1px solid;background-color:#205093}
+.title_border{border-bottom:1px solid #4590e1}
+
+.bottom{color:#7e7f7e;font-size:12px}
+.error{color:#474747;FONT-SIZE: 18px;font-weight:bold}
+.error a:link{FONT-SIZE: 18px;TEXT-DECORATION: none;color:#474747}
+.error a:visited{FONT-SIZE: 18px; TEXT-DECORATION: none;color:#474747}
+.error a:hover{FONT-SIZE: 18px; TEXT-DECORATION:none;color:#ffff00}
+
+.title1{color:#ffffff;FONT-SIZE: 12px;padding-left:30px;padding-bottom:8px}
+.title1 a:link{FONT-SIZE: 12px;TEXT-DECORATION: none;color:#ffffff}
+.title1 a:visited{FONT-SIZE: 12px; TEXT-DECORATION: none;color:#ffffff}
+.title1 a:hover{FONT-SIZE: 12px; TEXT-DECORATION:none;color:#ffff00}
+
+.title{color:#ffffff;FONT-SIZE: 12px}
+.title a:link{FONT-SIZE: 12px;TEXT-DECORATION: none;color:#ffffff}
+.title a:visited{FONT-SIZE: 12px; TEXT-DECORATION: none;color:#ffffff}
+.title a:hover{FONT-SIZE: 12px; TEXT-DECORATION:none;color:#ffff00}
+
+.menu{color:#004a7b;FONT-SIZE: 12px}
+.menu a:link{FONT-SIZE: 12px;TEXT-DECORATION: none;color:#004a7b}
+.menu a:visited{FONT-SIZE: 12px; TEXT-DECORATION: none;color:#004a7b}
+.menu a:hover{FONT-SIZE: 12px; TEXT-DECORATION:none;color:#000}
+
+.table_title{color:#075260;FONT-SIZE: 12px}
+.table_title a:link{FONT-SIZE: 12px;TEXT-DECORATION: none;color:#075260}
+.table_title a:visited{FONT-SIZE: 12px; TEXT-DECORATION: none;color:#075260}
+.table_title a:hover{FONT-SIZE: 12px; TEXT-DECORATION:none;color:#ff0000}
+
+
+
+.btn{border-style:none;background:url(../../images/sbn.jpg) no-repeat;background-color:transparent;width:67px;height:21px;cursor: hand;color:#003e7e;font-size:12px}
+.btnl{border-style:none;background:url(../../images/btnl.jpg) no-repeat;background-color:transparent;width:80px;height:24px;vertical-align:middle;cursor: hand;color:#333333}
+.btn0{border-style:none;background:url(../../images/botton.jpg) no-repeat;background-color:transparent;width:80px;height:24px;font-size:12px;cursor: hand;color:#ffffff}
+.btn_over{border-style:none;background:url(../../images/botton.gif) no-repeat;background-color:transparent;width:80px;height:27px;font-size:12px;cursor: hand;color:#ffffff;font-weight:bold}
+
+.body_info{FONT-SIZE: 14px;color:#000}
+.body_info a:link{FONT-SIZE: 14px;TEXT-DECORATION: none;color:#0000FF}
+.body_info a:visited{FONT-SIZE: 14px; TEXT-DECORATION: none;color:#0000FF}
+.body_info a:hover{FONT-SIZE: 14px; TEXT-DECORATION:underline;color:#ff0000}
+
+.body{color:#000;FONT-SIZE: 12px;}
+.body a:link{FONT-SIZE: 12px;TEXT-DECORATION: none;color:#000}
+.body a:visited{FONT-SIZE: 12px; TEXT-DECORATION: none;color:#000}
+.body a:hover{FONT-SIZE: 12px; TEXT-DECORATION:none;color:#0556af}
+
+.title0{color:#ffffff;FONT-SIZE: 12px;font-weight:bold}
+.title0 a:link{FONT-SIZE: 12px;TEXT-DECORATION: none;color:#ffffff}
+.title0 a:visited{FONT-SIZE: 12px; TEXT-DECORATION: none;color:#ffffff}
+.title0 a:hover{FONT-SIZE: 12px; TEXT-DECORATION:none;color:#ffff00}
+
+
+.body_title{FONT-SIZE: 14px;color:#004a7b;font-weight:bold}
+.body_title a:link{FONT-SIZE: 14px;TEXT-DECORATION: none;color:#004a7b}
+.body_title a:visited{FONT-SIZE: 14px; TEXT-DECORATION: none;color:#004a7b}
+.body_title a:hover{FONT-SIZE: 14px; TEXT-DECORATION:underline;color:#ff0000}
+
+.input_border{border:1px solid #ffffff;border-bottom:1px solid #4590e1;height:18px}
+.input_border1{border:1px solid #dbecff;background-color:#dbecff;border-bottom:1px solid #4590e1;height:18px}
+.input_border2{border:1px solid #4590e1;height:19px;background:url(../../images/inputbg.jpg) no-repeat;width:172px}
+.sel_border{borde:1px solid #4590e1;height:18px}
+.red{color:red}
+
+
+

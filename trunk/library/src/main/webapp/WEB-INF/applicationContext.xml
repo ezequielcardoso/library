@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${datasource.driverClassName}" />
+		<property name="jdbcUrl" value="${datasource.url}" />
+		<property name="user" value="${datasource.username}" />
+		<property name="password" value="${datasource.password}" />
+	</bean>
+
+	<context:property-placeholder location="classpath:datasource-config.properties" />
+
+	<!-- 配置Hibernate属性 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				hibernate.show_sql=true
+				hibernate.format_sql=true
+				hibernate.hbm2ddl.auto=none
+				hibernate.cache.use_second_level_cache=true
+				hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+				hibernate.autoReconnect=true
+				hibernate.use_outer_join=true
+      			</value>
+		</property>
+		<property name="packagesToScan" value="com.huan.library.domain.model" />
+	</bean>
+
+	<!-- 使Spring关注Annotation -->
+    <context:annotation-config/>
+	
+	<!-- 包扫描 persistence -->
+	<context:component-scan base-package="com.huan.library.infrastructure.persistence" /> 
+	<!-- 包扫描 service -->
+	<context:component-scan base-package="com.huan.library.domain.service" /> 
+	<!-- 包扫描 action -->
+	<context:component-scan base-package="com.huan.library.web.action" />
+	<!-- 包扫描 model -->
+	<context:component-scan base-package="com.huan.library.domain.model" />
+	
+	<!-- 注册事务管理器 -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<aop:aspectj-autoproxy  proxy-target-class="true"/>
+	
+	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/> 
+    
+    <!-- 配置事务管理范围 -->
+    <aop:config proxy-target-class="true">
+		<aop:advisor
+			pointcut="execution(* service..*.*(..))"
+			advice-ref="txAdvice"  />
+		<aop:advisor
+			pointcut="execution(* dao..*.*(..))"
+			advice-ref="txAdvice"  />
+	</aop:config>
+
+	<!-- 配置事务管理规则 -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	
+
+</beans>
+    
+
