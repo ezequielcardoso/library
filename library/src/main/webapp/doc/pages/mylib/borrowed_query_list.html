@@ -1,0 +1,595 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+		<title>"广水用水"终端服务综合业务管理平台</title>
+		<script language="JavaScript">
+		function test12(i){
+			if(i==1){
+				 document.getElementById("div_yy").style.display="block";
+				 document.getElementById("ye").style.display="none";
+				 document.getElementById("yd").style.display="block";
+				document.getElementById("yy").style.display="block";
+				document.getElementById("yb").style.display="block";
+			}else if(i==2){
+				 document.getElementById("div_yy").style.display="none";
+				 document.getElementById("ye").style.display="none";
+				 document.getElementById("yd").style.display="block";
+				document.getElementById("yy").style.display="block";
+				document.getElementById("yb").style.display="block";
+			}else if(i==3){
+			document.getElementById("ye").style.display="none";
+				document.getElementById("yd").style.display="none";
+				document.getElementById("yy").style.display="none";
+				document.getElementById("yb").style.display="none";
+				 document.getElementById("div_yy").style.display="none";
+			}
+			
+			
+			
+		
+		}
+		function oncli(){
+		  var div1=document.getElementById("tab");
+		        div1.style.display="block";
+		   
+		       // var d=div1.style.display;
+		        //if(d=="block"){
+		          //div1.style.display="none";
+		        //}
+		        //else{
+		          // div1.style.display="block"
+		        //}
+				var cols = window.event.srcElement.parentElement.cells;
+				//document.getElementById("my").value=cols(0).innerText;
+				id = cols(0).innerText;
+				
+		}
+		
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="../images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="../images/sj.gif";
+//treePic.src = '../images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+
+//tab选项卡
+var tabnumber=5; 
+
+function tablmyc() { 
+var tabnum; 
+//var treePic; 
+for (i=1;i<=tabnumber;i++) { 
+tabnum = eval('tablm' + i); 
+var tabName='tabid'+ i; 
+document.getElementById(tabName).background="../images/tab_titlebg.jpg";
+document.getElementById(tabName).className="menu";
+tabnum.style.display = 'none'; 
+} 
+} 
+
+function Showtab(i) { 
+tabnum = eval('tablm' + i); 
+var tabName='tabid'+ i;
+if (tabnum.style.display == 'none') { 
+tablmyc(); 
+document.getElementById(tabName).background="../images/tab_title.jpg";
+document.getElementById(tabName).className="title0";
+tabnum.style.display = ''; 
+} 
+
+} 
+
+function selectAll()
+{
+var proList=document.getElementsByName("proSelect");
+if(document.getElementById("selectAll").checked==true){
+   
+   for(k=0;k<proList.length;k++)
+   {
+      proList[k].checked=true;
+   }
+}
+else{
+ for(j=0;j<proList.length;j++)
+   {
+      proList[j].checked=false;
+   }
+}
+}
+
+
+    </script>
+	</head>
+	<body>
+		<table width="100%" height="100%" border="0" cellpadding="0"
+			cellspacing="0" bgcolor="#dbecff">
+			<tr id="ye" style="DISPLAY: block">
+				<td height="4" background="../images/bodybg.jpg"></td>
+			</tr>
+			<tr>
+				<td valign="top" height="10">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"
+						height="100%">
+						<tr id="yd" style="DISPLAY: block">
+							<td height="10" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0">
+
+									<tr>
+										<td>
+											<table width="100%" border="0" align="center" cellpadding="0"
+												cellspacing="0" class="title_border">
+												<tr>
+													<td width="19%" height="25" style="text-align: left">
+														<strong>&nbsp;<img align="absmiddle"
+																src="../images/cl0.gif"> 借阅信息</strong>
+													</td>
+													<td width="81%" height="25" class=body1
+														style="text-align: left">
+														<img src="../images/02a.gif">
+														当前位置：借返查询 &gt;&gt;借阅信息&gt;&gt;
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<TR>
+										<TD>
+											<table width="98%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+
+											</table>
+										</TD>
+									</TR>
+								</table>
+							</td>
+						</tr>
+						<tr  id="yb" style="DISPLAY: block">
+							<td height="10" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0" bgcolor="#f1f8ff"
+									style="border: 1px solid #2686d2; margin-top: 5px">
+									<tr>
+										<td>
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0">
+												<tr>
+													<td width="189" height="33"
+														background="../images/titleb_01.jpg" class="title1">
+														查询列表
+													</td>
+													<td background="../images/titleb_02.jpg">&nbsp;
+														
+
+													</td>
+													<td width="213" align="right"
+														background="../images/titleb_03.jpg"
+														style="padding-bottom: 10px">
+														&nbsp;&nbsp;
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td valign="top">
+											<table id="tab1" width="97%" border="1" align="center"
+												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
+												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
+												bgcolor="#FFFFFF" style="margin-top: 5px">
+												<tr align="center">
+													<td width="4%" class="body">
+														<input type="checkbox" id="selectAll" name="selectAll"
+															onClick="selectAll();">
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														序号
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														正题名
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														条形码
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														借出日期
+													</td>
+													<td width="19%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														应还日期
+													</td>
+													<td width="5%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														续借次数
+													</td>
+													<td width="7%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														存放地址
+													</td>
+													<td width="8%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														续借
+													</td>
+													
+												</tr>
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													<td width="7%" class="body">
+														1
+													</td>
+													<td width="16%" class="body">
+														精通Spring 2.0 
+														<br>
+													</td>
+													<td width="5%" class="body">
+														205529560
+														<br>
+													</td>
+													<td width="21%" class="body">
+														2010-12-20
+														<br>
+													</td>
+													<td class="body">
+														2011-3-9
+														<br>
+													</td>
+													<td align="center" class="user">
+														2
+														<br>
+													</td>
+													<td align="center" class="user">
+														北院流通书库
+														<br>
+													</td>
+													<td align="center" class="user">
+														 <a href="" >续借?</a>
+														<br>
+													</td>
+											    </tr>
+												
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													<td width="7%" class="body">
+														2
+													</td>
+													<td width="16%" class="body">
+														精通Spring 2.0 
+														<br>
+													</td>
+													<td width="5%" class="body">
+														205529560
+														<br>
+													</td>
+													<td width="21%" class="body">
+														2010-12-20
+														<br>
+													</td>
+													<td class="body">
+														2011-3-9
+														<br>
+													</td>
+													<td align="center" class="user">
+														1
+														<br>
+													</td>
+													<td align="center" class="user">
+														北院流通书库
+														<br>
+													</td>
+													<td align="center" class="user">
+														 <a href="" >续借?</a>
+														<br>
+													</td>
+											    </tr>
+												
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													<td width="7%" class="body">
+														3
+													</td>
+													<td width="16%" class="body">
+														精通Spring 2.0 
+														<br>
+													</td>
+													<td width="5%" class="body">
+														205529560
+														<br>
+													</td>
+													<td width="21%" class="body">
+														2010-12-20
+														<br>
+													</td>
+													<td class="body">
+														2011-3-9
+														<br>
+													</td>
+													<td align="center" class="user">
+														1
+														<br>
+													</td>
+													<td align="center" class="user">
+														北院流通书库
+														<br>
+													</td>
+													<td align="center" class="user">
+														 <a href="" >续借?</a>
+														<br>
+													</td>
+											    </tr>
+												
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													<td width="7%" class="body">
+														4
+													</td>
+													<td width="16%" class="body">
+														轻松掌握Hibernate  
+														<br>
+													</td>
+													<td width="5%" class="body">
+														205547880 
+														<br>
+													</td>
+													<td width="21%" class="body">
+														2011-1-10
+														<br>
+													</td>
+													<td class="body">
+														2011-3-9
+														<br>
+													</td>
+													<td align="center" class="user">
+														0
+														<br>
+													</td>
+													<td align="center" class="user">
+														北院流通书库
+														<br>
+													</td>
+													<td align="center" class="user">
+														 <a href="" >续借?</a>
+														<br>
+													</td>
+											    </tr>
+												
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													<td width="7%" class="body">
+														5
+													</td>
+													<td width="16%" class="body">
+														项目实践精解 
+														<br>
+													</td>
+													<td width="5%" class="body">
+														204777660 
+														<br>
+													</td>
+													<td width="21%" class="body">
+														2011-1-10
+														<br>
+													</td>
+													<td class="body">
+														2011-3-9
+														<br>
+													</td>
+													<td align="center" class="user">
+														0
+														<br>
+													</td>
+													<td align="center" class="user">
+														北院流通书库
+														<br>
+													</td>
+													<td align="center" class="user">
+														 <a href="" >续借?</a>
+														<br>
+													</td>
+											    </tr>
+														<script language=javascript>      
+  <!--
+  function viewpage(val,id)
+  {
+  location="produc"+val+".html"}
+  //-->
+                  </script>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+							<tr id="div_yy" style="DISPLAY: none" height="100%">
+							<td>
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0"
+									id="tab" style="DISPLAY: none" height="100%">
+									<tr>
+										<td height="30">
+											<table width="99%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="30" valign="bottom">
+														<table width="99%" border="0" align="center"
+															cellpadding="0" cellspacing="0">
+															<tr>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_title.jpg" id="tabid1"
+																	class="title0" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(1)">产品详细信息</a>
+																</td>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_titlebg.jpg" id="tabid2"
+																	class="menu" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(2)">产品库存信息</a>
+																</td>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_titlebg.jpg" id="tabid3"
+																	class="menu" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(3)">供应商信息</a>
+																</td>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_titlebg.jpg" id="tabid4"
+																	class="menu" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(4)">销售记录</a>
+																</td>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_titlebg.jpg" id="tabid5"
+																	class="menu" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(5)">销售统计</a>
+																</td>
+																<td align="right" valign="bottom">
+																	         <table width="72" border="0" cellspacing="0"
+															cellpadding="0">
+															<tr>
+																<td>
+																	<img src="../images1/btn_01.jpg" width="23" height="19" onClick="test12(1)" title="缩小">
+																</td>
+																<td>
+																	<img src="../images1/btn_02.jpg" width="26" height="19" onClick="test12(2)" title="还原">
+																</td>
+																<td>
+																	<img src="../images1/btn_03.jpg" width="23" height="19" onClick="test12(3)" title="放大">
+																</td>
+															</tr>
+														</table>
+																</td>
+																<!--<td width="90" align="center"
+																	background="../images/tab_titlebg.jpg" class="menu"
+																	id="tabid2" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(2)">供应商信息</a>
+																</td>-->
+
+
+																<td>&nbsp;
+																	
+
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<td height="2" bgcolor="#4590e1"></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr id="tablm1">
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="productInfor.html" width="99%" scrolling="yes"
+												frameborder="0" height="99%">
+											</iframe>
+										</td>
+									</tr>
+									<tr id="tablm2" style="DISPLAY: none">
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="productStroageListinfo.html" width="99%"
+												scrolling="yes" frameborder="0" height="99%">
+											</iframe>
+										</td>
+									</tr>
+									<tr id="tablm3" style="DISPLAY: none">
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="../distribution/purveyManager.html" width="99%"
+												scrolling="yes" frameborder="0" height="99%">
+											</iframe>
+										</td>
+									</tr>
+									<tr id="tablm4" style="DISPLAY: none">
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="../distribution/sellRecordListInfo.html" width="99%"
+												scrolling="yes" frameborder="0" height="99%">
+											</iframe>
+										</td>
+									</tr>
+									<tr id="tablm5" style="DISPLAY: none">
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="../distribution/distributionStatInfo.html" width="99%"
+												scrolling="yes" frameborder="0" height="99%">
+											</iframe>
+										</td>
+									</tr>
+								
+
+
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+	</body>
+</html>

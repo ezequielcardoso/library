@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+<title>广州市自来水综合业务管理平台</title>
+<script language="javascript" type="text/javascript" src="../include/js/selectTAB.js"></script>
+<script language="JavaScript">
+function showDIV()
+{
+	if(document.getElementById("dv_1").style.display=="none"){
+   document.getElementById("dv_1").style.display="";
+   }
+   else{
+   document.getElementById("dv_1").style.display="none";
+   }
+}
+
+
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="images/sj.gif";
+//treePic.src = 'images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+var productID=0;
+function productFunc(productId)
+{
+productID=productId;
+var editBTN=document.getElementById("edit");
+var recordBTN=document.getElementById("sellRecord");
+editBTN.disabled="";
+recordBTN.disabled="";
+
+}
+
+
+function editProduct(){
+if(productID!=0){
+var productId=document.getElementById("product_"+productID).value;
+window.location="productCURD!getProduct.action?productId="+productId+"";
+  }
+ else{
+   alert("请先选择要查看的产品！");
+  return false;
+ }
+}
+
+function sendBookList()
+{
+      var sent=confirm("确认订货吗？");
+	if(!sent){
+	  return;
+	}
+	else{
+		   window.location="productBookList.html";
+	}
+}
+
+function showSellRecord()
+{
+
+if(productID!=0){
+ 
+//var clientId=document.getElementById("client_"+clientID).value;
+//window.location="sellRecordCURD!qureyClientSellRecords.action?clientId="+clientId+"";  //根据客户编号，查找购买记录
+window.location="sellRecordList.html";  //根据客户编号，查找购买记
+ }
+else{
+  alert("请先选择要查看的产品！");
+ return false;
+ }
+}
+
+
+    </script>
+</head>
+<body bgcolor="#dbecff">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbecff">
+  <tr>
+    <td height="4" background="../images/bodybg.jpg"></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="10" valign="top"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+<!--            <tr>
+              <td height="30" valign="bottom"></td>
+            </tr>-->
+           
+    <!--  <tr>
+        <td height="10" valign="top">
+          
+            <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ebebeb"  borderColorLight="#ebebeb"
+	borderColorDark="#ffffff" id="LM1"  >
+             
+              <TR>
+                <TD height=25 align="right" valign="top" class=body><span style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" class="btnl"  onclick="sendBookList();" value="确认订货">&nbsp;&nbsp;&nbsp;&nbsp;
+                   <input type="button" class="btnl"  onclick="sendBookList();" value="保存订单">&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="button" class="btnl"  onclick="window.history.back(-1)" value="取消订货" /></TD>
+              </TR>
+          
+          </TABLE></td>
+      </tr>-->
+      <tr>
+        <td valign="top"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:5px">
+         
+          <tr>
+            <td valign="top"><table width="98%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
+              <tr>
+                <td width="2%"  align="center" bgcolor="#F4F5F9">选项</td>
+                <td width="11%"  align="center" bgcolor="#F4F5F9" class="body">产品名称</td>
+                <td width="9%" align="center" bgcolor="#F4F5F9" class="body">规格型号</td>
+                <td width="5%" align="center" bgcolor="#F4F5F9" class="body">单位</td>
+                <td width="5%" align="center" bgcolor="#F4F5F9" class="body">单价</td>
+                <td width="17%" align="center" bgcolor="#F4F5F9" class="body">数量</td>
+                <td width="6%" align="center" bgcolor="#F4F5F9" class="body">总额</td>
+                <td width="10%" align="center" bgcolor="#F4F5F9" class="body">实领数量</td>
+                <td width="17%" align="center" bgcolor="#F4F5F9" class="body">备注</td>
+                <td width="7%" align="center" bgcolor="#F4F5F9" class="body">状态</td>
+                <td width="11%" align="center" bgcolor="#F4F5F9" class="body">操作</td>
+              </tr>
+             
+              <tr  align="center" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';" style="cursor:pointer">
+                <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" value="001" onclick="productFunc(this.value)"></td>
+                <td width="11%" class="body"  ondblclick="showDIV();">欢乐家用净水器</td>
+                <td width="9%"  class="body">N0001-01</td>
+                <td width="5%"  class="body">台</td>
+                <td width="5%"  class="body">1500</td>
+                <td width="17%"  class="body"><input type="text"  disabled="disabled"  value="200"/></td>
+                <td  class="body">300000</td>
+                <td  class="body">0</td>
+                <td  class="body"><input type="text" /></td>
+                <td align="center"  class="user">
+                <select>
+                <option>已验收</option>
+                <option >未验收</option>
+                <option selected="selected">未发货</option>
+                <option >已发货</option>
+                </select>                </td>
+                <td  class="body"><a href="#">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">删除</a></td>
+              </tr>
+            
+              <tr  align="center" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';" style="cursor:pointer">
+                <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" value="001" onclick="productFunc(this.value)"></td>
+                <td width="11%" class="body"  ondblclick="showDIV();">欢乐家用净水器</td>
+                <td width="9%"  class="body">N0001-02</td>
+                <td width="5%"  class="body">台</td>
+                <td width="5%"  class="body">1500</td>
+                <td width="17%"  class="body"><input type="text"    value="200"/></td>
+                <td  class="body">300000</td>
+                <td  class="body">0</td>
+                <td  class="body"><input type="text" /></td>
+                <td align="center"  class="user">
+                 <select>
+                <option>已验收</option>
+                <option >未验收</option>
+                <option selected="selected">未发货</option>
+                <option >已发货</option>
+                </select>                 </td>
+                <td  class="body"><a href="#">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">删除</a></td>
+              </tr>
+               
+              <tr  align="center" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';" style="cursor:pointer">
+                <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" value="001" onclick="productFunc(this.value)"></td>
+                <td width="11%" class="body"  ondblclick="showDIV();">欢乐家用净水器</td>
+                <td width="9%"  class="body">N0001-03</td>
+                <td width="5%"  class="body">台</td>
+                <td width="5%"  class="body">1500</td>
+                <td width="17%"  class="body"><input type="text" disabled="disabled"    value="200"/></td>
+                <td  class="body">300000</td>
+                <td  class="body">0</td>
+                <td  class="body"><input type="text" /></td>
+                <td align="center"  class="user">
+                <select>
+                <option>已验收</option>
+                <option >未验收</option>
+                <option selected="selected">未发货</option>
+                <option >已发货</option>
+                </select>                 </td>
+                <td  class="body"><a href="#">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">删除</a></td>
+              </tr>
+               
+              <tr  align="center" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';" style="cursor:pointer">
+                <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" value="001" onclick="productFunc(this.value)"></td>
+                <td width="11%" class="body"  ondblclick="showDIV();">欢乐家用净水器</td>
+                <td width="9%"  class="body">N0001-01</td>
+                <td width="5%"  class="body">台</td>
+                <td width="5%"  class="body">1500</td>
+                <td width="17%"  class="body"><input type="text" disabled="disabled"   value="200"/></td>
+                <td  class="body">300000</td>
+                <td  class="body">0</td>
+                <td  class="body"><input type="text" /></td>
+                <td align="center"  class="user">
+              <select>
+                <option>已验收</option>
+                <option >未验收</option>
+                <option selected="selected">未发货</option>
+                <option >已发货</option>
+                </select>                 </td>
+                <td  class="body"><a href="#">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">删除</a></td>
+              </tr>
+               
+              <tr  align="center" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';" style="cursor:pointer">
+                <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" value="001" onclick="productFunc(this.value)"></td>
+                <td width="11%" class="body"  ondblclick="showDIV();">欢乐家用净水器</td>
+                <td width="9%"  class="body">N0001-01</td>
+                <td width="5%"  class="body">台</td>
+                <td width="5%"  class="body">1500</td>
+                <td width="17%"  class="body"><input type="text" disabled="disabled"  value="200"/></td>
+                <td  class="body">300000</td>
+                <td  class="body">0</td>
+                <td  class="body"><input type="text" /></td>
+                <td align="center"  class="user"> <select>
+                <option>已验收</option>
+                <option >未验收</option>
+                <option selected="selected">未发货</option>
+                <option >已发货</option>
+                </select>  </td>
+                <td  class="body"><a href="#">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">删除</a></td>
+              </tr>
+               
+              <tr  align="center" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';" style="cursor:pointer">
+                <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" value="001" onclick="productFunc(this.value)"></td>
+                <td width="11%" class="body"  ondblclick="showDIV();">欢乐家用净水器</td>
+                <td width="9%"  class="body">N0001-01</td>
+                <td width="5%"  class="body">台</td>
+                <td width="5%"  class="body">1500</td>
+                <td width="17%"  class="body"><input type="text" disabled="disabled"   value="200"/></td>
+                <td  class="body">300000</td>
+                <td  class="body">0</td>
+                <td  class="body"><input type="text" /></td>
+                <td align="center"  class="user">
+                 <select>
+                <option>已验收</option>
+                <option >未验收</option>
+                <option selected="selected">未发货</option>
+                <option >已发货</option>
+                </select>                 </td>
+                <td  class="body"><a href="#">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">删除</a></td>
+              </tr>
+            </table>
+             <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="30" align="center"  class="body" >共有11条主题
+                    共2页
+                    现在是第1页
+                    [首页] [上一页] [下一页] [尾页]&nbsp; 跳转到
+                    <select size="1" name="" onChange="viewpage(this.value,this.name);">
+                          <option  value="t0">第1页</option>
+                          <option  selected value="t0_1">第2页</option>
+                        </select>
+                        <script language=javascript>      
+  <!--
+  function viewpage(val,id)
+  {
+  location="produc"+val+".html"}
+  //-->
+                  </script></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+<div  id="dv_1" style=" margin-top:20px; display:none"> 
+<table width="100%" height="100%">
+<tr>
+	<td width="100%" height="100%">
+    	
+	</td>
+</tr>
+</table> 
+ </div>    
+        </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>
