@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>图片信息检索</title>
+<LINK rel="stylesheet" type="text/css" href="style.css"></head>
+<script Language="JavaScript">
+function  IlaswebInfo(dbname)
+{
+	if(dbname == "i_DB1")
+	{
+		document.Outline.v_src.value = "IlaswebInfo_DB1.html";
+		document.action="/cgi-bin/EnterIlasweb";
+		document.Outline.submit();
+		return;
+	}
+	if(dbname == "i_DB2")
+	{
+		document.Outline.v_src.value = "IlaswebInfo_DB2.html";
+		document.action="/cgi-bin/EnterIlasweb";
+		document.Outline.submit();
+		return;
+	}
+	if(dbname == "i_DB3")
+	{
+		alert("此数据库正在建设中！");
+		return;
+
+		document.Outline.v_src.value = "IlaswebInfo_DB3.html";
+		document.action="/cgi-bin/EnterIlasweb";
+		document.Outline.submit();
+		return;
+	}
+}
+</script>
+
+<body background="images/back.gif">
+<div align="center">
+<script language="Javascript" src="head.htm"></script>
+<form  method="post" " name="Outline">
+ <INPUT TYPE=hidden name=v_regname value=huan762252382> 
+ <INPUT TYPE=hidden name=w_rdrecno value=64717>
+ <INPUT TYPE=hidden name=v_cardno value=> 
+ <INPUT TYPE=hidden name=v_rdrecno value=0>
+ 
+<input type=hidden name=v_src value="">
+</form>
+ <table width="662" border="0" cellspacing="0" cellpadding="0">
+    <tr bgcolor="#000000"> 
+      <td colspan="9" height="2"></td>
+    </tr>
+  </table>
+  <br>
+    <table bgcolor=#fffdec border=0 cellpadding=0 cellspacing=0 width=662 height="136">
+      <tbody> 
+      <tr valign=top> 
+        
+      <td colspan=3><IMG border=0 name=t1_r1_c1  src="images/ilasinfo.gif"></td>
+      </tr>
+      <tr valign=top> 
+        <td bgcolor=#ffcc66  width="2">　
+          <p>　</td>
+        
+      <td width=658 height="36" valign="middle"> 
+        <blockquote>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="隶书" style="font-size:16pt" color="#006699"><b>请选择您想查看的数据库：</b></font>
+            <blockquote>
+              <p> <img border="0" src="images/select.gif">  
+          <a href="pictureQuery.htm"><font style="font-size:12pt"><b>图片信息数据库</b></font></a>&nbsp;    
+          </p>    
+              
+            <p><img border="0" src="images/select.gif"> <a href="DBQuery.htm"><font style="font-size:12pt"><b>特区文献数据库</b></font></a>&nbsp; 
+            </p>    
+              <p><img border="0" src="images/select.gif">     
+          <a href="javascript:IlaswebInfo('i_DB3')"><font style="font-size:12pt"><b>剪报信息数据库</b></font></a>    
+          </p>    
+            </blockquote>   
+          </blockquote>   
+          <p>　    
+        </td>    
+        <td bgcolor=#ffcc66  width="2"></td>    
+      </tr>    
+      <tr valign=top>         
+        
+      <td colspan="3"> <img src="images/bottomline.gif">　 
+      </td>      
+      </tr>      
+      </tbody>       
+    </table>      
+<br>      
+  <hr width="662" noshade color=black>      
+                       
+<script language="Javascript" src="end.htm"></script>      
+</div>   
+</body>                      
+</html>                      

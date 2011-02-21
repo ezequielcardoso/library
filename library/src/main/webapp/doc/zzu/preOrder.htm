@@ -1,0 +1,108 @@
+<html><head>
+
+
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>读者身份验证</title>
+<link rel="stylesheet" type="text/css" href="preOrder_files/style.css"><script language="JavaScript">
+function VerifyUser()
+{
+  document.Outline.action="/cgi-bin/VerifyUser";
+  if(document.Outline.v_cardno.value == "" )
+  {
+      alert("请输入证号！");
+      return;
+  }
+  if(document.Outline.v_passwd.value == "")
+  {
+      alert("请输入登录密码！");
+      return;
+  }
+  document.Outline.submit();
+}
+
+</script>
+</head><body alink="#0000ff" background="preOrder_files/back.gif" bgcolor="#ffffff" vlink="#0000ff">
+<div align="center">
+<script language="Javascript" src="preOrder_files/head.htm"></script><table border="0" cellpadding="0" cellspacing="0" width="662"><tbody><tr height="70"><td valign="middle" width="20%"><a href="http://lib.zzu.edu.cn/"><img src="preOrder_files/logo.gif" alt="公共目录检索" border="0"></a></td><td align="right" valign="bottom" width="65%"><a href="http://www.zzu.edu.cn/"><img src="preOrder_files/ad.gif" border="1"></a></td></tr></tbody></table><br>
+<hr noshade="noshade" color="black" width="662">
+<table bgcolor="#fffdec" border="0" cellpadding="0" cellspacing="0" width="661">
+      <tbody> 
+      <tr> 
+        
+      <td colspan="4" valign="top"><img name="t1_r1_c1" src="preOrder_files/topline.gif" border="0"></td>
+      </tr>
+      <tr align="center" valign="top">
+        <td bgcolor="#ffcc66" valign="top" width="3"></td>
+        <td height="58" width="1000">
+           <br>
+          <table border="0" width="100%">
+            <tbody><tr> 
+              <td width="33%"></td>
+              <td width="33%"> 
+                <p align="center"><b><font color="#3f67a3">读者身份验证</font></b></p>
+              </td>
+              <td width="34%"></td>
+            </tr>
+          </tbody></table>
+          <table border="0" width="100%">
+            <tbody><tr> 
+              <td width="18%"></td>
+              <td rowspan="2" width="58%">注意！<br>
+                　　在您享受图书馆提供的网上特殊服务前，必须先验证你的读者证号和密码，您必须是图书馆的正式读者。依下列指示填入您的证号和密码。</td>
+              <td width="24%"></td>
+            </tr>
+            <tr> 
+              <td width="18%"></td>
+              <td width="24%"></td>
+            </tr>
+          </tbody></table>
+          
+        <table border="0" height="117" width="100%">
+          <form method="post" name="Outline"></form>
+            <tbody><tr> 
+              <td height="30" width="29%"></td>
+              <td height="30" width="12%"><font color="#008000"><b>读者证号</b></font></td>
+              <td height="30" width="24%"> 
+                <input name="v_cardno" tabindex="1" size="20">
+              </td>
+              <td height="30" width="40%"></td>
+            </tr>
+            <tr> 
+              <td height="25" width="29%"></td>
+              <td height="25" width="12%"><font color="#008000"><b>密 &nbsp; &nbsp;码</b></font></td>
+              <td height="25" width="24%"> 
+                <input name="v_passwd" tabindex="2" type="password">
+              </td>
+              <td height="25" width="40%"></td>
+            </tr>
+            <tr> 
+              <td height="64" width="29%"></td>
+              <td colspan="2" align="center" height="64" width="32%"> <a href="javascript:VerifyUser()"><img src="preOrder_files/go.gif" border="0"></a> 
+              </td>
+              <td height="64" width="40%"></td>
+            </tr>
+            <tr> 
+              <td colspan="4" width="100%"> 
+                <p align="center"><input name="v_html" value="PreloanBook.html" type="hidden"><input name="v_rdrecno" value="0" type="hidden"><input name="v_recno" value="170911" type="hidden"><input name="v_barno" value="01011228059" type="hidden"> 
+              </p></td>
+            </tr>
+          
+        </tbody></table>
+        </td>
+        <td bgcolor="#ffcc66" valign="top" width="3"></td>
+      </tr>
+      <tr align="center"> 
+        
+      <td colspan="4" valign="top"><img name="k_r3_c1" src="preOrder_files/bottomline.gif" border="0"></td>
+      </tr>
+      </tbody> 
+    </table><br>    
+<hr noshade="noshade" color="black" width="662">
+        
+<script language="Javascript" src="preOrder_files/end.htm"></script><table border="0" width="100%"><tbody><tr align="center"><td align="center" height="9" width="100%"><font color="#0000ff">欢 迎 您 使 用  网 上 图 书 馆 <br>如 果 您 对 图 书 馆 有 任 何 建 议 , 请 发 E - M A I L 到</font></td></tr><tr><td align="center" height="9" width="100%"><a href="mailto:lib@zzu.edu.cn">lib@zzu.edu.cn</a></td></tr></tbody></table>
+</div>          
+              
+</body></html>
