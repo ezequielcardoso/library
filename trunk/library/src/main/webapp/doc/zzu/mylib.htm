@@ -1,0 +1,201 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>OPAC-我的图书馆</title>
+<LINK rel="stylesheet" type="text/css" href="style.css"></head>
+<body bgproperties="fixed" background="images/back.gif">
+<SCRIPT language=javascript>
+<!--
+function EnterIlaswebBib()	
+{	  
+document.IndexForm.action="/cgi-bin/EnterIlasweb";	
+document.IndexForm.v_src.value="IlaswebBib.html";  
+document.IndexForm.submit();
+}
+
+function EnterIlaswebCont()	
+{	  
+document.IndexForm.action="/cgi-bin/EnterIlasweb";	 
+document.IndexForm.v_src.value="IlaswebCont.html"; 
+document.IndexForm.submit();
+}
+
+function EnterIlaswebInfo()	
+{	  
+document.IndexForm.action="/cgi-bin/EnterIlasweb";
+document.IndexForm.v_src.value="IlaswebInfo.html"; 
+document.IndexForm.submit();
+}
+
+function SrchFavorite()	
+{	  
+document.IndexForm.action="/cgi-bin/SrchFavorite";	  
+document.IndexForm.v_src.value="";  
+document.IndexForm.submit();
+}
+
+
+function IlasNewBook()	
+{	  
+document.IndexForm.action="/cgi-bin/IlasNewBook";	  
+document.IndexForm.v_src.value="";  
+document.IndexForm.submit();
+}
+
+function ModWWWRdr()	
+{	  
+document.IndexForm.action="/cgi-bin/ModWWWRdr";	  
+document.IndexForm.v_src.value="";  
+document.IndexForm.submit();
+}
+
+function ModifyPasswd()	
+{	  
+document.IndexForm.action="/cgi-bin/EnterIlasweb";	  
+document.IndexForm.v_src.value="ModPasswd.html";  
+document.IndexForm.submit();
+}
+
+
+
+-->
+</SCRIPT>
+<form name="IndexForm" method="post">
+<input type=hidden name=v_src>
+ <INPUT TYPE=hidden name=v_regname value=huan762252382>
+ <INPUT TYPE=hidden name=w_rdrecno value=64717>
+  <INPUT TYPE=hidden name=v_cardno value=>
+ <INPUT TYPE=hidden name=v_rdrecno value=0>
+
+<div align="center">
+<script language=Javascript src="head.htm"></script>
+    <table width="662" border="0" cellspacing="0" cellpadding="0">
+      <tr bgcolor="#000000"> 
+        <td colspan="9" height="2"></td>
+      </tr>
+      <tr align="middle">
+        <td height="20" valign="center"></td>
+        <td width="70" height="20" background="images/menu.gif"><a href="srchFavoriteQuery.htm"><font color="#0000cc">感兴趣新书</font></a></td>
+        <td width="70" height="20" background="images/menu.gif"><a href="javascript:EnterIlaswebBib()"><font color="#0000cc" >书目查询</font></a></td>
+        <td width="70" height="20" background="images/menu.gif"><a href="magazine.htm"><font color="#0000cc" >期刊篇目</font></a></td>
+        <td width="70" height="20" background="images/menu.gif"><a href="newBookReport.htm"><font color="#0000cc">新书通报</font></a></td>
+        <td width="70" height="20" background="images/menu.gif"><a href="javascript:EnterIlaswebInfo()"><font color="#0000CC">信息查询</font></a></td>
+        <td width="70" height="20" background="images/menu.gif"><a href="javascript:ModWWWRdr()"><font color="#0000cc">资料更新</font></a></td>
+        <td width="70" height="20" background="images/menu.gif"><a href="modifyPassword.htm"><font color="#0000cc">修改密码</font></a></td>
+      </tr>
+    </table>
+    <br>
+    <table bgcolor=#fffdec border=0 cellpadding=0 cellspacing=0 width=662>
+      <tbody> 
+      <tr valign=top> 
+        <td colspan=3><IMG border=0 name=t1_r1_c1 
+            src="images/mylib_1.gif" width="662" height="31"></td>
+      </tr>
+      <tr valign=middle> 
+        <td bgcolor=#ffcc66 height="200" width="2" rowspan="5"></td>
+        <td width=618 height="23"> 
+          <table border="0" width="100%">
+            <tr> 
+              <td width="8%"></td>
+              <td width="17%" height="40" background="images/table.gif" align=center> 
+                <a href="srchFavoriteQuery.htm"><b><font style="font-size: 10pt">感兴趣新书</font></b></a></td>
+              <td width="68%">&nbsp;&nbsp;在这里你可以浏览到你感兴趣的新书</td>
+              <td width="7%" align="right"><a href="#"><img alt=需要帮助吗？ border=0 height=40 src="images/help.gif" width=25></a></td>
+            </tr>
+          </table>
+        </td>
+        <td bgcolor=#ffcc66 height="200" rowspan="5" width="2"></td>
+      </tr>
+      <tr valign=top> 
+        <td width=618 height="10"> 
+          <table border="0" width="100%" height="44">
+            <tr> 
+              <td width="8%" height="38"> 
+                <p align="left">&nbsp;</p>
+              </td>
+              <td width="17%" height="40" background="images/table.gif" align="center"> 
+                <a href="EnterIlasweb.htm"><font style="font-size:10pt"><b>书目查询</b></font></a> 
+              </td>
+              <td width="68%" height="38">&nbsp;&nbsp;在这里你可以查询图书馆的馆藏书目信息，并可以预约想要借阅的书 
+              </td>
+              <td width="7%" height="38"> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr valign=top> 
+        <td width=618 height="80"> 
+          <table border="0" width="100%">
+            <tr> 
+              <td width="8%"></td>
+              <td width="17%" height="40" background="images/table.gif" align=center> 
+                <a href="magazine.htm"><font style="font-size:10pt"><b>期刊</b></font><b><font style="font-size: 10pt">篇目</font></b></a></td>
+              <td width="68%">&nbsp;&nbsp;在这里你可以查询图书馆的馆藏期刊目次信息(篇名)</td>
+              <td width="7%"> 
+                <p align="center"></p>
+              </td>
+            </tr>
+            <tr> 
+              <td width="8%"></td>
+              <td width="17%" height="40" background="images/table.gif" align=center> 
+                <a href="javascript:IlasNewBook()"><font style="font-size:10pt"><b>新书通报</b></font></a></td>
+              <td width="68%">&nbsp;&nbsp;在这里你可以了解到图书新到文献的情况</td>
+              <td width="7%"> 
+              </td>
+            </tr>
+            <tr> 
+              <td width="8%"></td>
+              <td width="17%" height="40" background="images/table.gif" align=center> 
+                <a href="infoQuery.htm"><b><font style="font-size: 10pt">信息查询</font></b></a></td>
+              <td width="68%">&nbsp;&nbsp;在这里你可以查询图书馆自建或引进的各类数据库</td>
+              <td width="7%"> 
+              </td>
+            </tr>
+          </table>
+          
+        </td>
+      </tr>
+      <tr valign=top> 
+        <td width=618 height="10"> 
+          <table border="0" width="100%">
+            <tr> 
+              <td width="8%"></td>
+              <td width="17%" height="40" background="images/table.gif" align=center> 
+                <a href="javascript:ModWWWRdr()"><b><font style="font-size: 10pt">资料更新</font></b></a></td>
+              <td width="68%">&nbsp;&nbsp;在这里你可以更新你的个人资料</td>
+              <td width="7%"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr valign=top>
+        <td width=618 height="30">
+          <table border="0" width="100%">
+            <tr> 
+              <td width="8%"></td>
+              <td width="17%" height="40" background="images/table.gif" align=center> 
+                <a href="modifyPassword.htm"><b><font style="font-size: 10pt">修改密码</font></b></a></td>
+              <td width="68%">&nbsp;&nbsp;在这里你可以修改你的密码</td>
+              <td width="7%"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr valign=top> 
+        <td colspan=3><IMG border=0 name=k_r3_c1 
+            src="images/bottomline.gif" width="662" height="15"></td>
+      </tr>
+      </tbody> 
+    </table>
+    <br>
+    <hr noshade width="662" size="2" color=black>
+<script language="Javascript" src="end.htm"></script>
+  </div>    
+</form>　 
+</body>             
+             
+</html>             
