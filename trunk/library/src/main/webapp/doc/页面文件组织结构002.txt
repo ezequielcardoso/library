@@ -1,0 +1,49 @@
+
+
+！！！所有资源引用一律采用相对路径
+
+webapp--|
+	common---//common UI library or resources put here! 比如 jquery/ajax library 
+	|
+	css
+        |
+	js------|
+	        common---//common js put here!比如公共方法或者全局变量
+		|book------|
+			    bookList.js
+			    |
+			    bookAdd.js
+			    ..........
+
+			    ......
+		 |category--|
+			    catetoryTree.js
+			    |
+			    .........
+
+	|
+	module----|
+		  book------|
+			    bookList.html
+			    |
+			    bookAdd.html
+			    ..........
+
+			    ......
+		  category--|
+			    catetoryTree.html
+			    |
+			    .........
+	|
+	images
+	|
+	index.html/login.html
+	|
+	top.html
+	|
+	main.html
+	|
+	left.html
+	|
+	bottom.html
+
