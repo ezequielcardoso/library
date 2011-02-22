@@ -12,7 +12,7 @@
 	    tool       	"Java"
 	    name       	"IDE"
 	    value      	"Internal Editor"))
-    quid       	"4D63940C030D"
+    quid       	"4D63A0470203"
     enforceClosureAutoLoad 	FALSE
     defaults   	(object defaults
 	rightMargin 	0.250000
@@ -38,25 +38,20 @@
 	showClassOfObject 	TRUE
 	notation   	"Unified")
     root_usecase_package 	(object Class_Category "Use Case View"
-	quid       	"4D63940C030F"
+	quid       	"4D63A0470205"
 	exportControl 	"Public"
 	global     	TRUE
 	logical_models 	(list unit_reference_list
-	    (object Class_Category "com.huan.library.entity"
-		quid       	"4D6394160222"
+	    (object Class_Category "entity"
+		quid       	"4D63A0510242"
 		exportControl 	"Public"
 		logical_models 	(list unit_reference_list
 		    (object Class "Book"
-			quid       	"4D63963B0290"
-			class_attributes 	(list class_attribute_list
-			    (object ClassAttribute "id£ºint"
-				quid       	"4D6396570148")
-			    (object ClassAttribute "bookNo£ºString"
-				quid       	"4D63967800AB"))))
+			quid       	"4D63A06F001F"))
 		logical_presentations 	(list unit_reference_list)))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
-		quid       	"4D63940E005E"
+		quid       	"4D63A048033D"
 		title      	"Main"
 		zoom       	100
 		max_height 	28350
@@ -65,15 +60,15 @@
 		origin_y   	0
 		items      	(list diagram_item_list))))
     root_category 	(object Class_Category "Logical View"
-	quid       	"4D63940C030E"
+	quid       	"4D63A0470204"
 	exportControl 	"Public"
 	global     	TRUE
 	subsystem  	"Component View"
-	quidu      	"4D63940C0310"
+	quidu      	"4D63A0470206"
 	logical_models 	(list unit_reference_list)
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
-		quid       	"4D63940E005F"
+		quid       	"4D63A048033E"
 		title      	"Main"
 		zoom       	100
 		max_height 	28350
@@ -81,11 +76,11 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object ClassView "Class" "Use Case View::com.huan.library.entity::Book" @1
+		    (object ClassView "Class" "Use Case View::entity::Book" @1
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(1481, 722)
+			location   	(1344, 700)
 			font       	(object Font
 			    size       	12
 			    face       	"Arial"
@@ -97,43 +92,26 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@1
-			    location   	(1168, 586)
+			    location   	(1214, 618)
 			    fill_color 	13434879
 			    nlines     	1
-			    max_width  	626
+			    max_width  	260
 			    justify    	0
 			    label      	"Book")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
-			quidu      	"4D63963B0290"
-			compartment 	(object Compartment
-			    Parent_View 	@1
-			    location   	(1168, 707)
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	3
-			    max_width  	338)
-			width      	644
-			height     	300
+			quidu      	"4D63A06F001F"
+			width      	278
+			height     	192
 			annotation 	8
 			autoResize 	TRUE)))))
     root_subsystem 	(object SubSystem "Component View"
-	quid       	"4D63940C0310"
+	quid       	"4D63A0470206"
 	physical_models 	(list unit_reference_list)
 	physical_presentations 	(list unit_reference_list
 	    (object Module_Diagram "Main"
-		quid       	"4D63940E005D"
+		quid       	"4D63A048033C"
 		title      	"Main"
 		zoom       	100
 		max_height 	28350
@@ -142,12 +120,12 @@
 		origin_y   	0
 		items      	(list diagram_item_list)))
 	category   	"Logical View"
-	quidu      	"4D63940C030E")
+	quidu      	"4D63A0470204")
     process_structure 	(object Processes
-	quid       	"4D63940C0311"
+	quid       	"4D63A0470207"
 	ProcsNDevs 	(list
 	    (object Process_Diagram "Deployment View"
-		quid       	"4D63940C0313"
+		quid       	"4D63A0470209"
 		title      	"Deployment View"
 		zoom       	100
 		max_height 	28350
@@ -5926,4 +5904,4 @@
 		tool       	"XML_DTD"
 		name       	"HiddenTool"
 		value      	FALSE))
-	quid       	"4D63940C0312"))
+	quid       	"4D63A0470208"))
