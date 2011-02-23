@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="../include/js/datePicker/calendar/WdatePicker.js"></script>
+
+<title>广州市自来水综合业务管理平台</title>
+<script language="JavaScript">
+
+
+    </script>
+
+
+
+</head>
+
+
+<body>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td height="10" valign="top">
+									
+									<table width="98%" border="0" align="center" cellpadding="0"
+										cellspacing="0" bordercolor="#ebebeb"
+										borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
+										
+										<TR>
+										
+												<TR>
+										<TD height=25 align="left" class="body" colspan="2">&nbsp; 
+											销售日期：&nbsp;<span class="body"> <input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"  onClick="WdatePicker();"> </span>&nbsp;&nbsp; 
+											客户名称&nbsp;<span class="body"> <input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"> </span> 
+											联系人&nbsp;<span class="body"> <input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"> </span>
+											<span style="color: red">*</span>
+											
+										</TD>
+									</TR>
+											<td align="right" valign="top" class=body> 
+											   <input
+														type="button" class="btnl" value="查 询" > 
+											
+											</td>
+									
+									</TABLE>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top">
+									<table width="99%" border="0" align="center" cellpadding="0"
+										cellspacing="0" bgcolor="#f1f8ff"
+										style="border: 1px solid #2686d2; margin-top: 5px">
+										
+										<tr>
+											<td valign="top">
+											<table id="tab1" width="98%" border="1" align="center" cellpadding="0"
+												cellspacing="0" bordercolor="#bcc3c9"
+												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
+												bgcolor="#FFFFFF" style="margin-top: 5px">
+												<tr>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body"> 
+															编号	<br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">产品名称<br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">   
+															   
+														型号<br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">类型<br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body"> 
+															销售数量	<br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">  
+															销售总额 <br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">销售成本	<br>
+														</td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">毛利	<br>
+														</td>
+														
+														
+													</tr>
+													<tr onClick="oncli()"
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+														<td class="body"> 
+															A222	<br></td>
+														<td width="27%" class="body">成本水管 <br></td>
+														<td width="11%" class="body">  
+															B444<br></td>
+														<td width="9%" class="body">  
+															A1	<br></td>
+														<td class="body">
+															1000
+														</td>
+														<td align="center" class="user"> 
+															100000	<br></td>
+														<td align="center" class="user"> 
+															999999	<br>
+														</td>
+														<td align="center" class="user"> 
+															100000	<br>
+														</td>
+														
+													</tr>
+													
+													<tr onClick="oncli()"
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+														<td class="body"> 
+															A222	<br></td>
+														<td width="27%" class="body">成本水管 <br></td>
+														<td width="11%" class="body">  
+															B444<br></td>
+														<td width="9%" class="body">  
+															A1	<br></td>
+														<td class="body">
+															1000
+														</td>
+														<td align="center" class="user"> 
+															100000	<br></td>
+														<td align="center" class="user"> 
+															999999	<br>
+														</td>
+														<td align="center" class="user"> 
+															100000	<br>
+														</td>
+														
+													</tr>
+													<tr onClick="oncli()"
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+														<td class="body"> 
+															A222	<br></td>
+														<td width="27%" class="body">成本水管 <br></td>
+														<td width="11%" class="body">  
+															B444<br></td>
+														<td width="9%" class="body">  
+															A1	<br></td>
+														<td class="body">
+															1000
+														</td>
+														<td align="center" class="user"> 
+															100000	<br></td>
+														<td align="center" class="user"> 
+															999999	<br>
+														</td>
+														<td align="center" class="user"> 
+															100000	<br>
+														</td>
+														
+													</tr>
+													
+													
+											</table>
+												<table width="99%" border="0" align="center" cellpadding="0"
+													cellspacing="0">
+													<tr>
+														<td height="30" align="center" class="body">
+															共有11条主题 共2页 现在是第1页 [首页] [上一页] [下一页] [尾页]&nbsp; 跳转到
+															<select size="1" name=""
+																onChange="viewpage(this.value,this.name);">
+																<option value="t0">
+																	第1页
+																</option>
+																<option selected value="t0_1">
+																	第2页
+																</option>
+															</select>
+															<script language=javascript>      
+  <!--
+  function viewpage(val,id)
+  {
+  location="produc"+val+".html"}
+  //-->
+                  </script>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+							</tr>
+						</table>
+			
+
+</body>
+</html>
+

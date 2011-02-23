@@ -1,0 +1,297 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="../include/js/datePicker/calendar/WdatePicker.js"></script>
+		<title>广州市自来水综合业务管理平台</title>
+		<script language="JavaScript">
+		function oncli(){
+		  var div1=document.getElementById("tab");
+		        div1.style.display="block";
+		   
+		       // var d=div1.style.display;
+		        //if(d=="block"){
+		          //div1.style.display="none";
+		        //}
+		        //else{
+		          // div1.style.display="block"
+		        //}
+				var cols = window.event.srcElement.parentElement.cells;
+				//document.getElementById("my").value=cols(0).innerText;
+				id = cols(0).innerText;
+		
+		}
+		
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="../images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="../images/sj.gif";
+//treePic.src = '../images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+
+//tab选项卡
+var tabnumber=1; 
+
+function tablmyc() { 
+var tabnum; 
+//var treePic; 
+for (i=1;i<=tabnumber;i++) { 
+tabnum = eval('tablm' + i); 
+var tabName='tabid'+ i; 
+document.getElementById(tabName).background="../images/tab_titlebg.jpg";
+document.getElementById(tabName).className="menu";
+tabnum.style.display = 'none'; 
+} 
+} 
+
+function Showtab(i) { 
+tabnum = eval('tablm' + i); 
+var tabName='tabid'+ i;
+if (tabnum.style.display == 'none') { 
+tablmyc(); 
+document.getElementById(tabName).background="../images/tab_title.jpg";
+document.getElementById(tabName).className="title0";
+tabnum.style.display = ''; 
+} 
+
+} 
+    </script>
+	</head>
+	<body>
+		<table width="100%" height="100%" border="0" cellpadding="0"
+			cellspacing="0" bgcolor="#dbecff">
+			<tr>
+				<td height="4" background="../images/bodybg.jpg"></td>
+			</tr>
+			<tr>
+				<td valign="top" height="10">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"
+						height="100%">
+						<tr>
+							<td height="10" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0">
+
+									<tr>
+										<td>
+											<table width="100%" border="0" align="center" cellpadding="0"
+												cellspacing="0" class="title_border">
+												<tr>
+													<td width="19%" height="25" style="text-align: left">
+														<strong>&nbsp;<img align="absmiddle" src="../images/cl0.gif">投诉管理</strong><strong></strong>  
+													</td>
+													<td width="81%" height="25" class=body1
+														style="text-align: left">
+														<img src="../images/02a.gif">      
+														当前位置：售后服务管理&gt;&gt;<strong>投诉信息</strong>      
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					
+						<tr>
+							<td height="10" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0" bgcolor="#f1f8ff"
+									style="border: 1px solid #2686d2; margin-top: 5px">
+									<tr>
+										<td>
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0">
+												<tr>
+													<td width="189" height="33"
+														background="../images/titleb_01.jpg" class="title1">
+														增加投诉
+													</td>
+													<td background="../images/titleb_02.jpg">&nbsp;
+														
+													</td>
+													<td width="213" align="right"
+														background="../images/titleb_03.jpg"
+														style="padding-bottom: 10px">
+														&nbsp;&nbsp;
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td valign="top">
+											  <table width="99%" border="0" align="center" cellpadding="0"
+						cellspacing="0" bgcolor="#f1f8ff"
+						style="border: 0px solid #2686d2; margin-top: 5px">
+						<tr>
+							<td valign="top">
+								<form action="" method="post"
+									id="clientInfor" name="clientInfor">
+								  <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                                    <tr>
+                                      <td width="123" valign="top"><p>投诉日期 </p></td>
+                                      <td colspan="7" valign="top"><p>2010-11-19</p></td>
+                                    </tr>
+                                    <tr>
+                                      <td width="123" valign="top"><p>投诉人姓名： </p></td>
+                                      <td colspan="2" valign="top"><p>
+                                        <input type="text" name="textfield" id="textfield">
+                                      </p></td>
+                                      <td colspan="2" valign="top"><p>联系电话： </p></td>
+                                      <td colspan="3" valign="top"><p>
+                                        <input type="text" name="textfield2" id="textfield2">
+                                      </p></td>
+                                    </tr>
+                                    <tr>
+                                      <td width="123" valign="top"><p>反映内容： </p></td>
+                                      <td colspan="7" valign="top"><p>
+                                        <textarea name="textarea" id="textarea" cols="100" rows="3"></textarea>
+                                      </p></td>
+                                    </tr>
+                                    <tr>
+                                      <td width="123" valign="top"><p>被反映部门： </p></td>
+                                      <td width="278" valign="top"><p>
+                                        <input type="text" name="textfield3" id="textfield3">
+                                      </p></td>
+                                      <td colspan="2" valign="top"><p>投诉受理人： </p></td>
+                                      <td colspan="2" valign="top"><p>
+                                        <input type="text" name="textfield4" id="textfield4">
+                                      </p></td>
+                                      <td width="142" valign="top"><p>部门处理日期： </p></td>
+                                      <td width="288" valign="top"><p>
+                                        <input type="text" name="textfield5" id="textfield5" onClick="WdatePicker();" >
+                                      </p></td>
+                                    </tr>
+                                    <tr>
+                                      <td width="123" valign="top"><p>部门处理意见： </p></td>
+                                      <td colspan="7" valign="top"><p>
+                                        <input type="text" name="textfield6" id="textfield6">
+                                      </p></td>
+                                    </tr>
+                                    <tr>
+                                      <td width="123" valign="top"><p>办理结果： </p></td>
+                                      <td colspan="7" valign="top"><p>
+                                        <input type="text" name="textfield7" id="textfield7">
+                                      </p></td>
+                                    </tr>
+                                    <tr>
+                                      <td width="123" valign="top"><p>客服人员： </p></td>
+                                      <td colspan="7" valign="top"><p>
+                                        <input type="text" name="textfield8" id="textfield8">
+                                      </p></td>
+                                    </tr>
+                                  </table>
+									
+						      </form>
+							</td>
+						</tr>
+					</table>
+         
+          <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+          <td height="30" align="center"  class="body" >&nbsp;  
+           <input type="button" class="btn" onClick="window.location='../complaintsManage.html'"  value="保存">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" class="btn" onClick="resetClient();" value="重填">
+           </td>
+              </tr>
+          </table>		
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" id="tab" style="DISPLAY: none"
+									height="100%">
+									<tr>
+										<td height="30">
+											<table width="99%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="30" valign="bottom">
+														<table width="99%" border="0" align="center"
+															cellpadding="0" cellspacing="0">
+															<tr>
+																<td  width="90" height="25" align="center"
+																	background="../images/tab_title.jpg" id="tabid1"
+																	class="title0" style="padding-top: 7px">
+																	<a href="#" onClick="javascript:Showtab(1)" >受理信息</a>
+																</td>
+															
+															
+															
+																<td>&nbsp;
+																	
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<td height="2" bgcolor="#4590e1"></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr id="tablm1"  >
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="ClientbookingInfo.html" width="99%" scrolling="yes"
+												frameborder="0" height="99%">
+												</iframe>
+										</td>
+									</tr>
+								
+								
+									
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+	</body>
+</html>
