@@ -1,0 +1,436 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+		
+		<title>广州市自来水综合业务管理平台</title>
+		<script language="JavaScript">
+		function oncli(){
+		  var div1=document.getElementById("tab");
+		        div1.style.display="block";
+		   
+		       // var d=div1.style.display;
+		        //if(d=="block"){
+		          //div1.style.display="none";
+		        //}
+		        //else{
+		          // div1.style.display="block"
+		        //}
+				var cols = window.event.srcElement.parentElement.cells;
+				//document.getElementById("my").value=cols(0).innerText;
+				id = cols(0).innerText;
+				
+		}
+		
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=3; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="images/sj.gif";
+//treePic.src = 'images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+
+//tab选项卡
+var tabnumber=3; 
+
+function tablmyc() { 
+var tabnum; 
+//var treePic; 
+for (i=1;i<=tabnumber;i++) { 
+tabnum = eval('tablm' + i); 
+var tabName='tabid'+ i; 
+document.getElementById(tabName).background="../images/tab_titlebg.jpg";
+document.getElementById(tabName).className="menu";
+tabnum.style.display = 'none'; 
+} 
+} 
+
+function Showtab(i) { 
+tabnum = eval('tablm' + i); 
+var tabName='tabid'+ i;
+if (tabnum.style.display == 'none') { 
+tablmyc(); 
+document.getElementById(tabName).background="../images/tab_title.jpg";
+document.getElementById(tabName).className="title0";
+tabnum.style.display = ''; 
+} 
+
+} 
+    </script>
+	</head>
+	<body>
+		<table width="100%" height="100%" border="0" cellpadding="0"
+			cellspacing="0" bgcolor="#dbecff">
+			<tr>
+				<td height="4" background="../images/bodybg.jpg"></td>
+			</tr>
+			<tr>
+				<td valign="top" height="10">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"
+						height="100%">
+						<tr>
+							<td height="10" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0">
+
+									<tr>
+										<td>
+											<table width="100%" border="0" align="center" cellpadding="0"
+												cellspacing="0" class="title_border">
+												<tr>
+													<td width="19%" height="25" style="text-align: left">
+														<strong>&nbsp;<img align="absmiddle"
+																src="../images/cl0.gif"> </strong><strong>客户订单明细</strong>
+													</td>
+													<td width="81%" height="25" class=body1
+														style="text-align: left">
+														<img src="../images/02a.gif"> 
+														当前位置：销售管理&gt;&gt;客户订单信息 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td height="10" valign="top">
+								<table width="98%" border="0" align="center" cellpadding="0"
+									cellspacing="0" bordercolor="#ebebeb"
+									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
+									<TR>
+										<TD height=25 align="left" class="body" colspan="2">&nbsp; 
+											销售日期：&nbsp;<span class="body"> <input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"> </span>&nbsp;&nbsp; 
+											客户名称&nbsp;<span class="body"> <input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"> </span> 
+											联系人&nbsp;<span class="body"> <input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"> </span>
+											<span style="color: red">*</span>
+										</TD>
+									</TR>
+									<TR>
+									
+									</TR>
+									    <TD height=25 valign="top" class=body>&nbsp;&nbsp;  
+									    制单人：&nbsp;<span class="body"> </span> 
+									      <span class="body">  
+									    <input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"> </span><img width="16" height="16" align="absmiddle" src="../images1/listview.gif" >&nbsp; 采购员：<span class="body">  
+									    <input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"> </span><img width="16" height="16" align="absmiddle" src="../images1/listview.gif" ></TD>
+										<TD height=25 align="right" valign="top" class=body>
+											<input type="button" class="btnl" value="查 询" />
+											<input type="button" class="btnl" value="新增"
+												onclick="window.location='Clienbookinfo.html'" />
+
+										</TD>
+
+								</TABLE>
+							</td>
+						</tr>
+						<tr>
+							<td height="10" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0" bgcolor="#f1f8ff"
+									style="border: 1px solid #2686d2; margin-top: 5px">
+									<tr>
+										<td>
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0">
+												<tr>
+													<td width="189" height="33"
+														background="../images/titleb_01.jpg" class="title1">
+														查询列表
+													</td>
+													<td background="../images/titleb_02.jpg">
+														&nbsp;
+
+													</td>
+													<td width="213" align="right"
+														background="../images/titleb_03.jpg"
+														style="padding-bottom: 10px">
+														&nbsp;&nbsp;
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td valign="top">
+											<table id="tab1" width="98%" border="1" align="center"
+												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
+												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
+												bgcolor="#FFFFFF" style="margin-top: 5px">
+												<tr>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														序
+														<br>
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														日期
+														<br>
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														单号
+														<br>
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														客户名称
+														<br>
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														联系人
+														<br>
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														交货日期
+														<br>
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														数量
+														<br>
+													</td>
+														<td align="center" bgcolor="#F4F5F9" class="body">
+														采购员
+														<br>
+													</td>
+														<td align="center" bgcolor="#F4F5F9" class="body">
+														制单人
+														<br>
+													</td>
+
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														金额
+														<br>
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														执行情况
+														<br>
+													</td>
+
+
+
+
+												</tr>
+												<tr onclick="oncli()" onClick="Showtab(1)"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+													<td class="body">
+														1
+													</td>
+													<td class="body">
+														2010-11-15
+														<br>
+													</td>
+													<td class="body">
+														CF2014788
+														<br>
+													</td>
+													<td class="body">
+														广州交运管
+														<br>
+													</td>
+													<td class="body">
+														李红梅
+														<br>
+													</td>
+													<td align="center" class="user">
+														2010-11-18
+														<br>
+													</td>
+													<td align="center" class="user">
+														100
+														<br>
+													</td>
+													<td align="center" class="user">
+														李四
+														<br>
+													</td>
+													<td align="center" class="user">
+														张五
+														<br>
+													</td>
+													<td align="center" class="user">
+														1000
+														<br>
+													</td>
+													<td align="center" class="user">
+														未执行
+														<br>
+													</td>
+
+
+												</tr>
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+											</table>
+											<table width="99%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="30" align="center" class="body">
+														共有11条主题 共2页 现在是第1页 [首页] [上一页] [下一页] [尾页]&nbsp; 跳转到
+														<select size="1" name=""
+															onChange="viewpage(this.value,this.name);">
+															<option value="t0">
+																第1页
+															</option>
+															<option selected value="t0_1">
+																第2页
+															</option>
+														</select>
+														<script language=javascript>      
+  <!--
+  function viewpage(val,id)
+  {
+  location="produc"+val+".html"}
+  //-->
+                  </script>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0"
+									id="tab" style="DISPLAY: none" height="100%">
+									<tr>
+										<td height="30">
+											<table width="99%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="30" valign="bottom">
+														<table width="99%" border="0" align="center"
+															cellpadding="0" cellspacing="0">
+															<tr>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_title.jpg" id="tabid1"
+																	class="title0" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(1)">销售详细信息</a>
+																</td>
+																<td width="90" align="center"
+																	background="../images/tab_titlebg.jpg" class="menu"
+																	id="tabid2" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(2)">客户信息</a>
+																</td>
+																
+																<td width="90" align="center"
+																	background="../images/tab_titlebg.jpg" class="menu"
+																	id="tabid3" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(3)">库存信息</a>
+																</td>
+
+
+																<td>
+																	&nbsp;
+
+																</td>
+																<td align="right" valign="bottom">
+														<table width="72" border="0" cellspacing="0"
+															cellpadding="0">
+															<tr>
+																<td>
+																	<img src="../images1/btn_01.jpg" width="23" height="19">
+																</td>
+																<td>
+																	<img src="../images1/btn_02.jpg" width="26" height="19">
+																</td>
+																<td>
+																	<img src="../images1/btn_03.jpg" width="23" height="19">
+																</td>
+															</tr>
+														</table>
+													</td>
+															</tr>
+														</table>
+													</td>
+													
+
+												</tr>
+												<tr>
+													<td height="2" bgcolor="#4590e1"></td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr id="tablm1">
+										<td align="center" valign="top" >
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="../distribution/Clienbookinfo.html" width="99%" scrolling="yes"
+												frameborder="0" height="99%">
+											</iframe>
+										</td>
+									</tr>
+									<tr id="tablm2" style="DISPLAY: none">
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="../client/clientInfoone.html" width="99%" scrolling="yes"
+												frameborder="0" height="99%"></iframe>
+										</td>
+									</tr>
+                                     <tr id="tablm3" style="DISPLAY: none">
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="../product1/producCk.html" width="99%" scrolling="yes"
+												frameborder="0" height="99%"></iframe>
+										</td>
+									</tr>
+                                     
+                                     
+                                     
+                                     
+
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+	</body>
+</html>
