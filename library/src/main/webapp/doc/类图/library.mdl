@@ -12,7 +12,7 @@
 	    tool       	"Java"
 	    name       	"IDE"
 	    value      	"Internal Editor"))
-    quid       	"4D63A0470203"
+    quid       	"4D6491130261"
     enforceClosureAutoLoad 	FALSE
     defaults   	(object defaults
 	rightMargin 	0.250000
@@ -38,20 +38,20 @@
 	showClassOfObject 	TRUE
 	notation   	"Unified")
     root_usecase_package 	(object Class_Category "Use Case View"
-	quid       	"4D63A0470205"
+	quid       	"4D6491130263"
 	exportControl 	"Public"
 	global     	TRUE
 	logical_models 	(list unit_reference_list
 	    (object Class_Category "entity"
-		quid       	"4D63A0510242"
+		quid       	"4D64912000BB"
 		exportControl 	"Public"
 		logical_models 	(list unit_reference_list
 		    (object Class "Book"
-			quid       	"4D63A06F001F"))
+			quid       	"4D64912F0271"))
 		logical_presentations 	(list unit_reference_list)))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
-		quid       	"4D63A048033D"
+		quid       	"4D64911701E5"
 		title      	"Main"
 		zoom       	100
 		max_height 	28350
@@ -60,58 +60,28 @@
 		origin_y   	0
 		items      	(list diagram_item_list))))
     root_category 	(object Class_Category "Logical View"
-	quid       	"4D63A0470204"
+	quid       	"4D6491130262"
 	exportControl 	"Public"
 	global     	TRUE
 	subsystem  	"Component View"
-	quidu      	"4D63A0470206"
+	quidu      	"4D6491130264"
 	logical_models 	(list unit_reference_list)
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
-		quid       	"4D63A048033E"
+		quid       	"4D64911701F4"
 		title      	"Main"
 		zoom       	100
 		max_height 	28350
 		max_width  	21600
 		origin_x   	0
 		origin_y   	0
-		items      	(list diagram_item_list
-		    (object ClassView "Class" "Use Case View::entity::Book" @1
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(1344, 700)
-			font       	(object Font
-			    size       	12
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@1
-			    location   	(1214, 618)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	260
-			    justify    	0
-			    label      	"Book")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"4D63A06F001F"
-			width      	278
-			height     	192
-			annotation 	8
-			autoResize 	TRUE)))))
+		items      	(list diagram_item_list))))
     root_subsystem 	(object SubSystem "Component View"
-	quid       	"4D63A0470206"
+	quid       	"4D6491130264"
 	physical_models 	(list unit_reference_list)
 	physical_presentations 	(list unit_reference_list
 	    (object Module_Diagram "Main"
-		quid       	"4D63A048033C"
+		quid       	"4D64911701E4"
 		title      	"Main"
 		zoom       	100
 		max_height 	28350
@@ -120,12 +90,12 @@
 		origin_y   	0
 		items      	(list diagram_item_list)))
 	category   	"Logical View"
-	quidu      	"4D63A0470204")
+	quidu      	"4D6491130262")
     process_structure 	(object Processes
-	quid       	"4D63A0470207"
+	quid       	"4D6491130271"
 	ProcsNDevs 	(list
 	    (object Process_Diagram "Deployment View"
-		quid       	"4D63A0470209"
+		quid       	"4D6491130273"
 		title      	"Deployment View"
 		zoom       	100
 		max_height 	28350
@@ -5904,4 +5874,4 @@
 		tool       	"XML_DTD"
 		name       	"HiddenTool"
 		value      	FALSE))
-	quid       	"4D63A0470208"))
+	quid       	"4D6491130272"))
