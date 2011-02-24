@@ -26,118 +26,70 @@
 							<td valign="top">
 								<form action="" method="post"
 									id="clientInfor" name="clientInfor">
-									<table width="100%" border="1" align="center" cellpadding="0"
-										cellspacing="0" bordercolor="#bcc3c9"
-										borderColorLight="#bcc3c9" borderColorDark="#ffffff"
-										bgcolor="#FFFFFF" style="margin-top: 5px">
-										<tr>
-											<td width="23%" align="right" bgcolor="#F4F5F9">
-												客户姓名:
-											</td>
-											<td align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<input type="text" name="clientName" id="clientName" value="张三"
-													style="border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
-											</td>
-											<td align="right" bgcolor="#F4F5F9">
-												客户类型:
-											</td>
-											<td align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<select id="clientType" name="clientType">
-													<option value="1" selected>
-														个体
-													</option>
-													<option value="2">
-														企业
-													</option>
-												</select>
-											</td>
-										</tr>
-
-										<tr
-											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-											onMouseOut="this.style.backgroundColor='';">
-											<td align="right" bgcolor="#F4F5F9">
-												联系人:
-											</td>
-											<td align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<input type="text" name="linkMan" id="linkMan"
-													style="width: 250px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
-
-											</td>
-											<td align="right" bgcolor="#F4F5F9">
-												电话:
-											</td>
-											<td align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<input type="text" id="phone" name="phone" value="020-3637388"
-													style="width: 150px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
-											</td>
-										</tr>
-
-										<tr
-											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-											onMouseOut="this.style.backgroundColor='';">
-											<td align="right" bgcolor="#F4F5F9">
-												手机:
-											</td>
-											<td align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<input type="text" id="mobilePhone" name="mobilePhone" value="1303434343"
-													style="width: 210px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
-											</td>
-											<td align="right" bgcolor="#F4F5F9">
-												省份:
-											</td>
-											<td align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<select id="provice" name="provice">
-													<option value="广东" selected>
-														广东
-													</option>
-													<option value="广西">
-														广西
-													</option>
-												</select>
-											</td>
-										</tr>
-
-										<tr
-											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-											onMouseOut="this.style.backgroundColor='';">
-											<td align="right" bgcolor="#F4F5F9">
-												城市:
-											</td>
-											<td align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<input type="text" id="city" name="city" value="广州天河躺下村"
-													style="width: 150px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
-											</td>
-											<td align="right" bgcolor="#F4F5F9">
-												区:
-											</td>
-											<td align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<input type="text" id="borough" name="borough" value="白云区"
-													style="width: 150px; border-style: solid; border-color: #bcc3c9; border-width: 1px;" />
-											</td>
-										</tr>
-									
-										<tr  bgcolor="#FAFBFC"
-											onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-											onMouseOut="this.style.backgroundColor='';">
-											<td colspan="2" align="right" bgcolor="#F4F5F9">
-												地址:
-											</td>
-											<td colspan="2" align="left" bgcolor="#F4F5F9"
-												style="padding-left: 50px;">
-												<textarea id="address" name="address"
-													style="width: 500px; border-style: solid; border-color: #bcc3c9; border-width: 1px;"></textarea>
-											</td>
-										</tr>
-									</table>
+								  <table width="65%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
+                                    <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9">读者编号:
+                                        <input name="barcode" type="text" id="barcode" disabled="disabled" value="s001"></td>
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">读者卡号:
+                                        <input name="barcode2" type="text" id="barcode" disabled="disabled" value="080301009"></td>
+                                    </tr>
+                                    <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9">读者姓名:
+                                        <input name="barcode2" type="text" id="barcode" value="huan">
+                                      </td>
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">联系电话:
+                                        <input name="barcode2" type="text" id="barcode" value="13456"></td>
+                                    </tr>
+                                    <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:
+                                        <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
+                                            <option value="1" selected="selected">男</option>
+                                            <option value="-1">女</option>
+                                          </select>
+                                      </td>
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">有效证件:
+                                        <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
+                                            <option value="1" selected="selected">学生证</option>
+                                            <option value="-1">身份证</option>
+                                            <option value="0">驾驶本</option>
+                                          </select>
+                                      </td>
+                                    </tr>
+                                    <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类:
+                                        <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
+                                            <option value="1">学生</option>
+                                            <option value="-1">教师</option>
+                                            <option value="0">临时工</option>
+                                          </select>
+                                      </td>
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">证件号码:
+                                        <input name="Input" type="text" value="080301009" disabled="disabled"></td>
+                                    </tr>
+                                    <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9">拼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音:
+                                        <input name="barcode2" type="text" id="barcode2" value="huan"></td>
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">系及专业:
+                                        <input name="barcode2" type="text" id="barcode" value="待定"></td>
+                                    </tr>
+                                    <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:
+                                        <input name="barcode2" type="text" id="barcode2" value="待定"></td>
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                          <input name="barcode2" type="text" id="barcode" value="huan762252382@163.com" width="80px"></td>
+                                    </tr>
+                                    <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9">卡号密码:
+                                        <input name="barcode2" type="text" id="barcode2" value="admin"></td>
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级:
+                                        <input name="barcode2" type="text" id="barcode" value="待定"></td>
+                                    </tr>
+                                    <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                                      <td width="50%"  align="right" bgcolor="#F4F5F9">简介:</td>
+                                      <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;"><textarea name="textarea"  rows="3" style=" width:500px; border-style:solid; border-color:#bcc3c9; border-width:1px;">liuhuan刘欢加油！</textarea></td>
+                                    </tr>
+                                  </table>
 								</form>
 							</td>
 						</tr>
@@ -146,7 +98,7 @@
           <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
           <td height="30" align="center"  class="body" >&nbsp;  
-           <input type="button" class="btn" onclick="resetClient();" value="更新"> 
+           <input type="button" class="btn" onClick="resetClient();" value="更新"> 
           <input type="button" class="btn"  value="刪除">
           </td>
               </tr>
