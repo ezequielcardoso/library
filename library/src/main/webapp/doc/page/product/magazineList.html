@@ -100,7 +100,7 @@ var tabnum;
 //var treePic; 
 for (i=1;i<=tabnumber;i++) { 
 tabnum = eval('tablm' + i); 
-var tabName='tabid'+ i; 
+var tabName='tabid'+ i;
 document.getElementById(tabName).background="../images/tab_titlebg.jpg";
 document.getElementById(tabName).className="menu";
 tabnum.style.display = 'none'; 
@@ -194,29 +194,13 @@ else{
 											&nbsp;&nbsp;检索方式：
 											           <select size="1" name="">
 															<option value="t0">
-																编号
-															</option>
+																编号															</option>
 															<option selected value="t0_1">
-																条形码
-															</option>
+																条形码															</option>
 															<option value="t0">
-																名称
-															</option>
+																名称															</option>
 															<option selected value="t0_1">
-																二级分类
-															</option>
-															<option value="t0">
-																存放位置
-															</option>
-															<option selected value="t0_1">
-																作者
-															</option>
-															<option value="t0">
-																译者
-															</option>
-															<option selected value="t0_1">
-																来源
-															</option>
+																存放位置															</option>
 														</select>
 											&nbsp;&nbsp;&nbsp;&nbsp; 检索条件：
 											<input name=txtkeyvalue type="text" class="input2"
@@ -227,15 +211,15 @@ else{
 
 											<input type="button" class="btnl" value="查 询">
 											<input type="button" class="btnl"
-												onClick="window.location='modifyProduct.html';"
+												onClick="window.location='modifyMagazine.html';"
 												value="修改">
 											<input name="button" type="button" class="btnl"
-												onClick="window.location='productList.html';"
+												onClick="window.location='magazineList.html';"
 												value="删除">
 											<input type="button" class="btnl"
 												onClick="window.location='addStroage.html';" value="装Excel">
 											<input type="button" class="btnl"
-												onClick="window.location='addProduct.html';" value="增加">										</TD>
+												onClick="window.location='addMagazine.html';" value="增加">										</TD>
 									</TR>
 								</TABLE>
 							</td>
@@ -615,7 +599,7 @@ else{
 									<tr id="tablm1">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="productInfor.html" width="99%" scrolling="yes"
+												src="magazineInfor.html" width="99%" scrolling="yes"
 												frameborder="0" height="99%">
 											</iframe>
 										</td>
@@ -623,7 +607,7 @@ else{
 									<tr id="tablm2" style="DISPLAY: none">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="productStroageListinfo.html" width="99%"
+												src="magazineListinfo.html" width="99%"
 												scrolling="yes" frameborder="0" height="99%">
 											</iframe>
 										</td>
@@ -631,7 +615,7 @@ else{
 									<tr id="tablm3" style="DISPLAY: none">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="../distribution/purveyManager.html" width="99%"
+												src="../distribution/magazineManager.html" width="99%"
 												scrolling="yes" frameborder="0" height="99%">
 											</iframe>
 										</td>
@@ -639,7 +623,7 @@ else{
 									<tr id="tablm4" style="DISPLAY: none">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="../distribution/sellRecordListInfo.html" width="99%"
+												src="../distribution/magazineRecordListInfo.html" width="99%"
 												scrolling="yes" frameborder="0" height="99%">
 											</iframe>
 										</td>
@@ -647,7 +631,7 @@ else{
 									<tr id="tablm5" style="DISPLAY: none">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="../distribution/distributionStatInfo.html" width="99%"
+												src="../distribution/magazineStatInfo.html" width="99%"
 												scrolling="yes" frameborder="0" height="99%">
 											</iframe>
 										</td>
