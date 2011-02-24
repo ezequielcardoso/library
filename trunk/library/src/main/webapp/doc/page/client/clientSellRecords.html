@@ -29,10 +29,14 @@
 											onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 											onMouseOut="this.style.backgroundColor='';">
 										
-											<TD height=25 align="left" valign="top" class=body> 
-											客户名称： <input type="text" name="txtkeyvalue"  id="txtkeyvalue" value="" size="20"> 
-												日期： <input type="text" name="txtkeyvalue" " id="txtkeyvalue" value="" size="20" onClick="WdatePicker();"><span style="color: red">&nbsp;&nbsp;&nbsp;  
-												
+											<TD height=25 align="left" valign="top" class=body>图书名称： 
+											  <input type="text" name="txtkeyvalue"  id="txtkeyvalue" value="" size="20"> 
+												&nbsp;&nbsp;&nbsp;借阅日期：从 
+												<input type="text" name="txtkeyvalue" " id="txtkeyvalue" value="" size="20" onClick="WdatePicker();"> 
+												<span style="color: red">&nbsp;&nbsp;&nbsp;  
+												到:
+												<input type="text" name="txtkeyvalue" " id="txtkeyvalue" value="" size="20" onClick="WdatePicker();"> 
+												<span style="color: red">&nbsp;&nbsp;&nbsp; 
 											</TD>
 											<td>
 											     <input
@@ -56,26 +60,23 @@
 													<tr>
 														<td  align="center" bgcolor="#F4F5F9"
 															class="body">
-															日期
+															图书编号
 														</td>
 														<td  align="center" bgcolor="#F4F5F9"
-															class="body">客户名称</td>
+															class="body">书名</td>
 														<td  align="center" bgcolor="#F4F5F9"
-															class="body">  
-															  
-														职务</td>
+															class="body">作者</td>
 														<td  align="center" bgcolor="#F4F5F9"
-															class="body">产品名称</td>
+															class="body">类型</td>
 														<td  align="center" bgcolor="#F4F5F9"
 															class="body">
-															数量
+															价格
 														</td>
 														<td  align="center" bgcolor="#F4F5F9"
 															class="body"> 
-															金额	<br></td>
+															数量</td>
 														<td  align="center" bgcolor="#F4F5F9"
-															class="body">我方联系人 
-														</td>
+															class="body">目前状态</td>
 														
 														
 														
@@ -85,7 +86,7 @@
 														onMouseOut="this.style.backgroundColor='';">
 
 														<td class="body">
-															2010-10-20
+															A001
 														</td>
 														<td width="27%" class="body">张三 
 														</td>
@@ -100,7 +101,11 @@
 														<td align="center" class="user"> 
 															100000	<br></td>
 														<td align="center" class="user">
-															李四
+														<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
+                                                       </select>
 														</td>
 														
 													</tr>
@@ -109,9 +114,7 @@
 														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 														onMouseOut="this.style.backgroundColor='';">
 
-														<td class="body">
-															2010-10-22
-														</td>
+														<td class="body">A002</td>
 														<td width="27%" class="body">&nbsp;五万 
 														</td>
 														<td width="11%" class="body"> 
@@ -125,16 +128,18 @@
 														<td align="center" class="user"> 
 															1000	<br></td>
 														<td align="center" class="user">
-															李四
+															<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
+                                                            </select>
 														</td>
 														
 													</tr>
 													<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 														onMouseOut="this.style.backgroundColor='';">
 
-														<td class="body"> 
-															2010-10-26 
-														</td>
+														<td class="body">A003</td>
 														<td width="27%" class="body">&nbsp;张三 
 														</td>
 														<td width="11%" class="body"> 
@@ -148,7 +153,11 @@
 														<td align="center" class="user"> 
 															10000	<br></td>
 														<td align="center" class="user">
-															李四
+															<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1">在馆</option>
+															  <option value="2" selected="selected">借出</option>
+                                                       </select>
 														</td>
 														
 													</tr>
