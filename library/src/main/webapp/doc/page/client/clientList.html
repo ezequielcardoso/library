@@ -167,7 +167,53 @@ tabnum.style.display = '';
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 									<TR>
 										<TD height=25 align="left" class="body" >
-											客户姓名:
+					 		      <p>
+									  <label>
+									  <input type="radio" name="RadioGroup2" value="编号">
+									编号</label>
+									  <br>
+									  客户姓名:
+											<span class="body"><input type="text"
+													name="txtkeyvalue" class="input_border1" id="txtkeyvalue"
+													value="" size="20">客户类型<span class="body">：&nbsp;</span>
+											</span>
+											<select name="ddlPayMethod" class="sel_border"
+												id="ddlPayMethod"
+												onchange="SingleDictionaryAdd('../Common/Dictionary/SingleDictionaryAdd.aspx?DTypeID=27',this)">
+												<option value="">
+													请选择
+												</option>
+												<option value="64">
+													个体
+												</option>
+												<option value="65">
+													团体
+												</option>
+												<option value="65">
+													其他
+												</option>
+
+							  </select>
+											<span class="body"><span class="body"> </span>电话：<span
+												class="body"><input type="text" name="txtkeyvalue"
+														class="input_border1" id="txtkeyvalue" value="" size="20">
+											</span> </span>
+											地&nbsp; &nbsp; 址：
+											<span class="body"><input type="text"
+													name="txtkeyvalue" class="input_border1" id="txtkeyvalue"
+													value="" size="20">
+											</span>
+
+											<span style="color: red;"></span>
+										</TD>
+
+									</TR>
+									  <br>
+									  <label>
+									  <input name="RadioGroup2" type="radio" value="条形码" checked>
+									条形码</label>
+	              			</p>
+										客户姓名:
 											<span class="body"><input type="text"
 													name="txtkeyvalue" class="input_border1" id="txtkeyvalue"
 													value="" size="20">客户类型<span class="body">：&nbsp;</span>
