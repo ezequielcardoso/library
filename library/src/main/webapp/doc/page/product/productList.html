@@ -191,32 +191,51 @@ else{
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 									<TR>
 										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;产品编号：
+											&nbsp;&nbsp;检索方式：
+											           <select size="1" name="">
+															<option value="t0">
+																编号
+															</option>
+															<option selected value="t0_1">
+																条形码
+															</option>
+															<option value="t0">
+																名称
+															</option>
+															<option selected value="t0_1">
+																二级分类
+															</option>
+															<option value="t0">
+																存放位置
+															</option>
+															<option selected value="t0_1">
+																作者
+															</option>
+															<option value="t0">
+																译者
+															</option>
+															<option selected value="t0_1">
+																来源
+															</option>
+														</select>
+											&nbsp;&nbsp;&nbsp;&nbsp; 检索条件：
 											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">
-											&nbsp;&nbsp;&nbsp;&nbsp; 产品名称：
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">
-
-
-										</TD>
+												id="txtkeyvalue" value="" size="30">										</TD>
 									</TR>
 									<TR>
 										<TD height=25 align="right" valign="top" class=body>
 
 											<input type="button" class="btnl" value="查 询">
 											<input type="button" class="btnl"
-												onClick="window.location='productBookDocs.html';"
-												value="生成订单">
-											<input type="button" class="btnl"
+												onClick="window.location='modifyProduct.html';"
+												value="修改">
+											<input name="button" type="button" class="btnl"
 												onClick="window.location='addProductExchangeDocs.html';"
-												value="申请调货">
+												value="删除">
 											<input type="button" class="btnl"
-												onClick="window.location='addStroage.html';" value="录入库存">
+												onClick="window.location='addStroage.html';" value="装Excel">
 											<input type="button" class="btnl"
-												onClick="window.location='addProduct.html';" value="增加新产品">
-
-										</TD>
+												onClick="window.location='addProduct.html';" value="增加">										</TD>
 									</TR>
 								</TABLE>
 							</td>
@@ -235,8 +254,8 @@ else{
 														background="../images/titleb_01.jpg" class="title1">
 														查询列表
 													</td>
-													<td background="../images/titleb_02.jpg">
-														&nbsp;
+													<td background="../images/titleb_02.jpg">&nbsp;
+														
 
 													</td>
 													<td width="213" align="right"
@@ -259,34 +278,31 @@ else{
 														<input type="checkbox" id="selectAll" name="selectAll"
 															onClick="selectAll();">
 													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">图书编号</td>
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														产品编号
-													</td>
+														名称													</td>
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														产品名称
+														分类
 													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														规格型号
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														随机配件
-													</td>
-													<td width="19%" align="center" bgcolor="#F4F5F9"
+													<td align="center" bgcolor="#F4F5F9" class="body" width="10%">分类号</td>
+													<td width="10%" align="center" bgcolor="#F4F5F9"
 														class="body">
-														供应商
-													</td>
+														种次号</td>
 													<td width="5%" align="center" bgcolor="#F4F5F9"
 														class="body">
-														颜色
-													</td>
+														存放位置</td>
 													<td width="7%" align="center" bgcolor="#F4F5F9"
 														class="body">
-														库存
-													</td>
+														数量</td>
 													<td width="8%" align="center" bgcolor="#F4F5F9"
 														class="body">
-														存货
-													</td>
+														入库时间</td>
+													<td width="10%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														入库时间</td>
+													<td width="10%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														入库时间</td>		
 													<td width="8%" align="center" bgcolor="#F4F5F9"
 														class="body">
 														状态
@@ -311,8 +327,8 @@ else{
 														F444
 														<br>
 													</td>
-													<td width="21%" class="body">
-														滤芯A+滤芯B+滤芯C
+													<td class="body">
+														abc
 														<br>
 													</td>
 													<td class="body">
@@ -332,7 +348,19 @@ else{
 														<br>
 													</td>
 													<td align="center" class="user">
-														正常
+														354
+														<br>
+													</td>
+													<td align="center" class="user">
+														354
+														<br>
+													</td>
+													<td align="center" class="user">
+														<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
+                                                       </select>
 													</td>
 												</tr>
 												<tr onClick="oncli()"
@@ -359,8 +387,8 @@ else{
 														F430
 														<br>
 													</td>
-													<td width="21%" class="body">
-														滤芯A+滤芯B+滤芯D
+													<td class="body">
+														abc
 														<br>
 													</td>
 													<td class="body">
@@ -380,7 +408,19 @@ else{
 														<br>
 													</td>
 													<td align="center" class="user">
-														正常
+														354
+														<br>
+													</td>
+													<td align="center" class="user">
+														354
+														<br>
+													</td>
+													<td align="center" class="user">
+														<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
+                                                       </select>
 													</td>
 
 												</tr>
@@ -408,8 +448,8 @@ else{
 														F420
 														<br>
 													</td>
-													<td width="21%" class="body">
-														滤芯F+滤芯B+滤芯C
+													<td class="body">
+														abc
 														<br>
 													</td>
 													<td class="body">
@@ -429,7 +469,19 @@ else{
 														<br>
 													</td>
 													<td align="center" class="user">
-														正常
+														354
+														<br>
+													</td>
+													<td align="center" class="user">
+														354
+														<br>
+													</td>
+													<td align="center" class="user">
+														<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
+                                                       </select>
 													</td>
 												</tr>
 												<tr onClick="oncli()"
@@ -454,8 +506,8 @@ else{
 													<td width="5%" class="body" style="color: #FF0000;">
 														F445
 													</td>
-													<td width="21%" class="body" style="color: #FF0000;">
-														滤芯A+滤芯E+滤芯C
+													<td class="body" style="color: #FF0000;">
+														abc
 													</td>
 													<td class="body" style="color: #FF0000;">
 														广州安家净水
@@ -470,8 +522,20 @@ else{
 													<td align="center" class="user" style="color: #FF0000">
 														0
 													</td>
+													<td align="center" class="user">
+														354
+														<br>
+													</td>
+													<td align="center" class="user">
+														354
+														<br>
+													</td>
 													<td align="center" class="user" style="color: #FF0000">
-														缺货
+														<select name="state2">
+															  <option value="0" selected="selected">核审中</option>
+															  <option value="1" >在馆</option>
+															  <option value="2" >借出</option>
+                                                       </select>
 													</td>
 												</tr>
 												<tr onClick="oncli()"
@@ -497,8 +561,8 @@ else{
 													<td width="5%" class="body" style="color: #FF0000">
 														F389
 													</td>
-													<td width="21%" class="body" style="color: #FF0000">
-														滤芯D+滤芯B+滤芯C
+													<td class="body" style="color: #FF0000">
+														abc
 														<br>
 													</td>
 													<td class="body" style="color: #FF0000">
@@ -517,8 +581,20 @@ else{
 														150
 														<br>
 													</td>
+													<td align="center" class="user">
+														354
+														<br>
+													</td>
+													<td align="center" class="user">
+														354
+														<br>
+													</td>
 													<td align="center" class="user" style="color: #FF0000">
-														供不应求
+														<select name="state2">
+															  <option value="0" selected="selected">核审中</option>
+															  <option value="1" >在馆</option>
+															  <option value="2" >借出</option>
+                                                       </select>
 													</td>
 												</tr>
 												<tr onClick="oncli()"
@@ -578,27 +654,27 @@ else{
 																<td width="90" height="25" align="center"
 																	background="../images/tab_title.jpg" id="tabid1"
 																	class="title0" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(1)">产品详细信息</a>
+																	<a href="#" onClick="javascript:Showtab(1)">出版社信息</a>
 																</td>
 																<td width="90" height="25" align="center"
 																	background="../images/tab_titlebg.jpg" id="tabid2"
 																	class="menu" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(2)">产品库存信息</a>
+																	<a href="#" onClick="javascript:Showtab(2)">存放位置</a>
 																</td>
 																<td width="90" height="25" align="center"
 																	background="../images/tab_titlebg.jpg" id="tabid3"
 																	class="menu" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(3)">供应商信息</a>
+																	<a href="#" onClick="javascript:Showtab(3)">图书基本信息</a>
 																</td>
 																<td width="90" height="25" align="center"
 																	background="../images/tab_titlebg.jpg" id="tabid4"
 																	class="menu" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(4)">销售记录</a>
+																	<a href="#" onClick="javascript:Showtab(4)">作者/译者</a>
 																</td>
 																<td width="90" height="25" align="center"
 																	background="../images/tab_titlebg.jpg" id="tabid5"
 																	class="menu" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(5)">销售统计</a>
+																	<a href="#" onClick="javascript:Showtab(5)">图书附件</a>
 																</td>
 																<td align="right" valign="bottom">
 																	         <table width="72" border="0" cellspacing="0"
@@ -623,8 +699,8 @@ else{
 																</td>-->
 
 
-																<td>
-																	&nbsp;
+																<td>&nbsp;
+																	
 
 																</td>
 															</tr>
