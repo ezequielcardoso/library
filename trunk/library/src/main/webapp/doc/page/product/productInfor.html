@@ -123,77 +123,44 @@ function updateProduct(){
 									borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 									bgcolor="#dbecff" style="margin-top:5px">
 									<tr>
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											产品名称:										</td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
+										<td width="25%" align="right" bgcolor="#F4F5F9">
+											库存位置:										</td>
+										<td width="25%" align="left" bgcolor="#F4F5F9"
 											style="padding-left:10px;">
 											<input type="text" name="productName" id="productName"
-												value="N43543 
-"
-												style="width:300px; border-style:solid; border-color:#bcc3c9; border-width:1px;" />										</td>
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											产品类型:										</td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<select id="protype" name="protype"
-												style="border-style:solid; border-color:#bcc3c9; width:200px">
-												<option value="A">
-													类型A												</option>
-												<option value="B">
-													类型B												</option>
-												<option value="C">
-													类型C												</option>
-											</select>										</td>
-									</tr>
+												value="a 124/452"
+												style="width:360px; border-style:solid; border-color:#bcc3c9; border-width:1px;" />										</td>
+																		</tr>
 									<tr>
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											库存:										</td>
+										<td width="20%" align="right" bgcolor="#F4F5F9">入库时间:										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
 											style="padding-left:10px;">
-											<input type="text" size="25" value="12222 
-"/>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="productStroageList.html">库存列表</a>										</td>
-
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											需求量:										</td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<input type="text" size="25" value="354 
-"/>										</td>
+											<input type="text" size="25" value="2010-12-2"/>
+										</td>
 									</tr>
-                                    			<tr>
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											生产日期:										</td>
+                                    <tr>
+										<td width="20%" align="right" bgcolor="#F4F5F9">借出次数:										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
 											style="padding-left:10px;">
-											<input type="text" size="25" value="2010-09-10 
-"/>
+											<input type="text" size="25" value="24"/>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											保修年限:										</td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<input type="text" size="25" value="3"/>年										</td>
-									</tr>
+                                	</tr>
 									<tr bgcolor="#FAFBFC"
 										onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											产品状态:										</td>
+										<td width="20%" align="right" bgcolor="#F4F5F9">目前状态:										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
 											style="padding-left:10px;">
 
 											<select id="state" name="state"
-												style="border-style:solid; border-color:#bcc3c9; width:200px;">
+												style="border-style:solid; border-color:#bcc3c9; width:180px;">
 												<s:if test='state=="1"'>
 													<option value="1" selected>
-														正常供应													</option>
+														核审中													</option>
 													<option value="-1">
-														已经停产													</option>
+														在馆													</option>
 													<option value="0">
-														现在缺货													</option>
+														外借													</option>
 												</s:if>
 												<s:if test='state=="-1"'>
 													<option value="1">
@@ -213,54 +180,15 @@ function updateProduct(){
 												</s:if>
 											</select>										</td>
 
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											供应商:										</td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<input type="text" value="广州华为"
-												style="width:300px; border-style:solid; border-color:#bcc3c9; border-width:1px;" />										</td>
 									</tr>
                                     <tr bgcolor="#FAFBFC"
 										onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											颜色:									  </td>
+										<td width="20%" align="right" bgcolor="#F4F5F9">馆藏数量:									  </td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;"><input type="text" value="红"/></td>
-
-								  <td width="20%" align="right" bgcolor="#F4F5F9">规格型号:										</td>
-								  <td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<input type="text" value="N0003"
-												style="width:300px; border-style:solid; border-color:#bcc3c9; border-width:1px;" />										</td>
+											style="padding-left:10px;"><input type="text" value="8"/></td>
 									</tr>
-                                    <tr>
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											进货价:										</td>
-									  <td width="30%" align="left" bgcolor="#F4F5F9" style="padding-left:10px;"><input type="text" size="25" value="1000 "/></td>
-
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											销售价:										</td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<input type="text" size="25" value="2000
-"/>										</td>
-									</tr>
-									<tr bgcolor="#FAFBFC">
-                                        <td width="20%" align="right" bgcolor="#F4F5F9">
-											随机配件:									  </td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;"><textarea name="fitting" id="fitting" cols="45" rows="3" style=" width:300px; border-style:solid; border-color:#bcc3c9; border-width:1px;">A+B+C</textarea></td>
-										<td width="20%" align="right" bgcolor="#F4F5F9">
-											产品备注:										</td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<textarea  cols="45" rows="3"
-												style=" width:300px; border-style:solid; border-color:#bcc3c9; border-width:1px;">要进货</textarea>										</td>
-                                        
-										
-									</tr>
-								</table>
+                              </table>
 
 						  </td>
 						</tr>
@@ -269,7 +197,7 @@ function updateProduct(){
 						<tr>
 							<td colspan="4" align="center">
 								
-											<input type="button" class="btn" value="保存" />&nbsp;&nbsp;&nbsp;&nbsp;
+											<input type="button" class="btn" value="关闭" />&nbsp;&nbsp;&nbsp;&nbsp;
 											
 											
 							</td>
