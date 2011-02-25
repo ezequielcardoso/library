@@ -1,9 +1,8 @@
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="../include/css/style.css" type="text/css" rel="stylesheet">
-		
-		<title>π„÷› –◊‘¿¥ÀÆ◊€∫œ“µŒÒπ‹¿Ì∆ΩÃ®</title>
+		<title>"ÂπøÊ∞¥Áî®Ê∞¥"ÁªàÁ´ØÊúçÂä°ÁªºÂêà‰∏öÂä°ÁÆ°ÁêÜÂπ≥Âè∞</title>
 		<script language="JavaScript">
 		function test12(i){
 			if(i==1){
@@ -30,7 +29,6 @@
 			
 		
 		}
-		
 		function oncli(){
 		  var div1=document.getElementById("tab");
 		        div1.style.display="block";
@@ -45,7 +43,7 @@
 				var cols = window.event.srcElement.parentElement.cells;
 				//document.getElementById("my").value=cols(0).innerText;
 				id = cols(0).innerText;
-	
+				
 		}
 		
 function fEvent(sType,oInput){
@@ -75,7 +73,7 @@ var lbmc;
 for (i=1;i<=number;i++) { 
 lbmc = eval('LM' + i); 
 var imageName='treePic'+ i; 
-//document.getElementById(imageName).src="images/sj0.gif";
+//document.getElementById(imageName).src="../images/sj0.gif";
 lbmc.style.display = ''; 
 } 
 } 
@@ -88,14 +86,14 @@ LMYC();
 } 
 else
 {
-//document.getElementById(imageName).src="images/sj.gif";
-//treePic.src = 'images/nofile.gif'; 
+//document.getElementById(imageName).src="../images/sj.gif";
+//treePic.src = '../images/nofile.gif'; 
 lbmc.style.display = 'none'; 
 }
 } 
 
-//tab—°œÓø®
-var tabnumber=4; 
+//tabÈÄâÈ°πÂç°
+var tabnumber=5; 
 
 function tablmyc() { 
 var tabnum; 
@@ -120,6 +118,26 @@ tabnum.style.display = '';
 } 
 
 } 
+
+function selectAll()
+{
+var proList=document.getElementsByName("proSelect");
+if(document.getElementById("selectAll").checked==true){
+   
+   for(k=0;k<proList.length;k++)
+   {
+      proList[k].checked=true;
+   }
+}
+else{
+ for(j=0;j<proList.length;j++)
+   {
+      proList[j].checked=false;
+   }
+}
+}
+
+
     </script>
 	</head>
 	<body>
@@ -144,17 +162,25 @@ tabnum.style.display = '';
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
 														<strong>&nbsp;<img align="absmiddle"
-																src="../images/cl0.gif"> </strong><strong>÷ÿµ„øÕªß–≈œ¢¡–±Ì</strong>
+																src="../images/cl0.gif"> ‰∫ßÂìÅ‰ø°ÊÅØ</strong>
 													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
-														<img src="../images/02a.gif"> 
-														µ±«∞Œª÷√£∫øÕªßπ‹¿Ì &gt;&gt;÷ÿµ„øÕªß–≈œ¢ 
+														<img src="../images/02a.gif">
+														ÂΩìÂâç‰ΩçÁΩÆÔºö‰∫ßÂìÅÁÆ°ÁêÜ &gt;&gt;‰∫ßÂìÅ‰ø°ÊÅØ
 													</td>
 												</tr>
 											</table>
 										</td>
 									</tr>
+									<TR>
+										<TD>
+											<table width="98%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+
+											</table>
+										</TD>
+									</TR>
 								</table>
 							</td>
 						</tr>
@@ -163,15 +189,69 @@ tabnum.style.display = '';
 								<table width="98%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-									<TR
-										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
-										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" class="body" colspan="2"> 
-											&nbsp; –’√˚£∫ <span class="body"><input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"></span> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; «¯”Ú£∫<span class="body"><input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; µÿ÷∑£∫<span class="body"><input type="text" name="txtkeyvalue" class="input_border1" id="txtkeyvalue" value="" size="20"></span><span class="body"></span><span style="color: red"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-										  <input type="button" class="btnl" value="≤È —Ø" />
+						  <p>
+									  <label>
+									  <input type="radio" name="RadioGroup2" value="ÂáÜÁ°Æ">
+									ÂáÜÁ°Æ</label>
+									  <br>
+									          <span class="body">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+											<select name="ddlPayMethod" class="sel_border"
+												id="ddlPayMethod"
+												onchange="SingleDictionaryAdd('../Common/Dictionary/SingleDictionaryAdd.aspx?DTypeID=27',this)">
+												<option value="">
+													ÁºñÂè∑
+												</option>
+												<option value="64">
+													Êù°ÂΩ¢Á†Å
+												</option>
+												<option value="65">
+													ÂêçÁß∞
+												</option>
+												<option value="65">
+													Á¥¢‰π¶Âè∑
+												</option>
+												<option value="65">
+													Á±ªÂà´
+												</option>
+												<option value="65">
+													ËØëËÄÖ
+												</option>
+												<option value="65">
+													‰ΩúËÄÖ
+												</option>
+												<option value="65">
+													Êù•Ê∫ê
+												</option>
+
+							  </select>
+											<span class="body"><span class="body"> </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‰∏≠&nbsp;&nbsp;&nbsp;                         Âê´ÊúâÔºö<span
+												class="body"><input type="text" name="txtkeyvalue"
+														class="input_border1" id="txtkeyvalue" value="" size="20">
+											</span> </span>
+											<span style="color: red;"></span>
 										</TD>
-									</TR>
+                           	</TR>
+									  <br>
+									  <label>
+									  <input name="RadioGroup2" type="radio" value="Ê®°Á≥ä" checked>
+									Ê®°Á≥ä</label>
+	              			</p>
+
 									<TR>
+										<TD height=25 align="right" valign="top" class=body>
+
+											<input type="button" class="btnl" value="Êü• ËØ¢">
+											<input type="button" class="btnl"
+												onClick="window.location='modifyProduct.html';"
+												value="‰øÆÊîπ">
+											<input name="button" type="button" class="btnl"
+												onClick="window.location='productList.html';"
+												value="Âà†Èô§">
+											<input type="button" class="btnl"
+												onClick="window.location='addStroage.html';" value="Ë£ÖExcel">
+											<input type="button" class="btnl"
+												onClick="window.location='addProduct.html';" value="Â¢ûÂä†">										</TD>
 									</TR>
 								</TABLE>
 							</td>
@@ -188,10 +268,11 @@ tabnum.style.display = '';
 												<tr>
 													<td width="189" height="33"
 														background="../images/titleb_01.jpg" class="title1">
-														≤È—Ø¡–±Ì
+														Êü•ËØ¢ÂàóË°®
 													</td>
 													<td background="../images/titleb_02.jpg">&nbsp;
 														
+
 													</td>
 													<td width="213" align="right"
 														background="../images/titleb_03.jpg"
@@ -204,219 +285,253 @@ tabnum.style.display = '';
 									</tr>
 									<tr>
 										<td valign="top">
-											<table id="tab1" width="98%" border="1" align="center" cellpadding="0"
-												cellspacing="0" bordercolor="#bcc3c9"
+											<table id="tab1" width="97%" border="1" align="center"
+												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
-												<tr>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														øÕªß±‡∫≈
+												<tr align="center">
+													<td width="4%" class="body">
+														<input type="checkbox" id="selectAll" name="selectAll"
+															onClick="selectAll();">
 													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">Âõæ‰π¶ÁºñÂè∑</td>
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														øÕªß√˚≥∆
+														ÂêçÁß∞													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">ÂàÜÁ±ªÂè∑</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="8%">‰ΩúËÄÖ</td>
+													<td width="8%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														ÁßçÊ¨°Âè∑</td>
+													<td width="7%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														Êï∞Èáè</td>
+													<td width="8%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														ÂÖ•Â∫ìÊó∂Èó¥</td>
+													<td width="8%" align="center" bgcolor="#F4F5F9"
+														class="body">È°µÊï∞</td>
+													<td width="8%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														ÈôÑ‰ª∂</td>		
+													<td width="8%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														Áä∂ÊÄÅ
 													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														øÕªß¿‡–Õ
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														À˘ Ù«¯”Ú
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														Œ“∑Ω∏∫‘»À
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														––“µ∑÷¿‡
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														 ◊“™¡™œµ»À
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														∞Ïπ´µÁª∞
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														µÿ÷∑
-													</td>
+
 
 												</tr>
-												<tr onClick="Showtab(1)"
+												<tr align="center" onDblClick="oncli()"
 													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 													onMouseOut="this.style.backgroundColor='';">
-
-													<td width="11%" class="body">
-														N003
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
 													</td>
-													<td width="27%" class="body">
-														’≈»˝
-													</td>
-													<td width="11%" class="body">
-														÷ÿ“™
-													</td>
-													<td width="9%" class="body">
-														π„÷›ÃÏ∫”
+													<td width="7%" class="body">ES013</td>
+													<td width="16%" class="body">‰∏âÊØõÊµÅÊµ™ËÆ∞<br>
 													</td>
 													<td class="body">
-														¡ıŒ‰
-													</td>
-													<td align="center" class="user">
-														µÁ¡¶
-													</td>
-													<td align="center" class="user">
-														’≈»˝
-													</td>
-													<td align="center" class="user">
-														1303738564
-													</td>
-													<td align="center" class="user">
-														π„÷›∞◊‘∆«¯–°»Àº“
-													</td>
-												</tr>
-												<tr onClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-
-													<td width="11%" class="body">
-														N004
-													</td>
-													<td width="27%" class="body">
-														¿ÓÀƒ
-													</td>
-													<td width="11%" class="body"> 
-														÷ÿ“™	<br></td>
-													<td width="9%" class="body">
-														π„÷›Ã…œ¬¥Â
+														E1000
+														<br>
 													</td>
 													<td class="body">
-														¿ÓÀƒ
+														‰∏âÊØõ</td>
+													<td class="body">
+														A1000</td>
+													<td align="center" class="user">
+														2
+														<br>
 													</td>
 													<td align="center" class="user">
-														ÀÆ¿˚
+														2010-2-2<br>
 													</td>
 													<td align="center" class="user">
-														¿ÓÀƒ
+														98
+														<br>
 													</td>
 													<td align="center" class="user">
-														1303333344
+														Êó†
+														<br>
 													</td>
 													<td align="center" class="user">
-														π„÷›ÃÏ∫”»Ìº˛‘∞
+														<select name="state2">
+															  <option value="0" >Ê†∏ÂÆ°‰∏≠</option>
+															  <option value="1" selected="selected">Âú®È¶Ü</option>
+															  <option value="2" >ÂÄüÂá∫</option>
+                                                       </select>
 													</td>
 												</tr>
 												<tr onClick="oncli()"
 													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 													onMouseOut="this.style.backgroundColor='';">
 
-													<td width="11%" class="body">
-														N005
+
+
+												</tr>
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
 													</td>
-													<td width="27%" class="body">
-														¿Ó∫£±º
+													<td width="7%" class="body">ES014</td>
+													<td width="16%" class="body">
+														‰∏ä‰∏ã‰∫îÂçÉÂπ¥<br>
 													</td>
-													<td width="11%" class="body">
-														÷ÿ“™
-													</td>
-													<td width="9%" class="body">
-														π„÷›∑¨ÿÆ
-													</td>
+													<td width="5%" class="body">E1000</td>
+													<td class="body">‰∏çËØ¶</td>
 													<td class="body">
-														¿ÓÀƒ
+														A1001
+														<br>
 													</td>
 													<td align="center" class="user">
-														Ω®÷˛
+														1<br>
 													</td>
 													<td align="center" class="user">
-														Ã∆Ω–«
+														2010-2-5<br>
 													</td>
 													<td align="center" class="user">
-														1303738564
+														354
+														<br>
 													</td>
 													<td align="center" class="user">
-														∫˛ƒœ
+														cd<br>
+												  </td>
+													<td align="center" class="user">
+														<select name="state2">
+															  <option value="0" >Ê†∏ÂÆ°‰∏≠</option>
+															  <option value="1" selected="selected">Âú®È¶Ü</option>
+															  <option value="2" >ÂÄüÂá∫</option>
+                                                       </select>
 													</td>
+
 												</tr>
 												<tr onClick="oncli()"
 													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 													onMouseOut="this.style.backgroundColor='';">
 
-													<td width="11%" class="body">
-														N006
+
+
+												</tr>
+											  <tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
 													</td>
-													<td width="27%" class="body">
-														’‘π˙±¶
-													</td>
-													<td width="11%" class="body">
-														÷ÿ“™
-													</td>
-													<td width="9%" class="body">
-														π„÷›ÃÏ∫”Ã…œ¬¥Â
-													</td>
-													<td class="body">
-														–‹æßæß
-														<br>
-													</td>
-													<td align="center" class="user">
-														»Ìº˛
-														<br>
-													</td>
-													<td align="center" class="user">
-														–°¡˙
-														<br>
-													</td>
-													<td align="center" class="user">
-														1234343434
-													</td>
-													<td align="center" class="user">
-														π„÷›ÃÏ∫”«¯
-													</td>
+												  <td width="7%" class="body">ES015</td>
+												  <td width="16%" class="body">ÁΩëÁªúÂü∫Á°Ä<br>												  </td>
+												  <td width="5%" class="body">E1001<br>												  </td>
+												  <td class="body">ÈªéÊòé<br>												  </td>
+											    <td class="body">A1000</td>
+												  <td align="center" class="user">
+													  1</td>
+												  <td align="center" class="user">
+													  2010-6-6</td>
+												  <td align="center" class="user">
+													  354
+													  <br>												  </td>
+												  <td align="center" class="user">
+													  Êó†</td>
+												  <td align="center" class="user">
+													  <select name="state2">
+														    <option value="0" >Ê†∏ÂÆ°‰∏≠</option>
+														    <option value="1" selected="selected">Âú®È¶Ü</option>
+														    <option value="2" >ÂÄüÂá∫</option>
+                                                     </select>												  </td>
 												</tr>
 												<tr onClick="oncli()"
 													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 													onMouseOut="this.style.backgroundColor='';">
 
-													<td width="11%" class="body">
-														N007
+
+
+												</tr>
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
 													</td>
-													<td width="27%" class="body">
-														œƒæßæß
-														<br>
-													</td>
-													<td width="11%" class="body"> 
-														÷ÿ“™&nbsp;
-													</td>
-													<td width="9%" class="body">
-														π„÷›ÃÏ∫”
-													</td>
-													<td class="body">
-														–‹æßæß
-														<br>
-													</td>
+													<td width="7%" class="body" style="color: #FF0000;">ES016</td>
+													<td width="16%" class="body" style="color: #FF0000;">
+														Java webÂºÄÂèë</td>
+													<td width="5%" class="body" style="color: #FF0000;">J1000</td>
+													<td class="body" style="color: #FF0000;">
+														Â≠ôÈë´</td>
+													<td class="body" style="color: #FF0000;">B1000</td>
+													<td align="center" class="user" style="color: #FF0000">
+														5</td>
+													<td align="center" class="user" style="color: #FF0000">
+														2012-2-2</td>
 													<td align="center" class="user">
-														∏ˆÃÂ
-														<br>
-													</td>
+														354
+														<br>													</td>
 													<td align="center" class="user">
-														’≈»˝
-														<br>
+														dvd</td>
+													<td align="center" class="user" style="color: #FF0000">
+														<select name="state2">
+															  <option value="0" selected="selected">Ê†∏ÂÆ°‰∏≠</option>
+															  <option value="1" >Âú®È¶Ü</option>
+															  <option value="2" >ÂÄüÂá∫</option>
+                                                       </select>													</td>
+												</tr>
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
 													</td>
+													<td width="7%" class="body" style="color: #FF0000">ES017</td>
+													<td width="16%" class="body" style="color: #FF0000">
+														Êï∞ÊçÆÁªìÊûÑ
+														<br>													</td>
+													<td width="5%" class="body" style="color: #FF0000">J1000</td>
+													<td class="body" style="color: #FF0000">
+														Ë¥µË∂Ö</td>
+													<td class="body" style="color: #FF0000">A1000</td>
+													<td align="center" class="user" style="color: #FF0000">
+														8</td>
+													<td align="center" class="user" style="color: #FF0000">
+														2010-3-3</td>
 													<td align="center" class="user">
-														134538564
-													</td>
+														354
+														<br>													</td>
 													<td align="center" class="user">
-														∫˛ƒœ≥§…≥
-													</td>
+														Êó†</td>
+													<td align="center" class="user" style="color: #FF0000">
+														<select name="state2">
+															  <option value="0" selected="selected">Ê†∏ÂÆ°‰∏≠</option>
+															  <option value="1" >Âú®È¶Ü</option>
+															  <option value="2" >ÂÄüÂá∫</option>
+                                                       </select>													</td>
+												</tr>
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
 												</tr>
 											</table>
 											<table width="99%" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
 													<td height="30" align="center" class="body">
-														π≤”–11Ãı÷˜Ã‚ π≤2“≥ œ÷‘⁄ «µ⁄1“≥ [ ◊“≥] […œ“ª“≥] [œ¬“ª“≥] [Œ≤“≥]&nbsp; Ã¯◊™µΩ
+														ÂÖ±Êúâ11Êù°‰∏ªÈ¢ò ÂÖ±2È°µ Áé∞Âú®ÊòØÁ¨¨1È°µ [È¶ñÈ°µ] [‰∏ä‰∏ÄÈ°µ] [‰∏ã‰∏ÄÈ°µ] [Â∞æÈ°µ]&nbsp; Ë∑≥ËΩ¨Âà∞
 														<select size="1" name=""
 															onChange="viewpage(this.value,this.name);">
 															<option value="t0">
-																µ⁄1“≥
+																Á¨¨1È°µ
 															</option>
 															<option selected value="t0_1">
-																µ⁄2“≥
+																Á¨¨2È°µ
 															</option>
 														</select>
 														<script language=javascript>      
@@ -434,14 +549,14 @@ tabnum.style.display = '';
 								</table>
 							</td>
 						</tr>
-						<tr id="div_yy" style="DISPLAY: none" height="100%">
+							<tr id="div_yy" style="DISPLAY: none" height="100%">
 							<td>
 							</td>
 						</tr>
 						<tr>
 							<td valign="top">
-								<table width="100%" border="0" cellspacing="0" cellpadding="0" id="tab" style="DISPLAY: none"
-									height="100%">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0"
+									id="tab" style="DISPLAY: none" height="100%">
 									<tr>
 										<td height="30">
 											<table width="99%" border="0" align="center" cellpadding="0"
@@ -451,45 +566,58 @@ tabnum.style.display = '';
 														<table width="99%" border="0" align="center"
 															cellpadding="0" cellspacing="0">
 															<tr>
-																<td  width="90" height="25" align="center"
+																<td width="90" height="25" align="center"
 																	background="../images/tab_title.jpg" id="tabid1"
 																	class="title0" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(1)" >øÕªßª˘±æ–≈œ¢</a>
+																	<a href="#" onClick="javascript:Showtab(1)">Â∫ìÂ≠ò‰ø°ÊÅØ</a>
 																</td>
-																<td width="90" align="center"
-																	background="../images/tab_titlebg.jpg" class="menu"
-																	id="tabid2" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(2)">π∫¬Úº«¬º</a>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_titlebg.jpg" id="tabid2"
+																	class="menu" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(2)">Âõæ‰π¶Âü∫Êú¨‰ø°ÊÅØ</a>
 																</td>
-																<td width="90" align="center"
-																	background="../images/tab_titlebg.jpg" class="menu"
-																	id="tabid3" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(3)">¡™œµ»À</a>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_titlebg.jpg" id="tabid3"
+																	class="menu" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(3)">Âá∫ÁâàÁ§æ‰ø°ÊÅØ</a>
 																</td>
-																<td width="90" align="center"
-																	background="../images/tab_titlebg.jpg" class="menu"
-																	id="tabid4" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(4)">œ˙ €∂©µ•</a>
+																<td width="90" height="25" align="center"
+																	background="../images/tab_titlebg.jpg" id="tabid4"
+																	class="menu" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(4)">ÂàÜÁ±ª‰ø°ÊÅØ</a>
 																</td>
-																<td>&nbsp;
-																	
+																<td width="90" height="25" align="center"
+																	background="../images/tab_titlebg.jpg" id="tabid5"
+																	class="menu" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(5)">ÈôÑ‰ª∂‰ø°ÊÅØ</a>
 																</td>
-																	<td align="right" valign="bottom">
-											                     <table width="72" border="0" cellspacing="0"
+																<td align="right" valign="bottom">
+																	         <table width="72" border="0" cellspacing="0"
 															cellpadding="0">
 															<tr>
 																<td>
-																	<img src="../images1/btn_01.jpg" width="23" height="19" onClick="test12(1)" title="Àı–°">
+																	<img src="../images1/btn_01.jpg" width="23" height="19" onClick="test12(1)" title="Áº©Â∞è">
 																</td>
 																<td>
-																	<img src="../images1/btn_02.jpg" width="26" height="19" onClick="test12(2)" title="ªπ‘≠">
+																	<img src="../images1/btn_02.jpg" width="26" height="19" onClick="test12(2)" title="ËøòÂéü">
 																</td>
 																<td>
-																	<img src="../images1/btn_03.jpg" width="23" height="19" onClick="test12(3)" title="∑≈¥Û">
+																	<img src="../images1/btn_03.jpg" width="23" height="19" onClick="test12(3)" title="ÊîæÂ§ß">
 																</td>
 															</tr>
 														</table>
-										                        </td>
+																</td>
+																<!--<td width="90" align="center"
+																	background="../images/tab_titlebg.jpg" class="menu"
+																	id="tabid2" style="padding-top: 5px">
+																	<a href="#" onClick="javascript:Showtab(2)">‰æõÂ∫îÂïÜ‰ø°ÊÅØ</a>
+																</td>-->
+
+
+																<td>&nbsp;
+																	
+
+																</td>
 															</tr>
 														</table>
 													</td>
@@ -500,35 +628,49 @@ tabnum.style.display = '';
 											</table>
 										</td>
 									</tr>
-									<tr id="tablm1"  >
+									<tr id="tablm1">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="addClient.html" width="99%" scrolling="yes"
+												src="productInfor.html" width="99%" scrolling="yes"
 												frameborder="0" height="99%">
-												</iframe>
+											</iframe>
 										</td>
 									</tr>
 									<tr id="tablm2" style="DISPLAY: none">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="clientSellRecords.html" width="99%" scrolling="yes"
-												frameborder="0" height="99%"></iframe>
+												src="productStroageListinfo.html" width="99%"
+												scrolling="yes" frameborder="0" height="99%">
+											</iframe>
 										</td>
 									</tr>
 									<tr id="tablm3" style="DISPLAY: none">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="linkman.html" width="99%" scrolling="yes"
-												frameborder="0" height="99%"></iframe>
+												src="../distribution/purveyManager.html" width="99%"
+												scrolling="yes" frameborder="0" height="99%">
+											</iframe>
 										</td>
 									</tr>
 									<tr id="tablm4" style="DISPLAY: none">
 										<td align="center" valign="top">
 											<iframe name="info" marginwidth="0" marginheight="0"
-												src="distributionOrder.html" width="99%" scrolling="yes"
-												frameborder="0" height="99%"></iframe>
+												src="../distribution/sellRecordListInfo.html" width="99%"
+												scrolling="yes" frameborder="0" height="99%">
+											</iframe>
 										</td>
 									</tr>
+									<tr id="tablm5" style="DISPLAY: none">
+										<td align="center" valign="top">
+											<iframe name="info" marginwidth="0" marginheight="0"
+												src="../distribution/distributionStatInfo.html" width="99%"
+												scrolling="yes" frameborder="0" height="99%">
+											</iframe>
+										</td>
+									</tr>
+								
+
+
 								</table>
 							</td>
 						</tr>
