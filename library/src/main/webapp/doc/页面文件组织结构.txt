@@ -33,7 +33,7 @@ webapp--|
 		  category--|
 			    catetoryTree.html
 			    |
-			    .........
+	******		    .........
 	|
 	images
 	|
