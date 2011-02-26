@@ -1,280 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
-	<head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+<title>广州市自来水综合业务管理平台</title>
+<script type="text/javascript" src="../include/js/datePicker/calendar/WdatePicker.js"></script>
+<script language="JavaScript">
+
+function selectProduct()
+{
+   document.getElementById("selectProduct").style.display="";
+}
+function showDIV()
+{
+	if(document.getElementById("dv_1").style.display=="none"){
+   document.getElementById("dv_1").style.display="";
+   }
+   else{
+   document.getElementById("dv_1").style.display="none";
+   }
+}
+
+
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="../images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="../images/sj.gif";
+//treePic.src = '../images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+var productID=0;
+function productFunc(productId)
+{
+productID=productId;
+var editBTN=document.getElementById("edit");
+var recordBTN=document.getElementById("sellRecord");
+editBTN.disabled="";
+recordBTN.disabled="";
+
+}
+
+
+function editProduct(){
+if(productID!=0){
+var productId=document.getElementById("product_"+productID).value;
+window.location="productCURD!getProduct.action?productId="+productId+"";
+  }
+ else{
+   alert("请先选择要查看的产品！");
+  return false;
+ }
+}
+
+function showSellRecord()
+{
+
+if(productID!=0){
+ 
+//var clientId=document.getElementById("client_"+clientID).value;
+//window.location="sellRecordCURD!qureyClientSellRecords.action?clientId="+clientId+"";  //根据客户编号，查找购买记录
+window.location="sellRecordList.html";  //根据客户编号，查找购买记
+ }
+else{
+  alert("请先选择要查看的产品！");
+ return false;
+ }
+}
+function enterStorage()
+{
+	var selPro=document.getElementsByName("productSelector");
+	var selState=document.getElementsByName("state2");
+	for(i=0;i<selPro.length;i++)
+	{
+	    if(selPro[i].checked==true){
+		selState[i].value=0;
+		}
+	}
+   alert("入库成功！");
+}
+
+
+function outStorage()
+{
+	window.location='productOutStroage.html';
+
+}
+
+function readySelect(num)
+{
+	document.getElementById("TabState"+num).style.display="none";
+    document.getElementById("stroState"+num).style.display="";
+	
+}
+
+function selectRecord(selState)
+{
+	var stateList=document.getElementsByName("state2");
+      for(j=0;j<stateList.length;j++)
+	  {
+	       stateList[j].value=selState;
+	  }
+}
+
+function selectAll(state)
+{
+var products=document.getElementsByName("productSelector");
+if(state==true){
+for(k=0;k<products.length;k++){
+products[k].checked=true;
+}
+}
+else{
+
+for(j=0;j<products.length;j++){
+products[j].checked=false;
+}
+}
+}
+
+function leaveStorage()
+{
+ window.location="productExitStorage.html";
+}
+function backProvider()
+{
+	var selPro=document.getElementsByName("productSelector");
+	var selState=document.getElementsByName("state2");
+	for(i=0;i<selPro.length;i++)
+	{
+	    if(selPro[i].checked==true){
+		selState[i].value=6;
+		}
 		
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-		<link href="../include/css/style.css" type="text/css" rel="stylesheet">
-		<title>����������ˮ�ۺ�ҵ�����ƽ̨</title>
-		<script language="JavaScript">
-		
-		
+	}
+ 
+   alert("退货成功。");
+}
+
 
     </script>
-	</head>
-	<body>
-		<table width="100%"  border="0" cellpadding="0"
-			cellspacing="0" bgcolor="#dbecff">
-			<tr>
-				<td height="4" background="../images/bodybg.jpg"></td>
-			</tr>
-				<tr>
-				<td valign="top" height="10">
-					<table width="100%" border="0" cellpadding="0" cellspacing="0"
-						height="100%">
-						<tr id="yd" style="DISPLAY: block">
-							<td height="10" valign="top">
-								<table width="99%" border="0" align="center" cellpadding="0"
-									cellspacing="0">
+</head>
+<body bgcolor="#dbecff">
+<div   align="center" id="selectProduct" style="padding-top:30%; padding-bottom:30%; background-color:#CCCCCC ; display:none; padding-left:30%; vertical-align:middle; position:absolute; background-position:center; padding-right:30%; left: 131px; top: -274px; width: 160px; height: 82px;">
+<table width="124%">
+<tr><td align="right">产品类型</td>
+<td>
+<select>
+<option>水龙头</option>
+<option>净水器</option>
+<option>配件</option>
+</select>
+</td></tr>
+<tr><td align="right">产品信息</td>
+<td>
+<select>
+<option>A1</option>
+<option>A2</option>
+<option>A3</option>
+<option>A4</option>
+</select>
+</td></tr>
+<tr><td><input type="button" value="确定"/></td><td><input type="button" onclick="document.getElementById('selectProduct').style.display='none';" value="关闭"/></td></tr>
+</table>
+ </div>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbecff">
+  <tr>
+    <td height="4" background="../images/bodybg.jpg"></td>
+  </tr>
+ <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+              <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"   class="title_border">
+                  <tr>
+                    <td width="19%" height="25" style="text-align:left"><strong>&nbsp;<img src="../images/cl0.gif" align="absmiddle"  >库存信息</strong></td>
+                    <td width="81%" height="25"   class=body1 style="text-align:left"><img src="../images/02a.gif"  > 产品管理 &gt;&gt;产品库存</td>
+                  </tr>
+              </table></td>
+            </tr>
+			 <tr>
+            <td><table width="99%" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                  <td width="189" height="25" background="../images/titleb_01.jpg" class="title1">读者信息</td>
+                  <td background="../images/titleb_02.jpg">&nbsp;</td>
+                  <td width="213" align="right" background="../images/titleb_03.jpg" style="padding-bottom:10px">&nbsp;&nbsp;</td>
+                </tr>
+            </table></td>
+          </tr>
+       </table></td>
+      </tr>
+      <tr>
+        <td height="10" valign="top">
+            <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ebebeb"  borderColorLight="#ebebeb"
+	borderColorDark="#ffffff" id="LM1"  >
+              <TR >
+                <TD  style="padding-left:50px;" height=25 align="left" class="body"><strong>读者编号:</strong>
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="60" ><strong>【回车】</strong>
+             
+            </TD>
+              </TR>
+			  
+			     <TR >
+                <TD  style="padding-left:50px;" height=25 align="left" class="body">
+                  读者编号:
+                  &nbsp;<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+				   &nbsp;读者姓名:
+                  &nbsp;<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+                  &nbsp;读者性别:
+                  &nbsp;
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+            </TD>
+			<TD rowspan="4" align="left">
+			  <img src="../images/pic001.gif">
+			</TD>
+              </TR>
+			  
+			   
+			     <TR >
+                <TD  style="padding-left:50px;" height=25 align="left" class="body">
+                  读者类别:
+               
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+				   &nbsp;读者状态:
+                  &nbsp;
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+				  &nbsp;借阅天数:
+                  &nbsp;
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+               
+            </TD>
+              </TR>
+			   
+			     <TR >
+                <TD  style="padding-left:50px;" height=25 align="left" class="body">未还数量:
+                   <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+				   &nbsp;卡内金额:
+                  &nbsp;
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+				  &nbsp;租金:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+               
+            </TD>
+              </TR>
+			   
+			     <TR >
+                <TD  style="padding-left:50px;" height=25 align="left" class="body">累计借阅次数:
+                  &nbsp;
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+				   &nbsp;借阅数量限制:
+                  &nbsp;
+                  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+		          
+            </TD>
+              </TR>
+			   
+			     <TR >
+              
+              </TR>
+	         <TR>
+			  </TR>
+	      </TABLE></td>
+      </tr>
+      <tr>
+        <td valign="top"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:5px">
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="189" height="25" background="../images/titleb_01.jpg" class="title1">借阅列表</td>
+                  <td background="../images/titleb_02.jpg">&nbsp;</td>
+                  <td width="213" align="right" background="../images/titleb_03.jpg" style="padding-bottom:10px">&nbsp;&nbsp;</td>
+                </tr>
+            </table></td>
+          </tr>
+		   
+		    <TR>
+                <TD  align="left" valign="top" class=body>
+                    
+                    <input type="button" class="btnl" value="借出">
+                    <input type="button" class="btnl" value="取消" onclick="enterStorage();">
+                   <input type="button" class="btnl" value="取消全部" onclick="outStorage();">
+               </TD>
+             </TR>
+          <tr>
+            <td valign="top"><table width="98%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  bordercolorlight="#bcc3c9"
+	bordercolordark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
+              <tr>
+                <td width="2%"  align="center" bgcolor="#F4F5F9"><input name="productSel" id="productSel" type="checkbox" onclick="selectAll(this.checked);" /></td>
+                <td width="5%"  align="center" bgcolor="#F4F5F9" class="body">条形码</td>
+                <td width="15%" align="center" bgcolor="#F4F5F9" class="body">类型</td>
+                <td width="8%" align="center" bgcolor="#F4F5F9" class="body">条形码</td>
+                <td width="12%" align="center" bgcolor="#F4F5F9" class="body">规格</td>
+                <td width="16%" align="center" bgcolor="#F4F5F9" class="body">供应商 </td>
+                <td width="3%" align="center" bgcolor="#F4F5F9" class="body">颜色</td>
+                <td width="6%" align="center" bgcolor="#F4F5F9" class="body">录入时间</td>
+                <td width="5%" align="center" bgcolor="#F4F5F9" class="body">入库时间</td>
+                <td width="5%" align="center" bgcolor="#F4F5F9" class="body">出库时间</td>
+                <td width="5%" align="center" bgcolor="#F4F5F9" class="body">退库时间</td>
+                <td width="5%" align="center" bgcolor="#F4F5F9" class="body">退货时间</td>
+                <td width="13%" align="center" bgcolor="#F4F5F9" class="body"><span id="TabState2" onclick="readySelect(2);" nmouseover="this.style.cursor='pointer';">状态</span>
+                <select name="stroState" size="1" id="stroState2" style="display:none" onblur="this.style.display='none'; document.getElementById('TabState2').style.display='';" onchange="selectRecord(this.value)">
+                      <option value="0" >正常</option>
+                      <option value="1" >返修</option>
+                      <option value="2" >出库</option>
+                      <option value="3" >已售</option>
+                      <option value="4" selected="selected">已录入</option>
+                      <option value="5" >退库</option>
+                      <option value="6" >退货</option>
+                    </select>                </td>
+              </tr>
+              
+                <tr align="center" onmouseover="this.style.backgroundColor='#eff1f4';return true;" onmouseout="this.style.backgroundColor='';" style="cursor:pointer">
+                  <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" /></td>
+                 <td width="5%" class="body"  ondblclick="showDIV();"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="10" ><strong>【回车】</strong></td>
+                  <td width="15%" class="body"  ondblclick="showDIV();">滤芯</td>
+                  <td width="8%"  class="body">N.BY00003</td>
+                  <td width="12%"  class="body">&nbsp;</td>
+                  <td width="16%"  class="body" align="center">供应商B</td>
+                  <td  class="body">黄</td>
+                  <td  class="body">2010-10-01 16:30:32</td>
+                  <td  class="body">2010-10-01 17:30:12</td>
+                     <td  class="body">2010-10-01 17:30:12</td>
+                     <td  class="body">2010-10-01 17:30:12</td>
+                  <td  class="body">2010-10-01 17:30:12</td>
+                  <td align="center"  class="user"><select name="state2">
+                       <option value="0" >正常</option>
+                      <option value="1" >返修</option>
+                      <option value="2" >出库</option>
+                      <option value="3" >已售</option>
+                      <option value="4" >已录入</option>
+                      <option value="5" >退库</option>
+                      <option value="6"  selected="selected">退货</option>
+                  </select></td>
+                </tr>
+                <tr align="center" onmouseover="this.style.backgroundColor='#eff1f4';return true;" onmouseout="this.style.backgroundColor='';" style="cursor:pointer">
+                  <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" /></td>
+                  <td width="5%" class="body"  ondblclick="showDIV();"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="10" ><strong>【回车】</strong></td>
+                  <td width="15%" class="body"  ondblclick="showDIV();">滤芯</td>
+                  <td width="8%"  class="body">N.CW00005</td>
+                  <td width="12%"  class="body">&nbsp;</td>
+                  <td width="16%"  class="body" align="center">供应商C</td>
+                  <td  class="body">银白</td>
+                  <td  class="body">2010-10-01 16:30:32</td>
+                  <td  class="body">&nbsp;</td>
+                  <td  class="body">&nbsp;</td>
+                     <td  class="body">&nbsp;</td>
+                  <td  class="body">&nbsp;</td>
+                  <td align="center"  class="user"><select name="state2">
+                      <option value="0" >正常</option>
+                      <option value="1" >返修</option>
+                      <option value="2" >出库</option>
+                      <option value="3" >已售</option>
+                      <option value="4" selected="selected">已录入</option>
+                      <option value="5" >退库</option>
+                      <option value="6" >退货</option>
+                  </select></td>
+                </tr>
+                <tr align="center" onmouseover="this.style.backgroundColor='#eff1f4';return true;" onmouseout="this.style.backgroundColor='';" style="cursor:pointer">
+                  <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" /></td>
+                   <td width="5%" class="body"  ondblclick="showDIV();"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="10" ><strong>【回车】</strong></td>
+                  <td width="15%" class="body"  ondblclick="showDIV();">滤芯</td>
+                  <td width="8%"  class="body">N.AG00006</td>
+                  <td width="12%"  class="body">&nbsp;</td>
+                  <td width="16%"  class="body" align="center">供应商A</td>
+                  <td  class="body">银灰</td>
+                  <td  class="body">2010-10-01 16:30:32</td>
+                  <td  class="body">2010-10-01 17:30:12</td>
+                     <td  class="body">&nbsp;</td>
+                  <td  class="body">&nbsp;</td>
+                  <td  class="body">&nbsp;</td>
+                  <td align="center"  class="user"><select name="state2">
+                      <option value="0" >正常</option>
+                      <option value="1" >返修</option>
+                      <option value="2" >出库</option>
+                      <option value="3" >已售</option>
+                      <option value="4" selected="selected">已录入</option>
+                      <option value="5" >退库</option>
+                      <option value="6" >退货</option>
+                  </select></td>
+                </tr>
+                <tr  align="center" onmouseover="this.style.backgroundColor='#eff1f4';return true;" onmouseout="this.style.backgroundColor='';" style="cursor:pointer">
+                  <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" /></td>
+                  <td width="5%" class="body"  ondblclick="showDIV();"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="10" ><strong>【回车】</strong></td>
+                  <td width="15%" class="body"  ondblclick="showDIV();">滤芯</td>
+                  <td width="8%"  class="body">N.AT00010</td>
+                  <td width="12%"  class="body">&nbsp;</td>
+                  <td width="16%"  class="body" align="center">供应商A</td>
+                  <td  class="body">浅绿</td>
+                  <td  class="body">2010-10-01 16:30:32</td>
+                  <td  class="body">2010-10-01 17:30:12</td>
+                     <td  class="body">2010-10-01 17:30:12</td>
+                  <td  class="body">&nbsp;</td>
+                  <td  class="body">&nbsp;</td>
+                  <td align="center"  class="user"><select name="state3">
+                    <option value="0" >正常</option>
+                    <option value="1" >返修</option>
+                    <option value="2" >出库</option>
+                    <option value="3" selected="selected">已售</option>
+                    <option value="4" >已录入</option>
+                    <option value="5" >退库</option>
+                    <option value="6" >退货</option>
+                  </select></td>
+              </tr>
+                <tr align="center" onmouseover="this.style.backgroundColor='#eff1f4';return true;" onmouseout="this.style.backgroundColor='';" style="cursor:pointer">
+                  <td width="2%" align="center" ><input name="productSelector" id="product_001" type="checkbox" /></td>
+                 <td width="5%" class="body"  ondblclick="showDIV();"><input name=txtkeyvalue2 type="text" class="input2" id="txtkeyvalue2" value="" size="10" />
+                  <strong>【回车】</strong></td>
+                  <td width="15%" class="body"  ondblclick="showDIV();">滤芯</td>
+                  <td width="8%"  class="body">N.AS00009</td>
+                  <td width="12%"  class="body">&nbsp;</td>
+                  <td width="16%"  class="body" align="center">供应商A</td>
+                  <td  class="body">浅蓝</td>
+                  <td  class="body">2010-10-01 16:30:32</td>
+                  <td  class="body">2010-10-01 17:30:12</td>
+                     <td  class="body">2010-10-01 17:30:12</td>
+                  <td  class="body">2010-10-01 17:30:12</td>
+                  <td  class="body">&nbsp;</td>
+                  <td align="center"  class="user"><select name="state2">
+                      <option value="0" >正常</option>
+                      <option value="1" >返修</option>
+                      <option value="2" >出库</option>
+                      <option value="3" >已售</option>
+                      <option value="4" >已录入</option>
+                      <option value="5"  selected="selected">退库</option>
+                      <option value="6" >退货</option>
+                  </select></td>
+              </tr>
+           
+            </table>
+      <div  id="dv_1" style=" margin-top:20px; display:none"> 
+          <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+          <td height="30" align="center"  class="body" >
+          
+           <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbecff">
+  <tr>
+    <td height="4" background="../images/bodybg.jpg"></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+  
+      <tr>
+        <td height="10" valign="top">
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ebebeb"  borderColorLight="#ebebeb"
+	borderColorDark="#ffffff" id="LM1"  >
+              <TR>
+                <TD align="left" class="body">&nbsp;</TD>
+              </TR>
+          </TABLE></td>
+      </tr>
+      <tr>
+        <td valign="top">
+        <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:5px">
+          <tr>
+            <td>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="20"  class="title1"  style="color:#333333; font-size:20px"  align="left" bgcolor="#F4F5F9">图书信息&nbsp;&nbsp;</td>
+                </tr>
+            </table></td>
+          </tr>
+          
+           <form action="" method="post" id="productInfor" name="productInfor">
+          <tr>
+            <td valign="top">
+           
+   <table width="100%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
+              <tr>
+                <td width="20%"  align="right" bgcolor="#F4F5F9">条形码:</td>
+                <td width="30%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;"><input type="text" name="productName" id="productName" value="" style=" width:200px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /></td>
+                 <td width="27%"  align="right" bgcolor="#F4F5F9">图书编号:</td>
+                <td width="73%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">  
+                <select id="protype" name="protype"  style="border-style:solid; border-color:#bcc3c9; width:200px">
+                    <option value="A"> 类型A</option>
+                    <option value="B"> 类型B</option>
+                    <option value="C"> 类型C</option>
+                </select>
+                </td>
+                </tr>
+                 <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="27%"  align="right" bgcolor="#F4F5F9">图书名称:</td>
+                <td width="73%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">  
+            	<input type="text"  size="25"/>
+                </td>
+                 <td width="27%"  align="right" bgcolor="#F4F5F9">图书数量:</td>
+                <td width="73%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">  
+            	<input type="text"  size="25"/>
+                </td>
+                </tr>
+              <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="27%"  align="right" bgcolor="#F4F5F9">图书分类:</td>
+                <td width="73%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">
+                
+                <select id="state" name="state"   style="border-style:solid; border-color:#bcc3c9; width:200px;">
+                <s:if test='state=="1"'>
+                <option value="1" selected>正常供应</option>
+                 <option value="-1">已经停产</option>
+				<option value="0">现在缺货</option>
+                </s:if>
+                   <s:if test='state=="-1"'>
+                <option value="1" >正常供应</option>
+                 <option value="-1" selected>已经停产</option>
+				<option value="0">现在缺货</option>
+                </s:if>
+               <s:if test='state=="0"'>
+                <option value="1" >正常供应</option>
+                 <option value="-1" >已经停产</option>
+				<option value="0" selected>现在缺货</option>
+                </s:if>
+                </select>
+                </td>
+                <td width="27%"  align="right" bgcolor="#F4F5F9">出版社:</td>
+                <td width="73%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;"><input type="text" readonly style="width:200px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /></td>
+                </tr>
+              <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="27%"  align="right" bgcolor="#F4F5F9">图书描述:</td>
+                <td width="73%" colspan="3"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">
+                <textarea style=" width:750px; border-style:solid; border-color:#bcc3c9; border-width:1px;">无</textarea></td>
+                </tr>
+                <tr>
+              <td height="30" colspan="4" class="body1">&nbsp;
+                <input type="button" class="btn" onClick="document.getElementById('dv_1').style.display='none';" value="关闭">
+                &nbsp;
+                </td>
+            </tr>
+            </table>
+          
+             </td>
+          </tr>
+          
+           </form>
+        
+        </table>
+        
+          <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+          <td height="30" align="center"  class="body" >&nbsp;</td>
+              </tr>
+              
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
 
-									<tr>
-										<td>
-											<table width="100%" border="0" align="center" cellpadding="0"
-												cellspacing="0" class="title_border">
-												<tr>
-													<td width="19%" height="25" style="text-align: left">
-														<strong>&nbsp;<img align="absmiddle"
-																src="../images/cl0.gif"> ��Ʒ��Ϣ</strong>
-													</td>
-													<td width="81%" height="25" class=body1
-														style="text-align: left">
-														<img src="../images/02a.gif">
-														��ǰλ�ã���Ʒ���� &gt;&gt;��Ʒ��Ϣ
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
+          </td>
+              </tr>
+          </table> </div>    </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
 
-		<tr  id="yb" style="DISPLAY: block">
-							<td valign="top" height="10">
-								<table width="99%" border="0" align="center" cellpadding="0"
-									cellspacing="0" bgcolor="#f1f8ff"
-									style="border: 1px solid #2686d2; margin-top: 5px">
-									<tr>
-										<td>
-											<table width="100%" border="0" cellspacing="0"
-												cellpadding="0">
-												<tr>
-													<td width="189" height="33"
-														background="../images/titleb_01.jpg" class="title1">
-														��ѯ�б�
-													</td>
-													<td background="../images/titleb_02.jpg">&nbsp;
-														
-
-													</td>
-													<td width="213" align="right"
-														background="../images/titleb_03.jpg"
-														style="padding-bottom: 10px">
-														&nbsp;&nbsp;
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-												<tr>
-							<td height="10" valign="top">
-								<table width="99%" border="0" align="center" cellpadding="0"
-									cellspacing="0" bgcolor="#f1f8ff"
-									style="border: 1px solid #2686d2; margin-top: 5px">
-									<tr>
-										<td valign="top">
-											<table id="tab1" width="98%" border="1" align="center"
-												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
-												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
-												bgcolor="#FFFFFF" style="margin-top: 5px">
-												<tr>
-													<td width="22%" align="center" bgcolor="#F4F5F9" class="body">
-													  <input type="checkBox" />
-													</td>
-											  <td align="center" bgcolor="#F4F5F9" class="body">
-														���
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														��Ʒ����
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">��Ӧ��<br></td>
-
-													<td align="center" bgcolor="#F4F5F9" class="body">ʵ�ʿ�� <br>
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">���ÿ��<br>
-													
-
-												</tr>
-												<tr
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td align="center" class="body">
-														<input type="checkBox" />
-													</td>
-													<td width="21%" class="body">
-														N003													</td>
-											  <td width="25%" class="body">
-														ˮ��ͷ
-														<br>
-													</td>
-													<td width="12%" class="body">
-														N43543
-														<br>
-													</td>
-													<td width="10%" class="body">
-														F444
-														<br>
-													</td>
-													<td width="10%" class="body">
-														334324
-														<br>
-												
-
-
-												</tr>
-												<tr
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td align="center" class="body">
-														<input type="checkBox" />
-													</td>
-													<td width="21%" class="body">
-														N003													</td>
-											  <td width="25%" class="body">
-														ˮ��ͷ
-														<br>
-													</td>
-													<td width="12%" class="body">
-														N43543
-														<br>
-													</td>
-													<td width="10%" class="body">
-														F444
-														<br>
-													</td>
-													<td width="10%" class="body">
-														334324
-														<br>
-												
-
-
-												</tr>
-												<tr
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td align="center" class="body">
-														<input type="checkBox" />
-													</td>
-													<td width="21%" class="body">
-														N003													</td>
-											  <td width="25%" class="body">
-														ˮ��ͷ
-														<br>
-													</td>
-													<td width="12%" class="body">
-														N43543
-														<br>
-													</td>
-													<td width="10%" class="body">
-														F444
-														<br>
-													</td>
-													<td width="10%" class="body">
-														334324
-														<br>
-												
-
-
-												</tr>
-												<tr
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td align="center" class="body">
-														<input type="checkBox" />
-													</td>
-													<td width="21%" class="body">
-														N003													</td>
-											  <td width="25%" class="body">
-														ˮ��ͷ
-														<br>
-													</td>
-													<td width="12%" class="body">
-														N43543
-														<br>
-													</td>
-													<td width="10%" class="body">
-														F444
-														<br>
-													</td>
-													<td width="10%" class="body">
-														334324
-														<br>
-												
-
-
-												</tr>
-												<tr
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td align="center" class="body">
-														<input type="checkBox" />
-													</td>
-													<td width="21%" class="body">
-														N003													</td>
-											  <td width="25%" class="body">
-														ˮ��ͷ
-														<br>
-													</td>
-													<td width="12%" class="body">
-														N43543
-														<br>
-													</td>
-													<td width="10%" class="body">
-														F444
-														<br>
-													</td>
-													<td width="10%" class="body">
-														334324
-														<br>
-												
-
-
-												</tr>
-												<tr
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td align="center" class="body">
-														<input type="checkBox" />
-													</td>
-													<td width="21%" class="body">
-														N003													</td>
-											  <td width="25%" class="body">
-														ˮ��ͷ
-														<br>
-													</td>
-													<td width="12%" class="body">
-														N43543
-														<br>
-													</td>
-													<td width="10%" class="body">
-														F444
-														<br>
-													</td>
-													<td width="10%" class="body">
-														334324
-														<br>
-												</tr>
-
-											</table>
-											
-										</td>
-									</tr>
-								
-								</table>
-							</td>
-						</tr>
-                      </table>
-				</td>
-			</tr>
-		</table>
-
-
-
-	</body>
+</body>
 </html>
