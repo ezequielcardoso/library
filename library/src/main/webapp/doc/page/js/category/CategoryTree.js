@@ -8,7 +8,7 @@ Library.category.tree.CategoryTree = Ext.extend(Ext.tree.TreePanel, {
 	initComponent : function(){
 		
 		Ext.apply(this, {
-			width : 300,
+			width : 350,
 		    height : 500,
 		    autoScroll: true,
 		    animate: true,
