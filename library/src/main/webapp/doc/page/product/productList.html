@@ -161,13 +161,11 @@ else{
 												cellspacing="0" class="title_border">
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
-														<strong>&nbsp;<img align="absmiddle"
-																src="../images/cl0.gif"> 产品信息</strong>
-													</td>
+														<strong>&nbsp;书刊管理</strong>													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
 														<img src="../images/02a.gif">
-														当前位置：产品管理 &gt;&gt;产品信息
+														当前位置：书刊管理 &gt;&gt;图书基本管理
 													</td>
 												</tr>
 											</table>
@@ -186,57 +184,50 @@ else{
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="98%" border="0" align="center" cellpadding="0"
+								<table width="80%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-						  <p>
-									  <label>
-									  <input type="radio" name="RadioGroup2" value="准确">
-									准确</label>
-									  <br>
-									          <span class="body">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-											<select name="ddlPayMethod" class="sel_border"
-												id="ddlPayMethod"
-												onchange="SingleDictionaryAdd('../Common/Dictionary/SingleDictionaryAdd.aspx?DTypeID=27',this)">
-												<option value="">
-													编号
-												</option>
-												<option value="64">
-													条形码
-												</option>
-												<option value="65">
-													名称
-												</option>
-												<option value="65">
-													索书号
-												</option>
-												<option value="65">
-													类别
-												</option>
-												<option value="65">
-													译者
-												</option>
-												<option value="65">
-													作者
-												</option>
-												<option value="65">
-													来源
-												</option>
-
-							  </select>
-											<span class="body"><span class="body"> </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中&nbsp;&nbsp;&nbsp;                         含有：<span
-												class="body"><input type="text" name="txtkeyvalue"
-														class="input_border1" id="txtkeyvalue" value="" size="20">
-											</span> </span>
-											<span style="color: red;"></span>
+						
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 位置：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
 										</TD>
-                           	</TR>
-									  <br>
-									  <label>
-									  <input name="RadioGroup2" type="radio" value="模糊" checked>
-									模糊</label>
-	              			</p>
+									</TR>
+									
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp;编号：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+									
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="barCode"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="barCode"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 条形码：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="bookName"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="bookName"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 书名：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+
 
 									<TR>
 										<TD height=25 align="right" valign="top" class=body>
