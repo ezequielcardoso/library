@@ -123,7 +123,7 @@ function updateProduct(){
 									borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 									bgcolor="#dbecff" style="margin-top:5px">
 									<tr>
-										<td width="25%" align="right" bgcolor="#F4F5F9">图书编号:										</td>
+										<td width="25%" align="right" bgcolor="#F4F5F9">期刊编号:										</td>
 										<td width="25%" align="left" bgcolor="#F4F5F9"
 											style="padding-left:10px;">
 											<input type="text" name="productName" id="productName"
@@ -134,21 +134,35 @@ function updateProduct(){
 										<td width="20%" align="right" bgcolor="#F4F5F9">分类号:										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
 											style="padding-left:10px;">
-											<input type="text" size="25" value="2010-12-2"/>
+											<input type="text" size="25" value="123"/>
 										</td>
 									</tr>
                                     <tr>
-										<td width="20%" align="right" bgcolor="#F4F5F9">种次号:										</td>
+										<td width="20%" align="right" bgcolor="#F4F5F9">二级分类:										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
 											style="padding-left:10px;">
 											<input type="text" size="25" value="24"/>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 	</tr>
 									 <tr>
-										<td width="20%" align="right" bgcolor="#F4F5F9">索书号:										</td>
+										<td width="20%" align="right" bgcolor="#F4F5F9">第几期:										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
 											style="padding-left:10px;">
-											<input type="text" size="25" value="24"/>
+											<input type="text" size="25" value="2"/>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                	</tr>
+									 <tr>
+										<td width="20%" align="right" bgcolor="#F4F5F9">总第几期:										</td>
+										<td width="30%" align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;">
+											<input type="text" size="25" value="5"/>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                	</tr>
+									 <tr>
+										<td width="20%" align="right" bgcolor="#F4F5F9">租金级别:										</td>
+										<td width="30%" align="left" bgcolor="#F4F5F9"
+											style="padding-left:10px;">
+											<input type="text" size="25" value="2"/>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 	</tr>
 									<tr bgcolor="#FAFBFC"
@@ -162,27 +176,11 @@ function updateProduct(){
 												style="border-style:solid; border-color:#bcc3c9; width:180px;">
 												<s:if test='state=="1"'>
 													<option value="1" selected>
-														核审中													</option>
+														秘密													</option>
 													<option value="-1">
-														在馆													</option>
+														机密													</option>
 													<option value="0">
-														外借													</option>
-												</s:if>
-												<s:if test='state=="-1"'>
-													<option value="1">
-														正常供应													</option>
-													<option value="-1" selected>
-														已经停产													</option>
-													<option value="0">
-														现在缺货													</option>
-												</s:if>
-												<s:if test='state=="0"'>
-													<option value="1">
-														正常供应													</option>
-													<option value="-1">
-														已经停产													</option>
-													<option value="0" selected>
-														现在缺货													</option>
+														借阅													</option>
 												</s:if>
 											</select>										</td>
 
