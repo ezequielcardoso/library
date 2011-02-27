@@ -23,6 +23,16 @@ webapp--|
 
 	|
 	module----|
+		  index.html
+		  |
+		  top.html
+		  |
+		  main.html
+		  |
+		  left.html
+		  |
+		  bottom.html
+		  |
 		  book------|
 			    bookList.html
 			    |
@@ -37,13 +47,6 @@ webapp--|
 	|
 	images
 	|
-	index.html/login.html
-	|
-	top.html
-	|
-	main.html
-	|
-	left.html
-	|
-	bottom.html
+	index.html
+	
 
