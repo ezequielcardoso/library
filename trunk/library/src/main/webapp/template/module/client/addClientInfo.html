@@ -1,0 +1,221 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+<title>广州市自来水综合业务管理平台</title>
+<script type="text/javascript" src="../include/js/datePicker/calendar/WdatePicker.js">
+<script language="JavaScript">
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="../images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="../images/sj.gif";
+//treePic.src = '../images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+
+function addFitting()
+{
+  
+	var fitlist=document.productInfor.so;
+	var proFit=document.productInfor.target;
+	 if(fitlist.options.length>0){
+   var optLen=fitlist.selectedIndex;
+   
+    var targetOpt=new Option(fitlist.options[optLen].text);
+	var len=proFit.options.length;
+	proFit.options[len]=targetOpt;
+	}
+	else{
+	  alert("配件库为空，不能添加配件！");
+	}
+}
+
+function outFitting()
+{
+   //  var fitList=document.getElementById("source")	
+	var proFit=document.productInfor.target;
+   if(proFit.options.length>0){
+   var optLen=proFit.selectedIndex;
+	proFit.options[optLen]=null;
+	}
+	else{
+	  alert("产品配件已为空。");
+	}
+	
+}
+
+
+
+
+
+    </script>
+</head>
+<body>
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbecff">
+  <tr>
+    <td height="4" background="../images/bodybg.jpg"></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="10" valign="top"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+          
+            <tr>
+              <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"   class="title_border">
+                  <tr>
+                    <td width="19%" height="25" style="text-align:left"><strong>&nbsp;<img src="../images/cl0.gif" align="absmiddle"  >增加产品</strong></td>
+                    <td width="81%" height="25"   class=body1 style="text-align:left"><img src="../images/02a.gif"  > 当前位置：产品管理 &gt;&gt;增加产品</td>
+                  </tr>
+              </table></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="10" valign="top"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" >
+            <tr>
+              <td height="30" class="body1">&nbsp;
+                <input type="button" class="btn" onClick="alert('新产品添加成功.');window.location='clientList.html'" value="增 加">
+                &nbsp;
+                <input type="button" class="btn" onClick="document.getElementById('productInfor').reset();" value="重填">
+                &nbsp;
+                <input type="button" class="btn"  onClick="window.history.back(-1);" value="返回">
+                </td>
+            </tr>
+          </table>
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ebebeb"  borderColorLight="#ebebeb"
+	borderColorDark="#ffffff" id="LM1"  >
+              <TR>
+                <TD align="left" class="body">&nbsp;</TD>
+              </TR>
+          </TABLE></td>
+      </tr>
+      <tr>
+        <td valign="top">
+        <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:5px">
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="189" height="33" background="../images/titleb_01.jpg" class="title1">&nbsp;</td>
+                  <td background="../images/titleb_02.jpg">&nbsp;</td>
+                  <td width="213" align="right" background="../images/titleb_03.jpg" style="padding-bottom:10px">&nbsp;&nbsp;</td>
+                </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td valign="top">
+            <form action="" method="post" name="productInfor" id="productInfor">
+   <table width="65%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
+              <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="50%"  align="left" bgcolor="#F4F5F9">读者编号: 
+                   <input name="barcode" type="text" id="barcode"></td>
+                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">读者卡号: 
+                  <input name="barcode" type="text" id="barcode"></td>
+		        </tr>
+				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="50%"  align="left" bgcolor="#F4F5F9">读者姓名: 
+                   <input name="barcode" type="text" id="barcode"> </td>
+                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">联系电话: 
+                  <input name="barcode" type="text" id="barcode"></td>
+				</tr>
+				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="50%"  align="left" bgcolor="#F4F5F9">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别: 
+                    <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
+                        <option value="1">男</option>
+                        <option value="-1">女</option>
+                    </select>			     </td>
+                 <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">有效证件: 
+                   <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
+                        <option value="1">学生证</option>
+                        <option value="-1">身份证</option>
+                        <option value="0">驾驶本</option>
+                    </select>				</td>
+				</tr>
+				
+				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="50%"  align="left" bgcolor="#F4F5F9">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类: 
+                    <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
+                        <option value="1">学生</option>
+                        <option value="-1">教师</option>
+                        <option value="0">临时工</option>
+                    </select>			     </td>
+                 <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">证件号码: 
+                 <input name="" type="text" value=""></td>
+				</tr>
+				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="50%"  align="left" bgcolor="#F4F5F9">拼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音:                   
+                   <input name="barcode2" type="text" id="barcode2"></td>
+                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">系及专业: 
+                  <input name="barcode" type="text" id="barcode"></td>
+				</tr>
+				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="50%"  align="left" bgcolor="#F4F5F9">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门:                   
+                   <input name="barcode2" type="text" id="barcode2"></td>
+                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="barcode" type="text" id="barcode"></td>
+				</tr>
+				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="50%"  align="left" bgcolor="#F4F5F9">卡号密码:                   
+                   <input name="barcode2" type="text" id="barcode2" value="admin"></td>
+                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级: 
+                  <input name="barcode" type="text" id="barcode"></td>
+				</tr>
+			  <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="50%"  align="right" bgcolor="#F4F5F9">简介:</td>
+                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">
+                <textarea  rows="3" style=" width:500px; border-style:solid; border-color:#bcc3c9; border-width:1px;"></textarea></td>
+                </tr>
+            </table>
+            </form>
+             </td>
+          </tr>
+        </table>
+         
+          <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td height="30" align="center"  class="body" >&nbsp;</td>
+              </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+</body>
+</html>
