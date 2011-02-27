@@ -122,8 +122,7 @@ tabnum.style.display = '';
 } 
 
 } 
-    </script>
-	</head>
+    </script></head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
 			cellspacing="0" bgcolor="#dbecff">
@@ -146,12 +145,11 @@ tabnum.style.display = '';
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
 														<strong>&nbsp;<img align="absmiddle"
-																src="../images/cl0.gif"> </strong><strong>客户信息列表</strong>
-													</td>
+																src="../images/cl0.gif"> </strong><strong>读者管理</strong></td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
 														<img src="../images/02a.gif">
-														当前位置：客户管理 &gt;&gt;客户信息
+														当前位置：读者管理 &gt;&gt;读者维护
 													</td>
 												</tr>
 											</table>
@@ -162,59 +160,70 @@ tabnum.style.display = '';
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="98%" border="0" align="center" cellpadding="0"
+								<table width="80%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 								
-								  <p>
-									  <label>
-									  <input type="radio" name="RadioGroup2" value="准确">
-									准确</label>
-									  <br>
-									          <span class="body">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户类型：&nbsp;</span>
-											<select name="ddlPayMethod" class="sel_border"
-												id="ddlPayMethod"
-												onchange="SingleDictionaryAdd('../Common/Dictionary/SingleDictionaryAdd.aspx?DTypeID=27',this)">
-												<option value="">
-													--请选择--
-												</option>
-												<option value="64">
-													读者编号
-												</option>
-												<option value="65">
-													读者姓名
-												</option>
-												<option value="65">
-													读者卡号
-												</option>
-												<option value="65">
-													类别
-												</option>
-												<option value="65">
-													证件号码
-												</option>
-												<option value="65">
-													院系
-												</option>
-												<option value="65">
-													班级
-												</option>
-
-							  </select>
-											<span class="body"><span class="body"> </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中&nbsp;&nbsp;&nbsp;                         含有：<span
-												class="body"><input type="text" name="txtkeyvalue"
-														class="input_border1" id="txtkeyvalue" value="" size="20">
-											</span> </span>
-											<span style="color: red;"></span>
+							<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 系：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
 										</TD>
-                           	</TR>
-									  <br>
-									  <label>
-									  <input name="RadioGroup2" type="radio" value="模糊" checked>
-									模糊</label>
-	              			</p>
-								
+									</TR>
+									
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp;专业：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+									
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="barCode"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="barCode"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 班级：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="bookName"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="bookName"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 姓名：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+									
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="bookName"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="bookName"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 读者卡号：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+									
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="bookName"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="bookName"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 读者编号：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+ 
 									<TR align="right">
 										
 										<TD height=25 valign="top" class=body>
@@ -263,29 +272,29 @@ tabnum.style.display = '';
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														客户编号
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
 													</td>
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														客户名称
+														读者编号
 													</td>
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														客户类型
+														读者姓名
 													</td>
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														所属区域
+														性别
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														类别
 													</td>
 
 
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														首要联系人
+														系
 													</td>
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														办公电话
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														地址
-													</td>
+														专业</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">班级</td>
 
 												</tr>
 										
@@ -295,29 +304,154 @@ tabnum.style.display = '';
 													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 													onMouseOut="this.style.backgroundColor='';">
 
-													<td width="11%" class="body">
-														N006
+                                                     <td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
 													</td>
+													 
+													<td width="11%" class="body">
+														080301009</td>
 													<td width="27%" class="body">
-														赵国宝
+														huan
 													</td>
 													<td width="11%" class="body">
-														团体
+														男
 													</td>
-													<td width="9%" class="body">
-														广州天河躺下村
-													</td>
+													<td width="9%" class="body">学生</td>
 													<td class="body">
-														熊晶晶
+														计算机
 														<br>
 													</td>
 
 
 													<td align="center" class="user">
-														1234343434
+														计算机科学与技术
 													</td>
 													<td align="center" class="user">
-														广州天河区
+														五班
+													</td>
+												</tr>
+												
+													<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+                                                     <td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													 
+													<td width="11%" class="body">
+														080301009</td>
+													<td width="27%" class="body">
+														huan
+													</td>
+													<td width="11%" class="body">
+														男
+													</td>
+													<td width="9%" class="body">学生</td>
+													<td class="body">
+														计算机
+														<br>
+													</td>
+
+
+													<td align="center" class="user">
+														计算机科学与技术
+													</td>
+													<td align="center" class="user">
+														五班
+													</td>
+												</tr>
+												
+													<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+                                                     <td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													 
+													<td width="11%" class="body">
+														080301009</td>
+													<td width="27%" class="body">
+														huan
+													</td>
+													<td width="11%" class="body">
+														男
+													</td>
+													<td width="9%" class="body">学生</td>
+													<td class="body">
+														计算机
+														<br>
+													</td>
+
+
+													<td align="center" class="user">
+														计算机科学与技术
+													</td>
+													<td align="center" class="user">
+														五班
+													</td>
+												</tr>
+												
+													<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+                                                     <td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													 
+													<td width="11%" class="body">
+														080301009</td>
+													<td width="27%" class="body">
+														huan
+													</td>
+													<td width="11%" class="body">
+														男
+													</td>
+													<td width="9%" class="body">学生</td>
+													<td class="body">
+														计算机
+														<br>
+													</td>
+
+
+													<td align="center" class="user">
+														计算机科学与技术
+													</td>
+													<td align="center" class="user">
+														五班
+													</td>
+												</tr>
+												
+													<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+                                                     <td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>
+													 
+													<td width="11%" class="body">
+														080301009</td>
+													<td width="27%" class="body">
+														huan
+													</td>
+													<td width="11%" class="body">
+														男
+													</td>
+													<td width="9%" class="body">学生</td>
+													<td class="body">
+														计算机
+														<br>
+													</td>
+
+
+													<td align="center" class="user">
+														计算机科学与技术
+													</td>
+													<td align="center" class="user">
+														五班
 													</td>
 												</tr>
 											
