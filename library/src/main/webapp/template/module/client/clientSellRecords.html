@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="../include/js/datePicker/calendar/WdatePicker.js"></script>
+<title>广州市自来水综合业务管理平台</title>
+<script language="JavaScript">
+
+
+    </script>
+
+
+
+</head>
+
+
+<body>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td height="10" valign="top">
+									
+									<table width="98%" border="0" align="center" cellpadding="0"
+										cellspacing="0" bordercolor="#ebebeb"
+										borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
+										
+										<TR
+											onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
+											onMouseOut="this.style.backgroundColor='';">
+										
+											<TD height=25 align="left" valign="top" class=body>图书名称： 
+											  <input type="text" name="txtkeyvalue"  id="txtkeyvalue" value="" size="20"> 
+												&nbsp;&nbsp;&nbsp;借阅日期：从 
+												<input type="text" name="txtkeyvalue" " id="txtkeyvalue" value="" size="20" onClick="WdatePicker();"> 
+												<span style="color: red">&nbsp;&nbsp;&nbsp;  
+												到:
+												<input type="text" name="txtkeyvalue" " id="txtkeyvalue" value="" size="20" onClick="WdatePicker();"> 
+												<span style="color: red">&nbsp;&nbsp;&nbsp; 
+											</TD>
+											<td>
+											     <input
+														type="button" class="btnl" value="查 询"> 
+											</td>										</TR>
+									</TABLE>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top">
+									<table width="99%" border="0" align="center" cellpadding="0"
+										cellspacing="0" bgcolor="#f1f8ff"
+										style="border: 1px solid #2686d2; margin-top: 5px">
+										
+										<tr>
+											<td valign="top">
+												<table width="98%" border="1" align="center" cellpadding="0"
+													cellspacing="0" bordercolor="#bcc3c9"
+													borderColorLight="#bcc3c9" borderColorDark="#ffffff"
+													bgcolor="#FFFFFF" style="margin-top: 5px">
+													<tr>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">
+															图书编号
+														</td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">书名</td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">作者</td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">类型</td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">
+															价格
+														</td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body"> 
+															数量</td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">目前状态</td>
+														
+														
+														
+													</tr>
+													<tr 
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+														<td class="body">
+															A001
+														</td>
+														<td width="27%" class="body">张三 
+														</td>
+														<td width="11%" class="body"> 
+															经理<br></td>
+														<td width="9%" class="body"> 
+															N003 
+														</td>
+														<td class="body">
+															1000
+														</td>
+														<td align="center" class="user"> 
+															100000	<br></td>
+														<td align="center" class="user">
+														<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
+                                                       </select>
+														</td>
+														
+													</tr>
+													
+													<tr 
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+														<td class="body">A002</td>
+														<td width="27%" class="body">&nbsp;五万 
+														</td>
+														<td width="11%" class="body"> 
+															市场部<br></td>
+														<td width="9%" class="body"> 
+															N004 
+														</td>
+														<td class="body">
+															10
+														</td>
+														<td align="center" class="user"> 
+															1000	<br></td>
+														<td align="center" class="user">
+															<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
+                                                            </select>
+														</td>
+														
+													</tr>
+													<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+														<td class="body">A003</td>
+														<td width="27%" class="body">&nbsp;张三 
+														</td>
+														<td width="11%" class="body"> 
+															开发<br></td>
+														<td width="9%" class="body"> 
+															N005 
+														</td>
+														<td class="body">
+															1
+														</td>
+														<td align="center" class="user"> 
+															10000	<br></td>
+														<td align="center" class="user">
+															<select name="state2">
+															  <option value="0" >核审中</option>
+															  <option value="1">在馆</option>
+															  <option value="2" selected="selected">借出</option>
+                                                       </select>
+														</td>
+														
+													</tr>
+													
+													
+													
+													
+													
+												</table>
+												<table width="99%" border="0" align="center" cellpadding="0"
+													cellspacing="0">
+													<tr>
+														<td height="30" align="center" class="body">
+															共有11条主题 共2页 现在是第1页 [首页] [上一页] [下一页] [尾页]&nbsp; 跳转到
+															<select size="1" name=""
+																onChange="viewpage(this.value,this.name);">
+																<option value="t0">
+																	第1页
+																</option>
+																<option selected value="t0_1">
+																	第2页
+																</option>
+															</select>
+															<script language=javascript>      
+  <!--
+  function viewpage(val,id)
+  {
+  location="produc"+val+".html"}
+  //-->
+                  </script>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+							</tr>
+						</table>
+			
+
+</body>
+</html>
+

@@ -1,0 +1,248 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>广州市自来水综合业务管理平台</title>
+<link href="include/css/style.css" type="text/css" rel="stylesheet">
+<script language="javascript"> 
+<!-- 
+var number=5; 
+
+function LMYC() { 
+var lbmc; 
+var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+var tName='tPic'+ i; 
+document.getElementById(tName).src="images/t02.jpg";
+lbmc.style.display = 'none'; 
+document.getElementById(imageName).style.height='50px';
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+var tName='tPic'+ i; 
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+lbmc.style.display = ''; 
+document.getElementById(tName).src="images/t01.jpg";
+document.getElementById(imageName).style.height='';
+} 
+} 
+//--> 
+</script>
+</head>
+<body>
+    <table width="138" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td height="5"><img src="images/main_05.jpg" width="138" height="5"></td>
+      </tr>
+      <tr>
+        <td height="29" background="images/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1)"><strong>产品管理</strong></a></td>
+            <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1)"><img src="images/t01.jpg" id="tPic1" width="32" height="29"></a></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr id="LM1" >
+        <td valign="top" id="treePic1"><table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="images/main_12.jpg">
+         <tr>
+        <td height="8"><img src="images/main_09.jpg" width="138" height="8"></td>
+      </tr>
+             <tr>
+              <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="product/productList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">产品资料</a></td>
+            </tr>
+          
+            <tr>
+              <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="product/productStroageList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">产品库存</a></td>
+            </tr>
+             <tr>
+              <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="product/productBookList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">产品订货</a></td>
+            </tr> 
+            <tr>
+              <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="product/productResentList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">产品退货</a></td>
+            </tr>
+                      <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="purveyinfo.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">供应商信息</a></td>
+          </tr>
+            <tr>
+              <td>&nbsp;</td>
+          </tr>
+          <tr>
+              <td height="17"><img src="images/main_15.jpg"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="29" background="images/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2)"><strong>客户管理</strong></a></td>
+              <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2)"><img src="images/t02.jpg" id="tPic2" width="32" height="29"></a></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr id="LM2" style="DISPLAY: none">
+        <td style="height:50px" valign="top" id="treePic2"><table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="images/main_12.jpg">
+          <tr>
+            <td height="8"><img src="images/main_09.jpg" width="138" height="8"></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'">
+			<a href="client/clientList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">客户信息</a>
+			
+			</td>
+          </tr>
+		    <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'">
+			<a href="client/importclientList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">团体</a>
+			
+			</td>
+          </tr>
+		   </tr>
+		    <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'">
+			<a href="client/linkmanInfor.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">联系人管理</a>
+			
+			</td>
+          </tr>
+          
+        
+          <!--<tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">增加数据</a></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">增加数据</a></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">增加数据</a></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">增加数据</a></td>
+          </tr>-->
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="17"><img src="images/main_15.jpg"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="29" background="images/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3)"><strong>售后服务管理</strong></a></td>
+              <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3)"><img src="images/t02.jpg" id="tPic3" width="32" height="29"></a></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr id="LM3" style="DISPLAY: none">
+        <td style="height:50px" valign="top" id="treePic3"><table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="images/main_12.jpg">
+          <tr>
+            <td height="8"><img src="images/main_09.jpg" width="138" height="8"></td>
+          </tr>
+            <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="clientFollow.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">客户跟踪</a></td>
+          </tr>
+         <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="builder.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">人员派单</a></td>
+          </tr>
+
+		  
+           <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="clientbooking.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">客户预约</a></td>
+          </tr>
+		     <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="complaintsManage.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">投诉管理</a></td>
+          </tr>
+		  
+         
+          <!--<tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">增加数据</a></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">增加数据</a></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">增加数据</a></td>
+          </tr>-->
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="17"><img src="images/main_15.jpg"></td>
+          </tr>
+        </table></td>
+      </tr>
+       <tr>
+         <td height="29" background="images/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+             <tr>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4)"><strong>销售管理</strong></a></td>
+               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4)"><img src="images/t02.jpg" id="tPic4" width="32" height="29"></a></td>
+             </tr>
+         </table></td>
+       </tr>
+      <tr id="LM4" style="DISPLAY: none">
+        <td style="height:50px" valign="top" id="treePic4"><table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="images/main_12.jpg">
+          <tr>
+            <td height="8"><img src="images/main_09.jpg" width="138" height="8"></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="distribution/sellRecordList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">销售记录</a></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="distribution/Clienbookinfo.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">客户订单</a></td>
+          </tr>
+         <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="compactInfo.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">合同管理</a></td>
+          </tr>
+     <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="shop/shopManage.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">店铺管理</a></td>
+          </tr>
+        
+      
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="17"><img src="images/main_15.jpg"></td>
+          </tr>
+        </table></td>
+      </tr>
+       <tr>
+         <td height="29" background="images/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+             <tr>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5)"><strong>统计分析</strong></a></td>
+               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5)"><img src="images/t02.jpg" id="tPic5" width="32" height="29"></a></td>
+             </tr>
+         </table></td>
+       </tr>
+      <tr id="LM5" style="DISPLAY: none">
+        <td style="height:50px" valign="top" id="treePic5"><table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="images/main_12.jpg">
+          <tr>
+            <td height="8"><img src="images/main_09.jpg" width="138" height="8"></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">销售统计</a></td>
+          </tr>
+          <tr>
+            <td height="26" background="images/main_11.jpg" class="menu" onMouseOver="this.style.background='url(images/main_10.jpg)'" onMouseOut="this.style.background='url(images/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="images/0.gif">业绩统计</a></td>
+          </tr>
+         
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="17"><img src="images/main_15.jpg"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="5"><img src="images/leftbottom.jpg"></td>
+      </tr>
+    </table>
+
+</body>
+</html>
