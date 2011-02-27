@@ -1,0 +1,43 @@
+﻿[{
+    "text": "XX学院",
+    "id": "dept-A",
+    "leaf": false,
+    "cls": "folder",
+    children : [{
+    	"text": "XX系",
+	    "id": "dept-A1",
+	    "leaf": false,
+	    "cls": "folder",
+	    children : [{
+	    	"text": "XX班",
+		    "id": "dept-A11",
+		    "leaf": true,
+		    "cls": "file"
+	    }, {
+	    	"text": "XXX班",
+		    "id": "dept-A12",
+		    "leaf": true,
+		    "cls": "file"
+	    }, {
+	    	"text": "XXX班",
+		    "id": "dept-A11",
+		    "leaf": true,
+		    "cls": "file"
+	    } ]
+    }, {
+    	"text": "XXX系",
+	    "id": "dept-A1",
+	    "leaf": false,
+	    "cls": "file"
+    }]
+}, {
+    "text": "XXX学院",
+    "id": "dept-B",
+    "leaf": false,
+    "cls": "folder"
+}, {
+    "text": "XXXXX学院",
+    "id": "dept-C",
+    "leaf": false,
+    "cls": "folder"
+}]
