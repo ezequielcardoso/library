@@ -186,44 +186,49 @@ else{
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="98%" border="0" align="center" cellpadding="0"
+								<table width="80%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-							  <p>
-									  <label>
-									  <input type="radio" name="RadioGroup2" value="准确">
-									准确</label>
-									  <br>
-									          <span class="body">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-											<select name="ddlPayMethod" class="sel_border"
-												id="ddlPayMethod"
-												onchange="SingleDictionaryAdd('../Common/Dictionary/SingleDictionaryAdd.aspx?DTypeID=27',this)">
-												<option value="">
-													编号
-												</option>
-												<option value="64">
-													条形码
-												</option>
-												<option value="65">
-													名称
-												</option>
-												<option value="65">
-													存放位置
-												</option>
-							  </select>
-											<span class="body"><span class="body"> </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中&nbsp;&nbsp;&nbsp;                         含有：<span
-												class="body"><input type="text" name="txtkeyvalue"
-														class="input_border1" id="txtkeyvalue" value="" size="20">
-											</span> </span>
-											<span style="color: red;"></span>
+							<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 位置：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
 										</TD>
-                           	</TR>
-									  <br>
-									  <label>
-									  <input name="RadioGroup2" type="radio" value="模糊" checked>
-									模糊</label>
-	              			</p>									<TR>
+									</TR>
+									
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp;编号：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+									
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="barCode"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="barCode"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 条形码：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+
+									<TR>
+										<TD height=25 align="left" class="body">
+											<INPUT type=radio CHECKED value=1 name="bookName"> <LABEL for=radio3>模糊</LABEL> 
+											<INPUT type=radio value=2 name="bookName"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;&nbsp; 书名：
+											<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="30">
+										</TD>
+									</TR>
+									<TR>
 										<TD height=25 align="right" valign="top" class=body>
 
 											<input type="button" class="btnl" value="查 询">
@@ -333,7 +338,7 @@ else{
 														<br>
 													</td>
 													<td align="center" class="user">
-														无
+														
 														<br>
 													</td>
 													<td align="center" class="user">
@@ -378,7 +383,8 @@ else{
 														<br>
 													</td>
 													<td align="center" class="user">
-														cd<br>
+														  <img src="../images/cd.png">
+													<br>
 												  </td>
 													<td align="center" class="user">
 														<select name="state2">
@@ -415,7 +421,7 @@ else{
 													  354
 													  <br>												  </td>
 												  <td align="center" class="user">
-													  无</td>
+													  </td>
 												  <td align="center" class="user">
 													  <select name="state2">
 														    <option value="0" >核审中</option>
@@ -451,7 +457,8 @@ else{
 														354
 														<br>													</td>
 													<td align="center" class="user">
-														dvd</td>
+														  <img src="../images/cd.png">
+													<br></td>
 													<td align="center" class="user" style="color: #FF0000">
 														<select name="state2">
 															  <option value="0" selected="selected">核审中</option>
@@ -488,7 +495,7 @@ else{
 														354
 														<br>													</td>
 													<td align="center" class="user">
-														无</td>
+														<br></td>
 													<td align="center" class="user" style="color: #FF0000">
 														<select name="state2">
 															  <option value="0" selected="selected">核审中</option>
