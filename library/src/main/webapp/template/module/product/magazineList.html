@@ -186,24 +186,20 @@ else{
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="80%" border="0" align="center" cellpadding="0"
+								<table width="96%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-							<TR>
+							     <TR>
 										<TD height=25 align="left" class="body">
 											<INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
 											<INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
-											&nbsp;&nbsp;&nbsp;&nbsp; 条形码：
+											&nbsp;&nbsp;&nbsp;&nbsp;条形码：
 											<input name=txtkeyvalue type="text" class="input2"
 												id="txtkeyvalue" value="" size="30">
-										</TD>
-									</TR>
-									
-									<TR>
-										<TD height=25 align="left" class="body">
+									    	&nbsp;&nbsp;&nbsp;&nbsp;
 											<INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL> 
 											<INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
-											&nbsp;&nbsp;&nbsp;&nbsp;编号：
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编号：
 											<input name=txtkeyvalue type="text" class="input2"
 												id="txtkeyvalue" value="" size="30">
 										</TD>
@@ -213,23 +209,18 @@ else{
 										<TD height=25 align="left" class="body">
 											<INPUT type=radio CHECKED value=1 name="barCode"> <LABEL for=radio3>模糊</LABEL> 
 											<INPUT type=radio value=2 name="barCode"> <LABEL for=radio4>精确</LABEL>
-											&nbsp;&nbsp;&nbsp;&nbsp; 名称：
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名称：
 											<input name=txtkeyvalue type="text" class="input2"
 												id="txtkeyvalue" value="" size="30">
-										</TD>
-									</TR>
-
-									<TR>
-										<TD height=25 align="left" class="body">
-											<INPUT type=radio CHECKED value=1 name="bookName"> <LABEL for=radio3>模糊</LABEL> 
-											<INPUT type=radio value=2 name="bookName"> <LABEL for=radio4>精确</LABEL>
-											&nbsp;&nbsp;&nbsp;&nbsp;存放位置：
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<INPUT type=radio CHECKED value=1 name="bookName"> <LABEL for=radio3>模糊</LABEL>                                       		<INPUT type=radio value=2 name="bookName"> <LABEL for=radio4>精确</LABEL>
+											&nbsp;&nbsp;&nbsp;存放位置：
 											<input name=txtkeyvalue type="text" class="input2"
 												id="txtkeyvalue" value="" size="30">
 										</TD>
 									</TR>
 									<TR>
-										<TD height=25 align="right" valign="top" class=body>
+										<TD height=25 align="left" valign="top" class=body>
 
 											<input type="button" class="btnl" value="查 询">
 											<input type="button" class="btnl"
@@ -239,9 +230,16 @@ else{
 												onClick="window.location='magazineList.html';"
 												value="删除">
 											<input type="button" class="btnl"
-												onClick="window.location='addStroage.html';" value="装Excel">
+												onClick="window.location='addMagazine.html';" value="增加">	
 											<input type="button" class="btnl"
-												onClick="window.location='addMagazine.html';" value="增加">										</TD>
+												onClick="window.location='addMagazine.html';" value="导入期刊">		
+											<input type="button" class="btnl"
+												onClick="window.location='addStroage.html';" value="转成Excel">
+												<input type="button" class="btnl"
+												onClick="window.location='addStroage.html';" value="期刊标签">
+											<input type="button" class="btnl"
+												onClick="window.location='addStroage.html';" value="打印条形码">	
+																				</TD>
 									</TR>
 								</TABLE>
 						
