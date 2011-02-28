@@ -1,9 +1,10 @@
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="include/css/style.css" type="text/css" rel="stylesheet">
-		<link href="include1/css/style.css" type="text/css" rel="stylesheet">
-		<title>����������ˮ�ۺ�ҵ�����ƽ̨</title>
+		<title>"广水用水"终端服务综合业务管理平台</title>
+	    <script type="text/javascript" src="include/js/datePicker/calendar/WdatePicker.js">
+        </script>
 		<script language="JavaScript">
 		function test12(i){
 			if(i==1){
@@ -93,8 +94,8 @@ lbmc.style.display = 'none';
 }
 } 
 
-//tabѡ�
-var tabnumber=2; 
+//tab选项卡
+var tabnumber=5; 
 
 function tablmyc() { 
 var tabnum; 
@@ -119,19 +120,39 @@ tabnum.style.display = '';
 } 
 
 } 
+
+function selectAll()
+{
+var proList=document.getElementsByName("proSelect");
+if(document.getElementById("selectAll").checked==true){
+   
+   for(k=0;k<proList.length;k++)
+   {
+      proList[k].checked=true;
+   }
+}
+else{
+ for(j=0;j<proList.length;j++)
+   {
+      proList[j].checked=false;
+   }
+}
+}
+
+
     </script>
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
 			cellspacing="0" bgcolor="#dbecff">
-				<tr id="ye" style="DISPLAY: block">
+			<tr id="ye" style="DISPLAY: block">
 				<td height="4" background="images/bodybg.jpg"></td>
 			</tr>
 			<tr>
 				<td valign="top" height="10">
 					<table width="100%" border="0" cellpadding="0" cellspacing="0"
 						height="100%">
-							<tr id="yd" style="DISPLAY: block">
+						<tr id="yd" style="DISPLAY: block">
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
@@ -142,45 +163,80 @@ tabnum.style.display = '';
 												cellspacing="0" class="title_border">
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
-														<strong>&nbsp;<img align="absmiddle" src="images/cl0.gif"> ��Ӧ�̹���</strong><strong></strong>  
+														<strong>&nbsp;<img align="absmiddle"
+																src="images/cl0.gif"> 书刊管理</strong>
 													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
-														<img src="images/02a.gif">    
-														��ǰλ�ã���Ʒ����&gt;&gt;<strong>��Ӧ��</strong>��¼     
+														<img src="images/02a.gif">
+														当前位置：书刊管理 &gt;&gt;图书入库统计
 													</td>
 												</tr>
 											</table>
 										</td>
 									</tr>
+									<TR>
+										<TD>
+											<table width="98%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+
+											</table>
+										</TD>
+									</TR>
 								</table>
 							</td>
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="98%" border="0" align="center" cellpadding="0"
+								<table width="80%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-									<TR
+									
+									
+									 <TR
+										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
+										onMouseOut="this.style.backgroundColor='';">
+									   <TD height=25 align="left" class="body">
+										     &nbsp;&nbsp;入库登记时间从：
+                                            <input name="" type="text" style="width:200px; border-style:solid; border-color:#bcc3c9; border-width:1px;"  value="2010-2-2" onClick="WdatePicker();" >
+			                           </TD>
+									 </TR>
+								
+									   <TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
 										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;�ؼ��֣�
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">
-											<span style="color: red">*</span>
-										</TD>
+								        </TD>
 									</TR>
-									<TR
+
+									
+									  <TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" valign="top" class=body>
-											������Χ��
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">
-											<span style="color: red">*&nbsp;&nbsp;&nbsp;&nbsp; <input
-													type="button" class="btnl" value="�� ѯ"> </span>
-											<input type="button" class="btnl" value="�� ��">
+										<TD height=25 align="center" class="body">
+										  	到： <input name="" type="text" style="width:200px; border-style:solid; border-color:#bcc3c9; border-width:1px;"  value="2010-2-2" onClick="WdatePicker();" >
+				                        </TD>
+									</TR>
+                                     
+								
+                                	<TR>
+										<TD height=25 align="left" class="body">
+											
+									    </TD>
+									</TR>
+                                
+									<TR>
+										<TD height=25 align="right" valign="top" class=body>
+
+											<input type="button" class="btnl" value="统 计">
+											<input type="button" class="btnl"
+												onClick="window.location='addProductExchangeDocs.html';"
+												value="转excel">
+											<input type="button" class="btnl"
+												onClick="window.location='modifyPress.html';" value="打 印">
+											<input type="button" class="btnl"
+												onClick="window.location='addPress.html';" value="关 闭">
+
 										</TD>
 									</TR>
 								</TABLE>
@@ -198,10 +254,11 @@ tabnum.style.display = '';
 												<tr>
 													<td width="189" height="33"
 														background="images/titleb_01.jpg" class="title1">
-														��ѯ�б�
+														查询列表
 													</td>
 													<td background="images/titleb_02.jpg">&nbsp;
 														
+
 													</td>
 													<td width="213" align="right"
 														background="images/titleb_03.jpg"
@@ -214,72 +271,455 @@ tabnum.style.display = '';
 									</tr>
 									<tr>
 										<td valign="top">
-											<table id="tab1" width="98%" border="1" align="center" cellpadding="0"
-												cellspacing="0" bordercolor="#bcc3c9"
+											<table id="tab1" width="97%" border="1" align="center"
+												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
-												<tr>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body"> 
-															���	<br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body">����</td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body">   
-															   
-														��ϵ��<br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body">�绰<br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body"> 
-															E-Mail <br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body">  
-															QQ <br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body">�ҷ���ϵ�� 
-														</td>
+												<tr align="center">
+													<td align="center" bgcolor="#F4F5F9" class="body" width="7%">
+														编号
+													</td>
+													<td align="center"  width="7%" bgcolor="#F4F5F9" class="body">条形码</td>
+													<td align="center" width="17%" bgcolor="#F4F5F9" class="body">名称</td>
+													<td align="center" width="10%" bgcolor="#F4F5F9" class="body">
+														分类</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														存放位置</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">
+														出版社</td>
+														<td align="center" bgcolor="#F4F5F9" class="body" width="5%">
+														数量</td>
+														<td align="center" bgcolor="#F4F5F9" class="body" width="5%">
+														价格</td>
+														<td align="center" bgcolor="#F4F5F9" class="body">
+														入库时间</td>
+														<td align="center" bgcolor="#F4F5F9" class="body" width="15%">
+														登记人</td>
+											 	</tr>
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
 														
-														
-														
-													</tr>
-													<tr onClick="oncli()"
-														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-														onMouseOut="this.style.backgroundColor='';">
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
 
-														<td class="body"> 
-															2000	<br></td>
-														<td width="27%" class="body">���� 
-														</td>
-														<td width="11%" class="body"> 
-															����<br></td>
-														<td width="9%" class="body">  
-															124633323	<br></td>
-														<td class="body"> 
-															sunjunha@sina.com	<br></td>
-														<td align="center" class="user">  
-															383838438 <br></td>
-														<td align="center" class="user">
-															����
-														</td>
+
+
+												</tr>
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
 														
-													</tr>
-													
-													
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
 												
+												
+												
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+												
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+														
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
+											
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+												
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+														
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+											 		<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+														
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
+											   	
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+														<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+														
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
+											   	
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+														<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+														
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
+											   	
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+														<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+														
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
+											   	
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+														<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+														
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
+											   	
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+														<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+														
+														A001<br>
+													</td>
+													<td class="body">
+														7-5336
+														<br>
+													</td>
+													<td  class="body">
+														高等数学
+														<br>
+													</td>
+													<td  class="body">
+														数学</td>
+													<td  class="body">
+														A区 3号柜 </td>
+													<td  class="body">
+														安徽教育出版社
+														<br>
+													</td>
+													<td  class="body">
+														3</td>
+													<td  class="body">
+														56</td>
+													<td  class="body">
+														2010-2-2</td>
+													<td  class="body">
+														huan</td>
+												</tr>
+											
+											   	
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
 											</table>
 											<table width="99%" border="0" align="center" cellpadding="0"
 												cellspacing="0">
 												<tr>
 													<td height="30" align="center" class="body">
-														����11������ ��2ҳ �����ǵ�1ҳ [��ҳ] [��һҳ] [��һҳ] [βҳ]&nbsp; ��ת��
+														共有11条主题 共2页 现在是第1页 [首页] [上一页] [下一页] [尾页]&nbsp; 跳转到
 														<select size="1" name=""
 															onChange="viewpage(this.value,this.name);">
 															<option value="t0">
-																��1ҳ
+																第1页
 															</option>
 															<option selected value="t0_1">
-																��2ҳ
+																第2页
 															</option>
 														</select>
 														<script language=javascript>      
@@ -301,80 +741,7 @@ tabnum.style.display = '';
 							<td>
 							</td>
 						</tr>
-						<tr>
-							<td valign="top">
-								<table width="100%" border="0" cellspacing="0" cellpadding="0" id="tab" style="DISPLAY: none"
-									height="100%">
-									<tr>
-										<td height="30">
-											<table width="99%" border="0" align="center" cellpadding="0"
-												cellspacing="0">
-												<tr>
-													<td height="30" valign="bottom">
-														<table width="99%" border="0" align="center"
-															cellpadding="0" cellspacing="0">
-															<tr>
-																<td  width="90" height="25" align="center"
-																	background="images/tab_title.jpg" id="tabid1"
-																	class="title0" style="padding-top: 7px">
-																	<a href="#" onClick="javascript:Showtab(1)" >��Ӧ����Ϣ</a>
-																</td>
-																<!--<td width="90" align="center"
-																	background="images/tab_titlebg.jpg" class="menu"
-																	id="tabid2" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(2)">��ϵ��¼</a>
-																</td>-->
-															
-															
-																<td>&nbsp;
-																	
-																</td>
-																		<td align="right" valign="bottom">
-											                     <table width="72" border="0" cellspacing="0"
-															cellpadding="0">
-															<tr>
-																<td>
-																	<img src="images1/btn_01.jpg" width="23" height="19" onClick="test12(1)" title="��С">
-																</td>
-																<td>
-																	<img src="images1/btn_02.jpg" width="26" height="19" onClick="test12(2)" title="��ԭ">
-																</td>
-																<td>
-																	<img src="images1/btn_03.jpg" width="23" height="19" onClick="test12(3)" title="�Ŵ�">
-																</td>
-															</tr>
-														</table>
-										                        </td>
-															</tr>
-														</table>
-													</td>
-												</tr>
-												<tr>
-													<td height="2" bgcolor="#4590e1"></td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr id="tablm1"  >
-										<td align="center" valign="top">
-											<iframe name="info" marginwidth="0" marginheight="0"
-												src="sellRecordInfor.html" width="99%" scrolling="yes"
-												frameborder="0" height="99%">
-												</iframe>
-										</td>
-									</tr>
-									<tr id="tablm2" style="DISPLAY: none">
-										<td align="center" valign="top">
-											<iframe name="info" marginwidth="0" marginheight="0"
-												src="sellRecordInfor.html" width="99%" scrolling="yes"
-												frameborder="0" height="99%"></iframe>
-										</td>
-									</tr>
-								
-									
-								</table>
-							</td>
-						</tr>
+						
 					</table>
 				</td>
 			</tr>
