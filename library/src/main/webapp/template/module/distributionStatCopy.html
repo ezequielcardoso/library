@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-		<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+		<link href="include/css/style.css" type="text/css" rel="stylesheet">
 		<title>广州市自来水综合业务管理平台</title>
 		<script language="JavaScript">
 		function test12(i){
@@ -112,7 +112,7 @@ tabnum = eval('tablm' + i);
 var tabName='tabid'+ i;
 if (tabnum.style.display == 'none') { 
 tablmyc(); 
-document.getElementById(tabName).background="../images/tab_title.jpg";
+document.getElementById(tabName).background="images/tab_title.jpg";
 document.getElementById(tabName).className="title0";
 tabnum.style.display = ''; 
 } 
@@ -124,7 +124,7 @@ tabnum.style.display = '';
 		<table width="100%" height="100%" border="0" cellpadding="0"
 			cellspacing="0" bgcolor="#dbecff">
 			<tr id="ye" style="DISPLAY: block">
-				<td height="4" background="../images/bodybg.jpg"></td>
+				<td height="4" background="images/bodybg.jpg"></td>
 			</tr>
 			<tr>
 				<td valign="top" height="10">
@@ -141,11 +141,12 @@ tabnum.style.display = '';
 												cellspacing="0" class="title_border">
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
-														<strong>&nbsp;<img align="absmiddle" src="../images/cl0.gif">书刊管理</strong><strong></strong>													</td>
+														<strong>&nbsp;<img align="absmiddle" src="images/cl0.gif">读者管理</strong><strong></strong>													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
-														<img src="../images/02a.gif">      
-														当前位置：书刊管理&gt;&gt;图书密级													</td>
+														<img src="images/02a.gif">      
+														当前位置：读者管理&gt;&gt;读者类别      
+													</td>
 												</tr>
 											</table>
 										</td>
@@ -155,47 +156,60 @@ tabnum.style.display = '';
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="96%" border="0" align="center" cellpadding="0"
+								<table width="80%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1"> 
-											                                    <TR
+				<form action="" method="post" name="productInfor" id="productInfor" a>									                                    <TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
 										<TD height=25 align="left" class="body">
-												密级代码：
+											&nbsp;&nbsp;读者类别名：
                                             <input name=txtkeyvalue2 type="text" class="input2"
 												id="txtkeyvalue2" value="" size="30">
-											&nbsp;密级：
-                                            <input name=txtkeyvalue2 type="text" class="input2"
+										</TD>
+										<TD height=25 align="left" valign="top" class=body>
+											&nbsp;&nbsp;借阅天数：&nbsp;&nbsp;
+											<input name=txtkeyvalue2 type="text" class="input2"
 												id="txtkeyvalue2" value="" size="30">
-				  </TD>
-									</TR>
-									
-							<TR
+									    </TD>													
+                                   </TR>
+									<TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" class="body">
-								&nbsp;&nbsp;&nbsp;&nbsp;描述：
-								  	<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="70">          
-										
-				  </TD>
+										<TD height=25 align="left" valign="top" class=body>
+											&nbsp;&nbsp;数量限制：&nbsp;&nbsp;
+											<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="30">
+									    </TD>
+										<TD height=25 align="left" valign="top" class=body>
+											&nbsp;&nbsp;租金：    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="30">
+									    </TD>
 									</TR>
-		
-									
+								
+									<TR
+										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
+										onMouseOut="this.style.backgroundColor='';">
+										<TD height=25 align="left" valign="top" class=body>
+                                        </TD>
+									</TR>
 										<TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" colspan="2" valign="top" class=body>
-                               <input type="button" class="btnl" value="增 加"> 
-							   <input type="button" class="btnl" value="修 改"> 	                               <input type="button" class="btnl" value="删 除"> 										</TD>
+										<TD height=25 align="right" colspan="2" valign="top" class=body>
+                                      <input type="button" class="btnl" value="添 加"> 
+                                        <input type="button" class="btnl" value="重 设">
+										</TD>
 									</TR>
-							     </TABLE>
+									
+									</form>
+								</TABLE>
 							</td>
 						</tr>	
 					<tr  id="yb" style="DISPLAY: block">
-							<td height="0" valign="top">
-								<table width="96%" border="0" align="center" cellpadding="0"
+							<td height="10" valign="top">
+								<table width="80%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bgcolor="#f1f8ff"
 									style="border: 1px solid #2686d2; margin-top: 5px">
 									<tr>
@@ -204,14 +218,14 @@ tabnum.style.display = '';
 												cellpadding="0">
 												<tr>
 													<td width="189" height="33"
-														background="../images/titleb_01.jpg" class="title1">
-														读者证件名列表
+														background="images/titleb_01.jpg" class="title1">
+														读者类别列表
 													</td>
-													<td background="../images/titleb_02.jpg">&nbsp;
+													<td background="images/titleb_02.jpg">&nbsp;
 														
 													</td>
 													<td width="213" align="right"
-														background="../images/titleb_03.jpg"
+														background="images/titleb_03.jpg"
 														style="padding-bottom: 10px">
 														&nbsp;&nbsp;
 													</td>
@@ -226,18 +240,22 @@ tabnum.style.display = '';
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
-												  <td width="4%" class="body">
-														<input type="checkbox" id="selectAll" name="selectAll"
-															onClick="selectAll();">
-													</td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">类别名<br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">   
+															   
+														借阅天数<br></td>
 												  <td  align="center" bgcolor="#F4F5F9"
-															class="body">密级代码<br></td>
+															class="body">数量限制<br></td>
 														<td  align="center" bgcolor="#F4F5F9"
-															class="body" width="20%">  
-												  密级名称<br></td>
+															class="body"> 
+															租金	<br></td>
 														<td  align="center" bgcolor="#F4F5F9"
-															class="body">
-															描述<br>
+															class="body">  
+															修改 <br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">删除<br>
 														</td>
 														
 														
@@ -246,46 +264,105 @@ tabnum.style.display = '';
 														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 														onMouseOut="this.style.backgroundColor='';">
 
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>	  
-													  <td width="11%" class="body">A001<br></td>
-													  <td align="center" class="user">秘密<br>
-													  </td>
-														<td align="center" class="user">无<br></td>
+														
+														<td width="11%" class="body">  
+															学生<br></td>
+														<td width="9%" class="body">  
+														<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="30" size="15" align="right"><br></td>
+														<td class="body">
+															<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="5" size="15" align="right"><br></td>
+														<td align="center" class="user"> 
+															<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="0" size="15" align="right"><br></td>
+														<td align="center" class="user"> 
+															<input type="button" class="btnl" value="修 改"> <br>
+														</td>
+														<td align="center" class="user"> 
+															<input type="button" class="btnl" value="删 除"> <br>
+														</td>
 														
 													</tr>
-														
-															<tr onClick="oncli()"
-														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-														onMouseOut="this.style.backgroundColor='';">
-
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>	  
-													  <td width="11%" class="body">A001<br></td>
-													  <td align="center" class="user">秘密<br>
-													  </td>
-														<td align="center" class="user">无<br></td>
-														
-													</tr>
-												
-														
+													
 														<tr onClick="oncli()"
 														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 														onMouseOut="this.style.backgroundColor='';">
 
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>	  
-													  <td width="11%" class="body">A001<br></td>
-													  <td align="center" class="user">秘密<br>
-													  </td>
-														<td align="center" class="user">无<br></td>
+														
+														<td width="11%" class="body">  
+															学生<br></td>
+														<td width="9%" class="body">  
+														<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="30" size="15" align="right"><br></td>
+														<td class="body">
+															<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="5" size="15" align="right"><br></td>
+														<td align="center" class="user"> 
+															<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="0" size="15" align="right"><br></td>
+														<td align="center" class="user"> 
+															<input type="button" class="btnl" value="修 改"> <br>
+														</td>
+														<td align="center" class="user"> 
+															<input type="button" class="btnl" value="删 除"> <br>
+														</td>
 														
 													</tr>
-																		
+													
+														<tr onClick="oncli()"
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
 														
+														<td width="11%" class="body">  
+															学生<br></td>
+														<td width="9%" class="body">  
+														<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="30" size="15" align="right"><br></td>
+														<td class="body">
+															<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="5" size="15" align="right"><br></td>
+														<td align="center" class="user"> 
+															<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="0" size="15" align="right"><br></td>
+														<td align="center" class="user"> 
+															<input type="button" class="btnl" value="修 改"> <br>
+														</td>
+														<td align="center" class="user"> 
+															<input type="button" class="btnl" value="删 除"> <br>
+														</td>
+														
+													</tr>
+													
+														<tr onClick="oncli()"
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+														
+														<td width="11%" class="body">  
+															学生<br></td>
+														<td width="9%" class="body">  
+														<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="30" size="15" align="right"><br></td>
+														<td class="body">
+															<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="5" size="15" align="right"><br></td>
+														<td align="center" class="user"> 
+															<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="0" size="15" align="right"><br></td>
+														<td align="center" class="user"> 
+															<input type="button" class="btnl" value="修 改"> <br>
+														</td>
+														<td align="center" class="user"> 
+															<input type="button" class="btnl" value="删 除"> <br>
+														</td>
+														
+													</tr>
+													
+													
+												
+													
 											</table>
 											
 										</td>

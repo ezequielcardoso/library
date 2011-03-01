@@ -145,8 +145,7 @@ tabnum.style.display = '';
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
 														<img src="images/02a.gif">      
-														当前位置：读者管理&gt;&gt;读者类别      
-													</td>
+														当前位置：读者管理&gt;&gt;读者类别													</td>
 												</tr>
 											</table>
 										</td>
@@ -156,60 +155,54 @@ tabnum.style.display = '';
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="80%" border="0" align="center" cellpadding="0"
+								<table width="40%" border="0" align="left" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
-									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1"> 
-				<form action="" method="post" name="productInfor" id="productInfor" a>									                                    <TR
-										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
-										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;读者类别名：
-                                            <input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="30">
-										</TD>
-										<TD height=25 align="left" valign="top" class=body>
-											&nbsp;&nbsp;借阅天数：&nbsp;&nbsp;
-											<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="30">
-									    </TD>													
-                                   </TR>
-									<TR
-										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
-										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" valign="top" class=body>
-											&nbsp;&nbsp;数量限制：&nbsp;&nbsp;
-											<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="30">
-									    </TD>
-										<TD height=25 align="left" valign="top" class=body>
-											&nbsp;&nbsp;租金：    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="30">
-									    </TD>
-									</TR>
-								
-									<TR
-										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
-										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" valign="top" class=body>
-                                        </TD>
-									</TR>
-										<TR
-										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
-										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="right" colspan="2" valign="top" class=body>
-                                      <input type="button" class="btnl" value="添 加"> 
-                                        <input type="button" class="btnl" value="重 设">
-										</TD>
-									</TR>
-									
-									</form>
-								</TABLE>
+									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">   <TR >
+               <TD width="60" height=25 align="left" nowrap="nowrap"  style="padding-left:30px;">
+			       类别代码:               </TD>
+	           <td width="30">
+				  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+				</td>
+				<TD  width="60"  height=25 align="right" nowrap="nowrap">
+                  类别名称:                </TD>
+			   <td width="30">
+				<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+				</td>
+				
+			  </TR>
+			  
+			  <TR >
+               <TD width="60" height=25 align="left" nowrap="nowrap"  style="padding-left:30px;">
+			       借阅天数:               </TD>
+	           <td width="30">
+				  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+				</td>
+				<TD  width="60"  height=25 align="right" nowrap="nowrap">
+                  数量限制:                </TD>
+			   <td width="30">
+				<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+				</td>
+				
+			  </TR>
+			    <TR >
+               <TD width="60" height=25 align="left" nowrap="nowrap"  style="padding-left:30px;">
+			       租金:               </TD>
+	           <td width="30" colspan="3">
+				  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+				</td>
+			  </TR>
+			     <TR >
+               <TD height=25 align="left" colspan="4" nowrap="nowrap"  style="padding-left:30px;">
+			      <input type="button" class="btnl" value="增 加">
+				   <input type="reset" class="btnl" value="重 设"> 
+				                 </TD>
+	          	</TR>
+							     </TABLE>
 							</td>
 						</tr>	
 					<tr  id="yb" style="DISPLAY: block">
-							<td height="10" valign="top">
-								<table width="80%" border="0" align="center" cellpadding="0"
+							<td height="0" valign="top">
+								<table width="96%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bgcolor="#f1f8ff"
 									style="border: 1px solid #2686d2; margin-top: 5px">
 									<tr>
@@ -219,7 +212,7 @@ tabnum.style.display = '';
 												<tr>
 													<td width="189" height="33"
 														background="images/titleb_01.jpg" class="title1">
-														读者类别列表
+														读者证件名列表
 													</td>
 													<td background="images/titleb_02.jpg">&nbsp;
 														
@@ -240,23 +233,21 @@ tabnum.style.display = '';
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
+											      <td  align="center" bgcolor="#F4F5F9"
+															class="body">类别代码<br></td>
 														<td  align="center" bgcolor="#F4F5F9"
-															class="body">类别名<br></td>
+															class="body" width="20%">  
+												  类别名称<br></td>
 														<td  align="center" bgcolor="#F4F5F9"
-															class="body">   
-															   
-														借阅天数<br></td>
-												  <td  align="center" bgcolor="#F4F5F9"
-															class="body">数量限制<br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body"> 
-															租金	<br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body">  
-															修改 <br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body">删除<br>
-														</td>
+															class="body">
+															借阅天数</td>
+                                                         <td  align="center" bgcolor="#F4F5F9"
+															class="body">
+															数量限制</td>
+                                                          <td  align="center" bgcolor="#F4F5F9"
+															class="body">
+															租金</td>
+
 														
 														
 											  </tr>
@@ -264,105 +255,43 @@ tabnum.style.display = '';
 														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 														onMouseOut="this.style.backgroundColor='';">
 
-														
-														<td width="11%" class="body">  
-															学生<br></td>
-														<td width="9%" class="body">  
-														<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="30" size="15" align="right"><br></td>
-														<td class="body">
-															<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="5" size="15" align="right"><br></td>
-														<td align="center" class="user"> 
-															<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="0" size="15" align="right"><br></td>
-														<td align="center" class="user"> 
-															<input type="button" class="btnl" value="修 改"> <br>
-														</td>
-														<td align="center" class="user"> 
-															<input type="button" class="btnl" value="删 除"> <br>
-														</td>
+																									              <td width="11%" class="body">A001<br></td>
+													  <td align="center" class="user">秘密<br>
+													  </td>
+														<td align="center" class="user">无<br></td>
 														
 													</tr>
-													
-														<tr onClick="oncli()"
+														
+															<tr onClick="oncli()"
 														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 														onMouseOut="this.style.backgroundColor='';">
 
-														
-														<td width="11%" class="body">  
-															学生<br></td>
-														<td width="9%" class="body">  
-														<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="30" size="15" align="right"><br></td>
-														<td class="body">
-															<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="5" size="15" align="right"><br></td>
-														<td align="center" class="user"> 
-															<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="0" size="15" align="right"><br></td>
-														<td align="center" class="user"> 
-															<input type="button" class="btnl" value="修 改"> <br>
-														</td>
-														<td align="center" class="user"> 
-															<input type="button" class="btnl" value="删 除"> <br>
-														</td>
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>	  
+													  <td width="11%" class="body">A001<br></td>
+													  <td align="center" class="user">秘密<br>
+													  </td>
+														<td align="center" class="user">无<br></td>
 														
 													</tr>
-													
-														<tr onClick="oncli()"
-														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-														onMouseOut="this.style.backgroundColor='';">
-
-														
-														<td width="11%" class="body">  
-															学生<br></td>
-														<td width="9%" class="body">  
-														<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="30" size="15" align="right"><br></td>
-														<td class="body">
-															<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="5" size="15" align="right"><br></td>
-														<td align="center" class="user"> 
-															<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="0" size="15" align="right"><br></td>
-														<td align="center" class="user"> 
-															<input type="button" class="btnl" value="修 改"> <br>
-														</td>
-														<td align="center" class="user"> 
-															<input type="button" class="btnl" value="删 除"> <br>
-														</td>
-														
-													</tr>
-													
-														<tr onClick="oncli()"
-														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-														onMouseOut="this.style.backgroundColor='';">
-
-														
-														<td width="11%" class="body">  
-															学生<br></td>
-														<td width="9%" class="body">  
-														<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="30" size="15" align="right"><br></td>
-														<td class="body">
-															<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="5" size="15" align="right"><br></td>
-														<td align="center" class="user"> 
-															<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="0" size="15" align="right"><br></td>
-														<td align="center" class="user"> 
-															<input type="button" class="btnl" value="修 改"> <br>
-														</td>
-														<td align="center" class="user"> 
-															<input type="button" class="btnl" value="删 除"> <br>
-														</td>
-														
-													</tr>
-													
-													
 												
-													
+														
+														<tr onClick="oncli()"
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>	  
+													  <td width="11%" class="body">A001<br></td>
+													  <td align="center" class="user">秘密<br>
+													  </td>
+														<td align="center" class="user">无<br></td>
+														
+													</tr>
+																		
+														
 											</table>
 											
 										</td>
