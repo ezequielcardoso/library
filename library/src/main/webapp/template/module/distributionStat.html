@@ -1,8 +1,10 @@
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="include/css/style.css" type="text/css" rel="stylesheet">
-		<title>π„÷› –◊‘¿¥ÀÆ◊€∫œ“µŒÒπ‹¿Ì∆ΩÃ®</title>
+		<title>"ÂπøÊ∞¥Áî®Ê∞¥"ÁªàÁ´ØÊúçÂä°ÁªºÂêà‰∏öÂä°ÁÆ°ÁêÜÂπ≥Âè∞</title>
+	    <script type="text/javascript" src="include/js/datePicker/calendar/WdatePicker.js">
+        </script>
 		<script language="JavaScript">
 		function test12(i){
 			if(i==1){
@@ -92,8 +94,8 @@ lbmc.style.display = 'none';
 }
 } 
 
-//tab—°œÓø®
-var tabnumber=1; 
+//tabÈÄâÈ°πÂç°
+var tabnumber=5; 
 
 function tablmyc() { 
 var tabnum; 
@@ -118,6 +120,26 @@ tabnum.style.display = '';
 } 
 
 } 
+
+function selectAll()
+{
+var proList=document.getElementsByName("proSelect");
+if(document.getElementById("selectAll").checked==true){
+   
+   for(k=0;k<proList.length;k++)
+   {
+      proList[k].checked=true;
+   }
+}
+else{
+ for(j=0;j<proList.length;j++)
+   {
+      proList[j].checked=false;
+   }
+}
+}
+
+
     </script>
 	</head>
 	<body>
@@ -126,7 +148,7 @@ tabnum.style.display = '';
 			<tr id="ye" style="DISPLAY: block">
 				<td height="4" background="images/bodybg.jpg"></td>
 			</tr>
-			<tr>
+			
 				<td valign="top" height="10">
 					<table width="100%" border="0" cellpadding="0" cellspacing="0"
 						height="100%">
@@ -141,15 +163,25 @@ tabnum.style.display = '';
 												cellspacing="0" class="title_border">
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
-														<strong>&nbsp;<img align="absmiddle" src="images/cl0.gif">∂¡’ﬂπ‹¿Ì</strong><strong></strong>													</td>
+														<strong>&nbsp;<img align="absmiddle"
+																src="images/cl0.gif"> ËØªËÄÖÁÆ°ÁêÜ</strong>
+													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
-														<img src="images/02a.gif">      
-														µ±«∞Œª÷√£∫∂¡’ﬂπ‹¿Ì&gt;&gt;∂¡’ﬂ¿‡±													</td>
+														<img src="images/02a.gif">
+														ÂΩìÂâç‰ΩçÁΩÆÔºöËØªËÄÖÁÆ°ÁêÜ &gt;&gt;ËØªËÄÖÁ±ªÂà´													</td>
 												</tr>
 											</table>
 										</td>
 									</tr>
+									<TR>
+										<TD>
+											<table width="98%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+
+											</table>
+										</TD>
+									</TR>
 								</table>
 							</td>
 						</tr>
@@ -157,52 +189,57 @@ tabnum.style.display = '';
 							<td height="10" valign="top">
 								<table width="40%" border="0" align="left" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
-									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">   <TR >
-               <TD width="60" height=25 align="left" nowrap="nowrap"  style="padding-left:30px;">
-			       ¿‡±¥˙¬Î:               </TD>
-	           <td width="30">
-				  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
-				</td>
-				<TD  width="60"  height=25 align="right" nowrap="nowrap">
-                  ¿‡±√˚≥∆:                </TD>
-			   <td width="30">
-				<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
-				</td>
-				
-			  </TR>
-			  
-			  <TR >
-               <TD width="60" height=25 align="left" nowrap="nowrap"  style="padding-left:30px;">
-			       ΩË‘ƒÃÏ ˝:               </TD>
-	           <td width="30">
-				  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
-				</td>
-				<TD  width="60"  height=25 align="right" nowrap="nowrap">
-                   ˝¡øœﬁ÷∆:                </TD>
-			   <td width="30">
-				<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
-				</td>
-				
-			  </TR>
-			    <TR >
-               <TD width="60" height=25 align="left" nowrap="nowrap"  style="padding-left:30px;">
-			       ◊‚Ω:               </TD>
-	           <td width="30" colspan="3">
-				  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
-				</td>
-			  </TR>
-			     <TR >
-               <TD height=25 align="left" colspan="4" nowrap="nowrap"  style="padding-left:30px;">
-			      <input type="button" class="btnl" value="‘ˆ º”">
-				   <input type="reset" class="btnl" value="÷ÿ …Ë"> 
-				                 </TD>
-	          	</TR>
-							     </TABLE>
+									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
+									
+								    
+									 <TR>
+										<TD height=25 align="right" valign="center" class=body>
+                                            Á±ªÂà´ÁºñÁ†ÅÔºö
+										</TD>
+										<TD height=25 align="center" valign="top" class=body>
+                                            <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="20">									</TD>
+                                        <TD height=25 align="right" valign="center" class=body>
+										     Á±ªÂà´ÂêçÁß∞Ôºö               	    		                                       </TD>
+                                       <TD height=25 align="center" valign="center" class=body>										                                          <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="20">									   </TD>
+									</TR>
+								     <TR>
+										<TD height=25 align="right" valign="center" class=body>
+                                            ÂÄüÈòÖÂ§©Êï∞Ôºö
+										</TD>
+										<TD height=25 align="center" valign="top" class=body>
+                                            <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="20">									</TD>
+                                        <TD height=25 align="right" valign="center" class=body>
+										    ÂÄüÈòÖÊï∞ÈáèÔºö               	    		                                       </TD>
+                                       <TD height=25 align="center" valign="center" class=body>										                                          <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="20">									   </TD>
+									</TR>
+								     <TR>
+										<TD height=25 align="right" valign="center" class=body>
+                                            ÂÄüÈòÖÂ§©Êï∞Ôºö
+										</TD>
+										<TD height=25 align="center" valign="top" class=body>
+                                            <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="20">									</TD>
+                                   </TR>
+								  
+								 	
+									<TR>
+										<TD height=25 align="left" valign="top" class=body colspan="4">
+                                            &nbsp;
+										   <input type="button" class="btnl" value="Ê∑ª Âä†">
+										   &nbsp;
+										   <input name="button" type="reset" class="btnl"
+												value="Èáç ÁΩÆ">
+									   </TR>
+								</TABLE>
 							</td>
-						</tr>	
-					<tr  id="yb" style="DISPLAY: block">
+						</tr>
+						<tr  id="yb" style="DISPLAY: block">
 							<td height="0" valign="top">
-								<table width="96%" border="0" align="center" cellpadding="0"
+								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bgcolor="#f1f8ff"
 									style="border: 1px solid #2686d2; margin-top: 5px">
 									<tr>
@@ -212,10 +249,11 @@ tabnum.style.display = '';
 												<tr>
 													<td width="189" height="33"
 														background="images/titleb_01.jpg" class="title1">
-														∂¡’ﬂ÷§º˛√˚¡–±Ì
+														Êü•ËØ¢ÂàóË°®
 													</td>
 													<td background="images/titleb_02.jpg">&nbsp;
 														
+
 													</td>
 													<td width="213" align="right"
 														background="images/titleb_03.jpg"
@@ -228,72 +266,245 @@ tabnum.style.display = '';
 									</tr>
 									<tr>
 										<td valign="top">
-											<table id="tab1" width="98%" border="1" align="center" cellpadding="0"
-												cellspacing="0" bordercolor="#bcc3c9"
+											<table id="tab1" width="97%" border="1" align="center"
+												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
-												<tr>
-											      <td  align="center" bgcolor="#F4F5F9"
-															class="body">¿‡±¥˙¬Î<br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body" width="20%">  
-												  ¿‡±√˚≥∆<br></td>
-														<td  align="center" bgcolor="#F4F5F9"
-															class="body">
-															ΩË‘ƒÃÏ ˝</td>
-                                                         <td  align="center" bgcolor="#F4F5F9"
-															class="body">
-															 ˝¡øœﬁ÷∆</td>
-                                                          <td  align="center" bgcolor="#F4F5F9"
-															class="body">
-															◊‚Ω</td>
-
-														
-														
-											  </tr>
-													<tr onClick="oncli()"
-														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-														onMouseOut="this.style.backgroundColor='';">
-
-																									              <td width="11%" class="body">A001<br></td>
-													  <td align="center" class="user">√ÿ√‹<br>
-													  </td>
-														<td align="center" class="user">Œﬁ<br></td>
-														
-													</tr>
-														
-															<tr onClick="oncli()"
-														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-														onMouseOut="this.style.backgroundColor='';">
-
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>	  
-													  <td width="11%" class="body">A001<br></td>
-													  <td align="center" class="user">√ÿ√‹<br>
-													  </td>
-														<td align="center" class="user">Œﬁ<br></td>
-														
+												<tr align="center">
+													<td align="center" bgcolor="#F4F5F9" class="body" width="150">
+														Á±ªÂà´ÁºñÁ†Å
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="200">Á±ªÂà´ÂêçÁß∞</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="150">
+														ÂÄüÈòÖÂ§©Êï∞
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body"  width="150">
+														Êï∞ÈáèÈôêÂà∂</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="100">
+														ÁßüÈáë</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="180">
+														‰øÆÊîπ</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="180">
+														Âà†Èô§</td>
 													</tr>
 												
-														
-														<tr onClick="oncli()"
-														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-														onMouseOut="this.style.backgroundColor='';">
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													A001<br></td>
+													<td class="body">
+													<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="Â≠¶Áîü">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="30">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="5">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="0.2" align="right">
+														<br>
+													</td>
+													<td class="body">
+														<input type="button" class="btnl" value="‰øÆ Êîπ">
+														<br>
+													</td>
+														<td class="body">
+														<input type="button" class="btnl" value="Âà† Èô§">
+														<br>
+													</td>
+											   </tr>
+												
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
 
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>	  
-													  <td width="11%" class="body">A001<br></td>
-													  <td align="center" class="user">√ÿ√‹<br>
-													  </td>
-														<td align="center" class="user">Œﬁ<br></td>
-														
-													</tr>
-																		
-														
-											</table>
+
+
+												</tr>
+												
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													A002<br></td>
+													<td class="body">
+													<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="ËÄÅÂ∏à">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="30">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="5">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="0.2" align="right">
+														<br>
+													</td>
+													<td class="body">
+														<input type="button" class="btnl" value="‰øÆ Êîπ">
+														<br>
+													</td>
+														<td class="body">
+														<input type="button" class="btnl" value="Âà† Èô§">
+														<br>
+													</td>
+											   </tr>
 											
+												
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+												</tr>
+												
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													A003<br></td>
+													<td class="body">
+													<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="Â≠¶Áîü">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="30">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="5">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="0.2" align="right">
+														<br>
+													</td>
+													<td class="body">
+														<input type="button" class="btnl" value="‰øÆ Êîπ">
+														<br>
+													</td>
+														<td class="body">
+														<input type="button" class="btnl" value="Âà† Èô§">
+														<br>
+													</td>
+											   </tr>
+											
+											
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+													<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													A004<br></td>
+													<td class="body">
+													<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="Â≠¶Áîü">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="30">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="5">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="0.2" align="right">
+														<br>
+													</td>
+													<td class="body">
+														<input type="button" class="btnl" value="‰øÆ Êîπ">
+														<br>
+													</td>
+														<td class="body">
+														<input type="button" class="btnl" value="Âà† Èô§">
+														<br>
+													</td>
+											   </tr>
+											
+											
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+											    
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													A005<br></td>
+													<td class="body">
+													<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="Â≠¶Áîü">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="30">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="5">
+														<br>
+													</td>
+													<td class="body">
+														<input name=txtkeyvalue22 type="text" class="input2"
+												id="txtkeyvalue22" value="0.2" align="right">
+														<br>
+													</td>
+													<td class="body">
+														<input type="button" class="btnl" value="‰øÆ Êîπ">
+														<br>
+													</td>
+														<td class="body">
+														<input type="button" class="btnl" value="Âà† Èô§">
+														<br>
+													</td>
+											   </tr>
+											
+											   	
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+
+
+												</tr>
+											</table>
 										</td>
 									</tr>
 								</table>
@@ -304,5 +515,10 @@ tabnum.style.display = '';
 							</td>
 						</tr>
 						
+					</table>
+				</td>
+			</tr>
+		</table>
+
 	</body>
 </html>
