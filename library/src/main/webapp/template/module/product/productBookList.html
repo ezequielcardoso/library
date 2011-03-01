@@ -164,11 +164,11 @@ else{
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
 														<strong>&nbsp;<img align="absmiddle"
-																src="../images/cl0.gif">借阅归还</strong>													</td>
+																src="../images/cl0.gif">查询统计</strong>													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
 														<img src="../images/02a.gif">
-														当前位置：借阅归还&gt;&gt;图书借阅记录													</td>
+														当前位置：借阅归还&gt;&gt;图书借阅查询													</td>
 												</tr>
 											</table>
 										</td>
@@ -186,77 +186,78 @@ else{
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="80%" border="0" align="center" cellpadding="0"
+								<table width="40%" border="0" align="left" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 						
-									<TR>
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;&nbsp;&nbsp; 图书编号：
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">
-												&nbsp;&nbsp;&nbsp;&nbsp;图书编号：
-											    <input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">										</TD>
+								       <TR>
+											<TD width="60" height=25 align="center" nowrap="nowrap"  style="padding-left:10px;">
+											   借阅证号: 
+											</TD>
+									    	<td width="30" align="center">
+											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+											</td>
+											<TD  width="60"  height=25 align="right" nowrap="nowrap">
+											  读者姓名:                </TD>
+										   <td width="30">
+											<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+											</td>
+											<TD width="70" height=25 align="center" nowrap="nowrap"  style="padding-left:10px;">
+											   图书编号: 
+											</TD>
+									    	<td width="30" align="center">
+											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+											</td>
 									</TR>
-									
-									<TR>
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;&nbsp;&nbsp;读者编号：
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">
-												&nbsp;&nbsp;&nbsp;&nbsp;读者名称：
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">										</TD>
+									 <TR>
+											
+											
 									</TR>
-									
-									<TR>
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;&nbsp;&nbsp; 条形码：
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="30">
-											&nbsp;&nbsp;&nbsp;&nbsp;
-											<input type="checkbox" name="proSelect" class="input2"
-												id="" value="" size="30">
-											 已还：
-											 <select id="protype" name="protype"  style="border-style:solid; border-color:#bcc3c9; width:200px">
+									 <TR>
+											<TD width="60" height=25 align="center" nowrap="nowrap"  style="padding-left:10px;">
+											   书条形码: 
+											</TD>
+									    	<td width="30" align="center">
+											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+											</td>
+											<TD width="60" height=25 align="center" nowrap="nowrap"  style="padding-left:10px;">
+											   书名: 
+											</TD>
+									    	<td width="30" align="center">
+											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+											</td>
+											<TD  width="60"  height=25 align="right" nowrap="nowrap">
+											<input type="checkbox" name="proSelect">已还:
+					                   </TD>
+										   <td width="30">
+											 <select disabled="disabled" id="protype" name="protype"  style="border-style:solid; border-color:#bcc3c9; width:100px">
 														  <option value="A">是</option>
 														  <option value="B"> 或</option>
-											 </select>										
-										</TD>
+											 </select>	
+									   </td>
 									</TR>
-
+									 <TR>
+											<TD width="500" height=25 align="left" nowrap="nowrap"  style="padding-left:10px;" colspan="4">
+											   <input type="checkbox" name="proSelect">
+											   借阅时间: &nbsp;从 <input name="" type="text"  id="" class="" value="2010-2-2"
+												 size="15" onClick="WdatePicker();" >	&nbsp; 到&nbsp;             
+										    <input name="" type="text"  id="" class="" value="2010-2-2"
+												 size="15" onClick="WdatePicker();" >	
+											</TD>
+									</TR>
+									 <TR>
+											<TD width="500" height=25 align="left" nowrap="nowrap"  style="padding-left:10px;" colspan="4">
+											   <input type="checkbox" name="proSelect">
+											   归还时间: &nbsp;从 <input name="" type="text"  id="" class="" value="2010-2-2"
+												 size="15" onClick="WdatePicker();" >	&nbsp; 到&nbsp;             
+										    <input name="" type="text"  id="" class="" value="2010-2-2"
+												 size="15" onClick="WdatePicker();" >	
+											</TD>
+									</TR>
 									<TR>
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;&nbsp;&nbsp;
-											<input type="checkbox" name="proSelect" class="input2"
-												id="" value="" size="30">
-												借阅时间&nbsp;&nbsp;&nbsp;&nbsp;
-											 从&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="30" onClick="WdatePicker();" >
-												 &nbsp;&nbsp;&nbsp;&nbsp;到&nbsp;&nbsp;&nbsp;&nbsp;
-												 <input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="30" onClick="WdatePicker();" >										</TD>
-									</TR>
-                                 
-								   <TR>
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;&nbsp;&nbsp;
-											<input type="checkbox" name="proSelect" class="input2"
-												id="" value="" size="30">
-												归还时间间&nbsp;&nbsp;&nbsp;&nbsp;
-											 从&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="30" onClick="WdatePicker();" >
-												 &nbsp;&nbsp;&nbsp;&nbsp;到&nbsp;&nbsp;&nbsp;&nbsp;
-												 <input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="30" onClick="WdatePicker();" >										</TD>
-									</TR>
+										<TD height=0 align="left" valign="top" class=body colspan="4">
 
-
-									<TR>
-										<TD height=25 align="right" valign="top" class=body>
-
-											<input type="button" class="btnl" value="查 询">
+											&nbsp;&nbsp;<input type="button" class="btnl" value="查 询">
 											<input name="button2" type="button" class="btnl"
 												onClick="window.location='modifyProduct.html';"
 												value="打印">
@@ -265,8 +266,8 @@ else{
 												value="装Excel">
 											<input type="button" class="btnl"
 												onClick="window.location='addStroage.html';" value="关闭">
-										</TD>
-									</TR>
+									</TD>
+									</TR>							
 								</TABLE>
 						<tr  id="yb" style="DISPLAY: block">
 							<td height="10" valign="top">
