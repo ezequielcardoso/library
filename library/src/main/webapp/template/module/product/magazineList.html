@@ -186,85 +186,98 @@ else{
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="60%" border="0" align="left" cellpadding="0"
+								<table width="96%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-							         <TR >
-                                           <TD width="50" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
-                                             <INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
-                                           </TD>
-                                            <td width="50" align="right" nowrap>
-                                              <INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
-                                            </td>
-                                            <TD  width="50"  height=25 align="right" nowrap="nowrap">条形码：
-                                            </TD>
-                                           <td width="20">
-                                            <input name=txtkeyvalue type="text" class="input2"
-                                                                            id="txtkeyvalue" value="">
-                                            </td>
-                                             <TD width="50" height=25 align="right" nowrap="nowrap" style="padding-left:8px;">
-                                              <INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL>            </TD>
-                                             <td width="50" align="right" nowrap>
-                                             <INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
-                                            </td>
-                                            <TD  width="50"  height=25 align="right" nowrap="nowrap">
-                                             编号：	              </TD>
-                                            <td width="30">
-                                              <input name=txtkeyvalue2 type="text" class="input2"
-                                                                            id="txtkeyvalue2" value="" size="20">
-                                            </td>
-                                          </TR>
-                                          <TR >
-                                           <TD width="50" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
-                                             <INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
-                                           </TD>
-                                            <td width="50" align="right" nowrap>
-                                              <INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
-                                            </td>
-                                            <TD  width="50"  height=25 align="right" nowrap="nowrap">
-                                                 书名：
-                                             </TD>
-                                           <td width="20">
-                                            <input name=txtkeyvalue type="text" class="input2"
-                                                                            id="txtkeyvalue" value="">
-                                            </td>
-                                             <TD width="50" height=25 align="right" nowrap="nowrap" style="padding-left:8px;">
-                                              <INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL>            </TD>
-                                        <td width="50" align="right">
-                                             <INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
-                                            </td>
-                                            <TD  width="50"  height=25 align="right" nowrap="nowrap">
-                                             位置：	              </TD>
-                                           <td width="30">
-                                              <input name=txtkeyvalue2 type="text" class="input2"
-                                                                            id="txtkeyvalue2" value="" size="20">
-                                            </td>
-                                          </TR>
-                                          
-                                          <TR>
-                                                        <TD height=25 align="left" valign="top" class="body" colspan="8" style="padding-left:10px;">
-
-											<input type="button" class="btnl" value="查 询">
-											<input type="button" class="btnl"
+					     	  <TR>
+                                <TD width="50" height=25 align="left" nowrap class="body">
+                                        <INPUT type=radio CHECKED value=1 name="location"> 
+                                            <LABEL for=radio3>模糊</LABEL>                               
+                                </TD>
+                                        <TD width="50" height=25 align="left" nowrap class="body">
+                            <INPUT type=radio value=2 name="location"> 
+                                            <LABEL for=radio4>精确</LABEL>                               
+                                </TD>
+                                <TD width="64" height=25 align="right" nowrap class="body">
+                                条形码：                                       </TD>
+                                <TD width="130" height=25 align="left" nowrap class="body">
+                                  <input name=txtkeyvalue type="text" class="input2"
+                                                    id="txtkeyvalue" value="" size="15">                                
+                                </TD>
+                                <TD width="60" height=25 align="left" nowrap class="body">
+<INPUT type=radio CHECKED value=1 name="bookNo"> 
+                                                <LABEL for=radio3>模糊</LABEL>                                 
+                                </TD>
+                                <TD width="51" height=25 align="left" nowrap class="body">
+<INPUT type=radio value=2 name="bookNo"> 
+                                              <LABEL for=radio4>精确</LABEL>                               
+                                </TD>
+                                <TD width="80" height=25 align="right" nowrap class="body">
+                                编号：                                        </TD>
+                                <TD width="415" height=25 align="left" nowrap class="body">
+                                  <input name=txtkeyvalue type="text" class="input2"
+                                                    id="txtkeyvalue" value="" size="15">                               
+                                </TD>
+								  </TR>
+									
+									<TR>
+                                   	  <TD width="50" height=25 align="left" nowrap class="body">
+                                        <INPUT type=radio CHECKED value=1 name="barCode"> 
+                                            <LABEL for=radio3>模糊</LABEL>                                
+                                      </TD>
+                                        <TD width="50" height=25 align="left" nowrap class="body">
+                     <INPUT type=radio value=2 name="barCode"> 
+                                             <LABEL for=radio4>精确</LABEL>                  
+                                      </TD>
+                                      <TD width="64" height=25 align="right" nowrap class="body">
+                                      名称：                                        </TD>
+                                      <TD width="130" height=25 align="left" nowrap class="body">
+                                        <input name=txtkeyvalue type="text" class="input2"
+                                            id="txtkeyvalue" value="" size="15">                      
+                                      </TD>
+                                      <TD width="60" height=25 align="left" nowrap class="body">
+      <INPUT type=radio CHECKED value=1 name="bookName"> 
+                                            <LABEL for=radio3>模糊</LABEL>                       
+                                      </TD>
+                                      <TD width="51" height=25 align="left" nowrap class="body">
+      <INPUT type=radio value=2 name="bookName"> 
+                                            <LABEL for=radio4>精确</LABEL>                      
+                                      </TD>
+                                      <TD width="80" height=25 align="right" nowrap class="body">
+                                      存放位置：                                        </TD>
+                                      <TD width="415" height=25 align="left" nowrap class="body">
+                                        <input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="15">                      
+                                      </TD>
+                                     
+								  </TR>
+									
+								</TABLE>
+						<table width="96%" border="0" align="center" cellpadding="0"
+									cellspacing="0" bordercolor="#ebebeb"
+									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM2">
+                                  <tr>
+                                    <td><span class="body">
+                                      <input type="button" class="btnl" value="查 询">
+                                      <input type="button" class="btnl"
 												onClick="window.location='modifyMagazine.html';"
 												value="修改">
-											<input name="button" type="button" class="btnl"
-												onClick="window.location='productList.html';"
+                                    <input name="button" type="button" class="btnl"
+												onClick="window.location='magazineList.html';"
 												value="删除">
-											<input type="button" class="btnl"
+                                      <input type="button" class="btnl"
 												onClick="window.location='addMagazine.html';" value="增加">
-											<input type="button" class="btnl"
-												onClick="window.location='addProduct.html';" value="导入图书">	
-											<input type="button" class="btnl"
+                                      <input type="button" class="btnl"
+												onClick="window.location='addMagazine.html';" value="导入期刊">
+                                      <input type="button" class="btnl"
 												onClick="window.location='addStroage.html';" value="转成Excel">
-												<input type="button" class="btnl"
-												onClick="window.location='addStroage.html';" value="图书标签">
-												<input type="button" class="btnl"
-												onClick="window.location='addStroage.html';" value="打印条形码">													                                        </TD>
-									</TR>
-			
-      </TABLE>
-						
+                                      <input type="button" class="btnl"
+												onClick="window.location='addStroage.html';" value="期刊标签">
+                                      <input type="button" class="btnl"
+												onClick="window.location='addStroage.html';" value="打印条形码">
+                                    </span></td>
+                                  </tr>
+                              </table>
 						<tr  id="yb" style="DISPLAY: block">
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
