@@ -5,9 +5,9 @@ Ext.onReady(function(){
 	});
 	userGrid.render('userGrid');
 	
-	var roleGrid = new Library.rights.grid.RoleGrid({
-		id : 'roleGrid'
+	var roleCheckedGrid = new Library.rights.grid.RoleCheckedGrid({
+		id : 'roleCheckedGrid'
 	});
-	roleGrid.render('roleCheckedGrid');
+	roleCheckedGrid.render('roleCheckedGrid');
 	
 });

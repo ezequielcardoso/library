@@ -12,7 +12,7 @@
 <script type="text/javascript" src="../../../common/extjs3.2/ext-all.js"></script>
 <script type="text/javascript" src="../../../js/rights/user/User.js"></script>
 <script type="text/javascript" src="../../../js/rights/user/UserGrid.js"></script>
-<script type="text/javascript" src="../../../js/rights/user/RoleGrid.js"></script>
+<script type="text/javascript" src="../../../js/rights/user/RoleCheckedGrid.js"></script>
 
 <script language="JavaScript">
 
@@ -50,32 +50,7 @@ function fEvent(sType,oInput){
 		}
 	}
 	
-var number=1; 
 
-function LMYC() { 
-var lbmc; 
-//var treePic; 
-for (i=1;i<=number;i++) { 
-lbmc = eval('LM' + i); 
-var imageName='treePic'+ i; 
-//document.getElementById(imageName).src="../images/sj0.gif";
-lbmc.style.display = ''; 
-} 
-} 
-
-function ShowFLT(i) { 
-lbmc = eval('LM' + i); 
-var imageName='treePic'+ i;
-if (lbmc.style.display == 'none') { 
-LMYC(); 
-} 
-else
-{
-//document.getElementById(imageName).src="../images/sj.gif";
-//treePic.src = '../images/nofile.gif'; 
-lbmc.style.display = 'none'; 
-}
-} 
 var productID=0;
 function productFunc(productId)
 {
@@ -372,9 +347,7 @@ function backProvider()
           
              </td>
           </tr>
-          
-           </form>
-        
+          </form>
         </table>
         
           <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
