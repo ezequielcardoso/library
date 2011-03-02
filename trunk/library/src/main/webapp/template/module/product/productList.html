@@ -46,51 +46,6 @@
 				
 		}
 		
-function fEvent(sType,oInput){
-		switch (sType){
-			case "focus" :
-				oInput.isfocus = true;
-			case "mouseover" :
-				oInput.style.borderColor = '#7a95d2';
-				oInput.style.background = '#ffffcc';
-				break;
-			case "blur" :
-				oInput.isfocus = false;
-			case "mouseout" :
-				if(!oInput.isfocus){
-					oInput.style.borderColor='#cddeeb';
-					oInput.style.background = '#ffffff';
-				}
-				break;
-		}
-	}
-	
-var number=1; 
-
-function LMYC() { 
-var lbmc; 
-//var treePic; 
-for (i=1;i<=number;i++) { 
-lbmc = eval('LM' + i); 
-var imageName='treePic'+ i; 
-//document.getElementById(imageName).src="../images/sj0.gif";
-lbmc.style.display = ''; 
-} 
-} 
-
-function ShowFLT(i) { 
-lbmc = eval('LM' + i); 
-var imageName='treePic'+ i;
-if (lbmc.style.display == 'none') { 
-LMYC(); 
-} 
-else
-{
-//document.getElementById(imageName).src="../images/sj.gif";
-//treePic.src = '../images/nofile.gif'; 
-lbmc.style.display = 'none'; 
-}
-} 
 
 //tab选项卡
 var tabnumber=5; 
@@ -185,47 +140,66 @@ else{
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="96%" border="0" align="center" cellpadding="0"
+								<table width="60%" border="0" align="left" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 						
-									<TR>
-										<TD height=25 align="left" class="body">
-											<INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
-											<INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
-											&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;位置：
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">									
-									
-											 &nbsp;&nbsp;&nbsp;&nbsp;
-											 <INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL> 
-											<INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
-										  &nbsp;&nbsp;&nbsp;&nbsp;编号：										  
-										  <input name=txtkeyvalue2 type="text" class="input2"
+								
+           <TR >
+               <TD width="50" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
+			     <INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
+               </TD>
+	        <td width="50" align="right" nowrap>
+				  <INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
+				</td>
+				<TD  width="50"  height=25 align="right" nowrap="nowrap">条形码：
+                 </TD>
+			   <td width="20">
+				<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="">
+				</td>
+			     <TD width="50" height=25 align="right" nowrap="nowrap" style="padding-left:8px;">
+			      <INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL>            </TD>
+	        <td width="50" align="right" nowrap>
+				 <INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
+				</td>
+				<TD  width="50"  height=25 align="right" nowrap="nowrap">
+                 编号：	              </TD>
+			   <td width="30">
+				  <input name=txtkeyvalue2 type="text" class="input2"
 												id="txtkeyvalue2" value="" size="20">
-									  </TD>		
-									</TR>
-									
-									
-									<TR>
-										<TD height=25 align="left" class="body">
-											<INPUT type=radio CHECKED value=1 name="barCode"> <LABEL for=radio3>模糊</LABEL> 
-											<INPUT type=radio value=2 name="barCode"> <LABEL for=radio4>精确</LABEL>
-											&nbsp;&nbsp;&nbsp;&nbsp; 条形码：
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">										
-										   
-										    &nbsp;&nbsp;&nbsp;&nbsp;
-											<INPUT type=radio CHECKED value=1 name="bookName"> <LABEL for=radio3>模糊</LABEL> 
-											<INPUT type=radio value=2 name="bookName"> <LABEL for=radio4>精确</LABEL>
-											&nbsp;&nbsp;&nbsp;&nbsp; 书名：
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">
-										</TD>											
-									</TR>
-             
-			                        <TR>
-										<TD height=25 align="left" valign="top" class="body">
+				</td>
+			   
+			  </TR>
+              <TR >
+               <TD width="50" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
+			     <INPUT type=radio CHECKED value=1 name="location"> <LABEL for=radio3>模糊</LABEL> 
+               </TD>
+	            <td width="50" align="right" nowrap>
+				  <INPUT type=radio value=2 name="location"> <LABEL for=radio4>精确</LABEL>
+				</td>
+				<TD  width="50"  height=25 align="right" nowrap="nowrap">
+                     书名：
+                 </TD>
+			   <td width="20">
+				<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="">
+				</td>
+			     <TD width="50" height=25 align="right" nowrap="nowrap" style="padding-left:8px;">
+			      <INPUT type=radio CHECKED value=1 name="bookNo"> <LABEL for=radio3>模糊</LABEL>            </TD>
+	        <td width="50" align="right">
+				 <INPUT type=radio value=2 name="bookNo"> <LABEL for=radio4>精确</LABEL>
+				</td>
+				<TD  width="50"  height=25 align="right" nowrap="nowrap">
+                 位置：	              </TD>
+			   <td width="30">
+				  <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="20">
+				</td>
+			  </TR>
+              
+              <TR>
+							<TD height=25 align="left" valign="top" class="body" colspan="8" style="padding-left:10px;">
 
 											<input type="button" class="btnl" value="查 询">
 											<input type="button" class="btnl"
@@ -245,7 +219,10 @@ else{
 												<input type="button" class="btnl"
 												onClick="window.location='addStroage.html';" value="打印条形码">													                                        </TD>
 									</TR>
-								</TABLE>
+			
+        
+                                
+                                					</TABLE>
 						<tr  id="yb" style="DISPLAY: block">
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"

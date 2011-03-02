@@ -105,19 +105,6 @@ else{
  return false;
  }
 }
-function enterStorage()
-{
-	var selPro=document.getElementsByName("productSelector");
-	var selState=document.getElementsByName("state2");
-	for(i=0;i<selPro.length;i++)
-	{
-	    if(selPro[i].checked==true){
-		selState[i].value=0;
-		}
-	}
-   alert("入库成功！");
-}
-
 
 function outStorage()
 {
@@ -161,23 +148,7 @@ function leaveStorage()
 {
  window.location="productExitStorage.html";
 }
-function backProvider()
-{
-	var selPro=document.getElementsByName("productSelector");
-	var selState=document.getElementsByName("state2");
-	for(i=0;i<selPro.length;i++)
-	{
-	    if(selPro[i].checked==true){
-		selState[i].value=6;
-		}
-		
-	}
- 
-   alert("退货成功。");
-}
-
-
-    </script>
+  </script>
 </head>
 <body bgcolor="#dbecff">
 <div   align="center" id="selectProduct" style="padding-top:30%; padding-bottom:30%; background-color:#CCCCCC ; display:none; padding-left:30%; vertical-align:middle; position:absolute; background-position:center; padding-right:30%; left: 131px; top: -274px; width: 160px; height: 82px;">
@@ -233,8 +204,8 @@ function backProvider()
 	borderColorDark="#ffffff" id="LM1"  >
                  
 		    <TR>
-               <TD width="30" height=25 align="left" nowrap="nowrap" class="body" colspan="6">
-             </strong>&nbsp;提示:</strong>   输入完借阅证号请按Enter键查看读者信息。            </TD>
+               <TD height=25 align="left" nowrap="nowrap" class="body" colspan="7">
+             <strong>&nbsp;提示:</strong>   输入完借阅证号请按Enter键查看读者信息。            </TD>
 		    </TR>
 
              <TR >
@@ -341,12 +312,12 @@ function backProvider()
             <td valign="top"><table width="98%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  bordercolorlight="#bcc3c9"
 	bordercolordark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
               <tr>
-                <td width="5%"  align="center" bgcolor="#F4F5F9" class="body">条形码</td>
-                <td width="10%" align="center" bgcolor="#F4F5F9" class="body">图书名称</td>
-                <td width="8%" align="center" bgcolor="#F4F5F9" class="body">借阅证号</td>
-                <td width="10%" align="center" bgcolor="#F4F5F9" class="body">读者姓名</td>
-                <td width="16%" align="center" bgcolor="#F4F5F9" class="body">归还备注</td>
-                <td width="3%" align="center" bgcolor="#F4F5F9" class="body">类型</td>
+                <td width="5%"  align="center" nowrap="nowrap" bgcolor="#F4F5F9" class="body">条形码</td>
+                <td width="10%" align="center" nowrap="nowrap" bgcolor="#F4F5F9" class="body">图书名称</td>
+                <td width="8%" align="center" nowrap="nowrap" bgcolor="#F4F5F9" class="body">借阅证号</td>
+                <td width="10%" align="center" nowrap="nowrap" bgcolor="#F4F5F9" class="body">读者姓名</td>
+                <td width="16%" align="center" nowrap="nowrap" bgcolor="#F4F5F9" class="body">归还备注</td>
+                <td width="3%" align="center" nowrap="nowrap" bgcolor="#F4F5F9" class="body">类型</td>
                 <td width="6%" align="center" bgcolor="#F4F5F9" class="body">借阅日期</td>
                 <td width="5%" align="center" bgcolor="#F4F5F9" class="body">应还时间</td>
                 <td width="5%" align="center" bgcolor="#F4F5F9" class="body">罚金</td>
@@ -377,7 +348,7 @@ function backProvider()
                   <td  class="body">图书</td>
                   <td  class="body">2010-10-01 16:30:32</td>
                   <td  class="body">2010-10-01 17:30:12</td>
-                     <td  class="body">0</td>
+                     <td  class="body"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="0" size="8" ></td>
                      <td  class="body">2010-10-01 17:30:12</td>
                   <td  class="body">2010-10-01 17:30:12</td>
                   <td align="center"  class="user"><select name="state2">
