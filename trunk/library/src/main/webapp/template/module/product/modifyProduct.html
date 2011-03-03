@@ -134,7 +134,7 @@ function outFitting()
           <tr>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td width="189" height="33" background="../images/titleb_01.jpg" class="title1">修改图书</td>
+                  <td width="189" height="36" background="../images/titleb_01.jpg" class="title1">修改图书</td>
                   <td background="../images/titleb_02.jpg">&nbsp;</td>
                   <td width="213" align="right" background="../images/titleb_03.jpg" style="padding-bottom:10px">&nbsp;&nbsp;</td>
                 </tr>
@@ -142,131 +142,164 @@ function outFitting()
           </tr>
           <tr>
             <td valign="top">
-            <form action="" method="post" name="productInfor" id="productInfor">
-   <table width="65%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+   <table width="50%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
 	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
-              <tr>
-                <td width="50%"  align="left" bgcolor="#F4F5F9" colspan="3">书&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:
-                  <input type="text" disabled="disabled" style=" width:468px; border-style:solid; border-color:#bcc3c9; border-width:1px;" value="高等数学"/></td>
+             <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="13%" height="30"  align="right"  bgcolor="#F4F5F9">书名: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9" colspan="3"> 
+                 <input name="barcode" type="text" id="barcode" size="54" value="高等数学">
+                 </td>
                 </tr>
               <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" nowrap bgcolor="#F4F5F9">图书编号: 
-                   <input name="barcode" type="text" id="barcode"></td>
-                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">分 类 号: 
-                  <input name="barcode" type="text" id="barcode"></td>
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">条形码: 
+                   </td>
+                <td width="20%"  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10" value="KF ES001" disabled>
+                  </td>
+                  <td width="9%"   align="right" nowrap bgcolor="#F4F5F9">图书编号:</td>
+                <td width="58%" height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="20" value="B001"></td>
 		        </tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">条 形 码: 
-                   <input name="barcode" type="text" id="barcode"> </td>
-                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">索 书 号: 
-                  <input name="barcode" type="text" id="barcode"></td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">出 版 社: 
-                    <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">正常供应</option>
-                        <option value="-1">已经停产</option>
-                        <option value="0">现在缺货</option>
-                    </select>			     </td>
-                 <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">种 次 号: 
-                  <input name="barcode" type="text" id="barcode"></td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类: 
-                    <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">正常供应</option>
-                        <option value="-1">已经停产</option>
-                        <option value="0">现在缺货</option>
-                    </select>			     </td>
-                 <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">ISBN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                  <input name="barcode" type="text" id="barcode"></td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">二级分类: 
-                    <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">正常供应</option>
-                        <option value="-1">已经停产</option>
-                        <option value="0">现在缺货</option>
-                    </select>			     </td>
-                 <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">出版日期: 
-                 <input name="" type="text" value="" onClick="WdatePicker();" ></td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">存放位置: 
-                    <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">正常供应</option>
-                        <option value="-1">已经停产</option>
-                        <option value="0">现在缺货</option>
-                    </select>			     </td>
-                 <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级: 
-                   <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">正常供应</option>
-                        <option value="-1">已经停产</option>
-                        <option value="0">现在缺货</option>
-                    </select>				</td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量: 
-                   <input type="text" style=" width:50px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /> &nbsp; 
-				   页数:<input type="text" style=" width:70px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /></td>
-                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">附&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;件: 
-                  <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                      <option value="1">正常供应</option>
-                      <option value="-1">已经停产</option>
-                      <option value="0">现在缺货</option>
-                  </select>				 </td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者: 
-                   <input name="barcode" type="text" id="barcode"> </td>
-                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">版&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;次: 
-                  <input name="barcode" type="text" id="barcode"></td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者:                   
-                   <input name="barcode2" type="text" id="barcode2"></td>
-                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">电子文档: 
+              <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">索书号: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10" value="b001">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">出版社:</td>
+                <td height="30"  align="left" bgcolor="#F4F5F9">
+                 <select id="state" name="state">
+                        <option value="1">大连出版社xxxx</option>
+                        <option value="-1">中国出版社</option>
+                        <option value="0">河大出版色和</option>
+                    </select>
+                  </td>
+		        </tr>
+              <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">种次号: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10" value="001">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">分类:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="10" value="数学"></td>
+		        </tr>
+              <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">二级分类: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10" value="难">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">出版日期:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                 <input name="" type="text" value="2010-2-2" onClick="WdatePicker();" size="10"></td>
+		        </tr>
+            
+              
+                <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">版次: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10" value="2">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">电子文档:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
                   <input name="barcode" type="file" id="barcode"></td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格: 
-                   <input type="text" style=" width:50px; border-style:solid; border-color:#bcc3c9; border-width:1px;" /> &nbsp; 
-				   状态: <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:70px;">
-                            <option value="1">正常供应</option>
-                            <option value="-1">已经停产</option>
-                            <option value="0">现在缺货</option>
-                          </select>			    </td>
-                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">拼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音: 
-                  <input name="barcode" type="text" id="barcode">				 </td>
-				</tr><tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别: 
-                    <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">正常供应</option>
-                        <option value="-1">已经停产</option>
-                        <option value="0">现在缺货</option>
-                    </select>			     </td>
-                 <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">来&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;源: 
-                   <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">购买</option>
-                        <option value="-1" selected="selected">捐赠</option>
-                    </select>				
-				</td>
-				</tr>
-				<tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td width="50%"  align="left" bgcolor="#F4F5F9">币&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;种: 
-                    <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">正常供应</option>
-                        <option value="-1">已经停产</option>
-                        <option value="0">现在缺货</option>
-                    </select>			     </td>
-                 <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">捐 赠 人: 
-                   <input name="barcode" type="text" id="barcode"></td>
-				</tr>
-	          <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                <td width="50%"  align="center" bgcolor="#F4F5F9">简介:</td>
-                <td width="50%"  align="left" bgcolor="#F4F5F9" style="padding-left:50px;">
-                <textarea  rows="3" style=" width:500px; border-style:solid; border-color:#bcc3c9; border-width:1px;">读书养眼</textarea></td>
-                </tr>
+		        </tr>
+            
+                
+                <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">密级:</td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                  <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:100px;">
+                        <option value="1">秘密</option>
+                        <option value="-1">普通</option>
+                        <option value="0">一般</option>
+                    </select>	
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">数量:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="10" value="2"></td>
+		        </tr>
+
+               <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">页数: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10" value="98">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">价格:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="10" value="98"></td>
+		        </tr>
+                
+                 <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">存放位置: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10" value="A区 b号柜">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">状态:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="10" value="正常"></td>
+		        </tr>
+                
+                 <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">ISBN: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10" value="afdsg23gdsa">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">拼音:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="10" value="abc"></td>
+		        </tr>
+              
+               <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">类别: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:100px;">
+                        <option value="1">计算机</option>
+                        <option value="-1">土木工程</option>
+                        <option value="0">医药</option>
+                    </select>
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">来源:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                  <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:100px;">
+                        <option value="1">捐赠</option>
+                        <option value="-1">购买</option>
+                    </select></td>
+		        </tr>
+               
+                  <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">币种: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:100px;">
+                        <option value="1">人名币</option>
+                        <option value="-1">美元</option>
+                        <option value="0">日元</option>
+                    </select>
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">捐赠人:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="10" value="huan"></td>
+		        </tr>
+            
+              
+                 <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">简介: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9" colspan="3"> 
+                <textarea  rows="3" style=" width:450px; border-color:#bcc3c9; border-width:1px;">
+                   该生无数次给学校图书馆捐赠图书，值得大家学习，是时代的楷模，人民的榜样，党的好儿子，可惜还是个团员</textarea>
+                </td>
+		        </tr>
+
             </table>
             </form>
              </td>

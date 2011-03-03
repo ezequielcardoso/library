@@ -143,9 +143,63 @@ function outFitting()
           <tr>
             <td valign="top">
           
-               <table width="50%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+               <table width="55%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
                 borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
             
+                <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td width="9%" height="30"  align="right"  bgcolor="#F4F5F9">书名: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9" colspan="3"> 
+                 <input name="barcode" type="text" id="barcode" size="46">
+                 </td>
+                </tr>
+              <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">条形码: 
+                   </td>
+                <td width="24%"  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10">
+                  </td>
+                  <td width="8%"   align="right" nowrap bgcolor="#F4F5F9">图书编号:</td>
+                <td width="59%" height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="20"></td>
+		        </tr>
+              <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">索书号: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">出版社:</td>
+                <td height="30"  align="left" bgcolor="#F4F5F9">
+                 <select id="state" name="state">
+                        <option value="1">大连出版社xxxx</option>
+                        <option value="-1">中国出版社</option>
+                        <option value="0">河大出版色和</option>
+                    </select>
+                  </td>
+		        </tr>
+              <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">种次号: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">分类:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                  <input name="barcode" type="text" id="barcode" size="10"></td>
+		        </tr>
+              <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">二级分类: 
+                   </td>
+                <td  align="left" bgcolor="#F4F5F9"> 
+                 <input name="barcode" type="text" id="barcode" size="10">
+                  </td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">出版日期:</td>
+                <td height="30"   align="left" bgcolor="#F4F5F9">
+                 <input name="" type="text" value="" onClick="WdatePicker();" size="20"></td>
+		        </tr>
+            
+              
                 <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
                  <td height="30"  align="right"  bgcolor="#F4F5F9">版次: 
                    </td>
@@ -154,17 +208,17 @@ function outFitting()
                   </td>
                   <td   align="right" nowrap bgcolor="#F4F5F9">电子文档:</td>
                 <td height="30"   align="left" bgcolor="#F4F5F9">
-                  <input name="barcode" type="text" id="barcode" size="10"></td>
+                  <input name="barcode" type="file" id="barcode"></td>
 		        </tr>
             
                 
                 <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
                  <td height="30"  align="right"  bgcolor="#F4F5F9">密级:</td>
                 <td  align="left" bgcolor="#F4F5F9"> 
-                  <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:160px;">
-                        <option value="1">正常供应</option>
-                        <option value="-1">已经停产</option>
-                        <option value="0">现在缺货</option>
+                  <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:100px;">
+                        <option value="1">秘密</option>
+                        <option value="-1">普通</option>
+                        <option value="0">一般</option>
                     </select>	
                   </td>
                   <td   align="right" nowrap bgcolor="#F4F5F9">数量:</td>
@@ -184,12 +238,12 @@ function outFitting()
 		        </tr>
                 
                  <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
-                 <td height="30"  align="right"  bgcolor="#F4F5F9">版次: 
+                 <td height="30"  align="right"  bgcolor="#F4F5F9">存放位置: 
                    </td>
                 <td  align="left" bgcolor="#F4F5F9"> 
                  <input name="barcode" type="text" id="barcode" size="10">
                   </td>
-                  <td   align="right" nowrap bgcolor="#F4F5F9">电子文档:</td>
+                  <td   align="right" nowrap bgcolor="#F4F5F9">状态:</td>
                 <td height="30"   align="left" bgcolor="#F4F5F9">
                   <input name="barcode" type="text" id="barcode" size="10"></td>
 		        </tr>
@@ -209,18 +263,29 @@ function outFitting()
                  <td height="30"  align="right"  bgcolor="#F4F5F9">类别: 
                    </td>
                 <td  align="left" bgcolor="#F4F5F9"> 
-                 <input name="barcode" type="text" id="barcode" size="10">
+                 <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:100px;">
+                        <option value="1">计算机</option>
+                        <option value="-1">土木工程</option>
+                        <option value="0">医药</option>
+                    </select>
                   </td>
                   <td   align="right" nowrap bgcolor="#F4F5F9">来源:</td>
                 <td height="30"   align="left" bgcolor="#F4F5F9">
-                  <input name="barcode" type="text" id="barcode" size="10"></td>
+                  <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:100px;">
+                        <option value="1">捐赠</option>
+                        <option value="-1">购买</option>
+                    </select></td>
 		        </tr>
                
                   <tr onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
                  <td height="30"  align="right"  bgcolor="#F4F5F9">币种: 
                    </td>
                 <td  align="left" bgcolor="#F4F5F9"> 
-                 <input name="barcode" type="text" id="barcode" size="10">
+                 <select id="state" name="state" style="border-style:solid; border-color:#bcc3c9; width:100px;">
+                        <option value="1">人名币</option>
+                        <option value="-1">美元</option>
+                        <option value="0">日元</option>
+                    </select>
                   </td>
                   <td   align="right" nowrap bgcolor="#F4F5F9">捐赠人:</td>
                 <td height="30"   align="left" bgcolor="#F4F5F9">
