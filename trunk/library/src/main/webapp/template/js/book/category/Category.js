@@ -1,11 +1,8 @@
 Ext.onReady(function(){
 
-	var categoryTree = new Library.category.tree.CategoryTree({
-		id : 'categoryTree',
-		url : 'category.json'
-	});
-	categoryTree.render('category-tree');
+	var categoryTreePanel = new Library.book.tree.CategoryTreePanel();
+	categoryTreePanel.render('categoryTree');
 	
-//	categoryTree.getRootNode().expand(false);
+//	categoryTreePanel.getRootNode().expand(false);
 });
 

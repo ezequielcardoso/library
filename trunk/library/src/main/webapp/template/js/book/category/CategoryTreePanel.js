@@ -1,6 +1,6 @@
-Ext.ns('Library.category.tree');
+Ext.ns('Library.book.tree');
 
-Library.category.tree.CategoryTree = Ext.extend(Ext.tree.TreePanel, {
+Library.book.tree.CategoryTreePanel = Ext.extend(Ext.tree.TreePanel, {
 	
 	id : null,
 	url : null,
@@ -8,7 +8,7 @@ Library.category.tree.CategoryTree = Ext.extend(Ext.tree.TreePanel, {
 	initComponent : function(){
 		
 		Ext.apply(this, {
-			width : 350,
+			width : 400,
 		    height : 500,
 		    autoScroll: true,
 		    animate: true,
@@ -24,7 +24,7 @@ Library.category.tree.CategoryTree = Ext.extend(Ext.tree.TreePanel, {
 		
 		});
 		
-		Library.category.tree.CategoryTree.superclass.initComponent.call(this);
+		Library.book.tree.CategoryTreePanel.superclass.initComponent.call(this);
 		
 	}
 });

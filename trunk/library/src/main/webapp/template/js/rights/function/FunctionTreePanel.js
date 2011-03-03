@@ -7,7 +7,7 @@ Library.rights.tree.FunctionTreePanel = Ext.extend(Ext.tree.TreePanel, {
 	initComponent : function(){
 		
 		Ext.apply(this, {
-			width : 350,
+			width : 400,
 		    height : 500,
 		    autoScroll: true,
 		    animate: true,
