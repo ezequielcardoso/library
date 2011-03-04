@@ -77,29 +77,22 @@ lbmc.style.display = 'none';
         <td height="10" valign="top"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" 
 		     borderColorDark="#ffffff">
             <tr>
-              <td height="30" class="body1">&nbsp;
-                <input type="button" class="btn" onClick="window.location='pressManager.html'" value="增 加">
-                &nbsp;
-                <input type="button" class="btn" onClick="document.getElementById('productInfor').reset();" value="重 置">
-                &nbsp;
-                <input type="button" class="btn"  onClick="window.history.back(-1);" value="返 回">
+              <td height="30" class="body1">
+                <input type="button" class="btn" onClick="window.location='pressManager.html'" value="增加">
+                <input type="button" class="btn" onClick="document.getElementById('productInfor').reset();" value="重置">
+                <input type="button" class="btn"  onClick="window.history.back(-1);" value="返回">
                 </td>
             </tr>
           </table>
-         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ebebeb"  borderColorLight="#ebebeb"
-	borderColorDark="#ffffff" id="LM1"  >
-              <TR>
-                <TD align="left" class="body">&nbsp;</TD>
-              </TR>
-          </TABLE></td>
+         </td>
       </tr>
       <tr>
         <td valign="top">
-        <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:5px">
+        <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:0px">
           <tr>
             <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td width="189" height="33" background="images/titleb_01.jpg" class="title1">&nbsp;增加出版社</td>
+                  <td width="189" height="33" background="images/titleb_01.jpg" class="title1">增加出版社</td>
                   <td background="images/titleb_02.jpg">&nbsp;</td>
                   <td width="213" align="right" background="images/titleb_03.jpg" style="padding-bottom:10px">&nbsp;&nbsp;</td>
                 </tr>
@@ -107,53 +100,59 @@ lbmc.style.display = 'none';
           </tr>
           <tr>
             <td valign="top">
-            <form action="" method="post" name="productInfor" id="productInfor">
-   <table width="70%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+         <table width="50%" border="1" align="left" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
 	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
                <TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;出版社代码：
-                                            <input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="30">
-			                           </TD>
-									 </TR>
+										<TD width="15%" height=25 align="right" nowrap class="body">
+											出版社代码：
+                                       </TD>
+                                       <TD width="35%" align="left" nowrap>
+										    <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="60">
+                      </TD>
+				    </TR>
 									
 									  <TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;出版社名称：
-                                            <input name=txtkeyvalue2 type="text" class="input2"
+										<TD width="15%" height=30 align="right" nowrap class="body">
+											出版社名称：
+                                        </TD>
+                                        <TD width="35%" align="left" nowrap>
+										    <input name=txtkeyvalue2 type="text" class="input2"
 												id="txtkeyvalue2" value="" size="60">
 				                        </TD>
-									</TR>
+					</TR>
                                      
 									   <TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;出版地：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input name=txtkeyvalue2 type="text" class="input2"
+										<TD width="15%" height=25 align="right" nowrap class="body">
+											出版地：
+                                        </TD>
+                                        	<TD width="35%" height=25 align="left" nowrap class="body">
+									        <input name=txtkeyvalue2 type="text" class="input2"
 												id="txtkeyvalue2" value="" size="60">
 				                        </TD>
-									</TR>
+					</TR>
 
                                    <TR
 										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" class="body">
-											&nbsp;&nbsp;邮政编码：&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input name=txtkeyvalue2 type="text" class="input2"
+										<TD width="15%" height=25 align="right" nowrap class="body">
+											邮政编码：
+                                        </TD>
+                                        <TD width="35%" height=25 align="left" nowrap class="body">
+											 <input name=txtkeyvalue2 type="text" class="input2"
 												id="txtkeyvalue2" value="" size="30">
-				                        </TD>
-									</TR>
+			                         </TD>
+					</TR>
 
 								
                                 
             </table>
-            </form>
              </td>
           </tr>
         </table>
