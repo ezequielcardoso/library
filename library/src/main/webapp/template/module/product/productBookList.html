@@ -162,7 +162,7 @@ else{
 											<table width="100%" border="0" align="center" cellpadding="0"
 												cellspacing="0" class="title_border">
 												<tr>
-													<td width="19%" height="25" style="text-align: left">
+													<td width="19%" height="25" align="left" style="text-align: left">
 														<strong>&nbsp;<img align="absmiddle"
 																src="../images/cl0.gif">查询统计</strong>													</td>
 													<td width="81%" height="25" class=body1
@@ -186,27 +186,27 @@ else{
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="50%" border="0" align="left" cellpadding="0"
+								<table width="46%" border="0" align="left" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 						
-								       <TR>
-											<TD width="60" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
-											   借阅证号: 
+								        <TR>
+											<TD width="10%" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
+											   借阅证号： 
 											</TD>
-									    	<td width="30" align="center">
-											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+									    	<td width="10%" align="left" nowrap>
+											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15" >
 											</td>
-											<TD  width="60"  height=25 align="right" nowrap="nowrap">
-											  读者姓名:                </TD>
-										   <td width="30">
-											<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+											<TD width="10%"   height=25 align="right" nowrap="nowrap">
+											  读者姓名：                </TD>
+										   <td width="10%" align="left" nowrap >
+											<input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15" >
 											</td>
-											<TD width="70" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
-											   图书编号: 
+											<TD width="10%" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
+											   图书编号： 
 											</TD>
-									    	<td width="30" align="center">
-											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+									    	<td width="10%"  align="left" nowrap>
+											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15" >
 											</td>
 									</TR>
 									 <TR>
@@ -214,48 +214,83 @@ else{
 											
 									</TR>
 									 <TR>
-											<TD width="60" height=25 align="center" nowrap="nowrap"  style="padding-left:10px;">
-											   书条形码: 
+											<TD width="10%"  height=25 align="right" nowrap="nowrap" style="padding-left:8px;">
+											   条形码： 
 											</TD>
-									    	<td width="30" align="center">
-											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="20" >
+									    	<td width="10%"  align="left" nowrap>
+											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15" >
 											</td>
-											<TD width="60" height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
-											   书名: 
+											<TD  height=25 align="right" nowrap="nowrap" >
+											   刊名： 
 											</TD>
-									    	<td width="30" align="center">
-											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="22" >
+									    	<td width="10%"  align="left" nowrap>
+											  <input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15" >
 											</td>
-											<TD  width="60"  height=25 align="right" nowrap="nowrap">
-											&nbsp;<input type="checkbox" name="proSelect" width="5">已还:
+											<TD  height=25 align="right" nowrap="nowrap">
+											<input type="checkbox" name="proSelect">已还：
 					                   </TD>
-										   <td width="30">
+										   <td width="10%" align="left" nowrap >
 											 <select disabled="disabled" id="protype" name="protype"  style="border-style:solid; border-color:#bcc3c9; width:100px">
 														  <option value="A">是</option>
 														  <option value="B"> 或</option>
 											 </select>	
 									   </td>
 									</TR>
-									 <TR>
-											<TD width="500" height=25 align="left" nowrap="nowrap"  style="padding-left:10px;" colspan="4">
-											   <input type="checkbox" name="proSelect">
-											   借阅时间: &nbsp;从 <input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="15" onClick="WdatePicker();" >	&nbsp; 到&nbsp;             
-										    <input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="15" onClick="WdatePicker();" >	
-											</TD>
-									</TR>
-									 <TR>
-											<TD width="500" height=25 align="left" nowrap="nowrap"  style="padding-left:10px;" colspan="4">
-											   <input type="checkbox" name="proSelect">
-											   归还时间: &nbsp;从 <input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="15" onClick="WdatePicker();" >	&nbsp; 到&nbsp;             
-										    <input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="15" onClick="WdatePicker();" >	
-											</TD>
-									</TR>
-									<TR>
-										<TD height=0 align="left" valign="top" class=body colspan="4">
+									  <TR >
+									   <TD  height=25 align="right" nowrap="nowrap" colspan="2" style="padding-left:22px;">
+										 <input type="checkbox" name="proSelect">
+									    借阅时间：     </TD>
+									   <TD   height=25 align="right" nowrap>
+										从&nbsp;
+									   </TD>
+									    <td width="10%"  align="left" nowrap>
+										<input name="" type="text" class="input2"
+												id="txtkeyvalue" value="2010-2-2" size="15" onClick="WdatePicker();" >
+										</td>
+										  <td align="right" nowrap>
+										        到
+							      </td>
+										  <td width="10%" align="left" nowrap >
+										       <input name="" type="text" class="input2"
+												id="txtkeyvalue" value="2010-2-2" size="15" onClick="WdatePicker();" >
+										</td>
+								 </TR>
+                                  <TR >
+									   <TD  height=25 align="right" nowrap="nowrap" colspan="2" style="padding-left:22px;">
+										 <input type="checkbox" name="proSelect">
+										 归还时间：     </TD>
+									   <TD   height=25 align="right" nowrap>
+										从&nbsp;
+									   </TD>
+									    <td width="10%"  align="left" nowrap>
+										<input name="" type="text" class="input2"
+												id="txtkeyvalue" value="2010-2-2" size="15" onClick="WdatePicker();" >
+										</td>
+										  <td align="right" nowrap>
+										        到
+			      </td>
+										  <td width="10%" align="left" nowrap >
+										       <input name="" type="text" class="input2"
+												id="txtkeyvalue" value="2010-2-2" size="15" onClick="WdatePicker();" >
+										</td>
+								 </TR>
+								 
+                                   <TR >
+								     <TD  height=25 align="right" nowrap="nowrap" colspan="2" style="padding-left:22px;">
+										 <input type="checkbox" name="proSelect">
+										 是或逾期：     </TD>
+									    <TD   height=25 align="right" nowrap>
+										</TD>
+                                       <TD   height=25 align="left" nowrap colspan="3">
+						<select disabled="disabled" id="protype" name="protype"  style="border-style:solid; border-color:#bcc3c9; width:100px">
+														  <option value="A">是</option>
+														  <option value="B"> 或</option>
+											 </select>
+									   </TD>
+								  </TR>
+                                 
+									<TR align="left">
+									  <TD height=0 colspan="4" valign="top" nowrap class=body style="padding-left:8px;">
 
 											&nbsp;&nbsp;<input type="button" class="btnl" value="查 询">
 											<input name="button2" type="button" class="btnl"
@@ -263,7 +298,7 @@ else{
 												value="打印">
 											<input name="button" type="button" class="btnl"
 												onClick="window.location='productList.html';"
-												value="转Excel">
+												value="导出Excel">
 											<input type="button" class="btnl"
 												onClick="window.location='addStroage.html';" value="关闭">
 									</TD>
@@ -273,7 +308,7 @@ else{
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bgcolor="#f1f8ff"
-									style="border: 1px solid #2686d2; margin-top: 5px">
+									style="border: 1px solid #2686d2; margin-top: 2px">
 									<tr>
 										<td>
 											<table width="100%" border="0" cellspacing="0"

@@ -188,114 +188,89 @@ else{
 						</tr>
 						<tr id="yy" style="DISPLAY: block">
 							<td height="10" valign="top">
-								<table width="85%" border="0" align="left" cellpadding="0"
+								<table width="60%" border="0" align="left" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 									
-								  	<TR>
-										<TD width="55" height=25 align="right" valign="top" nowrap class=body>
-                                            <INPUT type=radio CHECKED value=1 name="units">
-											<LABEL for=radio3>模糊</LABEL> 
-										</TD>
-										<TD width="70" height=25 align="left" valign="top" nowrap class=body>
-                                         <INPUT type=radio value=2 name="units">
-											 <LABEL for=radio4>精确</LABEL>
-										</TD>
-                                        <TD width="43" height=25 align="right" valign="center" nowrap class=body>
-                                            单位：
-										</TD>
-                                         <TD width="156" height=25 align="left" valign="top" class=body>
-                                           <input name="units" type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">
-										</TD> 
-										<TD width="64" height=25 align="right" valign="top" nowrap class=body>
-                                            <INPUT type=radio CHECKED value=1 name="units">
-											<LABEL for=radio3>模糊</LABEL> 
-										</TD>
-										<TD width="58" height=25 align="right" valign="top" nowrap class=body>
-                                            <INPUT type=radio value=2 name="units">
-											 <LABEL for=radio4>精确</LABEL>
-										</TD>
-                                        <TD width="62" height=25 align="right" valign="center" nowrap class=body>
-                                                     &nbsp; &nbsp; 条形码：
-										</TD>
-                                         <TD height=25 align="left" valign="top" class=body>
-                                            <input name="barCode" type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">
-										</TD>   
-									</TR>
-								    
-									 	<TR>
-										<TD height=25 align="right" valign="top" nowrap class=body>
-                                            <INPUT type=radio CHECKED value=1 name="units">
-											<LABEL for=radio3>模糊</LABEL> 
-										</TD>
-										<TD height=25 align="left" valign="top" nowrap class=body>
-                                         <INPUT type=radio value=2 name="units">
-											 <LABEL for=radio4>精确</LABEL>
-										</TD>
-                                        <TD height=25 align="right" valign="center" nowrap class=body>号码：										</TD>
-                                         <TD height=25 align="left" valign="top" class=body>
-                                           <input name="units" type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">
-										</TD> 
-										<TD height=25 align="right" valign="top" nowrap class=body>
-                                            <INPUT type=radio CHECKED value=1 name="units">
-											<LABEL for=radio3>模糊</LABEL> 
-										</TD>
-										<TD height=25 align="right" valign="top" nowrap class=body>
-                                            <INPUT type=radio value=2 name="units">
-											 <LABEL for=radio4>精确</LABEL>
-										</TD>
-                                        <TD height=25 align="right" valign="center" nowrap class=body>
-                                                  姓名：
-										</TD>
-                                         <TD height=25 align="left" valign="top" width=640>
-                                            <input name="barCode" type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">
-										</TD>   
-									</TR>
-								
-								   <TR>
-										<TD height=25 align="right" valign="top" nowrap class=body>
-                                           <input type="checkbox" name="proSelect" class="input2"
-												id="" value="" size="30">
-										</TD>
-										<TD height=25 align="left" valign="center" nowrap class=body>
-                                             办证时间：
-									 </TD>
-                                        <TD height=25 align="right" valign="center" nowrap class=body>
-                                            &nbsp; &nbsp;从
-										</TD>
-                                         <TD height=25 align="left" valign="top" class=body>
-                                           <input name="" type="text"  id="" class="" value="2010-2-2"
-												 onClick="WdatePicker();" size="20">
-										</TD> 
-										<TD height=25 align="center" valign="center" nowrap class=body>
-                                            到
-										</TD>
-                                         <TD height=25 colspan="3" align="left" valign="top" nowrap class=body>
-                                            <input name="" type="text"  id="" class="" value="2010-2-2"
-												 size="20" onClick="WdatePicker();">
-										</TD>   
-								  </TR>
-								    
+								      <TR >
+									   <TD  height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
+										  <INPUT type=radio CHECKED value=1 name="series"> 模糊                </TD>
+									   <td  align="right" nowrap>
+										 <INPUT type=radio value=2 name="series"> 精确
+										</td>
+										<TD  height=25 align="right"  nowrap="nowrap"><span class="body">单位</span>：              </TD>
+									   <td   align="left" nowrap >
+										<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="15">
+										</td>
+										<TD  height=25 align="right" nowrap="nowrap">
+										   <INPUT type=radio CHECKED value=1 name="serie"> 模糊:                </TD>
+									   <td  align="right" nowrap>
+										<INPUT type=radio value=2 name="serie" size="30"> 精确
+										</td>
+										<TD    height=25 align="right" nowrap="nowrap"><span class="body">条形码</span>：              </TD>
+									    <td  align="left" nowrap>
+										<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="15">
+										</td>
+									 </TR>
+									 
+									  <TR >
+									   <TD  height=25 align="right" nowrap="nowrap">
+										  <INPUT type=radio CHECKED value=1 name="series"> 模糊                </TD>
+									   <td  align="right" nowrap>
+										 <INPUT type=radio value=2 name="series" > 精确
+										</td>
+										<TD   height=25 align="right" nowrap="nowrap"><span class="body">号码</span>：              </TD>
+									   <td  align="left" nowrap>
+										<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="15">
+										</td>
+										<TD  height=25 align="right" nowrap="nowrap">
+										   <INPUT type=radio CHECKED value=1 name="serie"> 模糊:                </TD>
+									   <td align="right" nowrap>
+										<INPUT type=radio value=2 name="serie" size="30"> 精确
+										</td>
+										<TD    height=25 align="right" nowrap="nowrap"><span class="body">姓名</span>：              </TD>
+									    <td  align="left" nowrap>
+										<input name=txtkeyvalue type="text" class="input2"
+												id="txtkeyvalue" value="" size="15">
+										</td>
+									 </TR>
+							        <TR >
+									   <TD  height=25 align="right" nowrap="nowrap" colspan="2" style="padding-left:22px;">
+										 <input type="checkbox" name="proSelect">
+										 <span class="body">办证时间</span>：     </TD>
+									   <TD   height=25 align="right" nowrap>
+										从&nbsp;
+									   </TD>
+									    <td  align="left" nowrap>
+										<input name="" type="text" class="input2"
+												id="txtkeyvalue" value="2010-2-2" size="15" onClick="WdatePicker();" >
+										</td>
+										  <td align="right" nowrap colspan="3">
+										        到
+									</td>
+										  <td align="left" nowrap >
+										       <input name="" type="text" class="input2"
+												id="txtkeyvalue" value="2010-2-2" size="15" onClick="WdatePicker();" >
+										</td>
+								 </TR>
+							
+                                  
+                             	    
 									<TR align="left">
 										<TD height=25 colspan="8" valign="top" nowrap class=body 
                                               style="padding-left:8px;">
                                            <input type="button" class="btnl" value="查 询">
-										   &nbsp;
-                                           <input type="button" class="btnl"
+									      <input type="button" class="btnl"
 												onClick="window.location='productBookDocs.html';"
 												value="删 除">
-										   &nbsp;
 										   <input type="button" class="btnl"
 												onClick="window.location='addProductExchangeDocs.html';"
 												value="导出excel">
-										   	&nbsp;
 											<input type="button" class="btnl"
 												onClick="window.location='modifyCard.html';" value="修 改">
-										   &nbsp;
 										   <input type="button" class="btnl"
 												onClick="window.location='addCard.html';" value="增加借阅证">
 										</TD>   
@@ -309,7 +284,7 @@ else{
 							<td height="0" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bgcolor="#f1f8ff"
-									style="border: 1px solid #2686d2; margin-top: 5px">
+									style="border: 1px solid #2686d2; margin-top: 2px">
 									<tr>
 										<td>
 											<table width="100%" border="0" cellspacing="0"
