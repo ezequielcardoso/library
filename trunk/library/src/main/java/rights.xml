@@ -7,7 +7,9 @@
 
     <package name="rights" namespace="rights" extends="library">
 
-		<!-- add Actions here -->
+		<action name="addUser" class="com.huan.library.web.action.UserAction" method="add">
+			<result name="success">index.jsp</result>
+		</action>
 
     </package>
 </struts>
