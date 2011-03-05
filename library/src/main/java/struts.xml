@@ -17,11 +17,6 @@
 	<!-- Add packages here -->
     <package name="library" namespace="/" extends="struts-default">
     	<!-- add Actions here -->
-    	<!-- 
-        <action name="index" class="com.huan.library.web.action.LibraryManagerAction" method="login">
-			<result name="success">index.jsp</result>
-		</action>
-		 -->	
     </package>
 
 </struts>
