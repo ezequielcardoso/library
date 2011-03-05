@@ -118,42 +118,42 @@ function updateProduct(){
 						<tr>
 							<td valign="top">
 
-								<table width="70%" border="1" align="center" cellpadding="0"
+								<table width="50%" border="1" align="left" cellpadding="0"
 									cellspacing="0" bordercolor="#bcc3c9"
 									borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 									bgcolor="#dbecff" style="margin-top:5px">
 									<tr>
-										<td width="25%" align="right" bgcolor="#F4F5F9">
-											库存位置:										</td>
+										<td width="15%" height="30" align="right" nowrap="nowrap" bgcolor="#F4F5F9">
+											库存位置：										</td>
 										<td width="25%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<input type="text" name="productName" id="productName"
+											>
+    <input type="text" name="productName" id="productName"
 												value="a 124/452"
-												style="width:360px; border-style:solid; border-color:#bcc3c9; border-width:1px;" />										</td>
+												 />										</td>
 																		</tr>
 									<tr>
-										<td width="20%" align="right" bgcolor="#F4F5F9">入库时间:										</td>
+										<td width="15%" height="30" align="right" nowrap="nowrap" bgcolor="#F4F5F9">入库时间：										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<input type="text" size="25" value="2010-12-2"/>
+											>
+											<input type="text" size="15" value="2010-12-2"/>
 										</td>
 									</tr>
                                     <tr>
-										<td width="20%" align="right" bgcolor="#F4F5F9">借出次数:										</td>
+										<td width="15%" height="30" align="right" nowrap="nowrap" bgcolor="#F4F5F9">借出次数：										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
-											<input type="text" size="25" value="24"/>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+											>
+										  <input type="text" size="10" value="10"/>
+											</td>
                                 	</tr>
 									<tr bgcolor="#FAFBFC"
 										onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<td width="20%" align="right" bgcolor="#F4F5F9">目前状态:										</td>
+										<td width="15%" height="30" align="right" nowrap="nowrap" bgcolor="#F4F5F9">目前状态：										</td>
 										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;">
+											>
 
-											<select id="state" name="state"
-												style="border-style:solid; border-color:#bcc3c9; width:180px;">
+										  <select id="state" name="state"
+												style="border-style:solid; border-color:#bcc3c9; width:120px;">
 												<s:if test='state=="1"'>
 													<option value="1" selected>
 														核审中													</option>
@@ -168,24 +168,15 @@ function updateProduct(){
                                     <tr bgcolor="#FAFBFC"
 										onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 										onMouseOut="this.style.backgroundColor='';">
-										<td width="20%" align="right" bgcolor="#F4F5F9">馆藏数量:									  </td>
-										<td width="30%" align="left" bgcolor="#F4F5F9"
-											style="padding-left:10px;"><input type="text" value="8"/></td>
+										<td width="15%" height="30" align="right" nowrap="nowrap" bgcolor="#F4F5F9">馆藏数量：									  </td>
+									  <td width="30%" align="left" bgcolor="#F4F5F9"
+											><input type="text" value="8" size="10"/></td>
 									</tr>
                               </table>
 
 						  </td>
 						</tr>
 
-
-						<tr>
-							<td colspan="4" align="center">
-								
-											<input type="button" class="btn" value="关闭" />&nbsp;&nbsp;&nbsp;&nbsp;
-											
-											
-							</td>
-						</tr>
 						<tr>
 							<td>&nbsp;
 								
