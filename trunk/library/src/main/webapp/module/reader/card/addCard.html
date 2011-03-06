@@ -6,51 +6,6 @@
 <script type="text/javascript" src="../../../common/datePicker/datePicker/calendar/WdatePicker.js">
 </script>
 <script language="JavaScript">
-function fEvent(sType,oInput){
-		switch (sType){
-			case "focus" :
-				oInput.isfocus = true;
-			case "mouseover" :
-				oInput.style.borderColor = '#7a95d2';
-				oInput.style.background = '#ffffcc';
-				break;
-			case "blur" :
-				oInput.isfocus = false;
-			case "mouseout" :
-				if(!oInput.isfocus){
-					oInput.style.borderColor='#cddeeb';
-					oInput.style.background = '#ffffff';
-				}
-				break;
-		}
-	}
-	
-var number=1; 
-
-function LMYC() { 
-var lbmc; 
-//var treePic; 
-for (i=1;i<=number;i++) { 
-lbmc = eval('LM' + i); 
-var imageName='treePic'+ i; 
-//document.getElementById(imageName).src="../../../images/module/sj0.gif";
-lbmc.style.display = ''; 
-} 
-} 
-
-function ShowFLT(i) { 
-lbmc = eval('LM' + i); 
-var imageName='treePic'+ i;
-if (lbmc.style.display == 'none') { 
-LMYC(); 
-} 
-else
-{
-//document.getElementById(imageName).src="../../../images/module/sj.gif";
-//treePic.src = '../../../images/module/nofile.gif'; 
-lbmc.style.display = 'none'; 
-}
-} 
     </script>
 </head>
 <body>
