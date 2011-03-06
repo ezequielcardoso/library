@@ -7,202 +7,43 @@
 <title>广州市自来水综合业务管理平台</title>
 <script type="text/javascript" src="../../common/datePicker/datePicker/calendar/WdatePicker.js">
 </script>
-<script language="JavaScript">
-
-function selectProduct()
-{
-   document.getElementById("selectProduct").style.display="";
-}
-function showDIV()
-{
-	if(document.getElementById("dv_1").style.display=="none"){
-   document.getElementById("dv_1").style.display="";
-   }
-   else{
-   document.getElementById("dv_1").style.display="none";
-   }
-}
-
-
-function fEvent(sType,oInput){
-		switch (sType){
-			case "focus" :
-				oInput.isfocus = true;
-			case "mouseover" :
-				oInput.style.borderColor = '#7a95d2';
-				oInput.style.background = '#ffffcc';
-				break;
-			case "blur" :
-				oInput.isfocus = false;
-			case "mouseout" :
-				if(!oInput.isfocus){
-					oInput.style.borderColor='#cddeeb';
-					oInput.style.background = '#ffffff';
-				}
-				break;
-		}
-	}
-	
-var number=1; 
-
-function LMYC() { 
-var lbmc; 
-//var treePic; 
-for (i=1;i<=number;i++) { 
-lbmc = eval('LM' + i); 
-var imageName='treePic'+ i; 
-//document.getElementById(imageName).src="../../images/module/sj0.gif";
-lbmc.style.display = ''; 
-} 
-} 
-
-function ShowFLT(i) { 
-lbmc = eval('LM' + i); 
-var imageName='treePic'+ i;
-if (lbmc.style.display == 'none') { 
-LMYC(); 
-} 
-else
-{
-//document.getElementById(imageName).src="../../images/module/sj.gif";
-//treePic.src = '../../images/module/nofile.gif'; 
-lbmc.style.display = 'none'; 
-}
-} 
-var productID=0;
-function productFunc(productId)
-{
-productID=productId;
-var editBTN=document.getElementById("edit");
-var recordBTN=document.getElementById("sellRecord");
-editBTN.disabled="";
-recordBTN.disabled="";
-
-}
-
-
-function editProduct(){
-if(productID!=0){
-var productId=document.getElementById("product_"+productID).value;
-window.location="productCURD!getProduct.action?productId="+productId+"";
-  }
- else{
-   alert("请先选择要查看的产品！");
-  return false;
- }
-}
-
-function showSellRecord()
-{
-
-if(productID!=0){
- 
-//var clientId=document.getElementById("client_"+clientID).value;
-//window.location="sellRecordCURD!qureyClientSellRecords.action?clientId="+clientId+"";  //根据客户编号，查找购买记录
-window.location="sellRecordList.html";  //根据客户编号，查找购买记
- }
-else{
-  alert("请先选择要查看的产品！");
- return false;
- }
-}
-function enterStorage()
-{
-	var selPro=document.getElementsByName("productSelector");
-	var selState=document.getElementsByName("state2");
-	for(i=0;i<selPro.length;i++)
-	{
-	    if(selPro[i].checked==true){
-		selState[i].value=0;
-		}
-	}
-   alert("入库成功！");
-}
-
-
-function outStorage()
-{
-	window.location='productOutStroage.html';
-
-}
-
-function readySelect(num)
-{
-	document.getElementById("TabState"+num).style.display="none";
-    document.getElementById("stroState"+num).style.display="";
-	
-}
-
-function selectRecord(selState)
-{
-	var stateList=document.getElementsByName("state2");
-      for(j=0;j<stateList.length;j++)
-	  {
-	       stateList[j].value=selState;
-	  }
-}
-
-function selectAll(state)
-{
-var products=document.getElementsByName("productSelector");
-if(state==true){
-for(k=0;k<products.length;k++){
-products[k].checked=true;
-}
-}
-else{
-
-for(j=0;j<products.length;j++){
-products[j].checked=false;
-}
-}
-}
-
-function leaveStorage()
-{
- window.location="productExitStorage.html";
-}
-function backProvider()
-{
-	var selPro=document.getElementsByName("productSelector");
-	var selState=document.getElementsByName("state2");
-	for(i=0;i<selPro.length;i++)
-	{
-	    if(selPro[i].checked==true){
-		selState[i].value=6;
-		}
-		
-	}
- 
-   alert("退货成功。");
-}
-
-
-    </script>
+	<script language="JavaScript">
+    
+					function selectProduct()
+					{
+					   document.getElementById("selectProduct").style.display="";
+					}
+					function showDIV()
+					{
+						if(document.getElementById("dv_1").style.display=="none"){
+					   document.getElementById("dv_1").style.display="";
+					   }
+					   else{
+					   document.getElementById("dv_1").style.display="none";
+					   }
+					}
+					
+					
+					function selectAll(state)
+					{
+					var products=document.getElementsByName("productSelector");
+					if(state==true){
+					for(k=0;k<products.length;k++){
+					products[k].checked=true;
+					}
+					}
+					else{
+					
+					for(j=0;j<products.length;j++){
+					products[j].checked=false;
+					}
+					}
+					}
+					
+					
+        </script>
 </head>
 <body bgcolor="#dbecff">
-<div   align="center" id="selectProduct" style="padding-top:30%; padding-bottom:30%; background-color:#CCCCCC ; display:none; padding-left:30%; vertical-align:middle; position:absolute; background-position:center; padding-right:30%; left: 131px; top: -274px; width: 160px; height: 82px;">
-<table width="124%">
-<tr><td align="right">产品类型</td>
-<td>
-<select>
-<option>水龙头</option>
-<option>净水器</option>
-<option>配件</option>
-</select>
-</td></tr>
-<tr><td align="right">产品信息</td>
-<td>
-<select>
-<option>A1</option>
-<option>A2</option>
-<option>A3</option>
-<option>A4</option>
-</select>
-</td></tr>
-<tr><td><input type="button" value="确定"/></td><td><input type="button" onclick="document.getElementById('selectProduct').style.display='none';" value="关闭"/></td></tr>
-</table>
- </div>
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbecff">
   <tr>
     <td height="4" background="../../images/module/bodybg.jpg"></td>
