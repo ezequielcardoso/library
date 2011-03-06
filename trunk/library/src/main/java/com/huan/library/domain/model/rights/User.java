@@ -15,11 +15,18 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.GenericGenerator;
-
+/**
+ * 用户
+ * @author shuaizhichun
+ * @time 2011-3-6 下午10:27:58
+ */
 @Entity
 public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id 
 //	@GeneratedValue(generator="system-uuid")
 //	@GenericGenerator(name="system-uuid", strategy = "uuid")

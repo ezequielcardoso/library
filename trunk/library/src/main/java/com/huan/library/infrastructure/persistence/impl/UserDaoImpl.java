@@ -35,6 +35,7 @@ public class UserDaoImpl extends HibernateDaoSupportBean implements UserDao {
 		return true;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<User> selectAllUsers(){
 		List<User> users = new ArrayList<User>();
 		try{
