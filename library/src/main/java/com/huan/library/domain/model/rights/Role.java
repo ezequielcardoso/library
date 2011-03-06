@@ -14,9 +14,18 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 
+/**
+ * 角色 
+ * @author shuaizhichun
+ * @time 2011-3-6 下午10:27:23
+ */
 @Entity
 public class Role implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@GeneratedValue(strategy=GenerationType.AUTO)

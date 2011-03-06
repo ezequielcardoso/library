@@ -15,11 +15,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
+/**
+ * 功能
+ * @author shuaizhichun
+ * @time 2011-3-6 下午10:27:12
+ */
 @Entity
 public class Function implements Serializable{
 
-	//基本信息
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@GeneratedValue(strategy=GenerationType.AUTO)
