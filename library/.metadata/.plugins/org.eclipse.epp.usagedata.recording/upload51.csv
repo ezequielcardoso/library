@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Plug-in ""com.genuitec.eclipse.easie.tomcat.myeclipse"" was unable to instantiate class ""com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin"".",1299496353093
+stopped,bundle,com.genuitec.eclipse.easie.tomcat.myeclipse,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tomcat.myeclipse",1299496353093
+error,log,,,"Problems encountered starting up plug-in: ""org.osgi.framework.BundleException: Exception in org.eclipse.core.internal.compatibility.PluginActivator.start() of bundle com.genuitec.eclipse.easie.tomcat.myeclipse."".",1299496353093
+error,log,,,"Unhandled Exception",1299496353093
+error,log,,,"Unable to execute early startup code for an extension",1299496353093
+error,log,,,"Bad extension specification",1299496353093
+error,log,,,"startup class must implement org.eclipse.ui.IStartup",1299496353093
+started,bundle,com.genuitec.eclipse.easie.tomcat4,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tomcat4",1299496353093
+started,bundle,com.genuitec.eclipse.easie.tomcat5,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tomcat5",1299496353109
+started,bundle,com.genuitec.eclipse.easie.tomcat6,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tomcat6",1299496353109
+started,bundle,com.genuitec.eclipse.easie.weblogic,8.5.0.me201003190322,"com.genuitec.eclipse.easie.weblogic",1299496353125
+started,bundle,com.genuitec.eclipse.easie.weblogic10,8.5.0.me201003121946,"com.genuitec.eclipse.easie.weblogic10",1299496353125
+started,bundle,com.genuitec.eclipse.easie.weblogic6,8.5.0.me201003121946,"com.genuitec.eclipse.easie.weblogic6",1299496353140
+started,bundle,com.genuitec.eclipse.easie.weblogic7,8.5.0.me201003121946,"com.genuitec.eclipse.easie.weblogic7",1299496353140
+started,bundle,com.genuitec.eclipse.easie.weblogic8,8.5.0.me201003121946,"com.genuitec.eclipse.easie.weblogic8",1299496353156
+started,bundle,com.genuitec.eclipse.easie.weblogic9,8.5.0.me201003121946,"com.genuitec.eclipse.easie.weblogic9",1299496353156
+started,bundle,com.genuitec.eclipse.easie.websphere,8.5.0.me201003190322,"com.genuitec.eclipse.easie.websphere",1299496353171
+started,bundle,com.genuitec.eclipse.easie.websphere.wasce,8.5.0.me201003121946,"com.genuitec.eclipse.easie.websphere.wasce",1299496353171
+started,bundle,com.genuitec.eclipse.easie.websphere5,8.5.0.me201003121946,"com.genuitec.eclipse.easie.websphere5",1299496353187
+started,bundle,com.genuitec.eclipse.easie.websphere6,8.5.0.me201003121946,"com.genuitec.eclipse.easie.websphere6",1299496353187
+started,bundle,com.genuitec.eclipse.easie.websphere61,8.5.0.me201003121946,"com.genuitec.eclipse.easie.websphere61",1299496353203
+started,bundle,com.genuitec.eclipse.examples,8.5.0.me201003052220,"com.genuitec.eclipse.examples",1299496353203
+started,bundle,com.genuitec.eclipse.memory,8.5.0.me201003052220,"com.genuitec.eclipse.memory",1299496353218
+started,bundle,com.genuitec.eclipse.tapestry,8.5.0.me201003052220,"com.genuitec.eclipse.tapestry",1299496353218
+started,bundle,org.eclipse.jdt.debug,3.5.0.v20090526,"org.eclipse.jdt.debug",1299496353250

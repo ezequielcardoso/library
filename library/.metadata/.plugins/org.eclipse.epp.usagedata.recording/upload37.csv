@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,com.genuitec.eclipse.j2eedt.core,8.5.0.me201003231033,"com.genuitec.eclipse.j2eedt.core",1299496264562
+started,bundle,com.genuitec.myeclipse.perspective,8.5.0.me201003232017,"com.genuitec.myeclipse.perspective",1299496264640
+started,bundle,com.iw.plugins.spindle.core,8.5.0.me201003161551,"com.iw.plugins.spindle.core",1299496264687
+started,bundle,org.springframework.ide.eclipse.aop.core,2.2.0.me201003052220,"org.springframework.ide.eclipse.aop.core",1299496264703
+started,bundle,org.springframework.ide.eclipse.aop.ui,2.2.0.me201003052220,"org.springframework.ide.eclipse.aop.ui",1299496264734
+started,bundle,org.springframework.ide.eclipse.beans.core,2.2.0.me201003052220,"org.springframework.ide.eclipse.beans.core",1299496264796
+started,bundle,org.springframework.ide.eclipse.beans.ui,2.2.0.me201003052220,"org.springframework.ide.eclipse.beans.ui",1299496264859
+started,bundle,org.springframework.ide.eclipse.core,2.2.0.me201003052220,"org.springframework.ide.eclipse.core",1299496264890
+started,bundle,org.springframework.ide.eclipse.javaconfig.ui,2.2.0.me201003052220,"org.springframework.ide.eclipse.javaconfig.ui",1299496264921
+started,bundle,org.springframework.ide.eclipse.ui,2.2.0.me201003052220,"org.springframework.ide.eclipse.ui",1299496264968
+started,bundle,org.tigris.subversion.subclipse.core,1.0.7,"org.tigris.subversion.subclipse.core",1299496265046
+os,sysinfo,,,"win32",1299496265046
+arch,sysinfo,,,"x86",1299496265046
+ws,sysinfo,,,"win32",1299496265046
+locale,sysinfo,,,"zh_CN",1299496265046
+processors,sysinfo,,,"2",1299496265046
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1299496265046
+java.runtime.version,sysinfo,,,"1.6.0_20-b02",1299496265046
+java.specification.name,sysinfo,,,"Java Platform API Specification",1299496265046
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1299496265046
+java.specification.version,sysinfo,,,"1.6",1299496265046
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1299496265046
+java.version,sysinfo,,,"1.6.0_20",1299496265046
+java.vm.info,sysinfo,,,"mixed mode, sharing",1299496265046
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1299496265046

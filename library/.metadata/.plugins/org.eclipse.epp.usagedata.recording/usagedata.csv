@@ -1,0 +1,9 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.springframework.ide.eclipse.webflow.mylyn,2.2.0.me201003052220,"org.springframework.ide.eclipse.webflow.mylyn",1299496363984
+stopped,bundle,com.genuitec.eclipse.persistence.jpa,8.5.0.me201003052220,"com.genuitec.eclipse.persistence.jpa",1299496364015
+stopped,bundle,com.genuitec.eclipse.springframework,8.5.0.me201003052220,"com.genuitec.eclipse.springframework",1299496364109
+stopped,bundle,org.springframework.ide.eclipse.webflow.ui,2.2.0.me201003052220,"org.springframework.ide.eclipse.webflow.ui",1299496364171
+stopped,bundle,org.springframework.ide.eclipse.webflow.ui.graph,2.2.0.me201003052220,"org.springframework.ide.eclipse.webflow.ui.graph",1299496364218
+stopped,bundle,org.springframework.ide.eclipse.webflow.ui.editor,2.2.0.me201003052220,"org.springframework.ide.eclipse.webflow.ui.editor",1299496364234
+stopped,bundle,org.springframework.ide.eclipse.webflow.core,2.2.0.me201003052220,"org.springframework.ide.eclipse.webflow.core",1299496364265
+stopped,bundle,com.genuitec.eclipse.jsf,8.5.0.me201003231033,"com.genuitec.eclipse.jsf",1299496364281

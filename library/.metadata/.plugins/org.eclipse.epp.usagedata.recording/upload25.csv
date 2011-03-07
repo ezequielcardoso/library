@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.springframework.ide.eclipse.core,2.2.0.me201003052220,"org.springframework.ide.eclipse.core",1299495183906
+started,bundle,org.springframework.ide.eclipse.javaconfig.ui,2.2.0.me201003052220,"org.springframework.ide.eclipse.javaconfig.ui",1299495183906
+started,bundle,org.springframework.ide.eclipse.ui,2.2.0.me201003052220,"org.springframework.ide.eclipse.ui",1299495183906
+started,bundle,org.tigris.subversion.subclipse.core,1.0.7,"org.tigris.subversion.subclipse.core",1299495183906
+started,bundle,org.tigris.subversion.subclipse.ui,1.0.5,"org.tigris.subversion.subclipse.ui",1299495183906
+os,sysinfo,,,"win32",1299495183921
+arch,sysinfo,,,"x86",1299495183921
+ws,sysinfo,,,"win32",1299495183921
+locale,sysinfo,,,"zh_CN",1299495183921
+processors,sysinfo,,,"2",1299495183921
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1299495183921
+java.runtime.version,sysinfo,,,"1.6.0_20-b02",1299495183921
+java.specification.name,sysinfo,,,"Java Platform API Specification",1299495183921
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1299495183921
+java.specification.version,sysinfo,,,"1.6",1299495183921
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1299495183921
+java.version,sysinfo,,,"1.6.0_20",1299495183921
+java.vm.info,sysinfo,,,"mixed mode, sharing",1299495183921
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1299495183921
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1299495183921
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1299495183921
+java.vm.specification.version,sysinfo,,,"1.0",1299495183921
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1299495183921
+java.vm.version,sysinfo,,,"16.3-b01",1299495183921
+started,bundle,com.genuitec.eclipse.sqlexplorer,8.5.0.me201003052220,"com.genuitec.eclipse.sqlexplorer",1299495183953
