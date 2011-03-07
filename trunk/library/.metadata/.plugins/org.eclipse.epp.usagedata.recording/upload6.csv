@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,com.genuitec.eclipse.easie.resin4,8.5.0.me201003121946,"com.genuitec.eclipse.easie.resin4",1299494503859
+started,bundle,com.genuitec.eclipse.easie.sun,8.5.0.me201003190322,"com.genuitec.eclipse.easie.sun",1299494503875
+started,bundle,com.genuitec.eclipse.easie.sun8,8.5.0.me201003121946,"com.genuitec.eclipse.easie.sun8",1299494503875
+started,bundle,com.genuitec.eclipse.easie.sun81,8.5.0.me201003121946,"com.genuitec.eclipse.easie.sun81",1299494503890
+started,bundle,com.genuitec.eclipse.easie.sun9,8.5.0.me201003121946,"com.genuitec.eclipse.easie.sun9",1299494503890
+started,bundle,com.genuitec.eclipse.easie.sun91,8.5.0.me201003121946,"com.genuitec.eclipse.easie.sun91",1299494503906
+started,bundle,com.genuitec.eclipse.easie.sunglassfish,8.5.0.me201003121946,"com.genuitec.eclipse.easie.sunglassfish",1299494503906
+started,bundle,com.genuitec.eclipse.easie.sunglassfish2,8.5.0.me201003121946,"com.genuitec.eclipse.easie.sunglassfish2",1299494503906
+started,bundle,com.genuitec.eclipse.easie.sunglassfish3,8.5.0.me201003121946,"com.genuitec.eclipse.easie.sunglassfish3",1299494503921
+started,bundle,com.genuitec.eclipse.easie.sunglassfishv3final,8.5.0.me201003121946,"com.genuitec.eclipse.easie.sunglassfishv3final",1299494503921
+started,bundle,com.genuitec.eclipse.easie.sunwebserver,8.5.0.me201003250241,"com.genuitec.eclipse.easie.sunwebserver",1299494503937
+started,bundle,com.genuitec.eclipse.easie.tomcat,8.5.0.me201003190322,"com.genuitec.eclipse.easie.tomcat",1299494503953
+started,bundle,com.genuitec.eclipse.easie.tcserver,8.5.0.me201003161551,"com.genuitec.eclipse.easie.tcserver",1299494503953
+started,bundle,com.genuitec.eclipse.easie.tcserver6,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tcserver6",1299494503953
+error,log,,,"Plug-in ""com.genuitec.eclipse.easie.tomcat.myeclipse"" was unable to instantiate class ""com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin"".",1299494503968
+stopped,bundle,com.genuitec.eclipse.easie.tomcat.myeclipse,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tomcat.myeclipse",1299494503968
+error,log,,,"Problems encountered starting up plug-in: ""org.osgi.framework.BundleException: Exception in org.eclipse.core.internal.compatibility.PluginActivator.start() of bundle com.genuitec.eclipse.easie.tomcat.myeclipse."".",1299494503968
+error,log,,,"Unhandled Exception",1299494503968
+error,log,,,"Unable to execute early startup code for an extension",1299494503968
+error,log,,,"Bad extension specification",1299494503968
+error,log,,,"startup class must implement org.eclipse.ui.IStartup",1299494503968
+started,bundle,com.genuitec.eclipse.easie.tomcat4,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tomcat4",1299494503984
+started,bundle,com.genuitec.eclipse.easie.tomcat5,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tomcat5",1299494503984
+started,bundle,com.genuitec.eclipse.easie.tomcat6,8.5.0.me201003121946,"com.genuitec.eclipse.easie.tomcat6",1299494503984
+started,bundle,com.genuitec.eclipse.easie.weblogic,8.5.0.me201003190322,"com.genuitec.eclipse.easie.weblogic",1299494504000

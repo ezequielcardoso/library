@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.info,sysinfo,,,"mixed mode, sharing",1299494635984
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1299494635984
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1299494635984
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1299494635984
+java.vm.specification.version,sysinfo,,,"1.0",1299494635984
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1299494635984
+java.vm.version,sysinfo,,,"16.3-b01",1299494635984
+started,bundle,org.eclipse.draw2d,3.5.2.v20091126-1908,"org.eclipse.draw2d",1299494636031
+started,bundle,com.genuitec.eclipse.sqlexplorer,8.5.0.me201003052220,"com.genuitec.eclipse.sqlexplorer",1299494636031
+started,bundle,org.eclipse.debug.core,3.5.0.v20090526-1600,"org.eclipse.debug.core",1299494636078
+started,bundle,com.genuitec.eclipse.j2eedt.core,8.5.0.me201003231033,"com.genuitec.eclipse.j2eedt.core",1299494636093
+started,bundle,com.genuitec.eclipse.ast.deploy.core,8.5.0.me201003232017,"com.genuitec.eclipse.ast.deploy.core",1299494636109
+started,bundle,com.genuitec.eclipse.core,8.5.0.me201003250242,"com.genuitec.eclipse.core",1299494636109
+started,bundle,com.genuitec.eclipse.blue.websphere,8.5.0.me201003250241,"com.genuitec.eclipse.blue.websphere",1299494636109
+started,bundle,com.genuitec.eclipse.blue.was61portal,8.5.0.me201003161829,"com.genuitec.eclipse.blue.was61portal",1299494636125
+started,bundle,com.genuitec.eclipse.blue.was6portal,8.5.0.me201003121946,"com.genuitec.eclipse.blue.was6portal",1299494636468
+started,bundle,com.genuitec.eclipse.blue.websphere5,8.5.0.me201003121946,"com.genuitec.eclipse.blue.websphere5",1299494636484
+started,bundle,com.genuitec.eclipse.blue.websphere6,8.5.0.me201003121946,"com.genuitec.eclipse.blue.websphere6",1299494636500
+started,bundle,com.genuitec.eclipse.blue.websphere61,8.5.0.me201003250241,"com.genuitec.eclipse.blue.websphere61",1299494636500
+started,bundle,com.genuitec.eclipse.blue.websphere7,8.5.0.me201003250241,"com.genuitec.eclipse.blue.websphere7",1299494636515
+started,bundle,com.genuitec.eclipse.derby,8.5.0.me201003052220,"com.genuitec.eclipse.derby",1299494636515
+started,bundle,com.genuitec.eclipse.easie.geronimo1,8.5.0.me201003190322,"com.genuitec.eclipse.easie.geronimo1",1299494636531
+started,bundle,com.genuitec.eclipse.easie.geronimo2,8.5.0.me201003121946,"com.genuitec.eclipse.easie.geronimo2",1299494636531
+started,bundle,com.genuitec.eclipse.easie.jboss,8.5.0.me201003190322,"com.genuitec.eclipse.easie.jboss",1299494636546
+started,bundle,com.genuitec.eclipse.easie.jboss2,8.5.0.me201003121946,"com.genuitec.eclipse.easie.jboss2",1299494636546

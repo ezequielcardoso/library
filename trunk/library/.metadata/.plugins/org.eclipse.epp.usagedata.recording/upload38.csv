@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1299496265046
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1299496265046
+java.vm.specification.version,sysinfo,,,"1.0",1299496265046
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1299496265046
+java.vm.version,sysinfo,,,"16.3-b01",1299496265046
+started,bundle,org.eclipse.mylyn.bugzilla.core,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.bugzilla.core",1299496265078
+started,bundle,org.eclipse.mylyn.bugzilla.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.bugzilla.ui",1299496265343
+started,bundle,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console",1299496265437
+started,bundle,com.genuitec.eclipse.blue.project,8.5.0.me201003232017,"com.genuitec.eclipse.blue.project",1299496265531
+started,bundle,org.eclipse.ui.forms,3.4.1.v20090714_35x,"org.eclipse.ui.forms",1299496265812
+started,bundle,org.eclipse.wst.common.emf,1.1.301.v200908181930,"org.eclipse.wst.common.emf",1299496265875
+started,bundle,org.eclipse.jst.j2ee.core,1.1.301.v200908181930,"org.eclipse.jst.j2ee.core",1299496265921
+started,bundle,org.eclipse.mylyn.context.core,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.context.core",1299496265984
+started,bundle,org.eclipse.mylyn.context.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.context.ui",1299496266078
+started,bundle,org.eclipse.jem,2.0.300.v200901272200,"org.eclipse.jem",1299496266125
+started,bundle,org.eclipse.emf.ecore.xmi,2.5.0.v200906151043,"org.eclipse.emf.ecore.xmi",1299496266203
+started,bundle,org.eclipse.mylyn.tasks.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.tasks.ui",1299496266468
+started,bundle,org.eclipse.mylyn.team.ui,3.2.2.v20090912-0400-e3x,"org.eclipse.mylyn.team.ui",1299496266484
+started,bundle,org.eclipse.wst.ws.service.policy.ui,1.0.102.v200903070248,"org.eclipse.wst.ws.service.policy.ui",1299496266500
+started,bundle,com.genuitec.eclipse.easie.core,8.5.0.me201003232017,"com.genuitec.eclipse.easie.core",1299496266625
+started,bundle,org.eclipse.jst.jee,1.0.201.v200909030330,"org.eclipse.jst.jee",1299496267093
+started,bundle,com.genuitec.eclipse.templates,8.5.0.me201003052220,"com.genuitec.eclipse.templates",1299496267265
+started,bundle,com.genuitec.eclipse.ws,8.5.0.me201003180050,"com.genuitec.eclipse.ws",1299496267328
+started,bundle,com.genuitec.eclipse.ws.blue,8.5.0.me201003180050,"com.genuitec.eclipse.ws.blue",1299496272859
+started,bundle,com.genuitec.eclipse.ws.xfire.framework,8.5.0.me201003052220,"com.genuitec.eclipse.ws.xfire.framework",1299496272859
