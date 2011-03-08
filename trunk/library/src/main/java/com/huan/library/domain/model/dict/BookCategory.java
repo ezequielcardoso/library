@@ -40,6 +40,7 @@ public class BookCategory implements Serializable{
 	@OneToMany(targetEntity=BookCategory.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="categoryId")
 	private Set<BookCategory> children = new HashSet<BookCategory>(); //下级分类 
+	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="bookCategory")
 	private Set<Book> books = new HashSet<Book>();  //图书
 	

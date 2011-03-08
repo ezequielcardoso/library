@@ -42,7 +42,8 @@ public class DictItem implements java.io.Serializable {
 	private int itemId;//主键 
 	
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="bookCategory")
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY
+			,mappedBy="xx")
 	private Set<Book> books = new HashSet<Book>();  //图书
 	
 	private boolean checked;//是否选中
@@ -177,6 +178,4 @@ public class DictItem implements java.io.Serializable {
 	public void setShortName(String shortName) {
 		this.shortName = shortName;
 	}
-
-	
 }
