@@ -1,7 +1,10 @@
 package com.huan.library.domain.model.dict;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -16,6 +19,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.engine.Cascade;
+
+import com.huan.library.domain.model.book.Book;
+
 /**
  * 参照字典实体
  * @author shuaizhichun
@@ -29,134 +36,146 @@ public class DictItem implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+  
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int itemId;//主键
+	private int itemId;//主键 
 	
-	@Column(insertable=false,updatable=false)
-	private String itemType;//参照组代码
 	
-	private String itemCode;//编码
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="bookCategory")
+	private Set<Book> books = new HashSet<Book>();  //图书
 	
-	private String shortName;// 名字
-
-	private String description;// 描述
-	
-	@ManyToOne(targetEntity=DictItem.class,fetch=FetchType.LAZY)
-	@JoinColumn(name="parentItemId",referencedColumnName="itemId")
-	private DictItem parent;
+	private boolean checked;//是否选中
 	
 	@OneToMany(targetEntity=DictItem.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="itemId")
 	private List<DictItem> children;
+	
+	private String description;// 描述
+
+	private boolean itemActive;//是否启用
+	
+	private String itemCode;//编码
+	
+	private int itemOrder;//排序
+
+	@Column(insertable=false,updatable=false)
+	private String itemType;//参照组代码
+	
+	private boolean leaf;//是否叶子
 
 	//用于树结构
 	private int level;//层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
-	private boolean leaf;//是否叶子
-	private boolean checked;//是否选中
-	
-	private int itemOrder;//排序
-	
-	private boolean itemActive;//是否启用
+	@ManyToOne(targetEntity=DictItem.class,fetch=FetchType.LAZY)
+	@JoinColumn(name="parentItemId",referencedColumnName="itemId")
+	private DictItem parent;
+	private String shortName;// 名字
 	
 	public DictItem(){		
 	}
-
-	public int getItemId() {
-		return itemId;
+	
+	public Set<Book> getBooks() {
+		return books;
 	}
-
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
-	}
-
-	public String getItemType() {
-		return itemType;
-	}
-
-	public void setItemType(String itemType) {
-		this.itemType = itemType;
-	}
-
-	public String getItemCode() {
-		return itemCode;
-	}
-
-	public void setItemCode(String itemCode) {
-		this.itemCode = itemCode;
-	}
-
-	public String getShortName() {
-		return shortName;
-	}
-
-	public void setShortName(String shortName) {
-		this.shortName = shortName;
+	
+	public List<DictItem> getChildren() {
+		return children;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public String getItemCode() {
+		return itemCode;
 	}
 
-	public DictItem getParent() {
-		return parent;
-	}
-
-	public void setParent(DictItem parent) {
-		this.parent = parent;
-	}
-
-	public List<DictItem> getChildren() {
-		return children;
-	}
-
-	public void setChildren(List<DictItem> children) {
-		this.children = children;
-	}
-
-	public int getLevel() {
-		return level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
-	public boolean isLeaf() {
-		return leaf;
-	}
-
-	public void setLeaf(boolean leaf) {
-		this.leaf = leaf;
-	}
-
-	public boolean isChecked() {
-		return checked;
-	}
-
-	public void setChecked(boolean checked) {
-		this.checked = checked;
+	public int getItemId() {
+		return itemId;
 	}
 
 	public int getItemOrder() {
 		return itemOrder;
 	}
 
-	public void setItemOrder(int itemOrder) {
-		this.itemOrder = itemOrder;
+	public String getItemType() {
+		return itemType;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public DictItem getParent() {
+		return parent;
+	}
+
+	public String getShortName() {
+		return shortName;
+	}
+
+	public boolean isChecked() {
+		return checked;
 	}
 
 	public boolean isItemActive() {
 		return itemActive;
 	}
 
+	public boolean isLeaf() {
+		return leaf;
+	}
+
+	public void setBooks(Set<Book> books) {
+		this.books = books;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+
+	public void setChildren(List<DictItem> children) {
+		this.children = children;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public void setItemActive(boolean itemActive) {
 		this.itemActive = itemActive;
+	}
+
+	public void setItemCode(String itemCode) {
+		this.itemCode = itemCode;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	public void setItemOrder(int itemOrder) {
+		this.itemOrder = itemOrder;
+	}
+
+	public void setItemType(String itemType) {
+		this.itemType = itemType;
+	}
+
+	public void setLeaf(boolean leaf) {
+		this.leaf = leaf;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public void setParent(DictItem parent) {
+		this.parent = parent;
+	}
+
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
 	}
 
 	
