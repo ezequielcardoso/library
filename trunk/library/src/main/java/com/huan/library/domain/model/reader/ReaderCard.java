@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.huan.library.domain.model.borrowReturn.BorrowReturn;
+
 /**
  * 借阅证
  * @author huan
@@ -42,7 +44,16 @@ public class ReaderCard implements Serializable{
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="readerCardState")
 	private ReaderCardState readerCardState; //状态
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="borrowReturn")
+	private BorrowReturn borrowReturn;  //借阅归还
 	
+	public BorrowReturn getBorrowReturn() {
+		return borrowReturn;
+	}
+	public void setBorrowReturn(BorrowReturn borrowReturn) {
+		this.borrowReturn = borrowReturn;
+	}
 	public int getId() {
 		return id;
 	}
