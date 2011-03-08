@@ -3,6 +3,7 @@ package com.huan.library.domain.model.dict;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Press implements Serializable{
 
 	private String zipCode;   //邮编
 	
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="press")
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="press")
 	private Set<Book> books;   //图书
 	
 	public Set<Book> getBooks() {

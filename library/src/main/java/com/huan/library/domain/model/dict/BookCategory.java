@@ -1,7 +1,9 @@
 package com.huan.library.domain.model.dict;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -39,20 +41,28 @@ public class BookCategory implements Serializable{
 	private BookCategory parent;   //上级分类
 	@OneToMany(targetEntity=BookCategory.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="categoryId")
-	private Set<BookCategory> children = new HashSet<BookCategory>(); //下级分类 
+	private List<BookCategory> children = new ArrayList<BookCategory>(); //下级分类 
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="bookCategory")
-	private Set<Book> books = new HashSet<Book>();  //图书
-	
-	
-	public Set<Book> getBooks() {
+	public List<BookCategory> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<BookCategory> children) {
+		this.children = children;
+	}
+
+	public List<Book> getBooks() {
 		return books;
 	}
 
-	public void setBooks(Set<Book> books) {
+	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
 
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="bookCategory")
+	private List<Book> books = new ArrayList<Book>();  //图书
+	
+	
 	public int getCategoryId() {
 		return categoryId;
 	}
@@ -85,13 +95,6 @@ public class BookCategory implements Serializable{
 		this.parent = parent;
 	}
 
-	public Set<BookCategory> getChildren() {
-		return children;
-	}
 
-	public void setChildren(Set<BookCategory> children) {
-		this.children = children;
-	}
-	
     
 }

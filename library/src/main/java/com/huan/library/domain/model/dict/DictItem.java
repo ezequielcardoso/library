@@ -42,10 +42,6 @@ public class DictItem implements java.io.Serializable {
 	private int itemId;//主键 
 	
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY
-			,mappedBy="xx")
-	private Set<Book> books = new HashSet<Book>();  //图书
-	
 	private boolean checked;//是否选中
 	
 	@OneToMany(targetEntity=DictItem.class,fetch=FetchType.LAZY)
@@ -75,9 +71,6 @@ public class DictItem implements java.io.Serializable {
 	public DictItem(){		
 	}
 	
-	public Set<Book> getBooks() {
-		return books;
-	}
 	
 	public List<DictItem> getChildren() {
 		return children;
@@ -125,10 +118,6 @@ public class DictItem implements java.io.Serializable {
 
 	public boolean isLeaf() {
 		return leaf;
-	}
-
-	public void setBooks(Set<Book> books) {
-		this.books = books;
 	}
 
 	public void setChecked(boolean checked) {
