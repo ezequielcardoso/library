@@ -3,7 +3,6 @@ package com.huan.library.domain.model.book;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.domain.model.dict.Attachment;
 import com.huan.library.domain.model.dict.BookCategory;
 import com.huan.library.domain.model.dict.BookLevel;
@@ -38,13 +38,13 @@ public class Book implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id; // 主键
 	private String barCode; // 条形码
-	@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="bookCategory")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "bookCategory")
 	private BookCategory bookCategory; // 图书分类
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "attachment")
 	private Attachment attachment; // 附件名称
-    private String bookDesc; // 图书描述
+	private String bookDesc; // 图书描述
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "bookLevel")
 	private BookLevel bookLevel; // 图书类别
@@ -55,10 +55,10 @@ public class Book implements Serializable {
 	private String donator; // 捐赠人
 	private String electoricDoc; // 附件
 	private String ISBN; // ISBN
-	private String ISSN; //国内统一刊号
-	private String emailNo; //邮发代码
-	private String stage;   //第几期
-	private String allStage; //总第几期
+	private String ISSN; // 国内统一刊号
+	private String emailNo; // 邮发代码
+	private String stage; // 第几期
+	private String allStage; // 总第几期
 	private int pages; // 页数
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "press")
@@ -67,7 +67,7 @@ public class Book implements Serializable {
 	private Date publisherDate; // 出版日期
 	private int quantity; // 数量
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name ="resource")
+	@JoinColumn(name = "resource")
 	private Resource resource; // 来源
 	private int revision; // 版次
 	private String searchBookId; // 索书号
@@ -75,8 +75,67 @@ public class Book implements Serializable {
 	private String spell; // 拼音
 	private State state; // 图书状态
 	private Date storeDate; // 入库时间
-	private String bookNo;   //图书编号
-	private int type;        //类型 0:表示图书  1:表示期刊 
+	private String bookNo; // 图书编号
+	private int type; // 类型 0:表示图书 1:表示期刊
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="borrowReturn")
+	private BorrowReturn borrowReturn; //借阅
+
+	public String getISSN() {
+		return ISSN;
+	}
+
+	public void setISSN(String iSSN) {
+		ISSN = iSSN;
+	}
+
+	public String getEmailNo() {
+		return emailNo;
+	}
+
+	public void setEmailNo(String emailNo) {
+		this.emailNo = emailNo;
+	}
+
+	public String getStage() {
+		return stage;
+	}
+
+	public void setStage(String stage) {
+		this.stage = stage;
+	}
+
+	public String getAllStage() {
+		return allStage;
+	}
+
+	public void setAllStage(String allStage) {
+		this.allStage = allStage;
+	}
+
+	public String getBookNo() {
+		return bookNo;
+	}
+
+	public void setBookNo(String bookNo) {
+		this.bookNo = bookNo;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public BorrowReturn getBorrowReturn() {
+		return borrowReturn;
+	}
+
+	public void setBorrowReturn(BorrowReturn borrowReturn) {
+		this.borrowReturn = borrowReturn;
+	}
 
 	public Attachment getAttachment() {
 		return attachment;

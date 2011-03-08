@@ -1,10 +1,14 @@
 package com.huan.library.domain.model.dict;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.print.attribute.standard.MediaSize.NA;
 
 import com.huan.library.domain.model.book.Book;
 
@@ -13,6 +17,8 @@ import com.huan.library.domain.model.book.Book;
  * @author huan
  * @time 2011-3-8  上午11:13:59
  */
+@Entity
+@DiscriminatorValue("Resource")
 public class Resource extends DictItem {
     /**
      * 
@@ -24,14 +30,15 @@ public class Resource extends DictItem {
 	}
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="resource")
-	private Set<Book> books;   //图书
-	
-	public Set<Book> getBooks() {
+	private List<Book> books = new ArrayList<Book>();     //图书
+
+	public List<Book> getBooks() {
 		return books;
 	}
 
-	public void setBooks(Set<Book> books) {
+	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
+	
 
 }

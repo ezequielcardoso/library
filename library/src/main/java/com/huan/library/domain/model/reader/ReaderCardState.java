@@ -1,6 +1,8 @@
 package com.huan.library.domain.model.reader;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -28,13 +30,13 @@ public class ReaderCardState implements Serializable{
 	private String readerCardName;  //状态名称
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,
 			mappedBy="readerCardState")
-	private ReaderCard readerCard;  //借阅证
+	private List<ReaderCard> readerCards = new ArrayList<ReaderCard>();  //借阅证
 	
-	public ReaderCard getReaderCard() {
-		return readerCard;
+	public List<ReaderCard> getReaderCards() {
+		return readerCards;
 	}
-	public void setReaderCard(ReaderCard readerCard) {
-		this.readerCard = readerCard;
+	public void setReaderCards(List<ReaderCard> readerCards) {
+		this.readerCards = readerCards;
 	}
 	public int getId() {
 		return id;
