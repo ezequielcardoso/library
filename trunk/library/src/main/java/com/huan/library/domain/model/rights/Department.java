@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
  * @author shuaizhichun
  * @time 2011-3-6 下午10:25:55
  */
+
+
 @Entity
 public class Department implements Serializable {
 
