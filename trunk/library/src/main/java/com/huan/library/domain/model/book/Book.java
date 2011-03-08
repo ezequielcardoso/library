@@ -55,6 +55,10 @@ public class Book implements Serializable {
 	private String donator; // 捐赠人
 	private String electoricDoc; // 附件
 	private String ISBN; // ISBN
+	private String ISSN; //国内统一刊号
+	private String emailNo; //邮发代码
+	private String stage;   //第几期
+	private String allStage; //总第几期
 	private int pages; // 页数
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "press")
@@ -63,7 +67,7 @@ public class Book implements Serializable {
 	private Date publisherDate; // 出版日期
 	private int quantity; // 数量
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "resource")
+	@JoinColumn(name ="resource")
 	private Resource resource; // 来源
 	private int revision; // 版次
 	private String searchBookId; // 索书号
@@ -71,6 +75,8 @@ public class Book implements Serializable {
 	private String spell; // 拼音
 	private State state; // 图书状态
 	private Date storeDate; // 入库时间
+	private String bookNo;   //图书编号
+	private int type;        //类型 0:表示图书  1:表示期刊 
 
 	public Attachment getAttachment() {
 		return attachment;

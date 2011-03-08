@@ -51,13 +51,14 @@ public class Department implements Serializable {
 	private List<Department> children = new ArrayList<Department>();//下级部门
 	
 	@OneToMany(fetch=FetchType.LAZY,cascade={CascadeType.ALL},mappedBy="department")
-	private Set<Reader> readers = new HashSet<Reader>();  //读者
+	private List<Reader> readers = new ArrayList<Reader>();  //读者
 
-	public Set<Reader> getReaders() {
+
+	public List<Reader> getReaders() {
 		return readers;
 	}
 
-	public void setReaders(Set<Reader> readers) {
+	public void setReaders(List<Reader> readers) {
 		this.readers = readers;
 	}
 
@@ -124,6 +125,5 @@ public class Department implements Serializable {
 	public void setDeptAlias(String deptAlias) {
 		this.deptAlias = deptAlias;
 	}
-	
-	
+
 }
