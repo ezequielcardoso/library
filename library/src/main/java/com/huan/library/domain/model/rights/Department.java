@@ -2,8 +2,11 @@ package com.huan.library.domain.model.rights;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.huan.library.domain.model.reader.Reader;
 
 /**
  * 部门
@@ -44,6 +49,17 @@ public class Department implements Serializable {
 	@OneToMany(targetEntity=Department.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="deptId")
 	private List<Department> children = new ArrayList<Department>();//下级部门
+	
+	@OneToMany(fetch=FetchType.LAZY,cascade={CascadeType.ALL},mappedBy="department")
+	private Set<Reader> readers = new HashSet<Reader>();  //读者
+
+	public Set<Reader> getReaders() {
+		return readers;
+	}
+
+	public void setReaders(Set<Reader> readers) {
+		this.readers = readers;
+	}
 
 	public int getDeptId() {
 		return deptId;
