@@ -42,7 +42,7 @@ public class Reader implements Serializable{
     private String readerDesc; //读者描述
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="readerCategory")
-    private ReaderCategory readerCategory; //读者类别
+    private ReaderType readerCategory; //读者类别
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="readerCard")
     private ReaderCard readerCard; //借阅证
@@ -107,10 +107,10 @@ public class Reader implements Serializable{
 	public void setReaderDesc(String readerDesc) {
 		this.readerDesc = readerDesc;
 	}
-	public ReaderCategory getReaderCategory() {
+	public ReaderType getReaderCategory() {
 		return readerCategory;
 	}
-	public void setReaderCategory(ReaderCategory readerCategory) {
+	public void setReaderCategory(ReaderType readerCategory) {
 		this.readerCategory = readerCategory;
 	}
 	public ReaderCard getReaderCard() {
