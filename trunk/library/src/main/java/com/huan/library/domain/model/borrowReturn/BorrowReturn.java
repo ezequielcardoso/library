@@ -3,9 +3,7 @@ package com.huan.library.domain.model.borrowReturn;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,9 +15,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.huan.library.domain.model.Fine;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.reader.ReaderCard;
 import com.huan.library.domain.model.rights.User;
+/**
+ * 借阅归还
+ * @author huan
+ * @time 2011-3-9  上午10:21:43
+ */
 @Entity
 public class BorrowReturn implements Serializable{
 
@@ -30,15 +34,20 @@ public class BorrowReturn implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id; //主键
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="borrowReturn")
-	private List<Book> books = new ArrayList<Book>(); //图书
-	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="borrowReturn")
-	private List<ReaderCard> readerCards = new ArrayList<ReaderCard>(); // 借阅证
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="book")
+	private Book book;	
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="readerCard")
+    private ReaderCard readerCard;
 	private Date borrowedDate;       //借阅日期
 	private Date duetoReturnDate;    //应还日期
 	private Date realityReturndate;  //实还日期
 	private int overdueDays;         //逾期天数
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY
+			,mappedBy="borrowReturn")
+	private List<Fine> fines = new ArrayList<Fine>();               //罚款
+	
 	private float exceedFine;        //罚金
 	private char  isPay ;            //是或归还
 	private int   renewTimes;        //续借次数
@@ -46,17 +55,24 @@ public class BorrowReturn implements Serializable{
 	@JoinColumn(name="operator")
 	private User operator;          //操作员      
 	
-	public List<Book> getBooks() {
-		return books;
+	public List<Fine> getFines() {
+		return fines;
 	}
-	public void setBooks(List<Book> books) {
-		this.books = books;
+	public void setFines(List<Fine> fines) {
+		this.fines = fines;
 	}
-	public List<ReaderCard> getReaderCards() {
-		return readerCards;
+	public ReaderCard getReaderCard() {
+		return readerCard;
 	}
-	public void setReaderCards(List<ReaderCard> readerCards) {
-		this.readerCards = readerCards;
+	public void setReaderCard(ReaderCard readerCard) {
+		this.readerCard = readerCard;
+	}
+	
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
 	}
 	public int getId() {
 		return id;
