@@ -1,8 +1,11 @@
 package com.huan.library.domain.model.book;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.domain.model.dict.Attachment;
@@ -75,9 +79,16 @@ public class Book implements Serializable {
 	private Date storeDate; // 入库时间
 	private String bookNo; // 图书编号
 	private int type; // 类型 0:表示图书 1:表示期刊
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="borrowReturn")
-	private BorrowReturn borrowReturn; //借阅
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="book")
+	private List<BorrowReturn> borrowReturn = new ArrayList<BorrowReturn>(); //借阅归还
+
+	public List<BorrowReturn> getBorrowReturn() {
+		return borrowReturn;
+	}
+
+	public void setBorrowReturn(List<BorrowReturn> borrowReturn) {
+		this.borrowReturn = borrowReturn;
+	}
 
 	public String getISSN() {
 		return ISSN;
@@ -125,14 +136,6 @@ public class Book implements Serializable {
 
 	public void setType(int type) {
 		this.type = type;
-	}
-
-	public BorrowReturn getBorrowReturn() {
-		return borrowReturn;
-	}
-
-	public void setBorrowReturn(BorrowReturn borrowReturn) {
-		this.borrowReturn = borrowReturn;
 	}
 
 	public Attachment getAttachment() {
