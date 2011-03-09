@@ -4,7 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * 证件
+ * 证件 如:学生证/身份证/驾驶本
  * @author shuaizhichun
  * @time 2011-3-6 下午10:35:51
  */
