@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.huan.library.domain.model.dict.Certificate;
 import com.huan.library.domain.model.rights.Department;
 /**
  * 读者
@@ -39,6 +40,10 @@ public class Reader implements Serializable{
     @JoinColumn(name="department")
     private Department department; //部门
     private String spell;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="certificate")
+    private Certificate certificate;  //证件类别
+    private String certificateCode;   //证件号码 
     private String readerDesc; //读者描述
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="readerCategory")
@@ -59,6 +64,19 @@ public class Reader implements Serializable{
 	public void setReaderName(String readerName) {
 		this.readerName = readerName;
 	}
+	public Certificate getCertificate() {
+		return certificate;
+	}
+	public void setCertificate(Certificate certificate) {
+		this.certificate = certificate;
+	}
+	public String getCertificateCode() {
+		return certificateCode;
+	}
+	public void setCertificateCode(String certificateCode) {
+		this.certificateCode = certificateCode;
+	}
+	
 	public Date getBirthday() {
 		return birthday;
 	}

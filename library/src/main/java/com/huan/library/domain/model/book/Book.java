@@ -20,6 +20,7 @@ import com.huan.library.domain.model.dict.Attachment;
 import com.huan.library.domain.model.dict.BookLevel;
 import com.huan.library.domain.model.dict.Currency;
 import com.huan.library.domain.model.dict.Resource;
+import com.huan.library.domain.model.dict.Security;
 import com.huan.library.domain.model.dict.State;
 
 /**
@@ -50,6 +51,9 @@ public class Book implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "bookLevel")
 	private BookLevel bookLevel; // 图书类别
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="security")
+	private Security security;   //图书密级
 	private String bookName; // 书刊名字
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "currency")
@@ -85,7 +89,13 @@ public class Book implements Serializable {
 	public List<BorrowReturn> getBorrowReturn() {
 		return borrowReturn;
 	}
+	public Security getSecurity() {
+		return security;
+	}
 
+	public void setSecurity(Security security) {
+		this.security = security;
+	} 
 	public void setBorrowReturn(List<BorrowReturn> borrowReturn) {
 		this.borrowReturn = borrowReturn;
 	}
