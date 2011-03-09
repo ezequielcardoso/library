@@ -13,10 +13,8 @@ import javax.persistence.ManyToOne;
 
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.domain.model.dict.Attachment;
-import com.huan.library.domain.model.dict.BookCategory;
 import com.huan.library.domain.model.dict.BookLevel;
 import com.huan.library.domain.model.dict.Currency;
-import com.huan.library.domain.model.dict.Press;
 import com.huan.library.domain.model.dict.Resource;
 import com.huan.library.domain.model.dict.State;
 
@@ -40,7 +38,7 @@ public class Book implements Serializable {
 	private String barCode; // 条形码
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "bookCategory")
-	private BookCategory bookCategory; // 图书分类
+	private Category bookCategory; // 图书分类
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "attachment")
 	private Attachment attachment; // 附件名称
@@ -145,7 +143,7 @@ public class Book implements Serializable {
 		return barCode;
 	}
 
-	public BookCategory getBookCategory() {
+	public Category getBookCategory() {
 		return bookCategory;
 	}
 
@@ -237,7 +235,7 @@ public class Book implements Serializable {
 		this.barCode = barCode;
 	}
 
-	public void setBookCategory(BookCategory bookCategory) {
+	public void setBookCategory(Category bookCategory) {
 		this.bookCategory = bookCategory;
 	}
 

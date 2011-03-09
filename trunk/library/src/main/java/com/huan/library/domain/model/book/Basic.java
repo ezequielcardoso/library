@@ -3,7 +3,6 @@ package com.huan.library.domain.model.book;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.huan.library.domain.model.dict.BookCategory;
 import com.huan.library.domain.model.dict.BookLevel;
 import com.huan.library.domain.model.dict.Currency;
 import com.huan.library.domain.model.dict.State;
@@ -83,11 +82,11 @@ public class Basic implements Serializable{
 		this.spell = spell;
 	}
 
-	public BookCategory getBookCategory() {
+	public Category getBookCategory() {
 		return bookCategory;
 	}
 
-	public void setBookCategory(BookCategory bookCategory) {
+	public void setBookCategory(Category bookCategory) {
 		this.bookCategory = bookCategory;
 	}
 
@@ -139,7 +138,7 @@ public class Basic implements Serializable{
 	
 	private String spell;  //拼音
 	
-	private BookCategory bookCategory; //分类
+	private Category bookCategory; //分类
 	
 	private State state;  //图书状态
 	

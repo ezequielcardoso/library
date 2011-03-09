@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
  * @time 2011-3-8  下午08:55:26
  */
 @Entity
-public class ReaderCategory implements Serializable{
+public class ReaderType implements Serializable{
 
 	/**
 	 * 
