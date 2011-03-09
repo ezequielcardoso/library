@@ -41,15 +41,19 @@ public class ReaderCard implements Serializable{
 	@OneToOne(cascade={CascadeType.ALL},fetch=FetchType.LAZY,
 			mappedBy="readerCard")
 	private Reader reader;         //读者
+	
+	
 	private int state;             //借阅证状态 如挂失/正常/超出数量
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	private BorrowReturn borrowReturn;  //借阅归还
+	
 	public int getState() {
 		return state;
 	}
 	public void setState(int state) {
 		this.state = state;
 	}
-	@ManyToOne(fetch=FetchType.LAZY)
-	private BorrowReturn borrowReturn;  //借阅归还
 	
 	public BorrowReturn getBorrowReturn() {
 		return borrowReturn;
