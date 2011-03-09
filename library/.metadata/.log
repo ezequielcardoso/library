@@ -2215,3 +2215,323 @@ Caused by: org.eclipse.core.runtime.AssertionFailedException: assertion failed:
 
 !ENTRY com.genuitec.eclipse.easie.tomcat.myeclipse 4 0 2011-03-07 19:12:33.093
 !MESSAGE startup class must implement org.eclipse.ui.IStartup
+!SESSION 2011-03-09 08:33:42.515 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2011-03-09 08:34:07.000
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-03-09 08:34:07.000
+!MESSAGE A conflict occurred for CTRL+F9:
+Binding(CTRL+F9,
+	ParameterizedCommand(Command(org.eclipse.mylyn.tasks.ui.command.activateTask,Activate Task,
+		,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+F9,
+	ParameterizedCommand(Command(RunSQLAction,Run SQL,
+		Run SQL,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-03-09 08:34:07.015
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-03-09 08:34:07.015
+!MESSAGE Conflict for 'AUTOGEN:::com.genuitec.myeclipse.product.actions/com.genuitec.myeclipse.about.aboutaction':
+HandlerActivation(commandId=AUTOGEN:::com.genuitec.myeclipse.product.actions/com.genuitec.myeclipse.about.aboutaction,
+	handler=ActionDelegateHandlerProxy(null,com.genuitec.myeclipse.product.AboutActionDelegate),
+	expression=AndExpression(ActionSetExpression(com.genuitec.myeclipse.product.actions,org.eclipse.ui.internal.WorkbenchWindow@c3362f),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@c3362f)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::com.genuitec.myeclipse.product.actions/com.genuitec.myeclipse.about.aboutaction,
+	handler=ActionDelegateHandlerProxy(null,com.genuitec.myeclipse.product.AboutActionDelegate),
+	expression=AndExpression(ActionSetExpression(com.genuitec.myeclipse.product.actions,org.eclipse.ui.internal.WorkbenchWindow@c3362f),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@c3362f)),sourcePriority=16640)
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-03-09 08:34:07.015
+!MESSAGE Conflict for 'AUTOGEN:::com.genuitec.myeclipse.product.actions/com.genuitec.myeclipse.about.preferencesaction':
+HandlerActivation(commandId=AUTOGEN:::com.genuitec.myeclipse.product.actions/com.genuitec.myeclipse.about.preferencesaction,
+	handler=ActionDelegateHandlerProxy(null,com.genuitec.myeclipse.product.PreferencesActionDelegate),
+	expression=AndExpression(ActionSetExpression(com.genuitec.myeclipse.product.actions,org.eclipse.ui.internal.WorkbenchWindow@c3362f),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@c3362f)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::com.genuitec.myeclipse.product.actions/com.genuitec.myeclipse.about.preferencesaction,
+	handler=ActionDelegateHandlerProxy(null,com.genuitec.myeclipse.product.PreferencesActionDelegate),
+	expression=AndExpression(ActionSetExpression(com.genuitec.myeclipse.product.actions,org.eclipse.ui.internal.WorkbenchWindow@c3362f),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@c3362f)),sourcePriority=16640)
+
+!ENTRY org.eclipse.core.runtime 4 2 2011-03-09 08:34:17.296
+!MESSAGE Plug-in "com.genuitec.eclipse.easie.tomcat.myeclipse" was unable to instantiate class "com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin".
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:422)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:370)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at org.eclipse.core.internal.compatibility.PluginActivator.start(PluginActivator.java:28)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:783)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:774)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:755)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:352)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:280)
+	at org.eclipse.core.internal.runtime.InternalPlatform.start(InternalPlatform.java:913)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:360)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at sun.reflect.GeneratedMethodAccessor15.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.getPluginForCompatibility(EarlyStartupRunnable.java:149)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:73)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$55.run(Workbench.java:2192)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:96)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.getHomePath(MyEclipseTomcatLauncherPlugin.java:106)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.initializeDefaultPreferences(MyEclipseTomcatLauncherPlugin.java:71)
+	at com.genuitec.eclipse.core.GenuitecPlugin.getPreferenceStore(GenuitecPlugin.java:83)
+	at com.genuitec.eclipse.easie.core.EASIEPlugin.<init>(Unknown Source)
+	at com.genuitec.eclipse.easie.tomcat.TomcatLauncherPlugin.<init>(TomcatLauncherPlugin.java:36)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.<init>(MyEclipseTomcatLauncherPlugin.java:42)
+	... 25 more
+Root exception:
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:96)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.getHomePath(MyEclipseTomcatLauncherPlugin.java:106)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.initializeDefaultPreferences(MyEclipseTomcatLauncherPlugin.java:71)
+	at com.genuitec.eclipse.core.GenuitecPlugin.getPreferenceStore(GenuitecPlugin.java:83)
+	at com.genuitec.eclipse.easie.core.EASIEPlugin.<init>(Unknown Source)
+	at com.genuitec.eclipse.easie.tomcat.TomcatLauncherPlugin.<init>(TomcatLauncherPlugin.java:36)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.<init>(MyEclipseTomcatLauncherPlugin.java:42)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:422)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:370)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at org.eclipse.core.internal.compatibility.PluginActivator.start(PluginActivator.java:28)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:783)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:774)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:755)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:352)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:280)
+	at org.eclipse.core.internal.runtime.InternalPlatform.start(InternalPlatform.java:913)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:360)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at sun.reflect.GeneratedMethodAccessor15.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.getPluginForCompatibility(EarlyStartupRunnable.java:149)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:73)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$55.run(Workbench.java:2192)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.runtime 4 2 2011-03-09 08:34:17.296
+!MESSAGE Problems encountered starting up plug-in: "org.osgi.framework.BundleException: Exception in org.eclipse.core.internal.compatibility.PluginActivator.start() of bundle com.genuitec.eclipse.easie.tomcat.myeclipse.".
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.core.internal.compatibility.PluginActivator.start() of bundle com.genuitec.eclipse.easie.tomcat.myeclipse.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:806)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:755)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:352)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:280)
+	at org.eclipse.core.internal.runtime.InternalPlatform.start(InternalPlatform.java:913)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:360)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at sun.reflect.GeneratedMethodAccessor15.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.getPluginForCompatibility(EarlyStartupRunnable.java:149)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:73)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$55.run(Workbench.java:2192)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.core.runtime.CoreException: Plug-in "com.genuitec.eclipse.easie.tomcat.myeclipse" was unable to instantiate class "com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin".
+	at org.eclipse.core.internal.plugins.PluginDescriptor.throwException(PluginDescriptor.java:296)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:428)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:370)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at org.eclipse.core.internal.compatibility.PluginActivator.start(PluginActivator.java:28)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:783)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:774)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:422)
+	... 20 more
+Caused by: org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:96)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.getHomePath(MyEclipseTomcatLauncherPlugin.java:106)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.initializeDefaultPreferences(MyEclipseTomcatLauncherPlugin.java:71)
+	at com.genuitec.eclipse.core.GenuitecPlugin.getPreferenceStore(GenuitecPlugin.java:83)
+	at com.genuitec.eclipse.easie.core.EASIEPlugin.<init>(Unknown Source)
+	at com.genuitec.eclipse.easie.tomcat.TomcatLauncherPlugin.<init>(TomcatLauncherPlugin.java:36)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.<init>(MyEclipseTomcatLauncherPlugin.java:42)
+	... 25 more
+Root exception:
+org.eclipse.core.runtime.CoreException: Plug-in "com.genuitec.eclipse.easie.tomcat.myeclipse" was unable to instantiate class "com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin".
+	at org.eclipse.core.internal.plugins.PluginDescriptor.throwException(PluginDescriptor.java:296)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:428)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:370)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at org.eclipse.core.internal.compatibility.PluginActivator.start(PluginActivator.java:28)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:783)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:774)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:755)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:352)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:280)
+	at org.eclipse.core.internal.runtime.InternalPlatform.start(InternalPlatform.java:913)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:360)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at sun.reflect.GeneratedMethodAccessor15.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.getPluginForCompatibility(EarlyStartupRunnable.java:149)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:73)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$55.run(Workbench.java:2192)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:422)
+	... 20 more
+Caused by: org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:96)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.getHomePath(MyEclipseTomcatLauncherPlugin.java:106)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.initializeDefaultPreferences(MyEclipseTomcatLauncherPlugin.java:71)
+	at com.genuitec.eclipse.core.GenuitecPlugin.getPreferenceStore(GenuitecPlugin.java:83)
+	at com.genuitec.eclipse.easie.core.EASIEPlugin.<init>(Unknown Source)
+	at com.genuitec.eclipse.easie.tomcat.TomcatLauncherPlugin.<init>(TomcatLauncherPlugin.java:36)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.<init>(MyEclipseTomcatLauncherPlugin.java:42)
+	... 25 more
+
+!ENTRY org.eclipse.ui 4 4 2011-03-09 08:34:17.296
+!MESSAGE Unhandled Exception
+
+!ENTRY com.genuitec.eclipse.easie.tomcat.myeclipse 4 0 2011-03-09 08:34:17.296
+!MESSAGE Unable to execute early startup code for an extension
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor15.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.getPluginForCompatibility(EarlyStartupRunnable.java:149)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:73)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$55.run(Workbench.java:2192)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.core.runtime.CoreException: Problems encountered starting up plug-in: "org.osgi.framework.BundleException: Exception in org.eclipse.core.internal.compatibility.PluginActivator.start() of bundle com.genuitec.eclipse.easie.tomcat.myeclipse.".
+	at org.eclipse.core.internal.plugins.PluginDescriptor.throwException(PluginDescriptor.java:296)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:362)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	... 8 more
+Caused by: org.osgi.framework.BundleException: Exception in org.eclipse.core.internal.compatibility.PluginActivator.start() of bundle com.genuitec.eclipse.easie.tomcat.myeclipse.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:806)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:755)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:352)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:280)
+	at org.eclipse.core.internal.runtime.InternalPlatform.start(InternalPlatform.java:913)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:360)
+	... 9 more
+Caused by: org.eclipse.core.runtime.CoreException: Plug-in "com.genuitec.eclipse.easie.tomcat.myeclipse" was unable to instantiate class "com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin".
+	at org.eclipse.core.internal.plugins.PluginDescriptor.throwException(PluginDescriptor.java:296)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:428)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:370)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at org.eclipse.core.internal.compatibility.PluginActivator.start(PluginActivator.java:28)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:783)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:774)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:422)
+	... 20 more
+Caused by: org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:96)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.getHomePath(MyEclipseTomcatLauncherPlugin.java:106)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.initializeDefaultPreferences(MyEclipseTomcatLauncherPlugin.java:71)
+	at com.genuitec.eclipse.core.GenuitecPlugin.getPreferenceStore(GenuitecPlugin.java:83)
+	at com.genuitec.eclipse.easie.core.EASIEPlugin.<init>(Unknown Source)
+	at com.genuitec.eclipse.easie.tomcat.TomcatLauncherPlugin.<init>(TomcatLauncherPlugin.java:36)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.<init>(MyEclipseTomcatLauncherPlugin.java:42)
+	... 25 more
+Root exception:
+org.eclipse.core.runtime.CoreException: Problems encountered starting up plug-in: "org.osgi.framework.BundleException: Exception in org.eclipse.core.internal.compatibility.PluginActivator.start() of bundle com.genuitec.eclipse.easie.tomcat.myeclipse.".
+	at org.eclipse.core.internal.plugins.PluginDescriptor.throwException(PluginDescriptor.java:296)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:362)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at sun.reflect.GeneratedMethodAccessor15.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.getPluginForCompatibility(EarlyStartupRunnable.java:149)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:73)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$55.run(Workbench.java:2192)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.osgi.framework.BundleException: Exception in org.eclipse.core.internal.compatibility.PluginActivator.start() of bundle com.genuitec.eclipse.easie.tomcat.myeclipse.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:806)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:755)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:352)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:280)
+	at org.eclipse.core.internal.runtime.InternalPlatform.start(InternalPlatform.java:913)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:360)
+	... 9 more
+Caused by: org.eclipse.core.runtime.CoreException: Plug-in "com.genuitec.eclipse.easie.tomcat.myeclipse" was unable to instantiate class "com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin".
+	at org.eclipse.core.internal.plugins.PluginDescriptor.throwException(PluginDescriptor.java:296)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:428)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.doPluginActivation(PluginDescriptor.java:370)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.getPlugin(PluginDescriptor.java:340)
+	at org.eclipse.core.internal.compatibility.PluginActivator.start(PluginActivator.java:28)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:783)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:774)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.eclipse.core.internal.plugins.PluginDescriptor.internalDoPluginActivation(PluginDescriptor.java:422)
+	... 20 more
+Caused by: org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:96)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.getHomePath(MyEclipseTomcatLauncherPlugin.java:106)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.initializeDefaultPreferences(MyEclipseTomcatLauncherPlugin.java:71)
+	at com.genuitec.eclipse.core.GenuitecPlugin.getPreferenceStore(GenuitecPlugin.java:83)
+	at com.genuitec.eclipse.easie.core.EASIEPlugin.<init>(Unknown Source)
+	at com.genuitec.eclipse.easie.tomcat.TomcatLauncherPlugin.<init>(TomcatLauncherPlugin.java:36)
+	at com.genuitec.eclipse.easie.tomcat.myeclipse.MyEclipseTomcatLauncherPlugin.<init>(MyEclipseTomcatLauncherPlugin.java:42)
+	... 25 more
+
+!ENTRY org.eclipse.ui 4 4 2011-03-09 08:34:17.312
+!MESSAGE Bad extension specification
+
+!ENTRY com.genuitec.eclipse.easie.tomcat.myeclipse 4 0 2011-03-09 08:34:17.312
+!MESSAGE startup class must implement org.eclipse.ui.IStartup

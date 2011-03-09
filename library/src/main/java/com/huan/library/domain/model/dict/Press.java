@@ -1,7 +1,8 @@
 package com.huan.library.domain.model.dict;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -31,23 +32,34 @@ public class Press implements Serializable{
     
 	private String pressAddress; //地址
     
-	private String pressId; //ISBN
+	private String pressISBN; //ISBN
 
 	private String pressName; //出版社名称
 
 	private String zipCode;   //邮编
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="press")
-	private Set<Book> books;   //图书
+	private List<Book> books = new ArrayList<Book>();   //图书
 	
-	public Set<Book> getBooks() {
+	
+	
+	public List<Book> getBooks() {
 		return books;
 	}
 
-	public void setBooks(Set<Book> books) {
+	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
 
+	public String getPressISBN() {
+		return pressISBN;
+	}
+
+	public void setPressISBN(String pressISBN) {
+		this.pressISBN = pressISBN;
+	}
+
+	
 	public int getId() {
 		return id;
 	}
@@ -56,10 +68,7 @@ public class Press implements Serializable{
 		return pressAddress;
 	}
 
-	public String getPressId() {
-		return pressId;
-	}
-
+	
 	public String getPressName() {
 		return pressName;
 	}
@@ -76,10 +85,6 @@ public class Press implements Serializable{
 		this.pressAddress = pressAddress;
 	}
 
-	public void setPressId(String pressId) {
-		this.pressId = pressId;
-	}
-    
     public void setPressName(String pressName) {
 		this.pressName = pressName;
 	}
