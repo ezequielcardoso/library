@@ -40,7 +40,7 @@ public class BaseSpringBeans {
 	}
 	
 	public static void main(String args[]){
-		BaseSpringBeans beans = new BaseSpringBeans();
+		BaseSpringBeans beans = BaseSpringBeans.getInstance();
 		try {
 			System.out.println(beans.getBean("bookDao"));
 		} catch (Exception e) {
