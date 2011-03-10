@@ -18,7 +18,7 @@ public class DepartmentDaoImpl extends HibernateDaoSupportBean implements
 		DepartmentDao {
 
 	public boolean deleteDept(Department dept) {
-		// TODO Auto-generated method stub
+		this.getHibernateTemplate().delete(dept);
 		return false;
 	}
 

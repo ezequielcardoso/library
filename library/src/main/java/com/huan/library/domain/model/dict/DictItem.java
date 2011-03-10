@@ -1,10 +1,6 @@
 package com.huan.library.domain.model.dict;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -19,9 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.engine.Cascade;
-
-import com.huan.library.domain.model.book.Book;
 
 /**
  * 参照字典实体

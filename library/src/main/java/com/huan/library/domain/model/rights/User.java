@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 
 import com.huan.library.domain.model.LibraryManager;
 
+
 /**
  * 用户
  * @author shuaizhichun
@@ -53,17 +54,7 @@ public class User implements Serializable{
 	@JoinColumn(name="deptId",referencedColumnName="deptId")
 	private Department dept;
 	
-	@OneToOne(fetch=FetchType.LAZY,mappedBy="manager")
-	private LibraryManager libraryManager;  //图书馆信息
-
-	public LibraryManager getLibraryManager() {
-		return libraryManager;
-	}
-
-	public void setLibraryManager(LibraryManager libraryManager) {
-		this.libraryManager = libraryManager;
-	}
-
+	
 	public int getUserId() {
 		return userId;
 	}

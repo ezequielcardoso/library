@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
-import com.huan.library.domain.model.dict.Project;
 
 /**
  * 罚款
