@@ -16,7 +16,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import com.huan.library.domain.model.LibraryManager;
 
 
 /**
@@ -53,7 +52,6 @@ public class User implements Serializable{
 	@ManyToOne(targetEntity=Department.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="deptId",referencedColumnName="deptId")
 	private Department dept;
-	
 	
 	public int getUserId() {
 		return userId;

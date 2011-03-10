@@ -5,37 +5,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.struts2.interceptor.ServletRequestAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.service.BookService;
 import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 
  * @author huan
  * @time  2011-3-10 下午03:55:49
  */
-@Controller
-public class BookAction extends ActionSupport implements ServletRequestAware{
+@Controller()
+public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Autowired
 	private BookService bookService;
     
 	//
 	private Book book = new Book();
 		
 	private String bookId;
-	//
-	private HttpServletRequest request;
 	
 	public String getBookId() {
 		return bookId;
@@ -159,10 +156,5 @@ public class BookAction extends ActionSupport implements ServletRequestAware{
 		}
 		return Action.SUCCESS;
 	}
-
-	public void setServletRequest(HttpServletRequest request) {
-		request = this.request;
-	}
-
 
 }

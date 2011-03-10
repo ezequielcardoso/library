@@ -40,24 +40,33 @@ public class Book implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id; // 主键
+	
 	private String barCode; // 条形码
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "bookCategory")
 	private Category bookCategory; // 图书分类
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "attachment")
 	private Attachment attachment; // 附件名称
+	
 	private String bookDesc; // 图书描述
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "bookLevel")
 	private BookLevel bookLevel; // 图书类别
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="security")
 	private Security security;   //图书密级
+	
 	private String bookName; // 书刊名字
+	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "currency")
 	private Currency currency; // 币种
+	
 	private String donator; // 捐赠人
 	private String electoricDoc; // 附件
 	private String ISBN; // ISBN
@@ -66,15 +75,19 @@ public class Book implements Serializable {
 	private String stage; // 第几期
 	private String allStage; // 总第几期
 	private int pages; // 页数
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "press")
 	private Press press; // 出版社
+	
 	private float price; // 价格
 	private Date publisherDate; // 出版日期
 	private int quantity; // 数量
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "resource")
 	private Resource resource; // 来源
+	
 	private int revision; // 版次
 	private String searchBookId; // 索书号
 	private String speciesId; // 种次号
@@ -83,6 +96,7 @@ public class Book implements Serializable {
 	private Date storeDate; // 入库时间
 	private String bookNo; // 图书编号
 	private int type; // 类型 0:表示图书 1:表示期刊
+	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="book")
 	private List<BorrowReturn> borrowReturn = new ArrayList<BorrowReturn>(); //借阅归还
 

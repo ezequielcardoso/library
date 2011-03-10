@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +17,10 @@ import com.huan.library.infrastructure.persistence.BookDao;
  * @author huan
  * @time  2011-3-10 下午03:37:36
  */
-@Service @Transactional
+@Service("bookService") @Transactional
 public class BookServiceImpl implements BookService {
-
+	
+	@Autowired
 	private BookDao bookDao;
 
 	@Resource

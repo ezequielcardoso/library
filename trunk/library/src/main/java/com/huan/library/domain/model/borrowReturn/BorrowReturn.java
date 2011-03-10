@@ -31,19 +31,24 @@ public class BorrowReturn implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id; //主键
-    @ManyToOne(fetch=FetchType.LAZY)
+    
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="book")
 	private Book book;	
-    @ManyToOne(fetch=FetchType.LAZY)
+    
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="readerCard")
     private ReaderCard readerCard;
+	
 	private Date borrowedDate;       //借阅日期
 	private Date duetoReturnDate;    //应还日期
 	private Date realityReturndate;  //实还日期
 	private int overdueDays;         //逾期天数
+	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY
 			,mappedBy="borrowReturn")
 	private List<Fine> fines = new ArrayList<Fine>();               //罚款
@@ -51,6 +56,7 @@ public class BorrowReturn implements Serializable{
 	private float exceedFine;        //罚金
 	private char  isPay ;            //是或归还
 	private int   renewTimes;        //续借次数
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="operator")
 	private User operator;          //操作员      
