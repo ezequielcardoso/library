@@ -2,9 +2,6 @@ package com.huan.library.infrastructure.persistence.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Book;
@@ -15,12 +12,9 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
  * @author huan
  * @time  2011-3-10 下午04:52:01
  */
-@Repository
+@Repository("bookDao")
 public class BookDaoImpl extends HibernateDaoSupportBean implements BookDao{
 	
-	@Resource
-	private SessionFactory sessionFactory;
-
 	public boolean deleteBook(Book book) {
 		getHibernateTemplate().delete(book);
 		return false;

@@ -3,7 +3,6 @@ package com.huan.library.infrastructure.persistence;
 import java.util.List;
 
 import com.huan.library.domain.model.book.Book;
-import com.huan.library.domain.model.rights.Department;
 
 /**
  * 图书dao
