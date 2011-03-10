@@ -2,31 +2,41 @@ package com.huan.library.infrastructure.persistence.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.infrastructure.persistence.BookDao;
 import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBean;
+/**
+ * 
+ * @author huan
+ * @time  2011-3-10 下午04:52:01
+ */
 @Repository
 public class BookDaoImpl extends HibernateDaoSupportBean implements BookDao{
+	
+	@Resource
+	private SessionFactory sessionFactory;
 
 	public boolean deleteBook(Book book) {
-		this.getHibernateTemplate().delete(book);
+		getHibernateTemplate().delete(book);
 		return false;
 	}
 
 	public boolean saveOrUpdateDept(Book book) {
-		this.getHibernateTemplate().saveOrUpdate(book);
+		getHibernateTemplate().saveOrUpdate(book);
 		return false;
 	}
 
     public Book selectBookById(String bookId) {
-		return this.getHibernateTemplate().load(Book.class, bookId);
+		return getHibernateTemplate().load(Book.class, bookId);
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<Book> selectAllBooks() {
-		return this.getSession().createQuery("from Book").list();
+		return getHibernateTemplate().find("from Book");
 	}
 
 }

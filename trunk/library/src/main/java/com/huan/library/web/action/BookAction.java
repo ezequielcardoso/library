@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Book;
@@ -19,18 +21,30 @@ import com.opensymphony.xwork2.ActionSupport;
  * @time  2011-3-10 下午03:55:49
  */
 @Controller
-public class BookAction extends ActionSupport {
+public class BookAction extends ActionSupport implements ServletRequestAware{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Resource
 	private BookService bookService;
-
-	private Book book;
+    
+	//
+	private Book book = new Book();
+		
+	private String bookId;
+	//
+	private HttpServletRequest request;
 	
+	public String getBookId() {
+		return bookId;
+	}
+
+	public void setBookId(String bookId) {
+		this.bookId = bookId;
+	}
+
 	private List<Book> books = new ArrayList<Book>();
 	
 	public Book getBook() {
@@ -48,7 +62,8 @@ public class BookAction extends ActionSupport {
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
-
+	
+	@Resource
 	public void setBookService(BookService bookService) {
 		this.bookService = bookService;
 	}
@@ -59,7 +74,7 @@ public class BookAction extends ActionSupport {
 	 * @throws Exception
 	 */
 	public String showAdd() throws Exception {
-		return Action.SUCCESS;
+		return "showAdd";
 	}
 	
 	/**
@@ -76,4 +91,78 @@ public class BookAction extends ActionSupport {
 		return Action.SUCCESS;
 	}
 	
+	/**
+	 * 显示修改Book页面
+	 * @return
+	 * @throws Exception
+	 */
+	public String showModify() throws Exception {
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 修改图书
+	 * @return
+	 * @throws Exception
+	 */
+	public String modify() throws Exception {
+		try {
+			book=bookService.loadBookById(bookId);
+			bookService.addOrModifyBook(book);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 删除图书
+	 * @return
+	 * @throws Exception
+	 */
+	public String delete() throws Exception {
+		try {
+			bookService.removeBook(book);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 根据BookId查找Book
+	 * @return
+	 * @throws Exception
+	 */
+	public String findById() throws Exception {
+		try {
+			request.setAttribute("book", bookService.loadBookById(bookId));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	/**
+	 * 查找所有的图书
+	 * @return
+	 * @throws Exception
+	 */
+	public String findBooks() throws Exception {
+		try {
+			request.setAttribute("books", bookService.findAllBooks());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+
+	public void setServletRequest(HttpServletRequest request) {
+		request = this.request;
+	}
+
+
 }
