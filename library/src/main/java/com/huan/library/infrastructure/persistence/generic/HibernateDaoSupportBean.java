@@ -6,11 +6,11 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
 @Repository("hibernateDaoSupportBean")
-public class HibernateDaoSupportBean extends HibernateDaoSupport {  
-    
-    @Autowired
-    public void setSuperSessionFactory(SessionFactory sessionFactory){  
-        super.setSessionFactory(sessionFactory);  
-    }  
-  
-} 
+public class HibernateDaoSupportBean extends HibernateDaoSupport {
+
+	@Autowired
+	public void setSuperSessionFactory(SessionFactory sessionFactory) {
+		super.setSessionFactory(sessionFactory);
+	}
+
+}
