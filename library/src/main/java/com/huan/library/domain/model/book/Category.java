@@ -33,9 +33,11 @@ public class Category implements Serializable{
 	private int categoryId;    //主键
 	private String categoryCode; //分类代码
 	private String categoryName;  //分类名称
+	
 	@ManyToOne(targetEntity=Category.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="parentCateId",referencedColumnName="categoryId")
 	private Category parent;   //上级分类
+	
 	@OneToMany(targetEntity=Category.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="categoryId")
 	private List<Category> children = new ArrayList<Category>(); //下级分类 
