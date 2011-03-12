@@ -8,11 +8,9 @@
     <package name="books" namespace="/books" extends="library">
 
 		<action name="books_*" class="com.huan.library.web.action.BookAction" method="{1}">
-			<result name="showSaveBook">/module/book/addBook.html</result>
+			<result name="showSaveBook">/module/book/addBook.jsp</result>
 			<result name="showModifyBook">/module/book/modifyBook.html</result>
-			<result name="success">/module/book/bookList.html</result>
+			<result name="success">/module/book/bookList.jsp</result>
 		</action>
-		
-
     </package>
 </struts>
