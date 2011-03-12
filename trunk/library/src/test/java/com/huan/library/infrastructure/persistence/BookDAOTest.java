@@ -3,9 +3,8 @@ package com.huan.library.infrastructure.persistence;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.Press;
 /**
@@ -15,12 +14,11 @@ import com.huan.library.domain.model.book.Press;
  */
 public class BookDAOTest {
 
-	private static BookDao bookDao;
+	private static BookDao bookDao ;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-	ApplicationContext	applicationContext = new FileSystemXmlApplicationContext("/src/main/webapp/WEB-INF/applicationContext.xml");
-	  bookDao = (BookDao)applicationContext.getBean("bookDao");
+	  bookDao = (BookDao) BaseSpringBeans.getInstance().getBean("bookDao");
 	}
     
 	@Test public void testAdd(){
