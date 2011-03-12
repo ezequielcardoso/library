@@ -31,7 +31,7 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupportBean implements 
 	      return null;
 	}
 	
-	public T saveOrUpdate(T t) {
+	public void saveOrUpdate(T t) {
 		getHibernateTemplate().saveOrUpdate(t);
 		return t;
 	}

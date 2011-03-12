@@ -13,9 +13,8 @@ public interface BaseDao<T> {
 	/**
 	 * 添加实体
 	 * @param t
-	 * @return
 	 */
-	public T saveOrUpdate(T t);
+	public void saveOrUpdate(T t);
 	
     /**
 	 * 删除实体
