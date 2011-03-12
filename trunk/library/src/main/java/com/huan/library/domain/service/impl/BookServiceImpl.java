@@ -36,7 +36,7 @@ public class BookServiceImpl implements BookService {
 		return false;
 	}
 
-	public Book loadBookById(String bookId) throws Exception {
+	public Book findBookById(String bookId) throws Exception {
 		return bookDao.selectBookById(bookId);
 	}
 	
