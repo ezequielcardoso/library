@@ -22,8 +22,8 @@ public class PressServiceImpl implements PressService {
 		this.pressDao = pressDao;
 	}
 
-	public Press addOrModifyPress(Press press) throws Exception {
-		return pressDao.saveOrUpdate(press);
+	public void addOrModifyPress(Press press) throws Exception {
+		 pressDao.saveOrUpdate(press);
 	}
 
 	public List<Press> findAllPresses() throws Exception {
@@ -31,12 +31,12 @@ public class PressServiceImpl implements PressService {
 		return null;
 	}
 
-	public Press findBookById(String pressId) throws Exception {
-		return pressDao.get(pressId);
+		public void removePress(Press press) throws Exception {
+	    pressDao.delete(press);
 	}
 
-	public void removePress(Press press) throws Exception {
-	    pressDao.delete(press);
+	public Press findPressById(int pressId) throws Exception {
+		return pressDao.get(pressId);
 	}
 
 	

@@ -14,14 +14,16 @@ public interface UserDao {
 	/**
 	 * 增加或者修改User
 	 * @param user
+	 * @return
 	 */
-	public void saveOrUpdateUser(User user) throws Exception;
+	public boolean saveOrUpdateUser(User user) throws Exception;
 	
 	/**
 	 * 根据id删除User
 	 * @param user
+	 * @return
 	 */
-	public void deleteUser(User user) throws Exception;
+	public boolean deleteUser(User user) throws Exception;
 	
 	/**
 	 * 根据userId 查找User

@@ -59,7 +59,11 @@ public class BorrowReturn implements Serializable{
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="operator")
-	private User operator;          //操作员      
+	private User operator;          //操作员  
+	
+	public BorrowReturn(){
+		
+	}
 	
 	public List<Fine> getFines() {
 		return fines;
