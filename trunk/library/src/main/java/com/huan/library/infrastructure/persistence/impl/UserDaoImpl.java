@@ -1,8 +1,13 @@
 package com.huan.library.infrastructure.persistence.impl;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.rights.User;
@@ -17,7 +22,7 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
 @Repository("userDao")
 public class UserDaoImpl extends HibernateDaoSupportBean implements UserDao {
 
-	public boolean saveOrUpdateUser(User user) {
+	public boolean saveOrUpdateUser(User user) throws Exception{
 		try{
 			this.getHibernateTemplate().saveOrUpdate(user);
 		} catch(Exception e){
@@ -26,9 +31,9 @@ public class UserDaoImpl extends HibernateDaoSupportBean implements UserDao {
 		return true;
 	}
 	
-	public boolean deleteUser(User user) {
+	public boolean deleteUser(User user) throws Exception{
 		try{
-//			this.getHibernateTemplate().delete(user.getUserId(),user);
+			this.getHibernateTemplate().delete(user);
 		} catch(Exception e){
 			e.printStackTrace();
 		}
@@ -36,7 +41,7 @@ public class UserDaoImpl extends HibernateDaoSupportBean implements UserDao {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<User> selectAllUsers(){
+	public List<User> selectAllUsers() throws Exception{
 		List<User> users = new ArrayList<User>();
 		try{
 			String hql = "from User ";
@@ -47,13 +52,35 @@ public class UserDaoImpl extends HibernateDaoSupportBean implements UserDao {
 		return users;
 	}
 
-	public User selectUserById(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public User selectUserById(String userId) throws Exception {
+		User user = (User)this.getHibernateTemplate().load(User.class, userId);
+		return user;
 	}
 
-	public List<User> selectUsersByDeptId(String deptId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> selectUsersByDeptId(final String deptId) throws Exception {
+		List<User> users = new ArrayList<User>();
+		try{
+			StringBuilder hql = new StringBuilder();
+			hql.append(" select new User( u.userId, u.userAccount, u.userName, u.password, u.userActive, u.createDate, t_dept.deptId, t_dept.deptName) "); 
+			hql.append(" from User u ");
+			hql.append(" where t_dept.deptId=(:deptId) ");
+			hql.append(" left join u.dept t_dept ");
+			final String hqlIn = hql.toString();
+			HibernateCallback callback = new HibernateCallback(){
+
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+						Query query = session.createQuery(hqlIn);
+						query.setParameter("deptId", deptId);
+					return query.list();
+				}
+				
+			};
+			users = (List<User>)getHibernateTemplate().executeFind(callback);
+		} catch(Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return users;
 	}
 }

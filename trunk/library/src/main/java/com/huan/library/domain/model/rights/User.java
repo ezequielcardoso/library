@@ -52,6 +52,24 @@ public class User implements Serializable{
 	@JoinColumn(name="deptId",referencedColumnName="deptId")
 	private Department dept;
 	
+	public User(){
+		
+	}
+	
+	public User(int userId, String userAccount, String userName, String password, boolean userActive, 
+			Date createDate, int deptId, String deptName){
+		this.userId = userId;
+		this.userAccount = userAccount;
+		this.userName = userName;
+		this.password = password;
+		this.userActive = userActive;
+		this.createDate = createDate;
+		Department dept = new Department();
+		dept.setDeptId(deptId);
+		dept.setDeptName(deptName);
+		this.dept = dept;
+	}
+	
 	public int getUserId() {
 		return userId;
 	}

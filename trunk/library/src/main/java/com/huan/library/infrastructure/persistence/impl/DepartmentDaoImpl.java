@@ -17,22 +17,28 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
 public class DepartmentDaoImpl extends HibernateDaoSupportBean implements
 		DepartmentDao {
 
-	public boolean deleteDept(Department dept) {
+	public boolean deleteDept(Department dept) throws Exception {
 		this.getHibernateTemplate().delete(dept);
 		return false;
 	}
 
-	public boolean saveOrUpdateDept(Department dept) {
+	public boolean saveOrUpdateDept(Department dept) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public List<Department> selectAllDepts() {
+	public List<Department> selectAllDepts() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Department selectDeptById(String deptId) {
+	public Department selectDeptById(String deptId) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Department> selectDeptsByParentId(String parentDeptId)
+			throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
