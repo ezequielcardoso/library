@@ -26,11 +26,16 @@ public class BookAction extends BaseActionSupport {
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	private BookService bookService;
-    
-	private Book book = new Book();
+	private BookService bookService;  //service
+     
+	private Book book = new Book();   //图书信息
+	
+	private String bookId;            //图书编号
 
 
+	public void setBookId(String bookId) {
+		this.bookId = bookId;
+	}
 	private List<Book> books = new ArrayList<Book>();
 	
 	public Book getBook() {
@@ -57,10 +62,10 @@ public class BookAction extends BaseActionSupport {
     /**
      * 显示添加图书
      */
-    public String showSaveBook(){
+    public String showSaveBook() throws Exception {
     	return "showSaveBook";
     }
-	
+    
 	/**
 	 * 添加Book
 	 * @return
@@ -72,16 +77,15 @@ public class BookAction extends BaseActionSupport {
 		} catch (Exception e) {
 		  e.printStackTrace();
 		}
-		return "add";
+		return Action.SUCCESS;
 	}
 	
 	 /**
      * 显示修改图书
      */
-    public String showModifyBook(){
-    	return "showModifyBook";
-    }
-	
+	public String showModifyBook() throws Exception {
+		return "showModifyBook";
+	}
 	
 	/**
 	 * 修改图书
@@ -90,21 +94,23 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String updateBook() throws Exception {
 		try {
+			book.setId(Integer.parseInt(bookId));
 			bookService.addOrModifyBook(book);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
 		}
-		return "modify";
+		return Action.SUCCESS;
 	}
 	
 	/**
-	 * 删除图书
+	 * 注销图书
 	 * @return
 	 * @throws Exception
 	 */
 	public String delete() throws Exception {
 		try {
+			book.setId(Integer.parseInt(bookId));
 			bookService.removeBook(book);
 		} catch (Exception e) {
 			e.printStackTrace();

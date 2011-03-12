@@ -1,11 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>广州市自来水综合业务管理平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>骞垮窞甯傝嚜鏉ユ按缁煎悎涓氬姟绠＄悊骞冲彴</title>
 </head>
 <frameset rows="99,*,27" cols="*" frameborder="NO" border="0" framespacing="0">
   <frame src="<%=path%>/module/top.jsp" name="topFrame" scrolling="NO" noresize>
@@ -18,7 +18,7 @@ String path = request.getContextPath();
 </frameset>
 <noframes><body>
 <center>
-抱歉！本页使用了框架，由于您的浏览器不支持框架，所以本页无法显示，请使用支持框架的浏览器浏览！
+鎶辨瓑锛佹湰椤典娇鐢ㄤ簡妗嗘灦锛岀敱浜庢偍鐨勬祻瑙堝櫒涓嶆敮鎸佹鏋讹紝鎵�浠ユ湰椤垫棤娉曟樉绀猴紝璇蜂娇鐢ㄦ敮鎸佹鏋剁殑娴忚鍣ㄦ祻瑙堬紒
 </center>
 </body></noframes>
 </html>

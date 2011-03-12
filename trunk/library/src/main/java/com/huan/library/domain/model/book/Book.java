@@ -50,7 +50,7 @@ public class Book implements Serializable {
 	@JoinColumn(name = "attachment")
 	private Attachment attachment; // 附件名称
 	
-	private String bookDesc; // 图书描述
+	private String bookDesc; // 图书简介
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "bookLevel")
@@ -67,7 +67,7 @@ public class Book implements Serializable {
 	private Currency currency; // 币种
 	
 	private String donator; // 捐赠人
-	private String electoricDoc; // 附件
+	private String electoricDoc; // 电子文档
 	private String ISBN; // ISBN
 	private String ISSN; // 国内统一刊号
 	private String emailNo; // 邮发代码
@@ -82,6 +82,8 @@ public class Book implements Serializable {
 	private float price; // 价格
 	private Date publisherDate; // 出版日期
 	private int quantity; // 数量
+	private String location; //存放位置
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "resource")
@@ -111,6 +113,13 @@ public class Book implements Serializable {
 	} 
 	public void setBorrowReturn(List<BorrowReturn> borrowReturn) {
 		this.borrowReturn = borrowReturn;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	public String getISSN() {
