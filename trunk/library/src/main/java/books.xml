@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 书刊模块 -->
+    <package name="books" namespace="books" extends="library">
+
+		<action name="books_*" class="com.huan.library.web.action.BookAction" method="{1}">
+			<result name="showSaveBook">/module/books/addBook.html</result>
+			<result name="showModifyBook">/module/books/modifyBook.html</result>
+			<result name="success">/module/books/bookList.html</result>
+		</action>
+		
+
+    </package>
+</struts>
