@@ -38,8 +38,14 @@ public class LibraryManager implements Serializable{
 	private float payADay=0;    //租金
 	private float baseCost=0;   //开户费
 	private float depositeTimes=0; //押金倍数
-	private String Librarydesc;       //描述信息
+	private String LibraryDesc;       //描述信息
 
+	public String getLibraryDesc() {
+		return LibraryDesc;
+	}
+	public void setLibraryDesc(String libraryDesc) {
+		LibraryDesc = libraryDesc;
+	}
 	public float getPayADay() {
 		return payADay;
 	}
@@ -58,8 +64,6 @@ public class LibraryManager implements Serializable{
 	public void setDepositeTimes(float depositeTimes) {
 		this.depositeTimes = depositeTimes;
 	}
-	
-	
 	
 	public int getId() {
 		return id;
@@ -91,11 +95,6 @@ public class LibraryManager implements Serializable{
 	public void setManager(User manager) {
 		this.manager = manager;
 	}
-	public String getLibrarydesc() {
-		return Librarydesc;
-	}
-	public void setLibrarydesc(String librarydesc) {
-		Librarydesc = librarydesc;
-	}
+	
 
 }

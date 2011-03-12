@@ -7,7 +7,7 @@ String path = request.getContextPath();
 <html>
 <head>
 <title>广州市自来水综合业务管理平台</title>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <!--
 
