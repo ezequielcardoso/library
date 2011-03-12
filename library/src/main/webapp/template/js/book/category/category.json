@@ -1,0 +1,43 @@
+[{
+    "text": "A 马克思主义、列宁主义、毛泽东思想、邓小平理论",
+    "id": "cate-A",
+    "leaf": false,
+    "cls": "folder",
+    children : [{
+    	"text": "A1 马克思 、恩格斯著作",
+	    "id": "cate-A1",
+	    "leaf": false,
+	    "cls": "folder",
+	    children : [{
+	    	"text": "A11 选文、文集",
+		    "id": "cate-A11",
+		    "leaf": true,
+		    "cls": "file"
+	    }, {
+	    	"text": "A11 单行著作",
+		    "id": "cate-A12",
+		    "leaf": true,
+		    "cls": "file"
+	    }, {
+	    	"text": "A13 书信集、日记、函电、谈话",
+		    "id": "cate-A11",
+		    "leaf": true,
+		    "cls": "file"
+	    } ]
+    }, {
+    	"text": "A2 列宁著作",
+	    "id": "cate-A1",
+	    "leaf": false,
+	    "cls": "file"
+    }]
+}, {
+    "text": "B 哲学",
+    "id": "cate-B",
+    "leaf": false,
+    "cls": "folder"
+}, {
+    "text": "社会科学总论",
+    "id": "cate-C",
+    "leaf": false,
+    "cls": "folder"
+}]

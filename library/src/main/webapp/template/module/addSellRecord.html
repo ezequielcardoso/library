@@ -1,0 +1,178 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="include/css/style.css" type="text/css" rel="stylesheet">
+<script src="include/js/dataFormat.js" type="text/javascript"  language="javascript"></script>
+<title>广州市自来水综合业务管理平台</title>
+<script language="JavaScript">
+
+function saveProduct(productID)
+{
+    alert("保存成功!");
+	  var productTAB=document.getElementById("productList");
+	productTAB.deleteRow(productID);
+	rowNum--;
+}
+
+
+function removeProduct(productID)
+{
+	
+    var productTAB=document.getElementById("productList");
+	productTAB.deleteRow(productID);
+	rowNum--;
+	alert("删除成功!");
+
+
+}
+
+
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+	var rowNum=0;
+	function addProduct()
+	{
+	var productTAB=document.getElementById("productList");
+	rowNum++;
+	var rowTr=productTAB.insertRow();
+	rowTr.align="center";
+	rowTr.id="tr_"+rowNum;
+	rowTr.insertCell(0).innerHTML="<input type='text' readonly name='productName' id=productName_"+rowNum+" />";
+	rowTr.insertCell(1).innerHTML="1";
+	rowTr.insertCell(2).innerHTML=dateFormate();
+	rowTr.insertCell(3).innerHTML=3000;
+	rowTr.insertCell(4).innerHTML="<input type='text'readonly name='codeBar' id=codeBar_"+rowNum+" />";
+	rowTr.insertCell(5).innerHTML="<a href='javascript:removeProduct("+rowNum+");'>删除</a>";
+	
+	
+	}
+	
+	
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="images/sj.gif";
+//treePic.src = 'images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+    </script>
+</head>
+<body>
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbecff">
+  <tr>
+    <td height="4" background="images/bodybg.jpg" ></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="10" valign="top"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+          
+            <tr>
+              <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"   class="title_border">
+                  <tr>
+                    <td width="19%" height="25" style="text-align:left"><strong>&nbsp;<img src="images/cl0.gif" align="absmiddle"  >新销售单</strong></td>
+                    <td width="81%" height="25"   class=body1 style="text-align:left"><img src="images/02a.gif"  > 当前位置：销售管理 &gt;&gt;销售单信息&gt;&gt;新销售单</td>
+                  </tr>
+              </table></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="10" valign="top"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" >
+            <tr>
+              <td height="30" class="body1">&nbsp;
+                <input type="button" class="btn" onClick="alert('入库成功!');window.location='productStroageList.html';" value="确认">
+                &nbsp;&nbsp;
+                <input type="button" class="btn" onClick="addProduct();" value="增加">
+                &nbsp;&nbsp;&nbsp;
+                  <input type="button" class="btn"  onClick="document.reload();" value="清空列表">   
+                  &nbsp;&nbsp;
+                <input type="button" class="btn"  onClick="window.history.back(-1);" value="返回">  
+                            </td>
+            </tr>
+          </table>
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ebebeb"  borderColorLight="#ebebeb"
+	borderColorDark="#ffffff" id="LM1"  >
+              <TR>
+                <TD align="left" class="body">&nbsp;</TD>
+              </TR>
+          </TABLE></td>
+      </tr>
+      <tr>
+        <td valign="top">
+        <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:5px">
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="189" height="33" background="images/titleb_01.jpg" class="title1">货品列表</td>
+                  <td background="images/titleb_02.jpg">&nbsp;</td>
+                  <td width="213" align="right" background="images/titleb_03.jpg" style="padding-bottom:10px">&nbsp;&nbsp;</td>
+                </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td valign="top">
+            <form action="" method="post" name="productInfor" id="productInfor">
+              <table id="productList"  width="100%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
+                <tr>
+                 <td width="10%"  align="center" bgcolor="#F4F5F9">产品名称</td>
+                  <td width="26%"  align="center" bgcolor="#F4F5F9">数量</td>
+                  <td width="20%"  align="center" bgcolor="#F4F5F9">购买时间</td>
+                  <td width="20%"  align="center" bgcolor="#F4F5F9">金额</td> 
+                  <td width="10%"  align="center" bgcolor="#F4F5F9">条形码</td>
+                  <td width="10%"  align="center" bgcolor="#F4F5F9">操作</td>
+                </tr>
+            </table>
+            </form>
+             </td>
+          </tr>
+        </table>
+         
+          <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td height="30" align="center"  class="body" >&nbsp;</td>
+              </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+</body>
+</html>
