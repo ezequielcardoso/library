@@ -22,9 +22,8 @@ public class DepartmentDaoImpl extends HibernateDaoSupportBean implements
 		return false;
 	}
 
-	public boolean saveOrUpdateDept(Department dept) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public Department saveOrUpdateDept(Department dept) throws Exception {
+		return dept;
 	}
 
 	public List<Department> selectAllDepts() throws Exception {

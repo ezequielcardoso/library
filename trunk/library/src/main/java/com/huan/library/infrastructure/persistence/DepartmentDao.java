@@ -16,7 +16,7 @@ public interface DepartmentDao {
 	 * @param dept
 	 * @return
 	 */
-	public boolean saveOrUpdateDept(Department dept) throws Exception ;
+	public Department saveOrUpdateDept(Department dept) throws Exception ;
 	
 	/**
 	 * 根据id删除Dept

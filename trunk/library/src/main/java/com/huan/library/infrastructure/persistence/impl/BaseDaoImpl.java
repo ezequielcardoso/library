@@ -33,6 +33,7 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupportBean implements 
 	
 	public T saveOrUpdate(T t) {
 		getHibernateTemplate().saveOrUpdate(t);
+		return t;
 	}
 
 	public void delete(T t) {
