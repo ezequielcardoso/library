@@ -53,6 +53,13 @@ public class BookAction extends BaseActionSupport {
     public void setBookService(BookService bookService) {
 		this.bookService = bookService;
 	}
+    
+    /**
+     * 显示添加图书
+     */
+    public String showSaveBook(){
+    	return "showSaveBook";
+    }
 	
 	/**
 	 * 添加Book
@@ -67,6 +74,14 @@ public class BookAction extends BaseActionSupport {
 		}
 		return "add";
 	}
+	
+	 /**
+     * 显示修改图书
+     */
+    public String showModifyBook(){
+    	return "showModifyBook";
+    }
+	
 	
 	/**
 	 * 修改图书

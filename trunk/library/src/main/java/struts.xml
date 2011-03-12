@@ -12,6 +12,7 @@
 	<include file="struts-default.xml"></include>
 	<!--导入各模块Action配置文件 -->
 	<include file="rights.xml"></include>
+	<include file="books.xml"></include>
 	
 	
 	<!-- Add packages here -->
