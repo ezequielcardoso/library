@@ -1,12 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
-<%
-String path = request.getContextPath();
-%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>¹ãÖİÊĞ×ÔÀ´Ë®×ÛºÏÒµÎñ¹ÜÀíÆ½Ì¨</title>
-<link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet">
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
+
+<%@include file="/common/common.jsp" %>
+
 <script language="javascript"> 
 <!-- 
 function LMYC(number) { 
@@ -34,7 +33,8 @@ function ShowFLT(i, number) {
 	} 
 } 
 //--> 
-</script></head>
+</script>
+</head>
 <body>
     <table width="138" height="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
@@ -43,7 +43,7 @@ function ShowFLT(i, number) {
       <tr>
         <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1,7)"><strong>Êé¿¯¹ÜÀí</strong></a></td>
+            <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1,7)"><strong>ä¹¦åˆŠç®¡ç†</strong></a></td>
             <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1,7)"><img src="<%=path %>/images/module/t01.jpg" id="tPic1" width="32" height="29"></a></td>
           </tr>
         </table></td>
@@ -54,28 +54,28 @@ function ShowFLT(i, number) {
         <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
       </tr>
              <tr>
-              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="<%=path %>/module/book/bookList.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼Êé»ù±¾¹ÜÀí</a></td>
+              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="<%=path %>/module/book/bookList.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦åŸºæœ¬ç®¡ç†</a></td>
             </tr>
 			 <tr>
-              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/magazineList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ÆÚ¿¯»ù±¾¹ÜÀí</a></td>
+              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/magazineList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æœŸåˆŠåŸºæœ¬ç®¡ç†</a></td>
             </tr>
              <tr>
-              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/category/category.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼Êé·ÖÀà¹ÜÀí</a></td>
+              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/category/category.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦åˆ†ç±»ç®¡ç†</a></td>
             </tr>
             <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/bookStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼ÊéÈë¿âÍ³¼Æ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/bookStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦å…¥åº“ç»Ÿè®¡</a></td>
           </tr>
 		   <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/magazineStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ÆÚ¿¯Èë¿âÍ³¼Æ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/magazineStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æœŸåˆŠå…¥åº“ç»Ÿè®¡</a></td>
           </tr>
 		  <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/managerStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">¹ÜÀíÔ±Èë¿âÍ³¼Æ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/managerStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ç®¡ç†å‘˜å…¥åº“ç»Ÿè®¡</a></td>
           </tr>
            <tr>
-              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/bookLevel.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼ÊéÃÜ¼¶</a></td>
+              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/bookLevel.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦å¯†çº§</a></td>
             </tr>
            <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/press/pressManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">³ö°æÉç¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/press/pressManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å‡ºç‰ˆç¤¾ç®¡ç†</a></td>
           </tr>
 		    <tr>
               <td>&nbsp;</td>
@@ -88,7 +88,7 @@ function ShowFLT(i, number) {
       <tr>
         <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-              <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2,7)"><strong>½èÔÄ¹é»¹</strong></a></td>
+              <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2,7)"><strong>å€Ÿé˜…å½’è¿˜</strong></a></td>
               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic2" width="32" height="29"></a></td>
             </tr>
         </table></td>
@@ -100,43 +100,43 @@ function ShowFLT(i, number) {
           </tr>
             <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
-			<a href="borrowReturn/bookBorrow.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼Êé½èÔÄµÇ¼Ç</a>			</td>
+			<a href="borrowReturn/bookBorrow.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦å€Ÿé˜…ç™»è®°</a>			</td>
           </tr>
 		   <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
-			<a href="borrowReturn/magazineBorrow.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ÆÚ¿¯½èÔÄµÇ¼Ç</a>			</td>
+			<a href="borrowReturn/magazineBorrow.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æœŸåˆŠå€Ÿé˜…ç™»è®°</a>			</td>
           </tr>
 		   
 		  <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="borrowReturn/bookReturn.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼Êé¹é»¹</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="borrowReturn/bookReturn.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦å½’è¿˜</a></td>
           </tr>
 		    <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="borrowReturn/magazineReturn.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ÆÚ¿¯¹é»¹</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="borrowReturn/magazineReturn.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æœŸåˆŠå½’è¿˜</a></td>
           </tr>
         	
 			<tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
-			<a href="borrowReturn/bookPreOrdering.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼ÊéÔ¤Ô¼µÇ¼Ç</a>
+			<a href="borrowReturn/bookPreOrdering.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦é¢„çº¦ç™»è®°</a>
 			</td>
           </tr>
 		  
 		   <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
-			<a href="borrowReturn/magazinePreOrdering.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ÆÚ¿¯Ô¤Ô¼µÇ¼Ç</a>
+			<a href="borrowReturn/magazinePreOrdering.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æœŸåˆŠé¢„çº¦ç™»è®°</a>
 			</td>
           </tr>
 		  
           <!--<tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Ôö¼ÓÊı¾İ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å¢åŠ æ•°æ®</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Ôö¼ÓÊı¾İ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å¢åŠ æ•°æ®</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Ôö¼ÓÊı¾İ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å¢åŠ æ•°æ®</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Ôö¼ÓÊı¾İ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å¢åŠ æ•°æ®</a></td>
           </tr>-->
           <tr>
             <td>&nbsp;</td>
@@ -150,7 +150,7 @@ function ShowFLT(i, number) {
 	  <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3,7)"><strong>²éÑ¯Í³¼Æ</strong></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3,7)"><strong>æŸ¥è¯¢ç»Ÿè®¡</strong></a></td>
                <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic3" width="32" height="29"></a></td>
              </tr>
          </table></td>
@@ -161,16 +161,16 @@ function ShowFLT(i, number) {
             <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
           </tr>
              <tr>
-              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="basic/bookBorrowed.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼Êé½èÔÄ²éÑ¯</a></td>
+              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="basic/bookBorrowed.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦å€Ÿé˜…æŸ¥è¯¢</a></td>
            </tr> 
 			
 			<tr>
-              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="basic/magazineBorrowed.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ÆÚ¿¯½èÔÄ²éÑ¯</a></td>
+              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="basic/magazineBorrowed.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æœŸåˆŠå€Ÿé˜…æŸ¥è¯¢</a></td>
             </tr> 
 			  
 			 <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
-			<a href="basic/borrowed.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">½èÔÄÍ³¼Æ</a>			</td>
+			<a href="basic/borrowed.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å€Ÿé˜…ç»Ÿè®¡</a>			</td>
           </tr> 
 		
           <tr>
@@ -187,7 +187,7 @@ function ShowFLT(i, number) {
 	   <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4,7)"><strong>¶ÁÕß¹ÜÀí</strong></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4,7)"><strong>è¯»è€…ç®¡ç†</strong></a></td>
                <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic4" width="32" height="29"></a></td>
              </tr>
          </table></td>
@@ -198,21 +198,21 @@ function ShowFLT(i, number) {
             <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
           </tr>
 		    <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/readerList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">¶ÁÕßÎ¬»¤</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/readerList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">è¯»è€…ç»´æŠ¤</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/readerCategory.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">¶ÁÕßÀà±ğ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/readerCategory.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">è¯»è€…ç±»åˆ«</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/readerAccount.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">¶ÁÕßÕËµ¥</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/readerAccount.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">è¯»è€…è´¦å•</a></td>
           </tr>
 		  
 		   <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/cardType.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Ö¤¼şÀà±ğ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/cardType.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">è¯ä»¶ç±»åˆ«</a></td>
           </tr>
 		  
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/card/cardList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">½èÔÄÖ¤¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/card/cardList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å€Ÿé˜…è¯ç®¡ç†</a></td>
           </tr>
           <tr>
             <td>&nbsp;</td>
@@ -228,7 +228,7 @@ function ShowFLT(i, number) {
 	   <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5,7)"><strong>ÏµÍ³È¨ÏŞ</strong></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5,7)"><strong>ç³»ç»Ÿæƒé™</strong></a></td>
                <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic5" width="32" height="29"></a></td>
              </tr>
          </table></td>
@@ -239,16 +239,16 @@ function ShowFLT(i, number) {
             <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/department/department.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">²¿ÃÅ¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/department/department.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">éƒ¨é—¨ç®¡ç†</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/user/user.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ÓÃ»§¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/user/user.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ç”¨æˆ·ç®¡ç†</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/role/role.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">½ÇÉ«¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/role/role.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">è§’è‰²ç®¡ç†</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/function/function.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">×ÊÔ´¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/function/function.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">èµ„æºç®¡ç†</a></td>
           </tr>
 		 
           <tr>
@@ -264,7 +264,7 @@ function ShowFLT(i, number) {
 	  <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(6,7)"><strong>ÏµÍ³¹ÜÀí</strong></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(6,7)"><strong>ç³»ç»Ÿç®¡ç†</strong></a></td>
                <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(6,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic6" width="32" height="29"></a></td>
              </tr>
          </table></td>
@@ -275,19 +275,19 @@ function ShowFLT(i, number) {
             <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
           </tr>
 		  <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/chargeManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Êé¿¯ÊÕ·Ñ</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/chargeManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ä¹¦åˆŠæ”¶è´¹</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/currencyManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">±ÒÖÖ¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/currencyManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å¸ç§ç®¡ç†</a></td>
           </tr>
 		  <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/loggingMananger.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ÈÕÖ¾¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/loggingMananger.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æ—¥å¿—ç®¡ç†</a></td>
           </tr>
            <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/libraryManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Í¼Êé¹İĞÅÏ¢¹ÜÀí</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/libraryManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å›¾ä¹¦é¦†ä¿¡æ¯ç®¡ç†</a></td>
           </tr>
 		  <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Êı¾İ±¸·İÓë»¹Ô­</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æ•°æ®å¤‡ä»½ä¸è¿˜åŸ</a></td>
           </tr>
 		 
           <tr>
@@ -303,7 +303,7 @@ function ShowFLT(i, number) {
 	  <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(7,7)"><strong>ÆäËû</strong></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(7,7)"><strong>å…¶ä»–</strong></a></td>
                <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(7,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic7" width="32" height="29"></a></td>
              </tr>
          </table></td>
@@ -314,20 +314,20 @@ function ShowFLT(i, number) {
             <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">Ê¹ÓÃ°ïÖú</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">ä½¿ç”¨å¸®åŠ©</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">¹ØÏµÏµÍ³</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">å…³ç³»ç³»ç»Ÿ</a></td>
           </tr>
 		  
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">¼ÇÊÂ±¾</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">è®°äº‹æœ¬</a></td>
           </tr>
           <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">¼ÆËãÆ÷</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">è®¡ç®—å™¨</a></td>
           </tr>
 		   <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="client/clientList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">´òÓ¡»ú</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="client/clientList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">æ‰“å°æœº</a></td>
           </tr>
 		 
           <tr>
