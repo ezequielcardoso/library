@@ -14,10 +14,21 @@
 	<include file="rights.xml"></include>
 	<include file="books.xml"></include>
 	
+	<!-- 中文支持等配置 -->
+	<constant name="struts.custom.i18n.resources"
+		value="ApplicationResources" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.i18n.reload" value="false"></constant>
+	<constant name="struts.action.extension" value="action,jsp" />
+	<constant name="struts.multipart.maxSize" value="500000000" />
 	
-	<!-- Add packages here -->
-    <package name="library" namespace="/" extends="struts-default">
-    	<!-- add Actions here -->
+	
+    <package name="library" namespace="/" extends="json-default">
+		
+		<action name="index" class="com.huan.library.web.action.UserAction" method="index">
+			<result name="success">login.jsp</result>
+		</action>
+		
     </package>
 
 </struts>

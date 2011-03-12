@@ -2,9 +2,12 @@ package com.huan.library.domain.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.UserService;
 
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 	public boolean addOrModifyUser(User user)  throws Exception{
