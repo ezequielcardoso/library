@@ -23,7 +23,7 @@ public interface DepartmentDao {
 	 * @param dept
 	 * @return
 	 */
-	public boolean deleteDept(Department dept) throws Exception ;
+	public void deleteDept(Department dept) throws Exception ;
 	
 	/**
 	 * 根据Id查找Dept

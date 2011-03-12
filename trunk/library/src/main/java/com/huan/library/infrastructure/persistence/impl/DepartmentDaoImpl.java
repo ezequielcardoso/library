@@ -17,9 +17,8 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
 public class DepartmentDaoImpl extends HibernateDaoSupportBean implements
 		DepartmentDao {
 
-	public boolean deleteDept(Department dept) throws Exception {
+	public void deleteDept(Department dept) throws Exception {
 		this.getHibernateTemplate().delete(dept);
-		return false;
 	}
 
 	public Department saveOrUpdateDept(Department dept) throws Exception {
