@@ -42,6 +42,10 @@ public class Category implements Serializable{
 	@JoinColumn(name="categoryId")
 	private List<Category> children = new ArrayList<Category>(); //下级分类 
 	
+	public Category(){
+		
+	}
+	
 	public List<Category> getChildren() {
 		return children;
 	}

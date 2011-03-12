@@ -101,6 +101,10 @@ public class Book implements Serializable {
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,targetEntity=BorrowReturn.class)
 	private List<BorrowReturn> borrowReturn = new ArrayList<BorrowReturn>(); //借阅归还
 
+	public Book(){
+		
+	}
+	
 	public List<BorrowReturn> getBorrowReturn() {
 		return borrowReturn;
 	}

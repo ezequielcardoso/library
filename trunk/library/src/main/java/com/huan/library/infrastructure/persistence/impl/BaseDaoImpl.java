@@ -31,17 +31,29 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupportBean implements 
 	      return null;
 	}
 	
-	public void saveOrUpdate(T t) {
-		getHibernateTemplate().saveOrUpdate(t);
-		return t;
+	public void saveOrUpdate(T t) throws Exception{
+		try{
+			getHibernateTemplate().saveOrUpdate(t);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
-	public void delete(T t) {
-	    getHibernateTemplate().delete(t);	
+	public void delete(T t) throws Exception{
+		try{
+			getHibernateTemplate().delete(t);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
-	public T get(Serializable entityId) {
-        return getHibernateTemplate().load(entityClass, entityId);
+	public T get(Serializable entityId) throws Exception{
+		try{
+			return getHibernateTemplate().load(entityClass, entityId);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	    

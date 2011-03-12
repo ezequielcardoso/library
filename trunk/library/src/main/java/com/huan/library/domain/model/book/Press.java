@@ -40,7 +40,9 @@ public class Press implements Serializable{
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="press")
 	private List<Book> books = new ArrayList<Book>();   //图书
 	
-	
+	public Press(){
+		
+	}
 	
 	public List<Book> getBooks() {
 		return books;

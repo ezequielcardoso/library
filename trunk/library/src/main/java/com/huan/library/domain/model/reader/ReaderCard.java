@@ -45,6 +45,10 @@ public class ReaderCard implements Serializable{
 	@ManyToOne(fetch=FetchType.LAZY)
 	private BorrowReturn borrowReturn;  //借阅归还
 	
+	public ReaderCard(){
+		
+	}
+	
 	public int getState() {
 		return state;
 	}
