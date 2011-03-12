@@ -1,12 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 %>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="<%=path%>/css/style.css" type="text/css" rel="stylesheet" />
-		<title>"��ˮ��ˮ"�ն˷����ۺ�ҵ�����ƽ̨</title>
+		<title>"广水用水"终端服务综合业务管理平台</title>
 		<script language="JavaScript">
 		function test12(i){
 			if(i==1){
@@ -48,7 +48,7 @@ String path = request.getContextPath();
 		}
 
 
-//tabѡ�
+//tab选项卡
 var tabnumber=5; 
 
 function tablmyc() { 
@@ -116,11 +116,11 @@ else{
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
 														<strong>&nbsp;<img align="absmiddle"
-																src="<%=path%>/images/module/cl0.gif">�鿯����</strong>													</td>
+																src="<%=path%>/images/module/cl0.gif">书刊管理</strong>													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
 														<img src="<%=path%>/images/module/02a.gif">
-														��ǰλ�ã��鿯����&gt;&gt;ͼ���������
+														当前位置：书刊管理&gt;&gt;图书基本管理
 													</td>
 												</tr>
 											</table>
@@ -146,24 +146,24 @@ else{
 									<TR>
                                         <TD width="5%" height=25 align="right" nowrap class="body">
                                        	  <INPUT type=radio CHECKED value=1 name="location"> 
-                                          <LABEL for=radio3>ģ��</LABEL>                                      
+                                          <LABEL for=radio3>模糊</LABEL>                                      
                                         </TD>
                                 <TD width="5%" height=25 align="right" nowrap class="body">
                                        	  <INPUT type=radio value=2 name="location"> 
-                                      <LABEL for=radio4>��ȷ</LABEL></TD>
+                                      <LABEL for=radio4>精确</LABEL></TD>
                                         <TD width="7%" height=25 align="right" nowrap class="body">
-                               		     �����룺                                        </TD>
+                               		     条形码：                                        </TD>
                                       <TD width="15%" height=25 align="left" nowrap class="body">
                                    	  <input name=txtkeyvalue type="text" class="input2"
 												id="txtkeyvalue" value="" size="15"></TD>
                                         <TD width="5%"  height=25 align="right" nowrap class="body">
                                        	  <INPUT type=radio CHECKED value=1 name="bookNo"> 
-                                      <LABEL for=radio3>ģ��</LABEL></TD>
+                                      <LABEL for=radio3>模糊</LABEL></TD>
                                     <TD width="5%"  height=25 align="right" nowrap class="body">
                                    	  <INPUT type=radio value=2 name="bookNo"> 
-                                      <LABEL for=radio4>��ȷ</LABEL></TD>
+                                      <LABEL for=radio4>精确</LABEL></TD>
                                      <TD width="6%" height=25 align="right" nowrap class="body">
-                               		     ������                                        </TD>
+                               		     书名：                                        </TD>
                                         <TD width="28%"  height=25 align="left" nowrap class="body">
                                    	  <input name=txtkeyvalue2 type="text" class="input2"
 												id="txtkeyvalue2" value="" size="15"></TD>
@@ -172,23 +172,23 @@ else{
 								  <TR>
                                   		<TD  align="right" nowrap class="body">
 											<INPUT type=radio CHECKED value=1 name="barCode"> 
-                                            <LABEL for=radio3>ģ��</LABEL> 
+                                            <LABEL for=radio3>模糊</LABEL> 
 								    </TD>
                                         <TD height=25 align="right" nowrap class="body">
 											<INPUT type=radio value=2 name="barCode"> 
-                                    <LABEL for=radio4>��ȷ</LABEL></TD>
-                                        <TD height=25 align="right" nowrap class="body">λ�ã� </TD>
+                                    <LABEL for=radio4>精确</LABEL></TD>
+                                        <TD height=25 align="right" nowrap class="body">位置： </TD>
                                         <TD height=25 align="left" nowrap class="body">
 											<input name=txtkeyvalue type="text" class="input2"
 												id="txtkeyvalue" value="" size="15">								    </TD>
                                         <TD height=25 align="right" nowrap class="body">
 											<INPUT type=radio CHECKED value=1 name="bookName"> 
-                                    <LABEL for=radio3>ģ��</LABEL>								    </TD>
+                                    <LABEL for=radio3>模糊</LABEL>								    </TD>
                                         <TD height=25 align="right" nowrap class="body">
 											<INPUT type=radio value=2 name="bookName"> 
-                                            <LABEL for=radio4>��ȷ</LABEL>
+                                            <LABEL for=radio4>精确</LABEL>
 								    </TD>
-                                        <TD height=25 align="right" nowrap class="body">��ţ� </TD>
+                                        <TD height=25 align="right" nowrap class="body">编号： </TD>
                                     <TD height=25 align="left" class="body">
 											<input name=txtkeyvalue type="text" class="input2"
 												id="txtkeyvalue" value="" size="15">
@@ -197,23 +197,23 @@ else{
                                   
                                     <TR>
                                   		<TD height=25 nowrap class="body" colspan="8" align="left">
-											<input type="button" class="btnl" value="�� ѯ">
+											<input type="button" class="btnl" value="查 询">
                                             <input type="button" class="btnl"
 												onClick="window.location='modifyBook.html';"
-												value="�޸�">
+												value="修改">
                                                 <input name="button" type="button" class="btnl"
 												onClick=""
-												value="ɾ��">
+												value="删除">
                                                 <input type="button" class="btnl"
-												onClick="window.location='<%=path %>/books/books_showSaveBook.action';" value="����">
+												onClick="window.location='<%=path %>/books/books_showSaveBook.action';" value="增加">
                                                 <input type="button" class="btnl"
-												onClick="window.location='addProduct.html';" value="����ͼ��">
+												onClick="window.location='addProduct.html';" value="导入图书">
                                                 <input type="button" class="btnl"
-												onClick="" value="����Excel">
+												onClick="" value="导出Excel">
                                                 <input type="button" class="btnl"
-												onClick="" value="ͼ���ǩ">
+												onClick="" value="图书标签">
                                                 <input type="button" class="btnl"
-												onClick="" value="��ӡ������">
+												onClick="" value="打印条形码">
 								    </TD>
                                   </TR>
              
@@ -230,7 +230,7 @@ else{
 												<tr>
 													<td width="189" height="33"
 														background="<%=path%>/images/module/titleb_01.jpg" class="title1">
-														��ѯ�б�
+														查询列表
 													</td>
 													<td background="<%=path%>/images/module/titleb_02.jpg">&nbsp;
 													</td>
@@ -254,28 +254,28 @@ else{
 														<input type="checkbox" id="selectAll" name="selectAll"
 															onClick="selectAll();">
 													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">ͼ����</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">图书编号</td>
 													<td align="center" bgcolor="#F4F5F9" class="body">
-														����													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">�����</td>
-													<td align="center" bgcolor="#F4F5F9" class="body" width="8%">����</td>
+														名称													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body">分类号</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="8%">作者</td>
 													<td width="8%" align="center" bgcolor="#F4F5F9"
 														class="body">
-														�ִκ�</td>
+														种次号</td>
 													<td width="7%" align="center" bgcolor="#F4F5F9"
 														class="body">
-														����</td>
+														数量</td>
 													<td width="8%" align="center" bgcolor="#F4F5F9"
 														class="body">
-														���ʱ��</td>
+														入库时间</td>
 													<td width="8%" align="center" bgcolor="#F4F5F9"
-														class="body">ҳ��</td>
-													<td width="8%" align="center" bgcolor="#F4F5F9"
-														class="body">
-														����</td>		
+														class="body">页数</td>
 													<td width="8%" align="center" bgcolor="#F4F5F9"
 														class="body">
-														״̬
+														附件</td>		
+													<td width="8%" align="center" bgcolor="#F4F5F9"
+														class="body">
+														状态
 													</td>
 												</tr>
 												<tr align="center" onDblClick="oncli()"
@@ -285,14 +285,14 @@ else{
 														<input type="checkbox" name="proSelect">
 													</td>
 													<td width="7%" class="body">ES013</td>
-													<td width="16%" class="body">��ë���˼�<br>
+													<td width="16%" class="body">三毛流浪记<br>
 													</td>
 													<td class="body">
 														E1000
 														<br>
 													</td>
 													<td class="body">
-														��ë</td>
+														三毛</td>
 													<td class="body">
 														A1000</td>
 													<td align="center" class="user">
@@ -312,9 +312,9 @@ else{
 													</td>
 													<td align="center" class="user">
 														<select name="state2">
-															  <option value="0" >������</option>
-															  <option value="1" selected="selected">�ڹ�</option>
-															  <option value="2" >���</option>
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
                                                        </select>
 													</td>
 												</tr>
@@ -330,10 +330,10 @@ else{
 													</td>
 													<td width="7%" class="body">ES014</td>
 													<td width="16%" class="body">
-														������ǧ��<br>
+														上下五千年<br>
 													</td>
 													<td width="5%" class="body">E1000</td>
-													<td class="body">����</td>
+													<td class="body">不详</td>
 													<td class="body">
 														A1001
 														<br>
@@ -352,9 +352,9 @@ else{
 												  </td>
 													<td align="center" class="user">
 														<select name="state2">
-															  <option value="0" >������</option>
-															  <option value="1" selected="selected">�ڹ�</option>
-															  <option value="2" >���</option>
+															  <option value="0" >核审中</option>
+															  <option value="1" selected="selected">在馆</option>
+															  <option value="2" >借出</option>
                                                        </select>
 													</td>
 
@@ -370,9 +370,9 @@ else{
 														<input type="checkbox" name="proSelect">
 													</td>
 												  <td width="7%" class="body">ES015</td>
-												  <td width="16%" class="body">�������<br>												  </td>
+												  <td width="16%" class="body">网络基础<br>												  </td>
 												  <td width="5%" class="body">E1001<br>												  </td>
-												  <td class="body">����<br>												  </td>
+												  <td class="body">黎明<br>												  </td>
 											    <td class="body">A1000</td>
 												  <td align="center" class="user">
 													  1</td>
@@ -385,9 +385,9 @@ else{
 													  <img src="<%=path%>/images/module/cd.png"></td>
 												  <td align="center" class="user">
 													  <select name="state2">
-														    <option value="0" >������</option>
-														    <option value="1" selected="selected">�ڹ�</option>
-														    <option value="2" >���</option>
+														    <option value="0" >核审中</option>
+														    <option value="1" selected="selected">在馆</option>
+														    <option value="2" >借出</option>
                                                      </select>												  </td>
 												</tr>
 												<tr onClick="oncli()"
@@ -402,10 +402,10 @@ else{
 													</td>
 													<td width="7%" class="body" style="color: #FF0000;">ES016</td>
 													<td width="16%" class="body" style="color: #FF0000;">
-														Java web����</td>
+														Java web开发</td>
 													<td width="5%" class="body" style="color: #FF0000;">J1000</td>
 													<td class="body" style="color: #FF0000;">
-														����</td>
+														孙鑫</td>
 													<td class="body" style="color: #FF0000;">B1000</td>
 													<td align="center" class="user" style="color: #FF0000">
 														5</td>
@@ -419,9 +419,9 @@ else{
 														</td>
 													<td align="center" class="user" style="color: #FF0000">
 														<select name="state2">
-															  <option value="0" selected="selected">������</option>
-															  <option value="1" >�ڹ�</option>
-															  <option value="2" >���</option>
+															  <option value="0" selected="selected">核审中</option>
+															  <option value="1" >在馆</option>
+															  <option value="2" >借出</option>
                                                        </select>													</td>
 												</tr>
 												<tr onClick="oncli()"
@@ -436,11 +436,11 @@ else{
 													</td>
 													<td width="7%" class="body" style="color: #FF0000">ES017</td>
 													<td width="16%" class="body" style="color: #FF0000">
-														���ݽṹ
+														数据结构
 														<br>													</td>
 													<td width="5%" class="body" style="color: #FF0000">J1000</td>
 													<td class="body" style="color: #FF0000">
-														��</td>
+														贵超</td>
 													<td class="body" style="color: #FF0000">A1000</td>
 													<td align="center" class="user" style="color: #FF0000">
 														8</td>
@@ -453,9 +453,9 @@ else{
 														<br></td>
 													<td align="center" class="user" style="color: #FF0000">
 														<select name="state2">
-															  <option value="0" selected="selected">������</option>
-															  <option value="1" >�ڹ�</option>
-															  <option value="2" >���</option>
+															  <option value="0" selected="selected">核审中</option>
+															  <option value="1" >在馆</option>
+															  <option value="2" >借出</option>
                                                        </select>													</td>
 												</tr>
 												<tr onClick="oncli()"
@@ -467,14 +467,14 @@ else{
 												cellspacing="0">
 												<tr>
 													<td height="30" align="center" class="body">
-														����11������ ��2ҳ �����ǵ�1ҳ [��ҳ] [��һҳ] [��һҳ] [βҳ]&nbsp; ��ת��
+														共有11条主题 共2页 现在是第1页 [首页] [上一页] [下一页] [尾页]&nbsp; 跳转到
 														<select size="1" name=""
 															onChange="viewpage(this.value,this.name);">
 															<option value="t0">
-																��1ҳ
+																第1页
 															</option>
 															<option selected value="t0_1">
-																��2ҳ
+																第2页
 															</option>
 														</select>
 														<script language=javascript>      
@@ -512,40 +512,40 @@ else{
 																<td width="90" height="25" align="center"
 																	background="<%=path%>/images/module/tab_title.jpg" id="tabid1"
 																	class="title0" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(1)">�����Ϣ</a>
+																	<a href="#" onClick="javascript:Showtab(1)">库存信息</a>
 																</td>
 																<td width="90" height="25" align="center"
 																	background="<%=path%>/images/module/tab_titlebg.jpg" id="tabid2"
 																	class="menu" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(2)">ͼ�������Ϣ</a>
+																	<a href="#" onClick="javascript:Showtab(2)">图书基本信息</a>
 																</td>
 																<td width="90" height="25" align="center"
 																	background="<%=path%>/images/module/tab_titlebg.jpg" id="tabid3"
 																	class="menu" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(3)">��������Ϣ</a>
+																	<a href="#" onClick="javascript:Showtab(3)">出版社信息</a>
 																</td>
 																<td width="90" height="25" align="center"
 																	background="<%=path%>/images/module/tab_titlebg.jpg" id="tabid4"
 																	class="menu" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(4)">������Ϣ</a>
+																	<a href="#" onClick="javascript:Showtab(4)">分类信息</a>
 																</td>
 																<td width="90" height="25" align="center"
 																	background="<%=path%>/images/module/tab_titlebg.jpg" id="tabid5"
 																	class="menu" style="padding-top: 5px">
-																	<a href="#" onClick="javascript:Showtab(5)">������Ϣ</a>
+																	<a href="#" onClick="javascript:Showtab(5)">附件信息</a>
 																</td>
 																<td align="right" valign="bottom">
 																	         <table width="72" border="0" cellspacing="0"
 															cellpadding="0">
 															<tr>
 																<td>
-																	<img src="<%=path%>/images/login/btn_01.jpg" width="23" height="19" onClick="test12(1)" title="��С">
+																	<img src="<%=path%>/images/login/btn_01.jpg" width="23" height="19" onClick="test12(1)" title="缩小">
 																</td>
 																<td>
-																	<img src="<%=path%>/images/login/btn_02.jpg" width="26" height="19" onClick="test12(2)" title="��ԭ">
+																	<img src="<%=path%>/images/login/btn_02.jpg" width="26" height="19" onClick="test12(2)" title="还原">
 																</td>
 																<td>
-																	<img src="<%=path%>/images/login/btn_03.jpg" width="23" height="19" onClick="test12(3)" title="�Ŵ�">
+																	<img src="<%=path%>/images/login/btn_03.jpg" width="23" height="19" onClick="test12(3)" title="放大">
 																</td>
 															</tr>
 														</table>
