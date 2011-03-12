@@ -16,26 +16,33 @@ public interface DepartmentDao {
 	 * @param dept
 	 * @return
 	 */
-	public boolean saveOrUpdateDept(Department dept);
+	public boolean saveOrUpdateDept(Department dept) throws Exception ;
 	
 	/**
 	 * 根据id删除Dept
 	 * @param dept
 	 * @return
 	 */
-	public boolean deleteDept(Department dept);
+	public boolean deleteDept(Department dept) throws Exception ;
 	
 	/**
 	 * 根据Id查找Dept
 	 * @param deptId
 	 * @return
 	 */
-	public Department selectDeptById(String deptId);
+	public Department selectDeptById(String deptId) throws Exception ;
+	
+	/**
+	 * 根据Id查找Dept
+	 * @param deptId
+	 * @return
+	 */
+	public List<Department> selectDeptsByParentId(String parentDeptId) throws Exception ;
 	
 	/**
 	 * 查找所有的Dept
 	 * @return
 	 */
-	public List<Department> selectAllDepts();
+	public List<Department> selectAllDepts() throws Exception ;
 	
 }

@@ -16,32 +16,32 @@ public interface UserDao {
 	 * @param user
 	 * @return
 	 */
-	public boolean saveOrUpdateUser(User user);
+	public boolean saveOrUpdateUser(User user) throws Exception;
 	
 	/**
 	 * 根据id删除User
 	 * @param user
 	 * @return
 	 */
-	public boolean deleteUser(User user);
+	public boolean deleteUser(User user) throws Exception;
 	
 	/**
 	 * 根据userId 查找User
 	 * @param userId
 	 * @return
 	 */
-	public User selectUserById(String userId);
+	public User selectUserById(String userId) throws Exception;
 	
 	/**
 	 * 根据deptId查找所有的User
 	 * @param deptId
 	 * @return
 	 */
-	public List<User> selectUsersByDeptId(String deptId);
+	public List<User> selectUsersByDeptId(String deptId) throws Exception;
 	
 	/**
 	 * 查找所有的User
 	 * @return
 	 */
-	public List<User> selectAllUsers();
+	public List<User> selectAllUsers() throws Exception;
 }

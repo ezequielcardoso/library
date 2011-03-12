@@ -30,7 +30,7 @@ public interface UserService {
 	 * @param userId
 	 * @return
 	 */
-	public User loadUserById(String userId) throws Exception;
+	public User getUserById(String userId) throws Exception;
 	
 	/**
 	 * 根据deptId查找所有的User

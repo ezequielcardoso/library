@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
-	public User loadUserById(String userId) throws Exception {
+	public User getUserById(String userId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
