@@ -38,6 +38,10 @@ public class UserAction extends ActionSupport {
 		return Action.SUCCESS;
 	}
 	
+	public String login(){
+		return Action.SUCCESS;
+	}
+	
 	public String findAllUsersInJson(){
 		try {
 			users = userService.findAllUsers();
