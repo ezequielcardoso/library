@@ -34,6 +34,10 @@ public class UserAction extends ActionSupport {
 		this.userService = userService;
 	}
 
+	public String index(){
+		return Action.SUCCESS;
+	}
+	
 	public String findAllUsersInJson(){
 		try {
 			users = userService.findAllUsers();

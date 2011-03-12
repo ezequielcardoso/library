@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"
   contentType="text/html; charset=GBK"%>
 <%
 String path = request.getContextPath();
@@ -6,7 +6,7 @@ String path = request.getContextPath();
 
 <html>
 <head>
-<title>广州市自来水综合业务管理平台</title>
+<title>骞垮窞甯傝嚜鏉ユ按缁煎悎涓氬姟绠＄悊骞冲彴</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <!--
@@ -15,13 +15,13 @@ String path = request.getContextPath();
 function mysubmit(form1)
 	{
 		if( form1.user.value =="" ) {
-                alert("请输入用户名！")
+                alert("璇疯緭鍏ョ敤鎴峰悕锛�")
 				form1.user.focus();
                 return false;
        }
 	   
 	    if( form1.password.value =="" ) {
-                alert("请输入密码！")
+                alert("璇疯緭鍏ュ瘑鐮侊紒")
 				form1.password.focus();
                 return false;
        } 
@@ -56,11 +56,11 @@ function mysubmit(form1)
         <td><img src="<%=path%>/images/module/login_14.jpg" width="106" height="56" alt=""></td>
         <td width="221" height="56" background="<%=path%>/images/module/login_15.jpg"><table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
           <tr>
-            <td width="31%" height="28" align="right">用户名：</td>
+            <td width="31%" height="28" align="right">鐢ㄦ埛鍚嶏細</td>
             <td width="69%"><input name="user" class="input1" maxlength="18" onMouseOver="fEvent('mouseover',this)" onFocus="fEvent('focus',this)" onBlur="fEvent('blur',this)" onMouseOut="fEvent('mouseout',this)"/></td>
           </tr>
           <tr>
-            <td height="28" align="right">密码：</td>
+            <td height="28" align="right">瀵嗙爜锛�</td>
             <td><input name="password" type="password" class="input1" id="password" maxlength="18" onMouseOver="fEvent('mouseover',this)" onFocus="fEvent('focus',this)" onBlur="fEvent('blur',this)" onMouseOut="fEvent('mouseout',this)"/></td>
           </tr>
         </table></td>
