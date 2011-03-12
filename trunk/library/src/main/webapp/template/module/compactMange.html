@@ -1,0 +1,246 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="include/css/style.css" type="text/css" rel="stylesheet">
+<title>广州市自来水综合业务管理平台</title>
+<script language="JavaScript">
+function fEvent(sType,oInput){
+		switch (sType){
+			case "focus" :
+				oInput.isfocus = true;
+			case "mouseover" :
+				oInput.style.borderColor = '#7a95d2';
+				oInput.style.background = '#ffffcc';
+				break;
+			case "blur" :
+				oInput.isfocus = false;
+			case "mouseout" :
+				if(!oInput.isfocus){
+					oInput.style.borderColor='#cddeeb';
+					oInput.style.background = '#ffffff';
+				}
+				break;
+		}
+	}
+	
+var number=1; 
+
+function LMYC() { 
+var lbmc; 
+//var treePic; 
+for (i=1;i<=number;i++) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i; 
+//document.getElementById(imageName).src="images/sj0.gif";
+lbmc.style.display = ''; 
+} 
+} 
+
+function ShowFLT(i) { 
+lbmc = eval('LM' + i); 
+var imageName='treePic'+ i;
+if (lbmc.style.display == 'none') { 
+LMYC(); 
+} 
+else
+{
+//document.getElementById(imageName).src="images/sj.gif";
+//treePic.src = 'images/nofile.gif'; 
+lbmc.style.display = 'none'; 
+}
+} 
+    </script>
+</head>
+<body>
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#dbecff">
+  <tr>
+    <td height="4" background="images/bodybg.jpg"></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="10" valign="top"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <!--  <tr>
+              <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0"   class="title_border">
+                  <tr>
+                    <td width="19%" height="25" style="text-align:left"><strong>&nbsp;<img src="images/cl0.gif" align="absmiddle">销售单信息</strong></td>
+                    <td width="81%" height="25"   class=body1 style="text-align:left"><img src="images/02a.gif"  > 当前位置：销售管理 &gt;&gt;销售单信息</td>
+                  </tr>
+              </table></td>
+            </tr>
+        </table></td>
+      </tr>-->
+     <!--<tr>
+        <td height="10" valign="top">
+        <<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" >
+            <tr>
+              <td height="30" class="body1">&nbsp;
+                <input type="button" class="btn" value="保存">
+                &nbsp;
+                <input type="button" class="btn" onClick="window.history.back(-1);" value="返回">
+                &nbsp;</td>
+            </tr>
+          </table>-->
+       <!--  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#ebebeb"  borderColorLight="#ebebeb"
+	borderColorDark="#ffffff" id="LM1"  >
+              <TR>
+                <TD align="left" class="body">&nbsp;</TD>
+              </TR>
+          </TABLE></td>
+      </tr>-->
+      <tr>
+        <td valign="top">
+        <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff" style="border:1px solid #2686d2;margin-top:5px">
+          <!--<tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="189" height="33" background="images/titleb_01.jpg" class="title1">&nbsp;</td>
+                  <td background="images/titleb_02.jpg">&nbsp;</td>
+                  <td width="213" align="right" background="images/titleb_03.jpg" style="padding-bottom:10px">&nbsp;&nbsp;</td>
+                </tr>
+            </table></td>
+          </tr>-->
+          <tr>
+            <td valign="top">
+            <form action="" method="post" name="productInfor">
+            
+   <table width="90%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px">
+	          <tr>
+	               <td colspan="4" align="right" bgcolor="#F4F5F9">
+	                    <table width="30%" border="1" align="right" cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"  borderColorLight="#bcc3c9"
+	borderColorDark="#ffffff" bgcolor="#FFFFFF" style="margin-top:5px" >
+	                          <tr>
+	                              <td bgcolor="#F4F5F9">单号</td>
+	                              <td bgcolor="#F4F5F9">日期</td>
+	                              <td bgcolor="#F4F5F9">状态</td>
+	                          </tr>
+	                          <tr>
+	                              <td bgcolor="#F4F5F9">N003</td>
+	                              <td bgcolor="#F4F5F9">2010-11-23</td>
+	                              <td bgcolor="#F4F5F9">审核中</td>
+	                          </tr>
+	                    </table>
+              
+	               </td>
+	          </tr>
+              <tr>
+                <td width="11%"  align="right" bgcolor="#F4F5F9">合同主题:</td>
+                <td width="31%"  align="left" bgcolor="#F4F5F9">
+				商议</td>
+                <td width="12%"  align="right" bgcolor="#F4F5F9">合同类型:</td>
+                <td width="46%"  align="left" bgcolor="#F4F5F9" >
+				<input type="text" readonly style="width:300px;" value="签订" /></td>
+               </tr>
+              <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="11%"  align="right" bgcolor="#F4F5F9">甲方名称:</td>
+                <td width="31%"  align="left" bgcolor="#F4F5F9">
+                <input type="text" readonly name="sellDate" value="广州海天有限公司"/>                </td>
+                <td width="12%"  align="right" bgcolor="#F4F5F9">甲方签约人:</td>
+                <td width="46%"  align="left" bgcolor="#F4F5F9" >
+                <input type="text" readonly name="subscription" value="李天国"/>                </td>
+                </tr>
+                <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="11%"  align="right" bgcolor="#F4F5F9">甲方电话:</td>
+                <td width="31%"  align="left" bgcolor="#F4F5F9" >
+                <input type="text" readonly name="subscription" value="1303232323" />                </td>
+             
+                <td width="12%"  align="right" bgcolor="#F4F5F9">签约日期:</td>
+                <td width="46%"  align="left" bgcolor="#F4F5F9" >
+                <input type="text" readonly name="subscription" value="2010-11-15" />                </td>
+                </tr>
+                 <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="11%"  align="right" bgcolor="#F4F5F9">签约地点:</td>
+                <td width="31%"  align="left" bgcolor="#F4F5F9">
+                <input type="text" readonly name="subscription" value="长沙华天酒店"/>                </td>
+                
+                <td width="12%"  align="right" bgcolor="#F4F5F9">交付地点:</td>
+                <td width="46%"  align="left" bgcolor="#F4F5F9" >
+                <input type="text" readonly name="sellMan" value="长沙华天大酒店"/>                </td>
+                </tr>
+                   <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="11%"  align="right" bgcolor="#F4F5F9">开始日期:</td>
+                <td width="31%"  align="left" bgcolor="#F4F5F9">
+                <input type="text" readonly name="sellMan" value="2010-11-26"/>                </td>
+             
+                <td width="12%"  align="right" bgcolor="#F4F5F9">截止日期:</td>
+                <td width="46%"  align="left" bgcolor="#F4F5F9">
+                <input type="text" readonly name="sellMan" value="2010-10-28"/>                </td>
+                </tr>
+                        <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="11%"  align="right" bgcolor="#F4F5F9">发票类型:</td>
+                <td width="31%"  align="left" bgcolor="#F4F5F9">
+                <input type="text" readonly name="sellStore" value="A4"/>
+                           </td>
+               
+                <td width="12%"  align="right" bgcolor="#F4F5F9">合同签订:</td>
+                <td width="46%"  align="left" bgcolor="#F4F5F9">
+               <input type="radio" id="unChecked"  name="contract"/>未签订&nbsp;&nbsp;
+               <input type="radio" id="checked"  name="contract"/><a href="#">已签订</a>               </td>
+                </tr>
+                
+             
+                        <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+              
+               
+                <td  width="12%" align="left" bgcolor="#F4F5F9">备注</td>
+                <td  colspan="3" width="12%"   bgcolor="#F4F5F9">
+                      <textarea style=" width:100%; border-style:solid; border-color:#bcc3c9; border-width:1px;">
+                         已签订
+                      </textarea>
+                 
+                </td>
+               
+               
+                </tr>
+                    
+                
+                               <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="11%"  align="right" bgcolor="#F4F5F9"> 我方签约人:</td>
+                <td width="31%"  align="left" bgcolor="#F4F5F9"> <input type="text" readonly name="sellStore" value="李元龙"/>
+                          </td>
+                
+                <td width="12%"  align="right" bgcolor="#F4F5F9">归属部门:</td>
+                <td width="46%"  align="left" bgcolor="#F4F5F9">
+                <select name="state" id="state">
+                <option value="-1">开发部</option>
+                <option value="1">实施部</option>
+                <option value="2">销售部</option>
+                <option value="3">秘书部</option>
+                </select></td>
+                </tr>
+                 <tr bgcolor="#FAFBFC" onMouseOver="this.style.backgroundColor='#eff1f4';return true;" onMouseOut="this.style.backgroundColor='';">
+                <td width="11%"  align="right" bgcolor="#F4F5F9">创建人:</td>
+                <td width="31%"  align="left" bgcolor="#F4F5F9">
+                <input type="text" readonly name="sellMan" value="谢霆锋"/>                </td>
+             
+                <td width="12%"  align="right" bgcolor="#F4F5F9">创建时间:</td>
+                <td width="46%"  align="left" bgcolor="#F4F5F9">
+                <input type="text" readonly name="sellMan" value="2010-10-28"/>                </td>
+                </tr>
+                
+                	<tr>
+							<td colspan="4" align="center">
+								
+											<input type="button" class="btn" value="保存" />&nbsp;&nbsp;&nbsp;
+											<input type="button" class="btn" value="更新" />&nbsp;&nbsp;&nbsp;
+											<input type="button" class="btn"  value="打印" />&nbsp;&nbsp;&nbsp;
+							</td>
+						</tr>
+            </table>
+           
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td></tr>
+        </table>
+         
+          <table width="99%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td height="30" align="center"  class="body" >&nbsp;</td>
+              </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<link href="../include/css/style.css" type="text/css" rel="stylesheet">
+		<title>广州市自来水综合业务管理平台</title>
+		<script language="JavaScript" src=""></script>
+	</head>
+	<body>
+		<table width="100%" height="100%" border="0" cellpadding="0"
+			cellspacing="0" bgcolor="#dbecff">
+			<tr id="ye" style="DISPLAY: block">
+				<td height="4" background="../../images/bodybg.jpg"></td>
+			</tr>
+			<tr>
+				<td valign="top" height="10">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"
+						height="100%">
+						<tr id="yd" style="DISPLAY: block">
+							<td height="10" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0">
+
+									<tr>
+										<td>
+											<table width="100%" border="0" align="center" cellpadding="0"
+												cellspacing="0" class="title_border">
+												<tr>
+													<td width="19%" height="25" style="text-align: left">
+														<strong>&nbsp;<img align="absmiddle" src="../images/cl0.gif">书刊管理</strong><strong></strong>													</td>
+													<td width="81%" height="25" class=body1
+														style="text-align: left">
+														<img src="../images/02a.gif">      
+														当前位置：书刊管理&gt;&gt;图书密级													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr id="yy" style="DISPLAY: block">
+							<td height="10" valign="top">
+								<table width="62%" border="0" align="left" cellpadding="0"
+									cellspacing="0" bordercolor="#ebebeb"
+									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1"> 
+                   <TR
+										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
+										onMouseOut="this.style.backgroundColor='';">
+										
+                                         <TD width="13%" height=25 align="right" nowrap="nowrap"  style="padding-left:0px;">
+                                            密级代码：                                           </TD>
+                                            <td width="23%"  align="left" nowrap>
+                                              <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="16">
+                                            </td>
+<TD width="13%"  height=25 align="right" nowrap="nowrap"  style="padding-left:10px;">
+                                             密级名称：                                           </TD>
+<td width="51%"  align="left" nowrap>
+<input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="20">
+                                            </td>
+                                  </TR>
+									
+							<TR
+										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
+										onMouseOut="this.style.backgroundColor='';">
+			   <TD width="13%" height=25 align="right" nowrap="nowrap"  style="padding-left:8px;">
+                                               描述：                                           </TD>
+                          <TD height=25 colspan="3" align="left"  class="body">
+								    <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="" size="50">          
+										
+				               </TD>
+									</TR>
+		
+									
+										<TR align="left"
+										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
+										onMouseOut="this.style.backgroundColor='';">
+                                   <TD height=25 colspan="4" valign="top" nowrap class=body style="padding-left:8px;">
+                                   		<input type="button" class="btnl" value="重 置">
+                                       <input type="button" class="btnl" value="增 加"> 
+                                       <input type="button" class="btnl" value="修 改"> 
+                                     <input type="button" class="btnl" value="删 除"> 										</TD>
+                                            </TR>
+							     </TABLE>
+						  </td>
+						</tr>	
+					<tr  id="yb" style="DISPLAY: block">
+							<td height="0" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0" bgcolor="#f1f8ff"
+									style="border: 1px solid #2686d2; margin-top: 0px">
+									<tr>
+										<td>
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0">
+												<tr>
+													<td width="189" height="33"
+														background="../images/titleb_01.jpg" class="title1">
+														密级列表
+													</td>
+													<td background="../images/titleb_02.jpg">&nbsp;
+														
+													</td>
+													<td width="213" align="right"
+														background="../images/titleb_03.jpg"
+														style="padding-bottom: 10px">
+														&nbsp;&nbsp;
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td valign="top">
+											<table id="tab1" width="98%" border="1" align="center" cellpadding="0"
+												cellspacing="0" bordercolor="#bcc3c9"
+												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
+												bgcolor="#FFFFFF" style="margin-top: 5px">
+												<tr>
+												  <td width="4%" class="body">
+														<input type="checkbox" id="selectAll" name="selectAll"
+															onClick="selectAll();">
+													</td>
+												  <td  align="center" bgcolor="#F4F5F9"
+															class="body">密级代码<br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body" width="20%">  
+												  密级名称<br></td>
+														<td  align="center" bgcolor="#F4F5F9"
+															class="body">
+															描述<br>
+														</td>
+														
+														
+											  </tr>
+													<tr 
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>	  
+													  <td width="11%" class="body">A001<br></td>
+													  <td align="center" class="user">秘密<br>
+													  </td>
+														<td align="center" class="user">无<br></td>
+														
+													</tr>
+														
+															<tr 
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>	  
+													  <td width="11%" class="body">A001<br></td>
+													  <td align="center" class="user">秘密<br>
+													  </td>
+														<td align="center" class="user">无<br></td>
+														
+													</tr>
+												
+														
+														<tr 
+														onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+														onMouseOut="this.style.backgroundColor='';">
+
+													<td width="4%" class="body">
+														<input type="checkbox" name="proSelect">
+													</td>	  
+													  <td width="11%" class="body">A001<br></td>
+													  <td align="center" class="user">秘密<br>
+													  </td>
+														<td align="center" class="user">无<br></td>
+														
+													</tr>
+																		
+														
+											</table>
+											
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+							
+	</body>
+</html>
