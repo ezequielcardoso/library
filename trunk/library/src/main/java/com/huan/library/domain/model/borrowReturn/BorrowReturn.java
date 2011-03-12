@@ -50,7 +50,7 @@ public class BorrowReturn implements Serializable{
 	private int overdueDays;         //逾期天数
 	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY
-			,mappedBy="borrowReturn")
+			,targetEntity=Fine.class)
 	private List<Fine> fines = new ArrayList<Fine>();               //罚款
 	
 	private float exceedFine;        //罚金

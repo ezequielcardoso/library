@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.service.BookService;
@@ -17,19 +16,18 @@ import com.huan.library.infrastructure.persistence.BookDao;
  * @author huan
  * @time  2011-3-10 下午03:37:36
  */
-@Service("bookService") @Transactional
+@Service("bookService")
 public class BookServiceImpl implements BookService {
 	
 	@Autowired
 	private BookDao bookDao;
 
-	@Resource
 	public void setBookDao(BookDao bookDao) {
 		this.bookDao = bookDao;
 	}
 
 	public boolean addOrModifyBook(Book book) throws Exception {
-		bookDao.saveOrUpdateDept(book);
+		bookDao.saveOrUpdateBook(book);
 		return false;
 	}
 	
