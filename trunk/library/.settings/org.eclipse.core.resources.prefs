@@ -1,10 +1,11 @@
-#Fri Mar 11 20:50:05 CST 2011
+#Sat Mar 12 19:18:40 CST 2011
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
-encoding//src/main/webapp/login.jsp=GBK
-encoding//src/main/webapp/module/book/bookList.jsp=GBK
+encoding//src/main/webapp/login.html=UTF-8
+encoding//src/main/webapp/module/book/addBook.jsp=UTF-8
+encoding//src/main/webapp/module/book/bookList.jsp=utf-8
 encoding//src/main/webapp/module/common.jsp=UTF-8
-encoding//src/main/webapp/module/main.htm=GBK
+encoding//src/main/webapp/module/main.htm=utf-8
 encoding//src/test/java/com/huan/library/application/BaseSpringBeans.java=GBK
 encoding//src/test/java/com/huan/library/infrastructure/persistence/BookDAOTest.java=UTF-8
 encoding/src=GBK
