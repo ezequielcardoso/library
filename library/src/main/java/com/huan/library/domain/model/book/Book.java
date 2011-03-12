@@ -25,7 +25,6 @@ import com.huan.library.domain.model.dict.State;
 
 /**
  * 图书信息
- * 
  * @author huan
  * @time 2011-3-8 上午10:55:59
  */
@@ -97,7 +96,7 @@ public class Book implements Serializable {
 	private String bookNo; // 图书编号
 	private int type; // 类型 0:表示图书 1:表示期刊
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="book")
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,targetEntity=BorrowReturn.class)
 	private List<BorrowReturn> borrowReturn = new ArrayList<BorrowReturn>(); //借阅归还
 
 	public List<BorrowReturn> getBorrowReturn() {

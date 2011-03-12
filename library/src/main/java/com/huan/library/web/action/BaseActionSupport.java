@@ -77,6 +77,10 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
 		this.request = request;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getWebRoot(){
 		return request.getSession().getServletContext().getRealPath("/");
 	}

@@ -4,7 +4,6 @@ package com.huan.library.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,7 @@ import com.opensymphony.xwork2.Action;
  * @author huan
  * @time  2011-3-10 下午03:55:49
  */
-@Controller()
+@Controller("bookAction")
 public class BookAction extends BaseActionSupport {
 
 	/**
@@ -29,18 +28,8 @@ public class BookAction extends BaseActionSupport {
 	@Autowired
 	private BookService bookService;
     
-	//
 	private Book book = new Book();
-		
-	private String bookId;
-	
-	public String getBookId() {
-		return bookId;
-	}
 
-	public void setBookId(String bookId) {
-		this.bookId = bookId;
-	}
 
 	private List<Book> books = new ArrayList<Book>();
 	
@@ -60,18 +49,9 @@ public class BookAction extends BaseActionSupport {
 		this.books = books;
 	}
 	
-	@Resource
-	public void setBookService(BookService bookService) {
+	
+    public void setBookService(BookService bookService) {
 		this.bookService = bookService;
-	}
-
-	/**
-	 * 显示添加Book页面
-	 * @return
-	 * @throws Exception
-	 */
-	public String showAdd() throws Exception {
-		return "showAdd";
 	}
 	
 	/**
@@ -79,22 +59,13 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String add() throws Exception {
+	public String saveBook() throws Exception {
 		try {
 			bookService.addOrModifyBook(book);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		}
-		return Action.SUCCESS;
-	}
-	
-	/**
-	 * 显示修改Book页面
-	 * @return
-	 * @throws Exception
-	 */
-	public String showModify() throws Exception {
-		return Action.SUCCESS;
+		return "add";
 	}
 	
 	/**
@@ -102,15 +73,14 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String modify() throws Exception {
+	public String updateBook() throws Exception {
 		try {
-			book=bookService.loadBookById(bookId);
 			bookService.addOrModifyBook(book);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
 		}
-		return Action.SUCCESS;
+		return "modify";
 	}
 	
 	/**
@@ -135,7 +105,7 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String findById() throws Exception {
 		try {
-			request.setAttribute("book", bookService.loadBookById(bookId));
+			request.setAttribute("book", bookService.loadBookById(String.valueOf(book.getId())));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

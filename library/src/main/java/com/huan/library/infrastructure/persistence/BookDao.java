@@ -16,7 +16,7 @@ public interface BookDao {
      * @param book
      * @return
      */
-	public boolean saveOrUpdateDept(Book book);
+	public boolean saveOrUpdateBook(Book book);
 	
 	/**
 	 * 删除图书
