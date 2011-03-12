@@ -19,7 +19,7 @@
 		value="ApplicationResources" />
 	<constant name="struts.i18n.encoding" value="utf-8" />
 	<constant name="struts.i18n.reload" value="false"></constant>
-	<constant name="struts.action.extension" value="action,jsp" />
+	<constant name="struts.action.extension" value="action" />
 	<constant name="struts.multipart.maxSize" value="500000000" />
 	
 	
@@ -27,6 +27,10 @@
 		
 		<action name="index" class="com.huan.library.web.action.UserAction" method="index">
 			<result name="success">login.jsp</result>
+		</action>
+		
+		<action name="login" class="com.huan.library.web.action.UserAction" method="login">
+			<result name="success">/module/index.jsp</result>
 		</action>
 		
     </package>
