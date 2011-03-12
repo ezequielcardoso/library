@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -29,9 +30,37 @@ public class LibraryManager implements Serializable{
 	private String liraryName; //图书馆名字
 	private String address;    //地址
 	private String telphone;   //联系电话
-	@OneToOne()
+	
+	@OneToOne(fetch=FetchType.LAZY,targetEntity=User.class)
+	@JoinColumn(name="manager")
 	private User manager;     //管理员
+	
 	private float payADay=0;    //租金
+	private float baseCost=0;   //开户费
+	private float depositeTimes=0; //押金倍数
+	private String Librarydesc;       //描述信息
+
+	public float getPayADay() {
+		return payADay;
+	}
+	public void setPayADay(float payADay) {
+		this.payADay = payADay;
+	}
+	public float getBaseCost() {
+		return baseCost;
+	}
+	public void setBaseCost(float baseCost) {
+		this.baseCost = baseCost;
+	}
+	public float getDepositeTimes() {
+		return depositeTimes;
+	}
+	public void setDepositeTimes(float depositeTimes) {
+		this.depositeTimes = depositeTimes;
+	}
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -62,33 +91,11 @@ public class LibraryManager implements Serializable{
 	public void setManager(User manager) {
 		this.manager = manager;
 	}
-	public float getPayADay() {
-		return payADay;
+	public String getLibrarydesc() {
+		return Librarydesc;
 	}
-	public void setPayADay(float payADay) {
-		this.payADay = payADay;
+	public void setLibrarydesc(String librarydesc) {
+		Librarydesc = librarydesc;
 	}
-	public float getBaseCost() {
-		return baseCost;
-	}
-	public void setBaseCost(float baseCost) {
-		this.baseCost = baseCost;
-	}
-	public float getDepositeTimes() {
-		return depositeTimes;
-	}
-	public void setDepositeTimes(float depositeTimes) {
-		this.depositeTimes = depositeTimes;
-	}
-	public String getDesc() {
-		return desc;
-	}
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-	private float baseCost=0;   //开户费
-	private float depositeTimes=0; //押金倍数
-	private String desc;       //描述信息
-	
 
 }

@@ -27,13 +27,15 @@ public class Fine implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id; //主键
-	private float fine; //罚金
-	private String desc; //描述
+	private float fineMoney; //罚金
+	private String eventsDesc; //描述
+	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="project")
 	private Project project; //项目
-	@ManyToOne(fetch=FetchType.LAZY)
+	
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=BorrowReturn.class)
 	@JoinColumn(name="borrowReturn")
 	private BorrowReturn borrowReturn;   //借阅归还
 	
@@ -49,18 +51,21 @@ public class Fine implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public float getFine() {
-		return fine;
+	
+	public String getEventsDesc() {
+		return eventsDesc;
 	}
-	public void setFine(float fine) {
-		this.fine = fine;
+	public void setEventsDesc(String eventsDesc) {
+		this.eventsDesc = eventsDesc;
 	}
-	public String getDesc() {
-		return desc;
+	
+	public float getFineMoney() {
+		return fineMoney;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setFineMoney(float fineMoney) {
+		this.fineMoney = fineMoney;
 	}
+	
 	public Project getProject() {
 		return project;
 	}
