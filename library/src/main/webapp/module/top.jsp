@@ -1,20 +1,17 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
-<%
-String path = request.getContextPath();
-%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
-<title>¹ãÖİÊĞ×ÔÀ´Ë®×ÛºÏÒµÎñ¹ÜÀíÆ½Ì¨</title>
-<link href="../css/style.css" type="text/css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>å›¾ä¹¦é¦†ç®¡ç†ç³»ç»Ÿ</title>
+<%@include file="/common/common.jsp" %>
 </head>
 <body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="149"><img src="../images/module/main_01.jpg" width="149" height="72" alt=""></td>
-        <td width="804" valign="top" background="../images/login/main_02.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <td width="149"><img src="<%=path%>/images/module/main_01.jpg" width="149" height="72" alt=""></td>
+        <td width="804" valign="top" background="<%=path%>/images/login/main_02.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td height="51">&nbsp;</td>
           </tr>
@@ -22,20 +19,20 @@ String path = request.getContextPath();
             <td height="21" style="padding-left:42px" class="title"><MARQUEE onmouseover=Javascript:this.stop() 
                         onmouseout=Javascript:this.start() scrollAmount=4
                         scrollDelay=40  width="100%" height=13>
-             ¹«¸æ£ºÖÜÄ©¿ª×Ü½á´ó»á....
+             å…¬å‘Šï¼šå‘¨æœ«å¼€æ€»ç»“å¤§ä¼š....
             </MARQUEE></td>
           </tr>
         </table></td>
-        <td background="../images/module/main_03.jpg">&nbsp;</td>
+        <td background="<%=path%>/images/module/main_03.jpg">&nbsp;</td>
       </tr>
     </table></td>
   </tr>
   <tr>
     <td height="27"><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="508" height="27" background="../images/module/title_01.jpg">&nbsp;&nbsp;»¶Ó­Äú£ºadministrator&nbsp;&nbsp;<img src="../images/module/play.gif" width="16" height="17" align="absmiddle">&nbsp;<SCRIPT language=javascript>
-var isnMonths=new initArray("01ÔÂ","02ÔÂ","03ÔÂ","04ÔÂ","05ÔÂ","06ÔÂ","07ÔÂ","08ÔÂ","09ÔÂ","10ÔÂ","11ÔÂ","12ÔÂ");
-var isnDays=new initArray("ĞÇÆÚÈÕ","ĞÇÆÚÒ»","ĞÇÆÚ¶ş","ĞÇÆÚÈı","ĞÇÆÚËÄ","ĞÇÆÚÎå","ĞÇÆÚÁù");
+        <td width="508" height="27" background="<%=path%>/images/module/title_01.jpg">&nbsp;&nbsp;æ¬¢è¿æ‚¨ï¼šadministrator&nbsp;&nbsp;<img src="<%=path%>/images/module/play.gif" width="16" height="17" align="absmiddle">&nbsp;<SCRIPT language=javascript>
+var isnMonths=new initArray("01æœˆ","02æœˆ","03æœˆ","04æœˆ","05æœˆ","06æœˆ","07æœˆ","08æœˆ","09æœˆ","10æœˆ","11æœˆ","12æœˆ");
+var isnDays=new initArray("æ˜ŸæœŸæ—¥","æ˜ŸæœŸä¸€","æ˜ŸæœŸäºŒ","æ˜ŸæœŸä¸‰","æ˜ŸæœŸå››","æ˜ŸæœŸäº”","æ˜ŸæœŸå…­");
 today=new Date();
 function initArray()
 {
@@ -48,10 +45,10 @@ function getFullYear(d)
 	if(yr<1000)	yr += 1900;
 	return yr;
 }
-document.write(getFullYear(today) +"Äê"  + isnMonths[today.getMonth()] +  today.getDate()+"ÈÕ&nbsp;" +  isnDays[today.getDay()]);
+document.write(getFullYear(today) +"å¹´"  + isnMonths[today.getMonth()] +  today.getDate()+"æ—¥&nbsp;" +  isnDays[today.getDay()]);
        </SCRIPT></td>
-        <td background="../images/module/title_02.jpg">&nbsp;</td>
-        <td width="500" align="right" background="../images/module/title_03.jpg"><a href="main.htm" target="mainFrame"><img src="../images/module/home.gif" align="absmiddle">Ê×Ò³</a>&nbsp;<a href="login.html" target="_parent"><img src="../images/module/quit.jpg"  align="absmiddle">ÍË³öÏµÍ³&nbsp;&nbsp;</a></td>
+        <td background="<%=path%>/images/module/title_02.jpg">&nbsp;</td>
+        <td width="500" align="right" background="<%=path%>/images/module/title_03.jpg"><a href="main.htm" target="mainFrame"><img src="<%=path%>/images/module/home.gif" align="absmiddle">é¦–é¡µ</a>&nbsp;<a href="login.html" target="_parent"><img src="<%=path%>/images/module/quit.jpg"  align="absmiddle">é€€å‡ºç³»ç»Ÿ&nbsp;&nbsp;</a></td>
       </tr>
     </table></td>
   </tr>
