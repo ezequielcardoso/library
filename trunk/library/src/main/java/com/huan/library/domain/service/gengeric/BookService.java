@@ -1,4 +1,4 @@
-package com.huan.library.domain.service;
+package com.huan.library.domain.service.gengeric;
 
 import java.util.List;
 
@@ -15,14 +15,14 @@ public interface BookService {
 	 * @param book
 	 * @return
 	 */
-	public boolean addOrModifyBook(Book book) throws Exception;
+	public void addOrModifyBook(Book book) throws Exception;
 	
 	/**
 	 * 根据id删除Book
 	 * @param book
 	 * @return
 	 */
-	public boolean removeBook(Book book) throws Exception;
+	public void removeBook(Book book) throws Exception;
 	
 	/**
 	 * 根据Id查找Book
