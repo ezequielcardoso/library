@@ -42,7 +42,7 @@ public class Book implements Serializable {
 	
 	private String barCode; // 条形码
 	
-	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "bookCategory")
 	private Category bookCategory; // 图书分类
 	
@@ -101,10 +101,6 @@ public class Book implements Serializable {
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,targetEntity=BorrowReturn.class)
 	private List<BorrowReturn> borrowReturn = new ArrayList<BorrowReturn>(); //借阅归还
 
-	public Book(){
-		
-	}
-	
 	public List<BorrowReturn> getBorrowReturn() {
 		return borrowReturn;
 	}

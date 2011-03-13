@@ -126,7 +126,7 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String findById() throws Exception {
 		try {
-			request.setAttribute("book", bookService.findBookById(String.valueOf(book.getId())));
+			request.setAttribute("book", bookService.loadBookById(String.valueOf(book.getId())));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

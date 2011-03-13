@@ -50,10 +50,6 @@ public class Reader implements Serializable{
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="readerCard")
     private ReaderCard readerCard; //借阅证
-	
-	public Reader(){
-		
-	}
     
     public int getId() {
 		return id;
