@@ -1,31 +1,56 @@
 package com.huan.library.domain.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.huan.library.domain.model.rights.Department;
 import com.huan.library.domain.service.DepartmentService;
+import com.huan.library.infrastructure.persistence.DepartmentDao;
 
 
 public class DepartmentServiceImpl implements DepartmentService {
+	
+	@Autowired
+	private DepartmentDao departmentDao;
 
-	public boolean addOrModifyDept(Department dept)  throws Exception{
-		// TODO Auto-generated method stub
-		return false;
+	public void setDepartmentDao(DepartmentDao departmentDao) {
+		this.departmentDao = departmentDao;
 	}
 
-	public List<Department> findAllDepts() throws Exception {
+	public Department addOrModifyDept(Department dept)  throws Exception{
+		Department rtnDept = new Department();
+		try {
+			rtnDept =  departmentDao.saveOrUpdate(dept);
+		} catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return rtnDept;
+	}
+
+	public List<Department> getDeptByParentId(String parentDeptId) throws Exception {
+		List<Department> depts = new ArrayList<Department>();
+		try {
+		} catch(Exception e){
+			
+		}
+		return null;
+	}
+
+	public void removeDept(Department dept) throws Exception {
+		// TODO Auto-generated method stub
+	}
+
+	public Department getDeptById(String deptId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Department loadDeptById(String deptId) throws Exception {
+	public List<Department> getDeptsByParentId(String deptId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public boolean removeDept(Department dept) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }
