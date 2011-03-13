@@ -39,10 +39,6 @@ public class LibraryManager implements Serializable{
 	private float baseCost=0;   //开户费
 	private float depositeTimes=0; //押金倍数
 	private String LibraryDesc;       //描述信息
-	
-	public LibraryManager(){
-		
-	}
 
 	public String getLibraryDesc() {
 		return LibraryDesc;

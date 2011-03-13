@@ -36,10 +36,6 @@ public class ReaderType implements Serializable{
 			mappedBy="readerCategory")
 	private Set<Reader> readers= new HashSet<Reader>();  //读者
 	
-	public ReaderType(){
-		
-	}
-	
 	public Set<Reader> getReaders() {
 		return readers;
 	}

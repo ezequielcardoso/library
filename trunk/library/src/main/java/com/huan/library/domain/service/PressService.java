@@ -2,6 +2,9 @@ package com.huan.library.domain.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.Press;
 
 
@@ -16,11 +19,11 @@ public interface PressService {
 	 * @param press
 	 * @return
 	 */
-	public void addOrModifyPress(Press press) throws Exception;
+	public Press addOrModifyPress(Press press) throws Exception;
 	
 	/**
-	 * 删除Press
-	 * @param press
+	 * 根据id删除Book
+	 * @param book
 	 */
 	public void removePress(Press press) throws Exception;
 	
@@ -29,10 +32,10 @@ public interface PressService {
 	 * @param pressId
 	 * @return
 	 */
-	public Press findPressById(int pressId) throws Exception;
+	public Press findBookById(String pressId) throws Exception;
 	
 	/**
-	 * 查找所有的Press
+	 * 查找所有的Book
 	 * @return
 	 */
 	public List<Press> findAllPresses() throws Exception;

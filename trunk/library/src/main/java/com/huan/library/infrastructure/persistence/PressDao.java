@@ -1,7 +1,6 @@
 package com.huan.library.infrastructure.persistence;
 
 import com.huan.library.domain.model.book.Press;
-import com.huan.library.infrastructure.persistence.generic.BaseDao;
 
 /**
  * 出版色

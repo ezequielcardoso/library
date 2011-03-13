@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.infrastructure.persistence.BookDao;
-import com.huan.library.infrastructure.persistence.generic.impl.BaseDaoImpl;
+import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBean;
 
 /**
  * 
@@ -14,11 +14,23 @@ import com.huan.library.infrastructure.persistence.generic.impl.BaseDaoImpl;
  * @time 2011-3-10 下午04:52:01
  */
 @Repository("bookDao")
-public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
+public class BookDaoImpl extends HibernateDaoSupportBean implements BookDao {
 
+	public boolean deleteBook(Book book) {
+		getHibernateTemplate().delete(book);
+		return false;
+	}
 
-	@SuppressWarnings("unchecked")
-	public List<Book> selectAllBooks() throws Exception{
+	public boolean saveOrUpdateBook(Book book) {
+		getHibernateTemplate().saveOrUpdate(book);
+		return false;
+	}
+
+	public Book selectBookById(String bookId) {
+		return getHibernateTemplate().load(Book.class, bookId);
+	}
+
+	public List<Book> selectAllBooks() {
 		return getHibernateTemplate().find("from Book");
 	}
 
