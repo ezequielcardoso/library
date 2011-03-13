@@ -11,7 +11,7 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
  * @author huan
  * @time  2011-3-12 下午06:57:07
  */
-public abstract class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T>{
+public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T>{
 
 	/**
 	 * 得到子类的实体对象
@@ -31,12 +31,13 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupportBean implements 
 	      return null;
 	}
 	
-	public void saveOrUpdate(T t) throws Exception{
+	public T saveOrUpdate(T t) throws Exception{
 		try{
 			getHibernateTemplate().saveOrUpdate(t);
 		} catch(Exception e){
 			e.printStackTrace();
 		}
+		return t;
 	}
 
 	public void delete(T t) throws Exception{

@@ -12,7 +12,7 @@ public interface BaseDao<T> {
 	 * 添加实体
 	 * @param t
 	 */
-	public void saveOrUpdate(T t) throws Exception;
+	public T saveOrUpdate(T t) throws Exception;
 	
     /**
 	 * 删除实体
