@@ -1,6 +1,8 @@
 package com.huan.library.domain.model.dict;
 
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -36,8 +38,7 @@ public class DictItem implements java.io.Serializable {
 	
 	private boolean checked;//是否选中
 	
-	@OneToMany(targetEntity=DictItem.class,fetch=FetchType.LAZY)
-	@JoinColumn(name="itemId")
+	@OneToMany(targetEntity=DictItem.class,fetch=FetchType.LAZY,mappedBy="parent")
 	private List<DictItem> children;
 	
 	private String description;// 描述
@@ -54,8 +55,8 @@ public class DictItem implements java.io.Serializable {
 
 	//用于树结构 
 	private int level;//层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
-	@ManyToOne(targetEntity=DictItem.class,fetch=FetchType.LAZY)
-	@JoinColumn(name="parentItemId",referencedColumnName="itemId")
+	@ManyToOne(targetEntity=DictItem.class,fetch=FetchType.LAZY,cascade={CascadeType.REMOVE,CascadeType.MERGE})
+	@JoinColumn(name="parentItemId")
 	private DictItem parent;
 	private String shortName;// 名字
 	

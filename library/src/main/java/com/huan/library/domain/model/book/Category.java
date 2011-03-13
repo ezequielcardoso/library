@@ -7,8 +7,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -34,12 +32,11 @@ public class Category implements Serializable{
 	private String categoryCode; //分类代码
 	private String categoryName;  //分类名称
 	
-	@ManyToOne(targetEntity=Category.class,fetch=FetchType.LAZY)
-	@JoinColumn(name="parentCateId",referencedColumnName="categoryId")
+	@ManyToOne(targetEntity=Category.class,fetch=FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.REMOVE})
+	@JoinColumn(name="parentCateId")
 	private Category parent;   //上级分类
 	
-	@OneToMany(targetEntity=Category.class,fetch=FetchType.LAZY)
-	@JoinColumn(name="categoryId")
+	@OneToMany(targetEntity=Category.class,fetch=FetchType.LAZY,mappedBy="parent")
 	private List<Category> children = new ArrayList<Category>(); //下级分类 
 	
     public Category(){

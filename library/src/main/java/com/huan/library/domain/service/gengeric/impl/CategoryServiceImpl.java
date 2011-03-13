@@ -1,6 +1,5 @@
 package com.huan.library.domain.service.gengeric.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +23,12 @@ public class CategoryServiceImpl implements CategoryService {
 		this.categoryDao = categoryDao;
 	}
     
+	
 	public void addOrModifyCategory(Category category) throws Exception {
 		Category parentCategory=category.getParent();
 			if(parentCategory != null){
+			category.setParent(parentCategory);	
 			categoryDao.saveOrUpdate(category);
-			List<Category> children = new ArrayList<Category>();
-			children.add(category);
-			parentCategory.setChildren(children);
 		 }
 	}
 
