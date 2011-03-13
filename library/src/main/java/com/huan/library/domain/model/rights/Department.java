@@ -34,7 +34,7 @@ public class Department implements Serializable {
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int deptId;//部门id
-	private String depCode;//部门编号
+	private String deptCode;//部门编号
 	private String deptName;//部门全称
 	private String deptShortName;//部门简称
 	private String deptAlias;//别称
@@ -48,6 +48,27 @@ public class Department implements Serializable {
 	@JoinColumn(name="deptId")
 	private List<Department> children = new ArrayList<Department>();//下级部门
 	
+	/**
+	 * default constructor
+	 */
+	public Department( ){
+		
+	}
+	
+	public Department(int deptId, String deptCode, String deptName, String deptShortName, 
+			String deptAlias, String deptDesc, int parentDeptId, String parentDeptName, String parentDeptCode){
+		this.deptId = deptId;
+		this.deptCode = deptCode;
+		this.deptName = deptName;
+		this.deptShortName = deptShortName;
+		this.deptAlias = deptAlias;
+		this.deptDesc = deptDesc;
+		Department parent = new Department();
+		parent.setDeptId(parentDeptId);
+		parent.setDeptName(parentDeptName);
+		parent.setDeptCode(parentDeptCode);
+		this.setParent(parent);
+	}
 
 	public int getDeptId() {
 		return deptId;
@@ -89,12 +110,12 @@ public class Department implements Serializable {
 		this.children = children;
 	}
 
-	public String getDepCode() {
-		return depCode;
+	public String getDeptCode() {
+		return deptCode;
 	}
 
-	public void setDepCode(String depCode) {
-		this.depCode = depCode;
+	public void setDeptCode(String deptCode) {
+		this.deptCode = deptCode;
 	}
 
 	public String getDeptShortName() {
