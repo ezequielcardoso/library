@@ -1,6 +1,7 @@
 package com.huan.library.web.action;
 
 import com.huan.library.domain.model.rights.User;
+import com.huan.library.web.action.generic.BaseActionSupport;
 import com.opensymphony.xwork2.Action;
 /**
  * 登录action

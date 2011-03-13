@@ -48,17 +48,6 @@ public class Department implements Serializable {
 	@JoinColumn(name="deptId")
 	private List<Department> children = new ArrayList<Department>();//下级部门
 	
-	@OneToMany(fetch=FetchType.LAZY,cascade={CascadeType.ALL},mappedBy="department")
-	private List<Reader> readers = new ArrayList<Reader>();  //读者
-
-
-	public List<Reader> getReaders() {
-		return readers;
-	}
-
-	public void setReaders(List<Reader> readers) {
-		this.readers = readers;
-	}
 
 	public int getDeptId() {
 		return deptId;
