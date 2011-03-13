@@ -16,26 +16,27 @@ public interface DepartmentService {
 	 * @param dept
 	 * @return
 	 */
-	public boolean addOrModifyDept(Department dept) throws Exception;
+	public Department addOrModifyDept(Department dept) throws Exception;
 	
 	/**
 	 * 根据id删除Dept
 	 * @param dept
 	 * @return
 	 */
-	public boolean removeDept(Department dept) throws Exception;
+	public void removeDept(Department dept) throws Exception;
 	
 	/**
 	 * 根据Id查找Dept
 	 * @param deptId
 	 * @return
 	 */
-	public Department loadDeptById(String deptId) throws Exception;
+	public Department getDeptById(String deptId) throws Exception;
 	
 	/**
-	 * 查找所有的Dept
+	 * 根据Id查找Dept
+	 * @param deptId
 	 * @return
 	 */
-	public List<Department> findAllDepts() throws Exception;
+	public List<Department> getDeptsByParentId(String deptId) throws Exception;
 	
 }
