@@ -36,14 +36,9 @@ public class BookDAOTest {
 		
 		book.setPress(press);
 		
-		bookDao.saveOrUpdateBook(book);
+		bookDao.saveOrUpdate(book);
 	}
 	
-	@Test public void testDel(){
-		Book book = new Book();
-		book.setId(13);
-		bookDao.deleteBook(book);
-	}
 	
 	
 }

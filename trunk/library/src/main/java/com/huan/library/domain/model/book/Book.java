@@ -42,7 +42,7 @@ public class Book implements Serializable {
 	
 	private String barCode; // 条形码
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
 	@JoinColumn(name = "bookCategory")
 	private Category bookCategory; // 图书分类
 	

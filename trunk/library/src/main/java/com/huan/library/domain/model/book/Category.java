@@ -29,8 +29,8 @@ public class Category implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int categoryId;    //主键
+	private String categoryId;    //主键
+	
 	private String categoryCode; //分类代码
 	private String categoryName;  //分类名称
 	
@@ -42,10 +42,19 @@ public class Category implements Serializable{
 	@JoinColumn(name="categoryId")
 	private List<Category> children = new ArrayList<Category>(); //下级分类 
 	
-	public Category(){
+    public Category(){
 		
 	}
 	
+    public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+
+    
 	public List<Category> getChildren() {
 		return children;
 	}
@@ -54,25 +63,7 @@ public class Category implements Serializable{
 		this.children = children;
 	}
 
-	public List<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
-
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,mappedBy="bookCategory")
-	private List<Book> books = new ArrayList<Book>();  //图书
 	
-	
-	public int getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
 
 	public String getCategoryCode() {
 		return categoryCode;
@@ -98,6 +89,4 @@ public class Category implements Serializable{
 		this.parent = parent;
 	}
 
-
-    
 }
