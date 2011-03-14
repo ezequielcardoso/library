@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.domain.model.dict.Resource;
-import com.huan.library.infrastructure.persistence.generic.DictItemDao;
 /**
  * Êý¾Ý×Öµädao²âÊÔ
  * @author Administrator
