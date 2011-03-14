@@ -1,8 +1,8 @@
 package com.huan.library.domain.model.reader;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -31,21 +31,31 @@ public class ReaderType implements Serializable{
 	private String readerCateName;   //类别名称
 	private int borrowDays;          //借阅天数
 	private int borrowedQuantity;    //借阅数量
-	private float hire;              //租金
+	private float rent;              //租金
+
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,
-			mappedBy="readerCategory")
-	private Set<Reader> readers= new HashSet<Reader>();  //读者
+			mappedBy="readerCategory",targetEntity=Reader.class)
+	private List<Reader> readers= new ArrayList<Reader>();  //读者
 	
-	public ReaderType(){
+    public ReaderType(){
 		
 	}
 	
-	public Set<Reader> getReaders() {
+	public float getRent() {
+		return rent;
+	}
+	public void setRent(float rent) {
+		this.rent = rent;
+	}
+	public List<Reader> getReaders() {
 		return readers;
 	}
-	public void setReaders(Set<Reader> readers) {
+
+	public void setReaders(List<Reader> readers) {
 		this.readers = readers;
 	}
+
+	
 	public int getId() {
 		return id;
 	}
@@ -76,15 +86,4 @@ public class ReaderType implements Serializable{
 	public void setBorrowedQuantity(int borrowedQuantity) {
 		this.borrowedQuantity = borrowedQuantity;
 	}
-	public float getHire() {
-		return hire;
-	}
-	public void setHire(float hire) {
-		this.hire = hire;
-	}
-	
-	
-	
-	
-
 }

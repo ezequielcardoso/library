@@ -22,6 +22,7 @@ import com.huan.library.infrastructure.persistence.DepartmentDao;
 public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 		DepartmentDao {
 
+	@SuppressWarnings("unchecked")
 	public List<Department> selectDeptsByParentId(final String parentDeptId)
 			throws Exception {
 		List<Department> depts = new ArrayList<Department>();

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.service.DictItemService;
-import com.huan.library.infrastructure.persistence.DictItemDao;
+import com.huan.library.infrastructure.persistence.generic.DictItemDao;
 /**
  * 字典业务层实现
  * @author huan

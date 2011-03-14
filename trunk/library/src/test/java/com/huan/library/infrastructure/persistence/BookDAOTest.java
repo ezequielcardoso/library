@@ -13,6 +13,7 @@ import com.huan.library.domain.model.dict.Attachment;
 import com.huan.library.domain.model.dict.BookLevel;
 import com.huan.library.domain.model.dict.Currency;
 import com.huan.library.domain.model.dict.Resource;
+import com.huan.library.infrastructure.persistence.generic.DictItemDao;
 import com.huan.library.infrastructure.persistence.generic.PressDao;
 /**
  * 图书dao测试类
