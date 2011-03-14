@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.service.ReaderService;
-import com.huan.library.infrastructure.persistence.generic.ReaderDao;
+import com.huan.library.infrastructure.persistence.ReaderDao;
 /**
  * 读者业务层实现
  * @author huan
