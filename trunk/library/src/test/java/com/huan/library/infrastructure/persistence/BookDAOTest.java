@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.domain.model.book.Book;
-import com.huan.library.domain.model.book.Press;
 /**
  * 图书dao测试类
  * @author huan
@@ -15,30 +14,39 @@ import com.huan.library.domain.model.book.Press;
 public class BookDAOTest {
 
 	private static BookDao bookDao ;
-	private static PressDao pressDao;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	  bookDao = (BookDao) BaseSpringBeans.getInstance().getBean("bookDao");
-	  pressDao =(PressDao)BaseSpringBeans.getInstance().getBean("pressDao");
 	}
     
-	@Test public void testAdd() throws Exception{
+	@Test public void testAdd(){
+		System.out.println("hello");
 		Book book = new Book();
 		book.setBookNo("abc-222");
 		book.setBookDesc("abc");
-		
-		Press press = new Press();
-		press.setPressISBN("xxxx");
-		press.setPressName("大连出版社");
-		press.setPressAddress("大连");
-		press.setZipCode("3dffds0a");
-		pressDao.saveOrUpdate(press);
-		
-		book.setPress(press);
-		
-		bookDao.saveOrUpdate(book);
+		bookDao.saveOrUpdateBook(book);
 	}
 	
 	
+	@Test public void testFind(){
+		
+		System.out.println("1111111111111111111111111");
+		
+		Book book = bookDao.selectBookById(String.valueOf(2));
+		
+<<<<<<< .mine
+		System.out.println(book.getBookDesc());
+		
+		System.out.println("1111111111111111111111111");
+=======
+		bookDao.saveOrUpdate(book);
+>>>>>>> .r255
+	}
 	
+<<<<<<< .mine
+=======
+	
+	
+>>>>>>> .r255
 }
