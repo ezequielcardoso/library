@@ -1,5 +1,7 @@
 package com.huan.library.web.action;
 
+import org.springframework.stereotype.Controller;
+
 import com.huan.library.domain.model.rights.User;
 import com.opensymphony.xwork2.Action;
 /**
@@ -7,6 +9,7 @@ import com.opensymphony.xwork2.Action;
  * @author huan
  * @time  2011-3-12 下午02:58:29
  */
+@Controller("loginAction")
 public class LoginAction extends BaseActionSupport{
 
 	/**

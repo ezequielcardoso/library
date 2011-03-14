@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Category;
 import com.huan.library.infrastructure.persistence.CategoryDao;
+import com.huan.library.infrastructure.persistence.impl.BaseDaoImpl;
 
 @Repository("categoryDao")
 public class CategoryDaoImpl extends BaseDaoImpl<Category> implements CategoryDao {

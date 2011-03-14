@@ -62,7 +62,7 @@ public class BookAction extends BaseActionSupport {
     /**
      * 显示添加图书
      */
-    public String showSaveBook() throws Exception {
+    public String showSaveBook() {
     	return "showSaveBook";
     }
     
@@ -92,7 +92,7 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String updateBook() throws Exception {
+	public String modifyBook() {
 		try {
 			book.setId(Integer.parseInt(bookId));
 			bookService.addOrModifyBook(book);
@@ -108,7 +108,7 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String delete() throws Exception {
+	public String delete() {
 		try {
 			book.setId(Integer.parseInt(bookId));
 			bookService.removeBook(book);
@@ -124,7 +124,7 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String findById() throws Exception {
+	public String findById() {
 		try {
 			request.setAttribute("book", bookService.findBookById(String.valueOf(book.getId())));
 		} catch (Exception e) {
@@ -138,7 +138,7 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String findBooks() throws Exception {
+	public String findBooks() {
 		try {
 			request.setAttribute("books", bookService.findAllBooks());
 		} catch (Exception e) {

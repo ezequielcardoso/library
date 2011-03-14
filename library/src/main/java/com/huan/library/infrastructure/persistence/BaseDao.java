@@ -1,6 +1,8 @@
 package com.huan.library.infrastructure.persistence;
 
 import java.io.Serializable;
+import java.util.List;
+
 /**
  * 基础实体Dao
  * @author huan
@@ -28,5 +30,17 @@ public interface BaseDao<T> {
 	 */
 	public T get(Serializable entityId) throws Exception;
 	
-
+	/**
+	 * 返回小批量数据所有的实体
+	 * @return
+	 * @throws Exception
+	 */
+	public List<T> selectSmallTs() throws Exception;
+    
+	/**
+	 * 返回大批量数据
+	 * @return
+	 * @throws Exception
+	 */
+	public List<T> selectMaxTs() throws Exception;
 }
