@@ -2570,3 +2570,254 @@ Binding(SHIFT+DEL,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2011-03-14 15:26:16.343 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86 -clean -data E:\web project\myproject\library\trunk\library -clean
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2011-03-14 15:26:55.578
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: Unable to read repository at file:/E:/tools/myeclipse7/MyEclipse 7.5/configuration/org.eclipse.osgi/bundles/425/data/listener_1925729951/.
+	at org.eclipse.equinox.internal.provisional.spi.p2.artifact.repository.SimpleArtifactRepositoryFactory.load(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.initializeArtifactRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+Caused by: java.io.FileNotFoundException: E:\tools\myeclipse7\MyEclipse 7.5\configuration\org.eclipse.osgi\bundles\425\data\listener_1925729951\artifacts.xml (系统找不到指定的文件。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	... 22 more
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1000 2011-03-14 15:26:55.578
+!MESSAGE Unable to read repository at file:/E:/tools/myeclipse7/MyEclipse 7.5/configuration/org.eclipse.osgi/bundles/425/data/listener_1925729951/.
+!STACK 0
+java.io.FileNotFoundException: E:\tools\myeclipse7\MyEclipse 7.5\configuration\org.eclipse.osgi\bundles\425\data\listener_1925729951\artifacts.xml (系统找不到指定的文件。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at org.eclipse.equinox.internal.provisional.spi.p2.artifact.repository.SimpleArtifactRepositoryFactory.load(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.initializeArtifactRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2011-03-14 15:26:55.593
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: Unable to read repository at file:/E:/tools/myeclipse7/MyEclipse 7.5/configuration/org.eclipse.osgi/bundles/425/data/listener_1925729951/.
+	at org.eclipse.equinox.internal.provisional.spi.p2.artifact.repository.SimpleArtifactRepositoryFactory.load(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.createRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.initializeArtifactRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+Caused by: java.io.FileNotFoundException: E:\tools\myeclipse7\MyEclipse 7.5\configuration\org.eclipse.osgi\bundles\425\data\listener_1925729951\artifacts.xml (系统找不到指定的文件。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	... 22 more
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1000 2011-03-14 15:26:55.593
+!MESSAGE Unable to read repository at file:/E:/tools/myeclipse7/MyEclipse 7.5/configuration/org.eclipse.osgi/bundles/425/data/listener_1925729951/.
+!STACK 0
+java.io.FileNotFoundException: E:\tools\myeclipse7\MyEclipse 7.5\configuration\org.eclipse.osgi\bundles\425\data\listener_1925729951\artifacts.xml (系统找不到指定的文件。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at org.eclipse.equinox.internal.provisional.spi.p2.artifact.repository.SimpleArtifactRepositoryFactory.load(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.createRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.initializeArtifactRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+
+!ENTRY com.genuitec.eclipse.core.common 1 0 2011-03-14 15:27:31.906
+!MESSAGE Missing action set: 
+!SESSION 2011-03-14 15:27:39.796 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86 -clean
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2011-03-14 15:27:46.734
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: Unable to read repository at file:/E:/tools/myeclipse7/MyEclipse 7.5/configuration/org.eclipse.osgi/bundles/425/data/listener_1925729951/.
+	at org.eclipse.equinox.internal.provisional.spi.p2.artifact.repository.SimpleArtifactRepositoryFactory.load(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.initializeArtifactRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+Caused by: java.io.FileNotFoundException: E:\tools\myeclipse7\MyEclipse 7.5\configuration\org.eclipse.osgi\bundles\425\data\listener_1925729951\artifacts.xml (系统找不到指定的文件。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	... 22 more
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1000 2011-03-14 15:27:46.734
+!MESSAGE Unable to read repository at file:/E:/tools/myeclipse7/MyEclipse 7.5/configuration/org.eclipse.osgi/bundles/425/data/listener_1925729951/.
+!STACK 0
+java.io.FileNotFoundException: E:\tools\myeclipse7\MyEclipse 7.5\configuration\org.eclipse.osgi\bundles\425\data\listener_1925729951\artifacts.xml (系统找不到指定的文件。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at org.eclipse.equinox.internal.provisional.spi.p2.artifact.repository.SimpleArtifactRepositoryFactory.load(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.initializeArtifactRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2011-03-14 15:27:46.750
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: Unable to read repository at file:/E:/tools/myeclipse7/MyEclipse 7.5/configuration/org.eclipse.osgi/bundles/425/data/listener_1925729951/.
+	at org.eclipse.equinox.internal.provisional.spi.p2.artifact.repository.SimpleArtifactRepositoryFactory.load(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.createRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.initializeArtifactRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+Caused by: java.io.FileNotFoundException: E:\tools\myeclipse7\MyEclipse 7.5\configuration\org.eclipse.osgi\bundles\425\data\listener_1925729951\artifacts.xml (系统找不到指定的文件。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	... 22 more
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1000 2011-03-14 15:27:46.750
+!MESSAGE Unable to read repository at file:/E:/tools/myeclipse7/MyEclipse 7.5/configuration/org.eclipse.osgi/bundles/425/data/listener_1925729951/.
+!STACK 0
+java.io.FileNotFoundException: E:\tools\myeclipse7\MyEclipse 7.5\configuration\org.eclipse.osgi\bundles\425\data\listener_1925729951\artifacts.xml (系统找不到指定的文件。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at org.eclipse.equinox.internal.provisional.spi.p2.artifact.repository.SimpleArtifactRepositoryFactory.load(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(Unknown Source)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.createRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.initializeArtifactRepository(Unknown Source)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.RepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.<init>(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Unknown Source)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
