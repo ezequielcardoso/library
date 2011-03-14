@@ -1,16 +1,11 @@
 package com.huan.library.domain.model.book;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 /**
  * 出版社
@@ -37,21 +32,10 @@ public class Press implements Serializable{
 
 	private String zipCode;   //邮编
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="press")
-	private List<Book> books = new ArrayList<Book>();   //图书
-	
 	public Press(){
 		
 	}
 	
-	public List<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
-
 	public String getPressISBN() {
 		return pressISBN;
 	}
