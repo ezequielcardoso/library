@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.service.DictItemService;
-import com.huan.library.infrastructure.persistence.generic.DictItemDao;
+import com.huan.library.infrastructure.persistence.DictItemDao;
 /**
  * 字典业务层实现
  * @author huan
@@ -54,6 +54,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return dictItemList;
 	}
 
+	
 	public DictItem findDictItemById(int dictItemId) throws Exception {
 		DictItem dictItem = null;
 		try {
