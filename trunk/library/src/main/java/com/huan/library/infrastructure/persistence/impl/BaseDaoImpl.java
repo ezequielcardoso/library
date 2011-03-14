@@ -1,7 +1,6 @@
 package com.huan.library.infrastructure.persistence.impl;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.sql.SQLException;
@@ -90,7 +89,6 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 		List<T> ts = new ArrayList<T>();
 		try {
 		 ts = getHibernateTemplate().executeFind(new HibernateCallback(){
-
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				return	session.createQuery("from ?")
@@ -117,8 +115,6 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
  		}
 		return ts;
 	}
-	
-	
 	
 	    
 }
