@@ -1,5 +1,7 @@
 package com.huan.library.infrastructure.persistence;
 
+import java.util.List;
+
 import com.huan.library.domain.model.dict.DictItem;
 
 /**
@@ -9,5 +11,5 @@ import com.huan.library.domain.model.dict.DictItem;
  */
 public interface DictItemDao extends BaseDao<DictItem>{
 	
-	
+	public List<DictItem> selectAllDictItems() throws Exception;
 }

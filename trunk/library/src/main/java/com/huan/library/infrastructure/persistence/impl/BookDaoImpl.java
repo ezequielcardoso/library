@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.infrastructure.persistence.BookDao;
-import com.huan.library.infrastructure.persistence.generic.impl.BaseDaoImpl;
 
 /**
  * 

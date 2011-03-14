@@ -4,7 +4,7 @@ package com.huan.library.infrastructure.persistence.impl;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Press;
-import com.huan.library.infrastructure.persistence.PressDao;
+import com.huan.library.infrastructure.persistence.generic.PressDao;
 /**
  * 出版社持久化实现
  * @author huan

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
-import com.huan.library.infrastructure.persistence.PressDao;
+import com.huan.library.infrastructure.persistence.generic.PressDao;
 @Service("pressService")
 public class PressServiceImpl implements PressService {
 
