@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.infrastructure.persistence.PressDao;
+import com.huan.library.infrastructure.persistence.impl.BaseDaoImpl;
 /**
  * 出版社持久化实现
  * @author huan
