@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.service.ReaderService;
@@ -14,6 +15,7 @@ import com.opensymphony.xwork2.Action;
  * @author huan
  * @time  2011-3-14 下午02:23:03
  */
+@Controller("readerAction")
 public class ReaderAction extends BaseActionSupport {
 
 	/**
@@ -125,6 +127,4 @@ public class ReaderAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 
-
-	
 }

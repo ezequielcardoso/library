@@ -71,7 +71,7 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String saveBook() throws Exception {
+	public String saveBook() {
 		try {
 			bookService.addOrModifyBook(book);
 		} catch (Exception e) {
@@ -83,7 +83,7 @@ public class BookAction extends BaseActionSupport {
 	 /**
      * 显示修改图书
      */
-	public String showModifyBook() throws Exception {
+	public String showModifyBook(){
 		return "showModifyBook";
 	}
 	

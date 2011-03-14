@@ -11,7 +11,7 @@ import com.huan.library.domain.model.book.Category;
  */
 public interface CategoryService {
 	/**
-	 * 添加或是嗅修改
+	 * 添加或是修改
 	 * @param category
 	 * @throws Exception
 	 */

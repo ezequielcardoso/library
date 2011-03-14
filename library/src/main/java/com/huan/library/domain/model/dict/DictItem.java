@@ -51,18 +51,19 @@ public class DictItem implements java.io.Serializable {
 
 	@Column(insertable=false,updatable=false)
 	private String itemType;//参照组代码
+	
 	private boolean leaf;//是否叶子
-
+	private String shortName;// 名字
+	
 	//用于树结构 
 	private int level;//层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
+	
 	@ManyToOne(targetEntity=DictItem.class,fetch=FetchType.LAZY,cascade={CascadeType.REMOVE,CascadeType.MERGE})
 	@JoinColumn(name="parentItemId")
 	private DictItem parent;
-	private String shortName;// 名字
 	
 	public DictItem(){		
 	}
-	
 	
 	public List<DictItem> getChildren() {
 		return children;

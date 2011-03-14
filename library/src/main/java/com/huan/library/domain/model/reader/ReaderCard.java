@@ -35,12 +35,13 @@ public class ReaderCard implements Serializable{
 	private Date effectiveDate;    //有效日期
 	private String readerPic;      //头像
 	private String readerCardDesc; //描述
-	@OneToOne(cascade={CascadeType.ALL},fetch=FetchType.LAZY,
+	
+	@OneToOne(cascade={CascadeType.MERGE},fetch=FetchType.LAZY,
 			mappedBy="readerCard")
 	private Reader reader;         //读者
 	
 	
-	private int state;             //借阅证状态 如挂失/正常/超出数量
+	private int state = 0;           //借阅证状态 如挂失0/正常1/超出数量2
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private BorrowReturn borrowReturn;  //借阅归还
