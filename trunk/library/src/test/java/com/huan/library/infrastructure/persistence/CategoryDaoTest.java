@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.domain.model.book.Category;
-import com.huan.library.infrastructure.persistence.generic.CategoryDao;
 
 public class CategoryDaoTest {
 
