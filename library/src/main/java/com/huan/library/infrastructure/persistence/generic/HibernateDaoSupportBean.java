@@ -12,5 +12,5 @@ public class HibernateDaoSupportBean extends HibernateDaoSupport {
 	public void setSuperSessionFactory(SessionFactory sessionFactory) {
 		super.setSessionFactory(sessionFactory);
 	}
-
+	
 }

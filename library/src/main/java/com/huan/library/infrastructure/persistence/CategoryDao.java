@@ -13,5 +13,7 @@ import com.huan.library.domain.model.book.Category;
 public interface CategoryDao extends BaseDao<Category>{
 
 	public List<Category> selectAllCategorys() throws Exception;
+	
+	public void insertCategorysBatch(List<Category> categorys) throws Exception;
 
 }

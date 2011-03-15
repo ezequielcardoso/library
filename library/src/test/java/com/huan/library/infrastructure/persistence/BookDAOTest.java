@@ -1,7 +1,5 @@
 package com.huan.library.infrastructure.persistence;
 
-
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,6 +11,7 @@ import com.huan.library.domain.model.dict.Attachment;
 import com.huan.library.domain.model.dict.BookLevel;
 import com.huan.library.domain.model.dict.Currency;
 import com.huan.library.domain.model.dict.Resource;
+import com.huan.library.infrastructure.persistence.PressDao;
 /**
  * 图书dao测试类
  * @author huan
