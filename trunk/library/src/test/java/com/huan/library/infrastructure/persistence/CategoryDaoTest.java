@@ -1,6 +1,16 @@
 package com.huan.library.infrastructure.persistence;
 
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import jxl.Cell;
+import jxl.CellType;
+import jxl.LabelCell;
+import jxl.Sheet;
+import jxl.Workbook;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -44,10 +54,69 @@ public class CategoryDaoTest {
 		try {
 			categoryDao.saveOrUpdate(category);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+	}
+	
+	@Test
+	public void testImportCategorysFromExcel(){
+		List<Category> categorys = new ArrayList<Category>(); 
+		String fileName = "";
+		//取得excel文件
+        File file = new File(fileName);
+        Workbook wb;   
+        try {
+        	//打开workbook
+            wb = Workbook.getWorkbook(file);  
+            //打卡第一个sheet
+            Sheet sheet = wb.getSheet(0);   
+            //取得行数
+            int row = sheet.getRows();   
+            //取得列数
+            int col = sheet.getColumns(); 
+            //取到一行中每列的值赋值给一个Category对象对应的属性，直到最后一行
+            for (int i = 0; i < row; i++) {   
+            	Category category = new Category();
+            	Category pcategory = new Category();
+                for (int j = 0; j < col; j++) {
+                    Cell cell = sheet.getCell(j, i);   
+                    if (cell.getType() == CellType.LABEL) {   
+                        LabelCell lc = (LabelCell) cell;   
+//                        System.out.println(lc.getContents());
+                        switch (j) {   
+                        case 0:   
+                        	category.setCategoryId(lc.getContents());break;   
+                        case 1:   
+                        	category.setCategoryCode(lc.getContents());break;
+                        case 2:
+                        	category.setCategoryName(lc.getContents());break;
+                        case 3: //parent
+                        	//根据父Category Id 找出父Category，并给Category setParent
+                        	;break;	
+                        case 4:
+                        	;break;
+                        case 5:
+                        	;break;
+                        case 6:
+                        	;break;
+                        case 7:
+                        	;break;
+                        }   
+                    }   
+                }   
+                categorys.add(category);   
+            }  
+            
+            //批量增加Category
+            try {
+    			categoryDao.insertCategorysBatch(categorys);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+        } catch (Exception e) {   
+            e.printStackTrace();   
+        }   
 	}
 
 }
