@@ -17,7 +17,7 @@ import com.huan.library.domain.model.rights.User;
  * @time  2011-3-10 上午07:03:33
  */
 @Entity
-public class LibraryManager implements Serializable{
+public class LibInfo implements Serializable{
 
 	/**
 	 * 
@@ -26,29 +26,24 @@ public class LibraryManager implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;  //主键
-	private String liraryName; //图书馆名字
+	private String libName; //图书馆名字
 	private String address;    //地址
 	private String telphone;   //联系电话
 	
 	@OneToOne(fetch=FetchType.LAZY,targetEntity=User.class)
-	@JoinColumn(name="manager")
-	private User manager;     //管理员
+	@JoinColumn(name="libManager")
+	private User libManager;     //管理员
 	
 	private float payADay=0;    //租金
 	private float baseCost=0;   //开户费
 	private float depositeTimes=0; //押金倍数
-	private String LibraryDesc;       //描述信息
+	private String libDesc;       //描述信息
 	
-	public LibraryManager(){
+	
+	public LibInfo(){
 		
 	}
 
-	public String getLibraryDesc() {
-		return LibraryDesc;
-	}
-	public void setLibraryDesc(String libraryDesc) {
-		LibraryDesc = libraryDesc;
-	}
 	public float getPayADay() {
 		return payADay;
 	}
@@ -74,12 +69,7 @@ public class LibraryManager implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getLiraryName() {
-		return liraryName;
-	}
-	public void setLiraryName(String liraryName) {
-		this.liraryName = liraryName;
-	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -92,12 +82,32 @@ public class LibraryManager implements Serializable{
 	public void setTelphone(String telphone) {
 		this.telphone = telphone;
 	}
-	public User getManager() {
-		return manager;
-	}
-	public void setManager(User manager) {
-		this.manager = manager;
-	}
 	
+	public String getLibName() {
+		return libName;
+	}
+
+
+	public void setLibName(String libName) {
+		this.libName = libName;
+	}
+
+
+	public User getLibManager() {
+		return libManager;
+	}
+
+
+	public void setLibManager(User libManager) {
+		this.libManager = libManager;
+	}
+	public String getLibDesc() {
+		return libDesc;
+	}
+
+	public void setLibDesc(String libDesc) {
+		this.libDesc = libDesc;
+	}
+
 
 }
