@@ -66,5 +66,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ojdbc14.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/sqljdbc4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/poi-3.8-beta1-20110307.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/poi-scratchpad-3.8-beta1-20110307.jar"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>
