@@ -26,5 +26,10 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem>  implements
 		return DictItemList;
 	}
 
+	public List<DictItem> getDictItemMapbyItemClass(String className) {
+		String hql = " from " + className;
+		return  this.getHibernateTemplate().find(hql);
+	}
+
 	
 }
