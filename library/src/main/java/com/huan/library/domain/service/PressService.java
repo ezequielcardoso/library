@@ -3,8 +3,6 @@ package com.huan.library.domain.service;
 import java.util.List;
 
 import com.huan.library.domain.model.book.Press;
-
-
 /**
  * 出版社业务层
  * @author huan
@@ -16,7 +14,7 @@ public interface PressService {
 	 * @param press
 	 * @return
 	 */
-	public void addOrModifyPress(Press press) throws Exception;
+	public Press addOrModifyPress(Press press) throws Exception;
 	
 	/**
 	 * 删除Press

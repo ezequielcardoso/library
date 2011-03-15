@@ -49,9 +49,9 @@ public class Reader implements Serializable {
 	private String certificateCode; // 证件号码
 	private String readerDesc; // 读者描述
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "readerCategory")
-	private ReaderType readerCategory; // 读者类别
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=ReaderType.class)
+	@JoinColumn(name = "readerType")
+	private ReaderType readerType; // 读者类别
 	
 	@OneToOne(fetch = FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.REMOVE}
 	  ,targetEntity=ReaderCard.class)
@@ -78,6 +78,13 @@ public class Reader implements Serializable {
 		this.readerName = readerName;
 	}
 
+	public ReaderType getReaderType() {
+		return readerType;
+	}
+
+	public void setReaderType(ReaderType readerType) {
+		this.readerType = readerType;
+	}
 	public Certificate getCertificate() {
 		return certificate;
 	}
@@ -154,14 +161,6 @@ public class Reader implements Serializable {
 
 	public void setReaderDesc(String readerDesc) {
 		this.readerDesc = readerDesc;
-	}
-
-	public ReaderType getReaderCategory() {
-		return readerCategory;
-	}
-
-	public void setReaderCategory(ReaderType readerCategory) {
-		this.readerCategory = readerCategory;
 	}
 
 	public ReaderCard getReaderCard() {
