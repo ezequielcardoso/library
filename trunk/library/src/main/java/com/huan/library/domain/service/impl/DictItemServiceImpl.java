@@ -1,5 +1,6 @@
 package com.huan.library.domain.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.service.DictItemService;
 import com.huan.library.infrastructure.persistence.DictItemDao;
+import com.huan.library.web.view.DictItemView;
 /**
  * 字典业务层实现
  * @author huan
@@ -64,6 +66,33 @@ public class DictItemServiceImpl implements DictItemService {
 		  return null;
 		}
 		return dictItem;
+	}
+
+	public List<DictItemView> getDictItemByItemClass(String className) {
+		List<DictItemView> views = new ArrayList<DictItemView>();
+		Object o = null;
+		try {
+			o = Class.forName(className).newInstance();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+
+		if (o instanceof DictItem) {
+			List<DictItem> dictItems = dictItemDao.getDictItemMapbyItemClass(className);
+			if (dictItems != null)
+				for (DictItem codeItem : dictItems) {
+					DictItemView view = new DictItemView();
+					view.setKey(codeItem.getItemId() + "");
+					view.setValue(codeItem.getDescription());
+					view.setComment(codeItem.getShortName());
+					views.add(view);
+				}
+		} 
+		return views;
 	}
 
 	

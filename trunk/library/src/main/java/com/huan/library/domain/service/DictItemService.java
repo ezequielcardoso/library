@@ -3,6 +3,7 @@ package com.huan.library.domain.service;
 import java.util.List;
 
 import com.huan.library.domain.model.dict.DictItem;
+import com.huan.library.web.view.DictItemView;
 
 /**
  * 字典业务层
@@ -39,5 +40,6 @@ public interface DictItemService {
 	 */
 	public List<DictItem> findAllDictItems() throws Exception;
 
-
+	public List<DictItemView> getDictItemByItemClass(String className);
+	
 }

@@ -12,4 +12,6 @@ import com.huan.library.domain.model.dict.DictItem;
 public interface DictItemDao extends BaseDao<DictItem>{
 	
 	public List<DictItem> selectAllDictItems() throws Exception;
+
+	public List<DictItem> getDictItemMapbyItemClass(String className);
 }
