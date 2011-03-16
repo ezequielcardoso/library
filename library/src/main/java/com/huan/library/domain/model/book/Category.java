@@ -26,6 +26,7 @@ public class Category implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
 	@Id
 	private String categoryId;    //主键
 	
@@ -33,10 +34,10 @@ public class Category implements Serializable{
 	private String categoryName;  //分类名称
 	
 	@ManyToOne(targetEntity=Category.class,fetch=FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.REMOVE})
-	@JoinColumn(name="parentCateId")
+	@JoinColumn(name="parentCateId",referencedColumnName="categoryId")
 	private Category parent;   //上级分类
 	
-	@OneToMany(targetEntity=Category.class,fetch=FetchType.LAZY,mappedBy="parent")
+	@OneToMany(targetEntity=Category.class,mappedBy="parent")
 	private List<Category> children = new ArrayList<Category>(); //下级分类 
 	
     public Category(){
