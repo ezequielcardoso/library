@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 
 import com.huan.library.domain.model.dict.DictItem;
 /**
- * 项目/租金/办卡/补卡
+ * 项目:租金/办卡/补卡/开户
  * @author huan
  * @time 2011-3-8  下午06:22:21
  */

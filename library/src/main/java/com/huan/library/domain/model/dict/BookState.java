@@ -9,12 +9,12 @@ import javax.persistence.Entity;
  *
  */
 @Entity  
-@DiscriminatorValue("State")
-public class State extends DictItem {
+@DiscriminatorValue("BookState")
+public class BookState extends DictItem {
      
 	private static final long serialVersionUID = 1L;
 
-	public State(){
+	public BookState(){
 		super();
 	}
 }

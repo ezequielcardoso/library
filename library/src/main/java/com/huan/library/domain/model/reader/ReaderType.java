@@ -46,7 +46,6 @@ public class ReaderType implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getReaderCateCode() {
 		return readerCateCode;
 	}

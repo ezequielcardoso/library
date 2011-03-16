@@ -23,13 +23,9 @@ public class Press implements Serializable{
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;       //主键
-    
-	private String pressAddress; //地址
-    
-	private String pressISBN; //ISBN
-
+    private String pressAddress; //地址
+    private String pressISBN; //ISBN
 	private String pressName; //出版社名称
-
 	private String zipCode;   //邮编
 	
 	public Press(){

@@ -8,10 +8,9 @@ import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.model.dict.Attachment;
-import com.huan.library.domain.model.dict.BookLevel;
+import com.huan.library.domain.model.dict.Certificate;
 import com.huan.library.domain.model.dict.Currency;
 import com.huan.library.domain.model.dict.Resource;
-import com.huan.library.infrastructure.persistence.PressDao;
 /**
  * 图书dao测试类
  * @author huan
@@ -65,10 +64,9 @@ public class BookDAOTest {
 		book.setBookCategory(category);
 		
 		//图书级别
-		BookLevel bookLevel = new BookLevel();
-		bookLevel.setShortName("密级");
-	    dictItemDao.saveOrUpdate(bookLevel);
-		book.setBookLevel(bookLevel);
+		Certificate certificate = new Certificate();
+		certificate.setShortName("密级");
+	    dictItemDao.saveOrUpdate(certificate);
 	    
 	    //来源
 	    Resource resource = new Resource();

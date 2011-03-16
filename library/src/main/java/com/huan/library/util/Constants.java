@@ -7,6 +7,11 @@ package com.huan.library.util;
 public class Constants {
 
 	public static final String MALE = "M";  //男
-	
 	public static final String FEMALE = "F"; //女
+	/**
+	 *  //借阅证状态 如LOST/COMMON/OVERLIMIT
+	 */
+	public static final String LOST = "L"; //女
+	public static final String COMMON = "C"; //女
+	public static final String OVERLIMIT = "O"; //女
 }
