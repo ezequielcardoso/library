@@ -1,26 +1,23 @@
 package com.huan.library.utils;
 
 import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
+import com.huan.library.domain.model.book.Category;
+
 public class ExcelToDB {
 
-	private Connection con;
-	private DBConnection db;
-	private PreparedStatement pst;
-	private String filePath = "f:\\test.xls";
+	private static String filePath = "f:\\test.xls";
 
-	public void insertDB() {
+	public static List<Category> getCategorys() {
 
-		db = new DBConnection();
-		con = db.getConnection();
-		
+		 List<Category> categorys = new ArrayList<Category>();
 		try {
 			// 文件流指向excel文件
 			FileInputStream fin = new FileInputStream(filePath);
@@ -28,18 +25,14 @@ public class ExcelToDB {
 			HSSFSheet sheet = workbook.getSheetAt(0);// 得到工作表
 			HSSFRow row = null;// 对应excel的行
 			HSSFCell cell = null;// 对应excel的列
-
-			int totalRow = sheet.getLastRowNum();// 得到excel的总记录条数
-			// 以下的字段一一对应数据库表的字段
-			String categoryId = "";
-			String categoryCode = "";
-			String categoryName = "";
-			String parentCateId = "";
-
-			String sql = "insert into t_stu(categoryId,categoryCode,categoryName,parentCateId) "
-					+ "values(?,?,?,?)"; // SEQ_BOOK.NEXTVAL为数据库表序列
-
-			for (int i = 0; i <= totalRow; i++) {
+            String categoryId = null;
+            String categoryCode = null;
+            String categoryName = null;
+            String parentCateId = null;
+            int totalRow = sheet.getLastRowNum();// 得到excel的总记录条数
+           
+			for (int i = 0; i < totalRow; i++) {
+				Category category = new Category();
 				row = sheet.getRow(i);
 				cell = row.getCell(0);
 				categoryId = cell.getRichStringCellValue().toString();
@@ -50,24 +43,20 @@ public class ExcelToDB {
 				cell=row.getCell(3);   
 				parentCateId=cell.getRichStringCellValue().toString();
 				
-				pst = con.prepareStatement(sql);
-				pst.setString(1, categoryId);
-				pst.setString(2, categoryCode);
-				pst.setString(3, categoryName);
-				pst.setString(4, parentCateId);
+				category.setCategoryId(categoryId);
+				category.setCategoryName(categoryName);
+				category.setCategoryCode(categoryCode);
+				Category categoryParent = new Category();
+				categoryParent.setCategoryId(parentCateId);
+				category.setParent(categoryParent);
 				
+				categorys.add(category);
 
-				pst.execute();
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	
+		return categorys;
 	}
-
-	public static void main(String args[]) {
-		ExcelToDB toDB = new ExcelToDB();
-		toDB.insertDB();
-	}
-
 }
