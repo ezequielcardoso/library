@@ -1,11 +1,8 @@
 package com.huan.library.domain.model.book;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,15 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
-import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.domain.model.dict.Attachment;
 import com.huan.library.domain.model.dict.BookLevel;
+import com.huan.library.domain.model.dict.BookState;
 import com.huan.library.domain.model.dict.Currency;
 import com.huan.library.domain.model.dict.Resource;
 import com.huan.library.domain.model.dict.Security;
-import com.huan.library.domain.model.dict.State;
 
 /**
  * 图书信息
@@ -39,33 +34,9 @@ public class Book implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id; // 主键
-	
 	private String barCode; // 条形码
-	
-	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
-	@JoinColumn(name = "bookCategory")
-	private Category bookCategory; // 图书分类
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JoinColumn(name = "attachment")
-	private Attachment attachment; // 附件名称
-	
-	private String bookDesc; // 图书简介
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JoinColumn(name = "bookLevel")
-	private BookLevel bookLevel; // 图书类别
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="security")
-	private Security security;   //图书密级
-	
 	private String bookName; // 书刊名字
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JoinColumn(name = "currency")
-	private Currency currency; // 币种
-	
+	private String bookDesc; // 图书简介
 	private String donator; // 捐赠人
 	private String electoricDoc; // 电子文档
 	private String ISBN; // ISBN
@@ -74,39 +45,54 @@ public class Book implements Serializable {
 	private String stage; // 第几期
 	private String allStage; // 总第几期
 	private int pages; // 页数
+	private float price; // 价格
+	private Date publisherDate; // 出版日期
+	private int quantity; // 数量
+	private String location; //存放位置
+	private int revision; // 版次
+	private String searchBookId; // 索书号
+	private String speciesId; // 种次号
+	private String spell; // 拼音
+	private Date storeDate; // 入库时间
+	private String bookNo; // 图书编号
+	private boolean isBook = true; // 类型true:表示图书 false:表示期刊
+
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
+	@JoinColumn(name = "bookCategory")
+	private Category bookCategory; // 图书分类
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "attachment")
+	private Attachment attachment; // 附件名称
+	
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=BookState.class)
+	@JoinColumn(name="bookState")
+	private BookState bookState; // 图书状态
+
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "bookLevel")
+	private BookLevel bookLevel; // 图书级别
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="security")
+	private Security security;   //图书密级
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "currency")
+	private Currency currency; // 币种
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "press")
 	private Press press; // 出版社
 	
-	private float price; // 价格
-	private Date publisherDate; // 出版日期
-	private int quantity; // 数量
-	private String location; //存放位置
-	
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "resource")
 	private Resource resource; // 来源
 	
-	private int revision; // 版次
-	private String searchBookId; // 索书号
-	private String speciesId; // 种次号
-	private String spell; // 拼音
-	private State state; // 图书状态
-	private Date storeDate; // 入库时间
-	private String bookNo; // 图书编号
-	private int type; // 类型 0:表示图书 1:表示期刊
-	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,targetEntity=BorrowReturn.class)
-	private List<BorrowReturn> borrowReturn = new ArrayList<BorrowReturn>(); //借阅归还
-
 	public Book(){
 		
-	}
-	
-	public List<BorrowReturn> getBorrowReturn() {
-		return borrowReturn;
 	}
 	public Security getSecurity() {
 		return security;
@@ -115,10 +101,7 @@ public class Book implements Serializable {
 	public void setSecurity(Security security) {
 		this.security = security;
 	} 
-	public void setBorrowReturn(List<BorrowReturn> borrowReturn) {
-		this.borrowReturn = borrowReturn;
-	}
-
+	
 	public String getLocation() {
 		return location;
 	}
@@ -166,12 +149,12 @@ public class Book implements Serializable {
 		this.bookNo = bookNo;
 	}
 
-	public int getType() {
-		return type;
+	public boolean isBook() {
+		return isBook;
 	}
 
-	public void setType(int type) {
-		this.type = type;
+	public void setBook(boolean isBook) {
+		this.isBook = isBook;
 	}
 
 	public Attachment getAttachment() {
@@ -192,6 +175,10 @@ public class Book implements Serializable {
 
 	public BookLevel getBookLevel() {
 		return bookLevel;
+	}
+
+	public void setBookLevel(BookLevel bookLevel) {
+		this.bookLevel = bookLevel;
 	}
 
 	public String getBookName() {
@@ -258,10 +245,6 @@ public class Book implements Serializable {
 		return spell;
 	}
 
-	public State getState() {
-		return state;
-	}
-
 	public Date getStoreDate() {
 		return storeDate;
 	}
@@ -282,10 +265,7 @@ public class Book implements Serializable {
 		this.bookDesc = bookDesc;
 	}
 
-	public void setBookLevel(BookLevel bookLevel) {
-		this.bookLevel = bookLevel;
-	}
-
+	
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
 	}
@@ -350,8 +330,13 @@ public class Book implements Serializable {
 		this.spell = spell;
 	}
 
-	public void setState(State state) {
-		this.state = state;
+	
+	public BookState getBookState() {
+		return bookState;
+	}
+
+	public void setBookState(BookState bookState) {
+		this.bookState = bookState;
 	}
 
 	public void setStoreDate(Date storeDate) {

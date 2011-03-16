@@ -37,7 +37,7 @@ public class LibInfo implements Serializable{
 	private float payADay=0;    //租金
 	private float baseCost=0;   //开户费
 	private float depositeTimes=0; //押金倍数
-	private String libDesc;       //描述信息
+	private String libDesc;       //借阅证背面描述
 	
 	
 	public LibInfo(){

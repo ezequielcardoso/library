@@ -16,7 +16,7 @@ import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.domain.model.book.Category;
 import com.huan.library.infrastructure.persistence.CategoryDao;
 
-public class CategoryDaoTest {
+public class CategoryInitTest {
 
 	private static String filePath = "f:\\test.xls";
 	 String categoryId = null;
@@ -30,34 +30,48 @@ public class CategoryDaoTest {
 	public static void setUpBeforeClass() throws Exception {
 		categoryDao = (CategoryDao)BaseSpringBeans.getInstance().getBean("categoryDao");
 	}
-
-	@Test
-	public void testInsert(){
-		
-		List<Category> categorys =ExcelToDB.getCategorys();
-		
-		try {
-			categoryDao.insertCategorysBatch(categorys);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
+   
+	/**
+	 * 查询分类测试
+	 */
 	//@Test
 	public void testSelect(){
+		List<Category> categorys = new ArrayList<Category>();
 		try {
-			categoryDao.selectAllCategorys();
+			categorys = categoryDao.selectAllCategorys();
+			for(Category category:categorys){
+				System.out.println(category.getCategoryId());
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	//@Test  //添加根节点
+	public void testInsertRoot(){
+		Category category = new Category();
+		category.setCategoryId("ROOT");
+		category.setCategoryCode("ROOT");
+		category.setCategoryName("中图法");
+		
+		category.setParent(null);
+		
+		try {
+			categoryDao.saveOrUpdate(category);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	/**
+	 * 添加其他的
+	 */
 	@Test
 	public void testCategorys() {
 
-		 List<Category> categorys = new ArrayList<Category>();
+		List<Category> categorys = new ArrayList<Category>();
 		try {
 			// 文件流指向excel文件
 			FileInputStream fin = new FileInputStream(filePath);
@@ -79,7 +93,6 @@ public class CategoryDaoTest {
 				categoryName=cell.getRichStringCellValue().toString();
 				cell=row.getCell(3);   
 				parentCateId=cell.getRichStringCellValue().toString();
-				
 				category.setCategoryId(categoryId);
 				category.setCategoryName(categoryName);
 				category.setCategoryCode(categoryCode);
@@ -95,21 +108,5 @@ public class CategoryDaoTest {
 		}	
 	}
 	
-	//@Test
-	public void testInsertRoot(){
-		Category category = new Category();
-		category.setCategoryId("ROOT");
-		category.setCategoryCode("ROOT");
-		category.setCategoryName("中图法");
-		
-		category.setParent(null);
-		
-		try {
-			categoryDao.saveOrUpdate(category);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
+	
 }

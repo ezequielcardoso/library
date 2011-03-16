@@ -1,6 +1,7 @@
 package com.huan.library.domain.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,7 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.huan.library.domain.model.borrowReturn.BorrowReturn;
+import com.huan.library.domain.model.rights.User;
+
 
 /**
  * 罚款
@@ -18,7 +20,7 @@ import com.huan.library.domain.model.borrowReturn.BorrowReturn;
  * @time 2011-3-8  下午06:16:12
  */
 @Entity
-public class Fine implements Serializable{
+public class Punishment implements Serializable{
 	
 	/**
 	 * 
@@ -27,24 +29,22 @@ public class Fine implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id; //主键
-	private float fineMoney; //罚金
+	private float punishMoney; //罚金
 	private String eventsDesc; //描述
+	private Date operatorDate;  //时间  如 : 2011-3-8 06:16:12
 	
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=User.class)
+	@JoinColumn(name="operator")
+	private User operator;   //操作员  
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="project")
 	private Project project; //项目
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=BorrowReturn.class)
-	@JoinColumn(name="borrowReturn")
-	private BorrowReturn borrowReturn;   //借阅归还
+	public Punishment(){
+		
+	}
 	
-	public BorrowReturn getBorrowReturn() {
-		return borrowReturn;
-	}
-	public void setBorrowReturn(BorrowReturn borrowReturn) {
-		this.borrowReturn = borrowReturn;
-	}
 	public int getId() {
 		return id;
 	}
@@ -52,6 +52,22 @@ public class Fine implements Serializable{
 		this.id = id;
 	}
 	
+	public User getOperator() {
+		return operator;
+	}
+
+	public void setOperator(User operator) {
+		this.operator = operator;
+	}
+
+	public Date getOperatorDate() {
+		return operatorDate;
+	}
+
+	public void setOperatorDate(Date operatorDate) {
+		this.operatorDate = operatorDate;
+	}
+
 	public String getEventsDesc() {
 		return eventsDesc;
 	}
@@ -59,13 +75,14 @@ public class Fine implements Serializable{
 		this.eventsDesc = eventsDesc;
 	}
 	
-	public float getFineMoney() {
-		return fineMoney;
+	public float getPunishMoney() {
+		return punishMoney;
 	}
-	public void setFineMoney(float fineMoney) {
-		this.fineMoney = fineMoney;
+
+	public void setPunishMoney(float punishMoney) {
+		this.punishMoney = punishMoney;
 	}
-	
+
 	public Project getProject() {
 		return project;
 	}

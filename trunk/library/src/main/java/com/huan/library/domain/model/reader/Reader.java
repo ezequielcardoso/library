@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.huan.library.domain.model.dict.Certificate;
+import com.huan.library.util.Constants;
 
 /**
  * 读者
@@ -32,7 +33,7 @@ public class Reader implements Serializable {
 	private int id; // 主键
 	private String readerName;  // 读者姓名
 	private Date birthday;      //出生日期
-	private String sex;         // 姓名 M:男 F:女
+	private String sex = Constants.MALE;  // 姓名 M:男 F:女
 	private String email;       // 邮箱
 	private String contactTel;  // 联系电话
 	private float leftMoney = 0.0f; // 余额

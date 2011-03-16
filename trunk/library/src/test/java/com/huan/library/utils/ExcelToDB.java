@@ -10,7 +10,11 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.huan.library.domain.model.book.Category;
-
+/**
+ * 将图书分类信息导入数据库
+ * @author huan
+ * @time  2011-3-16 上午11:42:20
+ */
 public class ExcelToDB {
 
 	private static String filePath = "f:\\test.xls";

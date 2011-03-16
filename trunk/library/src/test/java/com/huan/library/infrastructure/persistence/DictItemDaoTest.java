@@ -8,7 +8,7 @@ import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.domain.model.dict.Resource;
 /**
  * Êý¾Ý×Öµädao²âÊÔ
- * @author Administrator
+ * @author huan
  * @time  2011-3-13 ÏÂÎç07:50:41
  */
 public class DictItemDaoTest {
@@ -29,7 +29,6 @@ public class DictItemDaoTest {
 		try {
 			dictItemDao.saveOrUpdate(resource);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
