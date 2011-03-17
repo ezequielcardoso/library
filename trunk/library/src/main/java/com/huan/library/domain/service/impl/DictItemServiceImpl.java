@@ -60,7 +60,7 @@ public class DictItemServiceImpl implements DictItemService {
 	public DictItem findDictItemById(int dictItemId) throws Exception {
 		DictItem dictItem = null;
 		try {
-			dictItem =  dictItemDao.get(dictItemId);			
+			dictItem =  dictItemDao.selectById(dictItemId);			
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return null;

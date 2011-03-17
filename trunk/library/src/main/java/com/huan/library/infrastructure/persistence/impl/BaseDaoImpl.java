@@ -15,6 +15,7 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 
 import com.huan.library.infrastructure.persistence.BaseDao;
 import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBean;
+import com.huan.library.util.PageModel;
 /**
  * 抽象BaseDao实现
  * @author huan
@@ -73,7 +74,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 		}
 	}
 
-	public T get(Serializable entityId) throws Exception{
+	public T selectById(Serializable entityId) throws Exception{
 		  T t = null; 
 		try{
 			t = getHibernateTemplate().load(entityClass, entityId);
@@ -91,8 +92,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 		 ts = getHibernateTemplate().executeFind(new HibernateCallback(){
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
-				return	session.createQuery("from ?")
-				.setParameter(0, entityName)
+				return	session.createQuery("from " +entityClass.getName())
 				.list();
 			}
 		 })	;		
@@ -105,16 +105,50 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 	
 	@SuppressWarnings("unchecked")
 	public List<T> selectMaxTs() throws Exception {
-		List<T> ts = new ArrayList<T>();
+		List<T> list = new ArrayList<T>();
 		try {
-			ts = (List<T>) getHibernateTemplate().find("from ?")
-			     .set(0,entityName);
+			list = (List<T>) getHibernateTemplate().find("from ",entityClass.getName());
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return null;
  		}
-		return ts;
+		return list;
 	}
-	
-	    
+	@SuppressWarnings("unchecked")
+	public PageModel<T> selectByPage(final int pageNo, final int pageSize) throws Exception {
+		PageModel<T> pageModel = new PageModel<T>();
+		List<T> resultList = new ArrayList<T>();
+		try {
+			resultList = getHibernateTemplate().executeFind(new HibernateCallback(){
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					return session.createQuery("from "+entityClass.getName()+" order by id")
+					    .setFirstResult(pageNo)
+					    .setMaxResults(pageSize).list();
+				}
+				
+			});
+			pageModel.setPageNo(pageNo * pageSize);
+			pageModel.setPageSize((pageNo - 1) * pageSize);
+			pageModel.setTotalRecords(selectTotalRecords());
+			pageModel.setRestleList(resultList);
+		} catch (Exception e) {
+		   e.printStackTrace();
+		   return null;
+		}
+		return pageModel;
+	}
+	/**
+	 * 查询总的记录数
+	 * @return
+	 * @throws Exception
+	 */
+	private Long selectTotalRecords() throws Exception {
+//        return (Long) this.getSession().createQuery("select count(*) from :entity")
+//        .setParameter("entity", entityClass.getName())
+//        .uniqueResult();
+//        上面的东西怎么实现不了
+		return (Long) getSession().createQuery("select count(*) from " + entityClass.getName())
+		                    .uniqueResult();
+	}	
 }

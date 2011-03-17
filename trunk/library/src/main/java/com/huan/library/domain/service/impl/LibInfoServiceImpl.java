@@ -35,7 +35,7 @@ public class LibInfoServiceImpl implements LibInfoService {
 	public LibInfo findLibInfoById(int libInfoId) throws Exception {
 		LibInfo libInfo = new LibInfo();
 		try {
-			libInfo = libInfoDao.get(libInfoId);
+			libInfo = libInfoDao.selectById(libInfoId);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

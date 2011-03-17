@@ -40,6 +40,11 @@ public interface DictItemService {
 	 */
 	public List<DictItem> findAllDictItems() throws Exception;
 
+	/**
+	 * 根据类名的简单缩写查找DictItemView
+	 * @param className
+	 * @return
+	 */
 	public List<DictItemView> getDictItemByItemClass(String className);
 	
 }

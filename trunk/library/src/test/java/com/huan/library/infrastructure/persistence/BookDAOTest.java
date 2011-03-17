@@ -1,5 +1,7 @@
 package com.huan.library.infrastructure.persistence;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -8,8 +10,10 @@ import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.model.dict.Attachment;
+import com.huan.library.domain.model.dict.BookState;
 import com.huan.library.domain.model.dict.Certificate;
 import com.huan.library.domain.model.dict.Currency;
+import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.model.dict.Resource;
 /**
  * 图书dao测试类
@@ -39,7 +43,7 @@ public class BookDAOTest {
 		book.setBarCode("xx--222");
 	    book.setSearchBookId("m2");
 	    book.setSpeciesId("a21");
-	    book.setAllStage("xxxxxxxxxxx");
+	    book.setAllStage("11111");
 	    
 	    //附件
 	    Attachment attachment = new Attachment();
@@ -80,6 +84,11 @@ public class BookDAOTest {
 	    dictItemDao.saveOrUpdate(currency);
 	    book.setCurrency(currency);
 	    
+	    //图书状态
+	    BookState bookState = new BookState();
+	    bookState.setShortName("借阅中");
+	    dictItemDao.saveOrUpdate(bookState);
+	    book.setBookState(bookState);
   
 		bookDao.saveOrUpdate(book);
 

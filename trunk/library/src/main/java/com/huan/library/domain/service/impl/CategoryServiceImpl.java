@@ -37,7 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 	
 	public Category findCategoryById(String categoryId) throws Exception {
-		return categoryDao.get(categoryId);
+		return categoryDao.selectById(categoryId);
 	}
 	
 	public List<Category> findAllCategorys() throws Exception {

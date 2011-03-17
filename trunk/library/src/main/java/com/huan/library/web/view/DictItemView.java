@@ -14,8 +14,6 @@ public class DictItemView {
 	public DictItemView(){
 		
 	}
-	
-	
 
 	public DictItemView(String key, String value, String comment) {
 		super();

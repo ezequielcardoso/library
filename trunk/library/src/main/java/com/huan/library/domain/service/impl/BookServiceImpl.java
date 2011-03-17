@@ -34,7 +34,7 @@ public class BookServiceImpl implements BookService {
 	}
 
 	public Book findBookById(String bookId) throws Exception {
-		return bookDao.get(bookId);
+		return bookDao.selectById(bookId);
 	}
 	
 	public List<Book> findAllBooks() throws Exception {

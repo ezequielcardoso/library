@@ -33,13 +33,11 @@ public class BorrowReturn implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id; //主键
     
-	  
-	
 	private Date borrowedDate;       //借阅日期
 	private Date duetoReturnDate;    //应还日期
 	private Date realityReturndate;  //实还日期
 	private int overdueDays;         //逾期天数
-	private float exceedFine;        //罚金
+	private float puniMoney = 0;        //罚金
 	private boolean  isPay ;         //是或归还
 	private int   renewTimes;        //续借次数
 	
@@ -105,13 +103,15 @@ public class BorrowReturn implements Serializable{
 	public void setOverdueDays(int overdueDays) {
 		this.overdueDays = overdueDays;
 	}
-	public float getExceedFine() {
-		return exceedFine;
-	}
-	public void setExceedFine(float exceedFine) {
-		this.exceedFine = exceedFine;
-	}
 	
+	public float getPuniMoney() {
+		return puniMoney;
+	}
+
+	public void setPuniMoney(float puniMoney) {
+		this.puniMoney = puniMoney;
+	}
+
 	public boolean isPay() {
 		return isPay;
 	}

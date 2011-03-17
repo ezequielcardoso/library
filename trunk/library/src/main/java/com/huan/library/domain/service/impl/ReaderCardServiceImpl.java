@@ -49,7 +49,7 @@ public class ReaderCardServiceImpl implements ReaderCardService {
 	public ReaderCard findReaderCardById(int readerCardId) throws Exception {
 		ReaderCard readerCard = new ReaderCard();
 		try {
-			readerCard = readerCardDao.get(readerCardId);
+			readerCard = readerCardDao.selectById(readerCardId);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return null;

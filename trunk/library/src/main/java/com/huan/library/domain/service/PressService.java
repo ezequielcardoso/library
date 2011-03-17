@@ -3,6 +3,7 @@ package com.huan.library.domain.service;
 import java.util.List;
 
 import com.huan.library.domain.model.book.Press;
+import com.huan.library.util.PageModel;
 /**
  * 出版社业务层
  * @author huan
@@ -34,6 +35,13 @@ public interface PressService {
 	 * @return
 	 */
 	public List<Press> findAllPresses() throws Exception;
+
+	/**
+	 * 分页查找出版社
+	 * @return
+	 * @throws Exception
+	 */
+	public PageModel<Press> findPressesByPage(int pageNo,int pageSize) throws Exception;
 
 
 }
