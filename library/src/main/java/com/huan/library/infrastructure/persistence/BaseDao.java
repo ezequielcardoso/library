@@ -3,6 +3,8 @@ package com.huan.library.infrastructure.persistence;
 import java.io.Serializable;
 import java.util.List;
 
+import com.huan.library.util.PageModel;
+
 /**
  * 基础实体Dao
  * @author huan
@@ -28,7 +30,7 @@ public interface BaseDao<T> {
 	 * @param entityId
 	 * @return
 	 */
-	public T get(Serializable entityId) throws Exception;
+	public T selectById(Serializable entityId) throws Exception;
 	
 	/**
 	 * 返回小批量数据所有的实体
@@ -43,4 +45,13 @@ public interface BaseDao<T> {
 	 * @throws Exception
 	 */
 	public List<T> selectMaxTs() throws Exception;
+	/**
+	 * 分页查询
+	 * @param pageNo
+	 * @param pageSzie
+	 * @return
+	 * @throws Exception
+	 */
+	public PageModel<T> selectByPage(int pageNo,int pageSize) throws Exception;
+	
 }

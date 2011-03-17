@@ -62,11 +62,9 @@ public class Reader implements Serializable {
 	public Reader() {
 
 	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -171,5 +169,4 @@ public class Reader implements Serializable {
 	public void setReaderCard(ReaderCard readerCard) {
 		this.readerCard = readerCard;
 	}
-
 }

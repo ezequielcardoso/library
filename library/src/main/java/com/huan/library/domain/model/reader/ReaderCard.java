@@ -9,9 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.util.Constants;
 
 /**
@@ -43,17 +41,8 @@ public class ReaderCard implements Serializable{
 	private Reader reader;         //读者
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	private BorrowReturn borrowReturn;  //借阅归还
-	
 	public ReaderCard(){
 		
-	}
-	public BorrowReturn getBorrowReturn() {
-		return borrowReturn;
-	}
-	public void setBorrowReturn(BorrowReturn borrowReturn) {
-		this.borrowReturn = borrowReturn;
 	}
 	public int getId() {
 		return id;

@@ -40,7 +40,6 @@ public class Press implements Serializable{
 		this.pressISBN = pressISBN;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
@@ -49,7 +48,6 @@ public class Press implements Serializable{
 		return pressAddress;
 	}
 
-	
 	public String getPressName() {
 		return pressName;
 	}

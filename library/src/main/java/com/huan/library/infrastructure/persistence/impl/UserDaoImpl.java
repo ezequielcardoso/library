@@ -17,7 +17,7 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
 /**
  * 
  * @author shuaizhichun
- * @time 2010-12-16 ����04:56:04
+ * @time 2010-12-16 时间 04:56:04
  */
 @Repository("userDao")
 public class UserDaoImpl extends HibernateDaoSupportBean implements UserDao {

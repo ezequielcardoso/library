@@ -21,9 +21,9 @@ import com.huan.library.util.PageModel;
  * @author huan
  * @time  2011-3-16 обнГ03:42:51
  */
-public class PressInitTest {
+public class BookInitTest {
    
-	private static String filePath = "F:\\press.xls";
+	private static String filePath = "F:\\Book.xls";
 	
     private static PressDao pressDao;
     

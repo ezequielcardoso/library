@@ -11,7 +11,6 @@ import com.huan.library.domain.model.dict.Certificate;
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.model.reader.ReaderCard;
 import com.huan.library.domain.model.reader.ReaderType;
-import com.huan.library.domain.model.reader.ReaderUnits;
 /**
  * 读者dao测试
  * @author huan
@@ -54,13 +53,6 @@ public class ReaderDaoTest {
 		readerTypeDao.saveOrUpdate(readerType);
 		reader.setReaderType(readerType);
 		
-		//部门
-		ReaderUnits readerUnits = new ReaderUnits();
-		readerUnits.setShortName("信息五班");
-		readerUnits.setParent(null);
-		readerUnits.setItemCode("x005");
-		dictItemDao.saveOrUpdate(readerUnits);
-		reader.setReaderUnits(readerUnits);
 		
 		//借阅证
 		ReaderCard readerCard = new ReaderCard();

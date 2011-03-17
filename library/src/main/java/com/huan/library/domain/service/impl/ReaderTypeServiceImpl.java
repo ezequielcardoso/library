@@ -48,7 +48,7 @@ public class ReaderTypeServiceImpl implements ReaderTypeService {
 	public ReaderType findReaderTypeById(int readerTypeId) throws Exception {
 		ReaderType readerType = new ReaderType(); 
 		try {
-			readerType = readerTypeDao.get(readerTypeId);
+			readerType = readerTypeDao.selectById(readerTypeId);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return null;

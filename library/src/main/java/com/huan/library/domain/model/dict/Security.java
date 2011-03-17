@@ -4,7 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * 图书密级 /保留/浏览//公开/
+ * 图书密级 /1/2/3/4
  * @author shuaizhichun
  * @time 2011-3-6 下午10:24:56
  */

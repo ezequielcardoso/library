@@ -96,7 +96,7 @@ public class CategoryInitTest {
 				category.setCategoryId(categoryId);
 				category.setCategoryName(categoryName);
 				category.setCategoryCode(categoryCode);
-				Category categoryParent = categoryDao.get(parentCateId);
+				Category categoryParent = categoryDao.selectById(parentCateId);
 				category.setParent(categoryParent);
 				
 				categoryDao.saveOrUpdate(category);

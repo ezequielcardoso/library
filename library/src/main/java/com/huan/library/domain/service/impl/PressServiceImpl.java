@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
 import com.huan.library.infrastructure.persistence.PressDao;
+import com.huan.library.util.PageModel;
 
 @Service("pressService")
 public class PressServiceImpl implements PressService {
@@ -40,11 +41,32 @@ public class PressServiceImpl implements PressService {
 	}
 
 	public void removePress(Press press) throws Exception {
-		pressDao.delete(press);
+		try{
+		   pressDao.delete(press);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	public Press findPressById(int pressId) throws Exception {
-		return pressDao.get(pressId);
+		Press pressCopy = new Press();
+		try {
+			pressCopy = pressDao.selectById(pressId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		return pressCopy;
 	}
 
+	public PageModel<Press> findPressesByPage(int pageNo, int pageSize)
+			throws Exception {
+		PageModel<Press> pageModel = new PageModel<Press>();
+		try {
+			pageModel = pressDao.selectByPage(pageNo, pageSize);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+		return pageModel;
+	}
 }

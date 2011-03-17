@@ -47,7 +47,7 @@ public class ReaderServiceImpl implements ReaderService {
 	public Reader findReaderById(int readerId) throws Exception {
 		Reader reader = new Reader();
 		try {
-			reader = readerDao.get(readerId);
+			reader = readerDao.selectById(readerId);
 		} catch (Exception e) {
           e.printStackTrace();
           return null;

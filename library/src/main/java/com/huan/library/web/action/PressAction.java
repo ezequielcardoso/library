@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
+import com.huan.library.util.PageModel;
 import com.opensymphony.xwork2.Action;
 
 /**
@@ -126,5 +127,22 @@ public class PressAction extends BaseActionSupport{
 		return Action.SUCCESS;
 	}
 
+	/**
+	 * 分页查找出版社
+	 * @return
+	 * @throws Exception
+	 */
+	public String findPressesByPage() {
+		int pageNo=0;int pageSize=3;
+		PageModel<Press> pressModel = new PageModel<Press>();
+		try {
+			pressModel = pressService.findPressesByPage(pageNo, pageSize);
+			request.setAttribute("pressModel", pressModel);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
 
 }
