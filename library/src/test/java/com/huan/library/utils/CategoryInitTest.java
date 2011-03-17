@@ -18,11 +18,7 @@ import com.huan.library.infrastructure.persistence.CategoryDao;
 
 public class CategoryInitTest {
 
-	private static String filePath = "f:\\test.xls";
-	 String categoryId = null;
-     String categoryCode = null;
-     String categoryName = null;
-     String parentCateId = null;
+	private static String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\test.xls";
 	
 	private static CategoryDao categoryDao;
 	
@@ -48,7 +44,7 @@ public class CategoryInitTest {
 		}
 	}
 	
-	//@Test  //添加根节点
+	@Test  //添加根节点
 	public void testInsertRoot(){
 		Category category = new Category();
 		category.setCategoryId("ROOT");
@@ -82,7 +78,12 @@ public class CategoryInitTest {
           
            int totalRow = sheet.getLastRowNum();// 得到excel的总记录条数
           
-			for (int i = 1; i <=totalRow; i++) {
+	      	 String categoryId = null;
+	         String categoryCode = null;
+	         String categoryName = null;
+	         String parentCateId = null;
+
+			for (int i = 1; i <totalRow; i++) {
 				Category category = new Category();
 				row = sheet.getRow(i);
 				cell = row.getCell(0);
