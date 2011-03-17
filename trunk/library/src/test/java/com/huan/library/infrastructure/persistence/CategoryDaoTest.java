@@ -20,6 +20,9 @@ import com.huan.library.domain.model.book.Category;
 public class CategoryDaoTest {
 
 	private static CategoryDao categoryDao;
+	
+	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\test.xls";
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		categoryDao=(CategoryDao)BaseSpringBeans.getInstance().getBean("categoryDao");
@@ -62,9 +65,8 @@ public class CategoryDaoTest {
 	@Test
 	public void testImportCategorysFromExcel(){
 		List<Category> categorys = new ArrayList<Category>(); 
-		String fileName = "";
 		//取得excel文件
-        File file = new File(fileName);
+        File file = new File(filePath);
         Workbook wb;   
         try {
         	//打开workbook
@@ -92,16 +94,9 @@ public class CategoryDaoTest {
                         case 2:
                         	category.setCategoryName(lc.getContents());break;
                         case 3: //parent
-                        	//根据父Category Id 找出父Category，并给Category setParent
+                        	pcategory.setCategoryId(lc.getContents());
+                        	category.setParent(pcategory);
                         	;break;	
-                        case 4:
-                        	;break;
-                        case 5:
-                        	;break;
-                        case 6:
-                        	;break;
-                        case 7:
-                        	;break;
                         }   
                     }   
                 }   
