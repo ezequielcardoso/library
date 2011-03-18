@@ -13,7 +13,6 @@ import com.huan.library.domain.model.dict.Attachment;
 import com.huan.library.domain.model.dict.BookState;
 import com.huan.library.domain.model.dict.Certificate;
 import com.huan.library.domain.model.dict.Currency;
-import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.model.dict.Resource;
 /**
  * 图书dao测试类
