@@ -3,6 +3,7 @@ package com.huan.library.infrastructure.persistence;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
@@ -28,7 +29,7 @@ public class CategoryDaoTest {
 		categoryDao=(CategoryDao)BaseSpringBeans.getInstance().getBean("categoryDao");
 	}
 	
-	@Test
+	//@Test
 	public void testAddCategory(){
 	    
 		//添加第一个节点
@@ -67,7 +68,12 @@ public class CategoryDaoTest {
 		List<Category> categorys = new ArrayList<Category>(); 
 		//取得excel文件
         File file = new File(filePath);
+        Long begin = null;
+        Long end = null;
         Workbook wb;   
+        begin = System.currentTimeMillis();
+        System.out.println("开始时间"+System.currentTimeMillis());
+       
         try {
         	//打开workbook
             wb = Workbook.getWorkbook(file);  
@@ -106,6 +112,9 @@ public class CategoryDaoTest {
             //批量增加Category
             try {
     			categoryDao.insertCategorysBatch(categorys);
+    			end = 	System.currentTimeMillis();
+    			System.out.println("结束时间"+System.currentTimeMillis());
+    			System.out.println(begin-end);
     		} catch (Exception e) {
     			e.printStackTrace();
     		}
