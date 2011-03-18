@@ -11,27 +11,6 @@ import com.huan.library.domain.model.rights.Function;
 public interface FunctionDao {
 
 	/**
-	 * 保存或者修改Function
-	 * @param func
-	 * @return
-	 */
-	public boolean saveOrUpdateFunction(Function func);
-	
-	/**
-	 * 根据funcId 删除Function
-	 * @param func
-	 * @return
-	 */
-	public boolean deleteFunction(Function func);
-	
-	/**
-	 * 根据funcId 查找Function
-	 * @param funcId
-	 * @return
-	 */
-	public Function selectFunctionById(String funcId);
-	
-	/**
 	 * 根据roleId查找所有的Function
 	 * @param roleId
 	 * @return
