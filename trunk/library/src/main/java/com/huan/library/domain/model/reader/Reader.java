@@ -45,7 +45,7 @@ public class Reader implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "certificate")
-	private Certificate certificate; // 证件类别
+	private Certificate certificate; // 证件类别  学生证
 	
 	private String certificateCode; // 证件号码
 	private String readerDesc; // 读者描述
@@ -68,15 +68,12 @@ public class Reader implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getReaderName() {
 		return readerName;
 	}
-
 	public void setReaderName(String readerName) {
 		this.readerName = readerName;
 	}
-
 	public ReaderType getReaderType() {
 		return readerType;
 	}

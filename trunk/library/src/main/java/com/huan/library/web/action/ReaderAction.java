@@ -126,5 +126,32 @@ public class ReaderAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
-
+	/**
+	 * 显示充值界面
+	 * @return
+	 */
+	public String showRecharge(){
+		try {
+			request.setAttribute("reader", reader);
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  return Action.ERROR;
+		}
+		return "showRecharge";
+	}
+  
+	/**
+	 * 充值
+	 * @return
+	 */
+	public String recharge(){
+		Reader readerCopy = new Reader();
+		try {
+			readerCopy = readerService.addOrModifyReader(reader);
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
 }
