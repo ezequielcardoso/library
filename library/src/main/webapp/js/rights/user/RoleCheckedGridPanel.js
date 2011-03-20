@@ -77,10 +77,10 @@ Library.rights.grid.RoleCheckedGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			store : store,
 			stripeRows : true,
 			columnLines : true,
-			frame : true,
+			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,
-					pageSize : 20,
+					pageSize : 40,
 					afterPageText : '/ {0}',
 					beforePageText : '页',
 					displayInfo : true,
@@ -105,10 +105,37 @@ Library.rights.grid.RoleCheckedGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		
 		Library.rights.grid.RoleCheckedGridPanel.superclass.initComponent.call(this);
 		
-		//增加事件监听
-		this.addListener('rowclick', function(){
+//		//增加事件监听
+//		this.addListener('rowclick', function(){
+////			alert('rowclick');
+//		}, this);
+//		
+//		//增加事件监听
+//		this.addListener('rowdblclick', function(){
+////			alert('rowdblclick');
+//		}, this);
+		
+		sm.addListener('selectionchange', function(){
+//			alert('selectionchange');
+			if(this.hasSelection()){
+				alert('Y');
+			} else {
+				alert('N');
+			}
 			
-		}, this);
+		}, sm);
+		
+//		sm.addListener('rowdeselect', function(){
+//			alert('rowdeselect');
+//		});
+//		
+//		sm.addListener('beforerowselect', function(){
+//			alert('beforerowselect');
+//		});
+//		
+//		sm.addListener('rowselect', function(){
+//			alert('rowselect');
+//		});
 		
 	},
 	
