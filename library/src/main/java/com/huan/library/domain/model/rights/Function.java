@@ -68,6 +68,23 @@ public class Function implements Serializable{
 			fetch=FetchType.LAZY,cascade=CascadeType.REMOVE)
 	private List<Role> roles = new ArrayList<Role>();
 
+	public Function(){
+		
+	}
+	
+	public Function(int funcId, String funcName, boolean funcActive, int funcOrder, int level, String resCmpId,
+			String resCmpText, String resCmpIconCls, String resCmpHandURL){
+		this.funcId = funcId;
+		this.funcName = funcName;
+		this.funcActive = funcActive;
+		this.funcOrder = funcOrder;
+		this.level = level;
+		this.resCmpId = resCmpId;
+		this.resCmpText = resCmpText;
+		this.resCmpIconCls = resCmpIconCls;
+		this.resCmpHandURL = resCmpHandURL;
+	}
+	
 	public int getFuncId() {
 		return funcId;
 	}
