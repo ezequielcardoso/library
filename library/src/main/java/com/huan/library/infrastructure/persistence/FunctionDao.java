@@ -15,11 +15,17 @@ public interface FunctionDao {
 	 * @param roleId
 	 * @return
 	 */
-	public List<Function> selectFunctionsByRoleId(String roleId);
+	public List<Function> selectFunctionsByRoleId(String roleId) throws Exception;
 	
 	/**
 	 * 查找所有的Function
 	 * @return
 	 */
-	public List<Function> selectAllFunctions();
+	public List<Function> selectAllFunctions() throws Exception;
+
+	/**
+	 * 查找leve为1和2的所有功能
+	 * @return
+	 */
+	public List<Function> selectModuleFunctions() throws Exception;
 }
