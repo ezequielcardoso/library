@@ -1,6 +1,7 @@
-<link rel="stylesheet" type="text/css" href="<%=path %>/common/ext-3.3.1/resources/css/ext-all.css" />
-<script type="text/javascript" src="<%=path %>/common/ext-3.3.1/adapter/ext/ext-base.js"></script>
-<script type="text/javascript" src="<%=path %>/common/ext-3.3.1/ext-all.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=path %>/common/extjs3.2/resources/css/ext-all.css" />
+<script type="text/javascript" src="<%=path %>/common/extjs3.2/adapter/ext/ext-base-debug.js"></script>
+<script type="text/javascript" src="<%=path %>/common/extjs3.2/ext-all-debug.js"></script>
+<script type="text/javascript" src="<%=path %>/common/extjs3.2/ext-lang-zh_CN.js"></script>
 
 <script type="text/javascript" src="<%=path %>/js/basic/BaseTree.js"></script>
 <script type="text/javascript" src="<%=path %>/js/basic/BaseCheckTree.js"></script>
