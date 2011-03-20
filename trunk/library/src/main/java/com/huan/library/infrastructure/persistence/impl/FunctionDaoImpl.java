@@ -37,9 +37,11 @@ public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 		try{
 			StringBuilder hql = new StringBuilder();
 			hql.append(" select new Function( f.funcId, f.funcName, f.funcActive, f.funcOrder, f.level, " +
-					"f.resCmpId, f.resCmpText, f.resCmpIconCls, f.resCmpHandURL) "); 
-			hql.append(" from Function f ");
-			hql.append(" where f.level>0 and f.level<=2 ");
+					"f.resCmpId, f.resCmpText, f.resCmpIconCls, f.resCmpHandURL, p.funcId) "); 
+			hql.append(" from Function f " +
+					" left join f.parent p ");
+			hql.append(" where f.level>0 and f.level<=2 " +
+					" order by f.funcOrder ");
 			final String hqlIn = hql.toString();
 			HibernateCallback callback = new HibernateCallback(){
 

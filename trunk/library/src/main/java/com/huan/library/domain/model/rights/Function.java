@@ -72,7 +72,7 @@ public class Function implements Serializable{
 	}
 	
 	public Function(String funcId, String funcName, boolean funcActive, int funcOrder, int level, String resCmpId,
-			String resCmpText, String resCmpIconCls, String resCmpHandURL){
+			String resCmpText, String resCmpIconCls, String resCmpHandURL, String parentFuncId){
 		this.funcId = funcId;
 		this.funcName = funcName;
 		this.funcActive = funcActive;
@@ -82,6 +82,9 @@ public class Function implements Serializable{
 		this.resCmpText = resCmpText;
 		this.resCmpIconCls = resCmpIconCls;
 		this.resCmpHandURL = resCmpHandURL;
+		Function parent = new Function();
+		parent.setFuncId(parentFuncId);
+		this.parent = parent;
 	}
 	
 	public String getFuncId() {

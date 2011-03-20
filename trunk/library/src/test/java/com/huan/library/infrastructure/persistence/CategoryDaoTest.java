@@ -22,8 +22,8 @@ public class CategoryDaoTest {
 
 	private static CategoryDao categoryDao;
 	
-//	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\test.xls";
-	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\test.xls";
+	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\categories.xls";
+//	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\test.xls";
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		categoryDao=(CategoryDao)BaseSpringBeans.getInstance().getBean("categoryDao");
@@ -91,7 +91,6 @@ public class CategoryDaoTest {
                     Cell cell = sheet.getCell(j, i);   
                     if (cell.getType() == CellType.LABEL) {   
                         LabelCell lc = (LabelCell) cell;   
-//                        System.out.println(lc.getContents());
                         switch (j) {   
                         case 0:   
                         	category.setCategoryId(lc.getContents());break;   
