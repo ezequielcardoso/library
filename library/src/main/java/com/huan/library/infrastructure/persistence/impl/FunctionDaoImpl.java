@@ -7,13 +7,13 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.rights.Function;
-import com.huan.library.domain.model.rights.User;
 import com.huan.library.infrastructure.persistence.FunctionDao;
-import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBean;
 
 /**
  * 
@@ -21,7 +21,7 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
  * @time 2010-12-16 ����04:55:51
  */
 @Repository("functionDao")
-public class FunctionDaoImpl extends HibernateDaoSupportBean implements
+public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 		FunctionDao {
 
 	public List<Function> selectAllFunctions() {
@@ -57,5 +57,35 @@ public class FunctionDaoImpl extends HibernateDaoSupportBean implements
 		}
 		return funcs;
 	}
+	
+	public void insertFunctionsBatch(List<Function> functions) throws Exception {
+		try {
+
+			SessionFactory sessionFactory = this.getSessionFactory();
+			Session session = sessionFactory.openSession();
+			Transaction tx = session.getTransaction();
+			int i = 0;
+			for (Function function : functions) {
+				session.save(function);
+				if (i % 100 == 0) {
+					tx.begin();
+					session.flush();
+					session.clear();
+					tx.commit();
+				}
+				i++;
+			}
+			tx.begin();
+			session.flush();
+			session.clear();
+			tx.commit();
+			session.close();
+			sessionFactory.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+	}
+
 
 }

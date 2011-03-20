@@ -29,8 +29,8 @@ public class Function implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int funcId;//功能id
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+	private String funcId;//功能id
 	private String funcName;//名字
 	private boolean funcActive;//是否启用
 	
@@ -58,8 +58,7 @@ public class Function implements Serializable{
 	private Function parent;
 	
 	//子功能
-	@OneToMany(targetEntity=Function.class)
-	@JoinColumn(name="funcId")
+	@OneToMany(targetEntity=Function.class, mappedBy="parent")
 	private List<Function> children = new ArrayList<Function>();
 
 	//拥有此功能的所有角色对象
@@ -72,7 +71,7 @@ public class Function implements Serializable{
 		
 	}
 	
-	public Function(int funcId, String funcName, boolean funcActive, int funcOrder, int level, String resCmpId,
+	public Function(String funcId, String funcName, boolean funcActive, int funcOrder, int level, String resCmpId,
 			String resCmpText, String resCmpIconCls, String resCmpHandURL){
 		this.funcId = funcId;
 		this.funcName = funcName;
@@ -85,11 +84,11 @@ public class Function implements Serializable{
 		this.resCmpHandURL = resCmpHandURL;
 	}
 	
-	public int getFuncId() {
+	public String getFuncId() {
 		return funcId;
 	}
 
-	public void setFuncId(int funcId) {
+	public void setFuncId(String funcId) {
 		this.funcId = funcId;
 	}
 

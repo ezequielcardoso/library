@@ -33,8 +33,8 @@ public class DictItem implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
   
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int itemId;//主键 
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+	private String itemId;//主键 
 	
 	private boolean checked;//是否选中
 	
@@ -77,7 +77,7 @@ public class DictItem implements java.io.Serializable {
 		return itemCode;
 	}
 
-	public int getItemId() {
+	public String getItemId() {
 		return itemId;
 	}
 
@@ -133,7 +133,7 @@ public class DictItem implements java.io.Serializable {
 		this.itemCode = itemCode;
 	}
 
-	public void setItemId(int itemId) {
+	public void setItemId(String itemId) {
 		this.itemId = itemId;
 	}
 
