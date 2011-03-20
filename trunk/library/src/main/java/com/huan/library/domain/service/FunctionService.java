@@ -44,4 +44,10 @@ public interface FunctionService {
 	 * @return
 	 */
 	public List<Function> findAllFunctions() throws Exception;
+	
+	/**
+	 * 查找模块菜单的Function
+	 * @return
+	 */
+	public List<Function> findModuleFunctions() throws Exception;
 }
