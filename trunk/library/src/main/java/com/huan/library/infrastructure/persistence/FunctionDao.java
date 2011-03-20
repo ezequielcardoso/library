@@ -28,4 +28,11 @@ public interface FunctionDao {
 	 * @return
 	 */
 	public List<Function> selectModuleFunctions() throws Exception;
+	
+	/**
+	 * 批量增加
+	 * @param functions
+	 * @throws Exception
+	 */
+	public void insertFunctionsBatch(List<Function> functions) throws Exception;
 }
