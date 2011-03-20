@@ -149,7 +149,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			store : store,
 			stripeRows : true,
 			columnLines : true,
-			frame : true,
+			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,
 					pageSize : 20,
