@@ -46,7 +46,7 @@ public class PunishmentServiceTest {
 		//²Ù×÷ÏîÄ¿
 		dictItemViews = dictItemService.getDictItemByItemClass(Project.class.getName());
 		DictItemView dictItemView = dictItemViews.get(0);
-		project.setItemId(Integer.parseInt(dictItemView.getKey()));
+		project.setItemId(dictItemView.getKey());
 		project.setShortName(dictItemView.getComment());
 		dictItemService.addOrModifyDictItem(project);
 		punishment.setProject(project);
