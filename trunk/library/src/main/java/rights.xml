@@ -12,8 +12,9 @@
 			<result name="success">index.jsp</result>
 		</action>
 		<!-- 模板功能 -->
-		<action name="function" class="com.huan.library.web.action.FunctionAction" method="findModuleFunctions">
+		<action name="findModuleFunctions" class="com.huan.library.web.action.FunctionAction" method="findModuleFunctions">
 			<result name="success">/module/left.jsp</result>
+			<result name="error">/login.jsp</result>
 		</action>
             
     </package>

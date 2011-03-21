@@ -1,9 +1,13 @@
 package com.huan.library.web.action;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.huan.library.domain.model.rights.Function;
 import com.huan.library.domain.service.FunctionService;
 import com.opensymphony.xwork2.Action;
 
@@ -20,11 +24,21 @@ public class FunctionAction extends BaseActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private List<Function> moduleFunctions = new ArrayList<Function>();
+	
 	@Autowired
 	private FunctionService functionService ;
 	
 	public void setFunctionService(FunctionService functionService) {
 		this.functionService = functionService;
+	}
+
+	public List<Function> getModuleFunctions() {
+		return moduleFunctions;
+	}
+
+	public void setModuleFunctions(List<Function> moduleFunctions) {
+		this.moduleFunctions = moduleFunctions;
 	}
 
 	/**
@@ -34,7 +48,7 @@ public class FunctionAction extends BaseActionSupport {
 	 */
 	public String findModuleFunctions() {
 		try {
-	//		request.setAttribute("moduleFunctions", functionService.findModuleFunctions());
+			moduleFunctions = functionService.findModuleFunctions();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
