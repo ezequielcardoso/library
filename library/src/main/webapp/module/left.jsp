@@ -22,6 +22,8 @@ function LMYC(number) {
 } 
 
 function ShowFLT(i, number) { 
+	alert(i);
+	alert(number);
 	var lbmc = eval('LM' + i); 
 	var imageName='treePic'+ i;
 	var tName='tPic'+ i; 
@@ -51,11 +53,11 @@ function ShowFLT(i, number) {
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td class="title" style="padding-left: 23px">
-										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,6)"><strong><s:property value="resCmpText"/></strong>
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,<s:property value="#request.moduleFunctions.size()"/>-1)"><strong><s:property value="resCmpText"/></strong>
 										</a>
 									</td>
 									<td width="32" align="right">
-										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,6)">
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,<s:property value="#request.moduleFunctions.size()"/>-1)">
 											<img src="<%=path%>/images/module/t01.jpg" id="tPic<s:property value="#status.index"/>"
 												width="32" height="29"> </a>
 									</td>
@@ -74,21 +76,21 @@ function ShowFLT(i, number) {
 											height="8">
 									</td>
 								</tr>
-									<!-- 内层迭代开始 -->
-									<s:iterator id="child" value="children">
-									<tr>
-										<td height="26"
-											background="<%=path%>/images/module/main_11.jpg"
-											class="menu"
-											onMouseOver="this.style.background='url(<%=path%>/images/module/main_10.jpg)'"
-											onMouseOut="this.style.background='url(<%=path%>/images/module/main_11.jpg)'">
-											<a href="<%=path%>/module/<s:property value="resCmpHandURL"/>"
-												target="mainFrame">&nbsp;&nbsp;&nbsp; <img
-													src="<%=path%>/images/module/0.gif"><s:property value="resCmpText"/> </a>
-										</td>
-									</tr>
-									</s:iterator>
-									<!-- 内层迭代结束 -->
+								<!-- 内层迭代开始 -->
+								<s:iterator id="child" value="children">
+								<tr>
+									<td height="26"
+										background="<%=path%>/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(<%=path%>/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(<%=path%>/images/module/main_11.jpg)'">
+										<a href="<%=path%>/module/<s:property value="resCmpHandURL"/>"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="<%=path%>/images/module/0.gif"><s:property value="resCmpText"/> </a>
+									</td>
+								</tr>
+								</s:iterator>
+								<!-- 内层迭代结束 -->
 								<tr>
 									<td>
 										&nbsp;
