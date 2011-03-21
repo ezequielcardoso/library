@@ -13,7 +13,7 @@
 		</action>
 		<!-- 模板功能 -->
 		<action name="function/*" class="com.huan.library.web.action.FunctionAction" method="{1}">
-			<result name="success">/login.html</result>
+			<result name="success">/module/left.jsp</result>
 		</action>
             
     </package>
