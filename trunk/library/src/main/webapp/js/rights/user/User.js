@@ -6,4 +6,12 @@ Ext.onReady(function(){
 	var roleCheckedGridPanel = new Library.rights.grid.RoleCheckedGridPanel();
 	roleCheckedGridPanel.render('roleCheckedGrid');
 	
+	userGridPanel.getStore().load({
+							params : {
+								start : 0,
+								limit : 50
+							}
+						});
+	
+	
 });

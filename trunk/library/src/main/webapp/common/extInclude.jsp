@@ -6,4 +6,4 @@
 <script type="text/javascript" src="<%=path %>/js/basic/BaseTree.js"></script>
 <script type="text/javascript" src="<%=path %>/js/basic/BaseCheckTree.js"></script>
 <script type="text/javascript" src="<%=path %>/js/basic/BaseCheckTreeWindow.js"></script>
-<script type="text/javascript" src="<%=path %>/js/dickItem/BookSourceCheckTree.js"></script>
+<script type="text/javascript" src="<%=path %>/js/dictItem/BookSourceCheckTree.js"></script>
