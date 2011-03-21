@@ -24,8 +24,6 @@ public interface FunctionDao extends BaseDao<Function>{
 	 */
 	public void insertFunctionsBatch(List<Function> functions) throws Exception;
 	
-	public List<Function> selectAllFunctions() throws Exception;
-
 	/**
 	 * 查找leve为1和2的所有功能
 	 * @return

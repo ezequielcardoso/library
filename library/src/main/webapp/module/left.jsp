@@ -15,7 +15,7 @@ function LMYC(number) {
 		lbmc = eval('LM' + i); 
 		var imageName='treePic'+ i; 
 		var tName='tPic'+ i; 
-		document.getElementById(tName).src="<%=path);%>/images/module/t02.jpg";
+		document.getElementById(tName).src="<%=path %>/images/module/t02.jpg";
 		lbmc.style.display = 'none'; 
 		document.getElementById(imageName).style.height='50px';
 	} 
@@ -28,8 +28,7 @@ function ShowFLT(i, number) {
 	if (lbmc.style.display == 'none') { 
 		LMYC(number); 
 		lbmc.style.display = ''; 
-		document.getElementById(tName).src="<%=path)
-	;%>/images/module/t01.jpg";
+		document.getElementById(tName).src="<%=path %>/images/module/t01.jpg";
 			document.getElementById(imageName).style.height = '';
 		}
 	}
@@ -59,17 +58,16 @@ function ShowFLT(i, number) {
     		}
     	}
     -->
-			<s:iterator value="#request.moduleFunctions" var="moduleFunction">
-				<s:if test="moduleFunction.level == 1">
-					<!-- 外层迭代开始 -->
+				<!-- 外层迭代开始 -->
+				<s:iterator value="#request.moduleFunctions">
 					<tr>
 						<td height="5">
-							<img src="<%=path);%>/images/module/main_05.jpg" width="138"
+							<img src="<%=path%>/images/module/main_05.jpg" width="138"
 								height="5">
 						</td>
 					</tr>
 					<tr>
-						<td height="29" background="<%=path);%>/images/module/main_08.jpg">
+						<td height="29" background="<%=path%>/images/module/main_08.jpg">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td class="title" style="padding-left: 23px">
@@ -77,9 +75,8 @@ function ShowFLT(i, number) {
 										</a>
 									</td>
 									<td width="32" align="right">
-										<a href="javascript:void(0)" onCjavascript:ShowFLT(
-1,7)">
-											<img src="<%=path);%>/images/module/t01.jpg" id="tPic1"
+										<a href="javascript:void(0)" onCjavascript:ShowFLT(1,7)">
+											<img src="<%=path%>/images/module/t01.jpg" id="tPic1"
 												width="32" height="29"> </a>
 									</td>
 								</tr>
@@ -90,29 +87,28 @@ function ShowFLT(i, number) {
 						<td valign="top" id="treePic1">
 							<table width="100%" height="100%" border="0" align="center"
 								cellpadding="0" cellspacing="0"
-								background="<%=path);%>/images/module/main_12.jpg">
+								background="<%=path%>/images/module/main_12.jpg">
 								<tr>
 									<td height="8">
-										<img src="<%=path);%>/images/module/main_09.jpg" width="138"
+										<img src="<%=path%>/images/module/main_09.jpg" width="138"
 											height="8">
 									</td>
 								</tr>
-								</s:if>
-								<s:if test="">
 									<!-- 内层迭代开始 -->
+									<s:iterator>
 									<tr>
 										<td height="26"
-											background="<%=path);%>/images/module/main_11.jpg"
+											background="<%=path%>/images/module/main_11.jpg"
 											class="menu"
-											onMouseOver="this.style.background='url(<%=path);%>/images/module/main_10.jpg)'"
-											onMouseOut="this.style.background='url(<%=path);%>/images/module/main_11.jpg)'">
-											<a href="<%=path);%>/module/book/bookList.jsp"
+											onMouseOver="this.style.background='url(<%=path%>/images/module/main_10.jpg)'"
+											onMouseOut="this.style.background='url(<%=path%>/images/module/main_11.jpg)'">
+											<a href="<%=path%>/module/book/bookList.jsp"
 												target="mainFrame">&nbsp;&nbsp;&nbsp; <img
-													src="<%=path);%>/images/module/0.gif">图书基本管理 </a>
+													src="<%=path%>/images/module/0.gif">图书基本管理 </a>
 										</td>
 									</tr>
+									</s:iterator>
 									<!-- 内层迭代结束 -->
-								</s:if>
 								<tr>
 									<td>
 										&nbsp;
@@ -120,17 +116,18 @@ function ShowFLT(i, number) {
 								</tr>
 								<tr>
 									<td height="17">
-										<img src="<%=path);%>/images/module/main_15.jpg">
+										<img src="<%=path%>/images/module/main_15.jpg">
 									</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
-					<!-- 外层迭代结束 -->
-			</s:iterator>
+				</s:iterator>
+				<!-- 外层迭代结束 -->
+			
 			<tr>
 				<td height="5">
-					<img src="<%=path);%>/images/module/leftbottom.jpg">
+					<img src="<%=path%>/images/module/leftbottom.jpg">
 				</td>
 			</tr>
 		</table>
