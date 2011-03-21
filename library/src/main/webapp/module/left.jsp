@@ -7,7 +7,7 @@
 		<%@include file="/common/common.jsp"%>
 
 		<script language="javascript"> 
-<!-- 
+
 function LMYC(number) { 
 	var lbmc; 
 	var treePic; 
@@ -33,7 +33,6 @@ function ShowFLT(i, number) {
 			document.getElementById(imageName).style.height = '';
 		}
 	}
-	//-->
  
 </script>
 	</head>

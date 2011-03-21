@@ -34,7 +34,7 @@ public class FunctionAction extends BaseActionSupport {
 	 */
 	public String findModuleFunctions() {
 		try {
-			request.setAttribute("moduleFunctions", functionService.findModuleFunctions());
+	//		request.setAttribute("moduleFunctions", functionService.findModuleFunctions());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
