@@ -40,12 +40,6 @@ public interface FunctionService {
 	public List<Function> findFunctionsByRoleId(String roleId) throws Exception;
 	
 	/**
-	 * 查找所有的Function
-	 * @return
-	 */
-	public List<Function> findAllFunctions() throws Exception;
-	
-	/**
 	 * 查找模块菜单的Function
 	 * @return
 	 */

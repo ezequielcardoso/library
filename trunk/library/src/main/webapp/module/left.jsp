@@ -11,7 +11,7 @@
 function LMYC(number) { 
 	var lbmc; 
 	var treePic; 
-	for (i=1;i<=number;i++) { 
+	for (i=0;i<=number;i++) { 
 		lbmc = eval('LM' + i); 
 		var imageName='treePic'+ i; 
 		var tName='tPic'+ i; 
@@ -38,53 +38,33 @@ function ShowFLT(i, number) {
 	<body>
 		<table width="138" height="100%" border="0" cellpadding="0"
 			cellspacing="0">
-			<!-- 
-    	在common.jsp中引入了struts2标签
-    	
-    	请求FunctionAction 中 findModuleFunctions method 返回的数据
-    	用ognl实现菜单输出
-    	
-    	1.取得level=1 funcs的 size 为7
-    	2.迭代 funcs {
-    	 	i 从1开始增长;
-    		onClick="javascript:ShowFLT(i,size)";
-    		<strong>resCmpText</strong>;
-    		id="tPic" + i;
-    		id="LM" + i;
-    		id="treePic" + i;
-    		迭代funcs.get(i).getChildren() {
-    			输出resCmphandUrl
-    			resCmpText
-    		}
-    	}
-    -->
+				<tr>
+					<td height="5">
+						<img src="<%=path%>/images/module/main_05.jpg" width="138"
+							height="5">
+					</td>
+				</tr>
 				<!-- 外层迭代开始 -->
-				<s:iterator value="#request.moduleFunctions">
-					<tr>
-						<td height="5">
-							<img src="<%=path%>/images/module/main_05.jpg" width="138"
-								height="5">
-						</td>
-					</tr>
+				<s:iterator value="#request.moduleFunctions" id="parent" status="status" >
 					<tr>
 						<td height="29" background="<%=path%>/images/module/main_08.jpg">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td class="title" style="padding-left: 23px">
-										<a href="javascript:void(0)" onCjavascript:ShowFLT(1,7)"><strong>书刊管理</strong>
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,6)"><strong><s:property value="resCmpText"/></strong>
 										</a>
 									</td>
 									<td width="32" align="right">
-										<a href="javascript:void(0)" onCjavascript:ShowFLT(1,7)">
-											<img src="<%=path%>/images/module/t01.jpg" id="tPic1"
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,6)">
+											<img src="<%=path%>/images/module/t01.jpg" id="tPic<s:property value="#status.index"/>"
 												width="32" height="29"> </a>
 									</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
-					<tr id="LM1">
-						<td valign="top" id="treePic1">
+					<tr id="LM<s:property value="#status.index"/>">
+						<td valign="top" id="treePic<s:property value="#status.index"/>">
 							<table width="100%" height="100%" border="0" align="center"
 								cellpadding="0" cellspacing="0"
 								background="<%=path%>/images/module/main_12.jpg">
@@ -95,16 +75,16 @@ function ShowFLT(i, number) {
 									</td>
 								</tr>
 									<!-- 内层迭代开始 -->
-									<s:iterator>
+									<s:iterator id="child" value="children">
 									<tr>
 										<td height="26"
 											background="<%=path%>/images/module/main_11.jpg"
 											class="menu"
 											onMouseOver="this.style.background='url(<%=path%>/images/module/main_10.jpg)'"
 											onMouseOut="this.style.background='url(<%=path%>/images/module/main_11.jpg)'">
-											<a href="<%=path%>/module/book/bookList.jsp"
+											<a href="<%=path%>/module/<s:property value="resCmpHandURL"/>"
 												target="mainFrame">&nbsp;&nbsp;&nbsp; <img
-													src="<%=path%>/images/module/0.gif">图书基本管理 </a>
+													src="<%=path%>/images/module/0.gif"><s:property value="resCmpText"/> </a>
 										</td>
 									</tr>
 									</s:iterator>
