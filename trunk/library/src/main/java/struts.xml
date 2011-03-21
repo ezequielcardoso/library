@@ -29,11 +29,9 @@
 		<action name="index" class="com.huan.library.web.action.UserAction" method="index">
 			<result name="success">login.jsp</result>
 		</action>
-		<!--  
 		<action name="login" class="com.huan.library.web.action.UserAction" method="login">
 			<result name="success">/module/index.jsp</result>
 		</action>
-		-->
     </package>
 
 </struts>
