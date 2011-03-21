@@ -5,7 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * 附件名称dvd/vcd/cd/src...
+ * 附件名称 dvd/vcd/cd/src...
  * @author huan
  * @time 2011-3-8  上午11:06:21
  */
