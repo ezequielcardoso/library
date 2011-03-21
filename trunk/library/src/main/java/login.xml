@@ -5,10 +5,10 @@
 
 <struts>
     <!-- 登录模块 -->
-    <package name="login" namespace="login" extends="library">
+    <package name="login" namespace="/login" extends="library">
 
 		<action name="loginAction" class="com.huan.library.web.action.LoginAction">
-			<result>/main/module/index.jsp</result>
+			<result>/module/index.jsp</result>
 		</action>
     </package>
 </struts>
