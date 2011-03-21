@@ -1,10 +1,5 @@
 package com.huan.library.web.action;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -30,14 +25,6 @@ public class BookAction extends BaseActionSupport {
      
 	private Book book = new Book();   //图书信息
 	
-	private String bookId;            //图书编号
-
-
-	public void setBookId(String bookId) {
-		this.bookId = bookId;
-	}
-	private List<Book> books = new ArrayList<Book>();
-	
 	public Book getBook() {
 		return book;
 	}
@@ -45,15 +32,6 @@ public class BookAction extends BaseActionSupport {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	
-	public List<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
-	
 	
     public void setBookService(BookService bookService) {
 		this.bookService = bookService;
@@ -71,7 +49,7 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String saveBook() {
+	public String saveBook(){
 		try {
 			bookService.addOrModifyBook(book);
 		} catch (Exception e) {
@@ -84,6 +62,11 @@ public class BookAction extends BaseActionSupport {
      * 显示修改图书
      */
 	public String showModifyBook(){
+		try {
+		  request.setAttribute("book", book);
+		} catch (Exception e) {
+		  e.printStackTrace();
+		}
 		return "showModifyBook";
 	}
 	
@@ -94,7 +77,6 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String modifyBook() {
 		try {
-			book.setId(Integer.parseInt(bookId));
 			bookService.addOrModifyBook(book);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,9 +90,8 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String delete() {
+	public String deleteBook() {
 		try {
-			book.setId(Integer.parseInt(bookId));
 			bookService.removeBook(book);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -119,20 +100,6 @@ public class BookAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-	/**
-	 * 根据BookId查找Book
-	 * @return
-	 * @throws Exception
-	 */
-	public String findById() {
-		try {
-			request.setAttribute("book", bookService.findBookById(String.valueOf(book.getId())));
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
 	/**
 	 * 查找所有的图书
 	 * @return
