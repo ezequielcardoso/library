@@ -25,7 +25,7 @@ import com.huan.library.domain.model.rights.Function;
  */
 public class FunctionDaoTest {
 
-	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\functions.xls";
+	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\functionsCopy.xls";
 	private static FunctionDao functionDao;
 
 	@BeforeClass
@@ -59,60 +59,63 @@ public class FunctionDaoTest {
 					if (cell.getType() == CellType.NUMBER) {
 						NumberCell numberCell = (NumberCell) cell;
 						switch (j) {
-						case 1:
+						case 0:
+							function.setFuncId(String.valueOf(numberCell.getValue()));
+							break;
+						case 2:
 							boolean funcActive = false;
 							if (numberCell.getValue() == 1) {
 								funcActive = false;
 							}
 							function.setFuncActive(funcActive);
 							break;
-						case 2:
+						case 3:
 							function.setFuncOrder((int) numberCell.getValue());
 							break;
-						case 5:
+						case 6:
 							function.setLevel((int) numberCell.getValue());
 							break;
-						case 12:
-			//				pFunction.setFuncId((int) numberCell.getValue());
+						case 7:
+							Boolean isLeaf = false;
+							if (numberCell.getValue() == 1) {
+								isLeaf = true;
+							}
+							function.setLeaf(isLeaf);
+							break;
+						case 8:
+							Boolean isChecked = false;
+							if (numberCell.getValue() == 1) {
+								isChecked = true;
+							}
+							function.setLeaf(isChecked);
+							break;
+						case 9:
+							function.setResCmpId(String.valueOf(numberCell.getValue()));
+							break;
+						case 13:
+							pFunction.setFuncId(String.valueOf(numberCell.getValue()));
 							function.setParent(pFunction);
 							break;
 						}
 					} else if (cell.getType() == CellType.LABEL) {
 						LabelCell lc = (LabelCell) cell;
 						switch (j) {
-						case 0:
+						case 1:
 							function.setFuncName(lc.getContents());
 							break;
-						case 3:
+						case 4:
 							function.setFuncLogUrl(lc.getContents());
 							break;
-						case 4:
+						case 5:
 							function.setFuncLogDesc(lc.getContents());
 							break;
-						case 6:
-							Boolean isLeaf = false;
-							if (lc.getColumn() == 1) {
-								isLeaf = true;
-							}
-							function.setLeaf(isLeaf);
-							break;
-						case 7:
-							Boolean isChecked = false;
-							if (lc.getColumn() == 1) {
-								isChecked = true;
-							}
-							function.setLeaf(isChecked);
-							break;
-						case 8:
-	//						function.setFuncId(lc.getColumn());
-							break;
-						case 9:
+						case 10:
 							function.setResCmpText(lc.getContents());
 							break;
-						case 10:
+						case 11:
 							function.setResCmpIconCls(lc.getContents());
 							break;
-						case 11:
+						case 12:
 							function.setResCmpHandURL(lc.getContents());
 							break;
 						}

@@ -31,7 +31,7 @@ function mysubmit(form1)
 <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
   <tr>
     <td height="678" background="<%=path%>/images/module/bglogin.jpg"><table  width="1024" height="678" border="0" align="center" cellpadding="0" cellspacing="0">
-      <form name="login" method="post" action="<%=path%>/module/index.jsp" onSubmit="return mysubmit(this)">
+      <form name="login" method="post" action="<%=path%>/login/login.action" onSubmit="return mysubmit(this)">
       <tr>
         <td><img src="<%=path%>/images/module/login_01.jpg" width="287" height="271" alt=""></td>
         <td><img src="<%=path%>/images/module/login_02.jpg" width="106" height="271" alt=""></td>
