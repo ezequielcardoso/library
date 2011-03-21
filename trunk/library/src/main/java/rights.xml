@@ -5,14 +5,14 @@
 
 <struts>
 
-    <package name="rights" namespace="rights" extends="library">
+    <package name="rights" namespace="/rights" extends="library">
 
 		<!-- 用户 -->
 		<action name="addUser" class="com.huan.library.web.action.UserAction" method="add">
 			<result name="success">index.jsp</result>
 		</action>
 		<!-- 模板功能 -->
-		<action name="function/*" class="com.huan.library.web.action.FunctionAction" method="{1}">
+		<action name="function" class="com.huan.library.web.action.FunctionAction" method="findModuleFunctions">
 			<result name="success">/module/left.jsp</result>
 		</action>
             
