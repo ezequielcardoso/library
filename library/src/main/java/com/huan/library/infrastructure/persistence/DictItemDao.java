@@ -14,4 +14,10 @@ public interface DictItemDao extends BaseDao<DictItem>{
 	public List<DictItem> selectAllDictItems() throws Exception;
 
 	public List<DictItem> getDictItemMapbyItemClass(String className);
+	/**
+	 * 批量导入
+	 * @param dictItems
+	 * @throws Exception
+	 */
+	public void insertDictItemsBatch(List<DictItem> dictItems) throws Exception;
 }
