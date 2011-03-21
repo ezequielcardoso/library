@@ -9,28 +9,7 @@ import com.huan.library.domain.model.rights.User;
  * @author shuaizhichun
  * @time 2010-12-16 下午04:55:26
  */
-public interface UserDao {
-	
-	/**
-	 * 增加或者修改User
-	 * @param user
-	 * @return
-	 */
-	public boolean saveOrUpdateUser(User user) throws Exception;
-	
-	/**
-	 * 根据id删除User
-	 * @param user
-	 * @return
-	 */
-	public boolean deleteUser(User user) throws Exception;
-	
-	/**
-	 * 根据userId 查找User
-	 * @param userId
-	 * @return
-	 */
-	public User selectUserById(String userId) throws Exception;
+public interface UserDao extends BaseDao<User> {
 	
 	/**
 	 * 根据deptId查找所有的User

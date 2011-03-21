@@ -1,35 +1,37 @@
 package com.huan.library.web.action;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.UserService;
 import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionSupport;
 
-public class UserAction extends ActionSupport {
+@Controller("userAction")
+public class UserAction extends BaseActionSupport {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@Autowired
 	private UserService userService;
 	
-	private List<User> users = new ArrayList<User>();
+	private Map<String, Object> results = new HashMap<String, Object>();
 	
-	public List<User> getUsers() {
-		return users;
+	public Map<String, Object> getResults() {
+		return results;
 	}
 
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public void setResults(Map<String, Object> results) {
+		this.results = results;
 	}
-	
-	@Autowired
+
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
@@ -44,7 +46,9 @@ public class UserAction extends ActionSupport {
 	
 	public String findAllUsersInJson(){
 		try {
-			users = userService.findAllUsers();
+			List<User> users = userService.findAllUsers();
+			results.put("rows", users);
+			results.put("totalProperty", 8);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

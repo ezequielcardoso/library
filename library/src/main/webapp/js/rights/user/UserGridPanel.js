@@ -63,28 +63,28 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		}];
 		
-		var usersArr = [
-			['1', '212121212fs', 'zhangsan', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
-			['2', '2fefef21212', 'lisi', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
-			['3', '21fgt3se212', 'wangwu', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
-			['4', '2fsfsfsfsfs', 'zhaoliu', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424']
-		];
-		
-		var store = new Ext.data.ArrayStore({
-			data : usersArr,
-			fields : fields
-		});
-		
-//		var store = new Ext.data.JsonStore({
-//			url : 'rights/findUsers.action',
-//			totalProperty : 'results',
-//			root : 'rows',
-//			storeInfo : {
-//				field : '列名',
-//				direction : 'ASC|DESC'
-//			},
+//		var usersArr = [
+//			['1', '212121212fs', 'zhangsan', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
+//			['2', '2fefef21212', 'lisi', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
+//			['3', '21fgt3se212', 'wangwu', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
+//			['4', '2fsfsfsfsfs', 'zhaoliu', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424']
+//		];
+//		
+//		var store = new Ext.data.ArrayStore({
+//			data : usersArr,
 //			fields : fields
 //		});
+		
+		var store = new Ext.data.JsonStore({
+			url : contextPath + '/rights/userList.action',
+			totalProperty : 'totalProperty',
+			root : 'root',
+			storeInfo : {
+				field : '列名',
+				direction : 'ASC|DESC'
+			},
+			fields : fields
+		});
 		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), {
 				header : '用户账号',
 				dataIndex : 'userAccount',
@@ -152,7 +152,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,
-					pageSize : 20,
+					pageSize : 50,
 					afterPageText : '/ {0}',
 					beforePageText : '页',
 					displayInfo : true,

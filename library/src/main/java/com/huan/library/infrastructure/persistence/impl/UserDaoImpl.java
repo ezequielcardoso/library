@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.rights.User;
 import com.huan.library.infrastructure.persistence.UserDao;
-import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBean;
 
 /**
  * 
@@ -20,26 +19,8 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
  * @time 2010-12-16 时间 04:56:04
  */
 @Repository("userDao")
-public class UserDaoImpl extends HibernateDaoSupportBean implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
-	public boolean saveOrUpdateUser(User user) throws Exception{
-		try{
-			this.getHibernateTemplate().saveOrUpdate(user);
-		} catch(Exception e){
-			e.printStackTrace();
-		}
-		return true;
-	}
-	
-	public boolean deleteUser(User user) throws Exception{
-		try{
-			this.getHibernateTemplate().delete(user);
-		} catch(Exception e){
-			e.printStackTrace();
-		}
-		return true;
-	}
-	
 	@SuppressWarnings("unchecked")
 	public List<User> selectAllUsers() throws Exception{
 		List<User> users = new ArrayList<User>();
@@ -50,11 +31,6 @@ public class UserDaoImpl extends HibernateDaoSupportBean implements UserDao {
 			e.printStackTrace();
 		}
 		return users;
-	}
-
-	public User selectUserById(String userId) throws Exception {
-		User user = (User)this.getHibernateTemplate().load(User.class, userId);
-		return user;
 	}
 
 	public List<User> selectUsersByDeptId(final String deptId) throws Exception {

@@ -11,6 +11,11 @@
 		<action name="addUser" class="com.huan.library.web.action.UserAction" method="add">
 			<result name="success">index.jsp</result>
 		</action>
+		<action name="userList" class="com.huan.library.web.action.UserAction" method="findAllUsersInJson">
+			<result name="success" type="json">
+				<param name="root">results</param>
+			</result>
+		</action>
 		<!-- 模板功能 -->
 		<action name="findModuleFunctions" class="com.huan.library.web.action.FunctionAction" method="findModuleFunctions">
 			<result name="success">/module/left.jsp</result>
