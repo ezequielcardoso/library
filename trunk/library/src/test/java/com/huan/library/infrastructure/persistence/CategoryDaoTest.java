@@ -3,7 +3,6 @@ package com.huan.library.infrastructure.persistence;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import jxl.Cell;
@@ -68,11 +67,7 @@ public class CategoryDaoTest {
 		List<Category> categorys = new ArrayList<Category>(); 
 		//取得excel文件
         File file = new File(filePath);
-        Long begin = null;
-        Long end = null;
         Workbook wb;   
-        begin = System.currentTimeMillis();
-        System.out.println("开始时间"+System.currentTimeMillis());
        
         try {
         	//打开workbook
@@ -101,7 +96,7 @@ public class CategoryDaoTest {
                         case 3: //parent
                         	pcategory.setCategoryId(lc.getContents());
                         	category.setParent(pcategory);
-                        	;break;	
+                        	break;	
                         }   
                     }   
                 }   
@@ -111,9 +106,6 @@ public class CategoryDaoTest {
             //批量增加Category
             try {
     			categoryDao.insertCategorysBatch(categorys);
-    			end = 	System.currentTimeMillis();
-    			System.out.println("结束时间"+System.currentTimeMillis());
-    			System.out.println(begin-end);
     		} catch (Exception e) {
     			e.printStackTrace();
     		}

@@ -25,8 +25,7 @@ import com.huan.library.domain.model.rights.Function;
  */
 public class FunctionDaoTest {
 
-//	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\functions.xls";
-	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\复件 (2) functions.xls";
+	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\functions.xls";
 	private static FunctionDao functionDao;
 
 	@BeforeClass
@@ -35,16 +34,6 @@ public class FunctionDaoTest {
 				"functionDao");
 	}
 
-	@Test
-	public void testSelectModuleFunctions(){
-		List<Function> functions = new ArrayList<Function>();
-		try {
-			functions = functionDao.selectModuleFunctions();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 	@Test
 	public void testImportCategorysFromExcel() {
 		List<Function> functions = new ArrayList<Function>();
@@ -62,7 +51,7 @@ public class FunctionDaoTest {
 			// 取得列数
 			int col = sheet.getColumns();
 			// 取到一行中每列的值赋值给一个Category对象对应的属性，直到最后一行
-			for (int i = 1; i < row; i++) {
+			for (int i = 0; i < row; i++) {
 				Function function = new Function();
 				Function pFunction = new Function();
 				for (int j = 0; j < col; j++) {
@@ -70,64 +59,60 @@ public class FunctionDaoTest {
 					if (cell.getType() == CellType.NUMBER) {
 						NumberCell numberCell = (NumberCell) cell;
 						switch (j) {
-						case 0:
-							int funcId = (int) numberCell.getValue() ;
-							function.setFuncId(funcId + "");
-							break;
-						case 2:
+						case 1:
 							boolean funcActive = false;
 							if (numberCell.getValue() == 1) {
 								funcActive = false;
 							}
 							function.setFuncActive(funcActive);
 							break;
-						case 3:
+						case 2:
 							function.setFuncOrder((int) numberCell.getValue());
 							break;
-						case 6:
+						case 5:
 							function.setLevel((int) numberCell.getValue());
 							break;
-						case 13:
-							pFunction.setFuncId((int) numberCell.getValue() + "");
+						case 12:
+			//				pFunction.setFuncId((int) numberCell.getValue());
 							function.setParent(pFunction);
 							break;
 						}
 					} else if (cell.getType() == CellType.LABEL) {
 						LabelCell lc = (LabelCell) cell;
 						switch (j) {
-						case 1:
+						case 0:
 							function.setFuncName(lc.getContents());
 							break;
-						case 4:
+						case 3:
 							function.setFuncLogUrl(lc.getContents());
 							break;
-						case 5:
+						case 4:
 							function.setFuncLogDesc(lc.getContents());
 							break;
-						case 7:
+						case 6:
 							Boolean isLeaf = false;
 							if (lc.getColumn() == 1) {
 								isLeaf = true;
 							}
 							function.setLeaf(isLeaf);
 							break;
-						case 8:
+						case 7:
 							Boolean isChecked = false;
 							if (lc.getColumn() == 1) {
 								isChecked = true;
 							}
 							function.setLeaf(isChecked);
 							break;
-						case 9:
-							function.setResCmpId("ResCmpId" + i);
+						case 8:
+	//						function.setFuncId(lc.getColumn());
 							break;
-						case 10:
+						case 9:
 							function.setResCmpText(lc.getContents());
 							break;
-						case 11:
+						case 10:
 							function.setResCmpIconCls(lc.getContents());
 							break;
-						case 12:
+						case 11:
 							function.setResCmpHandURL(lc.getContents());
 							break;
 						}
@@ -145,5 +130,5 @@ public class FunctionDaoTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 }
