@@ -27,9 +27,9 @@ public class Function implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
-//	@GeneratedValue(strategy=GenerationType.AUTO)
+    @Id
+    //	@GeneratedValue(strategy=GenerationType.IDENTITY)
+    //	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String funcId;//功能id
 	private String funcName;//名字
 	private boolean funcActive;//是否启用
@@ -70,7 +70,7 @@ public class Function implements Serializable{
 	public Function(){
 		
 	}
-	
+
 	public Function(String funcId, String funcName, boolean funcActive, int funcOrder, int level, String resCmpId,
 			String resCmpText, String resCmpIconCls, String resCmpHandURL, String parentFuncId){
 		this.funcId = funcId;

@@ -14,7 +14,7 @@ import com.huan.library.web.view.DictItemView;
 import com.opensymphony.xwork2.Action;
 
 /**
- * 罚款action
+ * 罚款 action
  * @author huan
  * @time  2011-3-16 下午11:20:10
  */

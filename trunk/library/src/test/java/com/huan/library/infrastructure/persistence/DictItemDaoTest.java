@@ -61,8 +61,9 @@ public class DictItemDaoTest {
 						NumberCell numberCell = (NumberCell) cell;
 						switch (j) {
 						case 0:
-							dictItem.setItemId(String.valueOf(numberCell
-									.getValue()));
+							String temp = String.valueOf(numberCell
+									.getValue());
+							dictItem.setItemId(temp.substring(0, temp.length()-2));
 							break;
 						case 3:
 							boolean itemActive = false;
@@ -82,8 +83,10 @@ public class DictItemDaoTest {
 							dictItem.setLevel((int)numberCell.getValue());
 							break;
 						case 8: // parent
-							pDictItem.setItemId(String.valueOf(numberCell.getValue()));
-							dictItem.setParent(pDictItem);
+							temp = String.valueOf(numberCell.getValue());
+							if(null == temp && "".equals(temp)){
+							 dictItem.setParent(null);
+							}
 							break;	
 						case 9: 
 							dictItem.setItemOrder((int)numberCell.getValue());
@@ -97,6 +100,9 @@ public class DictItemDaoTest {
 							break;
 						case 2:
 							dictItem.setDescription(lc.getContents());
+							break;
+						case 4:
+							dictItem.setItemCode(lc.getContents());
 							break;
 						case 6:
 							dictItem.setShortName(lc.getContents());
