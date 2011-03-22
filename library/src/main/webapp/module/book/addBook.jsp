@@ -6,9 +6,17 @@
 		<link href="<%=path %>/css/style.css" type="text/css"
 			rel="stylesheet">
      	<title>图书馆管理系统</title>
-	
 		<script type="text/javascript"
 			src="<%=path %>/common/datePicker/datePicker/calendar/WdatePicker.js">
+	    </script>
+	    <script type="text/javascript">
+		     //摁下回车键时，光标会自动下移
+			 function document.onkeydown(){
+			    if(window.event.keyCode == 13 && window.event.srcElement.type != "button"){
+			       window.event.keyCode = 9; 
+			  }
+		} 
+		
 	    </script>
 	</head>
 	<body>
@@ -47,7 +55,7 @@
 								</table>
 							</td>
 						</tr>
-			<form name="addBook" method="post" action="<%=path%>/books/saveBook.action">
+			<form  enctype="multipart/form-data" name="addBook" method="post" action="<%=path%>/books/saveBook.action">
 						<tr>
 							<td height="10" valign="top">
 								<table width="98%" border="0" align="center" cellpadding="0"
@@ -75,14 +83,12 @@
 											<table width="100%" border="0" cellspacing="0"
 												cellpadding="0">
 												<tr>
-												    <td width="189" height="36"
-														background="<%=path%>/images/module/titleb_01.jpg"
+												    <td width="189" height="36" background="<%=path%>/images/module/titleb_01.jpg"
 														class="title1">
 														增加图书
 													</td>
 													<td background="<%=path%>/images/module/titleb_02.jpg">
 														&nbsp;
-
 													</td>
 													<td width="213" align="right"
 														background="<%=path%>/images/module/titleb_03.jpg"
@@ -108,11 +114,8 @@
 														<input name="book.bookName" type="text" id="bookName" size="62">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor = '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														条形码：
 													</td>
@@ -128,12 +131,8 @@ onMouseOut=this.style.backgroundColor='';;
 															size="18">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														索书号：
 													</td>
@@ -144,26 +143,19 @@ onMouseOut=this.style.backgroundColor='';;
 													<td width="15%" align="right" nowrap bgcolor="#F4F5F9">
 														出版社：
 													</td>
+													
 													<td width="35%" height="30" align="left" bgcolor="#F4F5F9">
-														<select id="press" name="book.press">
-															<option value="book.press.id">
-																大连出版社xxxx
+														<select>
+														   <s:iterator value="presses" var="press">
+															<option value="<s:property value="#press.id"/>">
+														        <s:property value="#press.pressName"/>
 															</option>
-															<option value="-1">
-																中国出版社
-															</option>
-															<option value="0">
-																河大出版色和
-															</option>
+															</s:iterator>
 														</select>
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														种次号：
 													</td>
@@ -175,16 +167,17 @@ onMouseOut=this.style.backgroundColor='';;
 														分类：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.bookLevel.shortName" type="text"
-															id="bookLevel" size="18">
+														<select>
+														   <s:iterator value="categorys" var="category">
+															<option value="<s:property value="#category.categoryId"/>">
+														      <s:property value="#category.categoryName"/>
+															</option>
+															</s:iterator>
+														</select>
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														二级分类：
 													</td>
@@ -196,17 +189,13 @@ onMouseOut=this.style.backgroundColor='';;
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input type="text" name="book.publisherDate"
-															id="publisherDate" onClick=WdatePicker();; size="18">
+															id="publisherDate" onClick=WdatePicker(); size="18">
 													</td>
 												</tr>
 
 
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														版次：
 													</td>
@@ -218,33 +207,22 @@ onMouseOut=this.style.backgroundColor='';;
 														电子文档：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.electoricDoc" type="file"
-															id="electoricDoc">
+														<input name="fileName" type="file"
+															id="fileName">
 													</td>
 												</tr>
-
-
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														密级：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state"
-															style="border-style: solid; border-color: #bcc3c9; width: 100px;">
-															<option value="1">
-																秘密
+														<select>
+														   <s:iterator value="securityViews" var="securityView">
+															<option value="<s:property value="#securityView.key"/>">
+														      <s:property value="#securityView.value"/>
 															</option>
-															<option value="-1">
-																普通
-															</option>
-															<option value="0">
-																一般
-															</option>
+															</s:iterator>
 														</select>
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
@@ -256,12 +234,8 @@ onMouseOut=this.style.backgroundColor='';;
 													</td>
 												</tr>
 
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														页数：
 													</td>
@@ -276,12 +250,8 @@ onMouseOut=this.style.backgroundColor='';;
 													</td>
 												</tr>
 
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														存放位置：
 													</td>
@@ -293,16 +263,17 @@ onMouseOut=this.style.backgroundColor='';;
 														状态：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18">
+														<select>
+														   <s:iterator value="bookStateViews" var="bookStateView">
+															<option value="<s:property value="#bookStateView.key"/>">
+														      <s:property value="#bookStateView.value"/>
+															</option>
+															</s:iterator>
+														</select>
 													</td>
 												</tr>
-
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+												<tr onMouseOver=this.style.backgroundColor='#eff1f4';
+	                                                  return true;onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														ISBN：
 													</td>
@@ -317,66 +288,45 @@ onMouseOut=this.style.backgroundColor='';;
 													</td>
 												</tr>
 
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+												<tr onMouseOver=this.style.backgroundColor= '#eff1f4';return true;;
+                                                        onMouseOut=this.style.backgroundColor='';;>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
-														类别：
+														密级：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state"
-															style="border-style: solid; border-color: #bcc3c9; width: 100px;">
-															<option value="1">
-																计算机
+														<select>
+														   <s:iterator value="bookLevelViews" var="bookLevelView">
+															<option value="<s:property value="#bookLevelView.key"/>">
+														      <s:property value="#bookLevelView.value"/>
 															</option>
-															<option value="-1">
-																土木工程
-															</option>
-															<option value="0">
-																医药
-															</option>
+															</s:iterator>
 														</select>
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														来源：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state"
-															style="border-style: solid; border-color: #bcc3c9; width: 100px;">
-															<option value="1">
-																捐赠
+														<select>
+														   <s:iterator value="resourceViews" var="resourceView">
+															<option value="<s:property value="#resourceView.key"/>">
+														      <s:property value="#resourceView.value"/>
 															</option>
-															<option value="-1">
-																购买
-															</option>
+															</s:iterator>
 														</select>
 													</td>
 												</tr>
-
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+												<tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														币种：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state"
-															style="border-style: solid; border-color: #bcc3c9; width: 100px;">
-															<option value="1">
-																人名币
+														<select>
+														   <s:iterator value="currencyViews" var="currencyView">
+															<option value="<s:property value="#currencyView.key"/>">
+														      <s:property value="#currencyView.value"/>
 															</option>
-															<option value="-1">
-																美元
-															</option>
-															<option value="0">
-																日元
-															</option>
+															</s:iterator>
 														</select>
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
@@ -387,14 +337,8 @@ onMouseOut=this.style.backgroundColor='';;
 															size="18">
 													</td>
 												</tr>
-
-
-												<tr onMouseOver=this.style.backgroundColor
-													= '#eff1f4';
-	return
-													true;;
-onMouseOut=this.style.backgroundColor='';;
->
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
 													<td height="60" align="right" nowrap bgcolor="#F4F5F9">
 														简介：
 													</td>
@@ -402,7 +346,7 @@ onMouseOut=this.style.backgroundColor='';;
 														<textarea cols="60" rows="4" id="bookDesc"
 															name="book.bookDesc"
 															style="border-color: #bcc3c9; border-width: 1px;">
-                   </textarea>
+                                                        </textarea>
 													</td>
 												</tr>
 
