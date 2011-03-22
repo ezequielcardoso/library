@@ -41,25 +41,13 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			name : 'userName',
 			type : 'string'
 		}, {
+			name : 'createDate',
+			type : 'string'
+		}, {
 			name : 'password',
 			type : 'string'
 		}, {
-			name : 'level',
-			type : 'string'
-		}, {
-			name : 'email',
-			type : 'string'
-		}, {
-			name : 'telephone',
-			type : 'string'
-		}, {
-			name : 'sex',
-			type : 'string'
-		}, {
-			name : 'appointedDate',
-			type : 'string'
-		}, {
-			name : 'address',
+			name : 'userActive',
 			type : 'string'
 		}];
 		
@@ -97,45 +85,6 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				width : 80,
 				sortable : true,
 				align : 'center'
-			}, {
-				header : '级别',
-				dataIndex : 'level',
-				width : 50,
-				sortable : true,
-				align : 'center'
-			}, {
-				header : '邮箱',
-				dataIndex : 'email',
-				width : 90,
-				sortable : true,
-				align : 'center',
-				renderer : function(value) {
-					
-				}
-			}, {
-				header : '电话',
-				sortable : true,
-				dataIndex : 'telphone',
-				width : 100
-				// align : 'center'
-			}, {
-				header : '入职日期',
-				sortable : true,
-				width : 100,
-				dataIndex : 'appointedDate',
-				align : 'center',
-				renderer : function(value) {
-					if (Ext.isEmpty(value)) {// 判断是否是日期类型的数据
-						return '';
-					} else
-						return (value.split('T'))[0];
-				}
-			}, {
-				header : '地址',
-				sortable : true,
-				width : 130,
-				dataIndex : 'address'
-				// align : 'center'
 			}
 		]);
 		
