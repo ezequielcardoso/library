@@ -26,8 +26,8 @@ public class BookServiceImpl implements BookService {
 		this.bookDao = bookDao;
 	}
 
-	public void addOrModifyBook(Book book) throws Exception {
-		bookDao.saveOrUpdate(book);
+	public Book addOrModifyBook(Book book) throws Exception {
+		return bookDao.saveOrUpdate(book);
 	}
 	
 	public void removeBook(Book book) throws Exception {

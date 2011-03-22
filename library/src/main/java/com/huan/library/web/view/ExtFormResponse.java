@@ -7,8 +7,9 @@ package com.huan.library.web.view;
  */
 public class ExtFormResponse {
 
-	private boolean success;
-	private Object data;
+	private boolean success;//业务处理是否成功
+	private String msg;//业务处理后回复的消息
+	private Object data;//业务处理后回复的业务对象
 	
 	public boolean isSuccess() {
 		return success;
@@ -21,6 +22,12 @@ public class ExtFormResponse {
 	}
 	public void setData(Object data) {
 		this.data = data;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 	
 }

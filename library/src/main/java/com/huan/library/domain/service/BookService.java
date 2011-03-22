@@ -15,7 +15,7 @@ public interface BookService {
 	 * @param book
 	 * @return
 	 */
-	public void addOrModifyBook(Book book) throws Exception;
+	public Book addOrModifyBook(Book book) throws Exception;
 	
 	/**
 	 * 根据id删除Book
