@@ -126,6 +126,4 @@ public class ReaderCardAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
-
-
 }

@@ -19,8 +19,5 @@ public class Resource extends DictItem {
 	public Resource(){
 		super();
 	}
-	
-
-	
 
 }

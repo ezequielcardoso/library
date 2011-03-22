@@ -3,7 +3,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>图书馆管理系统</title>
-
 		<%@include file="/common/common.jsp"%>
 
 		<script language="javascript"> 

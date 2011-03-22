@@ -55,5 +55,4 @@ public class FunctionAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
-
 }

@@ -37,7 +37,6 @@ public class DictItemDaoTest {
 
 	@Test
 	public void testAdd() {
-		List<DictItem> dictItems = new ArrayList<DictItem>();
 		// 取得excel文件
 		File file = new File(filePath);
 		Workbook wb;
@@ -113,14 +112,7 @@ public class DictItemDaoTest {
 						}
 					}
 				}
-				dictItems.add(dictItem);
-			}
-
-			// 批量增加Category
-			try {
-				dictItemDao.insertDictItemsBatch(dictItems);
-			} catch (Exception e) {
-				e.printStackTrace();
+				dictItemDao.saveOrUpdate(dictItem);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
