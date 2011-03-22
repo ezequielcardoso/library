@@ -9,7 +9,6 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.reader.ReaderUnits;
-import com.huan.library.domain.model.rights.Function;
 import com.huan.library.infrastructure.persistence.ReaderUnitsDao;
 /**
  * 读者单位dao实现

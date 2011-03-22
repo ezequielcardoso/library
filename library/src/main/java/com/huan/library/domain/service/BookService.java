@@ -1,8 +1,8 @@
 package com.huan.library.domain.service;
 
-import java.util.List;
-
 import com.huan.library.domain.model.book.Book;
+import com.huan.library.util.PageModel;
+
 
 /**
  * 图书
@@ -32,9 +32,11 @@ public interface BookService {
 	public Book findBookById(String bookId) throws Exception;
 	
 	/**
-	 * 查找所有的Book
+	 * 分页查找图书
 	 * @return
+	 * @throws Exception
 	 */
-	public List<Book> findAllBooks() throws Exception;
+	public PageModel<Book> findBooksByPage(int pageNo,int pageSize) throws Exception;
+
 
 }

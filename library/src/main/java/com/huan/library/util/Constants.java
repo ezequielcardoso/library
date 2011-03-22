@@ -14,4 +14,10 @@ public class Constants {
 	public static final String LOST = "L"; //女
 	public static final String COMMON = "C"; //女
 	public static final String OVERLIMIT = "O"; //女
+	
+	/**
+	 * 分页信息
+	 */
+	public static final int PAGESIZE = 2; //大小
+	public static final int PAGENO = 4; //页号
 }

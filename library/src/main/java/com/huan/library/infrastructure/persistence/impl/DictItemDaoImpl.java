@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
-import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.infrastructure.persistence.DictItemDao;
 

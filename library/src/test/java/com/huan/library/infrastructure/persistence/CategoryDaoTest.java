@@ -21,8 +21,8 @@ public class CategoryDaoTest {
 
 	private static CategoryDao categoryDao;
 	
-	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\categories.xls";
-//	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\test.xls";
+//	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\categories.xls";
+	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\categories.xls";
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		categoryDao=(CategoryDao)BaseSpringBeans.getInstance().getBean("categoryDao");

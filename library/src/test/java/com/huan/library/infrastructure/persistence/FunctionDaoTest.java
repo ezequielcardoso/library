@@ -40,7 +40,6 @@ public class FunctionDaoTest {
 		// 取得excel文件
 		File file = new File(filePath);
 		Workbook wb;
-
 		try {
 			// 打开workbook
 			wb = Workbook.getWorkbook(file);
@@ -60,7 +59,8 @@ public class FunctionDaoTest {
 						NumberCell numberCell = (NumberCell) cell;
 						switch (j) {
 						case 0:
-							function.setFuncId(String.valueOf(numberCell.getValue()));
+							String temp = String.valueOf(numberCell.getValue());
+							function.setFuncId(temp.substring(0, temp.length()-2));
 							break;
 						case 2:
 							boolean funcActive = false;
@@ -93,7 +93,8 @@ public class FunctionDaoTest {
 							function.setResCmpId(String.valueOf(numberCell.getValue()));
 							break;
 						case 13:
-							pFunction.setFuncId(String.valueOf(numberCell.getValue()));
+							temp = String.valueOf(numberCell.getValue());
+							pFunction.setFuncId(temp.substring(0, temp.length()-2));
 							function.setParent(pFunction);
 							break;
 						}

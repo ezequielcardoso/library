@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.infrastructure.persistence.BookDao;
+import com.huan.library.util.PageModel;
 
 /**
  * bookServiceImpl
@@ -37,7 +38,14 @@ public class BookServiceImpl implements BookService {
 		return bookDao.selectById(bookId);
 	}
 	
-	public List<Book> findAllBooks() throws Exception {
-		return bookDao.selectAllBooks();
+	public PageModel<Book> findBooksByPage(int pageNo, int pageSize)
+			throws Exception {
+		PageModel<Book> pageModel = new PageModel<Book>();
+		try {
+			pageModel = bookDao.selectByPage(pageNo, pageSize);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+		return pageModel;
 	}
 }

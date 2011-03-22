@@ -37,33 +37,27 @@ public class DictItem implements java.io.Serializable {
     private int id;   //主鍵
 	
     private String itemId;// 字典编号
-
 	private boolean checked;// 是否选中
+	private String description;// 描述
+	private boolean itemActive;// 是否启用
+	private String itemCode;// 编码
+	private int itemOrder;// 排序
+	private boolean leaf;// 是否叶子
+	private String shortName;// 名字
 
 	@OneToMany(targetEntity = DictItem.class, fetch = FetchType.LAZY, mappedBy = "parent")
 	private List<DictItem> children;
 
-	private String description;// 描述
-
-	private boolean itemActive;// 是否启用
-
-	private String itemCode;// 编码
-
-	private int itemOrder;// 排序
-
+	
 	@Column(insertable = false, updatable = false)
 	private String itemType;// 参照组代码
-
-	private boolean leaf;// 是否叶子
-	private String shortName;// 名字
 
 	// 用于树结构
 	private int level;// 层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
 
-	@ManyToOne(targetEntity = DictItem.class, fetch = FetchType.LAZY, cascade = {
-			CascadeType.REMOVE, CascadeType.MERGE })
-	@JoinColumn(name = "parentItemId")
-	private DictItem parent;
+	@ManyToOne(targetEntity = DictItem.class, fetch = FetchType.LAZY)
+	@JoinColumn(name = "parentItemId",referencedColumnName="itemId")
+	private DictItem parent;         
 
 	public DictItem() {
 	}
@@ -120,6 +114,14 @@ public class DictItem implements java.io.Serializable {
 		this.children = children;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getItemId() {
 		return itemId;
 	}
