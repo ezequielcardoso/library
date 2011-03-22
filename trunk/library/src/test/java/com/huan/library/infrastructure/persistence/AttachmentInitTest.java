@@ -26,7 +26,7 @@ public class AttachmentInitTest {
 	/**
 	 * ≥ı ºªØ
 	 */
-	//@Test
+	@Test
 	public void testInit(){
 		try{
 		Attachment attachment1 = new Attachment();
@@ -49,7 +49,7 @@ public class AttachmentInitTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testFind(){
 		List<DictItem> dictItems = new ArrayList<DictItem>();
 		try {
