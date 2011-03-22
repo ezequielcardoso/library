@@ -14,6 +14,11 @@ import com.huan.library.util.FileOperate;
 import com.huan.library.util.StringAndUTF8;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 
+ * @author shuaizhichun
+ * @time 2011-3-13 上午12:06:49
+ */
 public class BaseActionSupport extends ActionSupport implements ServletRequestAware,SessionAware {
 
 	/**
@@ -69,6 +74,14 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
 		return SUCCESS;
     }
     
+    /**
+	 * 
+	 * @return
+	 */
+	public String getWebRoot(){
+		return request.getSession().getServletContext().getRealPath("/");
+	}
+    
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
@@ -77,15 +90,6 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
 		this.request = request;
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
-	public String getWebRoot(){
-		return request.getSession().getServletContext().getRealPath("/");
-	}
-
-
 	public File getUpfile() {
 		return upfile;
 	}

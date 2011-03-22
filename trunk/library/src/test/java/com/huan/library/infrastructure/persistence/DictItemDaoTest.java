@@ -27,7 +27,8 @@ import com.huan.library.domain.model.dict.DictItem;
 public class DictItemDaoTest {
 
 	private static DictItemDao dictItemDao;
-	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\dictitem.xls";
+//	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\dictitem.xls";
+	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\dictitem.xls";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {

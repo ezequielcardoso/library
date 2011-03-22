@@ -2,12 +2,15 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
 		<%@ include file="/common/common.jsp"%>
-		<link href="<%=path %>/css/style.css" type="text/css"
-			rel="stylesheet">
+		<%@ include file="/common/extInclude.jsp"%>
+		
      	<title>图书馆管理系统</title>
-		<script type="text/javascript"
-			src="<%=path %>/common/datePicker/datePicker/calendar/WdatePicker.js">
+		
+		<script type="text/javascript" src="<%=path %>/common/datePicker/datePicker/calendar/WdatePicker.js">
+	    </script>
+	    <script type="text/javascript" src="<%=path %>/js/book/BookOperation.js">
 	    </script>
 	    <script type="text/javascript">
 		     //摁下回车键时，光标会自动下移
@@ -62,7 +65,7 @@
 									cellspacing="0">
 									<tr>
 										<td height="30" class="body1">
-											<input type="submit" class="btn"
+											<input type="button" class="btn" onClick="saveBook();"
 												value="增 加">
 											<input type="reset" " class="btn" value="重 填">
 											<input type="button" class="btn"
