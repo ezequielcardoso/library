@@ -38,7 +38,8 @@ public class Book implements Serializable {
 	private String bookName; // 书刊名字
 	private String bookDesc; // 图书简介
 	private String donator; // 捐赠人
-	private String electoricDoc; // 电子文档
+	private String author ; //作者
+    private String Translator; //译者 
 	private String ISBN; // ISBN
 	private String ISSN; // 国内统一刊号
 	private String emailNo; // 邮发代码
@@ -192,43 +193,30 @@ public class Book implements Serializable {
 	public String getDonator() {
 		return donator;
 	}
-
-	public String getElectoricDoc() {
-		return electoricDoc;
-	}
-
 	public int getId() {
 		return id;
 	}
-
 	public String getISBN() {
 		return ISBN;
 	}
-
 	public int getPages() {
 		return pages;
 	}
-
 	public Press getPress() {
 		return press;
 	}
-
 	public float getPrice() {
 		return price;
 	}
-
 	public Date getPublisherDate() {
 		return publisherDate;
 	}
-
 	public int getQuantity() {
 		return quantity;
 	}
-
 	public Resource getResource() {
 		return resource;
 	}
-
 	public int getRevision() {
 		return revision;
 	}
@@ -277,15 +265,22 @@ public class Book implements Serializable {
 	public void setDonator(String donator) {
 		this.donator = donator;
 	}
-
-	public void setElectoricDoc(String electoricDoc) {
-		this.electoricDoc = electoricDoc;
-	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getTranslator() {
+		return Translator;
+	}
+	public void setTranslator(String translator) {
+		Translator = translator;
+	}
 	public void setISBN(String iSBN) {
 		ISBN = iSBN;
 	}

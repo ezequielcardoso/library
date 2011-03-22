@@ -107,7 +107,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 	public List<T> selectMaxTs() throws Exception {
 		List<T> list = new ArrayList<T>();
 		try {
-			list = (List<T>) getHibernateTemplate().find("from ",entityClass.getName());
+			list = (List<T>) getHibernateTemplate().find("from "+ entityClass.getName());
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return null;
@@ -128,8 +128,8 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 				}
 				
 			});
-			pageModel.setPageNo(pageNo * pageSize);
-			pageModel.setPageSize((pageNo - 1) * pageSize);
+			pageModel.setPageNo(pageNo);
+			pageModel.setPageSize(pageSize);
 			pageModel.setTotalRecords(selectTotalRecords());
 			pageModel.setRestleList(resultList);
 		} catch (Exception e) {
