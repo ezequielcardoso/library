@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>图书馆管理系统</title>
 		<%@ include file="/common/common.jsp"%>
 		<link href="<%=path%>/css/style.css" type="text/css" rel="stylesheet" />
+		<title>图书馆管理系统</title>
 		
 		<script language="JavaScript">
 		function test12(i){
@@ -66,11 +66,11 @@
 				tabnum.style.display = ''; 
 				} 
 			} 
+        //全部选中
 	    function selectAll()
 				{
-				var proList=document.getElementsByName("proSelect");
+				var proList=document.getElementsByName("selectFlag");
 				if(document.getElementById("selectAll").checked==true){
-				   
 				   for(k=0;k<proList.length;k++)
 				   {
 				      proList[k].checked=true;
@@ -86,15 +86,31 @@
 
 		//修改
 		function modifyBook(){
-            window.self.location="<%=path%>/books/showModifyBook.action";
+            var count = 0 ;
+            var j = 0;
+            var modifyBook =  document.getElementsByName("selectFlag");
+            for(var i=0; i<modifyBook.length;i++){
+                if(modifyBook[i].checked == true){
+                	count++;
+                	j= i;
+                }
+            }
+            if(count==0){
+                alert("请选择您要修改图书");
+                return;
+            }
+            if(count>1){
+                alert("一次只能修改一本图书");
+                return;
+            }
+            alert(""+modifyBook[j].value);
+            window.self.location="<%=path%>/books/showModifyBook.action?book.id="+modifyBook[j].value;
 		}
 
 		function deleteBook(){
 			window.self.location="<%=path%>/books/deleteBook.action"; 
 		}
-	
-		
-    </script>
+	</script>
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -147,106 +163,39 @@
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 
 									<TR>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio CHECKED value=1 name="location">
-											<LABEL for=radio3>
-												模糊
-											</LABEL>
-										</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="location">
-											<LABEL for=radio4>
-												精确
-											</LABEL>
-										</TD>
-										<TD width="7%" height=25 align="right" nowrap class="body">
-											条形码：
-										</TD>
-										<TD width="15%" height=25 align="left" nowrap class="body">
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="15">
-										</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio CHECKED value=1 name="bookNo">
-											<LABEL for=radio3>
-												模糊
-											</LABEL>
-										</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="bookNo">
-											<LABEL for=radio4>
-												精确
-											</LABEL>
-										</TD>
-										<TD width="6%" height=25 align="right" nowrap class="body">
-											书名：
-										</TD>
-										<TD width="28%" height=25 align="left" nowrap class="body">
-											<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="15">
-										</TD>
-										<TD width="24%" height=25 align="left" class="body">
-										</TD>
+										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio CHECKED value=1 name="location">模糊</TD>
+										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio value=2 name="location">精确</TD>
+										<TD width="7%" height=25 align="right" nowrap class="body">条形码：</TD>
+										<TD width="15%" height=25 align="left" nowrap class="body"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15"></TD>
+										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio CHECKED value=1 name="bookNo">模糊</TD>
+										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio value=2 name="bookNo">精确</TD>
+										<TD width="6%" height=25 align="right" nowrap class="body">书名：</TD>
+										<TD width="28%" height=25 align="left" nowrap class="body"><input name=txtkeyvalue2 type="text" class="input2" id="txtkeyvalue2" value="" size="15"></TD>
+										<TD width="24%" height=25 align="left" class="body"></TD>
 									</TR>
 									<TR>
-										<TD align="right" nowrap class="body">
-											<INPUT type=radio CHECKED value=1 name="barCode">
-											<LABEL for=radio3>
-												模糊
-											</LABEL>
-										</TD>
-										<TD height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="barCode">
-											<LABEL for=radio4>
-												精确
-											</LABEL>
-										</TD>
-										<TD height=25 align="right" nowrap class="body">
-											位置：
-										</TD>
-										<TD height=25 align="left" nowrap class="body">
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="15">
-										</TD>
-										<TD height=25 align="right" nowrap class="body">
-											<INPUT type=radio CHECKED value=1 name="bookName">
-											<LABEL for=radio3>
-												模糊
-											</LABEL>
-										</TD>
-										<TD height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="bookName">
-											<LABEL for=radio4>
-												精确
-											</LABEL>
-										</TD>
-										<TD height=25 align="right" nowrap class="body">
-											编号：
-										</TD>
-										<TD height=25 align="left" class="body">
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="15">
-										</TD>
+										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio CHECKED value=1 name="location">模糊</TD>
+										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio value=2 name="location">精确</TD>
+										<TD height=25 align="right" nowrap class="body">位置：</TD>
+										<TD height=25 align="left" nowrap class="body"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15"></TD>
+										<TD height=25 align="right" nowrap class="body"><INPUT type=radio CHECKED value=1 name="bookName">模糊</TD>
+										<TD height=25 align="right" nowrap class="body"><INPUT type=radio value=2 name="bookName">精确</TD>
+										<TD height=25 align="right" nowrap class="body">编号：</TD>
+										<TD height=25 align="left" class="body"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15"></TD>
 									</TR>
 
 									<TR>
 										<TD height=25 nowrap class="body" colspan="8" align="left">
 											<input type="submit" class="btnl" value="查 询">
-											<input type="button" class="btnl" onClick="modifyBook()"
-												value="修改">
-											<input name="button" type="button" class="btnl" onClick="deleteBook()"
-												value="删除">
-											<input type="button" class="btnl"
-												onClick="window.location='<%=path%>/books/showSaveBook.action'"
-												value="增加">
-											<input type="button" class="btnl"
-												onClick="window.location='addProduct.html';" value="导入图书">
+											<input type="button" class="btnl" onClick="modifyBook()" value="修改">
+											<input name="button" type="button" class="btnl" onClick="deleteBook()" value="删除">
+											<input type="button" class="btnl" onClick="window.location='<%=path%>/books/showSaveBook.action'" value="增加">
+											<input type="button" class="btnl" onClick="window.location='addProduct.html';" value="导入图书">
 											<input type="button" class="btnl" onClick="" value="导出Excel">
 											<input type="button" class="btnl" onClick="" value="图书标签">
 											<input type="button" class="btnl" onClick="" value="打印条形码">
 										</TD>
 									</TR>
-
 								</TABLE>
 						<tr id="yb">
 							<td height="10" valign="top">
@@ -282,81 +231,48 @@
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr align="center">
-													<td width="4%" class="body">
-														<input type="checkbox" id="selectAll" name="selectAll"
-															onClick="selectAll();">
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														图书编号
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														名称
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body">
-														分类号
-													</td>
-													<td align="center" bgcolor="#F4F5F9" class="body"
-														width="8%">
-														作者
-													</td>
-													<td width="8%" align="center" bgcolor="#F4F5F9"
-														class="body">
-														种次号
-													</td>
-													<td width="7%" align="center" bgcolor="#F4F5F9"
-														class="body">
-														数量
-													</td>
-													<td width="8%" align="center" bgcolor="#F4F5F9"
-														class="body">
-														入库时间
-													</td>
-													<td width="8%" align="center" bgcolor="#F4F5F9"
-														class="body">
-														页数
-													</td>
-													<td width="8%" align="center" bgcolor="#F4F5F9"
-														class="body">
-														附件
-													</td>
-													<td width="8%" align="center" bgcolor="#F4F5F9"
-														class="body">
-														状态
-													</td>
+													<td width="4%" class="body"> <input type="checkbox" id="selectAll" name="selectAll" onClick="selectAll();"></td>
+													<td align="center" bgcolor="#F4F5F9" class="body"> 图书编号 </td>
+													<td align="center" bgcolor="#F4F5F9" class="body"> 名称 </td>
+													<td align="center" bgcolor="#F4F5F9" class="body"> 分类号 </td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="8%"> 作者 </td>
+													<td width="8%" align="center" bgcolor="#F4F5F9" class="body"> 种次号 </td>
+													<td width="7%" align="center" bgcolor="#F4F5F9" class="body"> 数量 </td>
+													<td width="8%" align="center" bgcolor="#F4F5F9" class="body"> 入库时间 </td>
+													<td width="8%" align="center" bgcolor="#F4F5F9" class="body"> 页数 </td>
+													<td width="8%" align="center" bgcolor="#F4F5F9" class="body"> 附件 </td>
+													<td width="8%" align="center" bgcolor="#F4F5F9" class="body"> 状态 </td>
 												</tr>
+												<s:iterator value="pageModel.restleList" var="book">
 												<tr align="center" onDblClick="oncli()"
 													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 													onMouseOut="this.style.backgroundColor='';">
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
+													<td width="4%" class="body"> 
+													   <input type="checkbox" name="selectFlag" value="<s:property value="#book.id"/>">
 													</td>
-													<td width="7%" class="body">
-														ES013
+													<td width="7%" class="body"> 
+													    <s:property value="#book.bookNo"/> <br>
 													</td>
 													<td width="16%" class="body">
-														三毛流浪记
-														<br>
+														<s:property value="#book.bookName"/> <br>
 													</td>
 													<td class="body">
-														E1000
-														<br>
+														<s:property value="#book.bookCategory.categoryId"/> <br>
 													</td>
 													<td class="body">
-														三毛
+														<s:property value="#book.author"/> <br>
 													</td>
 													<td class="body">
-														A1000
+														<s:property value="#book.speciesId"/> <br>
 													</td>
 													<td align="center" class="user">
-														2
-														<br>
+														<s:property value="#book.quantity"/> <br>
 													</td>
 													<td align="center" class="user">
-														2010-2-2
-														<br>
+														<s:property value="#book.storeDate"/> <br>
 													</td>
 													<td align="center" class="user">
-														98
+														<s:property value="#book.pages"/> <br>
 														<br>
 													</td>
 													<td align="center" class="user">
@@ -364,236 +280,16 @@
 														<br>
 													</td>
 													<td align="center" class="user">
-														<select name="state2">
-															<option value="0">
-																核审中
-															</option>
-															<option value="1" selected="selected">
-																在馆
-															</option>
-															<option value="2">
-																借出
-															</option>
+														<select>
+															<s:iterator value="bookStateViews" var="bookStateView">
+														    	<option value=" <s:property value="#bookStateView.key"/>">
+														 		   <s:property value="#bookStateView.value"/>
+															    </option>
+															</s:iterator>
 														</select>
 													</td>
 												</tr>
-												<tr onClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-												</tr>
-												<tr align="center" onDblClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>
-													<td width="7%" class="body">
-														ES014
-													</td>
-													<td width="16%" class="body">
-														上下五千年
-														<br>
-													</td>
-													<td width="5%" class="body">
-														E1000
-													</td>
-													<td class="body">
-														不详
-													</td>
-													<td class="body">
-														A1001
-														<br>
-													</td>
-													<td align="center" class="user">
-														1
-														<br>
-													</td>
-													<td align="center" class="user">
-														2010-2-5
-														<br>
-													</td>
-													<td align="center" class="user">
-														354
-														<br>
-													</td>
-													<td align="center" class="user">
-														<br>
-													</td>
-													<td align="center" class="user">
-														<select name="state2">
-															<option value="0">
-																核审中
-															</option>
-															<option value="1" selected="selected">
-																在馆
-															</option>
-															<option value="2">
-																借出
-															</option>
-														</select>
-													</td>
-
-												</tr>
-												<tr onClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-												</tr>
-												<tr align="center" onDblClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>
-													<td width="7%" class="body">
-														ES015
-													</td>
-													<td width="16%" class="body">
-														网络基础
-														<br>
-													</td>
-													<td width="5%" class="body">
-														E1001
-														<br>
-													</td>
-													<td class="body">
-														黎明
-														<br>
-													</td>
-													<td class="body">
-														A1000
-													</td>
-													<td align="center" class="user">
-														1
-													</td>
-													<td align="center" class="user">
-														2010-6-6
-													</td>
-													<td align="center" class="user">
-														354
-														<br>
-													</td>
-													<td align="center" class="user">
-														<img src="<%=path%>/images/module/cd.png">
-													</td>
-													<td align="center" class="user">
-														<select name="state2">
-															<option value="0">
-																核审中
-															</option>
-															<option value="1" selected="selected">
-																在馆
-															</option>
-															<option value="2">
-																借出
-															</option>
-														</select>
-													</td>
-												</tr>
-												<tr onClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-												</tr>
-												<tr align="center" onDblClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>
-													<td width="7%" class="body" style="color: #FF0000;">
-														ES016
-													</td>
-													<td width="16%" class="body" style="color: #FF0000;">
-														Java web开发
-													</td>
-													<td width="5%" class="body" style="color: #FF0000;">
-														J1000
-													</td>
-													<td class="body" style="color: #FF0000;">
-														孙鑫
-													</td>
-													<td class="body" style="color: #FF0000;">
-														B1000
-													</td>
-													<td align="center" class="user" style="color: #FF0000">
-														5
-													</td>
-													<td align="center" class="user" style="color: #FF0000">
-														2012-2-2
-													</td>
-													<td align="center" class="user">
-														354
-														<br>
-													</td>
-													<td align="center" class="user">
-														<br>
-													</td>
-													<td align="center" class="user" style="color: #FF0000">
-														<select name="state2">
-															<option value="0" selected="selected">
-																核审中
-															</option>
-															<option value="1">
-																在馆
-															</option>
-															<option value="2">
-																借出
-															</option>
-														</select>
-													</td>
-												</tr>
-												<tr onClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-												</tr>
-												<tr align="center" onDblClick="oncli()"
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td width="4%" class="body">
-														<input type="checkbox" name="proSelect">
-													</td>
-													<td width="7%" class="body" style="color: #FF0000">
-														ES017
-													</td>
-													<td width="16%" class="body" style="color: #FF0000">
-														数据结构
-														<br>
-													</td>
-													<td width="5%" class="body" style="color: #FF0000">
-														J1000
-													</td>
-													<td class="body" style="color: #FF0000">
-														贵超
-													</td>
-													<td class="body" style="color: #FF0000">
-														A1000
-													</td>
-													<td align="center" class="user" style="color: #FF0000">
-														8
-													</td>
-													<td align="center" class="user" style="color: #FF0000">
-														2010-3-3
-													</td>
-													<td align="center" class="user">
-														354
-														<br>
-													</td>
-													<td align="center" class="user">
-														<br>
-													</td>
-													<td align="center" class="user" style="color: #FF0000">
-														<select name="state2">
-															<option value="0" selected="selected">
-																核审中
-															</option>
-															<option value="1">
-																在馆
-															</option>
-															<option value="2">
-																借出
-															</option>
-														</select>
-													</td>
-												</tr>
+												</s:iterator>
 												<tr onClick="oncli()"
 													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 													onMouseOut="this.style.backgroundColor='';">
@@ -603,7 +299,12 @@
 												cellspacing="0">
 												<tr>
 													<td height="30" align="center" class="body">
-														共有11条主题 共2页 现在是第1页 [首页] [上一页] [下一页] [尾页]&nbsp; 跳转到
+														共有   <s:property value="pageModel.totalRecords"/>  条主题 共   <s:property value="pageModel.totalPages"/>  页 现在是第  <s:property value="pageModel.pageNo"/>   页
+														<a href="<%=path%>/books/findBooksByPages.action?pageModel.pageNo=<s:property value='pageModel.topPageNo'/>">[首页]</a>
+														<a href="<%=path%>/books/findBooksByPages.action?pageModel.pageNo=<s:property value='pageModel.previousPageNo'/>">[上一页]</a>
+														<a href="<%=path%>/books/findBooksByPages.action?pageModel.pageNo=<s:property value='pageModel.nextPageNo'/>">[下一页]</a>
+														<a href="<%=path%>/books/findBooksByPages.action?pageModel.pageNo=<s:property value='pageModel.bottomPageNo'/>">[尾页]</a>
+											  			   &nbsp; 跳转到
 														<select size="1" name=""
 															onChange="viewpage(this.value,this.name);">
 															<option value="t0">
@@ -614,12 +315,12 @@
 															</option>
 														</select>
 														<script language=javascript>      
-  <!--
-  function viewpage(val,id)
-  {
-  location="produc"+val+".html"}
-  //-->
-                  </script>
+															  <!--
+															  function viewpage(val,id)
+															  {
+															  location="produc"+val+".html"}
+															  //-->
+                                                        </script>
 													</td>
 												</tr>
 											</table>
