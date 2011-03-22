@@ -32,7 +32,7 @@ public class PressInitTest {
 		pressDao = (PressDao)BaseSpringBeans.getInstance().getBean("pressDao");
 	}
    
-    @Test  //分页测试
+    //@Test  //分页测试
     public void findByPage(){
     	try {
 			PageModel<Press> pressModel = pressDao.selectByPage(0, 3);
@@ -46,7 +46,7 @@ public class PressInitTest {
 		}
     }
     
-	//@Test  //初始化出出版社
+	@Test  //初始化出出版社
 	public void testPressInit(){
 		List<Press> presses = new ArrayList<Press>();
 		try {
