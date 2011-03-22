@@ -22,6 +22,7 @@ import com.huan.library.domain.service.PressService;
 import com.huan.library.util.Constants;
 import com.huan.library.util.PageModel;
 import com.huan.library.web.view.DictItemView;
+import com.huan.library.web.view.ExtFormResponse;
 import com.opensymphony.xwork2.Action;
 
 /**
@@ -59,6 +60,8 @@ public class BookAction extends BaseActionSupport {
 	private List<DictItemView> currencyViews; //币种试图
 	private List<DictItemView> resourceViews; //来源试图
 	
+	private ExtFormResponse formResp = new ExtFormResponse();
+	
 	/**
 	 * 分页查找图书
 	 * @return
@@ -94,9 +97,14 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String saveBook() {
 		try {
-			bookService.addOrModifyBook(book);
+			book = bookService.addOrModifyBook(book);
+			formResp.setSuccess(true);
+			formResp.setMsg("新增用户成功！");
+			formResp.setData(book);
 		} catch (Exception e) {
 			e.printStackTrace();
+			formResp.setSuccess(false);
+			formResp.setMsg("新增用户失败！");
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
@@ -263,4 +271,12 @@ public class BookAction extends BaseActionSupport {
 	public void setCategoryService(CategoryService categoryService) {
 		this.categoryService = categoryService;
 	}
+	public ExtFormResponse getFormResp() {
+		return formResp;
+	}
+	public void setFormResp(ExtFormResponse formResp) {
+		this.formResp = formResp;
+	}
+	
+	
 }
