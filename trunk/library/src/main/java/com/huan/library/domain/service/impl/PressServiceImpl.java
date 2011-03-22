@@ -1,5 +1,6 @@
 package com.huan.library.domain.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,13 @@ public class PressServiceImpl implements PressService {
 	}
 
 	public List<Press> findAllPresses() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Press> presses = new ArrayList<Press>();
+		try {
+			presses = pressDao.selectMaxTs();
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+		return presses;
 	}
 
 	public void removePress(Press press) throws Exception {

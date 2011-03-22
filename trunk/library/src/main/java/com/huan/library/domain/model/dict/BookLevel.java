@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 
 
 /**
- * 图书级别
+ * 图书级别 aa/bb/cc
  * @author huan
  * @time 2011-3-8  上午11:02:32
  */

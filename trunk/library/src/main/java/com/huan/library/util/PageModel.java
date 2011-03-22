@@ -2,8 +2,10 @@ package com.huan.library.util;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * 封装分页信息
+ * 
  * @author huan
  * @time 2011-3-17 下午01:05:58
  */
@@ -16,14 +18,16 @@ public class PageModel<T> {
 
 	/**
 	 * 总页数
+	 * 
 	 * @return
 	 */
 	public int getTotalPages() {
-		return (int) ((totalRecords + pageSize - 1) / pageSize);
+		return (int)((totalRecords + pageSize - 1) / pageSize);
 	}
 
 	/**
 	 * 首页
+	 * 
 	 * @return
 	 */
 	public int getTopPageNo() {
@@ -34,8 +38,8 @@ public class PageModel<T> {
 	 * 尾页
 	 * @return
 	 */
-	public int getBottomNo() {
-		return getTopPageNo();
+	public int getBottomPageNo() {
+		return getTotalPages();
 	}
 
 	/**
@@ -51,11 +55,12 @@ public class PageModel<T> {
 
 	/**
 	 * 下一页
+	 * 
 	 * @return
 	 */
 	public int getNextPageNo() {
-		if (pageNo >= getBottomNo()) {
-			return getBottomNo();
+		if (pageNo >= getBottomPageNo()) {
+			return getBottomPageNo();
 		}
 		return pageNo + 1;
 	}
@@ -63,18 +68,23 @@ public class PageModel<T> {
 	public List<T> getRestleList() {
 		return restleList;
 	}
+
 	public void setRestleList(List<T> restleList) {
 		this.restleList = restleList;
 	}
+
 	public int getPageSize() {
 		return pageSize;
 	}
+
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
+
 	public int getPageNo() {
 		return pageNo;
 	}
+
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
 	}
@@ -86,5 +96,6 @@ public class PageModel<T> {
 	public void setTotalRecords(Long totalRecords) {
 		this.totalRecords = totalRecords;
 	}
-	
+
+
 }
