@@ -45,7 +45,6 @@ public class PunishmentAction extends BaseActionSupport {
     	List<DictItemView> dictItemViews = new ArrayList<DictItemView>();
 		try {
 			dictItemViews = dictItemService.getDictItemByItemClass(Project.class.getName());
-			request.setAttribute("dictItemViews", dictItemViews);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return Action.ERROR;
@@ -63,7 +62,6 @@ public class PunishmentAction extends BaseActionSupport {
 		Punishment punishmentCopy = new Punishment();
 		try {
 			punishmentCopy = punishmentService.addOrModifyPunlishment(punishment);
-		    request.setAttribute("punishment", punishmentCopy);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return Action.ERROR;

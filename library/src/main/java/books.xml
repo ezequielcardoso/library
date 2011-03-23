@@ -12,6 +12,11 @@
 			<result name="success">/module/book/bookList.jsp</result>
 		</action>
 		
-
+		<action name="*Magazine" class="com.huan.library.web.action.MagazineAction" method="{1}">
+			<result name="showSaveBook">/module/book/addBook.jsp</result>
+			<result name="showModifyBook">/module/book/modifyBook.jsp</result>
+			<result name="success">/module/book/bookList.jsp</result>
+		</action>
+		
     </package>
 </struts>

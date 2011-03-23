@@ -24,14 +24,17 @@ public class CurrencyInitTest {
 			try{
 				Currency currency = new Currency();
 				currency.setShortName("人民币");
+				currency.setItemCode("Currency");
 				dictItemDao.saveOrUpdate(currency);
 				
 				Currency currency2 = new Currency();
 				currency2.setShortName("美元");
+				currency2.setItemCode("Currency2");
 				dictItemDao.saveOrUpdate(currency2);
 				
 				Currency currency3 = new Currency();
 				currency3.setShortName("日元");
+				currency3.setItemCode("Currency3");
 				dictItemDao.saveOrUpdate(currency3);
 			}catch(Exception e){
 				e.printStackTrace();

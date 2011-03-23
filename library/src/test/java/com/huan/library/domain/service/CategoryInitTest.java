@@ -18,8 +18,8 @@ import com.huan.library.infrastructure.persistence.CategoryDao;
 
 public class CategoryInitTest {
 
-	private static String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\test.xls";
-	
+	//private static String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\categories.xls";
+	private static String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\categories.xls";
 	private static CategoryDao categoryDao;
 	
 	@BeforeClass
@@ -39,7 +39,6 @@ public class CategoryInitTest {
 				System.out.println(category.getCategoryId());
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

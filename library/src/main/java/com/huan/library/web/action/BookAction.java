@@ -37,7 +37,6 @@ public class BookAction extends BaseActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 	@Autowired
 	private BookService bookService; // 图书service
 	@Autowired
@@ -47,7 +46,7 @@ public class BookAction extends BaseActionSupport {
 	@Autowired
 	private DictItemService dictItemService; // 字典service
 
-	private Book book = new Book(); // 图书信息
+	private Book book = null; // 图书信息
 	private PageModel<Book> pageModel = new PageModel<Book>(); // 图书集合
 	private Press press = new Press(); // 出版社
 	private List<Press> presses = new ArrayList<Press>(); // 出版社集合
@@ -91,7 +90,6 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 添加Book
-	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -109,14 +107,14 @@ public class BookAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
-	Book bookCopy = null;
 	/**
 	 * 显示修改图书
 	 */
 	public String showModifyBook() {
 		try {
+			System.out.println(book.getId());
+			book= bookService.findBookById(book.getId());
 			init();
-			bookCopy = bookService.findBookById(String.valueOf(book.getId()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -165,7 +163,7 @@ public class BookAction extends BaseActionSupport {
 			bookLevelViews = dictItemService.getDictItemByItemClass(BookLevel.class.getName());
 			securityViews = dictItemService.getDictItemByItemClass(Security.class.getName());
 			currencyViews = dictItemService.getDictItemByItemClass(Currency.class.getName());
-	    resourceViews = dictItemService.getDictItemByItemClass(Resource.class.getName());
+	        resourceViews = dictItemService.getDictItemByItemClass(Resource.class.getName());
 		}catch(Exception e){
 			e.printStackTrace();
 		}

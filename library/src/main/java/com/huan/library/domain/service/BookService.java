@@ -29,7 +29,7 @@ public interface BookService {
 	 * @param bookId
 	 * @return
 	 */
-	public Book findBookById(String bookId) throws Exception;
+	public Book findBookById(int bookId) throws Exception;
 	
 	/**
 	 * 分页查找图书
