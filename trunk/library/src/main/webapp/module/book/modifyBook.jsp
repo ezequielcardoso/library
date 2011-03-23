@@ -7,7 +7,7 @@
 		<title>图书馆管理系统</title>
 		<script type="text/javascript"
 			src="<%=path%>/common/datePicker/datePicker/calendar/WdatePicker.js">
-  </script>
+        </script>
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -88,28 +88,28 @@
 														书名：
 													</td>
 													<td align="left" bgcolor="#F4F5F9" colspan="3">
-														<input name="barcode" type="text" id="barcode" size="62"
-															value="">
-															<s:property value="book.bookName"/>
+														<input name="book.bookName" type="text" id="bookName" size="62"
+															value="<s:property value='book.bookName'/>">
+															
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
 													onMouseOut=this.style.backgroundColor= '';>
 													<td width="15%" height="30" align="right" nowrap
 														bgcolor="#F4F5F9">
-														条形码：
+														条形码:
 													</td>
 													<td width="35%" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="KF ES001" disabled>
+														<input name="book.barCode" type="text" id="barcode" size="18"
+															value="<s:property value='book.barCode'/>" disabled>
 													</td>
 													<td width="15%" align="right" nowrap bgcolor="#F4F5F9">
 														图书编号：
 													</td>
 													<td width="35%" height="30" align="left" nowrap
 														bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="B001">
+														<input name="book.bookNo" type="text" id="bookNo" size="18"
+															value="<s:property value='book.bookNo'/>">
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
@@ -118,24 +118,24 @@
 														索书号：
 													</td>
 													<td width="30%" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="b001">
+														<input name="book.searchBookId" type="text" id="searchBookId" size="18"
+															value="<s:property value='book.searchBookId'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														出版社：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state">
-															<option value="1">
-																大连出版社xxxx
-															</option>
-															<option value="-1">
-																中国出版社
-															</option>
-															<option value="0">
-																河大出版色和
-															</option>
-														</select>
+															<select id="state" name="press">
+														        <s:iterator value="presses" var="press">
+																  <s:set var="pressSelected"/>
+																  <s:if test="<s:property value='id'> == <s:property value='book.press.id'>">
+ 																          <s:set value="selected" var="pressSelected"/> 
+ 																  </s:if>
+ 																   <option value="<s:property value='id'/>" ${pressSelected  }/>
+																    <s:property value="pressName"/>
+																  </option>
+															     </s:iterator>
+															</select>
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
@@ -144,8 +144,8 @@
 														种次号：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="001">
+														<input name="book.speciesId" type="text" id="speciesId" size="18"
+															value="<s:property value='book.speciesId'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														分类：
@@ -168,8 +168,8 @@
 														出版日期：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input type="text" value="2010-2-2"
-															onClick=WdatePicker();size="18">
+														<input name="book.publisherDate" type="text" value="<s:property value='book.publisherDate'/>"
+															onClick=WdatePicker(); size="18">
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
@@ -178,14 +178,14 @@
 														版次：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="2">
+														<input name="book.revision" type="text" id="barcode" size="18"
+															value="<s:property value='book.revision'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														电子文档：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="file" id="barcode">
+														<input name="book.fileName" type="file" id="barcode">
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
@@ -211,8 +211,8 @@
 														数量：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="2">
+														<input name="book.quantity" type="text" id="quantity" size="18"
+															value="<s:property value='book.quantity'/>">
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
@@ -221,15 +221,15 @@
 														页数：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="98">
+														<input name="book.pages" type="text" id="pages" size="18"
+															value="<s:property value='book.pages'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														价格：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="98">
+														<input name="book.price" type="text" id="price" size="18"
+															value="<s:property value='book.price'/>">
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
@@ -238,8 +238,8 @@
 														存放位置：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="A区 b号柜">
+														<input name="book.location" type="text" id="location" size="18"
+															value="<s:property value='book.location'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														状态：
@@ -255,15 +255,15 @@
 														ISBN：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="afdsg23gdsa">
+														<input name="book.ISBN" type="text" id="ISBN" size="18"
+															value="<s:property value='book.ISBN'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														拼音：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="abc">
+														<input name="book.spell" type="text" id="spell" size="18"
+															value="<s:property value='book.spell'/>">
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
@@ -306,16 +306,9 @@
 														币种：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state"
-															style="border-style: solid; border-color: #bcc3c9; width: 100px;">
+														<select>
 															<option value="1">
 																人名币
-															</option>
-															<option value="-1">
-																美元
-															</option>
-															<option value="0">
-																日元
 															</option>
 														</select>
 													</td>
@@ -323,8 +316,8 @@
 														捐赠人：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="huan">
+														<input name="book.donator" type="text" id="donator" size="18"
+															value="<s:property value='book.donator'/>">
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
@@ -333,9 +326,10 @@
 														简介：
 													</td>
 													<td height="80" colspan="3" align="left" bgcolor="#F4F5F9">
-														<textarea cols="60" rows="4"
+														<textarea cols="60" rows="4" name="book.bookDesc" id="bookDesc"
 															style="border-color: #bcc3c9; border-width: 1px;">
-                                                           该生无数次给学校图书馆捐赠图书，值得大家学习，是时代的楷模，人民的榜样，党的好儿子，可惜还是个团员</textarea>
+                                                          <s:property value="book.bookDesc"/>  
+                                                        </textarea>
 													</td>
 												</tr>
 											</table>

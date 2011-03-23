@@ -89,7 +89,6 @@ public class DictItemAction extends BaseActionSupport {
 	public String findDictItem() {
 		try {
 		  List<DictItem> dictItemList = dictItemService.findAllDictItems();
-		  request.setAttribute("dictItemList", dictItemList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

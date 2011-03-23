@@ -103,7 +103,6 @@
                 alert("一次只能修改一本图书");
                 return;
             }
-            alert(""+modifyBook[j].value);
             window.self.location="<%=path%>/books/showModifyBook.action?book.id="+modifyBook[j].value;
 		}
 

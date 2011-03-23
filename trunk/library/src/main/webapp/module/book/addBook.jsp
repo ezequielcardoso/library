@@ -17,9 +17,8 @@
 			 function document.onkeydown(){
 			    if(window.event.keyCode == 13 && window.event.srcElement.type != "button"){
 			       window.event.keyCode = 9; 
-			  }
-		} 
-		
+			   }
+		     } 
 	    </script>
 	</head>
 	<body>
@@ -35,7 +34,6 @@
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
-
 									<tr>
 										<td>
 											<table width="100%" border="0" align="center" cellpadding="0"
@@ -65,11 +63,14 @@
 									cellspacing="0">
 									<tr>
 										<td height="30" class="body1">
-											<input type="button" class="btn" onClick="saveBook();"
+											<input type="submit" class="btn" value="增 加">
+											<!-- 
+											<input type="button" class="btn" onClick="saveBook()"
 												value="增 加">
-											<input type="reset" " class="btn" value="重 填">
+											 -->
+											<input type="reset" " class="btn" value="重填">
 											<input type="button" class="btn"
-												onClick="window.location='<%=path%>/books/findBooks.action'"
+												onClick="window.location='<%=path%>/books/findBooksByPages.action'"
 												value="返 回">
 										</td>
 									</tr>
@@ -146,13 +147,12 @@
 													<td width="15%" align="right" nowrap bgcolor="#F4F5F9">
 														出版社：
 													</td>
-													
 													<td width="35%" height="30" align="left" bgcolor="#F4F5F9">
 														<select>
 														   <s:iterator value="presses" var="press">
-															<option value="<s:property value="#press.id"/>">
-														        <s:property value="#press.pressName"/>
-															</option>
+															    <option value="<s:property value="#press.id"/>">
+														           <s:property value="#press.pressName"/>
+														    	</option>
 															</s:iterator>
 														</select>
 													</td>
@@ -203,15 +203,13 @@
 														版次：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.revision" type="text" id="revision"
-															size="18">
+														<input name="book.revision" type="text" id="revision" size="18">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														电子文档：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="fileName" type="file"
-															id="fileName">
+														<input name="book.fileName" type="file" id="fileName">
 													</td>
 												</tr>
                                                 <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
@@ -259,11 +257,10 @@
 														存放位置：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.location" type="text" id="location"
-															size="18">
+														<input name="book.location" type="text" id="location" size="18">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
-														状态：
+														图书状态：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<select>
@@ -299,9 +296,9 @@
 													<td align="left" bgcolor="#F4F5F9">
 														<select>
 														   <s:iterator value="bookLevelViews" var="bookLevelView">
-															<option value="<s:property value="#bookLevelView.key"/>">
-														      <s:property value="#bookLevelView.value"/>
-															</option>
+														   	<option value="<s:property value="#bookLevelView.key"/>">
+															      <s:property value="#bookLevelView.value"/>
+																</option>
 															</s:iterator>
 														</select>
 													</td>
@@ -347,8 +344,7 @@
 													</td>
 													<td height="80" colspan="3" align="left" bgcolor="#F4F5F9">
 														<textarea cols="60" rows="4" id="bookDesc"
-															name="book.bookDesc"
-															style="border-color: #bcc3c9; border-width: 1px;">
+															name="book.bookDesc" style="border-color: #bcc3c9; border-width: 1px;">
                                                         </textarea>
 													</td>
 												</tr>

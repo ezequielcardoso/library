@@ -39,7 +39,6 @@ public class BorrowReturnAction extends BaseActionSupport {
 		BorrowReturn borrowCopy = new BorrowReturn();
 		try {
 			borrowCopy = borrowReturnService.addOrModifyBorrow(borrowReturn);	
-			request.setAttribute("borrowReturn", borrowCopy);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -61,7 +60,6 @@ public class BorrowReturnAction extends BaseActionSupport {
 		BorrowReturn returnCopy = new BorrowReturn();
 		try {
 			returnCopy = borrowReturnService.addReturn(borrowReturn);
-			request.setAttribute("borrowReturn", returnCopy);
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
@@ -83,7 +81,6 @@ public class BorrowReturnAction extends BaseActionSupport {
 		BorrowReturn returnCopy = new BorrowReturn();
 		try {
 			returnCopy = borrowReturnService.addOrModifyBorrow(borrowReturn);
-			request.setAttribute("borrowReturn", returnCopy);
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}

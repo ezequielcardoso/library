@@ -72,7 +72,6 @@ public class PressAction extends BaseActionSupport{
 		try {
 			  //press会不会为空
 	          Press pressModify = pressService.findPressById(press.getId());
-	          request.setAttribute("press", pressModify);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return Action.ERROR;
@@ -137,7 +136,6 @@ public class PressAction extends BaseActionSupport{
 		PageModel<Press> pressModel = new PageModel<Press>();
 		try {
 			pressModel = pressService.findPressesByPage(pageNo, pageSize);
-			request.setAttribute("pressModel", pressModel);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

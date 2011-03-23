@@ -18,6 +18,6 @@ public class Constants {
 	/**
 	 * 分页信息
 	 */
-	public static final int PAGESIZE = 3; //大小
+	public static final int PAGESIZE = 5; //大小
 	public static final int PAGENO = 1; //页号
 }

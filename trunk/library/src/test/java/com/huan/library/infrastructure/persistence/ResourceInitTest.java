@@ -24,11 +24,13 @@ public class ResourceInitTest {
 		public void testResourceInit(){
 			try{
 				Resource resource = new Resource();
-				resource.setShortName("¾èÔù");
+				resource.setShortName("¹ºÂò");
+				resource.setItemCode("Resource");
 				dictItemDao.saveOrUpdate(resource);
 				
 				Resource resource2 = new Resource();
 				resource2.setShortName("¾èÔù");
+				resource2.setItemCode("Resource2");
 				dictItemDao.saveOrUpdate(resource2);
 			}catch(Exception e){
 				e.printStackTrace();

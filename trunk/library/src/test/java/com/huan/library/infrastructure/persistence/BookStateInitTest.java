@@ -23,22 +23,27 @@ public class BookStateInitTest {
 			try{
 				BookState bookState = new BookState();
 				bookState.setShortName("核审中");
+				bookState.setItemCode("BookState");
 				dictItemDao.saveOrUpdate(bookState);
 				
 				BookState bookState2 = new BookState();
 				bookState2.setShortName("预约中");
+				bookState2.setItemCode("BookStat2");
 				dictItemDao.saveOrUpdate(bookState2);
 			
 				BookState bookState3 = new BookState();
 				bookState3.setShortName("借阅中");
+				bookState3.setItemCode("BookState3");
 				dictItemDao.saveOrUpdate(bookState3);
 			
 				BookState bookState4 = new BookState();
 				bookState4.setShortName("逾期中");
+				bookState4.setItemCode("BookState4");
 				dictItemDao.saveOrUpdate(bookState4);
 				
 				BookState bookState5 = new BookState();
 				bookState5.setShortName("在馆");
+				bookState5.setItemCode("BookState5");
 				dictItemDao.saveOrUpdate(bookState5);
 			
 			}catch(Exception e){

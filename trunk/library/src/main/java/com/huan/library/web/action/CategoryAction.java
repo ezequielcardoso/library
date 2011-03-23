@@ -60,7 +60,6 @@ public class CategoryAction extends BaseActionSupport {
 		try {
 			  //catogory会不会为空
 	          Category categoryMidify = categoryService.findCategoryById(category.getCategoryId());
-	          request.setAttribute("category", categoryMidify);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return Action.ERROR;
@@ -108,7 +107,6 @@ public class CategoryAction extends BaseActionSupport {
 	public String findCategorys()  {
 		try {
 		List<Category> categoryList = categoryService.findAllCategorys();
-		request.setAttribute("categoryList", categoryList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

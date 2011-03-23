@@ -86,7 +86,7 @@ public class DictItemServiceImpl implements DictItemService {
 			if (dictItems != null)
 				for (DictItem codeItem : dictItems) {
 					DictItemView view = new DictItemView();
-					view.setKey(codeItem.getItemId() + "");
+					view.setKey(codeItem.getId() + "");
 					view.setValue(codeItem.getShortName());
 					view.setComment(codeItem.getDescription());
 					views.add(view);

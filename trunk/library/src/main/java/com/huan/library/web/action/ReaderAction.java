@@ -98,19 +98,7 @@ public class ReaderAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-	/**
-	 * 根据id查找reader
-	 * @return
-	 */
-	public String findReaderById() {
-		try {
-			request.setAttribute("reader", readerService.findReaderById(reader.getId()));
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
+	
 	/**
 	 * 查找所有的读者
 	 * @return
@@ -119,7 +107,6 @@ public class ReaderAction extends BaseActionSupport {
 		List<Reader> readers = new ArrayList<Reader>();
 		try {
 			readers = readerService.findAllReaderes();
-			request.setAttribute("readers", readers);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -131,13 +118,7 @@ public class ReaderAction extends BaseActionSupport {
 	 * @return
 	 */
 	public String showRecharge(){
-		try {
-			request.setAttribute("reader", reader);
-		} catch (Exception e) {
-		  e.printStackTrace();
-		  return Action.ERROR;
-		}
-		return "showRecharge";
+			return "showRecharge";
 	}
   
 	/**
@@ -145,9 +126,8 @@ public class ReaderAction extends BaseActionSupport {
 	 * @return
 	 */
 	public String recharge(){
-		Reader readerCopy = new Reader();
 		try {
-			readerCopy = readerService.addOrModifyReader(reader);
+			reader = readerService.addOrModifyReader(reader);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return Action.ERROR;

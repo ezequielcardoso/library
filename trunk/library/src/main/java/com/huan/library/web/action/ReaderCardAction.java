@@ -57,7 +57,6 @@ public class ReaderCardAction extends BaseActionSupport {
 		try {
 			readerCardCopy = readerCardService
 					.addOrModifyReaderCard(readerCard);
-			request.setAttribute("readerCard", readerCardCopy);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -70,10 +69,8 @@ public class ReaderCardAction extends BaseActionSupport {
 	 * @return
 	 */
 	public String showModifyReaderCard() {
-		ReaderCard raderCardCopy = new ReaderCard();
 		try {
-			raderCardCopy = readerCardService.findReaderCardById(readerCard.getId());
-			request.setAttribute("readerCard", raderCardCopy);
+			readerCardService.findReaderCardById(readerCard.getId());
 		} catch (Exception e) {
 		    e.printStackTrace();
 		    return Action.ERROR;
@@ -119,7 +116,6 @@ public class ReaderCardAction extends BaseActionSupport {
 		List<ReaderCard> readerCards = new ArrayList<ReaderCard>();
 		try {
 			readerCards = readerCardService.findAllReaderCards();
-			request.setAttribute("readerCards", readerCards);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

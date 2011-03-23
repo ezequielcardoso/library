@@ -74,10 +74,11 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 		}
 	}
 
+	//把load换成了get 
 	public T selectById(Serializable entityId) throws Exception{
 		  T t = null; 
 		try{
-			t = getHibernateTemplate().load(entityClass, entityId);
+			t = getHibernateTemplate().get(entityClass, entityId);
 		} catch(Exception e){
 			e.printStackTrace();
 			return null;

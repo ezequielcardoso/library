@@ -1,6 +1,5 @@
 package com.huan.library.domain.service.impl;
 
-import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class BookServiceImpl implements BookService {
 		bookDao.delete(book);
 	}
 
-	public Book findBookById(String bookId) throws Exception {
+	public Book findBookById(int bookId) throws Exception {
 		return bookDao.selectById(bookId);
 	}
 	

@@ -49,7 +49,6 @@ public class ReaderTypeAction extends BaseActionSupport {
 		ReaderType readerTypeCopy = new ReaderType();
 		try {
 			readerTypeCopy = readerTypeService.addOrModifyReaderType(readerType);
-			request.setAttribute("readerType", readerTypeCopy);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -93,7 +92,6 @@ public class ReaderTypeAction extends BaseActionSupport {
 		List<ReaderType> readerTypes = new ArrayList<ReaderType>();
 		try {
 			readerTypes = readerTypeService.findAllReaderTypes();
-			request.setAttribute("readerTypes", readerTypes);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
