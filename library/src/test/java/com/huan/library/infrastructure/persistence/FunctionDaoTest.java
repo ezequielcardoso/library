@@ -25,7 +25,8 @@ import com.huan.library.domain.model.rights.Function;
  */
 public class FunctionDaoTest {
 
-	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\functionsCopy.xls";
+	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\ExcelData\\functionsCopy.xls";
+//	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\functionsCopy.xls";
 	private static FunctionDao functionDao;
 
 	@BeforeClass
@@ -35,7 +36,7 @@ public class FunctionDaoTest {
 	}
 
 	@Test
-	public void testImportCategorysFromExcel() {
+	public void testImportFunctionsFromExcel() {
 		List<Function> functions = new ArrayList<Function>();
 		// 取得excel文件
 		File file = new File(filePath);

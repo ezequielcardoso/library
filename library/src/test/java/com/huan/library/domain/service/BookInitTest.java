@@ -39,7 +39,7 @@ public class BookInitTest {
 			List<Press> pressList = pressModel.getRestleList();
 			System.out.println(pressModel.getTotalRecords());
 			for(Press press:pressList){
-				System.out.println(press.getId()+" "+ press.getPressName()+" " +press.getPressAddress());
+				System.out.println(press.getPressId()+" "+ press.getPressName()+" " +press.getPressAddress());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

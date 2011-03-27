@@ -20,7 +20,8 @@ import com.huan.library.domain.model.reader.ReaderUnits;
 public class ReaderUnitsDaoTest {
 
 	private static ReaderUnitsDao readerUnitsDao;
-	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\readerUnits.xls";
+	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\ExcelData\\readerUnits.xls";
+//	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\readerUnits.xls";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
