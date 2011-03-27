@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public List<User> findAllUsers() throws Exception {
-		return userDao.selectAllUsers();
+		return userDao.selectUsersByDeptId("");
 	}
 
 	public List<User> findUsersByDeptId(String deptId) throws Exception {

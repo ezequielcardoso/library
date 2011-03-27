@@ -5,7 +5,7 @@ package com.huan.library.web.view;
  * @author shuaizhichun
  * @time 2011-3-23 上午02:18:59
  */
-public class ExtFormResponse {
+public class ExtJsonForm {
 
 	private boolean success;//业务处理是否成功
 	private String msg;//业务处理后回复的消息

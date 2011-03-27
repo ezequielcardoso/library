@@ -71,7 +71,7 @@ public class PressAction extends BaseActionSupport{
 	public String showModifyPress() {
 		try {
 			  //press会不会为空
-	          Press pressModify = pressService.findPressById(press.getId());
+	          Press pressModify = pressService.findPressById(press.getPressId());
 			} catch (Exception e) {
 				e.printStackTrace();
 				return Action.ERROR;

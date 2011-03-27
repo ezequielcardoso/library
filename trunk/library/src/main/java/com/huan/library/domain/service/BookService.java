@@ -1,7 +1,10 @@
 package com.huan.library.domain.service;
 
+import java.util.List;
+
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.util.PageModel;
+import com.huan.library.web.view.BookView;
 
 
 /**
@@ -37,6 +40,20 @@ public interface BookService {
 	 * @throws Exception
 	 */
 	public PageModel<Book> findBooksByPage(int pageNo,int pageSize) throws Exception;
+
+	/**
+	 * 分页查找图书
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Book> findBooks(BookView bookView) throws Exception;
+
+	/**
+	 * 查找图书的总数
+	 * @param bookView
+	 * @return
+	 */
+	public Long findBooksCount(BookView bookView);
 
 
 }

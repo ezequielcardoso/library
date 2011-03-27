@@ -6,11 +6,28 @@
 <struts>
     <!-- 书刊模块 -->
     <package name="books" namespace="/books" extends="library">
-	
-		<action name="*" class="com.huan.library.web.action.BookAction" method="{1}">
-			<result name="showSaveBook">/module/book/addBook.jsp</result>
-			<result name="showModifyBook">/module/book/modifyBook.jsp</result>
+		<action name="findBooksByPages" class="com.huan.library.web.action.BookAction" method="findBooksByPages">
 			<result name="success">/module/book/bookList.jsp</result>
+		</action>
+		
+		<action name="findBooks" class="com.huan.library.web.action.BookAction" method="findBooks">
+			<result name="success" type="json">
+				<param name="root">extGridLoad</param>
+			</result>
+		</action>
+		
+		<action name="showModifyBook" class="com.huan.library.web.action.BookAction" method="showModifyBook">
+			<result name="showModifyBook" >/module/book/modifyBook.jsp</result>
+		</action>
+		
+		<action name="showSaveBook" class="com.huan.library.web.action.BookAction" method="showSaveBook">
+			<result name="showSaveBook" >/module/book/addBook.jsp</result>
+		</action>
+		
+		<action name="saveBook" class="com.huan.library.web.action.BookAction" method="saveBook">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
 		</action>
 		
 		<action name="*Magazine" class="com.huan.library.web.action.MagazineAction" method="{1}">

@@ -2,6 +2,9 @@ package com.huan.library.domain.service.impl;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +12,7 @@ import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.infrastructure.persistence.BookDao;
 import com.huan.library.util.PageModel;
+import com.huan.library.web.view.BookView;
 
 /**
  * bookServiceImpl
@@ -46,5 +50,20 @@ public class BookServiceImpl implements BookService {
 		    e.printStackTrace();
 		}
 		return pageModel;
+	}
+
+	public List<Book> findBooks(BookView bookView) throws Exception {
+		List<Book> books = new ArrayList<Book>();
+		try {
+			books = this.bookDao.selectBooks(bookView);
+		} catch (Exception e){
+			
+		}
+		return books;
+	}
+
+	public Long findBooksCount(BookView bookView) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
