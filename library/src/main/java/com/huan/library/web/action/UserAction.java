@@ -49,6 +49,7 @@ public class UserAction extends BaseActionSupport {
 	public String findAllUsersInJson(){
 		try {
 			List<User> users = userService.findAllUsers();
+			System.out.println(users.size());
 			List<UserView> views = this.convertToView(users);
 			results.put("rows", views);
 			results.put("totalProperty", 8);

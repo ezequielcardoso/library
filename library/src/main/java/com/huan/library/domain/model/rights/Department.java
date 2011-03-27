@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.huan.library.domain.model.book.Category;
 
 
 /**
@@ -38,12 +41,11 @@ public class Department implements Serializable {
 	private String deptAlias;//别称
 	private String deptDesc;//部门描述，介绍等
 	
-	@ManyToOne(targetEntity=Department.class,fetch=FetchType.LAZY)
+	@ManyToOne(targetEntity=Department.class,fetch=FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.REMOVE})
 	@JoinColumn(name="parentDeptId",referencedColumnName="deptId")
 	private Department parent;//上级部门
 	
-	@OneToMany(targetEntity=Department.class,fetch=FetchType.LAZY)
-	@JoinColumn(name="deptId")
+	@OneToMany(targetEntity=Department.class,mappedBy="parent")
 	private List<Department> children = new ArrayList<Department>();//下级部门
 	
 	/**

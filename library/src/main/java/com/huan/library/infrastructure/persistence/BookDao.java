@@ -4,6 +4,7 @@ package com.huan.library.infrastructure.persistence;
 import java.util.List;
 
 import com.huan.library.domain.model.book.Book;
+import com.huan.library.web.view.BookView;
 
 /**
  * 图书dao
@@ -13,5 +14,7 @@ import com.huan.library.domain.model.book.Book;
 public interface BookDao extends BaseDao<Book>{
 
 	public List<Book> selectAllBooks() throws Exception;
+
+	public List<Book> selectBooks(BookView bookView) throws Exception;
 	
 }	

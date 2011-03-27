@@ -39,7 +39,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 			StringBuilder hql = new StringBuilder();
 			hql.append(" select new User( u.userId, u.userAccount, u.userName, u.password, u.userActive, u.createDate, t_dept.deptId, t_dept.deptName) "); 
 			hql.append(" from User u ");
-			hql.append(" where t_dept.deptId=(:deptId) ");
+//			hql.append(" where t_dept.deptId=(:deptId) ");
 			hql.append(" left join u.dept t_dept ");
 			final String hqlIn = hql.toString();
 			HibernateCallback callback = new HibernateCallback(){
@@ -47,16 +47,18 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
 						Query query = session.createQuery(hqlIn);
-						query.setParameter("deptId", deptId);
+//						query.setParameter("deptId", deptId);
 					return query.list();
 				}
 				
 			};
-			users = (List<User>)getHibernateTemplate().executeFind(callback);
+			users = getHibernateTemplate().executeFind(callback);
+			System.out.println("...." + users.size());
 		} catch(Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
 		}
+		
 		return users;
 	}
 }

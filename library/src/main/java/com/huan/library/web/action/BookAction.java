@@ -21,8 +21,10 @@ import com.huan.library.domain.service.DictItemService;
 import com.huan.library.domain.service.PressService;
 import com.huan.library.util.Constants;
 import com.huan.library.util.PageModel;
+import com.huan.library.web.view.BookView;
 import com.huan.library.web.view.DictItemView;
-import com.huan.library.web.view.ExtFormResponse;
+import com.huan.library.web.view.ExtGridLoad;
+import com.huan.library.web.view.ExtJsonForm;
 import com.opensymphony.xwork2.Action;
 
 /**
@@ -46,7 +48,15 @@ public class BookAction extends BaseActionSupport {
 	@Autowired
 	private DictItemService dictItemService; // 字典service
 
-	private Book book = null; // 图书信息
+	/**
+	 * 获取参数和返回数据对象
+	 */
+	private Book book; // 图书信息--可以不用了，改用bookView对象
+	private ExtGridLoad extGridLoad = new ExtGridLoad();
+	private BookView bookView;//接收客户端提交的参数
+	private ExtJsonForm extJsonForm = new ExtJsonForm();
+	
+	
 	private PageModel<Book> pageModel = new PageModel<Book>(); // 图书集合
 	private Press press = new Press(); // 出版社
 	private List<Press> presses = new ArrayList<Press>(); // 出版社集合
@@ -59,8 +69,6 @@ public class BookAction extends BaseActionSupport {
 	private List<DictItemView> currencyViews; //币种试图
 	private List<DictItemView> resourceViews; //来源试图
 	
-	private ExtFormResponse formResp = new ExtFormResponse();
-	
 	/**
 	 * 分页查找图书
 	 * @return
@@ -70,6 +78,24 @@ public class BookAction extends BaseActionSupport {
 		try {
 			bookStateViews = dictItemService.getDictItemByItemClass(BookState.class.getName());
 			pageModel = bookService.findBooksByPage(Constants.PAGENO,Constants.PAGESIZE);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 分页查找图书
+	 * @return
+	 * @throws Exception
+	 */
+	public String findBooks() {
+		try {
+			List<Book> books = bookService.findBooks(bookView);
+			extGridLoad.setRoot(this.convertToView(books));
+//			extGridLoad.setTotalProperty(bookService.findBooksCount(bookView));
+			extGridLoad.setTotalProperty(100);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -96,13 +122,13 @@ public class BookAction extends BaseActionSupport {
 	public String saveBook() {
 		try {
 			book = bookService.addOrModifyBook(book);
-			formResp.setSuccess(true);
-			formResp.setMsg("新增用户成功！");
-			formResp.setData(book);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("新增用户成功！");
+			extJsonForm.setData(book);
 		} catch (Exception e) {
 			e.printStackTrace();
-			formResp.setSuccess(false);
-			formResp.setMsg("新增用户失败！");
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("新增用户失败！");
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
@@ -112,8 +138,8 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String showModifyBook() {
 		try {
-			System.out.println(book.getId());
-			book= bookService.findBookById(book.getId());
+			System.out.println(book.getBookId());
+			book= bookService.findBookById(book.getBookId());
 			init();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -167,6 +193,25 @@ public class BookAction extends BaseActionSupport {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	public List<BookView> convertToView(List<Book> books){
+		List<BookView> views = new ArrayList<BookView>();
+		for(Book book : books){
+			BookView view = new BookView();
+			view.setBookId(book.getBookId());
+			view.setBookName(book.getBookName());
+			
+			//...............
+			
+			view.setFirstCategoryId(book.getFirstCategory().getCategoryId());
+			view.setFirstCategoryCode(book.getFirstCategory().getCategoryCode());
+			
+			//................
+			
+			views.add(view);
+		}
+		return views;
 	}
 	
 	public Book getBook() {
@@ -269,12 +314,30 @@ public class BookAction extends BaseActionSupport {
 	public void setCategoryService(CategoryService categoryService) {
 		this.categoryService = categoryService;
 	}
-	public ExtFormResponse getFormResp() {
-		return formResp;
+
+	public BookView getBookView() {
+		return bookView;
 	}
-	public void setFormResp(ExtFormResponse formResp) {
-		this.formResp = formResp;
+
+	public void setBookView(BookView bookView) {
+		this.bookView = bookView;
 	}
-	
+
+	public ExtGridLoad getExtGridLoad() {
+		return extGridLoad;
+	}
+
+	public void setExtGridLoad(ExtGridLoad extGridLoad) {
+		this.extGridLoad = extGridLoad;
+	}
+
+	public ExtJsonForm getExtJsonForm() {
+		return extJsonForm;
+	}
+
+	public void setExtJsonForm(ExtJsonForm extJsonForm) {
+		this.extJsonForm = extJsonForm;
+	}
+
 	
 }
