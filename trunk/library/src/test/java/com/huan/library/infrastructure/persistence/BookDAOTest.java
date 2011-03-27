@@ -1,7 +1,5 @@
 package com.huan.library.infrastructure.persistence;
 
-import java.util.List;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -64,7 +62,7 @@ public class BookDAOTest {
 		category.setCategoryName("数学");
 		category.setParent(null);
 		categoryDao.saveOrUpdate(category);
-		book.setBookCategory(category);
+		book.setFirstCategory(category);
 		
 		//图书级别
 		Certificate certificate = new Certificate();
