@@ -1,6 +1,5 @@
 function saveBook(){
 
-	alert("");
 	//取得表单数据
 	var bookName = Ext.get('bookName').getValue();
 	var barcode = Ext.get('barcode').getValue();
@@ -59,14 +58,16 @@ function saveBook(){
 			//........后面的参数加上.........
 		}, 
 		success : function(resp){
-			//如果返回{success:true, data:"图书新增成功！"} 提示，并且重新加载表单
-			//如果返回{success:false, data:"图书新增失败！"} 提示
+			//如果返回{success:true, msg :"图书新增成功！"} 提示，并且重新加载表单
+			//如果返回{success:false, msg :"图书新增失败！"} 提示
 			var obj = Ext.util.JSON.decode(resp.responseText);
 			if(obj.success==true){
+				Ext.Msg.alert('提示', obj.msg);
 				//重新加载表单数据
-				Ext.Msg.alert('提示', obj.data);
+				loadBookForm(obj.data);
+				
 			} else if(obj.success==false){
-				Ext.Msg.alert('提示', obj.data);
+				Ext.Msg.alert('提示', obj.msg);
 			}
 		},
 		failure : function(){
@@ -74,4 +75,8 @@ function saveBook(){
 		}
 	});
 	
+}
+
+function loadBookForm(record){
+
 }

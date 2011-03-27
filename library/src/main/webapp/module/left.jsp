@@ -21,8 +21,6 @@ function LMYC(number) {
 } 
 
 function ShowFLT(i, number) { 
-	alert(i);
-	alert(number);
 	var lbmc = eval('LM' + i); 
 	var imageName='treePic'+ i;
 	var tName='tPic'+ i; 
