@@ -75,6 +75,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 		}
 		return books;
 	}
-
+   
+	
 
 }
