@@ -68,13 +68,13 @@ public class FunctionServiceImpl implements FunctionService {
 			e.printStackTrace();
 			throw new Exception(e);
 		}
-//		for(Function func : funcs){
-//			System.out.println(func.getFuncName());
-//			List<Function> children = func.getChildren();
-//			for(Function child : children){
-//				System.out.println(child.getFuncName());
-//			}
-//		}
+		for(Function func : funcs){
+			System.out.println(func.getFuncName());
+			List<Function> children = func.getChildren();
+			for(Function child : children){
+				System.out.println(child.getFuncName());
+			}
+		}
 		return funcs;
 	}
 

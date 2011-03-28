@@ -34,10 +34,10 @@ public class Book implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int bookId; // 主键
-	private String barCode; // 条形码
-	private String bookName; // 书刊名字
-	private String bookDesc; // 图书简介
-	private String donator; // 捐赠人
+	private String barCode; //条形码
+	private String bookName; //书刊名字
+	private String bookDesc; //图书简介
+	private String donator; //捐赠人
 	private String author ; //作者
     private String translator; //译者 
 	private String ISBN; // ISBN
@@ -56,7 +56,7 @@ public class Book implements Serializable {
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
 	private String bookNo; // 图书编号
-	private boolean isBook = true; // 类型true:表示图书 false:表示期刊
+	private boolean isBook = true;  //类型true:表示图书 false:表示期刊
 
 	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
 	@JoinColumn(name = "firstCategory")

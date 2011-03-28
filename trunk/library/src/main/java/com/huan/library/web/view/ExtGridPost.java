@@ -7,6 +7,11 @@ package com.huan.library.web.view;
  */
 public class ExtGridPost implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Integer start;//当前分页开始
 	private Integer limit;//当前分页大小
 	private Long totalCount;//总条数
@@ -61,7 +66,5 @@ public class ExtGridPost implements java.io.Serializable {
 	public void setIsPage(Boolean isPage) {
 		this.isPage = isPage;
 	}
-	
-	
 	
 }

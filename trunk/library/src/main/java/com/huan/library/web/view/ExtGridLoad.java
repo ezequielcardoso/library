@@ -9,21 +9,24 @@ import java.util.List;
  */
 public class ExtGridLoad implements java.io.Serializable {
 
-	private int totalProperty;//总记录数
+	private Long totalProperty;//总记录数
 	private List root;//返回的分页数据
 	
+	public Long getTotalProperty() {
+		return totalProperty;
+	}
+
+
+	public void setTotalProperty(Long totalProperty) {
+		this.totalProperty = totalProperty;
+	}
+
+
 	public ExtGridLoad(){
 		
 	}
 
-	public int getTotalProperty() {
-		return totalProperty;
-	}
-
-	public void setTotalProperty(int totalProperty) {
-		this.totalProperty = totalProperty;
-	}
-
+	
 	public List getRoot() {
 		return root;
 	}

@@ -6,7 +6,6 @@
 <struts>
 
     <package name="rights" namespace="/rights" extends="library">
-
 		<!-- 用户 -->
 		<action name="addUser" class="com.huan.library.web.action.UserAction" method="add">
 			<result name="success">index.jsp</result>

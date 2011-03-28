@@ -26,8 +26,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			}, {
 				text : '删除',
 				handler : function() {
-					
-				}
+					this.deleteBook();
+				},
+				scope:this
 			},  {
 				text : '导入',
 				handler : function() {
@@ -173,8 +174,10 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		}];
 		
+		var selectModel = new Ext.grid.CheckboxSelectionModel();
+		
 		var store = new Ext.data.JsonStore({
-			url : contextPath + '/book/findBooks.action',
+			url : contextPath + '/books/findBooks.action',
 			totalProperty : 'totalProperty',
 			root : 'root',
 			storeInfo : {
@@ -183,7 +186,12 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			},
 			fields : fields
 		});
-		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), {
+		
+		
+		
+		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(),
+		        selectModel,
+		   {
 				header : '编号',
 				dataIndex : 'bookNo',
 				sortable : true,
@@ -247,12 +255,13 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		]);
 		
 		Ext.apply(this, {
-			width : 650,
+			width : 1000,
 //			height : document.documentElement.clientHeight * 0.82,
 			height : 500,
 			autoScroll : true,
 			tbar : tbar,
 			cm : colM,
+			selModel: selectModel,
 			store : store,
 			stripeRows : true,
 			columnLines : true,
@@ -300,12 +309,33 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	},
 	
 	updateBook : function(){
-	
+	  
 	},
 	
-	deleteBook : function() {
-		
-	}
-	
-	
+    deleteBook : function() {
+		var sm = this.getSelectionModel();
+		alert(sm);
+		var thiz = this;
+		if(sm.hasSelection()){
+			var record = sm.getSelected();
+			var bookId = record.get('bookId');
+			alert(bookId);
+			Ext.Ajax.request({
+				url : contextPath + '/books/deleteBook.action',
+				method : 'POST',
+				params : {
+					bookId : bookId
+				},
+				success : function(resp){
+					alert('成功从服务器返回');
+					var respText = resp.responseText;
+					var obj = Ext.util.JSON.decode(respText);
+				    alert(obj);
+				},
+				failure : function(){
+					alert('服务器异常');
+				}
+			});
+		}
+	}	
 });

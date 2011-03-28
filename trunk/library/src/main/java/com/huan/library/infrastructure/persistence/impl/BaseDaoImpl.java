@@ -144,7 +144,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 	 * @return
 	 * @throws Exception
 	 */
-	private Long selectTotalRecords() throws Exception {
+	public Long selectTotalRecords() throws Exception {
 //        return (Long) this.getSession().createQuery("select count(*) from :entity")
 //        .setParameter("entity", entityClass.getName())
 //        .uniqueResult();

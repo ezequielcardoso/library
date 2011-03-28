@@ -11,7 +11,6 @@ function saveBook(){
     //二级分类
     var publisherDate = Ext.get('publisherDate').getValue();
     var revision = Ext.get('revision').getValue();
-	var fileName = Ext.get('fileName').getValue();
 	//密级
     var quantity = Ext.get('quantity').getValue();
     var pages = Ext.get('pages').getValue();		
