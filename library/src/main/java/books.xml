@@ -11,7 +11,10 @@
 		</action>
 		
 		<action name="findBooks" class="com.huan.library.web.action.BookAction" method="findBooks">
+			         <!-- 返回类型为json 在json-delfault中定义 -->
 			<result name="success" type="json">
+			          <!-- root的值对应要返回值的属性 --> 
+			          <!-- 这里的extGridLoad 对应action中的result--> 
 				<param name="root">extGridLoad</param>
 			</result>
 		</action>
@@ -28,6 +31,10 @@
 			<result name="success" type="json">
 				<param name="root">extJsonForm</param>
 			</result>
+		</action>
+		
+		<action name="deleteBook" class="com.huan.library.web.action.BookAction" method="deleteBook">
+			<result type="chain" >findBooks</result>
 		</action>
 		
 		<action name="*Magazine" class="com.huan.library.web.action.MagazineAction" method="{1}">

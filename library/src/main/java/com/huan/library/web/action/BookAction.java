@@ -47,13 +47,13 @@ public class BookAction extends BaseActionSupport {
 	private CategoryService categoryService; // 图书分类service
 	@Autowired
 	private DictItemService dictItemService; // 字典service
-
 	/**
 	 * 获取参数和返回数据对象
 	 */
 	private Book book; // 图书信息--可以不用了，改用bookView对象
-	private ExtGridLoad extGridLoad = new ExtGridLoad();
-	private BookView bookView;//接收客户端提交的参数
+	private ExtGridLoad extGridLoad = new ExtGridLoad();  //对应result的extGridLoad 
+	//应用struts2的属性驱动模式,自动填充页面的属性
+	private BookView bookView = new BookView();//接收客户端提交的参数
 	private ExtJsonForm extJsonForm = new ExtJsonForm();
 	
 	
@@ -69,6 +69,16 @@ public class BookAction extends BaseActionSupport {
 	private List<DictItemView> currencyViews; //币种试图
 	private List<DictItemView> resourceViews; //来源试图
 	
+	private int bookId;
+	
+	public int getBookId() {
+		return bookId;
+	}
+
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+
 	/**
 	 * 分页查找图书
 	 * @return
@@ -94,8 +104,8 @@ public class BookAction extends BaseActionSupport {
 		try {
 			List<Book> books = bookService.findBooks(bookView);
 			extGridLoad.setRoot(this.convertToView(books));
-//			extGridLoad.setTotalProperty(bookService.findBooksCount(bookView));
-			extGridLoad.setTotalProperty(100);
+			extGridLoad.setTotalProperty((bookService.findBooksCount()));
+//			extGridLoad.setTotalProperty(100);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -138,7 +148,7 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String showModifyBook() {
 		try {
-			System.out.println(book.getBookId());
+//			System.out.println(book.getBookId());
 			book= bookService.findBookById(book.getBookId());
 			init();
 		} catch (Exception e) {
@@ -170,7 +180,10 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String deleteBook() {
 		try {
-			bookService.removeBook(book);
+//			bookService.removeBook(book);
+		book.setBookId(bookId); 
+		bookService.removeBook(book);
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -202,10 +215,12 @@ public class BookAction extends BaseActionSupport {
 			view.setBookId(book.getBookId());
 			view.setBookName(book.getBookName());
 			
+			
 			//...............
 			
 			view.setFirstCategoryId(book.getFirstCategory().getCategoryId());
 			view.setFirstCategoryCode(book.getFirstCategory().getCategoryCode());
+			view.setFirstCategoryName(book.getFirstCategory().getCategoryName());
 			
 			//................
 			

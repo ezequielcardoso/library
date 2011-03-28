@@ -53,7 +53,7 @@ public interface BookService {
 	 * @param bookView
 	 * @return
 	 */
-	public Long findBooksCount(BookView bookView);
-
+	public Long findBooksCount() throws Exception;
+	
 
 }

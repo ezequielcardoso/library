@@ -54,4 +54,10 @@ public interface BaseDao<T> {
 	 */
 	public PageModel<T> selectByPage(int pageNo,int pageSize) throws Exception;
 	
+	/**
+	 * 返回总的记录数
+	 * @return
+	 * @throws Exception
+	 */
+	public Long selectTotalRecords() throws Exception;	
 }

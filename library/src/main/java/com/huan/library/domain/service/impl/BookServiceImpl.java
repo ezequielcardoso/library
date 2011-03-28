@@ -48,6 +48,7 @@ public class BookServiceImpl implements BookService {
 			pageModel = bookDao.selectByPage(pageNo, pageSize);
 		} catch (Exception e) {
 		    e.printStackTrace();
+		    throw new Exception();
 		}
 		return pageModel;
 	}
@@ -62,8 +63,7 @@ public class BookServiceImpl implements BookService {
 		return books;
 	}
 
-	public Long findBooksCount(BookView bookView) {
-		// TODO Auto-generated method stub
-		return null;
+	public Long findBooksCount() throws Exception{
+		return bookDao.selectTotalRecords();
 	}
 }
