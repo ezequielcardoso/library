@@ -6,8 +6,8 @@ Ext.onReady(function(){
 
 	bookGridPanel.getStore().load({
 							params : {
-								start : 0,
-								limit : BooksPageSize
+								'bookView.start' : 0,
+								'bookView.limit' : BooksPageSize
 							}
 						});
 	
