@@ -50,11 +50,11 @@ public class BookAction extends BaseActionSupport {
 	/**
 	 * 获取参数和返回数据对象
 	 */
-	private Book book; // 图书信息--可以不用了，改用bookView对象
+	private Book book; // 图书信息--增加删除加载一个对象的时候用book,查询时用bookView对象
 	private ExtGridLoad extGridLoad = new ExtGridLoad();  //对应result的extGridLoad 
 	//应用struts2的属性驱动模式,自动填充页面的属性
 	private BookView bookView = new BookView();//接收客户端提交的参数
-	private ExtJsonForm extJsonForm = new ExtJsonForm();
+	private ExtJsonForm extJsonForm = new ExtJsonForm();//回应给客户端的表单数据
 	
 	
 	private PageModel<Book> pageModel = new PageModel<Book>(); // 图书集合
@@ -104,8 +104,7 @@ public class BookAction extends BaseActionSupport {
 		try {
 			List<Book> books = bookService.findBooks(bookView);
 			extGridLoad.setRoot(this.convertToView(books));
-			extGridLoad.setTotalProperty((bookService.findBooksCount()));
-//			extGridLoad.setTotalProperty(100);
+			extGridLoad.setTotalProperty((bookView.getTotalCount()));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -150,7 +149,11 @@ public class BookAction extends BaseActionSupport {
 		try {
 //			System.out.println(book.getBookId());
 			book= bookService.findBookById(book.getBookId());
-			init();
+//			init();
+			/**
+			 * 不是在显示修改页面的时候去加载这些数据，这会严重影响效率，
+			 * 应该在下拉某个下拉框的时候去加载这个字典的数据，或者显示一个字典选择树的时候加载字典数据
+			 */
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -158,20 +161,17 @@ public class BookAction extends BaseActionSupport {
 	}
 
 	/**
-	 * 修改图书
-	 * @return
-	 * @throws Exception
+	 * 显示修改图书
 	 */
-	public String modifyBook() {
+	public String loadBook() {
 		try {
-			bookService.addOrModifyBook(book);
+			book= bookService.loadBook(bookView);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
-
+	
 	/**
 	 * 注销图书
 	 * 
@@ -180,12 +180,17 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String deleteBook() {
 		try {
-//			bookService.removeBook(book);
-		book.setBookId(bookId); 
-		bookService.removeBook(book);
-		
+			System.out.println("bookId:" + book.getBookId());
+			//这里可以取到值
+			bookService.removeBook(book);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("删除用户成功！");
+			extJsonForm.setData(null);
 		} catch (Exception e) {
 			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("删除用户失败！");
+			extJsonForm.setData(null);
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;

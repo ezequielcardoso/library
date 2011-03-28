@@ -58,12 +58,21 @@ public class BookServiceImpl implements BookService {
 		try {
 			books = this.bookDao.selectBooks(bookView);
 		} catch (Exception e){
-			
+			e.printStackTrace();
+			throw new Exception(e);
 		}
 		return books;
 	}
 
-	public Long findBooksCount() throws Exception{
-		return bookDao.selectTotalRecords();
+	public Book loadBook(BookView bookView) throws Exception {
+		Book book = new Book();
+		try {
+			book = this.bookDao.selectBook(bookView);
+		} catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return book;
 	}
+
 }

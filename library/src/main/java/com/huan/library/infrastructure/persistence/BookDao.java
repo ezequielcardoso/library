@@ -13,8 +13,8 @@ import com.huan.library.web.view.BookView;
  */
 public interface BookDao extends BaseDao<Book>{
 
-	public List<Book> selectAllBooks() throws Exception;
-
 	public List<Book> selectBooks(BookView bookView) throws Exception;
+
+	public Book selectBook(BookView bookView) throws Exception;
 	
 }	
