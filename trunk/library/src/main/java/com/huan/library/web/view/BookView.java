@@ -407,6 +407,5 @@ public class BookView extends ExtGridPost implements Serializable {
 	public void setSecondCategoryCode(String secondCategoryCode) {
 		this.secondCategoryCode = secondCategoryCode;
 	}
-	
-	
+
 }

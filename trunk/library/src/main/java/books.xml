@@ -33,8 +33,17 @@
 			</result>
 		</action>
 		
+		<action name="loadBook" class="com.huan.library.web.action.BookAction" method="loadBook">
+			<result name="success" type="json">
+				<param name="root">book</param>
+			</result>
+		</action>
+		
 		<action name="deleteBook" class="com.huan.library.web.action.BookAction" method="deleteBook">
-			<result type="chain" >findBooks</result>
+			<!-- <result type="chain" >findBooks</result> 这里不用再跳转，客户端会重新加载数据 -->
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
 		</action>
 		
 		<action name="*Magazine" class="com.huan.library.web.action.MagazineAction" method="{1}">

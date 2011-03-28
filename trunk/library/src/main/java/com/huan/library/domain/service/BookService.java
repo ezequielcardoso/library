@@ -49,11 +49,10 @@ public interface BookService {
 	public List<Book> findBooks(BookView bookView) throws Exception;
 
 	/**
-	 * 查找图书的总数
-	 * @param bookView
+	 * 根据Id查找Book
+	 * @param bookId
 	 * @return
 	 */
-	public Long findBooksCount() throws Exception;
-	
+	public Book loadBook(BookView bookView) throws Exception;
 
 }
