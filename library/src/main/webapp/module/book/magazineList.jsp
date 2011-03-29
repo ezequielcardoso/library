@@ -3,20 +3,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<%@ include file="/common/common.jsp"%>
+		<%@ include file="/common/extInclude.jsp"%>
 		<link href="<%=path%>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>图书馆管理系统</title>
-		
-		<link rel="stylesheet" type="text/css" href="<%=path%>/common/extjs3.2/resources/css/ext-all.css"/>
-		<script type="text/javascript" src="<%=path%>/common/extjs3.2/adapter/ext/ext-base.js"></script>
-		<script type="text/javascript" src="<%=path%>/common/extjs3.2/ext-basex.js"></script>
-		<script type="text/javascript" src="<%=path%>/common/extjs3.2/ext-all.js"></script>
-		<script type="text/javascript" src="<%=path%>/js/book/Magazine.js"></script>
-		<script type="text/javascript" src="<%=path%>/js/book/MagazineGridPanel.js"></script>
-		
-		<script type="text/javascript">
-		
-		</script>
-		
+		<script type="text/javascript" src="<%=path%>/js/book/Magazine.js" ></script>
+		<script type="text/javascript" src="<%=path%>/js/book/MagazineGridPanel.js" ></script>
    </head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -123,8 +114,8 @@
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 											     <tr>
-										            <td width="500" height="500" align="left" valign="top">
-											          <div id="bookGrid"></div>
+										            <td width="1000" height="300" align="left" valign="top">
+											          <div id="magazineGrid"></div>
 										            </td>
 									              </tr>
 											</table>
