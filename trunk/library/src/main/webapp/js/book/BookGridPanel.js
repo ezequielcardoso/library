@@ -11,7 +11,6 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			items : [{
 				text : '查询',
 				handler : function() {
-					
 				}
 			}, {
 				text : '修改',
@@ -21,8 +20,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			}, {
 				text : '增加',
 				handler : function() {
-					
-				}
+					this.addBook();
+				},
+				scope:this
 			}, {
 				text : '删除',
 				handler : function() {
@@ -189,6 +189,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		
 		
 		
+		
 		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(),
 		        selectModel,
 		   {
@@ -280,15 +281,15 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 					displayMsg : '显示第 {0}-{1}条 共{2}条 ',
 					emptyMsg : '没有数据'
 				})
-			])
-//			view : new Ext.ux.grid.BufferView({
-//				rowHeight : 23,
-//				scrollDelay : false,
-//				columnsText : '显示的列',
-//				scrollOffset : 30,
-//				sortAscText : '升序',
-//				sortDescText : '降序'
-//			})
+			]),
+			viewConfig : new Ext.grid.GridView({
+				rowHeight : 23,
+				scrollDelay : false,
+				columnsText : '显示的列',
+				scrollOffset : 30,
+				sortAscText : '升序',
+				sortDescText : '降序'
+			})
 		});
 		
 		Library.book.grid.BookGridPanel.superclass.initComponent.call(this);
@@ -305,7 +306,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	},
 	
 	addBook : function() {
-		
+		Ext.Msg.alert('添加');
+		  window.showModalDialog(contextPath+'/module/book/addBook.jsp','difew',
+		  'center: Yes; help: Yes; resizable:Yes;center: Yes; help: Yes; resizable: Yes');
 	},
 	
 	updateBook : function(){
@@ -314,12 +317,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	
     deleteBook : function() {
 		var sm = this.getSelectionModel();
-		alert(sm);
-		var thiz = this;
 		if(sm.hasSelection()){
 			var record = sm.getSelected();
 			var bookId = record.get('bookId');
-			alert(bookId);
 			Ext.Ajax.request({
 				url : contextPath + '/books/deleteBook.action',
 				method : 'POST',
@@ -327,13 +327,11 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 					bookId : bookId
 				},
 				success : function(resp){
-					alert('成功从服务器返回');
 					var respText = resp.responseText;
 					var obj = Ext.util.JSON.decode(respText);
-				    alert(obj);
 				},
 				failure : function(){
-					alert('服务器异常');
+					Ext.Msg.alert('服务器异常');
 				}
 			});
 		}

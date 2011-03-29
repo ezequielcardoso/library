@@ -12,8 +12,8 @@ public class ExtGridPost implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Integer start;//当前分页开始
-	private Integer limit;//当前分页大小
+	private Integer start ;//当前分页开始
+	private Integer limit ;//当前分页大小
 	private Long totalCount;//总条数
 	private String dir;//排序的方式
 	private String sort;//排序的字段

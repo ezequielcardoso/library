@@ -10,7 +10,8 @@
 function LMYC(number) { 
 	var lbmc; 
 	var treePic; 
-	for (i=0;i<=number;i++) { 
+	for (i=0;i<number;i++) { 
+		alert(i);
 		lbmc = eval('LM' + i); 
 		var imageName='treePic'+ i; 
 		var tName='tPic'+ i; 
@@ -24,7 +25,9 @@ function ShowFLT(i, number) {
 	var lbmc = eval('LM' + i); 
 	var imageName='treePic'+ i;
 	var tName='tPic'+ i; 
-	if (lbmc.style.display == 'none') { 
+	alert("22222222222222222222222222");
+    if (lbmc.style.display == 'none') { 
+    	alert("111111111111111111");
 		LMYC(number); 
 		lbmc.style.display = ''; 
 		document.getElementById(tName).src="<%=path %>/images/module/t01.jpg";
