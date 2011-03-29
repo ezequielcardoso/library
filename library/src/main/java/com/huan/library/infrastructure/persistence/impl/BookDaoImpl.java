@@ -60,6 +60,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			/**
 			 * 拼接条件 如果某个字段的值不为空，则将作为查询条件
 			 */
+			whereSub.append(" and b.isBook = :isBook ");
 //			if(field!=null ){
 //				whereSub.append(" and b.fieldName = : fieldValue ");
 //			}
@@ -80,7 +81,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						throws HibernateException, SQLException {
 						Query query = session.createQuery(hqlIn_);
 						//设置查询参数
-//						query.setParameter("fieldValue", view.getFieldValue);
+						query.setParameter("isBook", bookView.getIsBook()==1 ? true : false);
 					return query.list();
 				}
 				
@@ -102,7 +103,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 							query.setFirstResult(bookView.getStart());
 						}
 //						//设置查询参数
-//						query.setParameter("fieldValue", view.getFieldValue);
+						query.setParameter("isBook", bookView.getIsBook()==1 ? true : false );
 					return query.list();
 				}
 				

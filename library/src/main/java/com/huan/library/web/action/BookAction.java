@@ -19,7 +19,6 @@ import com.huan.library.domain.service.BookService;
 import com.huan.library.domain.service.CategoryService;
 import com.huan.library.domain.service.DictItemService;
 import com.huan.library.domain.service.PressService;
-import com.huan.library.util.Constants;
 import com.huan.library.util.PageModel;
 import com.huan.library.web.view.BookView;
 import com.huan.library.web.view.DictItemView;
@@ -80,23 +79,25 @@ public class BookAction extends BaseActionSupport {
 	}
 
 	/**
-	 * 分页查找图书
+	 * 图书基本信息管理主页
 	 * @return
 	 * @throws Exception
 	 */
-	public String findBooksByPages() {
-		try {
-			bookStateViews = dictItemService.getDictItemByItemClass(BookState.class.getName());
-			pageModel = bookService.findBooksByPage(Constants.PAGENO,Constants.PAGESIZE);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
+	public String bookMain() {
 		return Action.SUCCESS;
 	}
 	
 	/**
-	 * 分页查找图书
+	 * 期刊基本信息管理主页
+	 * @return
+	 * @throws Exception
+	 */
+	public String magazineMain() {
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 分页查找图书或者期刊
 	 * @return
 	 * @throws Exception
 	 */
@@ -112,14 +113,35 @@ public class BookAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	/**
-	 * 显示添加图书
+	 * 显示添加或者修改期刊
+	 */
+	public String showSaveMagazine() {
+		if(book.getBookId()!=0){
+			try {
+				book= bookService.findBookById(book.getBookId());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 显示添加或者修改图书
 	 */
 	public String showSaveBook() {
-		return "showSaveBook";
+		if(book.getBookId()!=0){
+			try {
+				book= bookService.findBookById(book.getBookId());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return Action.SUCCESS;
 	}
 
 	/**
-	 * 添加Book
+	 * 保存图书或者期刊
 	 * @return
 	 * @throws Exception
 	 */
@@ -127,48 +149,19 @@ public class BookAction extends BaseActionSupport {
 		try {
 			book = bookService.addOrModifyBook(book);
 			extJsonForm.setSuccess(true);
-			extJsonForm.setMsg("新增用户成功！");
+			extJsonForm.setMsg("新增成功！");
 			extJsonForm.setData(book);
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setSuccess(false);
-			extJsonForm.setMsg("新增用户失败！");
+			extJsonForm.setMsg("新增失败！");
 			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
-	/**
-	 * 显示修改图书
-	 */
-	public String showModifyBook() {
-		try {
-//			System.out.println(book.getBookId());
-			book= bookService.findBookById(book.getBookId());
-//			init();
-			/**
-			 * 不是在显示修改页面的时候去加载这些数据，这会严重影响效率，
-			 * 应该在下拉某个下拉框的时候去加载这个字典的数据，或者显示一个字典选择树的时候加载字典数据
-			 */
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "showModifyBook";
-	}
-
-	/**
-	 * 显示修改图书
-	 */
-	public String loadBook() {
-		try {
-			book= bookService.loadBook(bookView);
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return Action.SUCCESS;
 	}
 	
 	/**
-	 * 注销图书
+	 * 删除图书或者期刊
 	 * 
 	 * @return
 	 * @throws Exception
@@ -180,17 +173,18 @@ public class BookAction extends BaseActionSupport {
 			book.setBookId(bookId);
 			bookService.removeBook(book);
 			extJsonForm.setSuccess(true);
-			extJsonForm.setMsg("删除用户成功！");
+			extJsonForm.setMsg("删除成功！");
 			extJsonForm.setData(null);
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setSuccess(false);
-			extJsonForm.setMsg("删除用户失败！");
+			extJsonForm.setMsg("删除失败！");
 			extJsonForm.setData(null);
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
+	
     /**
      * 初始化一些基本信息
      */
@@ -229,8 +223,7 @@ public class BookAction extends BaseActionSupport {
 			view.setSpeciesId(book.getSpeciesId());
 			view.setStoreDate(book.getStoreDate());
 			view.setBookNo(book.getBookNo());
-			view.setBook(book.isBook());
-			//...............
+			view.setIsBook(book.isBook()? 1 : 0);
 			view.setFirstCategoryId(book.getFirstCategory().getCategoryId());
 			view.setFirstCategoryCode(book.getFirstCategory().getCategoryCode());
 			view.setFirstCategoryName(book.getFirstCategory().getCategoryName());

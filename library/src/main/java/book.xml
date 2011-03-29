@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 书刊模块 -->
+    <package name="book" namespace="/book" extends="library">
+    	
+    	<!-- 跳转到图书主页面 -->
+		<action name="bookMain" class="com.huan.library.web.action.BookAction" method="bookMain">
+			<result name="success">/module/book/bookList.jsp</result>
+		</action>
+		
+		<!-- 跳转到期刊主页面 -->
+		<action name="magazineMain" class="com.huan.library.web.action.BookAction" method="magazineMain">
+			<result name="success">/module/book/magazineList.jsp</result>
+		</action>
+		
+		<!-- 查找图书或者期刊列表 -->
+		<action name="findBooks" class="com.huan.library.web.action.BookAction" method="findBooks">
+			<result name="success" type="json">
+				<param name="root">extGridLoad</param>
+			</result>
+		</action>
+		
+		<!-- 跳转到图书增加或者修改页面 -->
+		<action name="showSaveMagazine" class="com.huan.library.web.action.BookAction" method="showSaveMagazine">
+			<result name="success" >/module/book/modifyMagazine.jsp</result>
+		</action>
+		
+		<!-- 跳转到图书增加或者修改页面 -->
+		<action name="showSaveBook" class="com.huan.library.web.action.BookAction" method="showSaveBook">
+			<result name="success" >/module/book/modifyBook.jsp</result>
+		</action>
+		
+		<!-- 保存图书或者期刊 -->
+		<action name="saveBook" class="com.huan.library.web.action.BookAction" method="saveBook">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
+		</action>
+		
+		<!-- 删除图书或者期刊 -->
+		<action name="deleteBook" class="com.huan.library.web.action.BookAction" method="deleteBook">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
+		</action>
+		
+    </package>
+</struts>
