@@ -15,8 +15,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			}, {
 				text : '修改',
 				handler : function() {
-					
-				}
+					this.updateBook();
+				},
+				scope:this
 			}, {
 				text : '增加',
 				handler : function() {
@@ -174,12 +175,17 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		}];
 		
-		var selectModel = new Ext.grid.CheckboxSelectionModel();
+		var selectModel = new Ext.grid.CheckboxSelectionModel({
+			singleSelect : true
+		});
 		
 		var store = new Ext.data.JsonStore({
-			url : contextPath + '/books/findBooks.action',
+			url : contextPath + '/book/findBooks.action',
 			totalProperty : 'totalProperty',
 			root : 'root',
+			baseParams : {
+				"bookView.isBook" : 1
+			},
 			storeInfo : {
 				field : '列名',
 				direction : 'ASC|DESC'
@@ -187,11 +193,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			fields : fields
 		});
 		
-		
-		
-		
-		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(),
-		        selectModel,
+		var colM = new Ext.grid.ColumnModel([
+			new Ext.grid.RowNumberer(),
+		    selectModel,
 		   {
 				header : '编号',
 				dataIndex : 'bookNo',
@@ -258,7 +262,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		Ext.apply(this, {
 			width : 1000,
 //			height : document.documentElement.clientHeight * 0.82,
-			height : 500,
+			height : 300,
 			autoScroll : true,
 			tbar : tbar,
 			cm : colM,
@@ -296,23 +300,30 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		
 		//增加事件监听
 		this.addListener('rowdblclick', function(){
-			
+			this.updateBook();
 		}, this);
 		
 		this.addListener('rowclick', function(){
+			//显示图书详细信息
+			
 			
 		}, this);
 		
 	},
 	
 	addBook : function() {
-		Ext.Msg.alert('添加');
-		  window.showModalDialog(contextPath+'/module/book/addBook.jsp','difew',
-		  'center: Yes; help: Yes; resizable:Yes;center: Yes; help: Yes; resizable: Yes');
+		window.location = contextPath + '/book/showSaveBook.action';
 	},
 	
 	updateBook : function(){
-	  
+		var sm = this.getSelectionModel();
+		if(sm.hasSelection()){
+			var record = sm.getSelected();
+			var bookId = record.get('bookId');
+			window.location = contextPath + '/book/showSaveBook.action?book.bookId=' + bookId;				
+		} else {
+			Ext.Msg.alert('提示', '请选择一个图书!');
+		}
 	},
 	
     deleteBook : function() {
@@ -320,8 +331,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		if(sm.hasSelection()){
 			var record = sm.getSelected();
 			var bookId = record.get('bookId');
+			var thiz = this;
 			Ext.Ajax.request({
-				url : contextPath + '/books/deleteBook.action',
+				url : contextPath + '/book/deleteBook.action',
 				method : 'POST',
 				params : {
 					bookId : bookId
@@ -329,6 +341,12 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				success : function(resp){
 					var respText = resp.responseText;
 					var obj = Ext.util.JSON.decode(respText);
+					if(obj.success==true){
+						Ext.Msg.alert('提示', obj.msg);
+						thiz.getStore().reload();
+					} else {
+						Ext.Msg.alert('提示', obj.msg);
+					}
 				},
 				failure : function(){
 					Ext.Msg.alert('服务器异常');

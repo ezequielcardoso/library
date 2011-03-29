@@ -6,46 +6,46 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	
 	initComponent : function(){
 		
-		// ²Ù×÷Í¼ÊéÁĞ±íµÄ¹¤¾ßÌõ
+		// æ“ä½œå›¾ä¹¦åˆ—è¡¨çš„å·¥å…·æ¡
 		var tbar = new Ext.Toolbar({
 			items : [{
-				text : '²éÑ¯',
+				text : 'æŸ¥è¯¢',
 				handler : function() {
 					
 				}
 			}, {
-				text : 'ĞŞ¸Ä',
+				text : 'ä¿®æ”¹',
 				handler : function() {
 					
 				}
 			}, {
-				text : 'Ôö¼Ó',
+				text : 'å¢åŠ ',
 				handler : function() {
 					
 				}
 			}, {
-				text : 'É¾³ı',
+				text : 'åˆ é™¤',
 				handler : function() {
 					this.deleteMagazine();
 				},
 				scope:this
 			},  {
-				text : 'µ¼Èë',
+				text : 'å¯¼å…¥',
 				handler : function() {
 					
 				}
 			},  {
-				text : 'µ¼³öExcel',
+				text : 'å¯¼å‡ºExcel',
 				handler : function() {
 					
 				}
 			},  {
-				text : 'Í¼Êé±êÇ©',
+				text : 'å›¾ä¹¦æ ‡ç­¾',
 				handler : function() {
 					
 				}
 			},  {
-				text : '´òÓ¡ÌõĞÎÂë',
+				text : 'æ‰“å°æ¡å½¢ç ',
 				handler : function() {
 					
 				}
@@ -177,13 +177,17 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		var selectModel = new Ext.grid.CheckboxSelectionModel();
 		
 		var store = new Ext.data.JsonStore({
-			url : contextPath + '/books/findMagazines.action',
+			url : contextPath + '/book/findBooks.action',
 			totalProperty : 'totalProperty',
 			root : 'root',
+			baseParams : {
+				"bookView.isBook" : 0
+			},
 			storeInfo : {
-				field : 'ÁĞÃû',
+				field : 'åˆ—å',
 				direction : 'ASC|DESC'
 			},
+			
 			fields : fields
 		});
 		
@@ -192,61 +196,61 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(),
 		        selectModel,
 		   {
-				header : '±àºÅ',
+				header : 'ç¼–å·',
 				dataIndex : 'magazineNo',
 				sortable : true,
 				width : 80,
 				align : 'center'
 			}, {
-				header : 'Ãû³Æ',
+				header : 'åç§°',
 				dataIndex : 'magazineName',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '·ÖÀàºÅ',
+				header : 'åˆ†ç±»å·',
 				dataIndex : 'firstCategoryName',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '×÷Õß',
+				header : 'ä½œè€…',
 				dataIndex : 'author',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : 'ÖÖ´ÎºÅ',
+				header : 'ç§æ¬¡å·',
 				dataIndex : 'speciesName',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : 'ÊıÁ¿',
+				header : 'æ•°é‡',
 				dataIndex : 'quantity',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : 'Èë¿âÊ±¼ä',
+				header : 'å…¥åº“æ—¶é—´',
 				dataIndex : 'storeDate',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : 'Ò³Êı',
+				header : 'é¡µæ•°',
 				dataIndex : 'pages',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '¸½¼ş',
+				header : 'é™„ä»¶',
 				dataIndex : 'hasAttachment',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '×´Ì¬',
+				header : 'çŠ¶æ€',
 				dataIndex : 'magazineStateName',
 				width : 80,
 				sortable : true,
@@ -257,7 +261,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		Ext.apply(this, {
 			width : 1000,
 //			height : document.documentElement.clientHeight * 0.82,
-			height : 500,
+			height : 300,
 			autoScroll : true,
 			tbar : tbar,
 			cm : colM,
@@ -268,32 +272,32 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,
-					pageSize : MagazinesPageSize,
+					pageSize : BooksPageSize,
 					afterPageText : '/ {0}',
-					beforePageText : 'Ò³',
+					beforePageText : 'é¡µ',
 					displayInfo : true,
-					firstText : 'µÚÒ»Ò³',
-					prevText : 'Ç°Ò»Ò³',
-					nextText : 'ºóÒ»Ò³',
-					lastText : '×îºóÒ»Ò³',
-					refreshText : 'Ë¢ĞÂ',
-					displayMsg : 'ÏÔÊ¾µÚ {0}-{1}Ìõ ¹²{2}Ìõ ',
-					emptyMsg : 'Ã»ÓĞÊı¾İ'
+					firstText : 'ç¬¬ä¸€é¡µ',
+					prevText : 'å‰ä¸€é¡µ',
+					nextText : 'åä¸€é¡µ',
+					lastText : 'æœ€åä¸€é¡µ',
+					refreshText : 'åˆ·æ–°',
+					displayMsg : 'æ˜¾ç¤ºç¬¬ {0}-{1}æ¡ å…±{2}æ¡ ',
+					emptyMsg : 'æ²¡æœ‰æ•°æ®'
 				})
 			])
 //			view : new Ext.ux.grid.BufferView({
 //				rowHeight : 23,
 //				scrollDelay : false,
-//				columnsText : 'ÏÔÊ¾µÄÁĞ',
+//				columnsText : 'æ˜¾ç¤ºçš„åˆ—',
 //				scrollOffset : 30,
-//				sortAscText : 'ÉıĞò',
-//				sortDescText : '½µĞò'
+//				sortAscText : 'å‡åº',
+//				sortDescText : 'é™åº'
 //			})
 		});
 		
 		Library.magazine.grid.MagazineGridPanel.superclass.initComponent.call(this);
 		
-		//Ôö¼ÓÊÂ¼ş¼àÌı
+		//å¢åŠ äº‹ä»¶ç›‘å¬
 		this.addListener('rowdblclick', function(){
 			
 		}, this);
@@ -321,19 +325,19 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			var magazineId = record.get('magazineId');
 			alert(magazineId);
 			Ext.Ajax.request({
-				url : contextPath + '/books/deleteMagazine.action',
+				url : contextPath + '/book/deleteBook.action',
 				method : 'POST',
 				params : {
 					bookId : magazineId
 				},
 				success : function(resp){
-					alert('³É¹¦´Ó·şÎñÆ÷·µ»Ø');
+					alert('æˆåŠŸä»æœåŠ¡å™¨è¿”å›');
 					var respText = resp.responseText;
 					var obj = Ext.util.JSON.decode(respText);
 				    alert(obj);
 				},
 				failure : function(){
-					alert('·şÎñÆ÷Òì³£');
+					alert('æœåŠ¡å™¨å¼‚å¸¸');
 				}
 			});
 		}
