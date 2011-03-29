@@ -11,6 +11,7 @@
 function LMYC(number) { 
 	var lbmc; 
 	var treePic; 
+    
 	for (i=1;i<=number;i++) { 
 		lbmc = eval('LM' + i); 
 		var imageName='treePic'+ i; 

@@ -50,7 +50,7 @@ public class BookAction extends BaseActionSupport {
 	/**
 	 * 获取参数和返回数据对象
 	 */
-	private Book book; // 图书信息--增加删除加载一个对象的时候用book,查询时用bookView对象
+	private Book book = new Book(); // 图书信息--增加删除加载一个对象的时候用book,查询时用bookView对象
 	private ExtGridLoad extGridLoad = new ExtGridLoad();  //对应result的extGridLoad 
 	//应用struts2的属性驱动模式,自动填充页面的属性
 	private BookView bookView = new BookView();//接收客户端提交的参数
@@ -115,11 +115,6 @@ public class BookAction extends BaseActionSupport {
 	 * 显示添加图书
 	 */
 	public String showSaveBook() {
-		try {
-			init();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		return "showSaveBook";
 	}
 
@@ -180,8 +175,9 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String deleteBook() {
 		try {
-			System.out.println("bookId:" + book.getBookId());
+//			System.out.println("bookId:" + book.getBookId());
 			//这里可以取到值
+			book.setBookId(bookId);
 			bookService.removeBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("删除用户成功！");
@@ -219,15 +215,45 @@ public class BookAction extends BaseActionSupport {
 			BookView view = new BookView();
 			view.setBookId(book.getBookId());
 			view.setBookName(book.getBookName());
-			
-			
+			view.setBookDesc(book.getBookDesc());
+			view.setDonator(book.getDonator());
+			view.setAllStage(book.getAuthor());
+			view.setTranslator(book.getTranslator());
+			view.setISBN(book.getISBN());
+			view.setPages(book.getPages());
+			view.setPrice(book.getPrice());
+			view.setPublisherDate(book.getPublisherDate());
+			view.setQuantity(book.getQuantity());
+			view.setLocation(book.getLocation());
+			view.setSearchBookId(book.getSearchBookId());
+			view.setSpeciesId(book.getSpeciesId());
+			view.setStoreDate(book.getStoreDate());
+			view.setBookNo(book.getBookNo());
+			view.setBook(book.isBook());
 			//...............
-			
 			view.setFirstCategoryId(book.getFirstCategory().getCategoryId());
 			view.setFirstCategoryCode(book.getFirstCategory().getCategoryCode());
 			view.setFirstCategoryName(book.getFirstCategory().getCategoryName());
-			
-			//................
+			view.setSecondCategoryId(book.getSecondCategory().getCategoryId());
+			view.setSecondCategoryCode(book.getSecondCategory().getCategoryCode());
+			view.setSecondCategoryName(book.getSecondCategory().getCategoryName());
+			//附件
+			if(null != book.getAttachment()){
+				view.setHasAttachment("");  //有
+			}
+			view.setHasAttachment(null);  // 无
+			view.setStateId(book.getBookState().getItemCode());  
+			view.setStateName(book.getBookState().getShortName());
+			view.setLevelId(book.getBookLevel().getItemCode());
+			view.setLevelName(book.getBookLevel().getShortName());
+			view.setSecurityId(book.getSecurity().getItemCode());
+			view.setSecurityName(book.getSecurity().getShortName());
+			view.setCurrencyId(book.getCurrency().getItemCode());
+			view.setCurrencyName(book.getCurrency().getShortName());
+			view.setPressId(String.valueOf(book.getPress().getPressId()));
+			view.setPressName(book.getPress().getPressName());
+			view.setResourceId(book.getResource().getItemId());
+			view.setResourceName(book.getResource().getShortName());
 			
 			views.add(view);
 		}

@@ -61,7 +61,7 @@
 									<tr>
 										<td width="189" height="25"
 											background="<%=path%>/images/module/titleb_01.jpg" class="title1">
-											用户角色列表¨
+											用户角色列表
 										</td>
 										<td background="<%=path%>/images/module/titleb_02.jpg">&nbsp;
 											
