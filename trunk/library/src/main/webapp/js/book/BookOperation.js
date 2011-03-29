@@ -27,7 +27,7 @@ function saveBook(){
 	
 	//Ajax提交表单
 	Ext.Ajax.request({
-		url : contextPath + '/books/saveBook.action',
+		url : contextPath + '/book/saveBook.action',
 		method : 'POST',
 		params : {
 			"book.bookName" : bookName,
@@ -75,7 +75,11 @@ function saveBook(){
 	});
 	
 }
+//清空表单
+function resetBookForm(){
 
+}
+//加载表单数据
 function loadBookForm(record){
 
 }
