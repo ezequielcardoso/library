@@ -2,12 +2,18 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<%@include file="/common/common.jsp"%>
+		
+		<%@ include file="/common/common.jsp"%>
+		<%@ include file="/common/extInclude.jsp"%>
+		
 		<link href="<%=path%>/css/style.css" type="text/css"rel="stylesheet" />
 		<title>图书馆管理系统</title>
 		<script type="text/javascript"
 			src="<%=path%>/common/datePicker/datePicker/calendar/WdatePicker.js">
         </script>
+        <script type="text/javascript" src="<%=path %>/js/book/BookOperation.js">
+	    </script>
+        
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -47,11 +53,9 @@
 								<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 									<tr>
 										<td height="30" class="body1">
-											<input type="button" class="btn"
-												onClick="alert('图书修改成功.');window.location='<%=path%>/books/modifyBook.action'"
-												value="修 改">
-											<input type="button" class="btn" document.getElementById('productInfor').reset();; value="重填">
-											<input type="button" class="btn" window.history.back(-1);" value="返回">
+											<input type="button" class="btn" onClick="saveBook();" value="保存">
+											<input type="button" class="btn" onClick="resetBookForm();" value="重填">
+											<input type="button" class="btn" onClick="window.location='<%=path%>/book/bookMain.action'" value="返回">
 										</td>
 									</tr>
 								</table>
@@ -65,7 +69,7 @@
 											<table width="100%" border="0" cellspacing="0"	cellpadding="0">
 												<tr>
 													<td width="189" height="36" background="<%=path%>/images/module/titleb_01.jpg" class="title1">
-														修改图书
+														新建图书
 													</td>
 													<td background="<%=path%>/images/module/titleb_02.jpg">
 														&nbsp;

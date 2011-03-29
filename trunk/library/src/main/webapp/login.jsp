@@ -61,7 +61,7 @@ function mysubmit(form1)
             <td><input name="password" type="password" class="input1" id="password" maxlength="18" onMouseOver="fEvent('mouseover',this)" onFocus="fEvent('focus',this)" onBlur="fEvent('blur',this)" onMouseOut="fEvent('mouseout',this)"/></td>
           </tr>
         </table></td>
-        <td><input align="absMiddle" id="image1" name="image1" src="<%=path%>/images/login/login_16.jpg" type="submit" ></td>
+        <td><input align="absMiddle" id="image1" src="<%=path%>/images/login/login_16.jpg" type="image" ></td>
         <td><img src="<%=path%>/images/login/login_17.jpg" width="119" height="56" alt=""></td>
         <td><img src="<%=path%>/images/login/login_18.jpg" width="230" height="56" alt=""></td>
       </tr>
