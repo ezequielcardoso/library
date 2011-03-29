@@ -38,7 +38,7 @@ public class BookView extends ExtGridPost implements Serializable {
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
 	private String bookNo; // 图书编号
-	private boolean isBook; // 类型true:表示图书 false:表示期刊
+	private int isBook; // 类型true:表示图书 false:表示期刊
 
 	private String firstCategoryId;
 	private String firstCategoryCode;
@@ -248,11 +248,11 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.bookNo = bookNo;
 	}
 
-	public boolean isBook() {
+	public int getIsBook() {
 		return isBook;
 	}
 
-	public void setBook(boolean isBook) {
+	public void setIsBook(int isBook) {
 		this.isBook = isBook;
 	}
 
