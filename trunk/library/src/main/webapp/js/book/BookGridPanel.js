@@ -320,7 +320,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		if(sm.hasSelection()){
 			var record = sm.getSelected();
 			var bookId = record.get('bookId');
-			window.location = contextPath + '/book/showSaveBook.action?book.bookId=' + bookId;				
+			window.location = contextPath + '/book/showSaveBook.action?bookView.bookId=' + bookId;				
 		} else {
 			Ext.Msg.alert('提示', '请选择一个图书!');
 		}
@@ -336,7 +336,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				url : contextPath + '/book/deleteBook.action',
 				method : 'POST',
 				params : {
-					bookId : bookId
+					"bookView.bookId" : bookId
 				},
 				success : function(resp){
 					var respText = resp.responseText;
