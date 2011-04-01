@@ -1,4 +1,4 @@
-package com.huan.library.web.view;
+package com.huan.library.web.view.grid;
 
 /**
  * grid 提交请求加载数据的基类

@@ -1,4 +1,4 @@
-package com.huan.library.web.view;
+package com.huan.library.web.view.form;
 
 /**
  * 表单提交后返回给客户端的对象

@@ -3,6 +3,8 @@ package com.huan.library.web.view;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.huan.library.web.view.grid.ExtGridPost;
+
 /**
  * 图书信息
  * @author huan
@@ -15,7 +17,7 @@ public class BookView extends ExtGridPost implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int bookId; // 主键
+	private Long bookId; // 主键
 	private String barCode; // 条形码
 	private String bookName; // 书刊名字
 	private String bookDesc; // 图书简介
@@ -27,18 +29,18 @@ public class BookView extends ExtGridPost implements Serializable {
 	private String emailNo; // 邮发代码
 	private String stage; // 第几期
 	private String allStage; // 总第几期
-	private int pages; // 页数
+	private Integer pages; // 页数
 	private float price; // 价格
 	private Date publisherDate; // 出版日期
-	private int quantity; // 数量
+	private Integer quantity; // 数量
 	private String location; //存放位置
-	private int revision; // 版次
+	private Integer revision; // 版次
 	private String searchBookId; // 索书号
 	private String speciesId; // 种次号
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
 	private String bookNo; // 图书编号
-	private int isBook; // 类型true:表示图书 false:表示期刊
+	private Integer isBook; // 类型true:表示图书 false:表示期刊
 
 	private String firstCategoryId;
 	private String firstCategoryCode;
@@ -64,11 +66,11 @@ public class BookView extends ExtGridPost implements Serializable {
 		super();
 	}
 
-	public int getBookId() {
+	public Long getBookId() {
 		return bookId;
 	}
 
-	public void setBookId(int bookId) {
+	public void setBookId(Long bookId) {
 		this.bookId = bookId;
 	}
 
@@ -160,11 +162,11 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.allStage = allStage;
 	}
 
-	public int getPages() {
+	public Integer getPages() {
 		return pages;
 	}
 
-	public void setPages(int pages) {
+	public void setPages(Integer pages) {
 		this.pages = pages;
 	}
 
@@ -184,11 +186,11 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.publisherDate = publisherDate;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
@@ -200,11 +202,11 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.location = location;
 	}
 
-	public int getRevision() {
+	public Integer getRevision() {
 		return revision;
 	}
 
-	public void setRevision(int revision) {
+	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
 
@@ -248,11 +250,11 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.bookNo = bookNo;
 	}
 
-	public int getIsBook() {
+	public Integer getIsBook() {
 		return isBook;
 	}
 
-	public void setIsBook(int isBook) {
+	public void setIsBook(Integer isBook) {
 		this.isBook = isBook;
 	}
 

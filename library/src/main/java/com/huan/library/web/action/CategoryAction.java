@@ -11,8 +11,8 @@ import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.service.CategoryService;
 import com.huan.library.domain.service.impl.CategoryServiceImpl;
 import com.huan.library.web.view.CategoryView;
-import com.huan.library.web.view.ExtGridLoad;
-import com.huan.library.web.view.ExtJsonForm;
+import com.huan.library.web.view.form.ExtJsonForm;
+import com.huan.library.web.view.grid.ExtGridLoad;
 import com.opensymphony.xwork2.Action;
 
 /**

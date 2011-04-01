@@ -22,8 +22,8 @@ import com.huan.library.domain.service.PressService;
 import com.huan.library.util.PageModel;
 import com.huan.library.web.view.BookView;
 import com.huan.library.web.view.DictItemView;
-import com.huan.library.web.view.ExtGridLoad;
-import com.huan.library.web.view.ExtJsonForm;
+import com.huan.library.web.view.form.ExtJsonForm;
+import com.huan.library.web.view.grid.ExtGridLoad;
 import com.opensymphony.xwork2.Action;
 
 /**
@@ -68,16 +68,6 @@ public class BookAction extends BaseActionSupport {
 	private List<DictItemView> currencyViews; //币种试图
 	private List<DictItemView> resourceViews; //来源试图
 	
-	private int bookId;
-	
-	public int getBookId() {
-		return bookId;
-	}
-
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
-
 	/**
 	 * 图书基本信息管理主页
 	 * @return
@@ -130,9 +120,41 @@ public class BookAction extends BaseActionSupport {
 	 * 显示添加或者修改图书
 	 */
 	public String showSaveBook() {
-		if(book.getBookId()!=0){
+		if(bookView.getBookId()!=null && bookView.getBookId()!=0){
 			try {
-				book= bookService.findBookById(book.getBookId());
+				book = bookService.getBookById(bookView.getBookId());
+				if(book.getFirstCategory()!=null){
+					book.getFirstCategory().setChildren(null);
+					book.getFirstCategory().setParent(null);
+				}
+				if(book.getSecondCategory()!=null){
+					book.getSecondCategory().setChildren(null);
+					book.getSecondCategory().setParent(null);
+				}
+				if(book.getAttachment()!=null){
+					book.getAttachment().setChildren(null);
+					book.getAttachment().setParent(null);
+				}
+				if(book.getBookState()!=null){
+					book.getBookState().setChildren(null);
+					book.getBookState().setParent(null);
+				}
+				if(book.getBookLevel()!=null){
+					book.getBookLevel().setChildren(null);
+					book.getBookLevel().setParent(null);
+				}
+				if(book.getSecurity()!=null){
+					book.getSecurity().setChildren(null);
+					book.getSecurity().setParent(null);
+				}
+				if(book.getCurrency()!=null){
+					book.getCurrency().setChildren(null);
+					book.getCurrency().setParent(null);
+				}
+				if(book.getResource()!=null){
+					book.getResource().setChildren(null);
+					book.getResource().setParent(null);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -168,9 +190,9 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String deleteBook() {
 		try {
-//			System.out.println("bookId:" + book.getBookId());
+			Book book = new Book();
+			book.setBookId(bookView.getBookId());
 			//这里可以取到值
-			book.setBookId(bookId);
 			bookService.removeBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("删除成功！");
