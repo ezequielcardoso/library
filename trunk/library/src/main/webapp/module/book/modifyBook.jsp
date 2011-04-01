@@ -71,8 +71,8 @@
 													<td width="189" height="36" background="<%=path%>/images/module/titleb_01.jpg" class="title1">
 														新建图书
 													</td>
-													<td background="<%=path%>/images/module/titleb_02.jpg">
-														&nbsp;
+													<td background="<%=path%>/images/module/titleb_02.jpg">&nbsp;
+														
 													</td>
 													<td width="213" align="right" background="<%=path%>/images/module/titleb_03.jpg" style="padding-bottom: 10px">
 														&nbsp;&nbsp;
@@ -86,25 +86,26 @@
 											<table width="70%" border="1" align="left" cellpadding="0"
 												cellspacing="0" bordercolor="#bcc3c9" borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td width="15%" height="30" align="right" nowrap  bgcolor="#F4F5F9">
 														书名：
 													</td>
 													<td align="left" bgcolor="#F4F5F9" colspan="3">
-														<input name="book.bookName" type="text" id="bookName" size="62"
+														<input name="book.bookName" type="text" id="book.bookName" size="62"
 															value="<s:property value='book.bookName'/>">
-															
+														<input name="book.bookId" type="hidden" id="book.bookId"
+															value="<s:property value='book.bookId'/>">	
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td width="15%" height="30" align="right" nowrap
 														bgcolor="#F4F5F9">
 														条形码:
 													</td>
 													<td width="35%" align="left" bgcolor="#F4F5F9">
-														<input name="book.barCode" type="text" id="barcode" size="18"
+														<input name="book.barCode" type="text" id="book.barCode" size="18"
 															value="<s:property value='book.barCode'/>" disabled>
 													</td>
 													<td width="15%" align="right" nowrap bgcolor="#F4F5F9">
@@ -112,225 +113,205 @@
 													</td>
 													<td width="35%" height="30" align="left" nowrap
 														bgcolor="#F4F5F9">
-														<input name="book.bookNo" type="text" id="bookNo" size="18"
+														<input name="book.bookNo" type="text" id="book.bookNo" size="18"
 															value="<s:property value='book.bookNo'/>">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														索书号：
 													</td>
 													<td width="30%" align="left" bgcolor="#F4F5F9">
-														<input name="book.searchBookId" type="text" id="searchBookId" size="18"
+														<input name="book.searchBookId" type="text" id="book.searchBookId" size="18"
 															value="<s:property value='book.searchBookId'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														出版社：
 													</td>
-													<td height="30" align="left" bgcolor="#F4F5F9">
-															<select id="state" name="press">
-														        <s:iterator value="presses" var="press">
-																  <s:set var="pressSelected"/>
-																  <s:if test="<s:property value='id'> == <s:property value='book.press.id'>">
- 																          <s:set value="selected" var="pressSelected"/> 
- 																  </s:if>
- 																   <option value="<s:property value='id'/>" ${pressSelected  }/>
-																    <s:property value="pressName"/>
-																  </option>
-															     </s:iterator>
-															</select>
+													<td width="30%" align="left" bgcolor="#F4F5F9">
+														<input name="book.press.pressName" type="text" id="book.press.pressName" size="18"
+															value="<s:property value='book.press.pressName'/>">
+														<input name="book.press.pressId" type="hidden" id="book.press.pressId" size="18"
+															value="<s:property value='book.press.pressId'/>">
+														<input type="button" id="clickPressBtn" value="选择">	
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														种次号：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.speciesId" type="text" id="speciesId" size="18"
+														<input name="book.speciesId" type="text" id="book.speciesId" size="18"
 															value="<s:property value='book.speciesId'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
-														分类：
+														一级分类：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="数学">
+														<input name="book.firstCategory.categoryName" type="text" id="book.firstCategory.categoryName" size="18"
+															value="<s:property value='book.firstCategory.categoryName'/>" disabled>
+														<input name="book.firstCategory.categoryId" type="hidden" id="book.firstCategory.categoryId" size="18"
+															value="<s:property value='book.firstCategory.categoryId'/>">	
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														二级分类：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="难">
+														<input name="book.secondCategory.categoryName" type="text" id="book.secondCategory.categoryName" size="18"
+															value="<s:property value='book.secondCategory.categoryName'/>">
+														<input name="book.secondCategory.categoryId" type="hidden" id="book.secondCategory.categoryId" size="18"
+															value="<s:property value='book.firstCategory.categoryId'/>">
+														<input type="button" id="clickSecondCategoryBtn" value="选择">		
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														出版日期：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.publisherDate" type="text" value="<s:property value='book.publisherDate'/>"
+														<input name="book.publisherDate" id="book.publisherDate" type="text" value="<s:property value='book.publisherDate'/>"
 															onClick=WdatePicker(); size="18">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														版次：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.revision" type="text" id="barcode" size="18"
+														<input name="book.revision" type="text" id="book.revision" size="18"
 															value="<s:property value='book.revision'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														电子文档：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.fileName" type="file" id="barcode">
+														<input type="button" id="clickAttachmentBtn" value="上传">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														密级：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state"
-															style="border-style: solid; border-color: #bcc3c9; width: 100px;">
-															<option value="1">
-																秘密
-															</option>
-															<option value="-1">
-																普通
-															</option>
-															<option value="0">
-																一般
-															</option>
-														</select>
+														<input name="book.security.shortName" type="text" id="book.security.shortName" size="18"
+															value="<s:property value='book.security.shortName'/>">
+														<input name="book.security.itemId" type="hidden" id="book.security.itemId" size="18"
+															value="<s:property value='book.security.itemId'/>">
+															<input type="button" id="clickSecurityBtn" value="选择">	
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														数量：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.quantity" type="text" id="quantity" size="18"
+														<input name="book.quantity" type="text" id="book.quantity" size="18"
 															value="<s:property value='book.quantity'/>">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														页数：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.pages" type="text" id="pages" size="18"
+														<input name="book.pages" type="text" id="book.pages" size="18"
 															value="<s:property value='book.pages'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														价格：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.price" type="text" id="price" size="18"
+														<input name="book.price" type="text" id="book.price" size="18"
 															value="<s:property value='book.price'/>">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														存放位置：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.location" type="text" id="location" size="18"
+														<input name="book.location" type="text" id="book.location" size="18"
 															value="<s:property value='book.location'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														状态：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="barcode" type="text" id="barcode" size="18"
-															value="正常">
+														<input name="book.bookState.shortName" type="text" id="book.bookState.shortName" size="18"
+															value="<s:property value='book.bookState.shortName'/>">
+														<input name="book.bookState.itemId" type="hidden" id="book.bookState.itemId" size="18"
+															value="<s:property value='book.bookState.itemId'/>">
+														<input type="button" id="clickBookStateBtn" value="选择">	
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														ISBN：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.ISBN" type="text" id="ISBN" size="18"
+														<input name="book.ISBN" type="text" id="book.ISBN" size="18"
 															value="<s:property value='book.ISBN'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														拼音：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.spell" type="text" id="spell" size="18"
+														<input name="book.spell" type="text" id="book.spell" size="18"
 															value="<s:property value='book.spell'/>">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														类别：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state"
-															style="border-style: solid; border-color: #bcc3c9; width: 100px;">
-															<option value="1">
-																计算机
-															</option>
-															<option value="-1">
-																土木工程
-															</option>
-															<option value="0">
-																医药
-															</option>
-														</select>
+														
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														来源：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<select id="state" name="state"
-															style="border-style: solid; border-color: #bcc3c9; width: 100px;">
-															<option value="1">
-																捐赠
-															</option>
-															<option value="-1">
-																购买
-															</option>
-														</select>
+														<input name="book.resource.shortName" type="text" id="book.resource.shortName" size="18"
+															value="<s:property value='book.resource.shortName'/>">
+														<input name="book.resource.itemId" type="hidden" id="book.resource.itemId" size="18"
+															value="<s:property value='book.resource.itemId'/>">
+														<input type="button" id="clickResourceBtn" value="选择">		
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														币种：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<select>
-															<option value="1">
-																人名币
-															</option>
-														</select>
+														<input name="book.currency.shortName" type="text" id="book.currency.shortName" size="18"
+															value="<s:property value='book.currency.shortName'/>">
+														<input name="book.currency.itemId" type="hidden" id="book.currency.itemId" size="18"
+															value="<s:property value='book.currency.itemId'/>">
+														<input type="button" id="clickCurrencyBtn" value="选择">		
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														捐赠人：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.donator" type="text" id="donator" size="18"
+														<input name="book.donator" type="text" id="book.donator" size="18"
 															value="<s:property value='book.donator'/>">
 													</td>
 												</tr>
-												<tr onMouseOver=this.style.backgroundColor ='#eff1f4';return true;
-													onMouseOut=this.style.backgroundColor= '';>
+												<tr 
+													>
 													<td height="60" align="right" nowrap bgcolor="#F4F5F9">
 														简介：
 													</td>
 													<td height="80" colspan="3" align="left" bgcolor="#F4F5F9">
-														<textarea cols="60" rows="4" name="book.bookDesc" id="bookDesc"
+														<textarea cols="60" rows="4" name="book.bookDesc" id="book.bookDesc"
 															style="border-color: #bcc3c9; border-width: 1px;">
                                                           <s:property value="book.bookDesc"/>  
                                                         </textarea>
@@ -344,8 +325,8 @@
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
 									<tr>
-										<td height="30" align="center" class="body">
-											&nbsp;
+										<td height="30" align="center" class="body">&nbsp;
+											
 										</td>
 									</tr>
 								</table>
