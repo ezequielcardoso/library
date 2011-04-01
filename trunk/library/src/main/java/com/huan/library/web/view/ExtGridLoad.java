@@ -9,6 +9,10 @@ import java.util.List;
  */
 public class ExtGridLoad implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long totalProperty;//总记录数
 	private List root;//返回的分页数据
 	

@@ -62,7 +62,7 @@ public class CategoryDaoTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testImportCategorysFromExcel(){
 		List<Category> categorys = new ArrayList<Category>(); 
 		//取得excel文件
@@ -112,6 +112,28 @@ public class CategoryDaoTest {
         } catch (Exception e) {   
             e.printStackTrace();   
         }   
+	}
+	
+//	@Test
+	public void testQuery(){
+		try{
+		List<Category> categorys = categoryDao.selectAllCategorys();
+		
+		for(Category category:categorys){
+			System.out.println(category.getCategoryId()+" , " +category.getCategoryName());
+		}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void testCount(){
+		try {
+			System.out.println(categoryDao.selectTotalRecords());
+		} catch (Exception e) {
+		  e.printStackTrace();
+		}
+		
 	}
 
 }

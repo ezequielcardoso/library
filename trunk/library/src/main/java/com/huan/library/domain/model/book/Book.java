@@ -41,10 +41,12 @@ public class Book implements Serializable {
 	private String author ; //作者
     private String translator; //译者 
 	private String ISBN; // ISBN
+	
 	private String ISSN; // 国内统一刊号
 	private String emailNo; // 邮发代码
 	private String stage; // 第几期
 	private String allStage; // 总第几期
+	
 	private int pages; // 页数
 	private float price; // 价格
 	private Date publisherDate; // 出版日期
@@ -73,7 +75,6 @@ public class Book implements Serializable {
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=BookState.class)
 	@JoinColumn(name="bookState")
 	private BookState bookState; // 图书状态
-
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "bookLevel")

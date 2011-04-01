@@ -36,6 +36,8 @@ public interface CategoryService {
 	 * @throws Exception
 	 */
 	public List<Category> findAllCategorys() throws Exception;
+	
+	
 
   
 }

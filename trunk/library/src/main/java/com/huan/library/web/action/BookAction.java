@@ -105,7 +105,7 @@ public class BookAction extends BaseActionSupport {
 		try {
 			List<Book> books = bookService.findBooks(bookView);
 			extGridLoad.setRoot(this.convertToView(books));
-			extGridLoad.setTotalProperty((bookView.getTotalCount()));
+			extGridLoad.setTotalProperty(233331111L);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

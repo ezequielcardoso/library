@@ -48,5 +48,15 @@
 			</result>
 		</action>
 		
+		<!-- 图书分类 -->
+		<action name="categoryMain" class="com.huan.library.web.action.CategoryAction" method="categoryMain">
+		    <result name="success">/module/book/category/category.jsp</result>
+		</action>
+		<!-- 加载图书分类数据 -->
+		<action name="findCategorys" class="com.huan.library.web.action.CategoryAction" method="findCategorys">
+		    <result name="success" type="json">
+		       <param name="root">extGridLoad</param>
+		    </result> 
+		</action>
     </package>
 </struts>
