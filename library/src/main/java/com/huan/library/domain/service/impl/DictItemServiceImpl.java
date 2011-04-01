@@ -68,7 +68,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return dictItem;
 	}
 
-	public List<DictItemView> getDictItemByItemClass(String className) {
+	public List<DictItemView> getDictItemByItemClass(String className) throws Exception {
 		List<DictItemView> views = new ArrayList<DictItemView>();
 		Object o = null;
 		try {
@@ -84,15 +84,25 @@ public class DictItemServiceImpl implements DictItemService {
 		if (o instanceof DictItem) {
 			List<DictItem> dictItems = dictItemDao.getDictItemMapbyItemClass(className);
 			if (dictItems != null)
-				for (DictItem codeItem : dictItems) {
+				for (DictItem item : dictItems) {
 					DictItemView view = new DictItemView();
-					view.setKey(codeItem.getId() + "");
-					view.setValue(codeItem.getShortName());
-					view.setComment(codeItem.getDescription());
+					view.setKey(item.getId() + "");
+					view.setValue(item.getShortName());
+					view.setComment(item.getDescription());
 					views.add(view);
 				}
 		} 
 		return views;
+	}
+
+	public List<DictItem> getChildrenItem(String pid, String className) throws Exception  {
+		List<DictItem> items = new ArrayList<DictItem>();
+		try {
+			items = dictItemDao.getChildrenItem(pid, className);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		return items;
 	}
 
 	
