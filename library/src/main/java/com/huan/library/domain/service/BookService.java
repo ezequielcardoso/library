@@ -54,5 +54,5 @@ public interface BookService {
 	 * @return
 	 */
 	public Book loadBook(BookView bookView) throws Exception;
-
+    
 }

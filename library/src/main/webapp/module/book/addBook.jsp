@@ -56,11 +56,25 @@
 								</table>
 							</td>
 						</tr>
+			<form name="addBook" method="post" action="<%=path%>/books/saveBook.action">
 			<form  enctype="multipart/form-data" name="addBook" method="post" action="<%=path%>/books/saveBook.action">
 						<tr>
 							<td height="10" valign="top">
 								<table width="98%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
+									<tr>
+										<td height="30" class="body1">
+											<input type="submit" class="btn" value="增 加">
+											<!-- 
+											<input type="button" class="btn" onClick="saveBook()"
+												value="增 加">
+											 -->
+											<input type="reset" " class="btn" value="重填">
+											<input type="button" class="btn"
+												onClick="window.location='<%=path%>/books/findBooksByPages.action'"
+												value="返 回">
+										</td>
+									</tr>
 									<tr>
 										<td height="30" class="body1">
 											<input type="submit" class="btn" value="增 加">
@@ -196,6 +210,163 @@
 													</td>
 												</tr>
 
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
+													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+														版次：
+													</td>
+													<td align="left" bgcolor="#F4F5F9">
+														<input name="book.revision" type="text" id="revision" size="18">
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														电子文档：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.fileName" type="file" id="fileName">
+													</td>
+												</tr>
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
+													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+														密级：
+													</td>
+													<td align="left" bgcolor="#F4F5F9">
+														<select>
+														   <s:iterator value="securityViews" var="securityView">
+															<option value="<s:property value="#securityView.key"/>">
+														      <s:property value="#securityView.value"/>
+															</option>
+															</s:iterator>
+														</select>
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														数量：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.quantity" type="text" id="quantity"
+															size="18">
+													</td>
+												</tr>
+
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
+													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+														页数：
+													</td>
+													<td align="left" bgcolor="#F4F5F9">
+														<input name="book.pages" type="text" id="pages" size="18">
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														价格：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.price" type="text" id="price" size="18">
+													</td>
+												</tr>
+
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
+													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+														存放位置：
+													</td>
+													<td align="left" bgcolor="#F4F5F9">
+														<input name="book.location" type="text" id="location" size="18">
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														图书状态：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<select>
+														   <s:iterator value="bookStateViews" var="bookStateView">
+															<option value="<s:property value="#bookStateView.key"/>">
+														      <s:property value="#bookStateView.value"/>
+															</option>
+															</s:iterator>
+														</select>
+													</td>
+												</tr>
+												<tr onMouseOver=this.style.backgroundColor='#eff1f4';
+	                                                  return true;onMouseOut=this.style.backgroundColor='';>
+													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+														ISBN：
+													</td>
+													<td align="left" bgcolor="#F4F5F9">
+														<input name="book.ISBN" type="text" id="ISBN" size="18">
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														拼音：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.spell" type="text" id="spell" size="18">
+													</td>
+												</tr>
+
+												<tr onMouseOver=this.style.backgroundColor='#eff1f4';return true;
+                                                        onMouseOut=this.style.backgroundColor='';>
+													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+														密级：
+													</td>
+													<td align="left" bgcolor="#F4F5F9">
+														<select>
+														   <s:iterator value="bookLevelViews" var="bookLevelView">
+														   	<option value="<s:property value="#bookLevelView.key"/>">
+															      <s:property value="#bookLevelView.value"/>
+																</option>
+															</s:iterator>
+														</select>
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														来源：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<select>
+														   <s:iterator value="resourceViews" var="resourceView">
+															<option value="<s:property value="#resourceView.key"/>">
+														      <s:property value="#resourceView.value"/>
+															</option>
+															</s:iterator>
+														</select>
+													</td>
+												</tr>
+												<tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
+													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+														币种：
+													</td>
+													<td align="left" bgcolor="#F4F5F9">
+														<select>
+														   <s:iterator value="currencyViews" var="currencyView">
+															<option value="<s:property value="#currencyView.key"/>">
+														      <s:property value="#currencyView.value"/>
+															</option>
+															</s:iterator>
+														</select>
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														捐赠人：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.donator" type="text" id="donator"
+															size="18">
+													</td>
+												</tr>
+                                                <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
+												          onMouseOut=this.style.backgroundColor='';>
+													<td height="60" align="right" nowrap bgcolor="#F4F5F9">
+														简介：
+													</td>
+													<td height="80" colspan="3" align="left" bgcolor="#F4F5F9">
+														<textarea cols="60" rows="4" id="bookDesc"
+															name="book.bookDesc" style="border-color: #bcc3c9; border-width: 1px;">
+                                                        </textarea>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+					  	 	 </td>
+					 	</tr>
+					</form>
 
                                                 <tr onMouseOver=this.style.backgroundColor = '#eff1f4';return true;
 												          onMouseOut=this.style.backgroundColor='';>
@@ -288,7 +459,7 @@
 													</td>
 												</tr>
 
-												<tr onMouseOver=this.style.backgroundColor= '#eff1f4';return true;;
+												<tr onMouseOver=this.style.backgroundColor='#eff1f4';return true;;
                                                         onMouseOut=this.style.backgroundColor='';;>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														密级：

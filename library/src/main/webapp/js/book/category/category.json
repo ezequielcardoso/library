@@ -1,43 +1,77 @@
 [{
-    "text": "A 马克思主义、列宁主义、毛泽东思想、邓小平理论",
-    "id": "cate-A",
-    "leaf": false,
-    "cls": "folder",
-    children : [{
-    	"text": "A1 马克思 、恩格斯著作",
-	    "id": "cate-A1",
-	    "leaf": false,
-	    "cls": "folder",
-	    children : [{
-	    	"text": "A11 选文、文集",
-		    "id": "cate-A11",
-		    "leaf": true,
-		    "cls": "file"
-	    }, {
-	    	"text": "A11 单行著作",
-		    "id": "cate-A12",
-		    "leaf": true,
-		    "cls": "file"
-	    }, {
-	    	"text": "A13 书信集、日记、函电、谈话",
-		    "id": "cate-A11",
-		    "leaf": true,
-		    "cls": "file"
-	    } ]
-    }, {
-    	"text": "A2 列宁著作",
-	    "id": "cate-A1",
-	    "leaf": false,
-	    "cls": "file"
-    }]
+	id : '01',
+	text : '江西省',
+	children : [{
+		id : '011',
+		text : '吉安市',
+		children : [{
+			id : '0111',
+			text : '永丰县',
+			leaf : true
+		}, {
+			id : '0112',
+			text : '吉水县',
+			leaf : true
+		}, {
+			id : '0113',
+			text : '峡江县',
+			leaf : true
+		}]
+	}, {
+		id : '012',
+		text : '南昌市',
+		children : [{
+			id : '0121',
+			text : '南昌县',
+			leaf : true
+		}, {
+			id : '0122',
+			text : '安义县',
+			leaf : true
+		}, {
+			id : '0123',
+			text : '进贤县',
+			leaf : true
+		}]
+	}]
 }, {
-    "text": "B 哲学",
-    "id": "cate-B",
-    "leaf": false,
-    "cls": "folder"
+	id : '02',
+	text : '湖北省',
+	children : [{
+		id : '021',
+		text : '武汉市',
+		children : [{
+			id : '0211',
+			text : '武昌区',
+			leaf : true
+		}, {
+			id : '0212',
+			text : '洪山区',
+			leaf : true
+		}, {
+			id : '0213',
+			text : '汉阳区',
+			leaf : true
+		}, {
+			id : '0214',
+			text : '江汉区',
+			leaf : true
+		}]
+	}]
 }, {
-    "text": "社会科学总论",
-    "id": "cate-C",
-    "leaf": false,
-    "cls": "folder"
+	id : '03',
+	text : '浙江省',
+	children : [{
+		id : '031',
+		text : '杭州市',
+		leaf : true
+	}, {
+		id : '032',
+		text : '绍兴市',
+		leaf : true
+	}, {
+		id : '033',
+		text : '宁波市',
+		leaf : true
+	}]
 }]

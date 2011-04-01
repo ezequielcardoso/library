@@ -10,6 +10,4 @@ Ext.onReady(function(){
 								'bookView.limit' : BooksPageSize
 							}
 						});
-	
 });
-

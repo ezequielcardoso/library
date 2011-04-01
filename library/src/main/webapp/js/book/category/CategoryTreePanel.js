@@ -3,7 +3,7 @@ Ext.ns('Library.book.tree');
 Library.book.tree.CategoryTreePanel = Ext.extend(Ext.tree.TreePanel, {
 	
 	id : null,
-	url : null,
+//	url : null,
 	
 	initComponent : function(){
 		
@@ -14,7 +14,8 @@ Library.book.tree.CategoryTreePanel = Ext.extend(Ext.tree.TreePanel, {
 		    animate: true,
 		    containerScroll: true,
 		    border: true,
-		    dataUrl: this.url,
+		    dataUrl:contextPath + '/book/findCategorys.action',
+//		    dataUrl:contextPath +'/js/book/category/category.json',
 		    root: {
 		        nodeType: 'async',
 		        text: '中图法',

@@ -11,7 +11,7 @@ Ext.onReady(function(){
 								start : 0,
 								limit : 50
 							}
-						});
+					});
 	
 	
 });

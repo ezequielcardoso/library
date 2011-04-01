@@ -148,6 +148,5 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	deleteUser : function() {
 		
 	}
-	
-	
+
 });
