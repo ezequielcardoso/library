@@ -33,7 +33,7 @@ public class Book implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int bookId; // 主键
+	private Long bookId; // 主键
 	private String barCode; //条形码
 	private String bookName; //书刊名字
 	private String bookDesc; //图书简介
@@ -47,18 +47,18 @@ public class Book implements Serializable {
 	private String stage; // 第几期
 	private String allStage; // 总第几期
 	
-	private int pages; // 页数
-	private float price; // 价格
+	private Integer pages; // 页数
+	private Float price; // 价格
 	private Date publisherDate; // 出版日期
-	private int quantity; // 数量
+	private Integer quantity; // 数量
 	private String location; //存放位置
-	private int revision; // 版次
+	private Integer revision; // 版次
 	private String searchBookId; // 索书号
 	private String speciesId; // 种次号
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
 	private String bookNo; // 图书编号
-	private boolean isBook = true;  //类型true:表示图书 false:表示期刊
+	private Boolean isBook = true;  //类型true:表示图书 false:表示期刊
 
 	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
 	@JoinColumn(name = "firstCategory")
@@ -101,13 +101,13 @@ public class Book implements Serializable {
 		super();
 	}
 	
-	public Book(int bookId, String barCode, String bookName, String bookDesc, String donator, String author, String translator,
-			String ISBN, String ISSN, String emailNo, String stage, String allStage, int pages, float price, Date publisherDate, 
-			int quantity, String location, int revision, String searchBookId, String speciesId, String spell, Date storeDate, 
-			String bookNo, boolean isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String secondCategoryId,
+	public Book(Long bookId, String barCode, String bookName, String bookDesc, String donator, String author, String translator,
+			String ISBN, String ISSN, String emailNo, String stage, String allStage, Integer pages, Float price, Date publisherDate, 
+			Integer quantity, String location, Integer revision, String searchBookId, String speciesId, String spell, Date storeDate, 
+			String bookNo, Boolean isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String secondCategoryId,
 			String secondCategoryCode, String secondCategoryName, String stateId, String stateName, 
 			String levelId, String levelName, String securityId, String securityName, String currencyId, String currencyName, 
-			int pressId, String pressName, String resourceId, String resourceName){ /**String hasAttachment,*/
+			Integer pressId, String pressName, String resourceId, String resourceName){ /**String hasAttachment,*/
 		this.bookId = bookId;
 		this.barCode = barCode;
 		this.bookName = bookName;
@@ -268,7 +268,7 @@ public class Book implements Serializable {
 	public String getISBN() {
 		return ISBN;
 	}
-	public int getPages() {
+	public Integer getPages() {
 		return pages;
 	}
 	public Press getPress() {
@@ -280,13 +280,13 @@ public class Book implements Serializable {
 	public Date getPublisherDate() {
 		return publisherDate;
 	}
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 	public Resource getResource() {
 		return resource;
 	}
-	public int getRevision() {
+	public Integer getRevision() {
 		return revision;
 	}
 
@@ -341,7 +341,7 @@ public class Book implements Serializable {
 		ISBN = iSBN;
 	}
 
-	public void setPages(int pages) {
+	public void setPages(Integer pages) {
 		this.pages = pages;
 	}
 
@@ -357,7 +357,7 @@ public class Book implements Serializable {
 		this.publisherDate = publisherDate;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
@@ -365,7 +365,7 @@ public class Book implements Serializable {
 		this.resource = resource;
 	}
 
-	public void setRevision(int revision) {
+	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
 
@@ -393,10 +393,10 @@ public class Book implements Serializable {
 	public void setStoreDate(Date storeDate) {
 		this.storeDate = storeDate;
 	}
-	public int getBookId() {
+	public Long getBookId() {
 		return bookId;
 	}
-	public void setBookId(int bookId) {
+	public void setBookId(Long bookId) {
 		this.bookId = bookId;
 	}
 	public String getTranslator() {

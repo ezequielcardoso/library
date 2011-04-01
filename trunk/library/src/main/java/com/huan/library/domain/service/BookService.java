@@ -32,7 +32,7 @@ public interface BookService {
 	 * @param bookId
 	 * @return
 	 */
-	public Book findBookById(int bookId) throws Exception;
+	public Book findBookById(Long bookId) throws Exception;
 	
 	/**
 	 * 分页查找图书
@@ -53,6 +53,6 @@ public interface BookService {
 	 * @param bookId
 	 * @return
 	 */
-	public Book loadBook(BookView bookView) throws Exception;
+	public Book getBookById(Long bookId) throws Exception;
     
 }

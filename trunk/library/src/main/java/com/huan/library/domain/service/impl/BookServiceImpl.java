@@ -37,7 +37,7 @@ public class BookServiceImpl implements BookService {
 		bookDao.delete(book);
 	}
 
-	public Book findBookById(int bookId) throws Exception {
+	public Book findBookById(Long bookId) throws Exception {
 		return bookDao.selectById(bookId);
 	}
 	
@@ -64,10 +64,10 @@ public class BookServiceImpl implements BookService {
 		return books;
 	}
 
-	public Book loadBook(BookView bookView) throws Exception {
+	public Book getBookById(Long bookId) throws Exception {
 		Book book = new Book();
 		try {
-			book = this.bookDao.selectBook(bookView);
+			book = this.bookDao.selectBookById(bookId);
 		} catch (Exception e){
 			e.printStackTrace();
 			throw new Exception(e);

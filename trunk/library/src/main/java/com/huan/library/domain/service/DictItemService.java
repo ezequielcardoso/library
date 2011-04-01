@@ -45,6 +45,14 @@ public interface DictItemService {
 	 * @param className
 	 * @return
 	 */
-	public List<DictItemView> getDictItemByItemClass(String className);
+	public List<DictItemView> getDictItemByItemClass(String className) throws Exception ;
+
+	/**
+	 * 根据父子点的id和字典类型取得所有的子条目
+	 * @param pid
+	 * @param className
+	 * @return
+	 */
+	public List<DictItem> getChildrenItem(String pid, String className) throws Exception ;
 	
 }
