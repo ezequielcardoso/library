@@ -20,4 +20,12 @@ public interface DictItemDao extends BaseDao<DictItem>{
 	 * @throws Exception
 	 */
 	public void insertDictItemsBatch(List<DictItem> dictItems) throws Exception;
+
+	/**
+	 * 
+	 * @param pid
+	 * @param className
+	 * @return
+	 */
+	public List<DictItem> getChildrenItem(String pid, String className) throws Exception ;
 }

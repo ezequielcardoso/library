@@ -109,7 +109,6 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 				
 			};
 			books = (List<Book>)getHibernateTemplate().executeFind(callback);
-			System.out.println(books.size());
 		} catch(Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
@@ -117,11 +116,12 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 		return books;
 	}
    
-	public Book selectBook(BookView bookView) throws Exception {
+	public Book selectBookById(Long bookId) throws Exception {
 		StringBuilder hql = new StringBuilder();
 		hql.append(" from Book as b " ); 
 		hql.append(" left join fetch b.firstCategory t_fc ");
 		hql.append(" left join fetch b.secondCategory t_cc ");
+		hql.append(" left join fetch b.attachment t_at ");
 		hql.append(" left join fetch b.bookState t_st ");
 		hql.append(" left join fetch b.bookLevel t_le ");
 		hql.append(" left join fetch b.security t_se ");
@@ -131,8 +131,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 		hql.append(" where b.bookId=? ");
 		Book book = new Book();
 		try {
-			List books = this.getHibernateTemplate().find(hql.toString(), bookView.getBookId());
-			book = (Book)books.listIterator().next();
+			book = (Book) this.getHibernateTemplate().find(hql.toString(), bookId).listIterator().next();
 		} catch (Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
