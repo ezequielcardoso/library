@@ -1,5 +1,6 @@
 package com.huan.library.web.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.service.DictItemService;
+import com.huan.library.web.view.tree.ExtTreeNode;
 import com.opensymphony.xwork2.Action;
 
 /**
@@ -26,19 +28,33 @@ public class DictItemAction extends BaseActionSupport {
 	private DictItemService dictItemService;
     
     private DictItem dictItem;
-
-	public DictItem getDictItem() {
-		return dictItem;
-	}
-
-	public void setDictItem(DictItem dictItem) {
-		this.dictItem = dictItem;
-	}
-
+    private String pid;
+    private String className;
+    List<ExtTreeNode> dictChildrenNodes;
+    
 	public void setDictItemService(DictItemService dictItemService) {
 		this.dictItemService = dictItemService;
 	}
     
+	public String getChildrenItem() {
+		List<ExtTreeNode> tns = new ArrayList<ExtTreeNode>();
+		List<DictItem> dictItems;
+		try {
+			dictItems = dictItemService.getChildrenItem(pid, className);
+			for (DictItem item : dictItems) {
+				ExtTreeNode treeNode = new ExtTreeNode();
+				treeNode.setId(item.getItemId());
+				treeNode.setText(item.getShortName());
+				treeNode.setCls("x-tree-noicon");
+				treeNode.setLeaf(item.isLeaf());
+				tns.add(treeNode);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
 	/**
 	 * 添加字典
 	 * @return
@@ -94,6 +110,38 @@ public class DictItemAction extends BaseActionSupport {
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
+	}
+
+	public DictItem getDictItem() {
+		return dictItem;
+	}
+
+	public void setDictItem(DictItem dictItem) {
+		this.dictItem = dictItem;
+	}
+
+	public String getPid() {
+		return pid;
+	}
+
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	public List<ExtTreeNode> getDictChildrenNodes() {
+		return dictChildrenNodes;
+	}
+
+	public void setDictChildrenNodes(List<ExtTreeNode> dictChildrenNodes) {
+		this.dictChildrenNodes = dictChildrenNodes;
 	}
 
 	

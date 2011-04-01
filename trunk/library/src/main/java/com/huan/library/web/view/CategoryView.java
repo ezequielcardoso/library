@@ -1,6 +1,8 @@
 package com.huan.library.web.view;
 
 import java.io.Serializable;
+
+import com.huan.library.web.view.grid.ExtGridPost;
 /**
  * 分类视图
  * @author huan
