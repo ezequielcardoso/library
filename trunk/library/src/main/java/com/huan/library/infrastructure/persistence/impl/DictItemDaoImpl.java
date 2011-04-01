@@ -1,5 +1,6 @@
 package com.huan.library.infrastructure.persistence.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -62,5 +63,19 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 			e.printStackTrace();
 			throw new Exception(e);
 		}
+	}
+
+	public List<DictItem> getChildrenItem(String pid, String className)  throws Exception {
+		StringBuilder hql = new StringBuilder();
+		hql.append(" from " + className + " as dict " ); 
+		hql.append(" where dict.parent.itemId=? ");
+		List<DictItem> items = new ArrayList<DictItem>();
+		try {
+			items = this.getHibernateTemplate().find(hql.toString(), pid);
+		} catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return items;
 	}
 }
