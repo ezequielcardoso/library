@@ -48,5 +48,4 @@ public class CategoryView extends ExtGridPost implements Serializable {
 	public void setParentCategoryId(String parentCategoryId) {
 		this.parentCategoryId = parentCategoryId;
 	}
-
 }
