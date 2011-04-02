@@ -10,9 +10,9 @@
 		<script type="text/javascript" src="<%=path %>/common/extjs3.2/adapter/ext/ext-base.js"></script>
 		<script type="text/javascript" src="<%=path %>/common/extjs3.2/ext-basex.js"></script>
 		<script type="text/javascript" src="<%=path %>/common/extjs3.2/ext-all.js"></script>
-<script type="text/javascript" src="<%=path%>/js/book/press/Press.js"></script>
-<script type="text/javascript"
-	src="<%=path%>/js/book/press/PressGridPanel.js"></script>
+<script type="text/javascript" src="<%=path%>/js/book/press/press.js"></script>
+<script type="text/javascript" src="<%=path%>/js/book/press/PressGridPanel.js"></script>
+
 </head>
 <body>
 <table width="100%" height="100%" border="0" cellpadding="0"

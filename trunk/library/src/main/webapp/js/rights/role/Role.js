@@ -6,4 +6,5 @@ Ext.onReady(function(){
 	var functionCheckedTreePanel = new Library.rights.tree.FunctionCheckedTreePanel();
 	functionCheckedTreePanel.render('functionCheckedTree');
 	
+	
 });
