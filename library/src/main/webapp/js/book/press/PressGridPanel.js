@@ -8,41 +8,45 @@ Library.book.press.PressGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		
 		var tbar = new Ext.Toolbar({
 					items : [{
-								text : '²éÑ¯',
+								text : 'æŸ¥è¯¢',
 								handler : function() {
 
 								}
 							}, {
-								text : 'É¾³ı',
+								text : 'åˆ é™¤',
 								handler : function() {
 								}
 							}, {
-								text : 'ĞŞ¸Ä',
-								handler : function() {
-								}
-							}, {
-								text : 'Ôö¼Ó',
+								text : 'ä¿®æ”¹',
 								handler : function() {
 								},
 								scope : this
 							}, {
-								text : 'ÅúÁ¿µ¼Èë',
+								text : 'å¢åŠ ',
 								handler : function() {
-								}
+								},
+								scope : this
 							}, {
-								text : 'µ¼³öexcel',
+								text : 'æ‰¹é‡å¯¼å…¥',
 								handler : function() {
-								}
+								},
+								scope : this
 							}, {
-								text : '´òÓ¡',
+								text : 'å¯¼å‡ºexcel',
 								handler : function() {
-								}
+								},
+								scope : this
+							}, {
+								text : 'æ‰“å°',
+								handler : function() {
+								},
+								scope : this
 							}]
 				});
 
-		var data = [[1, '7-5336', '°²»Õ½ÌÓı³ö°æÉç', 'ºÏ·Ê', '230063'],
-				[2, '7-5337', '°²»Õ¿ÆÑ§¼¼Êõ³ö°æÉç', 'ºÏ·Ê', '230063'],
-				[3, '7-5398', '°²»ÕÃÀÊõ³ö°æÉç', 'ºÏ·Ê', '230063']];
+		var data = [[1, '7-5336', 'å®‰å¾½æ•™è‚²å‡ºç‰ˆç¤¾', 'åˆè‚¥', '230063'],
+				[2, '7-5337', 'å®‰å¾½ç§‘å­¦æŠ€æœ¯å‡ºç‰ˆç¤¾', 'åˆè‚¥', '230063'],
+				[3, '7-5398', 'å®‰å¾½ç¾æœ¯å‡ºç‰ˆç¤¾', 'åˆè‚¥', '230063']];
 
 		var fields = [{
 					name : 'pressId',
@@ -61,31 +65,28 @@ Library.book.press.PressGridPanel = Ext.extend(Ext.grid.GridPanel, {
 					type : 'string'
 				}];
 
-		var store = new Ext.data.SimpleStore({
+		var store = new Ext.data.ArrayStore({
 					data : data,
 					fields : fields
 				});
 		
 		var cm = new Ext.grid.ColumnModel({
-			header:'id',
-			dataIndex:'pressId'
-		},{
-			header:'³ö°æÉç´úÂë',
+			header:'å‡ºç‰ˆç¤¾ä»£ç ',
 			dataIndex:'pressISBN'
 		},{
-			header:'Ãû³Æ',
+			header:'åç§°',
 			dataIndex:'pressName'
 		},{
-			header:'³ö°æµØ',
+			header:'å‡ºç‰ˆåœ°',
 			dataIndex:'pressAddress'
 		},{
-			header:'ÓÊ±à',
+			header:'é‚®ç¼–',
 			dataIndex:'zipCode'
 		});		
 
 		Ext.apply(this, {
-//					title : '³ö°æÉçÁĞ±í',
-			height : 600,
+					title : 'å‡ºç‰ˆç¤¾åˆ—è¡¨',
+			        height : 600,
 					width : 300,
 					tbar : tbar,
 					store : store,
