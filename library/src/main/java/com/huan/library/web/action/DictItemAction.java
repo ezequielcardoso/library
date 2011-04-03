@@ -44,9 +44,9 @@ public class DictItemAction extends BaseActionSupport {
 			for (DictItem item : dictItems) {
 				ExtTreeNode treeNode = new ExtTreeNode();
 				treeNode.setId(item.getItemId());
-				treeNode.setText(item.getShortName());
+				treeNode.setText(item.getItemName());
 				treeNode.setCls("x-tree-noicon");
-				treeNode.setLeaf(item.isLeaf());
+				treeNode.setLeaf(item.getLeaf());
 				tns.add(treeNode);
 			}
 		} catch (Exception e) {

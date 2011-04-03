@@ -6,14 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.huan.library.domain.model.Attachment;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.book.Press;
-import com.huan.library.domain.model.dict.Attachment;
 import com.huan.library.domain.model.dict.BookLevel;
 import com.huan.library.domain.model.dict.BookState;
 import com.huan.library.domain.model.dict.Currency;
-import com.huan.library.domain.model.dict.Resource;
+import com.huan.library.domain.model.dict.Source;
 import com.huan.library.domain.model.dict.Security;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.domain.service.CategoryService;
@@ -95,7 +95,7 @@ public class BookAction extends BaseActionSupport {
 		try {
 			List<Book> books = bookService.findBooks(bookView);
 			extGridLoad.setRoot(this.convertToView(books));
-			extGridLoad.setTotalProperty(233331111L);
+			extGridLoad.setTotalProperty(bookView.getTotalCount());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -131,10 +131,7 @@ public class BookAction extends BaseActionSupport {
 					book.getSecondCategory().setChildren(null);
 					book.getSecondCategory().setParent(null);
 				}
-				if(book.getAttachment()!=null){
-					book.getAttachment().setChildren(null);
-					book.getAttachment().setParent(null);
-				}
+				book.setAttachments(null);
 				if(book.getBookState()!=null){
 					book.getBookState().setChildren(null);
 					book.getBookState().setParent(null);
@@ -151,9 +148,9 @@ public class BookAction extends BaseActionSupport {
 					book.getCurrency().setChildren(null);
 					book.getCurrency().setParent(null);
 				}
-				if(book.getResource()!=null){
-					book.getResource().setChildren(null);
-					book.getResource().setParent(null);
+				if(book.getSource()!=null){
+					book.getSource().setChildren(null);
+					book.getSource().setParent(null);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -219,7 +216,7 @@ public class BookAction extends BaseActionSupport {
 			bookLevelViews = dictItemService.getDictItemByItemClass(BookLevel.class.getName());
 			securityViews = dictItemService.getDictItemByItemClass(Security.class.getName());
 			currencyViews = dictItemService.getDictItemByItemClass(Currency.class.getName());
-	        resourceViews = dictItemService.getDictItemByItemClass(Resource.class.getName());
+	        resourceViews = dictItemService.getDictItemByItemClass(Source.class.getName());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -253,22 +250,22 @@ public class BookAction extends BaseActionSupport {
 			view.setSecondCategoryCode(book.getSecondCategory().getCategoryCode());
 			view.setSecondCategoryName(book.getSecondCategory().getCategoryName());
 			//附件
-			if(null != book.getAttachment()){
-				view.setHasAttachment("");  //有
-			}
+//			if(null != book.getAttachment()){
+//				view.setHasAttachment("");  //有
+//			}
 			view.setHasAttachment(null);  // 无
-			view.setStateId(book.getBookState().getItemCode());  
-			view.setStateName(book.getBookState().getShortName());
-			view.setLevelId(book.getBookLevel().getItemCode());
-			view.setLevelName(book.getBookLevel().getShortName());
-			view.setSecurityId(book.getSecurity().getItemCode());
-			view.setSecurityName(book.getSecurity().getShortName());
-			view.setCurrencyId(book.getCurrency().getItemCode());
-			view.setCurrencyName(book.getCurrency().getShortName());
-			view.setPressId(String.valueOf(book.getPress().getPressId()));
+			view.setStateId(book.getBookState().getItemId());  
+			view.setStateName(book.getBookState().getItemName());
+			view.setLevelId(book.getBookLevel().getItemId());
+			view.setLevelName(book.getBookLevel().getItemName());
+			view.setSecurityId(book.getSecurity().getItemId());
+			view.setSecurityName(book.getSecurity().getItemName());
+			view.setCurrencyId(book.getCurrency().getItemId());
+			view.setCurrencyName(book.getCurrency().getItemName());
+			view.setPressId(book.getPress().getPressId());
 			view.setPressName(book.getPress().getPressName());
-			view.setResourceId(book.getResource().getItemId());
-			view.setResourceName(book.getResource().getShortName());
+			view.setResourceId(book.getSource().getItemId());
+			view.setResourceName(book.getSource().getItemName());
 			
 			views.add(view);
 		}
