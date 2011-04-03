@@ -17,7 +17,7 @@ import com.huan.library.infrastructure.persistence.PressDao;
 import com.huan.library.util.PageModel;
 
 /**
- * 出版社初始化
+ * 图书初始化
  * @author huan
  * @time  2011-3-16 下午03:42:51
  */

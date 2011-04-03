@@ -15,7 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
-import com.huan.library.domain.model.book.Category;
+import com.huan.library.application.Constants;
 import com.huan.library.domain.model.dict.DictItem;
 
 /**
@@ -27,8 +27,8 @@ import com.huan.library.domain.model.dict.DictItem;
 public class DictItemDaoTest {
 
 	private static DictItemDao dictItemDao;
-	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\dictitem.xls";
-//	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\dictitem.xls";
+	
+	private String filePath = Constants.ExcelDir + "dictitem.xls";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -37,7 +37,7 @@ public class DictItemDaoTest {
 	}
 
 	@Test
-	public void testAdd() {
+	public void testImportItemsFromExcel() {
 		// 取得excel文件
 		File file = new File(filePath);
 		Workbook wb;
@@ -51,8 +51,9 @@ public class DictItemDaoTest {
 			int row = sheet.getRows();
 			// 取得列数
 			int col = sheet.getColumns();
-			// 取到一行中每列的值赋值给一个Category对象对应的属性，直到最后一行
-			for (int i = 0; i < row; i++) {
+			// 取到一行中每列的值赋值给一个DictItem对象对应的属性，直到最后一行
+			List<DictItem> items = new ArrayList<DictItem>();
+			for (int i = 1; i < row; i++) {
 				DictItem dictItem = new DictItem();
 				DictItem pDictItem = new DictItem();
 				for (int j = 0; j < col; j++) {
@@ -60,34 +61,16 @@ public class DictItemDaoTest {
 					if (cell.getType() == CellType.NUMBER) {
 						NumberCell numberCell = (NumberCell) cell;
 						switch (j) {
-						case 0:
-							String temp = String.valueOf(numberCell
-									.getValue());
-							dictItem.setItemId(temp.substring(0, temp.length()-2));
-							break;
 						case 3:
 							boolean itemActive = false;
 							if (numberCell.getValue() == 1) {
-								itemActive = false;
+								itemActive = true;
 							}
 							dictItem.setItemActive(itemActive);
-							break;
-						case 5:
-							boolean leaf = false;
-							if (numberCell.getValue() == 1) {
-								leaf = false;
-							}
-							dictItem.setLeaf(leaf);
 							break;
 						case 7:
 							dictItem.setLevel((int)numberCell.getValue());
 							break;
-						case 8: // parent
-							temp = String.valueOf(numberCell.getValue());
-							if(null == temp && "".equals(temp)){
-							 dictItem.setParent(null);
-							}
-							break;	
 						case 9: 
 							dictItem.setItemOrder((int)numberCell.getValue());
 							break;		
@@ -95,26 +78,31 @@ public class DictItemDaoTest {
 					} else if (cell.getType() == CellType.LABEL) {
 						LabelCell lc = (LabelCell) cell;
 						switch (j) {
-						case 1:
-							dictItem.setChecked(true);
+						case 0:
+							dictItem.setItemId(lc.getContents());
 							break;
 						case 2:
 							dictItem.setItemDesc(lc.getContents());
 							break;
-						case 4:
-							dictItem.setItemCode(lc.getContents());
-							break;
 						case 6:
 							dictItem.setItemName(lc.getContents());
+							break;
+						case 8: // parent
+							pDictItem.setItemId(lc.getContents());
+							dictItem.setParent(pDictItem);
 							break;
 						case 10:
 							dictItem.setItemType(lc.getContents());
 							break;
 						}
 					}
+					dictItem.setLeaf(false);
+					dictItem.setChecked(false);
+					dictItem.setItemCode(null);
 				}
-				dictItemDao.saveOrUpdate(dictItem);
+				items.add(dictItem);
 			}
+			dictItemDao.insertDictItemsBatch(items);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
