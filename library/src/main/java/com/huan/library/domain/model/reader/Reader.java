@@ -30,13 +30,13 @@ public class Reader implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id; // 主键
+	private Long id; // 主键
 	private String readerName;  // 读者姓名
 	private Date birthday;      //出生日期
 	private String sex = Constants.MALE;  // 姓名 M:男 F:女
 	private String email;       // 邮箱
 	private String contactTel;  // 联系电话
-	private float leftMoney = 0.0f; // 余额
+	private Float leftMoney = 0.0f; // 余额
 	private String spell;           //拼音
 	
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=ReaderUnits.class)
@@ -62,53 +62,21 @@ public class Reader implements Serializable {
 	public Reader() {
 
 	}
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getReaderName() {
 		return readerName;
 	}
+
 	public void setReaderName(String readerName) {
 		this.readerName = readerName;
-	}
-	public ReaderType getReaderType() {
-		return readerType;
-	}
-
-	public void setReaderType(ReaderType readerType) {
-		this.readerType = readerType;
-	}
-	public Certificate getCertificate() {
-		return certificate;
-	}
-
-	public void setCertificate(Certificate certificate) {
-		this.certificate = certificate;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-	public ReaderUnits getReaderUnits() {
-		return readerUnits;
-	}
-
-	public void setReaderUnits(ReaderUnits readerUnits) {
-		this.readerUnits = readerUnits;
-	}
-	public String getCertificateCode() {
-		return certificateCode;
-	}
-
-	public void setCertificateCode(String certificateCode) {
-		this.certificateCode = certificateCode;
 	}
 
 	public Date getBirthday() {
@@ -117,6 +85,14 @@ public class Reader implements Serializable {
 
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public String getEmail() {
@@ -135,11 +111,11 @@ public class Reader implements Serializable {
 		this.contactTel = contactTel;
 	}
 
-	public float getLeftMoney() {
+	public Float getLeftMoney() {
 		return leftMoney;
 	}
 
-	public void setLeftMoney(float leftMoney) {
+	public void setLeftMoney(Float leftMoney) {
 		this.leftMoney = leftMoney;
 	}
 
@@ -151,12 +127,44 @@ public class Reader implements Serializable {
 		this.spell = spell;
 	}
 
+	public ReaderUnits getReaderUnits() {
+		return readerUnits;
+	}
+
+	public void setReaderUnits(ReaderUnits readerUnits) {
+		this.readerUnits = readerUnits;
+	}
+
+	public Certificate getCertificate() {
+		return certificate;
+	}
+
+	public void setCertificate(Certificate certificate) {
+		this.certificate = certificate;
+	}
+
+	public String getCertificateCode() {
+		return certificateCode;
+	}
+
+	public void setCertificateCode(String certificateCode) {
+		this.certificateCode = certificateCode;
+	}
+
 	public String getReaderDesc() {
 		return readerDesc;
 	}
 
 	public void setReaderDesc(String readerDesc) {
 		this.readerDesc = readerDesc;
+	}
+
+	public ReaderType getReaderType() {
+		return readerType;
+	}
+
+	public void setReaderType(ReaderType readerType) {
+		this.readerType = readerType;
 	}
 
 	public ReaderCard getReaderCard() {
@@ -166,4 +174,5 @@ public class Reader implements Serializable {
 	public void setReaderCard(ReaderCard readerCard) {
 		this.readerCard = readerCard;
 	}
+
 }

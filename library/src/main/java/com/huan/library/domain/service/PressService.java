@@ -28,7 +28,7 @@ public interface PressService {
 	 * @param pressId
 	 * @return
 	 */
-	public Press findPressById(int pressId) throws Exception;
+	public Press findPressById(Long pressId) throws Exception;
 	
 	/**
 	 * 查找所有的Press

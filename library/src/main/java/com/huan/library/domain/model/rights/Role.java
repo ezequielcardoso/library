@@ -29,7 +29,7 @@ public class Role implements Serializable{
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int roleId;//角色id
+	private Integer roleId;//角色id
 	private String roleName;//角色名字
 	private String roleDesc;//角色描述
 	private boolean roleActive;//角色激活
@@ -46,11 +46,11 @@ public class Role implements Serializable{
 	@OrderBy("funcOrder ASC")		
 	private List<Function> functions = new ArrayList<Function>();//角色拥有的所有功能
 
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 

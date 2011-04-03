@@ -54,7 +54,7 @@ public class PressServiceImpl implements PressService {
 		}
 	}
 
-	public Press findPressById(int pressId) throws Exception {
+	public Press findPressById(Long pressId) throws Exception {
 		Press pressCopy = new Press();
 		try {
 			pressCopy = pressDao.selectById(pressId);

@@ -25,7 +25,7 @@ public class LibInfo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;  //主键
+	private Long id;  //主键
 	private String libName; //图书馆名字
 	private String address;    //地址
 	private String telphone;   //联系电话
@@ -34,73 +34,79 @@ public class LibInfo implements Serializable{
 	@JoinColumn(name="libManager")
 	private User libManager;     //管理员
 	
-	private float payADay=0;    //租金
-	private float baseCost=0;   //开户费
-	private float depositeTimes=0; //押金倍数
+	private Float payADay=0F;    //租金
+	private Float baseCost=0F;   //开户费
+	private Float depositeTimes=0F; //押金倍数
 	private String libDesc;       //借阅证背面描述
-	
 	
 	public LibInfo(){
 		
 	}
 
-	public float getPayADay() {
-		return payADay;
-	}
-	public void setPayADay(float payADay) {
-		this.payADay = payADay;
-	}
-	public float getBaseCost() {
-		return baseCost;
-	}
-	public void setBaseCost(float baseCost) {
-		this.baseCost = baseCost;
-	}
-	public float getDepositeTimes() {
-		return depositeTimes;
-	}
-	public void setDepositeTimes(float depositeTimes) {
-		this.depositeTimes = depositeTimes;
-	}
-	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getTelphone() {
-		return telphone;
-	}
-	public void setTelphone(String telphone) {
-		this.telphone = telphone;
-	}
-	
 	public String getLibName() {
 		return libName;
 	}
-
 
 	public void setLibName(String libName) {
 		this.libName = libName;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getTelphone() {
+		return telphone;
+	}
+
+	public void setTelphone(String telphone) {
+		this.telphone = telphone;
+	}
 
 	public User getLibManager() {
 		return libManager;
 	}
 
-
 	public void setLibManager(User libManager) {
 		this.libManager = libManager;
 	}
+
+	public Float getPayADay() {
+		return payADay;
+	}
+
+	public void setPayADay(Float payADay) {
+		this.payADay = payADay;
+	}
+
+	public Float getBaseCost() {
+		return baseCost;
+	}
+
+	public void setBaseCost(Float baseCost) {
+		this.baseCost = baseCost;
+	}
+
+	public Float getDepositeTimes() {
+		return depositeTimes;
+	}
+
+	public void setDepositeTimes(Float depositeTimes) {
+		this.depositeTimes = depositeTimes;
+	}
+
 	public String getLibDesc() {
 		return libDesc;
 	}
@@ -108,6 +114,5 @@ public class LibInfo implements Serializable{
 	public void setLibDesc(String libDesc) {
 		this.libDesc = libDesc;
 	}
-
 
 }

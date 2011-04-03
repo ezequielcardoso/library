@@ -25,7 +25,7 @@ public interface LibInfoService {
      * @return
      * @throws Exception
      */
-	public LibInfo findLibInfoById(int libInfoId) throws Exception;
+	public LibInfo findLibInfoById(Long libInfoId) throws Exception;
 	
 
 }

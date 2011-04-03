@@ -46,7 +46,7 @@ public class ReaderCardServiceImpl implements ReaderCardService {
 		}
 	}
 
-	public ReaderCard findReaderCardById(int readerCardId) throws Exception {
+	public ReaderCard findReaderCardById(Long readerCardId) throws Exception {
 		ReaderCard readerCard = new ReaderCard();
 		try {
 			readerCard = readerCardDao.selectById(readerCardId);

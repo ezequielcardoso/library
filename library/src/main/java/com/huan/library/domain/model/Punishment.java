@@ -28,8 +28,8 @@ public class Punishment implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id; //主键
-	private float punishMoney; //罚金
+	private Long id; //主键
+	private Float punishMoney; //罚金
 	private String eventsDesc; //描述
 	private Date operatorDate;  //时间  如 : 2011-3-8 06:16:12
 	
@@ -44,20 +44,29 @@ public class Punishment implements Serializable{
 	public Punishment(){
 		
 	}
-	
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public User getOperator() {
-		return operator;
+
+	public Float getPunishMoney() {
+		return punishMoney;
 	}
 
-	public void setOperator(User operator) {
-		this.operator = operator;
+	public void setPunishMoney(Float punishMoney) {
+		this.punishMoney = punishMoney;
+	}
+
+	public String getEventsDesc() {
+		return eventsDesc;
+	}
+
+	public void setEventsDesc(String eventsDesc) {
+		this.eventsDesc = eventsDesc;
 	}
 
 	public Date getOperatorDate() {
@@ -68,26 +77,20 @@ public class Punishment implements Serializable{
 		this.operatorDate = operatorDate;
 	}
 
-	public String getEventsDesc() {
-		return eventsDesc;
-	}
-	public void setEventsDesc(String eventsDesc) {
-		this.eventsDesc = eventsDesc;
-	}
-	
-	public float getPunishMoney() {
-		return punishMoney;
+	public User getOperator() {
+		return operator;
 	}
 
-	public void setPunishMoney(float punishMoney) {
-		this.punishMoney = punishMoney;
+	public void setOperator(User operator) {
+		this.operator = operator;
 	}
 
 	public Project getProject() {
 		return project;
 	}
+
 	public void setProject(Project project) {
 		this.project = project;
 	}
-
+	
 }

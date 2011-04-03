@@ -3,23 +3,20 @@ package com.huan.library.domain.model.dict;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
 /**
- * 附件名称 dvd/vcd/cd/src...
+ * 图书来源
  * @author huan
- * @time 2011-3-8  上午11:06:21
+ * @time 2011-3-8  上午11:13:59
  */
 @Entity
-@DiscriminatorValue("Attachment")
-public class Attachment extends DictItem {
-
-	/**
-	 * 
-	 */
+@DiscriminatorValue("Resource")
+public class Source extends DictItem {
+    /**
+     * 
+     */
 	private static final long serialVersionUID = 1L;
-    
 	
-	public Attachment(){
+	public Source(){
 		super();
 	}
 

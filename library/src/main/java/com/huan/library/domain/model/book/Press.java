@@ -22,7 +22,7 @@ public class Press implements Serializable{
 
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private int pressId;       //主键
+    private Long pressId;       //主键
     private String pressAddress; //地址
     private String pressISBN; //ISBN
 	private String pressName; //出版社名称
@@ -64,11 +64,11 @@ public class Press implements Serializable{
 		this.zipCode = zipCode;
 	}
 
-	public int getPressId() {
+	public Long getPressId() {
 		return pressId;
 	}
 
-	public void setPressId(int pressId) {
+	public void setPressId(Long pressId) {
 		this.pressId = pressId;
 	}
     
