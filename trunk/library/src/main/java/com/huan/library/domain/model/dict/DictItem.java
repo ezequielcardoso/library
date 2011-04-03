@@ -32,7 +32,6 @@ public class DictItem implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
     private String itemId;// 字典编号
 	private String itemName;// 名字
 	private String itemDesc;// 描述

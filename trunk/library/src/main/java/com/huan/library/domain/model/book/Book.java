@@ -15,11 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.huan.library.domain.model.Attachment;
-import com.huan.library.domain.model.dict.BookLevel;
-import com.huan.library.domain.model.dict.BookState;
-import com.huan.library.domain.model.dict.Currency;
-import com.huan.library.domain.model.dict.Security;
-import com.huan.library.domain.model.dict.Source;
 
 /**
  * 图书信息
