@@ -1,5 +1,5 @@
-Ext.ns('Boa.ux');
-Boa.ux.BaseCheckTree = Ext.extend(Boa.ux.BaseTree, {
+Ext.ns('Library.tree');
+Library.tree.BaseCheckTree = Ext.extend(Library.tree.BaseTree, {
 
 	//多选: 'multiple'(默认)
 	//级联多选: 'cascade'(同时选父和子);
@@ -23,7 +23,7 @@ Boa.ux.BaseCheckTree = Ext.extend(Boa.ux.BaseTree, {
 		};
 		this.isChecked = true;
 		this.onlyLeafCheckable = this.onlyLeafCheckable;
-		Boa.ux.BaseCheckTree.superclass.initComponent.call(this, arguments);
+		Library.tree.BaseCheckTree.superclass.initComponent.call(this, arguments);
 	},
 	changeNodeCss : function(node, checked) {
 		var checkBox = Ext.getCmp('checkBox');
