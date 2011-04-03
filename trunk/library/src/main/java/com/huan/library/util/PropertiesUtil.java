@@ -9,7 +9,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * 从配置文件读取相关配置信息 Dec 4, 2009 2:13:28 PM
  * 
- * @author herong
+ * 
  */
 public class PropertiesUtil {
     private static InputStream inputStream = PropertiesUtil.class

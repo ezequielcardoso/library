@@ -48,19 +48,22 @@ public class BookView extends ExtGridPost implements Serializable {
 	private String secondCategoryId;
 	private String secondCategoryCode;
 	private String secondCategoryName; // 图书分类
+	private String thirdCategoryId;
+	private String thirdCategoryCode;
+	private String thirdCategoryName; // 图书分类
 	private String hasAttachment;//是否有附件，不为null或者""表示有
-	private String stateId;
-	private String stateName; // 图书状态
-	private String levelId;
-	private String levelName; // 图书级别
-	private String securityId;
-	private String securityName;   //图书密级
+	private String bookStateId;
+	private String bookStateName; // 图书状态
+	private String bookLevelId;
+	private String bookLevelName; // 图书级别
+	private String bookSecurityId;
+	private String bookSecurityName;   //图书密级
 	private String currencyId;
 	private String currencyName; // 币种
 	private Long pressId;
 	private String pressName; // 出版社
-	private String resourceId;
-	private String resourceName; // 来源
+	private String bookSourceId;
+	private String bookSourceName; // 来源
 	
 	public BookView(){
 		super();
@@ -126,16 +129,16 @@ public class BookView extends ExtGridPost implements Serializable {
 		return ISBN;
 	}
 
-	public void setISBN(String isbn) {
-		ISBN = isbn;
+	public void setISBN(String iSBN) {
+		ISBN = iSBN;
 	}
 
 	public String getISSN() {
 		return ISSN;
 	}
 
-	public void setISSN(String issn) {
-		ISSN = issn;
+	public void setISSN(String iSSN) {
+		ISSN = iSSN;
 	}
 
 	public String getEmailNo() {
@@ -170,11 +173,11 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.pages = pages;
 	}
 
-	public float getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 
@@ -258,52 +261,132 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.isBook = isBook;
 	}
 
-	public String getStateId() {
-		return stateId;
+	public String getFirstCategoryId() {
+		return firstCategoryId;
 	}
 
-	public void setStateId(String stateId) {
-		this.stateId = stateId;
+	public void setFirstCategoryId(String firstCategoryId) {
+		this.firstCategoryId = firstCategoryId;
 	}
 
-	public String getStateName() {
-		return stateName;
+	public String getFirstCategoryCode() {
+		return firstCategoryCode;
 	}
 
-	public void setStateName(String stateName) {
-		this.stateName = stateName;
+	public void setFirstCategoryCode(String firstCategoryCode) {
+		this.firstCategoryCode = firstCategoryCode;
 	}
 
-	public String getLevelId() {
-		return levelId;
+	public String getFirstCategoryName() {
+		return firstCategoryName;
 	}
 
-	public void setLevelId(String levelId) {
-		this.levelId = levelId;
+	public void setFirstCategoryName(String firstCategoryName) {
+		this.firstCategoryName = firstCategoryName;
 	}
 
-	public String getLevelName() {
-		return levelName;
+	public String getSecondCategoryId() {
+		return secondCategoryId;
 	}
 
-	public void setLevelName(String levelName) {
-		this.levelName = levelName;
+	public void setSecondCategoryId(String secondCategoryId) {
+		this.secondCategoryId = secondCategoryId;
 	}
 
-	public String getSecurityId() {
-		return securityId;
+	public String getSecondCategoryCode() {
+		return secondCategoryCode;
 	}
 
-	public void setSecurityId(String securityId) {
-		this.securityId = securityId;
+	public void setSecondCategoryCode(String secondCategoryCode) {
+		this.secondCategoryCode = secondCategoryCode;
 	}
 
-	public String getSecurityName() {
-		return securityName;
+	public String getSecondCategoryName() {
+		return secondCategoryName;
 	}
 
-	public void setSecurityName(String securityName) {
-		this.securityName = securityName;
+	public void setSecondCategoryName(String secondCategoryName) {
+		this.secondCategoryName = secondCategoryName;
+	}
+
+	public String getThirdCategoryId() {
+		return thirdCategoryId;
+	}
+
+	public void setThirdCategoryId(String thirdCategoryId) {
+		this.thirdCategoryId = thirdCategoryId;
+	}
+
+	public String getThirdCategoryCode() {
+		return thirdCategoryCode;
+	}
+
+	public void setThirdCategoryCode(String thirdCategoryCode) {
+		this.thirdCategoryCode = thirdCategoryCode;
+	}
+
+	public String getThirdCategoryName() {
+		return thirdCategoryName;
+	}
+
+	public void setThirdCategoryName(String thirdCategoryName) {
+		this.thirdCategoryName = thirdCategoryName;
+	}
+
+	public String getHasAttachment() {
+		return hasAttachment;
+	}
+
+	public void setHasAttachment(String hasAttachment) {
+		this.hasAttachment = hasAttachment;
+	}
+
+	public String getBookStateId() {
+		return bookStateId;
+	}
+
+	public void setBookStateId(String bookStateId) {
+		this.bookStateId = bookStateId;
+	}
+
+	public String getBookStateName() {
+		return bookStateName;
+	}
+
+	public void setBookStateName(String bookStateName) {
+		this.bookStateName = bookStateName;
+	}
+
+	public String getBookLevelId() {
+		return bookLevelId;
+	}
+
+	public void setBookLevelId(String bookLevelId) {
+		this.bookLevelId = bookLevelId;
+	}
+
+	public String getBookLevelName() {
+		return bookLevelName;
+	}
+
+	public void setBookLevelName(String bookLevelName) {
+		this.bookLevelName = bookLevelName;
+	}
+
+	public String getBookSecurityId() {
+		return bookSecurityId;
+	}
+
+	public void setBookSecurityId(String bookSecurityId) {
+		this.bookSecurityId = bookSecurityId;
+	}
+
+	public String getBookSecurityName() {
+		return bookSecurityName;
+	}
+
+	public void setBookSecurityName(String bookSecurityName) {
+		this.bookSecurityName = bookSecurityName;
 	}
 
 	public String getCurrencyId() {
@@ -338,76 +421,21 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.pressName = pressName;
 	}
 
-	public String getResourceId() {
-		return resourceId;
+	public String getBookSourceId() {
+		return bookSourceId;
 	}
 
-	public void setResourceId(String resourceId) {
-		this.resourceId = resourceId;
+	public void setBookSourceId(String bookSourceId) {
+		this.bookSourceId = bookSourceId;
 	}
 
-	public String getResourceName() {
-		return resourceName;
+	public String getBookSourceName() {
+		return bookSourceName;
 	}
 
-	public void setResourceName(String resourceName) {
-		this.resourceName = resourceName;
+	public void setBookSourceName(String bookSourceName) {
+		this.bookSourceName = bookSourceName;
 	}
 
-	public String getFirstCategoryId() {
-		return firstCategoryId;
-	}
-
-	public void setFirstCategoryId(String firstCategoryId) {
-		this.firstCategoryId = firstCategoryId;
-	}
-
-	public String getFirstCategoryName() {
-		return firstCategoryName;
-	}
-
-	public void setFirstCategoryName(String firstCategoryName) {
-		this.firstCategoryName = firstCategoryName;
-	}
-
-	public String getSecondCategoryId() {
-		return secondCategoryId;
-	}
-
-	public void setSecondCategoryId(String secondCategoryId) {
-		this.secondCategoryId = secondCategoryId;
-	}
-
-	public String getSecondCategoryName() {
-		return secondCategoryName;
-	}
-
-	public void setSecondCategoryName(String secondCategoryName) {
-		this.secondCategoryName = secondCategoryName;
-	}
-
-	public String getHasAttachment() {
-		return hasAttachment;
-	}
-
-	public void setHasAttachment(String hasAttachment) {
-		this.hasAttachment = hasAttachment;
-	}
-
-	public String getFirstCategoryCode() {
-		return firstCategoryCode;
-	}
-
-	public void setFirstCategoryCode(String firstCategoryCode) {
-		this.firstCategoryCode = firstCategoryCode;
-	}
-
-	public String getSecondCategoryCode() {
-		return secondCategoryCode;
-	}
-
-	public void setSecondCategoryCode(String secondCategoryCode) {
-		this.secondCategoryCode = secondCategoryCode;
-	}
 
 }

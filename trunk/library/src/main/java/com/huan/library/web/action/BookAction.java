@@ -6,15 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.huan.library.domain.model.Attachment;
+import com.huan.library.domain.model.book.Attachment;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.BookLevel;
 import com.huan.library.domain.model.book.BookState;
 import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.book.Currency;
 import com.huan.library.domain.model.book.Press;
-import com.huan.library.domain.model.book.Security;
-import com.huan.library.domain.model.book.Source;
+import com.huan.library.domain.model.book.BookSecurity;
+import com.huan.library.domain.model.book.BookSource;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.domain.service.CategoryService;
 import com.huan.library.domain.service.DictItemService;
@@ -68,6 +68,9 @@ public class BookAction extends BaseActionSupport {
 	private List<DictItemView> currencyViews; //币种试图
 	private List<DictItemView> resourceViews; //来源试图
 	
+	private Integer start;
+	private Integer limit;
+	
 	/**
 	 * 图书基本信息管理主页
 	 * @return
@@ -93,6 +96,8 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String findBooks() {
 		try {
+			bookView.setStart(start);
+			bookView.setLimit(limit);
 			List<Book> books = bookService.findBooks(bookView);
 			extGridLoad.setRoot(this.convertToView(books));
 			extGridLoad.setTotalProperty(bookView.getTotalCount());
@@ -140,17 +145,17 @@ public class BookAction extends BaseActionSupport {
 					book.getBookLevel().setChildren(null);
 					book.getBookLevel().setParent(null);
 				}
-				if(book.getSecurity()!=null){
-					book.getSecurity().setChildren(null);
-					book.getSecurity().setParent(null);
+				if(book.getBookSecurity()!=null){
+					book.getBookSecurity().setChildren(null);
+					book.getBookSecurity().setParent(null);
 				}
 				if(book.getCurrency()!=null){
 					book.getCurrency().setChildren(null);
 					book.getCurrency().setParent(null);
 				}
-				if(book.getSource()!=null){
-					book.getSource().setChildren(null);
-					book.getSource().setParent(null);
+				if(book.getBookSource()!=null){
+					book.getBookSource().setChildren(null);
+					book.getBookSource().setParent(null);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -214,9 +219,9 @@ public class BookAction extends BaseActionSupport {
 			attachmentViews= dictItemService.getDictItemByItemClass(Attachment.class.getName());
 			bookStateViews = dictItemService.getDictItemByItemClass(BookState.class.getName());
 			bookLevelViews = dictItemService.getDictItemByItemClass(BookLevel.class.getName());
-			securityViews = dictItemService.getDictItemByItemClass(Security.class.getName());
+			securityViews = dictItemService.getDictItemByItemClass(BookSecurity.class.getName());
 			currencyViews = dictItemService.getDictItemByItemClass(Currency.class.getName());
-	        resourceViews = dictItemService.getDictItemByItemClass(Source.class.getName());
+	        resourceViews = dictItemService.getDictItemByItemClass(BookSource.class.getName());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -227,46 +232,95 @@ public class BookAction extends BaseActionSupport {
 		for(Book book : books){
 			BookView view = new BookView();
 			view.setBookId(book.getBookId());
-			view.setBookName(book.getBookName());
-			view.setBookDesc(book.getBookDesc());
-			view.setDonator(book.getDonator());
-			view.setAllStage(book.getAuthor());
-			view.setTranslator(book.getTranslator());
-			view.setISBN(book.getISBN());
-			view.setPages(book.getPages());
-			view.setPrice(book.getPrice());
-			view.setPublisherDate(book.getPublisherDate());
-			view.setQuantity(book.getQuantity());
-			view.setLocation(book.getLocation());
-			view.setSearchBookId(book.getSearchBookId());
-			view.setSpeciesId(book.getSpeciesId());
-			view.setStoreDate(book.getStoreDate());
-			view.setBookNo(book.getBookNo());
-			view.setIsBook(book.isBook()? 1 : 0);
-			view.setFirstCategoryId(book.getFirstCategory().getCategoryId());
-			view.setFirstCategoryCode(book.getFirstCategory().getCategoryCode());
-			view.setFirstCategoryName(book.getFirstCategory().getCategoryName());
-			view.setSecondCategoryId(book.getSecondCategory().getCategoryId());
-			view.setSecondCategoryCode(book.getSecondCategory().getCategoryCode());
-			view.setSecondCategoryName(book.getSecondCategory().getCategoryName());
+			if(book.getBookName()!=null){
+				view.setBookName(book.getBookName());
+			}
+			if(book.getBookDesc()!=null){
+				view.setBookDesc(book.getBookDesc());
+			}
+			if(book.getDonator()!=null){
+				view.setDonator(book.getDonator());
+			}
+			if(book.getAuthor()!=null){
+				view.setAllStage(book.getAuthor());
+			}
+			if(book.getTranslator()!=null){
+				view.setTranslator(book.getTranslator());
+			}
+			if(book.getISBN()!=null){
+				view.setISBN(book.getISBN());
+			}
+			if(book.getPages()!=null){
+				view.setPages(book.getPages());
+			}
+			if(book.getPrice()!=null){
+				view.setPrice(book.getPrice());
+			}
+			if(book.getPublisherDate()!=null){
+				view.setPublisherDate(book.getPublisherDate());
+			}
+			if(book.getQuantity()!=null){
+				view.setQuantity(book.getQuantity());
+			}
+			if(book.getLocation()!=null){
+				view.setLocation(book.getLocation());
+			}
+			if(book.getSearchBookId()!=null){
+				view.setSearchBookId(book.getSearchBookId());
+			}
+			if(book.getSpeciesId()!=null){
+				view.setSpeciesId(book.getSpeciesId());
+			}
+			if(book.getStoreDate()!=null){
+				view.setStoreDate(book.getStoreDate());
+			}
+			if(book.getBookNo()!=null){
+				view.setBookNo(book.getBookNo());
+			}
+			if(book.getFirstCategory()!=null){
+				view.setFirstCategoryId(book.getFirstCategory().getCategoryId());
+				view.setFirstCategoryCode(book.getFirstCategory().getCategoryCode());
+				view.setFirstCategoryName(book.getFirstCategory().getCategoryName());
+			}
+			if(book.getSecondCategory()!=null){
+				view.setSecondCategoryId(book.getSecondCategory().getCategoryId());
+				view.setSecondCategoryCode(book.getSecondCategory().getCategoryCode());
+				view.setSecondCategoryName(book.getSecondCategory().getCategoryName());
+			}
+			if(book.getThirdCategory()!=null){
+				view.setThirdCategoryId(book.getThirdCategory().getCategoryId());
+				view.setThirdCategoryCode(book.getThirdCategory().getCategoryCode());
+				view.setThirdCategoryName(book.getThirdCategory().getCategoryName());
+			}
 			//附件
 //			if(null != book.getAttachment()){
 //				view.setHasAttachment("");  //有
 //			}
-			view.setHasAttachment(null);  // 无
-			view.setStateId(book.getBookState().getItemId());  
-			view.setStateName(book.getBookState().getItemName());
-			view.setLevelId(book.getBookLevel().getItemId());
-			view.setLevelName(book.getBookLevel().getItemName());
-			view.setSecurityId(book.getSecurity().getItemId());
-			view.setSecurityName(book.getSecurity().getItemName());
-			view.setCurrencyId(book.getCurrency().getItemId());
-			view.setCurrencyName(book.getCurrency().getItemName());
-			view.setPressId(book.getPress().getPressId());
-			view.setPressName(book.getPress().getPressName());
-			view.setResourceId(book.getSource().getItemId());
-			view.setResourceName(book.getSource().getItemName());
-			
+//			view.setHasAttachment(null);  // 无
+			if(book.getBookState()!=null){
+				view.setBookStateId(book.getBookState().getItemId());  
+				view.setBookStateName(book.getBookState().getItemName());
+			}
+			if(book.getBookLevel()!=null){
+				view.setBookLevelId(book.getBookLevel().getItemId());
+				view.setBookLevelName(book.getBookLevel().getItemName());
+			}
+			if(book.getBookSecurity()!=null){
+				view.setBookSecurityId(book.getBookSecurity().getItemId());
+				view.setBookSecurityName(book.getBookSecurity().getItemName());	
+			}
+			if(book.getCurrency()!=null){
+				view.setCurrencyId(book.getCurrency().getItemId());
+				view.setCurrencyName(book.getCurrency().getItemName());
+			}
+			if(book.getPress()!=null){
+				view.setPressId(book.getPress().getPressId());
+				view.setPressName(book.getPress().getPressName());
+			}
+			if(book.getBookSource()!=null){
+				view.setBookSourceId(book.getBookSource().getItemId());
+				view.setBookSourceName(book.getBookSource().getItemName());
+			}
 			views.add(view);
 		}
 		return views;
@@ -395,6 +449,22 @@ public class BookAction extends BaseActionSupport {
 
 	public void setExtJsonForm(ExtJsonForm extJsonForm) {
 		this.extJsonForm = extJsonForm;
+	}
+
+	public Integer getStart() {
+		return start;
+	}
+
+	public void setStart(Integer start) {
+		this.start = start;
+	}
+
+	public Integer getLimit() {
+		return limit;
+	}
+
+	public void setLimit(Integer limit) {
+		this.limit = limit;
 	}
 
 	

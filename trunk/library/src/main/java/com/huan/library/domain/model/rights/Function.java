@@ -25,7 +25,6 @@ public class Function implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-    //	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private String funcId;//功能id
 	private String funcName;//名字
