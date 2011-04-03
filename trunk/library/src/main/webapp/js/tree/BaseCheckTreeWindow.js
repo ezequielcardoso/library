@@ -1,4 +1,4 @@
-Ext.ns('Library.basic.tree');
+Ext.ns('Library.tree');
 
 /**
  * 
@@ -8,7 +8,7 @@ Ext.ns('Library.basic.tree');
  * @debug 是否进行调试模式
  *
  */
-Library.basic.tree.BaseCheckTreeWindow = Ext.extend(Ext.Window, {
+Library.tree.BaseCheckTreeWindow = Ext.extend(Ext.Window, {
 
 	checkTree : null,
 
@@ -27,8 +27,8 @@ Library.basic.tree.BaseCheckTreeWindow = Ext.extend(Ext.Window, {
 			autoScroll : false,
 			border : false
 		});
-
-		Library.basic.tree.BaseCheckTreeWindow.superclass.initComponent.call(this);
+		
+		Library.tree.BaseCheckTreeWindow.superclass.initComponent.call(this);
 		this.add(this.createFormPanel());
 		this.addButton("确定", this.confirmHandler, this);
 		this.addButton("关闭", this.closeHandler, this);
@@ -44,7 +44,7 @@ Library.basic.tree.BaseCheckTreeWindow = Ext.extend(Ext.Window, {
 			bodyStyle : 'padding:5px;',
 			labelWidth : 1,
 			labelAlign : 'left',
-			items : [this.checkTree, {
+			items : [this.checkTree/*, {
 				allowBlank : false,
 				id : 'checkBox',
 				resizable : true,
@@ -71,7 +71,7 @@ Library.basic.tree.BaseCheckTreeWindow = Ext.extend(Ext.Window, {
 					},
 					scope : this
 				}
-			}]
+			}*/]
 		});
 
 	},

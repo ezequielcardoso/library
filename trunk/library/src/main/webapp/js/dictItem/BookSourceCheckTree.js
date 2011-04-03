@@ -1,6 +1,6 @@
-Ext.ns('Library.basic.tree');
+Ext.ns('Library.tree.dict');
 
-Library.basic.tree.BookSourceCheckTree = Ext.extend(Library.basic.tree.BaseCheckTree, {
+Library.tree.dict.BookSourceCheckTree = Ext.extend(Library.tree.BaseCheckTree, {
 
 	initComponent : function() {
 		Ext.apply(this, {
@@ -13,10 +13,10 @@ Library.basic.tree.BookSourceCheckTree = Ext.extend(Library.basic.tree.BaseCheck
 			id : 'BookSource',
 			expanded : true
 		};
-		this.url = contextPath + '/dict/getChildren.do';
+		this.url = contextPath + '/dict/getChildrenItem.action';
 		this.rootVisible = false;
 		this.isChecked = true;
-		Library.basic.tree.BookSourceCheckTree.superclass.initComponent
+		Library.tree.dict.BookSourceCheckTree.superclass.initComponent
 				.call(this, arguments);
 		this.getLoader().on("beforeload", function(treeLoader, node) {
 			if (!node.isLeaf()) {

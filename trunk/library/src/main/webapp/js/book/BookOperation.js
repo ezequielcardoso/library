@@ -1,6 +1,5 @@
 function saveBook(){
 
-	//È¡µÃ±íµ¥Êı¾İ
 	var bookId = Ext.get('book.bookId').getValue();
 	var bookName = Ext.get('book.bookName').getValue();
 	var barcode = Ext.get('book.barcode').getValue();
@@ -9,24 +8,17 @@ function saveBook(){
 	var pressId = Ext.get('book.press.pressId').getValue();
 	var speciesId = Ext.get('book.speciesId').getValue();
     var firstCategoryId = Ext.get('book.firstCategory.categoryId').getValue();
-    //¶ş¼¶·ÖÀà
     var publisherDate = Ext.get('publisherDate').getValue();
     var revision = Ext.get('revision').getValue();
-	//ÃÜ¼¶
     var quantity = Ext.get('quantity').getValue();
     var pages = Ext.get('pages').getValue();		
     var price = Ext.get('price').getValue();	
     var location = Ext.get('location').getValue();	
-    //Í¼Êé×´Ì¬
-    var ISBN = Ext.get('ISBN£º').getValue();	
+    var ISBN = Ext.get('ISBNï¿½ï¿½').getValue();	
     var spell = Ext.get('spell').getValue();	
-    //ÃÜ¼¶
-    //À´Ô´
-    //±ÒÖÖ
     var donator = Ext.get('donator').getValue();	
 	var bookDesc = Ext.get('bookDesc').getValue();	
 	
-	//AjaxÌá½»±íµ¥
 	Ext.Ajax.request({
 		url : contextPath + '/book/saveBook.action',
 		method : 'POST',
@@ -39,49 +31,66 @@ function saveBook(){
 			"book.press.pressId" : pressId,
 			"book.speciesId" : speciesId,
 			"book.category.categoryId" : categoryId,
-			//¶ş¼¶·ÖÀà
 			"book.publisherDate" : publisherDate,
 			"book.revision" : revision,
 			"book.fileName" : fileName,
-			//ÃÜ¼¶
 			"book.quantity" : quantity,
 			"book.pages" : pages,
 			"book.price" : price,
 			"book.location" : location,
-			//Í¼Êé×´Ì¬
 			"book.ISBN" : ISBN,
 			"book.spell" : spell,
-			 //ÃÜ¼¶
-             //À´Ô´
-             //±ÒÖÖ
 			"book.donator" : donator,
 			"book.bookDesc" : bookDesc
-			//........ºóÃæµÄ²ÎÊı¼ÓÉÏ.........
 		}, 
 		success : function(resp){
-			//Èç¹û·µ»Ø{success:true, msg :"Í¼ÊéĞÂÔö³É¹¦£¡"} ÌáÊ¾£¬²¢ÇÒÖØĞÂ¼ÓÔØ±íµ¥
-			//Èç¹û·µ»Ø{success:false, msg :"Í¼ÊéĞÂÔöÊ§°Ü£¡"} ÌáÊ¾
 			var obj = Ext.util.JSON.decode(resp.responseText);
 			if(obj.success==true){
-				Ext.Msg.alert('ÌáÊ¾', obj.msg);
-				//ÖØĞÂ¼ÓÔØ±íµ¥Êı¾İ
+				Ext.Msg.alert('æç¤º', obj.msg);
 				loadBookForm(obj.data);
 				
 			} else if(obj.success==false){
-				Ext.Msg.alert('ÌáÊ¾', obj.msg);
+				Ext.Msg.alert('æç¤º', obj.msg);
 			}
 		},
 		failure : function(){
-			Ext.Msg.alert('ÌáÊ¾', '·şÎñÆ÷Òì³££¬ÇëÉÔºòÔÙÊÔ¡£');
+			Ext.Msg.alert('æç¤º', 'æœåŠ¡å™¨å¼‚å¸¸ï¼Œè¯·ç¨å€™å†è¯•');
 		}
 	});
 	
 }
-//Çå¿Õ±íµ¥
 function resetBookForm(){
 
 }
-//¼ÓÔØ±íµ¥Êı¾İ
 function loadBookForm(record){
 
+}
+
+function checkBookSource(){
+	
+	var checkWin = new Library.tree.BaseCheckTreeWindow({
+            checkTree: new Library.tree.dict.BookSourceCheckTree({
+                checkModel: 'single'
+            }),
+            idField: 'book.bookSource.itemId',
+            textField: 'book.bookSource.itemName',
+            height: 300,
+            width: 200,
+            title: 'é€‰æ‹©å›¾ä¹¦æ¥æº'         
+        });
+     checkWin.show();
+}
+
+function checkPress(){
+	var checkWin = new Library.tree.BaseCheckTreeWindow({
+            checkTree: new Library.tree.dict.PressCheckTree({
+                checkModel: 'single'
+            }),
+            idField: 'book.press.pressId',
+            textField: 'book.press.pressName',
+            height: 500,
+            width: 300,
+            title: 'é€‰æ‹©å‡ºç‰ˆç¤¾'         
+        });
+     checkWin.show();
 }

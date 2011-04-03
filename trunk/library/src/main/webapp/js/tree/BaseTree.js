@@ -1,8 +1,8 @@
 /**
  * 
  */
-Ext.ns('Library.basic.tree');
-Library.basic.tree.BaseTree = Ext.extend(Ext.tree.TreePanel, {
+Ext.ns('Library.tree');
+Library.tree.BaseTree = Ext.extend(Ext.tree.TreePanel, {
 	
 	url : null,
 	rootNode : null,
@@ -19,6 +19,6 @@ Library.basic.tree.BaseTree = Ext.extend(Ext.tree.TreePanel, {
 			this.loader.baseAttrs = {
 				uiProvider : Ext.ux.TreeCheckNodeUI
 			};
-		Library.basic.tree.BaseTree.superclass.initComponent.call(this, arguments);
+		Library.tree.BaseTree.superclass.initComponent.call(this, arguments);
 	}
 });
