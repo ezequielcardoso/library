@@ -7,8 +7,8 @@ Ext.onReady(function(){
 
 	bookGridPanel.getStore().load({
 							params : {
-								'bookView.start' : 0,
-								'bookView.limit' : BooksPageSize
+								'start' : 0,
+								'limit' : BooksPageSize
 							}
 						});
 });
