@@ -1,13 +1,14 @@
 function saveBook(){
 
 	//取得表单数据
-	var bookName = Ext.get('bookName').getValue();
-	var barcode = Ext.get('barcode').getValue();
-	var bookNo = Ext.get('bookNo').getValue();
-	var searchBookId = Ext.get('searchBookId').getValue();
-	var pressId = Ext.get('pressId').getValue();
-	var speciesId = Ext.get('speciesId').getValue();
-    var categoryId = Ext.get('categoryId').getValue();
+	var bookId = Ext.get('book.bookId').getValue();
+	var bookName = Ext.get('book.bookName').getValue();
+	var barcode = Ext.get('book.barcode').getValue();
+	var bookNo = Ext.get('book.bookNo').getValue();
+	var searchBookId = Ext.get('book.searchBookId').getValue();
+	var pressId = Ext.get('book.press.pressId').getValue();
+	var speciesId = Ext.get('book.speciesId').getValue();
+    var firstCategoryId = Ext.get('book.firstCategory.categoryId').getValue();
     //二级分类
     var publisherDate = Ext.get('publisherDate').getValue();
     var revision = Ext.get('revision').getValue();
@@ -30,6 +31,7 @@ function saveBook(){
 		url : contextPath + '/book/saveBook.action',
 		method : 'POST',
 		params : {
+			"book.bookId" : bookId,
 			"book.bookName" : bookName,
 			"book.barCode" : barcode,
 			"book.bookNo" : bookNo,

@@ -1,7 +1,6 @@
 Ext.ns('Library.book.grid');
 
 Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
-alert(11111111111);
 	
 	id : 'bookGridPanel',
 	
