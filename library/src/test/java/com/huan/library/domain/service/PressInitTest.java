@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
+import com.huan.library.application.Constants;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.infrastructure.persistence.PressDao;
 import com.huan.library.util.PageModel;
@@ -23,7 +24,7 @@ import com.huan.library.util.PageModel;
  */
 public class PressInitTest {
    
-	private static String filePath = "F:\\press.xls";
+	private static String filePath = Constants.ExcelDir + "press.xls";
 	
     private static PressDao pressDao;
     
@@ -88,9 +89,9 @@ public class PressInitTest {
 				press.setPressName(pressName);
 				press.setPressAddress(pressAddress);
 				press.setZipCode(zipCode);
-				pressDao.saveOrUpdate(press);
+				presses.add(press);
 			}
-
+			pressDao.insertPressBatch(presses);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{

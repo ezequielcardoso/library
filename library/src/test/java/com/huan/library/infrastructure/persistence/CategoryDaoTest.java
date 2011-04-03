@@ -8,6 +8,7 @@ import java.util.List;
 import jxl.Cell;
 import jxl.CellType;
 import jxl.LabelCell;
+import jxl.NumberCell;
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -15,14 +16,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
+import com.huan.library.application.Constants;
 import com.huan.library.domain.model.book.Category;
 
 public class CategoryDaoTest {
 
 	private static CategoryDao categoryDao;
 	
-	private String filePath = "D:\\Workspaces\\eclipse-jee-3.5\\library\\src\\main\\webapp\\doc\\ExcelData\\categories.xls";
-//	private String filePath = "E:\\works\\myproject\\webproject\\src\\main\\webapp\\doc\\categories.xls";
+	private String filePath = Constants.ExcelDir + "categories.xls";
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		categoryDao=(CategoryDao)BaseSpringBeans.getInstance().getBean("categoryDao");
@@ -62,7 +64,7 @@ public class CategoryDaoTest {
 		
 	}
 	
-//	@Test
+	@Test
 	public void testImportCategorysFromExcel(){
 		List<Category> categorys = new ArrayList<Category>(); 
 		//取得excel文件
@@ -79,15 +81,24 @@ public class CategoryDaoTest {
             //取得列数
             int col = sheet.getColumns(); 
             //取到一行中每列的值赋值给一个Category对象对应的属性，直到最后一行
+            
+            
             for (int i = 0; i < row; i++) {   
             	Category category = new Category();
             	Category pcategory = new Category();
                 for (int j = 0; j < col; j++) {
-                    Cell cell = sheet.getCell(j, i);   
-                    if (cell.getType() == CellType.LABEL) {   
-                        LabelCell lc = (LabelCell) cell;   
-                        switch (j) {   
-                        case 0:   
+                	Cell cell = sheet.getCell(j, i);
+					if (cell.getType() == CellType.NUMBER) {
+						NumberCell numberCell = (NumberCell) cell;
+						switch (j) {
+						case 4:
+							category.setCategoryOrder((long) numberCell.getValue());
+							break;
+						}
+					} else if (cell.getType() == CellType.LABEL) {
+						LabelCell lc = (LabelCell) cell;
+						switch (j) {
+						case 0:   
                         	category.setCategoryId(lc.getContents());break;   
                         case 1:   
                         	category.setCategoryCode(lc.getContents());break;
@@ -96,10 +107,10 @@ public class CategoryDaoTest {
                         case 3: //parent
                         	pcategory.setCategoryId(lc.getContents());
                         	category.setParent(pcategory);
-                        	break;	
-                        }   
-                    }   
-                }   
+                        	break;
+						}
+					}
+				}
                 categorys.add(category);   
             }  
             

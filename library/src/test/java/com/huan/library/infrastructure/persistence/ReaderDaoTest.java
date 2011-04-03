@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
-import com.huan.library.domain.model.dict.Certificate;
+import com.huan.library.domain.model.reader.Certificate;
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.model.reader.ReaderCard;
 import com.huan.library.domain.model.reader.ReaderType;
