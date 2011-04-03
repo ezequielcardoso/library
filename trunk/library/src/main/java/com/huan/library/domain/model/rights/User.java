@@ -33,11 +33,11 @@ public class User implements Serializable{
 //	@GeneratedValue(generator="system-uuid")
 //	@GenericGenerator(name="system-uuid", strategy = "uuid")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int userId;//用户id
+	private Long userId;//用户id
 	private String userAccount;//账号
 	private String userName;//姓名
 	private String password;//密码
-	private boolean userActive;//是否激活
+	private Boolean userActive;//是否激活
 	private Date createDate;//修改日期
 	
 	//拥有的所有角色对象
@@ -56,8 +56,8 @@ public class User implements Serializable{
 		
 	}
 	
-	public User(int userId, String userAccount, String userName, String password, boolean userActive, 
-			Date createDate, int deptId, String deptName){
+	public User(Long userId, String userAccount, String userName, String password, Boolean userActive, 
+			Date createDate, Long deptId, String deptName){
 		this.userId = userId;
 		this.userAccount = userAccount;
 		this.userName = userName;
@@ -69,13 +69,21 @@ public class User implements Serializable{
 		dept.setDeptName(deptName);
 		this.dept = dept;
 	}
-	
-	public int getUserId() {
+
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+
+	public String getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(String userAccount) {
+		this.userAccount = userAccount;
 	}
 
 	public String getUserName() {
@@ -94,11 +102,11 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public boolean isUserActive() {
+	public Boolean getUserActive() {
 		return userActive;
 	}
 
-	public void setUserActive(boolean userActive) {
+	public void setUserActive(Boolean userActive) {
 		this.userActive = userActive;
 	}
 
@@ -126,12 +134,4 @@ public class User implements Serializable{
 		this.dept = dept;
 	}
 
-	public String getUserAccount() {
-		return userAccount;
-	}
-
-	public void setUserAccount(String userAccount) {
-		this.userAccount = userAccount;
-	}
-	
 }

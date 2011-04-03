@@ -34,7 +34,7 @@ public class Department implements Serializable {
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int deptId;//部门id
+	private Long deptId;//部门id
 	private String deptCode;//部门编号
 	private String deptName;//部门全称
 	private String deptShortName;//部门简称
@@ -55,8 +55,8 @@ public class Department implements Serializable {
 		
 	}
 	
-	public Department(int deptId, String deptCode, String deptName, String deptShortName, 
-			String deptAlias, String deptDesc, int parentDeptId, String parentDeptName, String parentDeptCode){
+	public Department(Long deptId, String deptCode, String deptName, String deptShortName, 
+			String deptAlias, String deptDesc, Long parentDeptId, String parentDeptName, String parentDeptCode){
 		this.deptId = deptId;
 		this.deptCode = deptCode;
 		this.deptName = deptName;
@@ -70,11 +70,11 @@ public class Department implements Serializable {
 		this.setParent(parent);
 	}
 
-	public int getDeptId() {
+	public Long getDeptId() {
 		return deptId;
 	}
 
-	public void setDeptId(int deptId) {
+	public void setDeptId(Long deptId) {
 		this.deptId = deptId;
 	}
 

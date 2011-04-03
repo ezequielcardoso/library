@@ -33,26 +33,21 @@ public class DictItem implements java.io.Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private int id;   //主鍵
-	
     private String itemId;// 字典编号
-	private boolean checked;// 是否选中
-	private String description;// 描述
-	private boolean itemActive;// 是否启用
+	private String itemName;// 名字
+	private String itemDesc;// 描述
+	private Boolean itemActive;// 是否启用
 	private String itemCode;// 编码
-	private int itemOrder;// 排序
-	private boolean leaf;// 是否叶子
-	private String shortName;// 名字
-
+	private Integer itemOrder;// 排序
+	private Boolean checked;// 是否选中
+	private Boolean leaf;// 是否叶子
+	private Integer level;// 层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
+	
 	@OneToMany(targetEntity = DictItem.class, fetch = FetchType.LAZY, mappedBy = "parent")
 	private List<DictItem> children;
 
-	
 	@Column(insertable = false, updatable = false)
 	private String itemType;// 参照组代码
-
-	// 用于树结构
-	private int level;// 层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
 
 	@ManyToOne(targetEntity = DictItem.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "parentItemId",referencedColumnName="itemId")
@@ -61,65 +56,6 @@ public class DictItem implements java.io.Serializable {
 	public DictItem() {
 	}
 
-	public List<DictItem> getChildren() {
-		return children;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public String getItemCode() {
-		return itemCode;
-	}
-
-	public int getItemOrder() {
-		return itemOrder;
-	}
-
-	public String getItemType() {
-		return itemType;
-	}
-
-	public int getLevel() {
-		return level;
-	}
-
-	public DictItem getParent() {
-		return parent;
-	}
-
-	public String getShortName() {
-		return shortName;
-	}
-
-	public boolean isChecked() {
-		return checked;
-	}
-
-	public boolean isItemActive() {
-		return itemActive;
-	}
-
-	public boolean isLeaf() {
-		return leaf;
-	}
-
-	public void setChecked(boolean checked) {
-		this.checked = checked;
-	}
-
-	public void setChildren(List<DictItem> children) {
-		this.children = children;
-	}
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getItemId() {
 		return itemId;
@@ -129,39 +65,93 @@ public class DictItem implements java.io.Serializable {
 		this.itemId = itemId;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public Boolean getChecked() {
+		return checked;
 	}
 
-	public void setItemActive(boolean itemActive) {
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
+
+	public Boolean getItemActive() {
+		return itemActive;
+	}
+
+	public void setItemActive(Boolean itemActive) {
 		this.itemActive = itemActive;
+	}
+
+	public String getItemCode() {
+		return itemCode;
 	}
 
 	public void setItemCode(String itemCode) {
 		this.itemCode = itemCode;
 	}
 
-	public void setItemOrder(int itemOrder) {
+	public Integer getItemOrder() {
+		return itemOrder;
+	}
+
+	public void setItemOrder(Integer itemOrder) {
 		this.itemOrder = itemOrder;
+	}
+
+	public Boolean getLeaf() {
+		return leaf;
+	}
+
+	public void setLeaf(Boolean leaf) {
+		this.leaf = leaf;
+	}
+
+	public List<DictItem> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<DictItem> children) {
+		this.children = children;
+	}
+
+	public String getItemType() {
+		return itemType;
 	}
 
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
 	}
 
-	public void setLeaf(boolean leaf) {
-		this.leaf = leaf;
+	public Integer getLevel() {
+		return level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(Integer level) {
 		this.level = level;
+	}
+
+	public DictItem getParent() {
+		return parent;
 	}
 
 	public void setParent(DictItem parent) {
 		this.parent = parent;
 	}
 
-	public void setShortName(String shortName) {
-		this.shortName = shortName;
+	public String getItemName() {
+		return itemName;
 	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public String getItemDesc() {
+		return itemDesc;
+	}
+
+	public void setItemDesc(String itemDesc) {
+		this.itemDesc = itemDesc;
+	}
+
+	
 }

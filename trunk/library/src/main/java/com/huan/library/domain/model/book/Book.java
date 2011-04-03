@@ -1,7 +1,9 @@
 package com.huan.library.domain.model.book;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,13 +12,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-import com.huan.library.domain.model.dict.Attachment;
+import com.huan.library.domain.model.Attachment;
 import com.huan.library.domain.model.dict.BookLevel;
 import com.huan.library.domain.model.dict.BookState;
 import com.huan.library.domain.model.dict.Currency;
-import com.huan.library.domain.model.dict.Resource;
 import com.huan.library.domain.model.dict.Security;
+import com.huan.library.domain.model.dict.Source;
 
 /**
  * 图书信息
@@ -68,9 +71,8 @@ public class Book implements Serializable {
 	@JoinColumn(name = "secondCategory")
 	private Category secondCategory; // 图书分类
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JoinColumn(name = "attachment")
-	private Attachment attachment; // 附件名称
+	@OneToMany(fetch=FetchType.LAZY,targetEntity=Attachment.class,mappedBy="book")
+	private List<Attachment> attachments = new ArrayList<Attachment>(); // 附件
 	
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=BookState.class)
 	@JoinColumn(name="bookState")
@@ -88,14 +90,13 @@ public class Book implements Serializable {
 	@JoinColumn(name = "currency")
 	private Currency currency; // 币种
 	
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "press")
 	private Press press; // 出版社
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "resource")
-	private Resource resource; // 来源
+	private Source source; // 来源
 	
 	public Book(){
 		super();
@@ -107,7 +108,7 @@ public class Book implements Serializable {
 			String bookNo, Boolean isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String secondCategoryId,
 			String secondCategoryCode, String secondCategoryName, String stateId, String stateName, 
 			String levelId, String levelName, String securityId, String securityName, String currencyId, String currencyName, 
-			Integer pressId, String pressName, String resourceId, String resourceName){ /**String hasAttachment,*/
+			Long pressId, String pressName, String sourceId, String sourceName){ /**String hasAttachment,*/
 		this.bookId = bookId;
 		this.barCode = barCode;
 		this.bookName = bookName;
@@ -142,22 +143,22 @@ public class Book implements Serializable {
 		
 		BookState state = new BookState();
 		state.setItemId(stateId);
-		state.setShortName(stateName);
+		state.setItemName(stateName);
 		this.setBookState(state);
 		
 		BookLevel level = new BookLevel();
 		level.setItemId(levelId);
-		level.setShortName(levelName);
+		level.setItemName(levelName);
 		this.setBookLevel(level);
 		
 		Security security = new Security();
 		security.setItemId(securityId);
-		security.setShortName(securityName);
+		security.setItemName(securityName);
 		this.setSecurity(security);
 		
 		Currency currency = new Currency();
 		currency.setItemId(currencyId);
-		currency.setShortName(currencyName);
+		currency.setItemName(currencyName);
 		this.setCurrency(currency);
 		
 		Press press = new Press();
@@ -165,10 +166,10 @@ public class Book implements Serializable {
 		press.setPressName(pressName);
 		this.setPress(press);
 		
-		Resource resource = new Resource();
-		resource.setItemId(resourceId);
-		resource.setShortName(resourceName);
-		this.setResource(resource);
+		Source source = new Source();
+		source.setItemId(sourceId);
+		source.setItemName(sourceName);
+		this.setSource(source);
 	}
 	
 	public Security getSecurity() {
@@ -234,10 +235,6 @@ public class Book implements Serializable {
 		this.isBook = isBook;
 	}
 
-	public Attachment getAttachment() {
-		return attachment;
-	}
-
 	public String getBarCode() {
 		return barCode;
 	}
@@ -283,13 +280,6 @@ public class Book implements Serializable {
 	public Integer getQuantity() {
 		return quantity;
 	}
-	public Resource getResource() {
-		return resource;
-	}
-	public Integer getRevision() {
-		return revision;
-	}
-
 	public String getSearchBookId() {
 		return searchBookId;
 	}
@@ -305,11 +295,6 @@ public class Book implements Serializable {
 	public Date getStoreDate() {
 		return storeDate;
 	}
-
-	public void setAttachment(Attachment attachment) {
-		this.attachment = attachment;
-	}
-
 	public void setBarCode(String barCode) {
 		this.barCode = barCode;
 	}
@@ -359,10 +344,6 @@ public class Book implements Serializable {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
-	}
-
-	public void setResource(Resource resource) {
-		this.resource = resource;
 	}
 
 	public void setRevision(Integer revision) {
@@ -420,6 +401,38 @@ public class Book implements Serializable {
 
 	public void setSecondCategory(Category secondCategory) {
 		this.secondCategory = secondCategory;
+	}
+
+	public Boolean getIsBook() {
+		return isBook;
+	}
+
+	public void setIsBook(Boolean isBook) {
+		this.isBook = isBook;
+	}
+
+	public Source getSource() {
+		return source;
+	}
+
+	public void setSource(Source source) {
+		this.source = source;
+	}
+
+	public Integer getRevision() {
+		return revision;
+	}
+
+	public void setPrice(Float price) {
+		this.price = price;
+	}
+
+	public List<Attachment> getAttachments() {
+		return attachments;
+	}
+
+	public void setAttachments(List<Attachment> attachments) {
+		this.attachments = attachments;
 	}
 
 }

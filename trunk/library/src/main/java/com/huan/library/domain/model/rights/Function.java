@@ -29,19 +29,19 @@ public class Function implements Serializable{
 	@Id
 	private String funcId;//功能id
 	private String funcName;//名字
-	private boolean funcActive;//是否启用
+	private Boolean funcActive;//是否启用
 	
 	//功能排序
-	private int funcOrder;//排序
+	private Integer funcOrder;//排序
 	
 	//做日志用
 	private String funcLogUrl;//日志url
 	private String funcLogDesc;//日志业务描述
 	
 	//用于树结构
-	private int level;//层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
-	private boolean leaf;//是否叶子
-	private boolean checked;//是否选中
+	private Integer level;//层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
+	private Boolean leaf;//是否叶子
+	private Boolean checked;//是否选中
 	
 	//用于按钮,链接等组件
 	private String resCmpId;//组件id
@@ -68,7 +68,7 @@ public class Function implements Serializable{
 		
 	}
 
-	public Function(String funcId, String funcName, boolean funcActive, int funcOrder, int level, String resCmpId,
+	public Function(String funcId, String funcName, Boolean funcActive, Integer funcOrder, Integer level, String resCmpId,
 			String resCmpText, String resCmpIconCls, String resCmpHandURL, String parentFuncId){
 		this.funcId = funcId;
 		this.funcName = funcName;
@@ -83,7 +83,7 @@ public class Function implements Serializable{
 		parent.setFuncId(parentFuncId);
 		this.parent = parent;
 	}
-	
+
 	public String getFuncId() {
 		return funcId;
 	}
@@ -100,19 +100,19 @@ public class Function implements Serializable{
 		this.funcName = funcName;
 	}
 
-	public boolean isFuncActive() {
+	public Boolean getFuncActive() {
 		return funcActive;
 	}
 
-	public void setFuncActive(boolean funcActive) {
+	public void setFuncActive(Boolean funcActive) {
 		this.funcActive = funcActive;
 	}
 
-	public int getFuncOrder() {
+	public Integer getFuncOrder() {
 		return funcOrder;
 	}
 
-	public void setFuncOrder(int funcOrder) {
+	public void setFuncOrder(Integer funcOrder) {
 		this.funcOrder = funcOrder;
 	}
 
@@ -124,27 +124,35 @@ public class Function implements Serializable{
 		this.funcLogUrl = funcLogUrl;
 	}
 
-	public int getLevel() {
+	public String getFuncLogDesc() {
+		return funcLogDesc;
+	}
+
+	public void setFuncLogDesc(String funcLogDesc) {
+		this.funcLogDesc = funcLogDesc;
+	}
+
+	public Integer getLevel() {
 		return level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 
-	public boolean isLeaf() {
+	public Boolean getLeaf() {
 		return leaf;
 	}
 
-	public void setLeaf(boolean leaf) {
+	public void setLeaf(Boolean leaf) {
 		this.leaf = leaf;
 	}
 
-	public boolean isChecked() {
+	public Boolean getChecked() {
 		return checked;
 	}
 
-	public void setChecked(boolean checked) {
+	public void setChecked(Boolean checked) {
 		this.checked = checked;
 	}
 
@@ -203,13 +211,6 @@ public class Function implements Serializable{
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-
-	public String getFuncLogDesc() {
-		return funcLogDesc;
-	}
-
-	public void setFuncLogDesc(String funcLogDesc) {
-		this.funcLogDesc = funcLogDesc;
-	}
+	
 
 }

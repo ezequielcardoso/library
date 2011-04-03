@@ -30,7 +30,7 @@ public interface ReaderCardService {
 	 * @param readerCardId
 	 * @return
 	 */
-	public ReaderCard findReaderCardById(int readerCardId) throws Exception;
+	public ReaderCard findReaderCardById(Long readerCardId) throws Exception;
 	
 	/**
 	 * 查找所有的ReaderCard

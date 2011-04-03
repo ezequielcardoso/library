@@ -26,7 +26,7 @@ public class ReaderUnits  {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int unitId;  //单位id
+	private Long unitId;  //单位id
 	private String unitcode; //单位编号
 	private String unitName; //单位名称
 	private String unitShortName; //单位简称
@@ -43,11 +43,11 @@ public class ReaderUnits  {
 		
 	}
 
-	public int getUnitId() {
+	public Long getUnitId() {
 		return unitId;
 	}
 
-	public void setUnitId(int unitId) {
+	public void setUnitId(Long unitId) {
 		this.unitId = unitId;
 	}
 

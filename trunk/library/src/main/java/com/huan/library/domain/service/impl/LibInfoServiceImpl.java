@@ -32,7 +32,7 @@ public class LibInfoServiceImpl implements LibInfoService {
 		return libInfoCopy;
 	}
 
-	public LibInfo findLibInfoById(int libInfoId) throws Exception {
+	public LibInfo findLibInfoById(Long libInfoId) throws Exception {
 		LibInfo libInfo = new LibInfo();
 		try {
 			libInfo = libInfoDao.selectById(libInfoId);

@@ -31,15 +31,15 @@ public class BorrowReturn implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id; //主键
+	private Long id; //主键
     
 	private Date borrowedDate;       //借阅日期
 	private Date duetoReturnDate;    //应还日期
 	private Date realityReturndate;  //实还日期
-	private int overdueDays;         //逾期天数
-	private float puniMoney = 0;        //罚金
-	private boolean  isPay ;         //是或归还
-	private int   renewTimes;        //续借次数
+	private Integer overdueDays;         //逾期天数
+	private Float puniMoney = 0F;        //罚金
+	private Boolean  isPay ;         //是或归还
+	private Integer   renewTimes;        //续借次数
 	
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Book.class)
     @JoinColumn(name="books")
@@ -57,14 +57,71 @@ public class BorrowReturn implements Serializable{
 	public BorrowReturn(){
 		
 	}
-	
-	public ReaderCard getReaderCard() {
-		return readerCard;
+
+	public Long getId() {
+		return id;
 	}
-	public void setReaderCard(ReaderCard readerCard) {
-		this.readerCard = readerCard;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
-	
+
+	public Date getBorrowedDate() {
+		return borrowedDate;
+	}
+
+	public void setBorrowedDate(Date borrowedDate) {
+		this.borrowedDate = borrowedDate;
+	}
+
+	public Date getDuetoReturnDate() {
+		return duetoReturnDate;
+	}
+
+	public void setDuetoReturnDate(Date duetoReturnDate) {
+		this.duetoReturnDate = duetoReturnDate;
+	}
+
+	public Date getRealityReturndate() {
+		return realityReturndate;
+	}
+
+	public void setRealityReturndate(Date realityReturndate) {
+		this.realityReturndate = realityReturndate;
+	}
+
+	public Integer getOverdueDays() {
+		return overdueDays;
+	}
+
+	public void setOverdueDays(Integer overdueDays) {
+		this.overdueDays = overdueDays;
+	}
+
+	public Float getPuniMoney() {
+		return puniMoney;
+	}
+
+	public void setPuniMoney(Float puniMoney) {
+		this.puniMoney = puniMoney;
+	}
+
+	public Boolean getIsPay() {
+		return isPay;
+	}
+
+	public void setIsPay(Boolean isPay) {
+		this.isPay = isPay;
+	}
+
+	public Integer getRenewTimes() {
+		return renewTimes;
+	}
+
+	public void setRenewTimes(Integer renewTimes) {
+		this.renewTimes = renewTimes;
+	}
+
 	public List<Book> getBooks() {
 		return books;
 	}
@@ -73,62 +130,18 @@ public class BorrowReturn implements Serializable{
 		this.books = books;
 	}
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public Date getBorrowedDate() {
-		return borrowedDate;
-	}
-	public void setBorrowedDate(Date borrowedDate) {
-		this.borrowedDate = borrowedDate;
-	}
-	public Date getDuetoReturnDate() {
-		return duetoReturnDate;
-	}
-	public void setDuetoReturnDate(Date duetoReturnDate) {
-		this.duetoReturnDate = duetoReturnDate;
-	}
-	public Date getRealityReturndate() {
-		return realityReturndate;
-	}
-	public void setRealityReturndate(Date realityReturndate) {
-		this.realityReturndate = realityReturndate;
-	}
-	public int getOverdueDays() {
-		return overdueDays;
-	}
-	public void setOverdueDays(int overdueDays) {
-		this.overdueDays = overdueDays;
-	}
-	
-	public float getPuniMoney() {
-		return puniMoney;
+	public ReaderCard getReaderCard() {
+		return readerCard;
 	}
 
-	public void setPuniMoney(float puniMoney) {
-		this.puniMoney = puniMoney;
+	public void setReaderCard(ReaderCard readerCard) {
+		this.readerCard = readerCard;
 	}
 
-	public boolean isPay() {
-		return isPay;
-	}
-
-	public void setPay(boolean isPay) {
-		this.isPay = isPay;
-	}
-
-	public int getRenewTimes() {
-		return renewTimes;
-	}
-	public void setRenewTimes(int renewTimes) {
-		this.renewTimes = renewTimes;
-	}
 	public User getOperator() {
 		return operator;
 	}
+
 	public void setOperator(User operator) {
 		this.operator = operator;
 	}
