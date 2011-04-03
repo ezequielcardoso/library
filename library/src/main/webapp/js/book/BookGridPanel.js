@@ -132,10 +132,25 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			name : 'firstCategoryName',
 			type : 'string'
 		}, {
+			name : 'firstCategoryCode',
+			type : 'string'
+		}, {
 			name : 'secondCategoryId',
 			type : 'string'
 		}, {
 			name : 'secondCategoryName',
+			type : 'string'
+		}, {
+			name : 'secondCategoryCode',
+			type : 'string'
+		}, {
+			name : 'thirdCategoryId',
+			type : 'string'
+		}, {
+			name : 'thirdCategoryName',
+			type : 'string'
+		}, {
+			name : 'thirdCategoryCode',
 			type : 'string'
 		}, {
 			name : 'hasAttachment',
@@ -153,10 +168,10 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			name : 'bookLevelName',
 			type : 'string'
 		}, {
-			name : 'securityId',
+			name : 'bookSecurityId',
 			type : 'string'
 		}, {
-			name : 'securityName',
+			name : 'bookSecurityName',
 			type : 'string'
 		}, {
 			name : 'currencyId',
@@ -168,10 +183,10 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			name : 'pressName',
 			type : 'string'
 		}, {
-			name : 'resourceId',
+			name : 'bookSourceId',
 			type : 'string'
 		}, {
-			name : 'resourceName',
+			name : 'bookSourceName',
 			type : 'string'
 		}];
 		
@@ -184,7 +199,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			totalProperty : 'totalProperty',
 			root : 'root',
 			baseParams : {
-				"bookView.isBook" : 1
+				"bookView.isBook" : ''
 			},
 			storeInfo : {
 				field : '列名',
@@ -210,7 +225,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				align : 'center'
 			}, {
 				header : '分类号',
-				dataIndex : 'firstCategoryName',
+				dataIndex : 'firstCategoryCode',
 				width : 80,
 				sortable : true,
 				align : 'center'
@@ -222,7 +237,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				align : 'center'
 			}, {
 				header : '种次号',
-				dataIndex : 'speciesName',
+				dataIndex : 'speciesId',
 				width : 80,
 				sortable : true,
 				align : 'center'
@@ -308,6 +323,10 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			
 			
 		}, this);
+		
+		this.store.baseParams = {
+			"bookView.isBook" : 1
+		}
 		
 	},
 	

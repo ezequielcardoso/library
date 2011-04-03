@@ -1,1 +1,1 @@
-var BooksPageSize=50;
+var BooksPageSize=20;
