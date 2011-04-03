@@ -30,24 +30,24 @@ public class DictItemAction extends BaseActionSupport {
     private DictItem dictItem;
     private String pid;
     private String className;
-    List<ExtTreeNode> dictChildrenNodes;
+    private List<ExtTreeNode> dictChildrenNodes = new ArrayList<ExtTreeNode>();
     
 	public void setDictItemService(DictItemService dictItemService) {
 		this.dictItemService = dictItemService;
 	}
     
 	public String getChildrenItem() {
-		List<ExtTreeNode> tns = new ArrayList<ExtTreeNode>();
-		List<DictItem> dictItems;
 		try {
-			dictItems = dictItemService.getChildrenItem(pid, className);
+			List<DictItem> dictItems = dictItemService.getChildrenItem(pid, className);
 			for (DictItem item : dictItems) {
 				ExtTreeNode treeNode = new ExtTreeNode();
 				treeNode.setId(item.getItemId());
 				treeNode.setText(item.getItemName());
 				treeNode.setCls("x-tree-noicon");
 				treeNode.setLeaf(item.getLeaf());
-				tns.add(treeNode);
+				treeNode.setChecked(false);
+				treeNode.setIsOptional(true);
+				dictChildrenNodes.add(treeNode);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

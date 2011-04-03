@@ -242,7 +242,7 @@ public class BookAction extends BaseActionSupport {
 				view.setDonator(book.getDonator());
 			}
 			if(book.getAuthor()!=null){
-				view.setAllStage(book.getAuthor());
+				view.setAuthor(book.getAuthor());
 			}
 			if(book.getTranslator()!=null){
 				view.setTranslator(book.getTranslator());
@@ -276,6 +276,12 @@ public class BookAction extends BaseActionSupport {
 			}
 			if(book.getBookNo()!=null){
 				view.setBookNo(book.getBookNo());
+			}
+			if(book.getAllStage()!=null){
+				view.setAllStage(book.getAllStage());
+			}
+			if(book.getStage()!=null){
+				view.setStage(book.getStage());
 			}
 			if(book.getFirstCategory()!=null){
 				view.setFirstCategoryId(book.getFirstCategory().getCategoryId());
