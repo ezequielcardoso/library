@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import com.huan.library.domain.model.dict.Certificate;
 import com.huan.library.util.Constants;
 
 /**

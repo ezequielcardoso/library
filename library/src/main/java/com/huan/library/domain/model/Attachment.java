@@ -1,8 +1,16 @@
 package com.huan.library.domain.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.huan.library.domain.model.book.Book;
+import com.huan.library.domain.model.rights.Department;
 
 /**
  * 附件
@@ -16,7 +24,9 @@ public class Attachment implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-    
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long attachmentId;//
 	private String attachmentName;
 	private String attachmentSavePath;
@@ -24,6 +34,9 @@ public class Attachment implements java.io.Serializable {
 	private Long attachmentSize;
 	private String attachmentUploadMan;
 	private String attachmentUploadDate;
+	
+	@ManyToOne(targetEntity=Book.class,fetch=FetchType.EAGER)
+	@JoinColumn(name="bookId",referencedColumnName="bookId")
 	private Book book;
 	
 	public Attachment(){
@@ -84,6 +97,14 @@ public class Attachment implements java.io.Serializable {
 
 	public void setAttachmentUploadDate(String attachmentUploadDate) {
 		this.attachmentUploadDate = attachmentUploadDate;
+	}
+
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
 	}
 
 }

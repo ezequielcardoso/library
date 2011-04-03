@@ -8,13 +8,13 @@ import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.Attachment;
 import com.huan.library.domain.model.book.Book;
+import com.huan.library.domain.model.book.BookLevel;
+import com.huan.library.domain.model.book.BookState;
 import com.huan.library.domain.model.book.Category;
+import com.huan.library.domain.model.book.Currency;
 import com.huan.library.domain.model.book.Press;
-import com.huan.library.domain.model.dict.BookLevel;
-import com.huan.library.domain.model.dict.BookState;
-import com.huan.library.domain.model.dict.Currency;
-import com.huan.library.domain.model.dict.Source;
-import com.huan.library.domain.model.dict.Security;
+import com.huan.library.domain.model.book.Security;
+import com.huan.library.domain.model.book.Source;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.domain.service.CategoryService;
 import com.huan.library.domain.service.DictItemService;
