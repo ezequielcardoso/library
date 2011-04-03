@@ -14,7 +14,7 @@ import org.jdom.input.SAXBuilder;
 /**
  * xml文件解析，读取虚拟路径与真实路径映射
  * 2010-9-28 上午09:32:07
- * @author herong
+ * 
  */
 public class JdomReader {
     private static Document doc;

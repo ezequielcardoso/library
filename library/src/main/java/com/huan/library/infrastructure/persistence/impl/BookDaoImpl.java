@@ -7,10 +7,13 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Book;
+import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.infrastructure.persistence.BookDao;
 import com.huan.library.web.view.BookView;
 
@@ -34,9 +37,10 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 				" b.ISBN, b.ISSN, b.emailNo, b.stage, b.allStage, b.pages, b.price, b.publisherDate, " +
 				" b.quantity, b.location, b.revision, b.searchBookId, b.speciesId, b.spell, b.storeDate," + 
 				" b.bookNo, b.isBook, t_fc.categoryId, t_fc.categoryCode, t_fc.categoryName, t_cc.categoryId," +
-				" t_cc.categoryCode, t_cc.categoryName, t_st.itemId, t_st.shortName, " +
-				" t_le.itemId, t_le.shortName, t_se.itemId, t_se.shortName, t_cu.itemId, t_cu.shortName, " +
-				" t_pr.pressId, t_pr.pressName, t_re.itemId, t_re.shortName) "); 
+				" t_cc.categoryCode, t_cc.categoryName, t_th.categoryId, t_th.categoryCode, t_th.categoryName, " +
+				" t_st.itemId, t_st.itemName, " +
+				" t_le.itemId, t_le.itemName, t_se.itemId, t_se.itemName, t_cu.itemId, t_cu.itemName, " +
+				" t_pr.pressId, t_pr.pressName, t_so.itemId, t_so.itemName) "); 
 			// from 子句
 			hql.append(" from Book b ");
 			// count from 子句
@@ -45,12 +49,13 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			//left join 子句
 			hql.append(" left join b.firstCategory t_fc ");
 			hql.append(" left join b.secondCategory t_cc ");
+			hql.append(" left join b.thirdCategory t_th ");
 			hql.append(" left join b.bookState t_st ");
 			hql.append(" left join b.bookLevel t_le ");
-			hql.append(" left join b.security t_se ");
+			hql.append(" left join b.bookSecurity t_se ");
 			hql.append(" left join b.currency t_cu ");
 			hql.append(" left join b.press t_pr ");
-			hql.append(" left join b.resource t_re ");
+			hql.append(" left join b.bookSource t_so ");
 			
 			//where 子句
 			hql.append(" where 1=1 ");
@@ -137,6 +142,34 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			throw new Exception(e);
 		}
 		return book;
+	}
+
+	public void insertBooksBatch(List<Book> books) throws Exception {
+		try {
+			SessionFactory sessionFactory = this.getSessionFactory();
+			Session session = sessionFactory.openSession();
+			Transaction tx = session.getTransaction();
+			int i = 0;
+			for (Book book : books) {
+				session.save(book);
+				if (i % 100 == 0) {
+					tx.begin();
+					session.flush();
+					session.clear();
+					tx.commit();
+				}
+				i++;
+			}
+			tx.begin();
+			session.flush();
+			session.clear();
+			tx.commit();
+			session.close();
+			sessionFactory.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
 	}
 
 }

@@ -32,6 +32,7 @@ public class Category implements Serializable{
 	
 	private String categoryCode; //分类代码
 	private String categoryName;  //分类名称
+	private Long categoryOrder;//分类排序
 	
 	@ManyToOne(targetEntity=Category.class,fetch=FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.REMOVE})
 	@JoinColumn(name="parentCateId",referencedColumnName="categoryId")
@@ -49,7 +50,6 @@ public class Category implements Serializable{
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-
     
 	public List<Category> getChildren() {
 		return children;
@@ -58,8 +58,6 @@ public class Category implements Serializable{
 	public void setChildren(List<Category> children) {
 		this.children = children;
 	}
-
-	
 
 	public String getCategoryCode() {
 		return categoryCode;
@@ -83,6 +81,12 @@ public class Category implements Serializable{
 
 	public void setParent(Category parent) {
 		this.parent = parent;
+	}
+	public Long getCategoryOrder() {
+		return categoryOrder;
+	}
+	public void setCategoryOrder(Long categoryOrder) {
+		this.categoryOrder = categoryOrder;
 	}
 
 }

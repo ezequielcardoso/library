@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.huan.library.domain.model.Attachment;
 
 /**
  * 图书信息
@@ -32,6 +31,7 @@ public class Book implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long bookId; // 主键
+	private String bookNo; // 图书编号
 	private String barCode; //条形码
 	private String bookName; //书刊名字
 	private String bookDesc; //图书简介
@@ -55,7 +55,6 @@ public class Book implements Serializable {
 	private String speciesId; // 种次号
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
-	private String bookNo; // 图书编号
 	private Boolean isBook = true;  //类型true:表示图书 false:表示期刊
 
 	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
@@ -65,6 +64,10 @@ public class Book implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
 	@JoinColumn(name = "secondCategory")
 	private Category secondCategory; // 图书分类
+	
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
+	@JoinColumn(name = "thirdCategory")
+	private Category thirdCategory; // 图书分类
 	
 	@OneToMany(fetch=FetchType.LAZY,targetEntity=Attachment.class,mappedBy="book")
 	private List<Attachment> attachments = new ArrayList<Attachment>(); // 附件
@@ -78,8 +81,8 @@ public class Book implements Serializable {
 	private BookLevel bookLevel; // 图书级别
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="security")
-	private Security security;   //图书密级
+	@JoinColumn(name="bookSecurity")
+	private BookSecurity bookSecurity;   //图书密级
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "currency")
@@ -90,8 +93,8 @@ public class Book implements Serializable {
 	private Press press; // 出版社
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "resource")
-	private Source source; // 来源
+	@JoinColumn(name = "bookSource")
+	private BookSource bookSource; // 来源
 	
 	public Book(){
 		super();
@@ -100,9 +103,10 @@ public class Book implements Serializable {
 	public Book(Long bookId, String barCode, String bookName, String bookDesc, String donator, String author, String translator,
 			String ISBN, String ISSN, String emailNo, String stage, String allStage, Integer pages, Float price, Date publisherDate, 
 			Integer quantity, String location, Integer revision, String searchBookId, String speciesId, String spell, Date storeDate, 
-			String bookNo, Boolean isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String secondCategoryId,
-			String secondCategoryCode, String secondCategoryName, String stateId, String stateName, 
-			String levelId, String levelName, String securityId, String securityName, String currencyId, String currencyName, 
+			String bookNo, Boolean isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName,
+			String secondCategoryId, String secondCategoryCode, String secondCategoryName, String thirdCategoryId, 
+			String thirdCategoryCode, String thirdCategoryName, String stateId, String stateName, 
+			String levelId, String levelName, String bookSecurityId, String bookSecurityName, String currencyId, String currencyName, 
 			Long pressId, String pressName, String sourceId, String sourceName){ /**String hasAttachment,*/
 		this.bookId = bookId;
 		this.barCode = barCode;
@@ -128,11 +132,17 @@ public class Book implements Serializable {
 		firstCategory.setCategoryName(firstCategoryName);
 		this.setFirstCategory(firstCategory);
 		
-		Category secondtCategory = new Category();
-		secondtCategory.setCategoryId(secondCategoryId);
-		secondtCategory.setCategoryCode(secondCategoryCode);
+		Category secondCategory = new Category();
+		secondCategory.setCategoryId(secondCategoryId);
+		secondCategory.setCategoryCode(secondCategoryCode);
 		firstCategory.setCategoryName(secondCategoryName);
-		this.setSecondCategory(secondtCategory);
+		this.setSecondCategory(secondCategory);
+		
+		Category thirdCategory = new Category();
+		thirdCategory.setCategoryId(secondCategoryId);
+		thirdCategory.setCategoryCode(secondCategoryCode);
+		thirdCategory.setCategoryName(secondCategoryName);
+		this.setSecondCategory(thirdCategory);
 		
 //		this.hasAttachment = hasAttachment;
 		
@@ -146,10 +156,10 @@ public class Book implements Serializable {
 		level.setItemName(levelName);
 		this.setBookLevel(level);
 		
-		Security security = new Security();
-		security.setItemId(securityId);
-		security.setItemName(securityName);
-		this.setSecurity(security);
+		BookSecurity bookSecurity = new BookSecurity();
+		bookSecurity.setItemId(bookSecurityId);
+		bookSecurity.setItemName(bookSecurityName);
+		this.setBookSecurity(bookSecurity);
 		
 		Currency currency = new Currency();
 		currency.setItemId(currencyId);
@@ -161,25 +171,82 @@ public class Book implements Serializable {
 		press.setPressName(pressName);
 		this.setPress(press);
 		
-		Source source = new Source();
+		BookSource source = new BookSource();
 		source.setItemId(sourceId);
 		source.setItemName(sourceName);
-		this.setSource(source);
+		this.setBookSource(source);
 	}
 	
-	public Security getSecurity() {
-		return security;
+	public Long getBookId() {
+		return bookId;
 	}
 
-	public void setSecurity(Security security) {
-		this.security = security;
-	} 
-	
-	public String getLocation() {
-		return location;
+	public void setBookId(Long bookId) {
+		this.bookId = bookId;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+
+	public String getBookNo() {
+		return bookNo;
+	}
+
+	public void setBookNo(String bookNo) {
+		this.bookNo = bookNo;
+	}
+
+	public String getBarCode() {
+		return barCode;
+	}
+
+	public void setBarCode(String barCode) {
+		this.barCode = barCode;
+	}
+
+	public String getBookName() {
+		return bookName;
+	}
+
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+
+	public String getBookDesc() {
+		return bookDesc;
+	}
+
+	public void setBookDesc(String bookDesc) {
+		this.bookDesc = bookDesc;
+	}
+
+	public String getDonator() {
+		return donator;
+	}
+
+	public void setDonator(String donator) {
+		this.donator = donator;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getTranslator() {
+		return translator;
+	}
+
+	public void setTranslator(String translator) {
+		this.translator = translator;
+	}
+
+	public String getISBN() {
+		return ISBN;
+	}
+
+	public void setISBN(String iSBN) {
+		ISBN = iSBN;
 	}
 
 	public String getISSN() {
@@ -214,172 +281,92 @@ public class Book implements Serializable {
 		this.allStage = allStage;
 	}
 
-	public String getBookNo() {
-		return bookNo;
-	}
-
-	public void setBookNo(String bookNo) {
-		this.bookNo = bookNo;
-	}
-
-	public boolean isBook() {
-		return isBook;
-	}
-
-	public void setBook(boolean isBook) {
-		this.isBook = isBook;
-	}
-
-	public String getBarCode() {
-		return barCode;
-	}
-
-	public String getBookDesc() {
-		return bookDesc;
-	}
-
-	public BookLevel getBookLevel() {
-		return bookLevel;
-	}
-
-	public void setBookLevel(BookLevel bookLevel) {
-		this.bookLevel = bookLevel;
-	}
-
-	public String getBookName() {
-		return bookName;
-	}
-
-	public Currency getCurrency() {
-		return currency;
-	}
-
-	public String getDonator() {
-		return donator;
-	}
-	public String getISBN() {
-		return ISBN;
-	}
 	public Integer getPages() {
 		return pages;
-	}
-	public Press getPress() {
-		return press;
-	}
-	public float getPrice() {
-		return price;
-	}
-	public Date getPublisherDate() {
-		return publisherDate;
-	}
-	public Integer getQuantity() {
-		return quantity;
-	}
-	public String getSearchBookId() {
-		return searchBookId;
-	}
-
-	public String getSpeciesId() {
-		return speciesId;
-	}
-
-	public String getSpell() {
-		return spell;
-	}
-
-	public Date getStoreDate() {
-		return storeDate;
-	}
-	public void setBarCode(String barCode) {
-		this.barCode = barCode;
-	}
-
-	public void setBookDesc(String bookDesc) {
-		this.bookDesc = bookDesc;
-	}
-
-	
-	public void setBookName(String bookName) {
-		this.bookName = bookName;
-	}
-
-	public void setCurrency(Currency currency) {
-		this.currency = currency;
-	}
-
-	public void setDonator(String donator) {
-		this.donator = donator;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
 	}
 
 	public void setPages(Integer pages) {
 		this.pages = pages;
 	}
 
-	public void setPress(Press press) {
-		this.press = press;
+	public Float getPrice() {
+		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
+	}
+
+	public Date getPublisherDate() {
+		return publisherDate;
 	}
 
 	public void setPublisherDate(Date publisherDate) {
 		this.publisherDate = publisherDate;
 	}
 
+	public Integer getQuantity() {
+		return quantity;
+	}
+
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Integer getRevision() {
+		return revision;
 	}
 
 	public void setRevision(Integer revision) {
 		this.revision = revision;
 	}
 
+	public String getSearchBookId() {
+		return searchBookId;
+	}
+
 	public void setSearchBookId(String searchBookId) {
 		this.searchBookId = searchBookId;
+	}
+
+	public String getSpeciesId() {
+		return speciesId;
 	}
 
 	public void setSpeciesId(String speciesId) {
 		this.speciesId = speciesId;
 	}
 
+	public String getSpell() {
+		return spell;
+	}
+
 	public void setSpell(String spell) {
 		this.spell = spell;
 	}
 
-	
-	public BookState getBookState() {
-		return bookState;
-	}
-
-	public void setBookState(BookState bookState) {
-		this.bookState = bookState;
+	public Date getStoreDate() {
+		return storeDate;
 	}
 
 	public void setStoreDate(Date storeDate) {
 		this.storeDate = storeDate;
 	}
-	public Long getBookId() {
-		return bookId;
+
+	public Boolean getIsBook() {
+		return isBook;
 	}
-	public void setBookId(Long bookId) {
-		this.bookId = bookId;
-	}
-	public String getTranslator() {
-		return translator;
-	}
-	public void setTranslator(String translator) {
-		this.translator = translator;
+
+	public void setIsBook(Boolean isBook) {
+		this.isBook = isBook;
 	}
 
 	public Category getFirstCategory() {
@@ -398,28 +385,12 @@ public class Book implements Serializable {
 		this.secondCategory = secondCategory;
 	}
 
-	public Boolean getIsBook() {
-		return isBook;
+	public Category getThirdCategory() {
+		return thirdCategory;
 	}
 
-	public void setIsBook(Boolean isBook) {
-		this.isBook = isBook;
-	}
-
-	public Source getSource() {
-		return source;
-	}
-
-	public void setSource(Source source) {
-		this.source = source;
-	}
-
-	public Integer getRevision() {
-		return revision;
-	}
-
-	public void setPrice(Float price) {
-		this.price = price;
+	public void setThirdCategory(Category thirdCategory) {
+		this.thirdCategory = thirdCategory;
 	}
 
 	public List<Attachment> getAttachments() {
@@ -428,6 +399,54 @@ public class Book implements Serializable {
 
 	public void setAttachments(List<Attachment> attachments) {
 		this.attachments = attachments;
+	}
+
+	public BookState getBookState() {
+		return bookState;
+	}
+
+	public void setBookState(BookState bookState) {
+		this.bookState = bookState;
+	}
+
+	public BookLevel getBookLevel() {
+		return bookLevel;
+	}
+
+	public void setBookLevel(BookLevel bookLevel) {
+		this.bookLevel = bookLevel;
+	}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
+
+	public Press getPress() {
+		return press;
+	}
+
+	public void setPress(Press press) {
+		this.press = press;
+	}
+
+	public BookSource getBookSource() {
+		return bookSource;
+	}
+
+	public void setBookSource(BookSource bookSource) {
+		this.bookSource = bookSource;
+	}
+
+	public BookSecurity getBookSecurity() {
+		return bookSecurity;
+	}
+
+	public void setBookSecurity(BookSecurity bookSecurity) {
+		this.bookSecurity = bookSecurity;
 	}
 
 }
