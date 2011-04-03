@@ -31,7 +31,7 @@
 		
 		<!-- 跳转到图书增加或者修改页面 -->
 		<action name="showSaveBook" class="com.huan.library.web.action.BookAction" method="showSaveBook">
-			<result name="success" >/module/book/modifyBook.jsp</result>
+			<result name="success" >/module/book/saveBook.jsp</result>
 		</action>
 		
 		<!-- 保存图书或者期刊 -->

@@ -13,6 +13,7 @@
 	<!--导入各模块Action配置文件 -->
 	<include file="rights.xml"></include>
 	<include file="book.xml"></include>
+	<include file="dict.xml"></include>
 	
 	<!-- 中文支持等配置 -->
 	<constant name="struts.custom.i18n.resources"

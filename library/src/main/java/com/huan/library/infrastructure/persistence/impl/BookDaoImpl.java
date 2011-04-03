@@ -126,13 +126,13 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 		hql.append(" from Book as b " ); 
 		hql.append(" left join fetch b.firstCategory t_fc ");
 		hql.append(" left join fetch b.secondCategory t_cc ");
-		hql.append(" left join fetch b.attachment t_at ");
+		hql.append(" left join fetch b.thirdCategory t_th ");
 		hql.append(" left join fetch b.bookState t_st ");
 		hql.append(" left join fetch b.bookLevel t_le ");
-		hql.append(" left join fetch b.security t_se ");
+		hql.append(" left join fetch b.bookSecurity t_se ");
 		hql.append(" left join fetch b.currency t_cu ");
 		hql.append(" left join fetch b.press t_pr ");
-		hql.append(" left join fetch b.resource t_re ");
+		hql.append(" left join fetch b.bookSource t_so ");
 		hql.append(" where b.bookId=? ");
 		Book book = new Book();
 		try {

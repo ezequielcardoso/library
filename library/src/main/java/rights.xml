@@ -20,6 +20,17 @@
 			<result name="success">/module/left.jsp</result>
 			<result name="error">/login.jsp</result>
 		</action>
-            
+		
     </package>
+    
+    <package name="dict" namespace="/dict" extends="library">
+    
+    	<action name="getChildrenItem" class="com.huan.library.web.action.DictItemAction" method="getChildrenItem">
+			<result name="success" type="json">
+				<param name="root">dictChildrenNodes</param>
+			</result>
+		</action>
+    
+    </package>
+    
 </struts>
