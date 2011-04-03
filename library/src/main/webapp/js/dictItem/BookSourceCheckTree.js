@@ -10,7 +10,7 @@ Library.basic.tree.BookSourceCheckTree = Ext.extend(Library.basic.tree.BaseCheck
 		});
 		this.rootNode = {
 			text : '不显示的节点',
-			id : 'AN',
+			id : 'BookSource',
 			expanded : true
 		};
 		this.url = contextPath + '/dict/getChildren.do';
