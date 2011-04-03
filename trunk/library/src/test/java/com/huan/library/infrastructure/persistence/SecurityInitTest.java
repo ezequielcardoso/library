@@ -24,22 +24,22 @@ public class SecurityInitTest {
 	public void testBookLevelInit(){
 		try{
 			Security security = new Security();
-			security.setShortName("保留");
+			security.setItemName("保留");
 			security.setItemCode("Security");
 			dictItemDao.saveOrUpdate(security);
 			
 			Security security2 = new Security();
-			security2.setShortName("浏览");
+			security2.setItemName("浏览");
 			security2.setItemCode("Security2");
 			dictItemDao.saveOrUpdate(security2);
 			
 			Security security3 = new Security();
-			security3.setShortName("公开");
+			security3.setItemName("公开");
 			security3.setItemCode("Security3");
 			dictItemDao.saveOrUpdate(security3);
 			
 			Security security4 = new Security();
-			security4.setShortName("公开");
+			security4.setItemName("公开");
 			security4.setItemCode("Security4");
 			dictItemDao.saveOrUpdate(security4);
 			

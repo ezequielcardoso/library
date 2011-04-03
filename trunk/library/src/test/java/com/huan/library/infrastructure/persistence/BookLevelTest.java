@@ -24,22 +24,22 @@ public class BookLevelTest {
 	public void testAdd() {
 		try {
 			BookLevel bookLevel = new BookLevel();
-			bookLevel.setShortName("普通");
+			bookLevel.setItemName("普通");
 			bookLevel.setItemCode("BookLevel");
 			dictItemDao.saveOrUpdate(bookLevel);
 
 			BookLevel bookLevel2 = new BookLevel();
-			bookLevel2.setShortName("高级");
+			bookLevel2.setItemName("高级");
 			bookLevel2.setItemCode("BookLevel2");
 			dictItemDao.saveOrUpdate(bookLevel2);
 
 			BookLevel bookLevel3 = new BookLevel();
-			bookLevel3.setShortName("高级图书");
+			bookLevel3.setItemName("高级图书");
 			bookLevel3.setItemCode("BookLevel3");
 			dictItemDao.saveOrUpdate(bookLevel3);
 			
 			BookLevel bookLevel4 = new BookLevel();
-			bookLevel4.setShortName("秘密");
+			bookLevel4.setItemName("秘密");
 			bookLevel4.setItemCode("BookLevel4");
 			dictItemDao.saveOrUpdate(bookLevel4);
 		} catch (Exception e) {

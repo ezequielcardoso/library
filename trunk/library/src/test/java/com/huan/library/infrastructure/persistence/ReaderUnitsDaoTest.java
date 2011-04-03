@@ -58,7 +58,7 @@ public class ReaderUnitsDaoTest {
 							readerUnits.setUnitcode(temp.substring(0, temp.length()-2));
 							break;
 						case 4:
-							pReaderUnits.setUnitId(((int)numberCell.getValue()));
+							pReaderUnits.setUnitId(((long)numberCell.getValue()));
 							readerUnits.setParentUnit(pReaderUnits);
 							break;
 						}

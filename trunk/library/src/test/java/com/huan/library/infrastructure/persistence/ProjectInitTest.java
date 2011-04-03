@@ -24,22 +24,22 @@ public class ProjectInitTest {
 	public void testProjectInit(){
 		try{
 			Project project = new Project();
-			project.setShortName("开户");
+			project.setItemName("开户");
 			project.setItemCode("Project");
 			dictItemDao.saveOrUpdate(project);
 		
 			Project project2 = new Project();
-			project2.setShortName("补卡");
+			project2.setItemName("补卡");
 			project2.setItemCode("Project2");
 			dictItemDao.saveOrUpdate(project2);
 
 			Project project3 = new Project();
-			project3.setShortName("罚款");
+			project3.setItemName("罚款");
 			project3.setItemCode("Project3");
 			dictItemDao.saveOrUpdate(project3);
 
 			Project project4 = new Project();
-			project4.setShortName("租金");
+			project4.setItemName("租金");
 			project4.setItemCode("Project4");
 			dictItemDao.saveOrUpdate(project4);
 

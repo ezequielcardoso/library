@@ -4,14 +4,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
+import com.huan.library.domain.model.Attachment;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.book.Press;
-import com.huan.library.domain.model.dict.Attachment;
 import com.huan.library.domain.model.dict.BookState;
 import com.huan.library.domain.model.dict.Certificate;
 import com.huan.library.domain.model.dict.Currency;
-import com.huan.library.domain.model.dict.Resource;
+import com.huan.library.domain.model.dict.Source;
 /**
  * 图书dao测试类
  * @author huan
@@ -42,12 +42,6 @@ public class BookDAOTest {
 	    book.setSpeciesId("a21");
 	    book.setAllStage("11111");
 	    
-	    //附件
-	    Attachment attachment = new Attachment();
-	    attachment.setShortName("DVD");
-	    dictItemDao.saveOrUpdate(attachment);
-	    book.setAttachment(attachment);
-	    
 	    //出版社
 		Press press = new Press();
 		press.setPressAddress("大连");
@@ -66,24 +60,24 @@ public class BookDAOTest {
 		
 		//图书级别
 		Certificate certificate = new Certificate();
-		certificate.setShortName("密级");
+		certificate.setItemName("密级");
 	    dictItemDao.saveOrUpdate(certificate);
 	    
 	    //来源
-	    Resource resource = new Resource();
-	    resource.setShortName("捐赠");
+	    Source resource = new Source();
+	    resource.setItemName("捐赠");
 	    dictItemDao.saveOrUpdate(resource);
-	    book.setResource(resource);
+	    book.setSource(resource);
 	    
 	    //币种
 	    Currency currency = new Currency();
-	    currency.setShortName("人名币");
+	    currency.setItemName("人名币");
 	    dictItemDao.saveOrUpdate(currency);
 	    book.setCurrency(currency);
 	    
 	    //图书状态
 	    BookState bookState = new BookState();
-	    bookState.setShortName("借阅中");
+	    bookState.setItemName("借阅中");
 	    dictItemDao.saveOrUpdate(bookState);
 	    book.setBookState(bookState);
   

@@ -89,13 +89,13 @@ public class DictItemDao2TestTest {
 							dictItem.setChecked(true);
 							break;
 						case 2:
-							dictItem.setDescription(lc.getContents());
+							dictItem.setItemDesc(lc.getContents());
 							break;
 						case 4:
 							dictItem.setItemCode(lc.getContents());
 							break;
 						case 6:
-							dictItem.setShortName(lc.getContents());
+							dictItem.setItemName(lc.getContents());
 							break;
 						case 10:
 							dictItem.setItemType(lc.getContents());
