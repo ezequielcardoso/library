@@ -30,7 +30,7 @@ public class BookView extends ExtGridPost implements Serializable {
 	private String stage; // 第几期
 	private String allStage; // 总第几期
 	private Integer pages; // 页数
-	private float price; // 价格
+	private Float price; // 价格
 	private Date publisherDate; // 出版日期
 	private Integer quantity; // 数量
 	private String location; //存放位置
@@ -57,7 +57,7 @@ public class BookView extends ExtGridPost implements Serializable {
 	private String securityName;   //图书密级
 	private String currencyId;
 	private String currencyName; // 币种
-	private String pressId;
+	private Long pressId;
 	private String pressName; // 出版社
 	private String resourceId;
 	private String resourceName; // 来源
@@ -322,11 +322,11 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.currencyName = currencyName;
 	}
 
-	public String getPressId() {
+	public Long getPressId() {
 		return pressId;
 	}
 
-	public void setPressId(String pressId) {
+	public void setPressId(Long pressId) {
 		this.pressId = pressId;
 	}
 

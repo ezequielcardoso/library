@@ -7,14 +7,14 @@ package com.huan.library.web.view.form;
  */
 public class ExtJsonForm {
 
-	private boolean success;//业务处理是否成功
+	private Boolean success;//业务处理是否成功
 	private String msg;//业务处理后回复的消息
 	private Object data;//业务处理后回复的业务对象
 	
-	public boolean isSuccess() {
+	public Boolean getSuccess() {
 		return success;
 	}
-	public void setSuccess(boolean success) {
+	public void setSuccess(Boolean success) {
 		this.success = success;
 	}
 	public Object getData() {
