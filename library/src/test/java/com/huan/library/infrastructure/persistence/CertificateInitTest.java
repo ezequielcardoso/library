@@ -25,17 +25,17 @@ public class CertificateInitTest {
 	public void testCertificateInit(){
 		try{
 			Certificate certificate = new Certificate();
-			certificate.setShortName("学生证");
+			certificate.setItemName("学生证");
 			certificate.setItemCode("Certificate");
 			dictItemDao.saveOrUpdate(certificate);
 			
 			Certificate certificate2 = new Certificate();
-			certificate2.setShortName("身份证");
+			certificate2.setItemName("身份证");
 			certificate2.setItemCode("Certificate2");
 			dictItemDao.saveOrUpdate(certificate2);
 			
 			Certificate certificate3 = new Certificate();
-			certificate3.setShortName("驾驶本");
+			certificate3.setItemName("驾驶本");
 			certificate3.setItemCode("Certificate3");
 			dictItemDao.saveOrUpdate(certificate3);
 		}catch(Exception e){

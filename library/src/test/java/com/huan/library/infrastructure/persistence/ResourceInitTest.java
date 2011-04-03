@@ -4,7 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
-import com.huan.library.domain.model.dict.Resource;
+import com.huan.library.domain.model.dict.Source;
 
 /**
  * Í¼ÊéÀ´Ô´³õÊ¼»¯ ¾èÔù/¹ºÂò
@@ -23,13 +23,13 @@ public class ResourceInitTest {
 		@Test
 		public void testResourceInit(){
 			try{
-				Resource resource = new Resource();
-				resource.setShortName("¹ºÂò");
+				Source resource = new Source();
+				resource.setItemName("¹ºÂò");
 				resource.setItemCode("Resource");
 				dictItemDao.saveOrUpdate(resource);
 				
-				Resource resource2 = new Resource();
-				resource2.setShortName("¾èÔù");
+				Source resource2 = new Source();
+				resource2.setItemName("¾èÔù");
 				resource2.setItemCode("Resource2");
 				dictItemDao.saveOrUpdate(resource2);
 			}catch(Exception e){

@@ -39,7 +39,7 @@ public class ReaderDaoTest {
 		
 		//有效有效证件
 		Certificate certificate = new Certificate();
-		certificate.setShortName("学生正");
+		certificate.setItemName("学生正");
 		dictItemDao.saveOrUpdate(certificate);
 		reader.setCertificate(certificate);
 		
