@@ -13,7 +13,7 @@
 	
 	<!-- 配置数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close">
+	    destroy-method="close">
 		<property name="driverClass" value="${datasource.driverClassName}" />
 		<property name="jdbcUrl" value="${datasource.url}" />
 		<property name="user" value="${datasource.username}" />
@@ -36,7 +36,7 @@
 				hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
 				hibernate.autoReconnect=true
 				hibernate.use_outer_join=true
-      			</value>
+      		</value>
 		</property>
 		<property name="packagesToScan" value="com.huan.library.domain.model" />
 	</bean>
