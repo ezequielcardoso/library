@@ -2,6 +2,7 @@ package com.huan.library.infrastructure.persistence;
 
 import java.util.List;
 
+import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.dict.DictItem;
 
 /**
@@ -20,6 +21,13 @@ public interface DictItemDao extends BaseDao<DictItem>{
 	 * @throws Exception
 	 */
 	public void insertDictItemsBatch(List<DictItem> dictItems) throws Exception;
+	
+	/**
+	 * 批量导入
+	 * @param dictItems
+	 * @throws Exception
+	 */
+	public void insertCategorysBatch(List<Category> dictItems) throws Exception;
 
 	/**
 	 * 

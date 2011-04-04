@@ -23,7 +23,6 @@
 	<constant name="struts.action.extension" value="action" />
 	<constant name="struts.multipart.maxSize" value="500000000" />
 	
-	
     <package name="library" namespace="/" extends="json-default">
 		
 		<action name="index" class="com.huan.library.web.action.UserAction" method="index">

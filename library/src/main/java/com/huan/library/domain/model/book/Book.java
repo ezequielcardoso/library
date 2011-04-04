@@ -103,7 +103,7 @@ public class Book implements Serializable {
 	public Book(Long bookId, String barCode, String bookName, String bookDesc, String donator, String author, String translator,
 			String ISBN, String ISSN, String emailNo, String stage, String allStage, Integer pages, Float price, Date publisherDate, 
 			Integer quantity, String location, Integer revision, String searchBookId, String speciesId, String spell, Date storeDate, 
-			String bookNo, Boolean isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName,
+			String bookNo, Boolean isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String firstCategoryShortName,
 			String secondCategoryId, String secondCategoryCode, String secondCategoryName, String thirdCategoryId, 
 			String thirdCategoryCode, String thirdCategoryName, String stateId, String stateName, 
 			String levelId, String levelName, String bookSecurityId, String bookSecurityName, String currencyId, String currencyName, 
@@ -130,6 +130,7 @@ public class Book implements Serializable {
 		firstCategory.setItemId(firstCategoryId);
 		firstCategory.setItemCode(firstCategoryCode);
 		firstCategory.setItemName(firstCategoryName);
+		firstCategory.setItemShortName(firstCategoryShortName);
 		this.setFirstCategory(firstCategory);
 		
 		Category secondCategory = new Category();

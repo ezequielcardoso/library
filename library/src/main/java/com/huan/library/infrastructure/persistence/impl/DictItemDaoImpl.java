@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
+import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.infrastructure.persistence.DictItemDao;
 
@@ -44,8 +45,36 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 			Transaction tx = session.getTransaction();
 			int i = 0;
 			for (DictItem dictItem : dictItems) {
-				session.save(dictItem);
+				session.saveOrUpdate(dictItem);
 				if (i % 100 == 0) {
+					tx.begin();
+					session.flush();
+					session.clear();
+					tx.commit();
+				}
+				i++;
+			}
+			tx.begin();
+			session.flush();
+			session.clear();
+			tx.commit();
+			session.close();
+			sessionFactory.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+	}
+	
+	public void insertCategorysBatch(List<Category> dictItems) throws Exception {
+		try {
+			SessionFactory sessionFactory = this.getSessionFactory();
+			Session session = sessionFactory.openSession();
+			Transaction tx = session.getTransaction();
+			int i = 0;
+			for (Category dictItem : dictItems) {
+				session.saveOrUpdate(dictItem);
+				if (i % 500 == 0) {
 					tx.begin();
 					session.flush();
 					session.clear();
