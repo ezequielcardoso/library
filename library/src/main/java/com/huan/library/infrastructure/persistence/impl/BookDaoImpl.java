@@ -13,7 +13,6 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Book;
-import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.infrastructure.persistence.BookDao;
 import com.huan.library.web.view.BookView;
 

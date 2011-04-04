@@ -17,6 +17,11 @@ import com.huan.library.domain.model.dict.DictItem;
 @DiscriminatorValue("Category")
 public class Category extends DictItem implements Serializable{ 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Category(){
 		super();
 	}
