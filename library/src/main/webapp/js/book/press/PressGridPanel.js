@@ -30,9 +30,6 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 			initComponent : function() {
 
-				Library.press.grid.PressGridPanel.superclass.initComponent
-						.call(this);
-
 				// 操作图书列表的工具条
 				var tbar = new Ext.Toolbar({
 							items : [{
@@ -157,6 +154,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 										sortDescText : '降序'
 									})
 						});
+						
+				Library.press.grid.PressGridPanel.superclass.initComponent
+						.call(this);		
 
 			}
 

@@ -104,6 +104,16 @@ public class DictItemServiceImpl implements DictItemService {
 		}
 		return items;
 	}
+	
+	public List<DictItem> getCategoryItem(String pid, Integer level, String itemName) throws Exception  {
+		List<DictItem> items = new ArrayList<DictItem>();
+		try {
+			items = dictItemDao.getCategoryItem(pid, level, itemName);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		return items;
+	}
 
 	
 }
