@@ -107,7 +107,7 @@
 													>
 													<td width="15%" height="30" align="right" nowrap
 														bgcolor="#F4F5F9">
-														条形码:
+														条形码：
 													</td>
 													<td width="35%" align="left" bgcolor="#F4F5F9">
 														<input name="book.barCode" type="text" id="book.barCode" size="18"
@@ -271,13 +271,13 @@
 															value="<s:property value='book.spell'/>">
 													</td>
 												</tr>
-												<tr 
-													>
+												<tr>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														类别：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														
+														<input name="book.firstCategory.shortName" type="text" id="book.firstCategory.shortName" size="18"
+															value="<s:property value='book.firstCategory.shortName'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														来源：
@@ -323,15 +323,6 @@
 													</td>
 												</tr>
 											</table>
-										</td>
-									</tr>
-								</table>
-
-								<table width="99%" border="0" align="center" cellpadding="0"
-									cellspacing="0">
-									<tr>
-										<td height="30" align="center" class="body">&nbsp;
-											
 										</td>
 									</tr>
 								</table>
