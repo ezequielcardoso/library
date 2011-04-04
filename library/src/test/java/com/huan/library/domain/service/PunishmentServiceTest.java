@@ -33,7 +33,7 @@ public class PunishmentServiceTest {
 	@Test
 	public void testPunishmentInit(){
 		List<DictItemView> dictItemViews = new ArrayList<DictItemView>();  
-		Charge project = new Charge();
+		Charge charge = new Charge();
 		try{
 		Punishment punishment = new Punishment();
 		punishment.setEventsDesc("图书丢失");
@@ -46,10 +46,10 @@ public class PunishmentServiceTest {
 		//操作项目
 		dictItemViews = dictItemService.getDictItemByItemClass(Charge.class.getName());
 		DictItemView dictItemView = dictItemViews.get(0);
-		project.setItemId(dictItemView.getKey());
-		project.setItemName(dictItemView.getComment());
-		dictItemService.addOrModifyDictItem(project);
-		punishment.setProject(project);
+		charge.setItemId(dictItemView.getKey());
+		charge.setItemName(dictItemView.getComment());
+		dictItemService.addOrModifyDictItem(charge);
+		punishment.setCharge(charge);
 		
 		punishmentService.addOrModifyPunlishment(punishment);
 		}catch(Exception e){
