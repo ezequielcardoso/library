@@ -16,6 +16,7 @@ import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.application.Constants;
+import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.dict.DictItem;
 
 /**
@@ -28,7 +29,8 @@ public class DictItemDaoTest {
 
 	private static DictItemDao dictItemDao;
 	
-	private String filePath = Constants.ExcelDir + "dictitem.xls";
+//	private String filePath = Constants.ExcelDir + "dictitem.xls";
+	private String filePath = Constants.ExcelDir + "categories.xls";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -124,26 +126,16 @@ public class DictItemDaoTest {
 			// 取得列数
 			int col = sheet.getColumns();
 			// 取到一行中每列的值赋值给一个DictItem对象对应的属性，直到最后一行
-			List<DictItem> items = new ArrayList<DictItem>();
+			List<Category> items = new ArrayList<Category>();
 			for (int i = 1; i < row; i++) {
-				DictItem dictItem = new DictItem();
-				DictItem pDictItem = new DictItem();
+				Category dictItem = new Category();
+				Category pDictItem = new Category();
 				for (int j = 0; j < col; j++) {
 					Cell cell = sheet.getCell(j, i);
 					if (cell.getType() == CellType.NUMBER) {
 						NumberCell numberCell = (NumberCell) cell;
 						switch (j) {
-						case 3:
-							boolean itemActive = false;
-							if (numberCell.getValue() == 1) {
-								itemActive = true;
-							}
-							dictItem.setItemActive(itemActive);
-							break;
-						case 7:
-							dictItem.setLevel((int)numberCell.getValue());
-							break;
-						case 9: 
+						case 5: 
 							dictItem.setItemOrder((int)numberCell.getValue());
 							break;		
 						}
@@ -153,28 +145,28 @@ public class DictItemDaoTest {
 						case 0:
 							dictItem.setItemId(lc.getContents());
 							break;
-						case 2:
-							dictItem.setItemDesc(lc.getContents());
+						case 1:
+							dictItem.setItemCode(lc.getContents());
 							break;
-						case 6:
+						case 2:
 							dictItem.setItemName(lc.getContents());
 							break;
-						case 8: // parent
+						case 3:
+							dictItem.setItemShortName(lc.getContents());
+							break;	
+						case 4: // parent
 							pDictItem.setItemId(lc.getContents());
 							dictItem.setParent(pDictItem);
-							break;
-						case 10:
-							dictItem.setItemType(lc.getContents());
 							break;
 						}
 					}
 					dictItem.setLeaf(false);
 					dictItem.setChecked(false);
-					dictItem.setItemCode(null);
+					dictItem.setItemActive(true);
 				}
 				items.add(dictItem);
 			}
-			dictItemDao.insertDictItemsBatch(items);
+			dictItemDao.insertCategorysBatch(items);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

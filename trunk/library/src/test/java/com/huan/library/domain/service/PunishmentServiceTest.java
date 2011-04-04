@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
-import com.huan.library.domain.model.Project;
+import com.huan.library.domain.model.Charge;
 import com.huan.library.domain.model.Punishment;
 import com.huan.library.domain.service.DictItemService;
 import com.huan.library.domain.service.PunishmentService;
@@ -33,7 +33,7 @@ public class PunishmentServiceTest {
 	@Test
 	public void testPunishmentInit(){
 		List<DictItemView> dictItemViews = new ArrayList<DictItemView>();  
-		Project project = new Project();
+		Charge project = new Charge();
 		try{
 		Punishment punishment = new Punishment();
 		punishment.setEventsDesc("图书丢失");
@@ -44,7 +44,7 @@ public class PunishmentServiceTest {
 		punishment.setOperator(null);
 		
 		//操作项目
-		dictItemViews = dictItemService.getDictItemByItemClass(Project.class.getName());
+		dictItemViews = dictItemService.getDictItemByItemClass(Charge.class.getName());
 		DictItemView dictItemView = dictItemViews.get(0);
 		project.setItemId(dictItemView.getKey());
 		project.setItemName(dictItemView.getComment());
