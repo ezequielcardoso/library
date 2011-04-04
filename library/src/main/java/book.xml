@@ -58,5 +58,12 @@
 		       <param name="root">extGridLoad</param>
 		    </result> 
 		</action>
+		
+		<action name="getPressItem" class="com.huan.library.web.action.PressAction" method="getPressItem">
+			<result name="success" type="json">
+				<param name="root">pressNodes</param>
+			</result>
+		</action>
+		
     </package>
 </struts>
