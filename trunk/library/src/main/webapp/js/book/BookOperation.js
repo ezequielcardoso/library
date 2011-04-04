@@ -74,95 +74,110 @@ function saveBook() {
 			});
 
 }
-			function resetBookForm() {
-			
-			}
-			
-			function loadBookForm(record) {
-				Ext.get('book.bookId').setValue(record.bookId);
-			}
-			
-			/**
-			 * 图书密级
-			 */
-			function checkBookSecurity(){
-			   
-				var checkWin = new Library.tree.BaseCheckTreeWindow({
-							checkTree : new Library.tree.dict.BookSecurityCheckTree({
-										checkModel : 'single'
-									}),
-							idField : 'book.security.itemId',
-							textField : 'book.security.itemName',
-							height : 300,
-							width : 200,
-							title : '选择图书密级'
-						});
-				checkWin.show();
-			}
-			/**
-			 * 图书来源 
-			 */
-			function checkBookSource() {
-			
-				var checkWin = new Library.tree.BaseCheckTreeWindow({
-							checkTree : new Library.tree.dict.BookSourceCheckTree({
-										checkModel : 'single'
-									}),
-							idField : 'book.bookSource.itemId',
-							textField : 'book.bookSource.itemName',
-							height : 300,
-							width : 200,
-							title : '选择图书来源'
-						});
-				checkWin.show();
-			}
-			/**
-			 * 币种
-			 */
-			function checkCurrency(){
-			 
-					var checkWin = new Library.tree.BaseCheckTreeWindow({
-							checkTree : new Library.tree.dict.CurrencyCheckTree({
-										checkModel : 'single'
-									}),
-							idField : 'book.currency.itemId',
-							textField : 'book.currency.itemName',
-							height : 300,
-							width : 200,
-							title : '选择币种'
-						});
-				checkWin.show();
-			 
-			}
-     
-			/**
-			 * 图书状态
-			 */
-			function checkBookState(){
-			
-		           var checkWin = new Library.tree.BaseCheckTreeWindow({
-							checkTree : new Library.tree.dict.BookStateCheckTree({
-										checkModel : 'single'
-									}),
-							idField : 'book.bookState.itemId',
-							textField : 'book.bookState.itemName',
-							height : 300,
-							width : 200,
-							title : '选择币种'
-						});
-				checkWin.show();
-			}
-			
-			function checkPress() {
-				var checkWin = new Library.tree.BaseCheckTreeWindow({
-							checkTree : new Library.tree.dict.PressCheckTree({
-										checkModel : 'single'
-									}),
-							idField : 'book.press.pressId',
-							textField : 'book.press.pressName',
-							height : 500,
-							width : 300,
-							title : '选择出版社'
-						});
-				checkWin.show();
-			}
+function resetBookForm() {
+
+}
+
+function loadBookForm(record) {
+	Ext.get('book.bookId').setValue(record.bookId);
+}
+
+/**
+ * 图书密级
+ */
+function checkBookSecurity(){
+   
+	var checkWin = new Library.tree.BaseCheckTreeWindow({
+				checkTree : new Library.tree.dict.BookSecurityCheckTree({
+							checkModel : 'single'
+						}),
+				idField : 'book.security.itemId',
+				textField : 'book.security.itemName',
+				height : 300,
+				width : 200,
+				title : '选择图书密级'
+			});
+	checkWin.show();
+}
+/**
+ * 图书来源 
+ */
+function checkBookSource() {
+
+	var checkWin = new Library.tree.BaseCheckTreeWindow({
+				checkTree : new Library.tree.dict.BookSourceCheckTree({
+							checkModel : 'single'
+						}),
+				idField : 'book.bookSource.itemId',
+				textField : 'book.bookSource.itemName',
+				height : 300,
+				width : 200,
+				title : '选择图书来源'
+			});
+	checkWin.show();
+}
+/**
+ * 币种
+ */
+function checkCurrency(){
+ 
+		var checkWin = new Library.tree.BaseCheckTreeWindow({
+				checkTree : new Library.tree.dict.CurrencyCheckTree({
+							checkModel : 'single'
+						}),
+				idField : 'book.currency.itemId',
+				textField : 'book.currency.itemName',
+				height : 300,
+				width : 200,
+				title : '选择币种'
+					});
+			checkWin.show();
+		 
+		}
+ 
+		/**
+ * 图书状态
+ */
+function checkBookState(){
+
+       var checkWin = new Library.tree.BaseCheckTreeWindow({
+				checkTree : new Library.tree.dict.BookStateCheckTree({
+							checkModel : 'single'
+						}),
+				idField : 'book.bookState.itemId',
+				textField : 'book.bookState.itemName',
+				height : 300,
+				width : 200,
+				title : '选择币种'
+			});
+	checkWin.show();
+}
+
+function checkBookLevel(){
+
+       var checkWin = new Library.tree.BaseCheckTreeWindow({
+				checkTree : new Library.tree.dict.BookLevelCheckTree({
+							checkModel : 'single'
+						}),
+				idField : 'book.bookLevel.itemId',
+				textField : 'book.bookLevel.itemName',
+				height : 300,
+				width : 200,
+				title : '选择图书级别'
+			});
+	checkWin.show();
+}
+
+function checkPress() {
+	var checkWin = new Library.tree.BaseCheckTreeWindow({
+				checkTree : new Library.tree.dict.PressCheckTree({
+							checkModel : 'single'
+						}),
+				idField : 'book.press.pressId',
+				textField : 'book.press.pressName',
+				height : 500,
+				width : 300,
+				title : '选择出版社'
+			});
+	checkWin.show();
+}
