@@ -18,6 +18,7 @@
 		<script type="text/javascript" src="<%=path %>/js/dictItem/BookSecurityCheckTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/dictItem/CurrencyCheckTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/dictItem/BookStateCheckTree.js"></script>
+		<script type="text/javascript" src="<%=path %>/js/dictItem/BookLevelCheckTree.js"></script>
         <script type="text/javascript" src="<%=path %>/js/book/BookOperation.js"></script>
         
 	</head>
@@ -56,8 +57,8 @@
 						</tr>
 						<tr>
 							<td height="10" valign="top">
-								<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
-									<tr>
+								<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+							  <tr>
 										<td height="30" class="body1">
 											<input type="button" class="btn" onClick="saveBook();" value="保存">
 											<input type="button" class="btn" onClick="resetBookForm();" value="重填">
@@ -70,7 +71,7 @@
 							<td valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f1f8ff"
 									     style="border: 1px solid #2686d2; margin-top: 0px">
-									<tr>
+<tr>
 										<td>
 											<table width="100%" border="0" cellspacing="0"	cellpadding="0">
 												<tr>
@@ -89,15 +90,15 @@
 									</tr>
 									<tr>
 										<td valign="top">
-											<table width="70%" border="1" align="left" cellpadding="0"
+											<table width="80%" border="1" align="left" cellpadding="0"
 												cellspacing="0" bordercolor="#bcc3c9" borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
-												<tr>
+								  <tr>
 													<td width="15%" height="30" align="right" nowrap  bgcolor="#F4F5F9">
 														书名：
 													</td>
 													<td align="left" bgcolor="#F4F5F9" colspan="3">
-														<input name="book.bookName" type="text" id="book.bookName" size="62"
+														<input name="book.bookName" type="text" id="book.bookName" size="72"
 															value="<s:property value='book.bookName'/>">
 														<input name="book.bookId" type="hidden" id="book.bookId"
 															value="<s:property value='book.bookId'/>">	
@@ -109,31 +110,30 @@
 														条形码：
 													</td>
 													<td width="35%" align="left" bgcolor="#F4F5F9">
-														<input name="book.barCode" type="text" id="book.barCode" size="18"
-															value="<s:property value='book.barCode'/>" disabled>
+													  <input name="book.barCode" type="text" id="book.barCode" size="29"
+															value="<s:property value='book.barCode'/>" >
 													</td>
-													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
-														ISBN：
-													</td>
-													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.ISBN" type="text" id="book.ISBN" size="18"
+											  <td width="15%" height="30" align="right" nowrap bgcolor="#F4F5F9">
+														ISBN：													</td>
+											  <td width="35%" align="left" bgcolor="#F4F5F9">
+										<input name="book.ISBN" type="text" id="book.ISBN" size="29"
 															value="<s:property value='book.ISBN'/>">
 													</td>
-												</tr>
+											  </tr>
 												<tr>
 													<td width="15%" align="right" nowrap bgcolor="#F4F5F9">
 														图书编号：
 													</td>
 													<td width="35%" height="30" align="left" nowrap
 														bgcolor="#F4F5F9">
-														<input name="book.bookNo" type="text" id="book.bookNo" size="18"
+													  <input name="book.bookNo" type="text" id="book.bookNo" size="29"
 															value="<s:property value='book.bookNo'/>">
 													</td>
-														<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+					  <td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														种次号：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.speciesId" type="text" id="book.speciesId" size="18"
+														<input name="book.speciesId" type="text" id="book.speciesId" size="29"
 															value="<s:property value='book.speciesId'/>">
 													</td>
 												</tr>
@@ -142,54 +142,55 @@
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														索书号：
 													</td>
-													<td width="30%" align="left" bgcolor="#F4F5F9">
-														<input name="book.searchBookId" type="text" id="book.searchBookId" size="18"
+													<td width="35%" align="left" bgcolor="#F4F5F9">
+													  <input name="book.searchBookId" type="text" id="book.searchBookId" size="29"
 															value="<s:property value='book.searchBookId'/>">
 													</td>													
-													<td align="right" nowrap bgcolor="#F4F5F9">
+					  <td align="right" nowrap bgcolor="#F4F5F9">
 														入库日期：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input name="book.storeDate" id="book.storeDate" type="text" value="<s:property value='book.storeDate'/>"
-															onClick=WdatePicker(); size="18">
+															onClick=WdatePicker(); size="29">
 													</td>
 												</tr>
-												<tr 
-													>
-														<td align="right" nowrap bgcolor="#F4F5F9">
-														一级分类：
-													</td>
-													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.firstCategory.categoryName" type="text" id="book.firstCategory.categoryName" size="18"
-															value="<s:property value='book.firstCategory.categoryName'/>" disabled>
-														<input name="book.firstCategory.categoryId" type="hidden" id="book.firstCategory.categoryId" size="18"
-															value="<s:property value='book.firstCategory.categoryId'/>">	
-													</td>
+												<tr >
+													
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														类别：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
 														<input name="book.firstCategory.shortName" type="text" id="book.firstCategory.shortName" size="18"
-															value="<s:property value='book.firstCategory.shortName'/>">
+															value="<s:property value='book.firstCategory.shortName'/>" disabled>
+														<input type="button" style="width:60px; height:25px" value="选 择">
 													</td>
-												</tr>
-												<tr 
-													>
-													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+													<td align="right" nowrap bgcolor="#F4F5F9">
 														二级分类：
 													</td>
-													<td align="left" bgcolor="#F4F5F9">
+													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input name="book.secondCategory.categoryName" type="text" id="book.secondCategory.categoryName" size="18"
-															value="<s:property value='book.secondCategory.categoryName'/>">
-														<input name="book.secondCategory.categoryId" type="hidden" id="book.secondCategory.categoryId" size="18"
-															value="<s:property value='book.firstCategory.categoryId'/>">
-														<input type="button" id="clickSecondCategoryBtn" style="width:80px; height:25px" value="选 择">		
+															value="<s:property value='book.secondCategory.categoryName'/>" disabled>
+														<input name="book.secondCategory.categoryId" type="hidden" id="book.secondCategory.categoryId" size="29"
+															value="<s:property value='book.secondCategory.categoryId'/>">
+														<input type="button" style="width:60px; height:25px" value="选 择">	
+													</td>
+												</tr>
+												<tr >
+													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+														三级分类：
+													</td>
+													<td align="left" bgcolor="#F4F5F9">
+														<input name="book.thirdCategory.categoryName" type="text" id="book.thirdCategory.categoryName" size="18"
+															value="<s:property value='book.thirdCategory.categoryName'/>" disabled>
+														<input name="book.thirdCategory.categoryId" type="hidden" id="book.thirdCategory.categoryId" size="29"
+															value="<s:property value='book.thirdCategory.categoryId'/>">
+														<input type="button" style="width:60px; height:25px" value="选 择">		
 													</td>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														存放位置：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.location" type="text" id="book.location" size="18"
+														<input name="book.location" type="text" id="book.location" size="29"
 															value="<s:property value='book.location'/>">
 													</td>
 												</tr>
@@ -198,19 +199,19 @@
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														出版社：
 													</td>
-													<td width="30%" align="left" bgcolor="#F4F5F9">
-														<input name="book.press.pressName" type="text" id="book.press.pressName" size="18"
-															value="<s:property value='book.press.pressName'/>">
-														<input name="book.press.pressId" type="hidden" id="book.press.pressId" size="18"
+													<td width="35%" align="left" bgcolor="#F4F5F9">
+										        <input name="book.press.pressName" type="text" id="book.press.pressName" size="18"
+															value="<s:property value='book.press.pressName'/>" disabled>
+														<input name="book.press.pressId" type="hidden" id="book.press.pressId" size="29"
 															value="<s:property value='book.press.pressId'/>">
-														<input type="button" id="clickPressBtn" onClick="checkPress();" style="width:80px; height:25px" value="选 择">	
+														<input type="button" id="clickPressBtn" onClick="checkPress();" style="width:60px; height:25px" value="选 择">	
 													</td>
-													<td align="right" nowrap bgcolor="#F4F5F9">
+					  <td align="right" nowrap bgcolor="#F4F5F9">
 														出版日期：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input name="book.publisherDate" id="book.publisherDate" type="text" value="<s:property value='book.publisherDate'/>"
-															onClick=WdatePicker(); size="18">
+															onClick=WdatePicker(); size="29">
 													</td>
 												</tr>
 												<tr>
@@ -219,14 +220,14 @@
 													</td>
 													<td width="35%" height="30" align="left" nowrap
 														bgcolor="#F4F5F9"> 
-														<input name="book.author" type="text" id="book.author" size="18"
+													  <input name="book.author" type="text" id="book.author" size="29"
 															value="<s:property value='book.author'/>">
 													</td>
-														<td height="30" align="right" nowrap bgcolor="#F4F5F9">
+					  <td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														译者：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.translator" type="text" id="book.translator" size="18"
+														<input name="book.translator" type="text" id="book.translator" size="29"
 															value="<s:property value='book.translator'/>">
 													</td>
 												</tr>
@@ -236,16 +237,16 @@
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input name="book.bookSource.itemName" type="text" id="book.bookSource.itemName" size="18"
-															value="<s:property value='book.bookSource.itemName'/>">
-														<input name="book.bookSource.itemId" type="hidden" id="book.bookSource.itemId" size="18"
+															value="<s:property value='book.bookSource.itemName'/>" disabled>
+														<input name="book.bookSource.itemId" type="hidden" id="book.bookSource.itemId" size="29"
 															value="<s:property value='book.bookSource.itemId'/>">
-														<input type="button" id="clickBookSourceBtn" onclick="checkBookSource();" style="width:80px; height:25px" value="选 择">		
+														<input type="button" id="clickBookSourceBtn" onClick="checkBookSource();" style="width:60px; height:25px" value="选 择">		
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														捐赠人：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.donator" type="text" id="book.donator" size="18"
+														<input name="book.donator" type="text" id="book.donator" size="29"
 															value="<s:property value='book.donator'/>">
 													</td>
 												</tr>
@@ -255,7 +256,7 @@
 														版次：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.revision" type="text" id="book.revision" size="18"
+														<input name="book.revision" type="text" id="book.revision" size="29"
 															value="<s:property value='book.revision'/>">
 													</td>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
@@ -263,10 +264,10 @@
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
 														<input name="book.security.itemName" type="text" id="book.security.itemName" size="18"
-															value="<s:property value='book.security.itemName'/>">
-														<input name="book.security.itemId" type="hidden" id="book.security.itemId" size="18"
+															value="<s:property value='book.security.itemName'/>" disabled>
+														<input name="book.security.itemId" type="hidden" id="book.security.itemId" size="29"
 															value="<s:property value='book.security.itemId'/>">
-															<input type="button" id="clickSecurityBtn" onclick="checkBookSecurity();" style="width:80px; height:25px" value="选 择">	
+															<input type="button" id="clickSecurityBtn" onClick="checkBookSecurity();" style="width:60px; height:25px" value="选 择">	
 													</td>
 												</tr>
 												<tr 
@@ -275,7 +276,7 @@
 														页数：
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
-														<input name="book.pages" type="text" id="book.pages" size="18"
+														<input name="book.pages" type="text" id="book.pages" size="29"
 															value="<s:property value='book.pages'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
@@ -283,10 +284,10 @@
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input name="book.bookState.itemName" type="text" id="book.bookState.itemName" size="18"
-															value="<s:property value='book.bookState.itemName'/>">
-														<input name="book.bookState.itemId" type="hidden" id="book.bookState.itemId" size="18"
+															value="<s:property value='book.bookState.itemName'/>" disabled>
+														<input name="book.bookState.itemId" type="hidden" id="book.bookState.itemId" size="29"
 															value="<s:property value='book.bookState.itemId'/>">
-														<input type="button" id="clickBookStateBtn" onclick="checkBookState();" style="width:80px; height:25px" value="选 择">	
+														<input type="button" id="clickBookStateBtn" onClick="checkBookState();" style="width:60px; height:25px" value="选 择">	
 													</td>
 												</tr>
 												<tr>
@@ -295,16 +296,16 @@
 													</td>
 													<td align="left" bgcolor="#F4F5F9">
 														<input name="book.currency.itemName" type="text" id=book.currency.itemName size="18"
-															value="<s:property value='book.currency.itemName'/>">
-														<input name="book.currency.itemId" type="hidden" id="book.currency.itemId" size="18"
+															value="<s:property value='book.currency.itemName'/>" disabled>
+														<input name="book.currency.itemId" type="hidden" id="book.currency.itemId" size="29"
 															value="<s:property value='book.currency.itemId'/>">
-														<input type="button" id="clickCurrencyBtn" onclick="checkCurrency()" style="width:80px; height:25px" value="选 择">		
+														<input type="button" id="clickCurrencyBtn" onClick="checkCurrency()" style="width:60px; height:25px" value="选 择">		
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														价格：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.price" type="text" id="book.price" size="18"
+														<input name="book.price" type="text" id="book.price" size="29"
 															value="<s:property value='book.price'/>">
 													</td>												
 												</tr>
@@ -313,15 +314,34 @@
 														数量：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.quantity" type="text" id="book.quantity" size="18"
+														<input name="book.quantity" type="text" id="book.quantity" size="29"
 															value="<s:property value='book.quantity'/>">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														拼音：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.spell" type="text" id="book.spell" size="18"
+														<input name="book.spell" type="text" id="book.spell" size="29"
 															value="<s:property value='book.spell'/>">
+													</td>
+												</tr>
+                                                <tr>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														图书级别：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.bookLevel.itemName" type="text" id=book.bookLevel.itemName size="18"
+															value="<s:property value='book.bookLevel.itemName'/>" disabled>
+														<input name="book.bookLevel.itemId" type="hidden" id="book.bookLevel.itemId" size="29"
+															value="<s:property value='book.bookLevel.itemId'/>">
+														<input type="button" onClick="checkBookLevel()" style="width:60px; height:25px" value="选 择">		
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														录入人：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.operator" type="text" id="book.operator" size="29"
+															value="<s:property value='book.operator'/>" disabled>
 													</td>
 												</tr>
                                                 <tr>
@@ -329,14 +349,7 @@
 														电子文档：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input type="button" id="clickAttachmentBtn" style="width:80px; height:25px"  value="查 看">
-													</td>
-													<td align="right" nowrap bgcolor="#F4F5F9">
-														录入人：
-													</td>
-													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.operator" type="text" id="book.operator" size="18"
-															value="<s:property value='book.operator'/>">
+														<input type="button" id="clickAttachmentBtn" style="width:60px; height:25px"  value="查 看">
 													</td>
 												</tr>
 												<tr>
@@ -351,10 +364,10 @@
 													</td>
 												</tr>
 											</table>
-										</td>
+									  </td>
 									</tr>
 								</table>
-							</td>
+						  </td>
 						</tr>
 					</table>
 				</td>
