@@ -39,7 +39,9 @@ public class DictItem implements java.io.Serializable {
 	private Boolean checked;// 是否选中
 	private Boolean leaf;// 是否叶子
 	private Integer level;// 层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
+	private String shortName; //一级类别的简称
 	
+
 	@OneToMany(targetEntity = DictItem.class, fetch = FetchType.LAZY, mappedBy = "parent")
 	private List<DictItem> children;
 
@@ -150,5 +152,12 @@ public class DictItem implements java.io.Serializable {
 		this.itemDesc = itemDesc;
 	}
 
-	
+	public String getShortName() {
+		return shortName;
+	}
+
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
+	}
+
 }
