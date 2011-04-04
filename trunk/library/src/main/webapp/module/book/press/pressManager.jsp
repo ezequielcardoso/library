@@ -7,7 +7,7 @@
 		<link href="<%=path%>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>"广水用水"终端服务综合业务管理平台</title>
 		<script type="text/javascript" src="<%=path%>/js/book/press/Press.js"></script>
-		<script type="text/javascript" src="<%=path%>/js/book/press/RowEditor.js"></script>
+		<script type="text/javascript" src="<%=path%>/js/book/press/PressGridPanel.js"></script>
 
 	</head>
 	<body>
@@ -165,9 +165,6 @@
 												<tr>
 													<td width="100" height="300" align="left" valign="top">
 														<div id="pressGridPanel"></div>
-													</td>
-													<td width="100" height="300" align="left" valign="top">
-														<div id="addPressPanel"></div>
 													</td>
 												</tr>
 											</table>

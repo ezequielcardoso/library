@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
-import com.huan.library.util.PageModel;
+import com.huan.library.web.view.PressesView;
+import com.huan.library.web.view.grid.ExtGridLoad;
 import com.huan.library.web.view.tree.ExtTreeNode;
 import com.huan.library.web.view.PressView;
 import com.opensymphony.xwork2.Action;
@@ -23,6 +23,9 @@ import com.opensymphony.xwork2.Action;
 	
 	@Autowired
 	private PressService pressService;
+	
+	private ExtGridLoad extGridLoad = new ExtGridLoad();
+	private PressesView pressesView = new PressesView();
 	
 	private Press press = new Press();
 	private PressView pressView = new PressView();
@@ -151,7 +154,7 @@ import com.opensymphony.xwork2.Action;
 	 */
 	public String findPresses() {
 		try {
-			//执行查找操作
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -159,21 +162,18 @@ import com.opensymphony.xwork2.Action;
 		return Action.SUCCESS;
 	}
 
-	/**
-	 * 分页查找出版社
-	 * @return
-	 * @throws Exception
-	 */
-	public String findPressesByPage() {
-		int pageNo=0;int pageSize=3;
-		PageModel<Press> pressModel = new PageModel<Press>();
-		try {
-			pressModel = pressService.findPressesByPage(pageNo, pageSize);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
+	public ExtGridLoad getExtGridLoad() {
+		return extGridLoad;
 	}
-
+	public void setExtGridLoad(ExtGridLoad extGridLoad) {
+		this.extGridLoad = extGridLoad;
+	}
+	public PressesView getPressesView() {
+		return pressesView;
+	}
+	public void setPressesView(PressesView pressesView) {
+		this.pressesView = pressesView;
+	}
+	
+ 
 }

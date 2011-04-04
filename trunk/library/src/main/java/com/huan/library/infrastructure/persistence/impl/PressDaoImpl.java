@@ -1,15 +1,22 @@
 package com.huan.library.infrastructure.persistence.impl;
 
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.infrastructure.persistence.PressDao;
+import com.huan.library.web.view.PressView;
+import com.huan.library.web.view.PressesView;
 /**
  * 出版社持久化实现
  * @author huan
@@ -18,6 +25,34 @@ import com.huan.library.infrastructure.persistence.PressDao;
 @Repository("pressDao")
 public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao{
 
+	public List<Press> selectBooks(final PressesView pressesView) throws Exception {
+		List<Press> presses = new ArrayList<Press>();
+		try {
+		  String hql_ = "select count(p) from Press p";
+		  //查询总记录数
+		  Long totalCount = (Long)getHibernateTemplate().find(hql_).iterator().next();
+		  pressesView.setTotalCount(totalCount);
+		  //取得数据
+		  HibernateCallback callBack = new HibernateCallback(){
+
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				Query query = session.createQuery("select Press");
+				if(pressesView != null && pressesView.getIsPage()){
+					query.setFirstResult(pressesView.getStart());
+					query.setMaxResults(pressesView.getLimit());
+				}
+				return query.list();
+			}
+		  };
+		  presses = (List<Press>)getHibernateTemplate().executeFind(callBack);
+		} catch (Exception e) {
+		  e.printStackTrace();
+		}
+		return presses;
+	}
+
+	
 	public void insertPressBatch(List<Press> list)  throws Exception {
 		try {
 			SessionFactory sessionFactory = this.getSessionFactory();
@@ -45,6 +80,4 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao{
 			throw new Exception(e);
 		}
 	}
-
-   
 }
