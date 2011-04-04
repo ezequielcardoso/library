@@ -6,22 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.huan.library.domain.model.book.Attachment;
 import com.huan.library.domain.model.book.Book;
-import com.huan.library.domain.model.book.BookLevel;
-import com.huan.library.domain.model.book.BookState;
-import com.huan.library.domain.model.book.Category;
-import com.huan.library.domain.model.book.Currency;
-import com.huan.library.domain.model.book.Press;
-import com.huan.library.domain.model.book.BookSecurity;
-import com.huan.library.domain.model.book.BookSource;
 import com.huan.library.domain.service.BookService;
-import com.huan.library.domain.service.CategoryService;
-import com.huan.library.domain.service.DictItemService;
-import com.huan.library.domain.service.PressService;
-import com.huan.library.util.PageModel;
 import com.huan.library.web.view.BookView;
-import com.huan.library.web.view.DictItemView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
 import com.opensymphony.xwork2.Action;
@@ -40,12 +27,6 @@ public class BookAction extends BaseActionSupport {
 	private static final long serialVersionUID = 1L;
 	@Autowired
 	private BookService bookService; // 图书service
-	@Autowired
-	private PressService pressService; // 出版社service
-	@Autowired
-	private CategoryService categoryService; // 图书分类service
-	@Autowired
-	private DictItemService dictItemService; // 字典service
 	/**
 	 * 获取参数和返回数据对象
 	 */
@@ -54,19 +35,6 @@ public class BookAction extends BaseActionSupport {
 	//应用struts2的属性驱动模式,自动填充页面的属性
 	private BookView bookView = new BookView();//接收客户端提交的参数
 	private ExtJsonForm extJsonForm = new ExtJsonForm();//回应给客户端的表单数据
-	
-	
-	private PageModel<Book> pageModel = new PageModel<Book>(); // 图书集合
-	private Press press = new Press(); // 出版社
-	private List<Press> presses = new ArrayList<Press>(); // 出版社集合
-	Category category = new Category(); // 图书分类
-	private List<Category> categorys = new ArrayList<Category>(); // 图书分类集合
-	private List<DictItemView> attachmentViews; //附件试图
-	private List<DictItemView> bookStateViews; //图书状态试图
-	private List<DictItemView> bookLevelViews; //图书级别试图
-	private List<DictItemView> securityViews; //图书密级试图
-	private List<DictItemView> currencyViews; //币种试图
-	private List<DictItemView> resourceViews; //来源试图
 	
 	private Integer start;
 	private Integer limit;
@@ -209,24 +177,6 @@ public class BookAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-    /**
-     * 初始化一些基本信息
-     */
-	private void init(){
-		try{
-			presses = pressService.findAllPresses();
-			categorys = categoryService.findAllCategorys();
-			attachmentViews= dictItemService.getDictItemByItemClass(Attachment.class.getName());
-			bookStateViews = dictItemService.getDictItemByItemClass(BookState.class.getName());
-			bookLevelViews = dictItemService.getDictItemByItemClass(BookLevel.class.getName());
-			securityViews = dictItemService.getDictItemByItemClass(BookSecurity.class.getName());
-			currencyViews = dictItemService.getDictItemByItemClass(Currency.class.getName());
-	        resourceViews = dictItemService.getDictItemByItemClass(BookSource.class.getName());
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
-	
 	public List<BookView> convertToView(List<Book> books){
 		List<BookView> views = new ArrayList<BookView>();
 		for(Book book : books){
@@ -284,19 +234,19 @@ public class BookAction extends BaseActionSupport {
 				view.setStage(book.getStage());
 			}
 			if(book.getFirstCategory()!=null){
-				view.setFirstCategoryId(book.getFirstCategory().getCategoryId());
-				view.setFirstCategoryCode(book.getFirstCategory().getCategoryCode());
-				view.setFirstCategoryName(book.getFirstCategory().getCategoryName());
+				view.setFirstCategoryId(book.getFirstCategory().getItemId());
+				view.setFirstCategoryCode(book.getFirstCategory().getItemCode());
+				view.setFirstCategoryName(book.getFirstCategory().getItemName());
 			}
 			if(book.getSecondCategory()!=null){
-				view.setSecondCategoryId(book.getSecondCategory().getCategoryId());
-				view.setSecondCategoryCode(book.getSecondCategory().getCategoryCode());
-				view.setSecondCategoryName(book.getSecondCategory().getCategoryName());
+				view.setSecondCategoryId(book.getSecondCategory().getItemId());
+				view.setSecondCategoryCode(book.getSecondCategory().getItemCode());
+				view.setSecondCategoryName(book.getSecondCategory().getItemName());
 			}
 			if(book.getThirdCategory()!=null){
-				view.setThirdCategoryId(book.getThirdCategory().getCategoryId());
-				view.setThirdCategoryCode(book.getThirdCategory().getCategoryCode());
-				view.setThirdCategoryName(book.getThirdCategory().getCategoryName());
+				view.setThirdCategoryId(book.getThirdCategory().getItemId());
+				view.setThirdCategoryCode(book.getThirdCategory().getItemCode());
+				view.setThirdCategoryName(book.getThirdCategory().getItemName());
 			}
 			//附件
 //			if(null != book.getAttachment()){
@@ -331,114 +281,21 @@ public class BookAction extends BaseActionSupport {
 		}
 		return views;
 	}
-	
-	public Book getBook() {
-		return book;
+
+	public BookService getBookService() {
+		return bookService;
 	}
-	public void setBook(Book book) {
-		this.book = book;
-	}
-	public Press getPress() {
-		return press;
-	}
-	public void setPress(Press press) {
-		this.press = press;
-	}
-	public void setPressService(PressService pressService) {
-		this.pressService = pressService;
-	}
+
 	public void setBookService(BookService bookService) {
 		this.bookService = bookService;
 	}
-	public List<Press> getPresses() {
-		return presses;
-	}
-	public void setPresses(List<Press> presses) {
-		this.presses = presses;
-	}
-	public PageModel<Book> getPageModel() {
-		return pageModel;
-	}
-	public void setPageModel(PageModel<Book> pageModel) {
-		this.pageModel = pageModel;
-	}
-	public Category getCategory() {
-		return category;
-	}
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-	public List<Category> getCategorys() {
-		return categorys;
-	}
-	public void setCategorys(List<Category> categorys) {
-		this.categorys = categorys;
-	}
-	public PressService getPressService() {
-		return pressService;
-	}
-	public void setDictItemService(DictItemService dictItemService) {
-		this.dictItemService = dictItemService;
+
+	public Book getBook() {
+		return book;
 	}
 
-	public List<DictItemView> getAttachmentViews() {
-		return attachmentViews;
-	}
-
-	public void setAttachmentViews(List<DictItemView> attachmentViews) {
-		this.attachmentViews = attachmentViews;
-	}
-
-	public List<DictItemView> getBookStateViews() {
-		return bookStateViews;
-	}
-
-	public void setBookStateViews(List<DictItemView> bookStateViews) {
-		this.bookStateViews = bookStateViews;
-	}
-
-	public List<DictItemView> getBookLevelViews() {
-		return bookLevelViews;
-	}
-
-	public void setBookLevelViews(List<DictItemView> bookLevelViews) {
-		this.bookLevelViews = bookLevelViews;
-	}
-
-	public List<DictItemView> getSecurityViews() {
-		return securityViews;
-	}
-
-	public void setSecurityViews(List<DictItemView> securityViews) {
-		this.securityViews = securityViews;
-	}
-
-	public List<DictItemView> getCurrencyViews() {
-		return currencyViews;
-	}
-
-	public void setCurrencyViews(List<DictItemView> currencyViews) {
-		this.currencyViews = currencyViews;
-	}
-
-	public List<DictItemView> getResourceViews() {
-		return resourceViews;
-	}
-
-	public void setResourceViews(List<DictItemView> resourceViews) {
-		this.resourceViews = resourceViews;
-	}
-
-	public void setCategoryService(CategoryService categoryService) {
-		this.categoryService = categoryService;
-	}
-
-	public BookView getBookView() {
-		return bookView;
-	}
-
-	public void setBookView(BookView bookView) {
-		this.bookView = bookView;
+	public void setBook(Book book) {
+		this.book = book;
 	}
 
 	public ExtGridLoad getExtGridLoad() {
@@ -447,6 +304,14 @@ public class BookAction extends BaseActionSupport {
 
 	public void setExtGridLoad(ExtGridLoad extGridLoad) {
 		this.extGridLoad = extGridLoad;
+	}
+
+	public BookView getBookView() {
+		return bookView;
+	}
+
+	public void setBookView(BookView bookView) {
+		this.bookView = bookView;
 	}
 
 	public ExtJsonForm getExtJsonForm() {
@@ -472,6 +337,5 @@ public class BookAction extends BaseActionSupport {
 	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}
-
 	
 }
