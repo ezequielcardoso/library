@@ -39,7 +39,7 @@ public class Punishment implements Serializable{
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="project")
-	private Project project; //项目
+	private Charge project; //项目
 	
 	public Punishment(){
 		
@@ -85,11 +85,11 @@ public class Punishment implements Serializable{
 		this.operator = operator;
 	}
 
-	public Project getProject() {
+	public Charge getProject() {
 		return project;
 	}
 
-	public void setProject(Project project) {
+	public void setProject(Charge project) {
 		this.project = project;
 	}
 	

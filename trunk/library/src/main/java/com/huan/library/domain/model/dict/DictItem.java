@@ -32,6 +32,7 @@ public class DictItem implements java.io.Serializable {
 	@Id
     private String itemId;// 字典编号
 	private String itemName;// 名字
+	private String itemShortName;//简称
 	private String itemDesc;// 描述
 	private Boolean itemActive;// 是否启用
 	private String itemCode;// 编码
@@ -39,8 +40,6 @@ public class DictItem implements java.io.Serializable {
 	private Boolean checked;// 是否选中
 	private Boolean leaf;// 是否叶子
 	private Integer level;// 层级,根节点默认为0,根节点的子节点为1,孙子节点为2，以此类推
-	private String shortName; //一级类别的简称
-	
 
 	@OneToMany(targetEntity = DictItem.class, fetch = FetchType.LAZY, mappedBy = "parent")
 	private List<DictItem> children;
@@ -152,12 +151,12 @@ public class DictItem implements java.io.Serializable {
 		this.itemDesc = itemDesc;
 	}
 
-	public String getShortName() {
-		return shortName;
+	public String getItemShortName() {
+		return itemShortName;
 	}
 
-	public void setShortName(String shortName) {
-		this.shortName = shortName;
+	public void setItemShortName(String itemShortName) {
+		this.itemShortName = itemShortName;
 	}
 
 }

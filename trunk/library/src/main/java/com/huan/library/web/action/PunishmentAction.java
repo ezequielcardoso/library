@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.huan.library.domain.model.Project;
+import com.huan.library.domain.model.Charge;
 import com.huan.library.domain.model.Punishment;
 import com.huan.library.domain.service.DictItemService;
 import com.huan.library.domain.service.PunishmentService;
@@ -26,7 +26,7 @@ public class PunishmentAction extends BaseActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Project project;  //项目
+	private Charge project;  //项目
 	private Punishment punishment; //罚款
 
 	@Autowired
@@ -44,7 +44,7 @@ public class PunishmentAction extends BaseActionSupport {
 	public String showSavePunishment()  {
     	List<DictItemView> dictItemViews = new ArrayList<DictItemView>();
 		try {
-			dictItemViews = dictItemService.getDictItemByItemClass(Project.class.getName());
+			dictItemViews = dictItemService.getDictItemByItemClass(Charge.class.getName());
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return Action.ERROR;
@@ -77,11 +77,11 @@ public class PunishmentAction extends BaseActionSupport {
 		this.dictItemService = dictItemService;
 	}
 	
-	public Project getProject() {
+	public Charge getProject() {
 		return project;
 	}
 
-	public void setProject(Project project) {
+	public void setProject(Charge project) {
 		this.project = project;
 	}
 

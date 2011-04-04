@@ -36,10 +36,9 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			hql.append(" select new Book( b.bookId, b.barCode, b.bookName, b.bookDesc, b.donator, b.author, b.translator," +
 				" b.ISBN, b.ISSN, b.emailNo, b.stage, b.allStage, b.pages, b.price, b.publisherDate, " +
 				" b.quantity, b.location, b.revision, b.searchBookId, b.speciesId, b.spell, b.storeDate," + 
-				" b.bookNo, b.isBook, t_fc.categoryId, t_fc.categoryCode, t_fc.categoryName, t_cc.categoryId," +
-				" t_cc.categoryCode, t_cc.categoryName, t_th.categoryId, t_th.categoryCode, t_th.categoryName, " +
-				" t_st.itemId, t_st.itemName, " +
-				" t_le.itemId, t_le.itemName, t_se.itemId, t_se.itemName, t_cu.itemId, t_cu.itemName, " +
+				" b.bookNo, b.isBook, t_fc.itemId, t_fc.itemCode, t_fc.itemName, t_fc.itemShortName, t_cc.itemId," +
+				" t_cc.itemCode, t_cc.itemName, t_th.itemId, t_th.itemCode, t_th.itemName, " +
+				" t_st.itemId, t_st.itemName, t_le.itemId, t_le.itemName, t_se.itemId, t_se.itemName, t_cu.itemId, t_cu.itemName, " +
 				" t_pr.pressId, t_pr.pressName, t_so.itemId, t_so.itemName) "); 
 			// from 子句
 			hql.append(" from Book b ");
