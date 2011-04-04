@@ -1,6 +1,10 @@
 package com.huan.library.web.view;
 
-public class UserView {
+import java.io.Serializable;
+
+import com.huan.library.web.view.grid.ExtGridPost;
+
+public class UserView  extends ExtGridPost implements Serializable {
 
 	private Long userId;// 用户id
 	private String userAccount;// 账号
@@ -8,6 +12,9 @@ public class UserView {
 	private String password;// 密码
 	private Boolean userActive;// 是否激活
 	private String createDate;// 修改日期
+	private Long deptId;
+	
+	
 	public Long getUserId() {
 		return userId;
 	}
@@ -43,6 +50,12 @@ public class UserView {
 	}
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
+	}
+	public Long getDeptId() {
+		return deptId;
+	}
+	public void setDeptId(Long deptId) {
+		this.deptId = deptId;
 	}
 
 

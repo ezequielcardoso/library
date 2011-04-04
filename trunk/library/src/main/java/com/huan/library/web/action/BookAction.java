@@ -93,7 +93,7 @@ public class BookAction extends BaseActionSupport {
 	 * 显示添加或者修改图书
 	 */
 	public String showSaveBook() {
-		if(bookView.getBookId()!=null && bookView.getBookId()!=0){
+		if(bookView.getBookId()!=null){
 			try {
 				book = bookService.getBookById(bookView.getBookId());
 				if(book.getFirstCategory()!=null){

@@ -25,11 +25,11 @@
 	
     <package name="library" namespace="/" extends="json-default">
 		
-		<action name="index" class="com.huan.library.web.action.UserAction" method="index">
-			<result name="success">/login.jsp</result>
-		</action>
-		<action name="login" class="com.huan.library.web.action.UserAction" method="login">
-			<result name="success">/module/index.jsp</result>
+		<action name="loginVerify" class="com.huan.library.web.action.UserAction" method="loginVerify">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
+			<result name="error" >/login.jsp</result>
 		</action>
     </package>
 

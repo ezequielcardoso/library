@@ -5,33 +5,15 @@
 <head>
 <title>图书馆管理系统</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<%@include file="/common/common.jsp" %>
-<!--
 
-<script language="JavaScript">
-function mysubmit(form1)
-	{
-		if( form1.user.value =="" ) {
-                alert("请输入用户名！")
-				form1.user.focus();
-                return false;
-       }
-	   
-	    if( form1.password.value =="" ) {
-                alert("请输入密码！")
-				form1.password.focus();
-                return false;
-       } 
-	       return true;
-	}
-</script>
--->
+<%@include file="/common/common.jsp" %>
+<script type="text/javascript" src="<%=path %>/js/login.js"></script>
+
 </head>
 <body  scroll="no">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
   <tr>
     <td height="678" background="<%=path%>/images/login/bglogin.jpg"><table  width="1024" height="678" border="0" align="center" cellpadding="0" cellspacing="0">
-      <form name="login" method="post" action="<%=path%>/login.action" onSubmit="return mysubmit(this)">
       <tr>
         <td><img src="<%=path%>/images/login/login_01.jpg" width="287" height="271" alt=""></td>
         <td><img src="<%=path%>/images/login/login_02.jpg" width="106" height="271" alt=""></td>
@@ -51,17 +33,19 @@ function mysubmit(form1)
       <tr>
         <td><img src="<%=path%>/images/login/login_13.jpg" width="287" height="56" alt=""></td>
         <td><img src="<%=path%>/images/login/login_14.jpg" width="106" height="56" alt=""></td>
-        <td width="221" height="56" background="<%=path%>/images/login/login_15.jpg"><table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="31%" height="28" align="right">用户名：</td>
-            <td width="69%"><input name="user" class="input1" maxlength="18" onMouseOver="fEvent('mouseover',this)" onFocus="fEvent('focus',this)" onBlur="fEvent('blur',this)" onMouseOut="fEvent('mouseout',this)"/></td>
-          </tr>
-          <tr>
-            <td height="28" align="right">密码：</td>
-            <td><input name="password" type="password" class="input1" id="password" maxlength="18" onMouseOver="fEvent('mouseover',this)" onFocus="fEvent('focus',this)" onBlur="fEvent('blur',this)" onMouseOut="fEvent('mouseout',this)"/></td>
-          </tr>
-        </table></td>
-        <td><input align="absMiddle" id="image1" src="<%=path%>/images/login/login_16.jpg" type="image" ></td>
+        <td width="221" height="56" background="<%=path%>/images/login/login_15.jpg">
+        	<table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
+	          <tr>
+	            <td width="31%" height="28" align="right">用户名：</td>
+	            <td width="69%"><input name="user.userName" id="user.userName" class="input1" maxlength="18" /></td>
+	          </tr>
+	          <tr>
+	            <td height="28" align="right">密码：</td>
+	            <td><input name="user.password" id="user.password" type="password" class="input1" id="password" maxlength="18" /></td>
+	          </tr>
+        	</table>
+        </td>
+        <td><input align="absMiddle" id="image1" onClick="loginVerify();" src="<%=path%>/images/login/login_16.jpg" type="image" ></td>
         <td><img src="<%=path%>/images/login/login_17.jpg" width="119" height="56" alt=""></td>
         <td><img src="<%=path%>/images/login/login_18.jpg" width="230" height="56" alt=""></td>
       </tr>
@@ -81,7 +65,6 @@ function mysubmit(form1)
         <td><img src="<%=path%>/images/login/login_29.jpg" width="119" height="252" alt=""></td>
         <td><img src="<%=path%>/images/login/login_30.jpg" width="230" height="252" alt=""></td>
       </tr>
-      </form>
     </table></td>
   </tr>
   <tr>

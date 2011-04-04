@@ -44,8 +44,8 @@ function ShowFLT(i, number) {
       <tr>
         <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1,7)"><strong>书刊管理</strong></a></td>
-            <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1,7)"><img src="<%=path %>/images/module/t01.jpg" id="tPic1" width="32" height="29"></a></td>
+            <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1,6)"><strong>书刊管理</strong></a></td>
+            <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(1,6)"><img src="<%=path %>/images/module/t01.jpg" id="tPic1" width="32" height="29"></a></td>
           </tr>
         </table></td>
       </tr>
@@ -60,21 +60,9 @@ function ShowFLT(i, number) {
 			 <tr>
               <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="<%=path %>/book/magazineMain.action" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">期刊基本管理</a></td>
             </tr>
-             <tr>
-              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="<%=path %>/book/categoryMain.action" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">图书分类管理</a></td>
-            </tr>
             <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/bookStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">图书入库统计</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/bookStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">入库统计</a></td>
           </tr>
-		   <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/magazineStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">期刊入库统计</a></td>
-          </tr>
-		  <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/managerStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">管理员入库统计</a></td>
-          </tr>
-           <tr>
-              <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/bookLevel.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">图书密级</a></td>
-            </tr>
            <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/press/pressManager.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">出版社管理</a></td>
           </tr>
@@ -89,8 +77,8 @@ function ShowFLT(i, number) {
       <tr>
         <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-              <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2,7)"><strong>借阅归还</strong></a></td>
-              <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic2" width="32" height="29"></a></td>
+              <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2,6)"><strong>借阅归还</strong></a></td>
+              <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(2,6)"><img src="<%=path %>/images/module/t02.jpg" id="tPic2" width="32" height="29"></a></td>
             </tr>
         </table></td>
       </tr>
@@ -127,18 +115,6 @@ function ShowFLT(i, number) {
 			</td>
           </tr>
 		  
-          <!--<tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">增加数据</a></td>
-          </tr>
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">增加数据</a></td>
-          </tr>
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">增加数据</a></td>
-          </tr>
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="#">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">增加数据</a></td>
-          </tr>-->
           <tr>
             <td>&nbsp;</td>
           </tr>
@@ -151,8 +127,8 @@ function ShowFLT(i, number) {
 	  <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3,7)"><strong>查询统计</strong></a></td>
-               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic3" width="32" height="29"></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3,6)"><strong>查询统计</strong></a></td>
+               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(3,6)"><img src="<%=path %>/images/module/t02.jpg" id="tPic3" width="32" height="29"></a></td>
              </tr>
          </table></td>
        </tr>
@@ -188,8 +164,8 @@ function ShowFLT(i, number) {
 	   <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4,7)"><strong>读者管理</strong></a></td>
-               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic4" width="32" height="29"></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4,6)"><strong>读者管理</strong></a></td>
+               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(4,6)"><img src="<%=path %>/images/module/t02.jpg" id="tPic4" width="32" height="29"></a></td>
              </tr>
          </table></td>
        </tr>
@@ -207,11 +183,6 @@ function ShowFLT(i, number) {
           <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/readerAccount.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">读者账单</a></td>
           </tr>
-		  
-		   <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/cardType.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">证件类别</a></td>
-          </tr>
-		  
           <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="reader/card/cardList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">借阅证管理</a></td>
           </tr>
@@ -229,8 +200,8 @@ function ShowFLT(i, number) {
 	   <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5,7)"><strong>系统权限</strong></a></td>
-               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic5" width="32" height="29"></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5,6)"><strong>系统权限</strong></a></td>
+               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(5,6)"><img src="<%=path %>/images/module/t02.jpg" id="tPic5" width="32" height="29"></a></td>
              </tr>
          </table></td>
        </tr>
@@ -238,9 +209,6 @@ function ShowFLT(i, number) {
         <td style="height:50px" valign="top" id="treePic5"><table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="<%=path %>/images/module/main_12.jpg">
           <tr>
             <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
-          </tr>
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/department/department.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">部门管理</a></td>
           </tr>
           <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/user/user.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">用户管理</a></td>
@@ -251,7 +219,9 @@ function ShowFLT(i, number) {
           <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/function/function.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">资源管理</a></td>
           </tr>
-		 
+		  <tr>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="rights/dict.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">字典维护</a></td>
+          </tr>
           <tr>
             <td>&nbsp;</td>
           </tr>
@@ -265,8 +235,8 @@ function ShowFLT(i, number) {
 	  <tr>
          <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(6,7)"><strong>系统管理</strong></a></td>
-               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(6,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic6" width="32" height="29"></a></td>
+               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(6,6)"><strong>系统管理</strong></a></td>
+               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(6,6)"><img src="<%=path %>/images/module/t02.jpg" id="tPic6" width="32" height="29"></a></td>
              </tr>
          </table></td>
        </tr>
@@ -276,13 +246,10 @@ function ShowFLT(i, number) {
             <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
           </tr>
 		  <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/chargeManager.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">书刊收费</a></td>
-          </tr>
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/currencyManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">币种管理</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/chargeManager.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">书刊收费管理</a></td>
           </tr>
 		  <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/loggingMananger.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">日志管理</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/loggingMananger.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">系统日志管理</a></td>
           </tr>
            <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="system/libraryManager.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">图书馆信息管理</a></td>
@@ -295,46 +262,6 @@ function ShowFLT(i, number) {
             <td>&nbsp;</td>
           </tr>
 		  
-          <tr>
-            <td height="17"><img src="<%=path %>/images/module/main_15.jpg"></td>
-          </tr>
-        </table></td>
-      </tr>
-	  
-	  <tr>
-         <td height="29" background="<%=path %>/images/module/main_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-             <tr>
-               <td class="title" style="padding-left:23px"><a href="javascript:void(0)" onClick="javascript:ShowFLT(7,7)"><strong>其他</strong></a></td>
-               <td width="32" align="right"><a href="javascript:void(0)" onClick="javascript:ShowFLT(7,7)"><img src="<%=path %>/images/module/t02.jpg" id="tPic7" width="32" height="29"></a></td>
-             </tr>
-         </table></td>
-       </tr>
-      <tr id="LM7" style="DISPLAY: none">
-        <td style="height:50px" valign="top" id="treePic7"><table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="<%=path %>/images/module/main_12.jpg">
-          <tr>
-            <td height="8"><img src="<%=path %>/images/module/main_09.jpg" width="138" height="8"></td>
-          </tr>
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">使用帮助</a></td>
-          </tr>
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">关系系统</a></td>
-          </tr>
-		  
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">记事本</a></td>
-          </tr>
-          <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="distributionStat.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">计算器</a></td>
-          </tr>
-		   <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="client/clientList.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">打印机</a></td>
-          </tr>
-		 
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-		
           <tr>
             <td height="17"><img src="<%=path %>/images/module/main_15.jpg"></td>
           </tr>
