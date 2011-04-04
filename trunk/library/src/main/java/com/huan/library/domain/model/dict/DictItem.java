@@ -151,6 +151,7 @@ public class DictItem implements java.io.Serializable {
 		this.itemDesc = itemDesc;
 	}
 
+
 	public String getItemShortName() {
 		return itemShortName;
 	}

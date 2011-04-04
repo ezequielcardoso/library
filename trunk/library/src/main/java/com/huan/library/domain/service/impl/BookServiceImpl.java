@@ -30,15 +30,34 @@ public class BookServiceImpl implements BookService {
 	}
 
 	public Book addOrModifyBook(Book book) throws Exception {
-		return bookDao.saveOrUpdate(book);
+		Book bookCopy = new Book();
+		try{
+			bookCopy = bookDao.saveOrUpdate(book);
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return bookCopy;
 	}
 	
 	public void removeBook(Book book) throws Exception {
-		bookDao.delete(book);
+		try{
+		    bookDao.delete(book);
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
 	}
 
 	public Book findBookById(Long bookId) throws Exception {
-		return bookDao.selectById(bookId);
+		Book bookCopy = new Book();
+		try{
+			bookCopy = bookDao.selectById(bookId);
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return bookCopy;
 	}
 	
 	public PageModel<Book> findBooksByPage(int pageNo, int pageSize)
