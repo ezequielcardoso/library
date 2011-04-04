@@ -8,10 +8,6 @@
 		<link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>广州市自来水综合业务管理平台</title>
 
-		<link rel="stylesheet" type="text/css" href="<%=path %>/common/extjs3.2/resources/css/ext-all.css" charset="UTF-8"/>
-		<script type="text/javascript" src="<%=path %>/common/extjs3.2/adapter/ext/ext-base.js" charset="UTF-8"></script>
-		<script type="text/javascript" src="<%=path %>/common/extjs3.2/ext-basex.js" charset="UTF-8"></script>
-		<script type="text/javascript" src="<%=path %>/common/extjs3.2/ext-all.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="<%=path %>/js/book/category/Category.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="<%=path %>/js/book/category/CategoryTreePanel.js" charset="UTF-8"></script>
 	</head>
