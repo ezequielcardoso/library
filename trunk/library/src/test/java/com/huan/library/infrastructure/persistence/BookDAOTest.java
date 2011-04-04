@@ -36,72 +36,14 @@ public class BookDAOTest {
 	private static BookDao bookDao ;
     private static DictItemDao dictItemDao;
     private static PressDao pressDao;
-	private  static CategoryDao categoryDao;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	  bookDao = (BookDao) BaseSpringBeans.getInstance().getBean("bookDao");
 	  dictItemDao = (DictItemDao)BaseSpringBeans.getInstance().getBean("dictItemDao");
 	  pressDao = (PressDao)BaseSpringBeans.getInstance().getBean("pressDao");
-	  categoryDao= (CategoryDao)BaseSpringBeans.getInstance().getBean("categoryDao");
 	}
     
-	@Test public void testAdd(){
-		try{
-		Book book = new Book();
-		book.setBookName("高等数学");
-		book.setBookNo("abc-222");
-		book.setBarCode("xx--222");
-	    book.setSearchBookId("m2");
-	    book.setSpeciesId("a21");
-	    book.setAllStage("11111");
-	    
-	    //出版社
-		Press press = new Press();
-		press.setPressAddress("大连");
-		press.setZipCode("18612");
-		pressDao.saveOrUpdate(press);
-		book.setPress(press);
-		
-		//图书分类
-		Category category = new Category();
-		category.setCategoryCode("B");
-		category.setCategoryId("B");
-		category.setCategoryName("数学");
-		category.setParent(null);
-		categoryDao.saveOrUpdate(category);
-		book.setFirstCategory(category);
-		
-		//图书级别
-		Certificate certificate = new Certificate();
-		certificate.setItemName("密级");
-	    dictItemDao.saveOrUpdate(certificate);
-	    
-	    //来源
-	    BookSource source = new BookSource();
-	    source.setItemName("捐赠");
-	    dictItemDao.saveOrUpdate(source);
-	    book.setBookSource(source);
-	    
-	    //币种
-	    Currency currency = new Currency();
-	    currency.setItemName("人名币");
-	    dictItemDao.saveOrUpdate(currency);
-	    book.setCurrency(currency);
-	    
-	    //图书状态
-	    BookState bookState = new BookState();
-	    bookState.setItemName("借阅中");
-	    dictItemDao.saveOrUpdate(bookState);
-	    book.setBookState(bookState);
-  
-		bookDao.saveOrUpdate(book);
-
-		}catch (Exception e) {
-		  e.printStackTrace();
-		}
-	}
-	
 	@Test
 	public void testInsertBookBatch(){
 		// 取得excel文件
@@ -162,15 +104,15 @@ public class BookDAOTest {
 								
 								break;	
 							case 5:
-								firstCategory.setCategoryId(lc.getContents());
+								firstCategory.setItemId(lc.getContents());
 								book.setFirstCategory(firstCategory);
 								break;	
 							case 6:
-								secondCategory.setCategoryId(lc.getContents());
+								secondCategory.setItemId(lc.getContents());
 								book.setSecondCategory(secondCategory);
 								break;
 							case 7:
-								thirdCategory.setCategoryId(lc.getContents());
+								thirdCategory.setItemId(lc.getContents());
 								book.setThirdCategory(thirdCategory);
 								break;
 							case 8:
