@@ -7,17 +7,19 @@ function saveBook(){
 	var searchBookId = Ext.get('book.searchBookId').getValue();
 	var pressId = Ext.get('book.press.pressId').getValue();
 	var speciesId = Ext.get('book.speciesId').getValue();
-    var firstCategoryId = Ext.get('book.firstCategory.categoryId').getValue();
-    var publisherDate = Ext.get('publisherDate').getValue();
-    var revision = Ext.get('revision').getValue();
-    var quantity = Ext.get('quantity').getValue();
-    var pages = Ext.get('pages').getValue();		
-    var price = Ext.get('price').getValue();	
-    var location = Ext.get('location').getValue();	
-    var ISBN = Ext.get('ISBN��').getValue();	
-    var spell = Ext.get('spell').getValue();	
-    var donator = Ext.get('donator').getValue();	
-	var bookDesc = Ext.get('bookDesc').getValue();	
+    var firstCategoryId = Ext.get('book.firstCategory.itemId').getValue();
+    var secondCategoryId = Ext.get('book.secondCategory.itemId').getValue();
+    var thirdCategoryId = Ext.get('book.thirdCategory.itemId').getValue();
+    var publisherDate = Ext.get('book.publisherDate').getValue();
+    var revision = Ext.get('book.revision').getValue();
+    var quantity = Ext.get('book.quantity').getValue();
+    var pages = Ext.get('book.pages').getValue();		
+    var price = Ext.get('book.price').getValue();	
+    var location = Ext.get('book.location').getValue();	
+    var ISBN = Ext.get('book.ISBN').getValue();	
+    var spell = Ext.get('book.spell').getValue();	
+    var donator = Ext.get('book.donator').getValue();	
+	var bookDesc = Ext.get('book.bookDesc').getValue();	
 	
 	Ext.Ajax.request({
 		url : contextPath + '/book/saveBook.action',
@@ -30,7 +32,9 @@ function saveBook(){
 			"book.searchBookId" : searchBookId,
 			"book.press.pressId" : pressId,
 			"book.speciesId" : speciesId,
-			"book.category.categoryId" : categoryId,
+			"book.firstCategory.itemId" : firstCategoryId,
+			"book.secondCategory.itemId" : secondCategoryId,
+			"book.thirdCategory.itemId" : thirdCategoryId,
 			"book.publisherDate" : publisherDate,
 			"book.revision" : revision,
 			"book.fileName" : fileName,
@@ -63,7 +67,7 @@ function resetBookForm(){
 
 }
 function loadBookForm(record){
-
+	Ext.get('book.bookId').setValue(record.bookId);
 }
 
 function checkBookSource(){
