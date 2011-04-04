@@ -2,7 +2,9 @@ package com.huan.library.infrastructure.persistence;
 
 import java.util.List;
 
+import com.huan.library.constant.LoginState;
 import com.huan.library.domain.model.rights.User;
+import com.huan.library.web.view.UserView;
 
 /**
  * 
@@ -12,15 +14,31 @@ import com.huan.library.domain.model.rights.User;
 public interface UserDao extends BaseDao<User> {
 	
 	/**
-	 * 根据deptId查找所有的User
+	 * 根据条件查找所有的User
 	 * @param deptId
 	 * @return
 	 */
-	public List<User> selectUsersByDeptId(String deptId) throws Exception;
+	public List<User> selectUsers(UserView view) throws Exception;
 	
 	/**
-	 * 查找所有的User
+	 * 查找User
 	 * @return
 	 */
-	public List<User> selectAllUsers() throws Exception;
+	public User selectUserById(Long userId) throws Exception;
+	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 * @throws Exception
+	 */
+	public LoginState getUserLoginState(User user) throws Exception ;
+	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 * @throws Exception
+	 */
+	public User getUserRole(User user)  throws Exception ;
 }

@@ -42,7 +42,7 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
     public InputStream fileStream;
     
     
-    public String readFile() {//下载文件
+    public String downloadFile() {//下载文件
         try {
     		request.getSession().setAttribute("deleteFileName", this.getWebRoot() + "upload" + File.separator + fileName);
         	fileStream = new FileInputStream(new File(this.getWebRoot() + "upload" + File.separator + fileName));
@@ -63,7 +63,7 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
     }
 
 
-    public String writeFile(){
+    public String uploadFile(){
     	try{
     		//上传文件
     		File dst = new File(this.getWebRoot() + "upload" + File.separator , upfileFileName);
