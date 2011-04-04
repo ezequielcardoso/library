@@ -55,6 +55,7 @@ public class Book implements Serializable {
 	private String speciesId; // 种次号
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
+	private String operator;  //录入人员
 	private Boolean isBook = true;  //类型true:表示图书 false:表示期刊
 
 	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
@@ -448,6 +449,14 @@ public class Book implements Serializable {
 
 	public void setBookSecurity(BookSecurity bookSecurity) {
 		this.bookSecurity = bookSecurity;
+	}
+
+	public String getOperator() {
+		return operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
 	}
 
 }

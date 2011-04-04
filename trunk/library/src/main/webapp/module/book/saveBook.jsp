@@ -183,7 +183,7 @@
 															value="<s:property value='book.secondCategory.categoryName'/>">
 														<input name="book.secondCategory.categoryId" type="hidden" id="book.secondCategory.categoryId" size="18"
 															value="<s:property value='book.firstCategory.categoryId'/>">
-														<input type="button" id="clickSecondCategoryBtn" value="选择">		
+														<input type="button" id="clickSecondCategoryBtn" style="width:80px; height:25px" value="选 择">		
 													</td>
 													<td height="30" align="right" nowrap bgcolor="#F4F5F9">
 														存放位置：
@@ -203,7 +203,7 @@
 															value="<s:property value='book.press.pressName'/>">
 														<input name="book.press.pressId" type="hidden" id="book.press.pressId" size="18"
 															value="<s:property value='book.press.pressId'/>">
-														<input type="button" id="clickPressBtn" onClick="checkPress();" value="选择">	
+														<input type="button" id="clickPressBtn" onClick="checkPress();" style="width:80px; height:25px" value="选 择">	
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														出版日期：
@@ -239,7 +239,7 @@
 															value="<s:property value='book.bookSource.itemName'/>">
 														<input name="book.bookSource.itemId" type="hidden" id="book.bookSource.itemId" size="18"
 															value="<s:property value='book.bookSource.itemId'/>">
-														<input type="button" id="clickBookSourceBtn" onclick="checkBookSource();" value="选择">		
+														<input type="button" id="clickBookSourceBtn" onclick="checkBookSource();" style="width:80px; height:25px" value="选 择">		
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														捐赠人：
@@ -266,7 +266,7 @@
 															value="<s:property value='book.security.itemName'/>">
 														<input name="book.security.itemId" type="hidden" id="book.security.itemId" size="18"
 															value="<s:property value='book.security.itemId'/>">
-															<input type="button" id="clickSecurityBtn" onclick="checkBookSecurity();" value="选择">	
+															<input type="button" id="clickSecurityBtn" onclick="checkBookSecurity();" style="width:80px; height:25px" value="选 择">	
 													</td>
 												</tr>
 												<tr 
@@ -286,7 +286,7 @@
 															value="<s:property value='book.bookState.itemName'/>">
 														<input name="book.bookState.itemId" type="hidden" id="book.bookState.itemId" size="18"
 															value="<s:property value='book.bookState.itemId'/>">
-														<input type="button" id="clickBookStateBtn" onclick="checkBookState();" value="选择">	
+														<input type="button" id="clickBookStateBtn" onclick="checkBookState();" style="width:80px; height:25px" value="选 择">	
 													</td>
 												</tr>
 												<tr>
@@ -298,7 +298,7 @@
 															value="<s:property value='book.currency.itemName'/>">
 														<input name="book.currency.itemId" type="hidden" id="book.currency.itemId" size="18"
 															value="<s:property value='book.currency.itemId'/>">
-														<input type="button" id="clickCurrencyBtn" onclick="checkCurrency()" value="选择">		
+														<input type="button" id="clickCurrencyBtn" onclick="checkCurrency()" style="width:80px; height:25px" value="选 择">		
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														价格：
@@ -306,7 +306,8 @@
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input name="book.price" type="text" id="book.price" size="18"
 															value="<s:property value='book.price'/>">
-													</td>												</tr>
+													</td>												
+												</tr>
 												<tr>
 														<td align="right" nowrap bgcolor="#F4F5F9">
 														数量：
@@ -327,12 +328,18 @@
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														电子文档：
 													</td>
-													<td height="30" colspan="3" align="left" bgcolor="#F4F5F9">
-														<input type="button" id="clickAttachmentBtn" value="上传">
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input type="button" id="clickAttachmentBtn" style="width:80px; height:25px"  value="查 看">
+													</td>
+													<td align="right" nowrap bgcolor="#F4F5F9">
+														录入人：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.operator" type="text" id="book.operator" size="18"
+															value="<s:property value='book.operator'/>">
 													</td>
 												</tr>
-												<tr 
-													>
+												<tr>
 													<td height="60" align="right" nowrap bgcolor="#F4F5F9">
 														简介：
 													</td>
