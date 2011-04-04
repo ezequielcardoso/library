@@ -127,21 +127,21 @@ public class Book implements Serializable {
 		this.isBook = isBook;
 		
 		Category firstCategory = new Category();
-		firstCategory.setCategoryId(firstCategoryId);
-		firstCategory.setCategoryCode(firstCategoryCode);
-		firstCategory.setCategoryName(firstCategoryName);
+		firstCategory.setItemId(firstCategoryId);
+		firstCategory.setItemCode(firstCategoryCode);
+		firstCategory.setItemName(firstCategoryName);
 		this.setFirstCategory(firstCategory);
 		
 		Category secondCategory = new Category();
-		secondCategory.setCategoryId(secondCategoryId);
-		secondCategory.setCategoryCode(secondCategoryCode);
-		firstCategory.setCategoryName(secondCategoryName);
+		secondCategory.setItemId(secondCategoryId);
+		secondCategory.setItemCode(secondCategoryCode);
+		firstCategory.setItemName(secondCategoryName);
 		this.setSecondCategory(secondCategory);
 		
 		Category thirdCategory = new Category();
-		thirdCategory.setCategoryId(secondCategoryId);
-		thirdCategory.setCategoryCode(secondCategoryCode);
-		thirdCategory.setCategoryName(secondCategoryName);
+		thirdCategory.setItemId(secondCategoryId);
+		thirdCategory.setItemCode(secondCategoryCode);
+		thirdCategory.setItemName(secondCategoryName);
 		this.setSecondCategory(thirdCategory);
 		
 //		this.hasAttachment = hasAttachment;
