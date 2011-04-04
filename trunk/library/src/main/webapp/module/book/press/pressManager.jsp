@@ -6,6 +6,7 @@
 		<%@ include file="/common/extInclude.jsp"%>
 		<link href="<%=path%>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>"广水用水"终端服务综合业务管理平台</title>
+		<script type="text/javascript" src="<%=path%>/js/common/common.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/book/press/Press.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/book/press/PressGridPanel.js"></script>
 
@@ -145,7 +146,7 @@
 													<td background="<%=path%>/images/module/titleb_02.jpg">
 														&nbsp;
 
-
+														<div id="pressGrid"></div>
 													</td>
 													<td width="213" align="right"
 														background="<%=path%>/images/module/titleb_03.jpg"
@@ -156,15 +157,15 @@
 											</table>
 										</td>
 									</tr>
-									<tr>
+									<tr  id="yy">
 										<td valign="top">
 											<table id="tab1" width="97%" border="1" align="center"
 												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
-													<td width="100" height="300" align="left" valign="top">
-														<div id="pressGridPanel"></div>
+													<td width="1000" height="300" align="left" valign="top">
+														<div id="pressGrid"></div>
 													</td>
 												</tr>
 											</table>

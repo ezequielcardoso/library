@@ -107,4 +107,31 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		}
 		return items;
 	}
+
+	public List<DictItem> getCategoryItem(String pid, Integer level,
+			String itemName) throws Exception {
+		StringBuilder hql = new StringBuilder();
+		hql.append(" from Category as dict " ); 
+		hql.append(" where dict.parent.itemId=? and dict.level=? ");
+		if(itemName!=null && !"".equals(itemName)){
+			if(level==1){
+				hql.append(" and dict.itemShortName like '%?%'");
+			} else {
+				hql.append(" and dict.itemName like '%?%'");
+			}
+			
+		}
+		List<DictItem> items = new ArrayList<DictItem>();
+		try {
+			if(itemName!=null && !"".equals(itemName)){
+				items = this.getHibernateTemplate().find(hql.toString(), pid, level, itemName);
+			} else {
+				items = this.getHibernateTemplate().find(hql.toString(), pid, level);
+			} 
+		} catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return items;
+	}
 }

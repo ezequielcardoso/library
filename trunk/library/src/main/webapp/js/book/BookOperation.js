@@ -155,16 +155,33 @@ function checkBookState(){
 
 function checkBookLevel(){
 
-       var checkWin = new Library.tree.BaseCheckTreeWindow({
-				checkTree : new Library.tree.dict.BookLevelCheckTree({
-							checkModel : 'single'
-						}),
-				idField : 'book.bookLevel.itemId',
-				textField : 'book.bookLevel.itemName',
-				height : 300,
-				width : 200,
-				title : '选择图书级别'
-			});
+   var checkWin = new Library.tree.BaseCheckTreeWindow({
+			checkTree : new Library.tree.dict.BookLevelCheckTree({
+						checkModel : 'single'
+					}),
+			idField : 'book.bookLevel.itemId',
+			textField : 'book.bookLevel.itemName',
+			height : 300,
+			width : 200,
+			title : '选择图书级别'
+		});
+	checkWin.show();
+}
+
+function checkCategory(level, idField, textField){
+
+   var checkWin = new Library.tree.BaseCheckTreeWindow({
+			checkTree : new Library.tree.dict.CategoryCheckTree({
+						level : level,
+						itemName : null,
+						checkModel : 'single'
+					}),
+			idField : idField,
+			textField : textField,
+			height : 500,
+			width : 300,
+			title : '选择图书分类'
+		});
 	checkWin.show();
 }
 

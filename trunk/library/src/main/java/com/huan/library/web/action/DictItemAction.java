@@ -30,6 +30,8 @@ public class DictItemAction extends BaseActionSupport {
     private DictItem dictItem;
     private String pid;
     private String className;
+    private Integer level;
+    private String itemName;
     private List<ExtTreeNode> dictChildrenNodes = new ArrayList<ExtTreeNode>();
     
 	public void setDictItemService(DictItemService dictItemService) {
@@ -45,6 +47,28 @@ public class DictItemAction extends BaseActionSupport {
 				treeNode.setText(item.getItemName());
 				treeNode.setCls("x-tree-noicon");
 				treeNode.setLeaf(item.getLeaf());
+				treeNode.setChecked(false);
+				treeNode.setIsOptional(true);
+				dictChildrenNodes.add(treeNode);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String getCategoryItem() {
+		try {
+			List<DictItem> dictItems = dictItemService.getCategoryItem(pid, level, itemName);
+			for (DictItem item : dictItems) {
+				ExtTreeNode treeNode = new ExtTreeNode();
+				treeNode.setId(item.getItemId());
+				treeNode.setText(item.getItemName());
+				if(level==1){
+					treeNode.setText(item.getItemShortName());
+				}
+				treeNode.setCls("x-tree-noicon");
+				treeNode.setLeaf(true);
 				treeNode.setChecked(false);
 				treeNode.setIsOptional(true);
 				dictChildrenNodes.add(treeNode);
@@ -142,6 +166,22 @@ public class DictItemAction extends BaseActionSupport {
 
 	public void setDictChildrenNodes(List<ExtTreeNode> dictChildrenNodes) {
 		this.dictChildrenNodes = dictChildrenNodes;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
 	

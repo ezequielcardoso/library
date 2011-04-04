@@ -30,6 +30,12 @@
 				<param name="root">dictChildrenNodes</param>
 			</result>
 		</action>
+		
+		<action name="getCategoryItem" class="com.huan.library.web.action.DictItemAction" method="getCategoryItem">
+			<result name="success" type="json">
+				<param name="root">dictChildrenNodes</param>
+			</result>
+		</action>
     
     </package>
     

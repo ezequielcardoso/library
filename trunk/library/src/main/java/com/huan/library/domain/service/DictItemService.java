@@ -55,4 +55,6 @@ public interface DictItemService {
 	 */
 	public List<DictItem> getChildrenItem(String pid, String className) throws Exception ;
 	
+	public List<DictItem> getCategoryItem(String pid, Integer level, String itemName) throws Exception ;
+	
 }

@@ -19,6 +19,7 @@
 		<script type="text/javascript" src="<%=path %>/js/dictItem/CurrencyCheckTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/dictItem/BookStateCheckTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/dictItem/BookLevelCheckTree.js"></script>
+		<script type="text/javascript" src="<%=path %>/js/dictItem/CategoryCheckTree.js"></script>
         <script type="text/javascript" src="<%=path %>/js/book/BookOperation.js"></script>
         
 	</head>
@@ -162,7 +163,10 @@
 													<td align="left" bgcolor="#F4F5F9">
 														<input name="book.firstCategory.shortName" type="text" id="book.firstCategory.shortName" size="18"
 															value="<s:property value='book.firstCategory.shortName'/>" disabled>
-														<input type="button" style="width:60px; height:25px" value="选 择">
+														<input name="book.firstCategory.categoryId" type="hidden" id="book.firstCategory.categoryId" size="29"
+															value="<s:property value='book.firstCategory.categoryId'/>">
+														<input type="button" onclick="checkCategory(1, 'book.firstCategory.categoryId', 'book.firstCategory.shortName');" 
+															style="width:60px; height:25px" value="选 择">
 													</td>
 													<td align="right" nowrap bgcolor="#F4F5F9">
 														二级分类：
