@@ -1,20 +1,19 @@
 package com.huan.library.web.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
 import com.huan.library.util.PageModel;
+import com.huan.library.web.view.tree.ExtTreeNode;
+import com.huan.library.web.view.PressView;
 import com.opensymphony.xwork2.Action;
 
-/**
- * 出版社显示层
- * @author huan
- * @time  2011-3-12 下午09:47:21
- */
-@Controller("pressAction")
-public class PressAction extends BaseActionSupport{
+ class PressAction extends BaseActionSupport{
 	
 	
 	 /**
@@ -25,7 +24,10 @@ public class PressAction extends BaseActionSupport{
 	@Autowired
 	private PressService pressService;
 	
-	private Press press;
+	private Press press = new Press();
+	private PressView pressView = new PressView();
+	private List<ExtTreeNode> pressNodes = new ArrayList<ExtTreeNode>();
+	
 	
 	public Press getPress() {
 		return press;
@@ -37,7 +39,38 @@ public class PressAction extends BaseActionSupport{
 	public void setPressService(PressService pressService) {
 		this.pressService = pressService;
 	}
+	
+	public String getPressItem() {
+		try {
+			List<Press> presses = pressService.findPresses(pressView);
+			for (Press press : presses) {
+				ExtTreeNode treeNode = new ExtTreeNode();
+				treeNode.setId(press.getPressId().toString());
+				treeNode.setText(press.getPressName());
+				treeNode.setCls("x-tree-noicon");
+				treeNode.setLeaf(true);
+				treeNode.setChecked(false);
+				treeNode.setIsOptional(true);
+				pressNodes.add(treeNode);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
 
+	public PressView getPressView() {
+		return pressView;
+	}
+	public void setPressView(PressView pressView) {
+		this.pressView = pressView;
+	}
+	public List<ExtTreeNode> getPressNodes() {
+		return pressNodes;
+	}
+	public void setPressNodes(List<ExtTreeNode> pressNodes) {
+		this.pressNodes = pressNodes;
+	}
 	/**
 	 * 显示添加出版社
 	 * @return

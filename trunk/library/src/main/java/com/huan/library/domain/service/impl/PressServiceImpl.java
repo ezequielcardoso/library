@@ -10,6 +10,7 @@ import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
 import com.huan.library.infrastructure.persistence.PressDao;
 import com.huan.library.util.PageModel;
+import com.huan.library.web.view.PressView;
 
 @Service("pressService")
 public class PressServiceImpl implements PressService {
@@ -74,5 +75,9 @@ public class PressServiceImpl implements PressService {
 		    e.printStackTrace();
 		}
 		return pageModel;
+	}
+
+	public List<Press> findPresses(PressView pressView) throws Exception{
+		return null;
 	}
 }
