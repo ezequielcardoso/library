@@ -8,7 +8,7 @@ import com.huan.library.web.view.PressView;
 public interface PressDao extends BaseDao<Press> {
 	
 	
-	public List<Press> selectPresses(PressView pressView) throws Exception;
+	public List<Press> selectPresses(PressView pressesView) throws Exception;
 	/**
 	 * 批量插入出版社信息
 	 * @param list

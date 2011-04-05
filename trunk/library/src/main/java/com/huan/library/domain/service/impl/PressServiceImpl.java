@@ -37,16 +37,6 @@ public class PressServiceImpl implements PressService {
 		return pressCopy;
 	}
 
-	public List<Press> findAllPresses() throws Exception {
-		List<Press> presses = new ArrayList<Press>();
-		try {
-			presses = pressDao.selectMaxTs();
-		} catch (Exception e) {
-		    e.printStackTrace();
-		}
-		return presses;
-	}
-
 	public void removePress(Press press) throws Exception {
 		try{
 		   pressDao.delete(press);
@@ -80,10 +70,10 @@ public class PressServiceImpl implements PressService {
 	public List<Press> findPresses(PressView pressView) throws Exception{
 		List<Press> presses = new ArrayList<Press>();
 		try {
-			presses = pressDao.selectPresses(pressView);
-		} catch (Exception e) {
-		    e.printStackTrace();
-		    throw new Exception();
+			presses = this.pressDao.selectPresses(pressView);
+		} catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
 		}
 		return presses;
 	}

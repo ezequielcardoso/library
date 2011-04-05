@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -58,42 +59,42 @@ public class Book implements Serializable {
 	private String operator;  //录入人员
 	private Boolean isBook = true;  //类型true:表示图书 false:表示期刊
 
-	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class, cascade={CascadeType.REFRESH})
 	@JoinColumn(name = "firstCategory")
 	private Category firstCategory; // 图书分类
 	
-	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class, cascade={CascadeType.REFRESH})
 	@JoinColumn(name = "secondCategory")
 	private Category secondCategory; // 图书分类
 	
-	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class)
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class, cascade={CascadeType.REFRESH})
 	@JoinColumn(name = "thirdCategory")
 	private Category thirdCategory; // 图书分类
 	
-	@OneToMany(fetch=FetchType.LAZY,targetEntity=Attachment.class,mappedBy="book")
+	@OneToMany(fetch=FetchType.LAZY,targetEntity=Attachment.class,mappedBy="book", cascade=CascadeType.REMOVE)
 	private List<Attachment> attachments = new ArrayList<Attachment>(); // 附件
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=BookState.class)
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=BookState.class, cascade={CascadeType.REFRESH})
 	@JoinColumn(name="bookState")
 	private BookState bookState; // 图书状态
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true, cascade={CascadeType.REFRESH})
 	@JoinColumn(name = "bookLevel")
 	private BookLevel bookLevel; // 图书级别
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, cascade={CascadeType.REFRESH})
 	@JoinColumn(name="bookSecurity")
 	private BookSecurity bookSecurity;   //图书密级
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true, cascade={CascadeType.REFRESH})
 	@JoinColumn(name = "currency")
 	private Currency currency; // 币种
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.REFRESH})
 	@JoinColumn(name = "press")
 	private Press press; // 出版社
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.REFRESH})
 	@JoinColumn(name = "bookSource")
 	private BookSource bookSource; // 来源
 	

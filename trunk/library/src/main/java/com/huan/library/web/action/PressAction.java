@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
+import com.huan.library.web.view.PressView;
 import com.huan.library.web.view.grid.ExtGridLoad;
 import com.huan.library.web.view.tree.ExtTreeNode;
-import com.huan.library.web.view.PressView;
 import com.opensymphony.xwork2.Action;
 @Controller("pressAction")
 public class PressAction extends BaseActionSupport{
@@ -34,18 +34,6 @@ public class PressAction extends BaseActionSupport{
 	private Integer start;
 	private Integer limit;
 	
-	
-	public Press getPress() {
-		return press;
-	}
-	public void setPress(Press press) {
-		this.press = press;
-	}
-
-	public void setPressService(PressService pressService) {
-		this.pressService = pressService;
-	}
-	
 	public String getPressItem() {
 		try {
 			List<Press> presses = pressService.findPresses(pressView);
@@ -61,22 +49,11 @@ public class PressAction extends BaseActionSupport{
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
 
-	public PressView getPressView() {
-		return pressView;
-	}
-	public void setPressView(PressView pressView) {
-		this.pressView = pressView;
-	}
-	public List<ExtTreeNode> getPressNodes() {
-		return pressNodes;
-	}
-	public void setPressNodes(List<ExtTreeNode> pressNodes) {
-		this.pressNodes = pressNodes;
-	}
 	/**
 	 * 显示添加出版社
 	 * @return
@@ -212,6 +189,36 @@ public class PressAction extends BaseActionSupport{
 	}
 	public void setExtGridLoad(ExtGridLoad extGridLoad) {
 		this.extGridLoad = extGridLoad;
+	}
+	public PressView getPressesView() {
+		return pressesView;
+	}
+	public void setPressesView(PressView pressesView) {
+		this.pressesView = pressesView;
+	}
+	public PressView getPressView() {
+		return pressView;
+	}
+	public void setPressView(PressView pressView) {
+		this.pressView = pressView;
+	}
+	public List<ExtTreeNode> getPressNodes() {
+		return pressNodes;
+	}
+	public void setPressNodes(List<ExtTreeNode> pressNodes) {
+		this.pressNodes = pressNodes;
+	}
+
+	public Press getPress() {
+		return press;
+	}
+
+	public void setPress(Press press) {
+		this.press = press;
+	}
+
+	public void setPressService(PressService pressService) {
+		this.pressService = pressService;
 	}
  
 }

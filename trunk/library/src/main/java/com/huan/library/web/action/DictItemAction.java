@@ -64,9 +64,6 @@ public class DictItemAction extends BaseActionSupport {
 				ExtTreeNode treeNode = new ExtTreeNode();
 				treeNode.setId(item.getItemId());
 				treeNode.setText(item.getItemName());
-				if(level==1){
-					treeNode.setText(item.getItemShortName());
-				}
 				treeNode.setCls("x-tree-noicon");
 				treeNode.setLeaf(true);
 				treeNode.setChecked(false);
