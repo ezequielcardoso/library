@@ -52,6 +52,12 @@
 		<action name="categoryMain" class="com.huan.library.web.action.CategoryAction" method="categoryMain">
 		    <result name="success">/module/book/category/category.jsp</result>
 		</action>
+		<!-- 出版社 -->
+		<action name="findPresses" class="com.huan.library.web.action.PressAction" method="findPresses">
+		    <result name="success" type="json">
+		      <param name="root">extGridLoad</param>
+		    </result>
+		</action>
 		
 		<action name="getPressItem" class="com.huan.library.web.action.PressAction" method="getPressItem">
 			<result name="success" type="json">

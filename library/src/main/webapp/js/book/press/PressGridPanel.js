@@ -30,6 +30,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 			initComponent : function() {
 
+
 				// 操作图书列表的工具条
 				var tbar = new Ext.Toolbar({
 							items : [{
@@ -69,25 +70,29 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 										}
 									}]
 						});
-
-				var cm = new Ext.grid.ColumnModel([{
+                
+                var sm = new Ext.grid.CheckboxSelectionModel();
+				
+				var cm = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(),
+					     sm,
+					   {
 							header : '代码',
-							width : 60,
+							width : 100,
 							sortable : true,
 							dataIndex : 'pressISBN'
 						}, {
 							header : '名称',
-							width : 60,
+							width : 300,
 							sortable : true,
 							dataIndex : 'pressName'
 						}, {
 							header : '出版地',
-							width : 60,
+							width : 300,
 							sortable : true,
 							dataIndex : 'pressAddress'
 						}, {
 							header : '邮编',
-							width : 60,
+							width : 100,
 							sortable : true,
 							dataIndex : 'zipCode'
 						}]);
@@ -110,7 +115,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 						}];
 
 				var store = new Ext.data.JsonStore({
-							url : contextPath + '/book/getPressItem.action',
+							url : contextPath + '/book/findPresses.action',
 							root : 'root',
 							storeInfo : {
 								field : '列名',
@@ -121,7 +126,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 				var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
 							store : store,
-							pageSize : 10,
+							pageSize : 100,
 							afterPageText : '/ {0}',
 							beforePageText : '页',
 							displayInfo : true,
@@ -136,9 +141,10 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 				Ext.apply(this, {
 							width : 1000,
-							height : 300,
-//							autoScroll : true,
+							height : 400,
+							autoScroll : true,
 							tbar : tbar,
+							sm :sm,
 							cm : cm,
 							store : store,
 							stripeRows : true,
@@ -154,6 +160,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 										sortDescText : '降序'
 									})
 						});
+
+						
+				Library.press.grid.PressGridPanel.superclass.initComponent.call(this);
 						
 				Library.press.grid.PressGridPanel.superclass.initComponent
 						.call(this);		

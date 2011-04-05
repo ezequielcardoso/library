@@ -78,6 +78,29 @@ public class PressServiceImpl implements PressService {
 	}
 
 	public List<Press> findPresses(PressView pressView) throws Exception{
-		return null;
+		List<Press> presses = new ArrayList<Press>();
+		try {
+			presses = pressDao.selectPresses(pressView);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		    throw new Exception();
+		}
+		return presses;
 	}
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
