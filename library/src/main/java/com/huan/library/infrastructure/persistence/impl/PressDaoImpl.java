@@ -12,7 +12,6 @@ import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 
-import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.infrastructure.persistence.PressDao;
 import com.huan.library.web.view.PressView;
@@ -30,64 +29,66 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 			throws Exception {
 		List<Press> presses = new ArrayList<Press>();
 		try {
-			
+
 			StringBuilder hql = new StringBuilder();
 			StringBuilder hql_ = new StringBuilder();
 
 			hql_.append("select count(p) from Press p where 1=1 ");
 			hql.append(" from Press where 1=1 ");
-			
+
 			StringBuilder whereSub = new StringBuilder();
 			/**
 			 * 拼接条件 如果某个字段的值不为空，则将作为查询条件
 			 */
-//			if(field!=null ){
-//				whereSub.append(" and b.fieldName = : fieldValue ");
-//			}
-			//.......继续拼接........
-			
+			// if(field!=null ){
+			// whereSub.append(" and b.fieldName = : fieldValue ");
+			// }
+			// .......继续拼接........
 			hql.append(whereSub);
-			hql_.append(whereSub);//count 查询hql拼接结束
+			hql_.append(whereSub);// count 查询hql拼接结束
 
-			//group by 子句 
-			
-			//order by 子句
-			
-			//查找总记录
+			// group by 子句
+
+			// order by 子句
+
+			// 查找总记录
 			final String hqlIn_ = hql_.toString();
-			HibernateCallback callback_ = new HibernateCallback(){
+			HibernateCallback callback_ = new HibernateCallback() {
 
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
-						Query query = session.createQuery(hqlIn_);
-						//设置查询参数
+					Query query = session.createQuery(hqlIn_);
+					// 设置查询参数
 					return query.list();
 				}
-				
+
 			};
-			Long totalCount  = (Long) getHibernateTemplate().executeFind(callback_).iterator().next();
-			//把记录数设置到view对象中，在action中可取到这个值
+			Long totalCount = (Long) getHibernateTemplate().executeFind(
+					callback_).iterator().next();
+			// 把记录数设置到view对象中，在action中可取到这个值
 			pressView.setTotalCount(totalCount);
-			
-			//查找列表
+
+			// 查找列表
 			final String hqlIn = hql.toString();
-			HibernateCallback callback = new HibernateCallback(){
+			HibernateCallback callback = new HibernateCallback() {
 
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
-						Query query = session.createQuery(hqlIn);
-						//判断是否分页
-						if(pressView!=null && pressView.getIsPage()
-							&& pressView.getStart()!=null && pressView.getLimit()!=null){
-							query.setMaxResults(pressView.getLimit());
-							query.setFirstResult(pressView.getStart());
-						}
-//						//设置查询参数
+					Query query = session.createQuery(hqlIn);
+					// 判断是否分页
+					if (pressView != null && pressView.getIsPage()
+							&& pressView.getStart() != null
+							&& pressView.getLimit() != null) {
+						query.setMaxResults(pressView.getLimit());
+						query.setFirstResult(pressView.getStart());
+					}
+					// //设置查询参数
 					return query.list();
 				}
-				
+
 			};
-			presses = (List<Press>)getHibernateTemplate().executeFind(callback);
+			presses = (List<Press>) getHibernateTemplate()
+					.executeFind(callback);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
