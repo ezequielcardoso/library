@@ -25,7 +25,6 @@ public class PressAction extends BaseActionSupport{
 	private PressService pressService;
 	
 	private ExtGridLoad extGridLoad = new ExtGridLoad();
-	private PressView pressesView = new PressView();
 	
  	private Press press = new Press();
  	private PressView pressView = new PressView();
@@ -134,11 +133,11 @@ public class PressAction extends BaseActionSupport{
 	 */
 	public String findPresses() {
 		try {
-			pressesView.setStart(start);
-			pressesView.setLimit(limit);
+			pressView.setStart(start);
+			pressView.setLimit(limit);
 			List<Press> presses = pressService.findPresses(pressView);
 			extGridLoad.setRoot(this.convertToView(presses));
-			extGridLoad.setTotalProperty(pressesView.getTotalCount());
+			extGridLoad.setTotalProperty(pressView.getTotalCount());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -190,12 +189,7 @@ public class PressAction extends BaseActionSupport{
 	public void setExtGridLoad(ExtGridLoad extGridLoad) {
 		this.extGridLoad = extGridLoad;
 	}
-	public PressView getPressesView() {
-		return pressesView;
-	}
-	public void setPressesView(PressView pressesView) {
-		this.pressesView = pressesView;
-	}
+	
 	public PressView getPressView() {
 		return pressView;
 	}
