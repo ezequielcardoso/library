@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+	<!--导入struts-default.xml文件 -->
+	<include file="struts-default.xml"></include>
+	<!--导入各模块Action配置文件 -->
+	<include file="rights.xml"></include>
+	<include file="book.xml"></include>
+	<include file="dict.xml"></include>
+	
+	<!-- 中文支持等配置 -->
+	<constant name="struts.custom.i18n.resources"
+		value="ApplicationResources" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.i18n.reload" value="false"></constant>
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.multipart.maxSize" value="500000000" />
+	
+    <package name="library" namespace="/" extends="json-default">
+		
+		<action name="loginVerify" class="com.huan.library.web.action.UserAction" method="loginVerify">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
+			<result name="error" >/login.jsp</result>
+		</action>
+    </package>
+
+</struts>

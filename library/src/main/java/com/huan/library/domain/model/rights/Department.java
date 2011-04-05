@@ -31,7 +31,6 @@ public class Department implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long deptId;//部门id
 	private String deptCode;//部门编号
@@ -39,6 +38,7 @@ public class Department implements Serializable {
 	private String deptShortName;//部门简称
 	private String deptAlias;//别称
 	private String deptDesc;//部门描述，介绍等
+	private Boolean leaf;
 	
 	@ManyToOne(targetEntity=Department.class,fetch=FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.REMOVE})
 	@JoinColumn(name="parentDeptId",referencedColumnName="deptId")
@@ -131,6 +131,14 @@ public class Department implements Serializable {
 
 	public void setDeptAlias(String deptAlias) {
 		this.deptAlias = deptAlias;
+	}
+
+	public Boolean getLeaf() {
+		return leaf;
+	}
+
+	public void setLeaf(Boolean leaf) {
+		this.leaf = leaf;
 	}
 
 }

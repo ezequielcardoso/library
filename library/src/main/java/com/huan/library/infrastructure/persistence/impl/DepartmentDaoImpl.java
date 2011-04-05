@@ -23,16 +23,14 @@ public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 		DepartmentDao {
 
 	@SuppressWarnings("unchecked")
-	public List<Department> selectDeptsByParentId(final String parentDeptId)
+	public List<Department> selectDeptsByParentId(final Long parentDeptId)
 			throws Exception {
 		List<Department> depts = new ArrayList<Department>();
 		try{
 			StringBuilder hql = new StringBuilder();
-			hql.append(" select new Department( d.deptId, d.deptCode, d.deptName, d.deptShortName,d.deptAlias, " + 
-					"d.deptDesc, t_parent.deptId, t_parent.deptName, t_parent.deptCode) "); 
 			hql.append(" from Department d ");
+			hql.append(" left join fetch d.parent t_parent ");
 			hql.append(" where t_parent.deptId=(:parentDeptId) ");
-			hql.append(" left join d.parent t_parent ");
 			final String hqlIn = hql.toString();
 			HibernateCallback callback = new HibernateCallback(){
 
@@ -50,6 +48,20 @@ public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 			throw new Exception(e);
 		}
 		return depts;
+	}
+
+	public Department selectDeptById(Long deptId) throws Exception {
+		StringBuilder hql = new StringBuilder();
+		hql.append(" from Department as d " ); 
+		hql.append(" where d.deptId=? ");
+		Department department = new Department();
+		try {
+			department = (Department) this.getHibernateTemplate().find(hql.toString(), deptId).listIterator().next();
+		} catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return department;
 	}
 
 }
