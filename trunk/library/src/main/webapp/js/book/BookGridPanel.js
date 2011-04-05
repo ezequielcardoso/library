@@ -218,20 +218,26 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				width : 80,
 				align : 'center'
 			}, {
+				header : '条形码',
+				dataIndex : 'barCode',
+				width : 80,
+				sortable : true,
+				align : 'center'
+			}, {
 				header : '名称',
 				dataIndex : 'bookName',
-				width : 80,
+				width : 200,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '分类',
+				dataIndex : 'firstCategoryName',
+				width : 150,
 				sortable : true,
 				align : 'center'
 			}, {
 				header : '分类号',
 				dataIndex : 'firstCategoryCode',
-				width : 80,
-				sortable : true,
-				align : 'center'
-			}, {
-				header : '作者',
-				dataIndex : 'author',
 				width : 80,
 				sortable : true,
 				align : 'center'
@@ -242,42 +248,99 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				sortable : true,
 				align : 'center'
 			}, {
+				header : '存放位置',
+				dataIndex : 'location',
+				width : 80,
+				sortable : true,
+				align : 'center'
+			}, {
 				header : '数量',
 				dataIndex : 'quantity',
-				width : 80,
+				width : 50,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '价格',
+				dataIndex : 'price',
+				width : 60,
 				sortable : true,
 				align : 'center'
 			}, {
 				header : '入库时间',
 				dataIndex : 'storeDate',
+				width : 100,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '出版社',
+				dataIndex : 'pressName',
+				width :150,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '作者',
+				dataIndex : 'author',
 				width : 80,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '译者',
+				dataIndex : 'translator',
+				width : 80,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '出版时间',
+				dataIndex : 'publisherDate',
+				width : 100,
 				sortable : true,
 				align : 'center'
 			}, {
 				header : '页数',
 				dataIndex : 'pages',
+				width : 50,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : 'ISBN',
+				dataIndex : 'ISBN',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '附件',
-				dataIndex : 'hasAttachment',
-				width : 80,
+				header : '版次',
+				dataIndex : 'revision',
+				width : 50,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '密级',
+				dataIndex : 'bookSecurityName',
+				width : 60,
 				sortable : true,
 				align : 'center'
 			}, {
 				header : '状态',
 				dataIndex : 'bookStateName',
-				width : 80,
+				width : 60,
 				sortable : true,
 				align : 'center'
+			}, {
+				header : '附件',
+				dataIndex : 'hasAttachment',
+				width : 60,
+				sortable : true,
+				align : 'center',
+				renderer : function(value){
+					
+				}
 			}
 		]);
 		
 		Ext.apply(this, {
 			width : 1000,
 //			height : document.documentElement.clientHeight * 0.82,
-			height : 300,
+			height : 480,
 			autoScroll : true,
 			tbar : tbar,
 			cm : colM,

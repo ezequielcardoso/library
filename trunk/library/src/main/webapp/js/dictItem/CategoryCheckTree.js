@@ -4,6 +4,7 @@ Library.tree.dict.CategoryCheckTree = Ext.extend(Library.tree.BaseCheckTree, {
 
 	level : null,
 	itemName : null,
+	rootId : null,
 	
 	initComponent : function() {
 		Ext.apply(this, {
@@ -13,7 +14,7 @@ Library.tree.dict.CategoryCheckTree = Ext.extend(Library.tree.BaseCheckTree, {
 		});
 		this.rootNode = {
 			text : '不显示的节点',
-			id : 'Category',
+			id : this.rootId,
 			expanded : true
 		};
 		this.url = contextPath + '/dict/getCategoryItem.action';
