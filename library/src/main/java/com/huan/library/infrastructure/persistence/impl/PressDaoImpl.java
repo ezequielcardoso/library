@@ -36,8 +36,9 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao{
 
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
-				Query query = session.createQuery("from Press");
-				if(pressView != null && pressView.getIsPage()){
+				Query query = session.createQuery("select Press");
+				if(pressView != null && pressView.getIsPage() 
+						&& pressView.getStart()!=null && pressView.getLimit()!=null){
 					query.setFirstResult(pressView.getStart());
 					query.setMaxResults(pressView.getLimit());
 				}

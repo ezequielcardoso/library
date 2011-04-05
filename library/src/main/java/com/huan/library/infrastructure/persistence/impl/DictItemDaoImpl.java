@@ -45,7 +45,7 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 			Transaction tx = session.getTransaction();
 			int i = 0;
 			for (DictItem dictItem : dictItems) {
-				session.saveOrUpdate(dictItem);
+				session.save(dictItem);
 				if (i % 100 == 0) {
 					tx.begin();
 					session.flush();
@@ -114,12 +114,7 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		hql.append(" from Category as dict " ); 
 		hql.append(" where dict.parent.itemId=? and dict.level=? ");
 		if(itemName!=null && !"".equals(itemName)){
-			if(level==1){
-				hql.append(" and dict.itemShortName like '%?%'");
-			} else {
-				hql.append(" and dict.itemName like '%?%'");
-			}
-			
+			hql.append(" and dict.itemName like '%?%'");
 		}
 		List<DictItem> items = new ArrayList<DictItem>();
 		try {

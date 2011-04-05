@@ -62,6 +62,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 			getHibernateTemplate().saveOrUpdate(t);
 		} catch(Exception e){
 			e.printStackTrace();
+			throw new Exception(e);
 		}
 		return t;
 	}
@@ -71,6 +72,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 			getHibernateTemplate().delete(t);
 		} catch(Exception e){
 			e.printStackTrace();
+			throw new Exception(e);
 		}
 	}
 
@@ -81,7 +83,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 			t = getHibernateTemplate().get(entityClass, entityId);
 		} catch(Exception e){
 			e.printStackTrace();
-			return null;
+			throw new Exception(e);
 		}
 		return t;
 	}
@@ -99,7 +101,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 		 })	;		
 		} catch (Exception e) {
             e.printStackTrace();
-            return null;
+            throw new Exception(e);
 		}
 		return ts;
 	}
@@ -111,7 +113,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 			list = (List<T>) getHibernateTemplate().find("from "+ entityClass.getName());
 		} catch (Exception e) {
 		  e.printStackTrace();
-		  return null;
+		  throw new Exception(e);
  		}
 		return list;
 	}
@@ -135,7 +137,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupportBean implements BaseDao<T
 			pageModel.setRestleList(resultList);
 		} catch (Exception e) {
 		   e.printStackTrace();
-		   return null;
+		   throw new Exception(e);
 		}
 		return pageModel;
 	}

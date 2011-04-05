@@ -32,12 +32,6 @@ public interface PressService {
 	public Press findPressById(Long pressId) throws Exception;
 	
 	/**
-	 * 查找所有的Press
-	 * @return
-	 */
-	public List<Press> findAllPresses() throws Exception;
-
-	/**
 	 * 分页查找出版社
 	 * @return
 	 * @throws Exception
