@@ -19,11 +19,7 @@ import com.huan.library.application.Constants;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.BookState;
 import com.huan.library.domain.model.book.Category;
-import com.huan.library.domain.model.book.Currency;
 import com.huan.library.domain.model.book.Press;
-import com.huan.library.domain.model.book.BookSource;
-import com.huan.library.domain.model.dict.DictItem;
-import com.huan.library.domain.model.reader.Certificate;
 /**
  * 图书dao测试类
  * @author huan

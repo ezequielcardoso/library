@@ -1,8 +1,16 @@
 package com.huan.library.domain.service;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import jxl.Cell;
+import jxl.CellType;
+import jxl.LabelCell;
+import jxl.NumberCell;
+import jxl.Sheet;
+import jxl.Workbook;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -13,6 +21,9 @@ import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.application.Constants;
+import com.huan.library.domain.model.book.Book;
+import com.huan.library.domain.model.book.BookState;
+import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.infrastructure.persistence.PressDao;
 import com.huan.library.util.PageModel;
@@ -97,5 +108,57 @@ public class PressInitTest {
 		}finally{
 			
 		}	
+	}
+	
+	@Test
+	public void testInsertPressBatch(){
+		// 取得excel文件
+		File file = new File(filePath);
+		Workbook wb;
+
+		try {
+			// 打开workbook
+			wb = Workbook.getWorkbook(file);
+			// 打卡第一个sheet
+			Sheet sheet = wb.getSheet(0);
+			// 取得行数
+			int row = sheet.getRows();
+			// 取得列数
+			int col = sheet.getColumns();
+			// 取到一行中每列的值赋值给一个DictItem对象对应的属性，直到最后一行
+			List<Press> presses = new ArrayList<Press>();
+			for (int i = 0; i < row; i++) {
+				Press press = new Press();
+				
+				for (int j = 0; j < col; j++) {
+					Cell cell = sheet.getCell(j, i);
+					if (cell.getType() == CellType.NUMBER) {
+						NumberCell numberCell = (NumberCell) cell;
+						switch (j) {
+							case 3:
+								press.setZipCode((int)numberCell.getValue() + "");
+								break;
+						}
+					} else if (cell.getType() == CellType.LABEL) {
+						LabelCell lc = (LabelCell) cell;
+						switch (j) {
+							case 0:
+								press.setPressISBN(lc.getContents());
+								break;
+							case 1:
+								press.setPressName(lc.getContents());
+								break;	
+							case 2:
+								press.setPressAddress(lc.getContents());
+								break;
+						}
+					}
+				}
+				presses.add(press);
+			}
+			pressDao.insertPressBatch(presses);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

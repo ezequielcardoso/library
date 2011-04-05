@@ -137,7 +137,10 @@ public class DictItemDaoTest {
 						switch (j) {
 						case 5: 
 							dictItem.setItemOrder((int)numberCell.getValue());
-							break;		
+							break;	
+						case 6: 
+							dictItem.setLevel((int)numberCell.getValue());
+							break;
 						}
 					} else if (cell.getType() == CellType.LABEL) {
 						LabelCell lc = (LabelCell) cell;
@@ -163,6 +166,7 @@ public class DictItemDaoTest {
 					dictItem.setLeaf(false);
 					dictItem.setChecked(false);
 					dictItem.setItemActive(true);
+					dictItem.setItemType("Category");
 				}
 				items.add(dictItem);
 			}
