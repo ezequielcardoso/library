@@ -1,5 +1,8 @@
 Ext.onReady(function(){
 
+	var departmentTreePanel = new Library.rights.tree.DepartmentTreePanel();
+	departmentTreePanel.render('departmentTree');
+	
 	var userGridPanel = new Library.rights.grid.UserGridPanel();
 	userGridPanel.render('userGrid');
 	
@@ -9,7 +12,7 @@ Ext.onReady(function(){
 	userGridPanel.getStore().load({
 							params : {
 								start : 0,
-								limit : 50
+								limit : 20
 							}
 					});
 	

@@ -52,7 +52,8 @@ Library.rights.grid.RoleCheckedGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		
 		var sm = new Ext.grid.CheckboxSelectionModel();
 		
-		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), sm, {
+		var colM = new Ext.grid.ColumnModel([
+		new Ext.grid.RowNumberer(), sm, {
 			header : '角色名',
 			dataIndex : 'roleName',
 			sortable : true,
@@ -61,13 +62,13 @@ Library.rights.grid.RoleCheckedGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		}, {
 			header : '角色描述',
 			dataIndex : 'roleDesc',
-			width : 200,
+			width : 100,
 			sortable : true,
 			align : 'center'
 		}]);
 		
 		Ext.apply(this, {
-			width : 380,
+			width : 240,
 //			height : document.documentElement.clientHeight * 0.82,
 			height : 500,
 			autoScroll : true,
