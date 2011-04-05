@@ -35,13 +35,13 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 	
 	initComponent : function() {
 		
-		this.url = contextPath + "/rights/getUnitItem.action";
+		this.url = contextPath + "/rights/getDeptChildrenItem.action";
         this.isChecked = false;
         this.rootNode = this.createRootNode();
 		this.tbar = this.createTbar(this);
 		
 		Ext.apply(this, {
-			width : 300,
+			width : 280,
 			height : 500
 		});
 		
@@ -49,13 +49,13 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 		
 		var thiz = this;
 		Ext.Ajax.request({
-			url : contextPath + '/rights/getDeptById.do',
+			url : contextPath + '/rights/getDeptById.action',
 			params : {
 				deptId : '1'
 			},
 			success : function(resp){
 				var obj = Ext.util.JSON.decode(resp.responseText);
-				thiz.getRootNode().setText(obj.unitName);
+				thiz.getRootNode().setText(obj.deptName);
 			}, 
 			failure : function(){
 				Ext.Msg.alert('提示', '服务器异常，请稍后再试！');

@@ -30,13 +30,13 @@ public interface DepartmentService {
 	 * @param deptId
 	 * @return
 	 */
-	public Department getDeptById(String deptId) throws Exception;
+	public Department getDeptById(Long deptId) throws Exception;
 	
 	/**
 	 * 根据Id查找Dept
 	 * @param deptId
 	 * @return
 	 */
-	public List<Department> getDeptsByParentId(String deptId) throws Exception;
+	public List<Department> getDeptsByParentId(Long deptId) throws Exception;
 	
 }

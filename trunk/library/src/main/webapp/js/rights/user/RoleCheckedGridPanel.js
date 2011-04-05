@@ -68,7 +68,7 @@ Library.rights.grid.RoleCheckedGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		}]);
 		
 		Ext.apply(this, {
-			width : 240,
+			width : 250,
 //			height : document.documentElement.clientHeight * 0.82,
 			height : 500,
 			autoScroll : true,

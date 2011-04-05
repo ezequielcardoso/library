@@ -1,6 +1,6 @@
 Ext.ns('Library.rights.grid');
 
-Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
+Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 	id : 'userGridPanel',
 	
@@ -9,22 +9,22 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		// 列表工具条
 		var tbar = new Ext.Toolbar({
 			items : [{
-				text : '查询用户',
+				text : '查询',
 				handler : function() {
 					
 				}
 			}, {
-				text : '增加用户',
+				text : '增加',
 				handler : function() {
 					
 				}
 			}, {
-				text : '修改用户',
+				text : '修改',
 				handler : function() {
 					
 				}
 			},  {
-				text : '删除用户',
+				text : '删除',
 				handler : function() {
 					
 				}
@@ -67,31 +67,45 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			},
 			fields : fields
 		});
-		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), {
+		var colM = new Ext.grid.ColumnModel([
+		new Ext.grid.RowNumberer(), {
 				header : '账号',
 				dataIndex : 'userAccount',
 				sortable : true,
 				width : 90,
-				align : 'center'
+				align : 'center',
+				editor : new Ext.form.TextField({
+					allowBlank : false
+				})
 			}, {
 				header : '姓名',
 				dataIndex : 'userName',
 				width : 80,
 				sortable : true,
-				align : 'center'
+				align : 'center',
+				editor : new Ext.form.TextField({
+					allowBlank : false
+				})
 			}, {
 				header : '密码',
 				dataIndex : 'password',
 				width : 60,
 				sortable : true,
-				align : 'center'
+				align : 'center',
+				editor : new Ext.form.TextField({
+					allowBlank : false
+				})
 			}, {
 				header : '创建时间',
 				dataIndex : 'createDate',
 				width : 80,
 				sortable : true,
-				align : 'center'
+				align : 'center',
+				editor : new Ext.form.DateField({
+					format : 'Y-m-d'
+				})
 			}, {
+//				xtype: 'checkcolumn',
 				header : '激活',
 				dataIndex : 'userActive',
 				width : 50,
@@ -107,7 +121,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		]);
 		
 		Ext.apply(this, {
-			width : 500,
+			width : 505,
 //			height : document.documentElement.clientHeight * 0.82,
 			height : 500,
 			autoScroll : true,

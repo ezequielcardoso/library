@@ -81,15 +81,15 @@
 								<table width="99%" height="520" border="0" align="left"
 									cellpadding="0" cellspacing="0">
 									<tr>
-										<td width="300" height="500" align="left" valign="top">
+										<td width="280" height="500" align="left" valign="top">
 											<div id="departmentTree">
 											</div>
 										</td>
-										<td width="500" height="500" align="left" valign="top">
+										<td width="505" height="500" align="left" valign="top">
 											<div id="userGrid">
 											</div>
 										</td>
-										<td width="240" height="500" align="left" valign="top">
+										<td width="245" height="500" align="left" valign="top">
 											<div id="roleCheckedGrid">
 											</div>
 										</td>
