@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
-import com.huan.library.web.view.PressesView;
 import com.huan.library.web.view.grid.ExtGridLoad;
 import com.huan.library.web.view.tree.ExtTreeNode;
 import com.huan.library.web.view.PressView;
 import com.opensymphony.xwork2.Action;
-
- class PressAction extends BaseActionSupport{
+@Controller("pressAction")
+public class PressAction extends BaseActionSupport{
 	
 	
 	 /**
@@ -25,11 +25,14 @@ import com.opensymphony.xwork2.Action;
 	private PressService pressService;
 	
 	private ExtGridLoad extGridLoad = new ExtGridLoad();
-	private PressesView pressesView = new PressesView();
+	private PressView pressesView = new PressView();
 	
-	private Press press = new Press();
-	private PressView pressView = new PressView();
+ 	private Press press = new Press();
+ 	private PressView pressView = new PressView();
 	private List<ExtTreeNode> pressNodes = new ArrayList<ExtTreeNode>();
+	
+	private Integer start;
+	private Integer limit;
 	
 	
 	public Press getPress() {
@@ -154,26 +157,61 @@ import com.opensymphony.xwork2.Action;
 	 */
 	public String findPresses() {
 		try {
-			
+			pressesView.setStart(start);
+			pressesView.setLimit(limit);
+			List<Press> presses = pressService.findPresses(pressView);
+			extGridLoad.setRoot(this.convertToView(presses));
+			extGridLoad.setTotalProperty(pressesView.getTotalCount());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
+	
+	public List<PressView> convertToView(List<Press> presses) {
+		List<PressView> pressViews = new ArrayList<PressView>();
+		try {
+           for(Press press:presses){
+        	   PressView pressView = new PressView();
+        	   pressView.setPressId(press.getPressId());
+        	   if(press.getPressISBN()!=null){
+        		   pressView.setPressISBN(press.getPressISBN());
+        	   }
+        	   if(press.getPressName()!=null){
+        		   pressView.setPressName(press.getPressName());
+        	   }
+        	   if(press.getPressAddress()!=null){
+        		   pressView.setPressAddress(press.getPressAddress());
+        	   }
+        	   if(press.getZipCode()!=null){
+        		   pressView.setZipCode(press.getZipCode());
+        	   }
+        	   pressViews.add(pressView);  
+           }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return pressViews;
+	}
 
+	public Integer getStart() {
+		return start;
+	}
+	public void setStart(Integer start) {
+		this.start = start;
+	}
+	public Integer getLimit() {
+		return limit;
+	}
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
 	public ExtGridLoad getExtGridLoad() {
 		return extGridLoad;
 	}
 	public void setExtGridLoad(ExtGridLoad extGridLoad) {
 		this.extGridLoad = extGridLoad;
 	}
-	public PressesView getPressesView() {
-		return pressesView;
-	}
-	public void setPressesView(PressesView pressesView) {
-		this.pressesView = pressesView;
-	}
-	
  
 }

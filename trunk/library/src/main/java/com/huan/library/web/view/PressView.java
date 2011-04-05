@@ -17,7 +17,7 @@ public class PressView extends ExtGridPost implements Serializable{
 	private String zipCode;   //邮编
 	
 	public PressView(){
-		
+		super();
 	}
 	
 	public String getPressISBN() {

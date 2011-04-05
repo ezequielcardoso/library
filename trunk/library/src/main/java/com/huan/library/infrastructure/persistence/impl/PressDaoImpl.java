@@ -16,7 +16,6 @@ import org.springframework.stereotype.Repository;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.infrastructure.persistence.PressDao;
 import com.huan.library.web.view.PressView;
-import com.huan.library.web.view.PressesView;
 /**
  * 出版社持久化实现
  * @author huan
@@ -25,27 +24,26 @@ import com.huan.library.web.view.PressesView;
 @Repository("pressDao")
 public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao{
 
-	public List<Press> selectBooks(final PressesView pressesView) throws Exception {
+	public List<Press> selectPresses(final PressView pressView) throws Exception {
 		List<Press> presses = new ArrayList<Press>();
 		try {
 		  String hql_ = "select count(p) from Press p";
 		  //查询总记录数
 		  Long totalCount = (Long)getHibernateTemplate().find(hql_).iterator().next();
-		  pressesView.setTotalCount(totalCount);
+		  pressView.setTotalCount(totalCount);
 		  //取得数据
-		  HibernateCallback callBack = new HibernateCallback(){
+		presses = (List<Press>)getHibernateTemplate().executeFind(new HibernateCallback(){
 
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
-				Query query = session.createQuery("select Press");
-				if(pressesView != null && pressesView.getIsPage()){
-					query.setFirstResult(pressesView.getStart());
-					query.setMaxResults(pressesView.getLimit());
+				Query query = session.createQuery("from Press");
+				if(pressView != null && pressView.getIsPage()){
+					query.setFirstResult(pressView.getStart());
+					query.setMaxResults(pressView.getLimit());
 				}
 				return query.list();
 			}
-		  };
-		  presses = (List<Press>)getHibernateTemplate().executeFind(callBack);
+		  });
 		} catch (Exception e) {
 		  e.printStackTrace();
 		}

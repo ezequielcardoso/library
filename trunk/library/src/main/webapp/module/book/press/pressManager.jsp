@@ -164,6 +164,9 @@
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
+													<td width="100" height="300" align="left" valign="top">
+														<div id="pressGrid"></div>
+
 													<td width="1000" height="300" align="left" valign="top">
 														<div id="pressGrid"></div>
 													</td>
