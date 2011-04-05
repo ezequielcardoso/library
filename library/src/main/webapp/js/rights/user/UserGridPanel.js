@@ -49,19 +49,13 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		}, {
 			name : 'userActive',
 			type : 'string'
+		}, {
+			name : 'depteName',
+			type : 'string'
+		}, {
+			name : 'deptId',
+			type : 'string'
 		}];
-		
-//		var usersArr = [
-//			['1', '212121212fs', 'zhangsan', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
-//			['2', '2fefef21212', 'lisi', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
-//			['3', '21fgt3se212', 'wangwu', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424'],
-//			['4', '2fsfsfsfsfs', 'zhaoliu', '123', '1', 'a@a.com', '13800000000', 'man', '323131', '323242424']
-//		];
-//		
-//		var store = new Ext.data.ArrayStore({
-//			data : usersArr,
-//			fields : fields
-//		});
 		
 		var store = new Ext.data.JsonStore({
 			url : contextPath + '/rights/userList.action',
@@ -74,22 +68,46 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			fields : fields
 		});
 		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), {
-				header : '用户账号',
+				header : '账号',
 				dataIndex : 'userAccount',
 				sortable : true,
-				width : 80,
+				width : 90,
 				align : 'center'
 			}, {
-				header : '用户姓名',
+				header : '姓名',
 				dataIndex : 'userName',
 				width : 80,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '密码',
+				dataIndex : 'password',
+				width : 60,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '创建时间',
+				dataIndex : 'createDate',
+				width : 80,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '激活',
+				dataIndex : 'userActive',
+				width : 50,
+				sortable : true,
+				align : 'center'
+			}, {
+				header : '部门',
+				dataIndex : 'deptName',
+				width : 100,
 				sortable : true,
 				align : 'center'
 			}
 		]);
 		
 		Ext.apply(this, {
-			width : 650,
+			width : 500,
 //			height : document.documentElement.clientHeight * 0.82,
 			height : 500,
 			autoScroll : true,
