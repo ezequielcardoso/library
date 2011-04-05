@@ -1,13 +1,8 @@
 package com.huan.library.web.action;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import com.huan.library.constant.LoginState;
 import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.UserService;
+import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.UserView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
@@ -102,9 +98,25 @@ public class UserAction extends BaseActionSupport {
 		for(User user : users){
 			UserView view = new UserView();
 			view.setUserId(user.getUserId());
-			view.setCreateDate("");
-			view.setUserAccount(user.getUserAccount());
-			view.setUserName(user.getUserName());
+			if(user.getPassword()!=null){
+				view.setPassword(user.getPassword());
+			}
+			if(user.getCreateDate()!=null){
+				view.setCreateDate(DateFormatUtil.format(user.getCreateDate(), "yyyy-MM-dd"));
+			}
+			if(user.getUserActive()!=null){
+				view.setUserAccount(user.getUserAccount());
+			}
+			if(user.getUserName()!=null){
+				view.setUserName(user.getUserName());
+			}
+			if(user.getUserActive()!=null){
+				view.setUserActive(user.getUserActive());
+			}
+			if(user.getDept()!=null){
+				view.setDeptId(user.getDept().getDeptId());
+				view.setDeptName(user.getDept().getDeptName());
+			}
 			views.add(view);
 		}
 		return views;

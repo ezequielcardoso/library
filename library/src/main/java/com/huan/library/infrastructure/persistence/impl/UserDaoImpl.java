@@ -71,9 +71,49 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		List<User> users = new ArrayList<User>();
 		try{
 			StringBuilder hql = new StringBuilder();
+			StringBuilder hql_ = new StringBuilder();
+
+			hql_.append("select count(u) from User u where 1=1 ");
 			hql.append(" from User u ");
-//			hql.append(" where t_dept.deptId=(:deptId) ");
-			hql.append(" left join u.dept t_dept ");
+			hql.append(" left join fetch u.dept t_dept ");
+			hql.append(" where 1=1 ");
+			
+			StringBuilder whereSub = new StringBuilder();
+			if(view.getDeptId()!=null && !"".equals(view.getDeptId())){
+				whereSub.append(" t_dept.deptId=(:deptId) ");
+			}
+			if(view.getDeptName()!=null && !"".equals(view.getDeptName())){
+				whereSub.append(" t_dept.deptName=(:deptName) ");
+			}
+			if(view.getUserName()!=null && !"".equals(view.getUserName())){
+				whereSub.append(" u.userName=(:userName) ");
+			}
+			hql.append(whereSub);
+			hql_.append(whereSub);
+			//查找总记录
+			final String hqlIn_ = hql_.toString();
+			HibernateCallback callback_ = new HibernateCallback(){
+
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+						Query query = session.createQuery(hqlIn_);
+						if(view.getDeptId()!=null && !"".equals(view.getDeptId())){
+							query.setParameter("deptId", view.getDeptId());
+						}
+						if(view.getDeptName()!=null && !"".equals(view.getDeptName())){
+							query.setParameter("deptName", view.getDeptName());
+						}
+						if(view.getUserName()!=null && !"".equals(view.getUserName())){
+							query.setParameter("userName", view.getUserName());
+						}
+					return query.list();
+				}
+				
+			};
+			Long totalCount  = (Long) getHibernateTemplate().executeFind(callback_).iterator().next();
+			view.setTotalCount(totalCount);
+			
+			//查找列表
 			final String hqlIn = hql.toString();
 			HibernateCallback callback = new HibernateCallback(){
 
@@ -85,7 +125,15 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 							query.setMaxResults(view.getLimit());
 							query.setFirstResult(view.getStart());
 						}
-//						query.setParameter("deptId", deptId);
+						if(view.getDeptId()!=null && !"".equals(view.getDeptId())){
+							query.setParameter("deptId", view.getDeptId());
+						}
+						if(view.getDeptName()!=null && !"".equals(view.getDeptName())){
+							query.setParameter("deptName", view.getDeptName());
+						}
+						if(view.getUserName()!=null && !"".equals(view.getUserName())){
+							query.setParameter("userName", view.getUserName());
+						}
 					return query.list();
 				}
 				

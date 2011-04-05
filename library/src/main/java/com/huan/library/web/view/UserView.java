@@ -13,7 +13,7 @@ public class UserView  extends ExtGridPost implements Serializable {
 	private Boolean userActive;// 是否激活
 	private String createDate;// 修改日期
 	private Long deptId;
-	
+	private String deptName;
 	
 	public Long getUserId() {
 		return userId;
@@ -57,6 +57,11 @@ public class UserView  extends ExtGridPost implements Serializable {
 	public void setDeptId(Long deptId) {
 		this.deptId = deptId;
 	}
-
+	public String getDeptName() {
+		return deptName;
+	}
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
 
 }

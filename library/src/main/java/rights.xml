@@ -10,9 +10,9 @@
 		<action name="addUser" class="com.huan.library.web.action.UserAction" method="add">
 			<result name="success">index.jsp</result>
 		</action>
-		<action name="userList" class="com.huan.library.web.action.UserAction" method="findAllUsersInJson">
+		<action name="userList" class="com.huan.library.web.action.UserAction" method="findUsers">
 			<result name="success" type="json">
-				<param name="root">results</param>
+				<param name="root">extGridLoad</param>
 			</result>
 		</action>
 		<!-- 模板功能 -->
