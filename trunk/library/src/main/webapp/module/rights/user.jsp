@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 <%@include file="/common/common.jsp"%>
 <%@include file="/common/extInclude.jsp"%>
+<script type="text/javascript" src="<%=path %>/js/tree/BaseTree.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/UserGridPanel.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/RoleCheckedGridPanel.js"></script>
+<script type="text/javascript" src="<%=path %>/js/rights/user/DepartmentTreePanel.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/User.js"></script>
-
 </head>
 <body bgcolor="#dbecff">
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -77,14 +78,18 @@
 						</tr>
 						<tr>
 							<td valign="top">
-								<table width="99%" height="600" border="0" align="left"
+								<table width="99%" height="520" border="0" align="left"
 									cellpadding="0" cellspacing="0">
 									<tr>
+										<td width="300" height="500" align="left" valign="top">
+											<div id="departmentTree">
+											</div>
+										</td>
 										<td width="500" height="500" align="left" valign="top">
 											<div id="userGrid">
 											</div>
 										</td>
-										<td width="300" height="500" align="left" valign="top">
+										<td width="240" height="500" align="left" valign="top">
 											<div id="roleCheckedGrid">
 											</div>
 										</td>
