@@ -2,6 +2,7 @@ package com.huan.library.infrastructure.persistence.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -72,21 +73,30 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		try{
 			StringBuilder hql = new StringBuilder();
 			StringBuilder hql_ = new StringBuilder();
-
-			hql_.append("select count(u) from User u where 1=1 ");
-			hql.append(" from User u ");
-			hql.append(" left join fetch u.dept t_dept ");
+			
+			hql_.append("select count(u) from User u  ");
+//			hql.append(" select new User(u.userId, u.userAccount, u.userName, u.password, u.userActive," + 
+//					" u.createDate, t_dept.deptId, t_dept.deptName) from User u ");//构造器查询方式
+			hql.append(" from User u ");//普通查询方式
+			
+			StringBuilder joinSub = new StringBuilder();
+//			joinSub.append(" left join u.dept t_dept ");//构造器查询方式不用fetch
+			joinSub.append(" left join fetch u.dept t_dept ");//普通查询方式要fetch
+			
+			hql.append(joinSub);
+			
 			hql.append(" where 1=1 ");
+			hql_.append(" where 1=1 ");
 			
 			StringBuilder whereSub = new StringBuilder();
 			if(view.getDeptId()!=null && !"".equals(view.getDeptId())){
-				whereSub.append(" t_dept.deptId=(:deptId) ");
+				whereSub.append("  and u.dept.deptId=(:deptId) ");
 			}
 			if(view.getDeptName()!=null && !"".equals(view.getDeptName())){
-				whereSub.append(" t_dept.deptName=(:deptName) ");
+				whereSub.append(" and  u.dept.deptName=(:deptName) ");
 			}
 			if(view.getUserName()!=null && !"".equals(view.getUserName())){
-				whereSub.append(" u.userName=(:userName) ");
+				whereSub.append(" and  u.userName=(:userName) ");
 			}
 			hql.append(whereSub);
 			hql_.append(whereSub);
@@ -143,7 +153,6 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 			e.printStackTrace();
 			throw new Exception(e);
 		}
-		
 		return users;
 	}
 }

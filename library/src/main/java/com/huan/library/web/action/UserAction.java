@@ -95,27 +95,27 @@ public class UserAction extends BaseActionSupport {
 	
 	public List<UserView> convertToView(List<User> users ){
 		List<UserView> views = new ArrayList<UserView>();
-		for(User user : users){
+		for(int i=0; i<users.size(); i++){
 			UserView view = new UserView();
-			view.setUserId(user.getUserId());
-			if(user.getPassword()!=null){
-				view.setPassword(user.getPassword());
+			view.setUserId(users.get(i).getUserId());
+			if(users.get(i).getPassword()!=null){
+				view.setPassword(users.get(i).getPassword());
 			}
-			if(user.getCreateDate()!=null){
-				view.setCreateDate(DateFormatUtil.format(user.getCreateDate(), "yyyy-MM-dd"));
+			if(users.get(i).getCreateDate()!=null){
+				view.setCreateDate(DateFormatUtil.format(users.get(i).getCreateDate(), "yyyy-MM-dd"));
 			}
-			if(user.getUserActive()!=null){
-				view.setUserAccount(user.getUserAccount());
+			if(users.get(i).getUserActive()!=null){
+				view.setUserAccount(users.get(i).getUserAccount());
 			}
-			if(user.getUserName()!=null){
-				view.setUserName(user.getUserName());
+			if(users.get(i).getUserName()!=null){
+				view.setUserName(users.get(i).getUserName());
 			}
-			if(user.getUserActive()!=null){
-				view.setUserActive(user.getUserActive());
+			if(users.get(i).getUserActive()!=null){
+				view.setUserActive(users.get(i).getUserActive());
 			}
-			if(user.getDept()!=null){
-				view.setDeptId(user.getDept().getDeptId());
-				view.setDeptName(user.getDept().getDeptName());
+			if(users.get(i).getDept()!=null){
+				view.setDeptId(users.get(i).getDept().getDeptId());
+				view.setDeptName(users.get(i).getDept().getDeptName());
 			}
 			views.add(view);
 		}
