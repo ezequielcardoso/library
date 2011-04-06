@@ -173,11 +173,11 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								url : contextPath + '/book/savePress.action',
 								method : 'POST',
 								params : {
-									pressId : pressId,
-									pressISBN : pressISBN,
-									pressName : pressName,
-									pressAddress : pressAddress,
-									zipCode : zipCode
+									'pressId' : pressId,
+									'pressISBN' : pressISBN,
+									'pressName' : pressName,
+									'pressAddress' : pressAddress,
+									'zipCode' : zipCode
 								},
 								success : function(resp) {
 									var obj = Ext.util.JSON
