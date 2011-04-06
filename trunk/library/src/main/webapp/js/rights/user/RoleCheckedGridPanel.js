@@ -77,7 +77,7 @@ Library.rights.grid.RoleCheckedGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			cm : colM,
 			store : store,
 			stripeRows : true,
-			columnLines : true,
+//			columnLines : true,
 			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,

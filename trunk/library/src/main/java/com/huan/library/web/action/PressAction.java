@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
 import com.huan.library.web.view.PressView;
+import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
 import com.huan.library.web.view.tree.ExtTreeNode;
 import com.opensymphony.xwork2.Action;
@@ -25,8 +26,10 @@ public class PressAction extends BaseActionSupport{
 	private PressService pressService;
 	
 	private ExtGridLoad extGridLoad = new ExtGridLoad();
-	
- 	private Press press = new Press();
+	//返回增加后的业务逻辑
+	private ExtJsonForm extJsonForm = new ExtJsonForm();
+ 
+	private Press press = new Press();
  	private PressView pressView = new PressView();
 	private List<ExtTreeNode> pressNodes = new ArrayList<ExtTreeNode>();
 	
@@ -53,14 +56,9 @@ public class PressAction extends BaseActionSupport{
 		return Action.SUCCESS;
 	}
 
-	/**
-	 * 显示添加出版社
-	 * @return
-	 * @throws Exception
-	 */
 	
-	public String showSavePress()  {
-    	return "showSavePress";
+	public String pressMain()  {
+    	return Action.SUCCESS;
     }
     
 	/**
@@ -71,8 +69,14 @@ public class PressAction extends BaseActionSupport{
 	public String savePress()  {
 		try {
 			pressService.addOrModifyPress(press);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("新增成功！");
+			extJsonForm.setData(press);
 		} catch (Exception e) {
 		  e.printStackTrace();
+		  extJsonForm.setSuccess(false);
+		  extJsonForm.setMsg("新增失败");
+		  extJsonForm.setData(null);
 		 return Action.ERROR;
 		}
 		 return Action.SUCCESS;
@@ -116,10 +120,18 @@ public class PressAction extends BaseActionSupport{
 	 * @throws Exception
 	 */
 	public String deletePress() {
+		Press press = new Press();
 		try {
+		   press.setPressId(pressView.getPressId());
 		   pressService.removePress(press);
+		   extJsonForm.setMsg("删除成功！");
+		   extJsonForm.setSuccess(true);
+		   extJsonForm.setData(null);
 		} catch (Exception e) {
 			e.printStackTrace();
+			extJsonForm.setMsg("删除失败！");
+			extJsonForm.setSuccess(false);
+			extJsonForm.setData(null);
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
@@ -214,5 +226,13 @@ public class PressAction extends BaseActionSupport{
 	public void setPressService(PressService pressService) {
 		this.pressService = pressService;
 	}
+	public ExtJsonForm getExtJsonForm() {
+		return extJsonForm;
+	}
+
+	public void setExtJsonForm(ExtJsonForm extJsonForm) {
+		this.extJsonForm = extJsonForm;
+	}
+
  
 }

@@ -3,6 +3,7 @@ package com.huan.library.domain.service;
 import java.util.List;
 
 import com.huan.library.domain.model.reader.ReaderType;
+import com.huan.library.web.view.ReaderTypeView;
 
 /**
  * 读者类别service
@@ -38,6 +39,13 @@ public interface ReaderTypeService {
 	 * @throws Exception
 	 */
 	public List<ReaderType> findAllReaderTypes() throws Exception;
+	
+	/**
+	 * 查找所有的readerType
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ReaderType> findReaderTypes(ReaderTypeView readerTypeView) throws Exception;
 
 
 }

@@ -8,6 +8,7 @@
 		<title>"广水用水"终端服务综合业务管理平台</title>
 		<script type="text/javascript" src="<%=path%>/js/common/common.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/book/press/Press.js"></script>
+		<script type="text/javascript" src="<%=path%>/js/book/press/PressOperation.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/book/press/PressGridPanel.js"></script>
 
 	</head>

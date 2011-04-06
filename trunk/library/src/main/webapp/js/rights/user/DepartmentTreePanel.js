@@ -15,16 +15,19 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
     	var tbar = new Ext.Toolbar({
 			items : [{
 				text : '增加',
+				buttonAlign:'left',
 				handler : function() {
 					
 				}
-			}, {
+			}, '-',{
 				text : '修改',
+				buttonAlign:'left',
 				handler : function() {
 					
 				}
-			},  {
+			}, '-',  {
 				text : '删除',
+				buttonAlign:'left',
 				handler : function() {
 					
 				}

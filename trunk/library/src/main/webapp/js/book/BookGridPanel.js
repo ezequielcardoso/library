@@ -418,7 +418,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				url : contextPath + '/book/deleteBook.action',
 				method : 'POST',
 				params : {
-					"bookView.bookId" : bookId
+					'bookView.bookId' : bookId
 				},
 				success : function(resp){
 					var respText = resp.responseText;

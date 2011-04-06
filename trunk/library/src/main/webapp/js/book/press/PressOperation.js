@@ -1,5 +1,7 @@
-function saveBook() {
+function savePress() {
 
+	
+	
 	var pressId = Ext.get('pressId').getValue();
 	var pressISBN = Ext.get('pressISBN').getValue();
 	var pressName = Ext.get('pressName').getValue();
