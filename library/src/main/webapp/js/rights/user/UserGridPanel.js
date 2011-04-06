@@ -133,7 +133,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			cm : colM,
 			store : store,
 			stripeRows : true,
-//			columnLines : true,
+			columnLines : true,
 			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,
@@ -149,7 +149,23 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					displayMsg : '显示第 {0}-{1}条 共{2}条 ',
 					emptyMsg : '没有数据'
 				})
-			])
+			]),
+			listeners : {
+		    	'afteredit' : function(obj) {
+			        Ext.Ajax.request( {
+				        url : 'config/updateFunds.action',
+				        params : 'fundsid=' + obj.record.get("fundsid") + '&fundsName='
+				              + obj.value,
+				        success : function() {
+				
+				        },
+				        failure : function() {
+				        Ext.Msg.alert('消息', '服务器出现错误请稍后再试！');
+				        }
+		
+		    		});
+		    	}
+		    }
 //			view : new Ext.ux.grid.BufferView({
 //				rowHeight : 23,
 //				scrollDelay : false,
