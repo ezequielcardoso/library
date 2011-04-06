@@ -17,13 +17,31 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 				text : '增加',
 				buttonAlign:'left',
 				handler : function() {
-					
+					var node = this.getSelectionModel().getSelectedNode();
+			    	if(node){
+			    		this.selectNode = node;
+				    	var pid = node.attributes.id;//取到父id
+				    	//弹出增加部门表单window，把pid传过去
+				    	
+				    	
+				    	
+			    	}else{
+						Ext.Msg.alert('提示', '请选择父功能');
+					}
 				}
 			}, '-',{
 				text : '修改',
 				buttonAlign:'left',
 				handler : function() {
-					
+					var node = this.getSelectionModel().getSelectedNode();
+					if(node){
+						this.selectNode = node;
+						var id = node.attributes.id;
+						//弹出修改部门表单window，把id传过去并加载上数据
+						
+					}else{
+						Boa.Util.warn('请选择要修改的功能');
+					}
 				}
 			}, '-',  {
 				text : '删除',
@@ -69,6 +87,20 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 			if (!node.isLeaf()) {
 				treeLoader.baseParams['pid'] = node.id;
 			}
+		}, this);
+		
+		//单击时加载该部门的用户
+		this.on('click', function(node){
+			var grid = Ext.getCmp('userGridPanel');
+			grid.getStore().baseParams = {
+				"userView.deptId" : node.id
+			}
+			grid.getStore().load({
+				params : {
+					start : 0,
+					limit : 20
+				}
+			});
 		}, this);
 		
 	}

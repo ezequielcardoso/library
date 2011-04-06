@@ -44,16 +44,20 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			// count from 子句
 			hql_.append(" from Book b ");
 			
+			StringBuilder joinSub = new StringBuilder();
 			//left join 子句
-			hql.append(" left join b.firstCategory t_fc ");
-			hql.append(" left join b.secondCategory t_cc ");
-			hql.append(" left join b.thirdCategory t_th ");
-			hql.append(" left join b.bookState t_st ");
-			hql.append(" left join b.bookLevel t_le ");
-			hql.append(" left join b.bookSecurity t_se ");
-			hql.append(" left join b.currency t_cu ");
-			hql.append(" left join b.press t_pr ");
-			hql.append(" left join b.bookSource t_so ");
+			joinSub.append(" left join b.firstCategory t_fc ");
+			joinSub.append(" left join b.secondCategory t_cc ");
+			joinSub.append(" left join b.thirdCategory t_th ");
+			joinSub.append(" left join b.bookState t_st ");
+			joinSub.append(" left join b.bookLevel t_le ");
+			joinSub.append(" left join b.bookSecurity t_se ");
+			joinSub.append(" left join b.currency t_cu ");
+			joinSub.append(" left join b.press t_pr ");
+			joinSub.append(" left join b.bookSource t_so ");
+			
+			hql.append(joinSub);
+			hql_.append(joinSub);
 			
 			//where 子句
 			hql.append(" where 1=1 ");

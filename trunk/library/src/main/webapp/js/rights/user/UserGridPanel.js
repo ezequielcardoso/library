@@ -64,6 +64,9 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var store = new Ext.data.JsonStore({
 			url : contextPath + '/rights/userList.action',
 			totalProperty : 'totalProperty',
+			baseParams : {
+				"userView.deptId" : ""
+			},
 			root : 'root',
 			storeInfo : {
 				field : '列名',
