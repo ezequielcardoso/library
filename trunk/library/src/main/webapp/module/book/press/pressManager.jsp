@@ -139,15 +139,14 @@
 												cellpadding="0">
 												<tr>
 													<td width="189" height="33"
-														background="<%=path%>/images/module/titleb_01.jpg"
+														background="<%=path %>/images/module/titleb_01.jpg"
 														class="title1">
 														查询列表
 													</td>
-													<td background="<%=path%>/images/module/titleb_02.jpg">
+													<td background="<%=path %>/images/module/titleb_02.jpg">
 														&nbsp;
-
-														<div id="pressGrid"></div>
 													</td>
+													
 													<td width="213" align="right"
 														background="<%=path%>/images/module/titleb_03.jpg"
 														style="padding-bottom: 10px">
@@ -165,9 +164,6 @@
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
 													<td width="100" height="300" align="left" valign="top">
-														<div id="pressGrid"></div>
-
-													<td width="1000" height="300" align="left" valign="top">
 														<div id="pressGrid"></div>
 													</td>
 												</tr>
