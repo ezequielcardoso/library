@@ -11,6 +11,13 @@
 		<action name="readerTypeMain" class="com.huan.library.web.action.ReaderTypeAction" method="readerTypeMain">
 		    <result name="success">/module/reader/readerCategory.jsp</result>
 		</action>
+		
+		<action name="findReaderTypes" class="com.huan.library.web.action.ReaderTypeAction" method="findReaderTypes">
+		   <result name="success" type="json">
+		     <param name="root">extGridLoad</param>
+		   </result>
+		</action>
+		
           
     </package>
     

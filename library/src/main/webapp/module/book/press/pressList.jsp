@@ -13,14 +13,14 @@
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
 			cellspacing="0" bgcolor="#dbecff">
-			<tr id="ye" style="DISPLAY: block">
+			<tr id="ye"  >
 				<td height="4" background="<%=path%>/images/module/bodybg.jpg"></td>
 			</tr>
 			<tr>
 				<td valign="top" height="10">
 					<table width="100%" border="0" cellpadding="0" cellspacing="0"
 						height="100%">
-						<tr id="yd" style="DISPLAY: block">
+						<tr id="yd"  >
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
@@ -45,7 +45,7 @@
 								</table>
 							</td>
 						</tr>
-						<tr id="yy" style="DISPLAY: block">
+						<tr id="yy"  >
 							<td height="10" valign="top">
 								<table width="50%" border="0" align="left" cellpadding="0"
 									cellspacing="0" bordercolor="#ebebeb"
@@ -92,7 +92,7 @@
 								</TABLE>
 							</td>
 						</tr>
-						<tr  id="yb" style="DISPLAY: block">
+						<tr  id="yb" >
 							<td height="0" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0" bgcolor="#f1f8ff"

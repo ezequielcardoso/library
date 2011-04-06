@@ -60,7 +60,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							editor : new Ext.form.TextField({
 										allowBlank : true
 									}),
-							dataIndex : 'pressISBN'
+							dataIndex : 'readerCateCode'
 						}, {
 							header : '类别名称',
 							width : 300,
@@ -69,7 +69,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							editor : new Ext.form.TextField({
 										allowBlank : false
 									}),
-							dataIndex : 'pressName'
+							dataIndex : 'readerCateName'
 						}, {
 							header : '借阅天数',
 							width : 120,
@@ -78,7 +78,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							editor : new Ext.form.TextField({
 										allowBlank : false
 									}),
-							dataIndex : 'pressAddress'
+							dataIndex : 'borrowDays'
 						}, {
 							header : '借阅数量',
 							width : 120,
@@ -87,7 +87,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							editor : new Ext.form.TextField({
 										allowBlank : false
 									}),
-							dataIndex : 'zipCode'
+							dataIndex : 'borrowedQuantity'
 						}, {
 							header : '租金',
 							width : 120,
@@ -96,31 +96,31 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							editor : new Ext.form.TextField({
 										allowBlank : false
 									}),
-							dataIndex : 'zipCode'
+							dataIndex : 'rent'
 						}]);
 
 				var fields = [{
 							name : 'id',
 							type : 'int'
-						}, {
+						}, '-',{
 							name : 'readerCateCode',
 							type : 'string'
-						}, {
+						}, '-',{
 							name : 'readerCateName',
 							type : 'string'
-						}, {
+						}, '-',{
 							name : 'borrowDays',
 							type : 'int'
-						}, {
+						},'-', {
 							name : 'borrowedQuantity',
 							type : 'int'
-						}, , {
+						},'-', {
 							name : 'rent',
 							type : 'float'
 						}];
 
 				var store = new Ext.data.JsonStore({
-							url : contextPath + '/book/findReaderTypes.action',
+							url : contextPath + '/reader/findReaderTypes.action',
 							root : 'root',
 							totalProperty : 'totalProperty',
 							baseParams : {
