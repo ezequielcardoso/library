@@ -10,21 +10,25 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var tbar = new Ext.Toolbar({
 			items : [{
 				text : '查询',
+				buttonAlign:'left',
 				handler : function() {
 					
 				}
-			}, {
+			},'-', {
 				text : '增加',
+				buttonAlign:'left',
 				handler : function() {
 					
 				}
-			}, {
+			},'-', {
 				text : '修改',
+				buttonAlign:'left',
 				handler : function() {
 					
 				}
-			},  {
+			},'-',  {
 				text : '删除',
+				buttonAlign:'left',
 				handler : function() {
 					
 				}
@@ -129,7 +133,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			cm : colM,
 			store : store,
 			stripeRows : true,
-			columnLines : true,
+//			columnLines : true,
 			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,

@@ -109,7 +109,6 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						query.setParameter("isBook", bookView.getIsBook()==1 ? true : false );
 					return query.list();
 				}
-				
 			};
 			books = (List<Book>)getHibernateTemplate().executeFind(callback);
 		} catch(Exception e){

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.huan.library.domain.model.reader.ReaderType;
 import com.huan.library.domain.service.ReaderTypeService;
 import com.huan.library.infrastructure.persistence.ReaderTypeDao;
+import com.huan.library.web.view.ReaderTypeView;
 
 /**
  * 读者类别service实现
@@ -63,6 +64,18 @@ public class ReaderTypeServiceImpl implements ReaderTypeService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}
+		return readerTypes;
+	}
+
+	public List<ReaderType> findReaderTypes(ReaderTypeView readerTypeView)
+			throws Exception {
+		List<ReaderType> readerTypes = new ArrayList<ReaderType>();
+		try {
+			readerTypes = readerTypeDao.selectReaderTypes(readerTypeView);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		    throw new Exception(e);
 		}
 		return readerTypes;
 	}

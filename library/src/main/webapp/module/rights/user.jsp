@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<%@include file="/common/common.jsp"%>
-<%@include file="/common/extInclude.jsp"%>
+	<%@include file="/common/common.jsp"%>
+	<%@include file="/common/extInclude.jsp"%>
+	<title>图书馆管理系统</title>
+
 <script type="text/javascript" src="<%=path %>/js/tree/BaseTree.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/UserGridPanel.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/RoleCheckedGridPanel.js"></script>

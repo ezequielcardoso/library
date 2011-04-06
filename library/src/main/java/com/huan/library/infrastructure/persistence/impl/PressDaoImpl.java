@@ -91,6 +91,7 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 					.executeFind(callback);
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new Exception(e);
 		}
 		return presses;
 	}

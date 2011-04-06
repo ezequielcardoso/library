@@ -6,6 +6,10 @@ import com.huan.library.web.view.grid.ExtGridPost;
 
 public class UserView  extends ExtGridPost implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long userId;// 用户id
 	private String userAccount;// 账号
 	private String userName;// 姓名
