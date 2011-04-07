@@ -70,12 +70,12 @@ public class PressAction extends BaseActionSupport{
 		try {
 			pressService.addOrModifyPress(press);
 			extJsonForm.setSuccess(true);
-			extJsonForm.setMsg("新增成功！");
+			extJsonForm.setMsg("保存成功！");
 			extJsonForm.setData(press);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  extJsonForm.setSuccess(false);
-		  extJsonForm.setMsg("新增失败");
+		  extJsonForm.setMsg("保存失败");
 		  extJsonForm.setData(null);
 		 return Action.ERROR;
 		}
@@ -147,6 +147,9 @@ public class PressAction extends BaseActionSupport{
 		try {
 			pressView.setStart(start);
 			pressView.setLimit(limit);
+			pressView.setPressISBN(press.getPressISBN());
+			pressView.setPressAddress(press.getPressAddress());
+			pressView.setPressName(press.getPressName());
 			List<Press> presses = pressService.findPresses(pressView);
 			extGridLoad.setRoot(this.convertToView(presses));
 			extGridLoad.setTotalProperty(pressView.getTotalCount());

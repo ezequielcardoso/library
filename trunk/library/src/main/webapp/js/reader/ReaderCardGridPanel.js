@@ -12,41 +12,46 @@ Library.readerCard.grid.ReaderCardGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				text : '查询',
 				handler : function() {
 				}
-			}, {
+			},'-', {
 				text : '修改',
 				handler : function() {
 					this.updateBook();
 				},
 				scope:this
-			}, {
+			},'-', {
 				text : '增加',
 				handler : function() {
 					this.addReaderCard();
 				},
 				scope:this
-			}, {
+			},'-', {
 				text : '删除',
 				handler : function() {
 					this.deleteBook();
 				},
 				scope:this
-			},  {
+			},'-', {
 				text : '导入',
 				handler : function() {
 					
 				}
-			},  {
+			},'-',  {
 				text : '导出Excel',
 				handler : function() {
 					
 				}
-			},  {
+			},'-',{
 				text : '图书标签',
 				handler : function() {
 					
 				}
-			},  {
+			},'-',{
 				text : '打印条形码',
+				handler : function() {
+					
+				}
+			},'-',{
+				text : '上传图片',
 				handler : function() {
 					
 				}

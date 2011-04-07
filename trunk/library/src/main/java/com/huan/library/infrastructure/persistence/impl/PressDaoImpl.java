@@ -34,15 +34,21 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 			StringBuilder hql_ = new StringBuilder();
 
 			hql_.append("select count(p) from Press p where 1=1 ");
-			hql.append(" from Press where 1=1 ");
+			hql.append(" from Press p where 1=1 ");
 
 			StringBuilder whereSub = new StringBuilder();
 			/**
 			 * 拼接条件 如果某个字段的值不为空，则将作为查询条件
 			 */
-			// if(field!=null ){
-			// whereSub.append(" and b.fieldName = : fieldValue ");
-			// }
+			if(pressView.getPressISBN()!=null && !"".equals(pressView.getPressISBN())){
+				whereSub.append(" and p.pressISBN=(:pressISBN) ");
+			}
+			if(pressView.getPressName()!=null && !"".equals(pressView.getPressName())){
+				whereSub.append(" and p.pressName=(:pressName) ");
+			}
+			if(pressView.getPressAddress()!=null && !"".equals(pressView.getPressAddress())){
+				whereSub.append(" and p.pressAddress=(:pressAddress) ");
+			}
 			// .......继续拼接........
 			hql.append(whereSub);
 			hql_.append(whereSub);// count 查询hql拼接结束
@@ -59,6 +65,15 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 						throws HibernateException, SQLException {
 					Query query = session.createQuery(hqlIn_);
 					// 设置查询参数
+					if(pressView.getPressISBN()!=null && !"".equals(pressView.getPressISBN())){
+						query.setParameter("pressISBN", pressView.getPressISBN());
+					}
+					if(pressView.getPressName()!=null && !"".equals(pressView.getPressName())){
+						query.setParameter("pressName", pressView.getPressName());
+					}
+					if(pressView.getPressAddress()!=null && !"".equals(pressView.getPressAddress())){
+						query.setParameter("pressAddress", pressView.getPressAddress());
+					}
 					return query.list();
 				}
 
@@ -83,6 +98,15 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 						query.setFirstResult(pressView.getStart());
 					}
 					// //设置查询参数
+					if(pressView.getPressISBN()!=null && !"".equals(pressView.getPressISBN())){
+						query.setParameter("pressISBN", pressView.getPressISBN());
+					}
+					if(pressView.getPressName()!=null && !"".equals(pressView.getPressName())){
+						query.setParameter("pressName", pressView.getPressName());
+					}
+					if(pressView.getPressAddress()!=null && !"".equals(pressView.getPressAddress())){
+						query.setParameter("pressAddress", pressView.getPressAddress());
+					}
 					return query.list();
 				}
 
