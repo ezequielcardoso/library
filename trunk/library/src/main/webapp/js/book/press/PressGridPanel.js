@@ -8,45 +8,46 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 		// 操作图书列表的工具条
 		var tbar = new Ext.Toolbar({
-					items : [{
-								text : '查询',
-								handler : function() {
+			items : [{
+				text : '查询',
+				handler : function() {
+					this.onQuery();
+				},
+				scope : this
+			}, {
+				text : '修改',
+				handler : function() {
+					this.onMOdify();
+				},
+				scope : this
+			}, {
+				text : '删除',
+				handler : function() {
+					this.onDelete();
+				},
+				scope : this
+			}, {
+				text : '增加',
+				handler : function() {
+					this.onAdd();
+				},
+				scope : this
+			}, {
+				text : '导入',
+				handler : function() {
 
-								}
-							}, {
-								text : '修改',
-								handler : function() {
-									this.onMOdify();
-								},
-								scope : this
-							}, {
-								text : '删除',
-								handler : function() {
-									this.onDelete();
-								},
-								scope : this
-							}, {
-								text : '增加',
-								handler : function() {
-									this.onAdd();
-								},
-								scope : this
-							}, {
-								text : '导入',
-								handler : function() {
+				}
+			}, {
+				text : '导出Excel',
+				handler : function() {
 
-								}
-							}, {
-								text : '导出Excel',
-								handler : function() {
-
-								}
-							}, {
-								text : '打印',
-								handler : function() {
-								}
-							}]
-				});
+				}
+			}, {
+				text : '打印',
+				handler : function() {
+				}
+			}]
+		});
 
 		var sm = new Ext.grid.CheckboxSelectionModel();
 
@@ -178,7 +179,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							var obj = Ext.util.JSON.decode(resp.responseText);
 							if (obj.success == true) {
 								Ext.Msg.alert('提示', obj.msg);
-								thiz.getStore().reload();
+								e.record.set("pressId", obj.data.pressId);
+								e.record.commit();
+//								thiz.getStore().reload();
 							} else if (obj.success == false) {
 								Ext.Msg.alert('提示', obj.msg);
 							}
@@ -190,7 +193,20 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		}, this);
 	},
 	onQuery : function() {
-
+		var pressISBN = Ext.get('pressISBN').getValue();
+		var pressName = Ext.get('pressName').getValue();
+		var pressAddress = Ext.get('pressAddress').getValue();
+		this.getStore().baseParams = {
+			"press.pressISBN" : pressISBN,
+			"press.pressName" : pressName,
+			"press.pressAddress" : pressAddress
+		};
+		this.getStore().load({
+			params : {
+				start : 0,
+				limit : pressPageSize
+			}
+		})
 	},
 
 	onMOdify : function() {

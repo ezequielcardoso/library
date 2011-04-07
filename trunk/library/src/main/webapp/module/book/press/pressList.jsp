@@ -53,41 +53,53 @@
 									 <TR>
 										<TD height=25 align="right" valign="top" nowrap class=body width="10%" style="padding-left:8px;">
                                             <INPUT type=radio checked="checked" name="unclearISBN" id="unclearISBN">
-											<LABEL for=radio3>模糊</LABEL>										</TD>
+											<LABEL for=radio3>模糊</LABEL>										
+										</TD>
 										<TD height=25 align="right" valign="top" nowrap class=body width="10%">
                                          <INPUT type=radio name="clearISBN" id="clearISBN">
-											 <LABEL for=radio4>精确</LABEL>										</TD>
+											 <LABEL for=radio4>精确</LABEL>										
+										</TD>
                                         <TD  height=25 align="right" valign="center" nowrap class=body>
-										     出版社代码：										                                       </TD>
-                                       <TD height=25 align="left" valign="center" nowrap class=body width="50">										                                       
+										     出版社代码：										                                       
+										</TD>
+                                       	<TD height=25 align="left" valign="center" nowrap class=body width="50">										                                       
                                           <input name="pressISBN"  type="text" class="input2"
-												id="pressISBN" size="20">									   </TD>
+												id="pressISBN" size="20">									   
+										</TD>
 									</TR>
                                     <TR>
 										<TD height=25 align="right" valign="top" nowrap class=body width="10%" style="padding-left:8px;">
                                             <INPUT type=radio checked="checked" name="unclearName" id="unclearName">
-											<LABEL for=radio3>模糊</LABEL>										</TD>
+											<LABEL for=radio3>模糊</LABEL>										
+										</TD>
 										<TD height=25 align="right" valign="top" nowrap class=body>
                                          <INPUT type=radio value=2 name="clearName" id="clearName">
-											 <LABEL for=radio4>精确</LABEL>										</TD>
+											 <LABEL for=radio4>精确</LABEL>										
+										</TD>
                                         <TD width="20%" height=25 align="right" valign="center" nowrap class=body>
-										      出版社名称：										                                       </TD>
-                                       <TD height=25 align="left" valign="center" nowrap class=body width="50">										                                          
-                                       <input name="pressName" type="text" class="input2"
-												id="pressName" size="20">									   </TD>
+										      出版社名称：										                                       
+										</TD>
+                                       	<TD height=25 align="left" valign="center" nowrap class=body width="50">										                                          
+                                       		<input name="pressName" type="text" class="input2"
+												id="pressName" size="20">									   
+										</TD>
 									</TR>
                                     <TR>
 										<TD height=25 align="right" valign="top" nowrap class=body width="10%" style="padding-left:8px;">
                                             <INPUT type=radio checked="checked" name="unclearAddress" id="unclearAddress">
-											<LABEL for=radio3>模糊</LABEL>										</TD>
+											<LABEL for=radio3>模糊</LABEL>										
+										</TD>
 										<TD height=25 align="right" valign="top" nowrap class=body >
-                                         <INPUT type=radio value=2 name="clearAddress" id="clearAddress">
-											 <LABEL for=radio4>精确</LABEL>										</TD>
+                                         	<INPUT type=radio value=2 name="clearAddress" id="clearAddress">
+											 <LABEL for=radio4>精确</LABEL>										
+										</TD>
                                         <TD width="20%" height=25 align="right" valign="center" nowrap class=body>
-										     出版社地：										                                       </TD>
-                                       <TD height=25 align="left" valign="center" nowrap class=body>										                                          
-                                       <input name="pressAddress" type="text" class="input2"
-												id="pressAddress" size="20">									   </TD>
+										     出版社地：										                                       
+										</TD>
+                                       	<TD height=25 align="left" valign="center" nowrap class=body>										                                          
+                                       		<input name="pressAddress" type="text" class="input2"
+												id="pressAddress" size="20">									   
+										</TD>
 									</TR>
 								</TABLE>
 							</td>
