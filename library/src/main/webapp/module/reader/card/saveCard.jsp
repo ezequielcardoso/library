@@ -53,12 +53,9 @@
 									cellspacing="0">
 									<tr>
 										<td height="30" class="body1">
-											&nbsp;
 											<input type="button" class="btn"
 												onClick="window.location='cardList.html'" value="修 改">
-											&nbsp;
 											<input type="button" class="btn" onClick="" value="重 置">
-											&nbsp;
 											<input type="button" class="btn"
 												onClick="window.history.back(-1);" value="返 回">
 										</td>
@@ -214,19 +211,6 @@
 																启用
 															</option>
 														</select>
-													</td>
-												</tr>
-												<tr
-													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
-													onMouseOut="this.style.backgroundColor='';">
-													<td width="15%" height="30" align="right" nowrap
-														bgcolor="#F4F5F9">
-														选择图片：
-													</td>
-													<td width="35%" height="30" align="left" nowrap
-														bgcolor="#F4F5F9">
-														<img src="<%=path %>/images/module/pc001.png">
-														<input name="readerPic" type="file" class="text1" size="25">
 													</td>
 												</tr>
 												<tr onMouseOver=this.style.backgroundColor='#eff1f4'; return true; 
