@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.huan.library.domain.model.reader.ReaderCard;
 import com.huan.library.domain.service.ReaderCardService;
 import com.huan.library.infrastructure.persistence.ReaderCardDao;
+import com.huan.library.web.view.ReaderCardView;
 
 /**
  * 读者借阅证service实现
@@ -33,7 +34,7 @@ public class ReaderCardServiceImpl implements ReaderCardService {
 			readerCardCopy = readerCardDao.saveOrUpdate(readerCard);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			throw new Exception(e);
 		}
 		return readerCardCopy;
 	}
@@ -42,7 +43,8 @@ public class ReaderCardServiceImpl implements ReaderCardService {
 		try {
 			readerCardDao.delete(readerCard);
 		} catch (Exception e) {
-		   e.printStackTrace();
+			e.printStackTrace();
+			throw new Exception(e);
 		}
 	}
 
@@ -51,19 +53,20 @@ public class ReaderCardServiceImpl implements ReaderCardService {
 		try {
 			readerCard = readerCardDao.selectById(readerCardId);
 		} catch (Exception e) {
-		  e.printStackTrace();
-		  return null;
+			e.printStackTrace();
+			throw new Exception(e);
 		}
 		return readerCard;
 	}
 
-	public List<ReaderCard> findAllReaderCards() throws Exception {
+	public List<ReaderCard> findReaderCards(ReaderCardView readerCardView)
+			throws Exception {
 		List<ReaderCard> readerCards = new ArrayList<ReaderCard>();
 		try {
-			readerCards = readerCardDao.selectMaxTs();	
+			readerCards = readerCardDao.selectReaderCards(readerCardView);
 		} catch (Exception e) {
-		    e.printStackTrace();
-		    return null;
+			e.printStackTrace();
+			throw new Exception(e);
 		}
 		return readerCards;
 	}

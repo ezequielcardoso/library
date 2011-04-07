@@ -3,6 +3,7 @@ package com.huan.library.domain.service;
 import java.util.List;
 
 import com.huan.library.domain.model.reader.ReaderCard;
+import com.huan.library.web.view.ReaderCardView;
 
 /**
  * 读者借阅证service
@@ -34,10 +35,11 @@ public interface ReaderCardService {
 	
 	/**
 	 * 查找所有的ReaderCard
+	 * @param readerCardView
 	 * @return
 	 * @throws Exception
 	 */
-	public List<ReaderCard> findAllReaderCards() throws Exception;
+	public List<ReaderCard> findReaderCards(ReaderCardView readerCardView) throws Exception;
 
    
 }

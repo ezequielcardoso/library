@@ -12,12 +12,27 @@
 		    <result name="success">/module/reader/readerCategory.jsp</result>
 		</action>
 		
+		<!-- 读者类型 -->
 		<action name="findReaderTypes" class="com.huan.library.web.action.ReaderTypeAction" method="findReaderTypes">
 		   <result name="success" type="json">
 		     <param name="root">extGridLoad</param>
 		   </result>
 		</action>
 		
+        <!-- 借阅证 -->
+        <action name="readerCardMain" class="com.huan.library.web.action.ReaderCardAction" method="readerCardMain">
+           <result name="success">/module/reader/card/cardList.jsp</result>
+        </action>
+        
+        <action name="findReaderCards" class="com.huan.library.web.action.ReaderCardAction" method="findReaderCards">
+           <result name="success" type="json">
+             <param name="root">extGridLoad</param>
+           </result>
+        </action>
+        
+        <action name="showSaveReaderCard" class="com.huan.library.web.action.ReaderCardAction" method="showSaveReaderCard">
+           <result name="success">/module/reader/card/saveCard.jsp</result>
+        </action>
           
     </package>
     
