@@ -28,9 +28,14 @@ public class ReaderCardView extends ExtGridPost implements Serializable {
 	private String readerCardDesc; //描述
 	private String cardState = Constants.COMMON;    //借阅证状态
 	
-	private String readerId;         
-	private String readerName;      //读者  
+	private Long readerId;         //读者
+	private String readerName;     
+	private Long readerUnitsId;    //读者单位
+	private String readerUnitsName;  
 	
+	public ReaderCardView(){
+		super();
+	}
 	public Long getId() {
 		return id;
 	}
@@ -85,10 +90,11 @@ public class ReaderCardView extends ExtGridPost implements Serializable {
 	public void setCardState(String cardState) {
 		this.cardState = cardState;
 	}
-	public String getReaderId() {
+    
+	public Long getReaderId() {
 		return readerId;
 	}
-	public void setReaderId(String readerId) {
+	public void setReaderId(Long readerId) {
 		this.readerId = readerId;
 	}
 	public String getReaderName() {
@@ -97,7 +103,17 @@ public class ReaderCardView extends ExtGridPost implements Serializable {
 	public void setReaderName(String readerName) {
 		this.readerName = readerName;
 	}
-
 	
-
+	public String getReaderUnitsName() {
+		return readerUnitsName;
+	}
+	public void setReaderUnitsName(String readerUnitsName) {
+		this.readerUnitsName = readerUnitsName;
+	}
+	public Long getReaderUnitsId() {
+		return readerUnitsId;
+	}
+	public void setReaderUnitsId(Long readerUnitsId) {
+		this.readerUnitsId = readerUnitsId;
+	}
 }

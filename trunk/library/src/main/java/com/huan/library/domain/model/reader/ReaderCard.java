@@ -41,8 +41,34 @@ public class ReaderCard implements Serializable{
 	private Reader reader;         //读者
 	
 	
-	public ReaderCard(){
+	
+	
+	public ReaderCard(Long id, String readerCardCode, String password,
+			String barCode, Date entyDate, Date effectiveDate,
+			String readerPic, String readerCardDesc, String cardState,
+			Long readerId,String readerName,Long readerUnitsId,String readerUnitsName) {
+		this.id = id;
+		this.readerCardCode = readerCardCode;
+		this.password = password;
+		this.barCode = barCode;
+		this.entyDate = entyDate;
+		this.effectiveDate = effectiveDate;
+		this.readerPic = readerPic;
+		this.readerCardDesc = readerCardDesc;
+		this.cardState = cardState;
+	    
+		ReaderUnits readerUnits = new ReaderUnits();
+		readerUnits.setUnitId(readerUnitsId);
+		readerUnits.setUnitName(readerUnitsName);
+		Reader reader = new Reader();
+		reader.setId(readerId);
+		reader.setReaderName(readerName);
+		reader.setReaderUnits(readerUnits);
+		this.setReader(reader);
 		
+	}
+	public ReaderCard(){
+		super();
 	}
 	public Long getId() {
 		return id;

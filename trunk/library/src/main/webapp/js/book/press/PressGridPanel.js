@@ -165,28 +165,28 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			e.record.commit();
 			var thiz = this;
 			Ext.Ajax.request({
-				url : contextPath + '/book/savePress.action',
-				method : 'POST',
-				params : {
-					'press.pressId' : e.record.get('pressId'),
-					'press.pressISBN' : e.record.get('pressISBN'),
-					'press.pressName' : e.record.get('pressName'),
-					'press.pressAddress' : e.record.get('pressAddress'),
-					'press.zipCode' : e.record.get('zipCode')
-				},
-				success : function(resp) {
-					var obj = Ext.util.JSON.decode(resp.responseText);
-					if (obj.success == true) {
-						Ext.Msg.alert('提示', obj.msg);
-						thiz.getStore().reload();
-					} else if (obj.success == false) {
-						Ext.Msg.alert('提示', obj.msg);
-					}
-				},
-				failure : function() {
-					Ext.Msg.alert('提示', '服务器异常，请稍候再试');
-				}
-			});
+						url : contextPath + '/book/savePress.action',
+						method : 'POST',
+						params : {
+							'press.pressId' : e.record.get('pressId'),
+							'press.pressISBN' : e.record.get('pressISBN'),
+							'press.pressName' : e.record.get('pressName'),
+							'press.pressAddress' : e.record.get('pressAddress'),
+							'press.zipCode' : e.record.get('zipCode')
+						},
+						success : function(resp) {
+							var obj = Ext.util.JSON.decode(resp.responseText);
+							if (obj.success == true) {
+								Ext.Msg.alert('提示', obj.msg);
+								thiz.getStore().reload();
+							} else if (obj.success == false) {
+								Ext.Msg.alert('提示', obj.msg);
+							}
+						},
+						failure : function() {
+							Ext.Msg.alert('提示', '服务器异常，请稍候再试');
+						}
+					});
 		}, this);
 	},
 	onQuery : function() {
@@ -194,6 +194,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	},
 
 	onMOdify : function() {
+
+		Ext.Msg.alert('提示', '请选中行并直接编缉！');
+
 	},
 
 	onDelete : function() {
@@ -208,26 +211,31 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								var pressId = record.get('pressId');
 								var thiz = this;
 								Ext.Ajax.request({
-									url : contextPath
-											+ '/book/deletePress.action',
-									method : 'POST',
-									params : {
-										'pressView.pressId' : pressId
-									},
-									success : function(resp) {
-										var respText = resp.responseText;
-										var obj = Ext.util.JSON.decode(respText);
-										if (obj.success == true) {
-											Ext.Msg.alert('提示',obj.msg);
-											thiz.getStore().reload();
-										} else {
-											Ext.Msg.alert('提示',obj.msg);
-										}
-									},
-									failure : function() {
-										Ext.Msg.alert('服务器异常');
-									}
-								});
+											url : contextPath
+													+ '/book/deletePress.action',
+											method : 'POST',
+											params : {
+												'pressView.pressId' : pressId
+											},
+											success : function(resp) {
+												var respText = resp.responseText;
+												var obj = Ext.util.JSON
+														.decode(respText);
+												if (obj.success == true) {
+													Ext.Msg
+															.alert('提示',
+																	obj.msg);
+													thiz.getStore().reload();
+												} else {
+													Ext.Msg
+															.alert('提示',
+																	obj.msg);
+												}
+											},
+											failure : function() {
+												Ext.Msg.alert('服务器异常');
+											}
+										});
 							}
 						} else {
 							return false;
@@ -259,6 +267,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	},
 	onPrint : function() {
 
+	},
+	loadPressForm : function() {
+		Ext.get('press.pressId').setValue(record.pressId);
 	}
 
 });

@@ -33,6 +33,9 @@ public class ReaderCardAction extends BaseActionSupport {
 	private ExtJsonForm extJsonForm = new ExtJsonForm();
 	private ExtGridLoad extGridLoad = new ExtGridLoad();
 
+	private Integer start;
+	private Integer limit;
+	
 	/**
 	 * 显示主页面
 	 * @return
@@ -47,7 +50,11 @@ public class ReaderCardAction extends BaseActionSupport {
 	 */
 	public String findReaderCards(){
 		try {
-			
+			readerCardView.setStart(start);
+			readerCardView.setLimit(limit);
+			List<ReaderCard> readerCards = readerCardService.findReaderCards(readerCardView);
+			extGridLoad.setRoot(this.convertToView(readerCards));
+			extGridLoad.setTotalProperty(readerCardView.getTotalCount());
 		} catch (Exception e) {
 		   e.printStackTrace();
 		   return Action.ERROR;
@@ -60,7 +67,7 @@ public class ReaderCardAction extends BaseActionSupport {
 	 * @return
 	 */
 	public String showSaveReaderCard() {
-		return "showSaveReaderCard";
+		return Action.SUCCESS;
 	}
 
 	/**
@@ -123,26 +130,42 @@ public class ReaderCardAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-	/**
-	 * 查找读者借阅证
-	 * @return
-	 */
-	public String findAllReaderCards() {
-		List<ReaderCard> readerCards = new ArrayList<ReaderCard>();
-		try {
-			readerCards = readerCardService.findAllReaderCards();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
-	
 	public List<ReaderCardView> convertToView(List<ReaderCard> readerCards){
 		List<ReaderCardView> readerCardViews = new ArrayList<ReaderCardView>();
 		for(ReaderCard readerCard:readerCards){
 			ReaderCardView readerCardView = new ReaderCardView();
 			readerCardView.setId(readerCard.getId());
+			if(readerCard.getReaderCardCode()!=null){
+				readerCardView.setReaderCardCode(readerCard.getReaderCardCode());
+			}
+			if(readerCard.getPassword()!=null){
+				readerCardView.setPassword(readerCard.getPassword());
+			}
+			if(readerCard.getBarCode()!=null){
+				readerCardView.setBarCode(readerCard.getBarCode());
+			}
+			if(readerCard.getEntyDate()!=null){
+				readerCardView.setEntyDate(readerCard.getEntyDate());
+			}
+			if(readerCard.getEffectiveDate()!=null){
+				readerCardView.setEffectiveDate(readerCard.getEffectiveDate());
+			}
+			if(readerCard.getReaderPic()!=null){
+				readerCardView.setReaderPic(readerCard.getReaderPic());
+			}
+			if(readerCard.getReaderCardDesc()!=null){
+				readerCardView.setReaderCardDesc(readerCard.getReaderCardDesc());
+			}
+			if(readerCard.getCardState()!=null){
+				readerCardView.setCardState(readerCard.getCardState());
+			}
+			if(readerCard.getReader()!=null){
+				readerCardView.setReaderId(readerCard.getReader().getId());
+				readerCardView.setReaderName(readerCard.getReader().getReaderName());
+				readerCardView.setReaderUnitsId(readerCard.getReader().getReaderUnits().getUnitId());
+				readerCardView.setReaderUnitsName(readerCard.getReader().getReaderUnits().getUnitName());
+			}
+			readerCardViews.add(readerCardView);
 		}
 		return readerCardViews;
 	}
@@ -182,6 +205,22 @@ public class ReaderCardAction extends BaseActionSupport {
 	public void setExtGridLoad(ExtGridLoad extGridLoad) {
 		this.extGridLoad = extGridLoad;
 	}
-    
 
+	public Integer getStart() {
+		return start;
+	}
+
+	public void setStart(Integer start) {
+		this.start = start;
+	}
+
+	public Integer getLimit() {
+		return limit;
+	}
+
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+    
+   
 }
