@@ -197,9 +197,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var pressName = Ext.get('pressName').getValue();
 		var pressAddress = Ext.get('pressAddress').getValue();
 		this.getStore().baseParams = {
-			"press.pressISBN" : pressISBN,
-			"press.pressName" : pressName,
-			"press.pressAddress" : pressAddress
+			"pressISBN" : pressISBN,
+			"pressName" : pressName,
+			"pressAddress" : pressAddress
 		};
 		this.getStore().load({
 			params : {
