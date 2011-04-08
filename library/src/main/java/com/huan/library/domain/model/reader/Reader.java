@@ -53,10 +53,16 @@ public class Reader implements Serializable {
 	@JoinColumn(name = "readerType")
 	private ReaderType readerType; // 读者类别
 	
-	@OneToOne(fetch = FetchType.LAZY,cascade={CascadeType.MERGE,CascadeType.REMOVE}
-	  ,targetEntity=ReaderCard.class)
-	@JoinColumn(name = "readerCard")
-	private ReaderCard readerCard; // 借阅证
+	private String cardNo; //借阅证号
+	private String password;       //密码
+	private String barCode;        //条形码
+	private Date entyDate;         //办证日期
+	private Date effectiveDate;    //有效日期
+	private String readerPic;      //头像
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.MERGE})
+	@JoinColumn(name = "CardState")
+	private CardState cardState;    //借阅证状态
 
 	public Reader() {
 
@@ -166,12 +172,61 @@ public class Reader implements Serializable {
 		this.readerType = readerType;
 	}
 
-	public ReaderCard getReaderCard() {
-		return readerCard;
+	public String getCardNo() {
+		return cardNo;
 	}
 
-	public void setReaderCard(ReaderCard readerCard) {
-		this.readerCard = readerCard;
+	public void setCardNo(String cardNo) {
+		this.cardNo = cardNo;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getBarCode() {
+		return barCode;
+	}
+
+	public void setBarCode(String barCode) {
+		this.barCode = barCode;
+	}
+
+	public Date getEntyDate() {
+		return entyDate;
+	}
+
+	public void setEntyDate(Date entyDate) {
+		this.entyDate = entyDate;
+	}
+
+	public Date getEffectiveDate() {
+		return effectiveDate;
+	}
+
+	public void setEffectiveDate(Date effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
+
+	public String getReaderPic() {
+		return readerPic;
+	}
+
+	public void setReaderPic(String readerPic) {
+		this.readerPic = readerPic;
+	}
+
+	public CardState getCardState() {
+		return cardState;
+	}
+
+	public void setCardState(CardState cardState) {
+		this.cardState = cardState;
+	}
+
 
 }

@@ -12,4 +12,3 @@ Ext.onReady(function(){
 						});
 	
 });
-

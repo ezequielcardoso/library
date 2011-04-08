@@ -9,26 +9,31 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		// 列表工具条
 		var tbar = new Ext.Toolbar({
 			items : [{
-				text : '查询',
-				buttonAlign:'left',
-				handler : function() {
-					
-				}
-			},'-', {
 				text : '增加',
-				buttonAlign:'left',
 				handler : function() {
 					
 				}
 			},'-', {
-				text : '修改',
-				buttonAlign:'left',
+				text : '删除',
 				handler : function() {
 					
 				}
-			},'-',  {
-				text : '删除',
-				buttonAlign:'left',
+			},'-', {
+				xtype : 'label',
+				text : '姓名：'
+			}, {
+				xtype : 'textfield',
+				width : 100,
+				id : 'query_userName'
+			}, '-', {
+				xtype : 'label',
+				text : '账号：'
+			}, {
+				xtype : 'textfield',
+				width : 100,
+				id : 'query_userAccount'
+			}, '-', {
+				text : '查询',
 				handler : function() {
 					
 				}
