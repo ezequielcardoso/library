@@ -14,7 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.huan.library.domain.model.book.Book;
-import com.huan.library.domain.model.reader.ReaderCard;
+import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.model.rights.User;
 /**
  * 借阅归还
@@ -45,9 +45,9 @@ public class BorrowReturn implements Serializable{
     @JoinColumn(name="books")
     private List<Book> books = new ArrayList<Book>();   //图书
     
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=ReaderCard.class)
-    @JoinColumn(name="readerCard")
-    private ReaderCard readerCard;     //借阅证
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class)
+    @JoinColumn(name="reader")
+    private Reader reader;     //借阅证
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=User.class)
@@ -130,12 +130,12 @@ public class BorrowReturn implements Serializable{
 		this.books = books;
 	}
 
-	public ReaderCard getReaderCard() {
-		return readerCard;
+	public Reader getReader() {
+		return reader;
 	}
 
-	public void setReaderCard(ReaderCard readerCard) {
-		this.readerCard = readerCard;
+	public void setReader(Reader reader) {
+		this.reader = reader;
 	}
 
 	public User getOperator() {

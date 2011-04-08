@@ -10,7 +10,6 @@ import org.junit.Test;
 import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
-import com.huan.library.domain.model.reader.ReaderCard;
 
 /**
  * ΩË‘ƒπÈªπdao≤‚ ‘
@@ -21,26 +20,18 @@ import com.huan.library.domain.model.reader.ReaderCard;
 public class BorrowReturnInitTest {
 
 	private static BorrowReturnDao borrowReturnDao;
-	private static ReaderCardDao readerCardDao;
 	private static BookDao bookDao;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		borrowReturnDao = (BorrowReturnDao) BaseSpringBeans.getInstance()
 				.getBean("borrowReturnDao");
-		readerCardDao = (ReaderCardDao) BaseSpringBeans.getInstance().getBean(
-				"readerCardDao");
 		bookDao = (BookDao) BaseSpringBeans.getInstance().getBean("bookDao");
 	}
     @Test
 	public void testBorrow() {
 		try {
 			BorrowReturn borrowReturn = new BorrowReturn();
-
-			// ΩË‘ƒ÷§
-			ReaderCard readerCard = readerCardDao.selectById(1);
-			borrowReturn.setReaderCard(readerCard);
-			System.out.println(readerCard.getPassword());
 
 			// Õº È
 			List<Book> books = new ArrayList<Book>();

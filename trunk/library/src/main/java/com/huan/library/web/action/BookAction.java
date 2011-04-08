@@ -182,6 +182,7 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String saveBook() {
 		try {
+			this.formatBook(book);
 			book = bookService.addOrModifyBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("新增成功！");
@@ -323,6 +324,19 @@ public class BookAction extends BaseActionSupport {
 			views.add(view);
 		}
 		return views;
+	}
+	
+	public void formatBook(Book book){
+		book.setAttachments(null);
+		book.setBookLevel((book.getBookLevel()!=null && book.getBookLevel().getItemId()!=null)? book.getBookLevel() : null);
+		book.setBookSecurity((book.getBookSecurity()!=null && book.getBookSecurity().getItemId()!=null)? book.getBookSecurity() : null);
+		book.setBookSource((book.getBookSource()!=null && book.getBookSource().getItemId()!=null)? book.getBookSource() : null);
+		book.setBookState((book.getBookState()!=null && book.getBookState().getItemId()!=null)? book.getBookState() : null);
+		book.setPress((book.getPress()!=null && book.getPress().getPressId()!=null)? book.getPress() : null);
+		book.setCurrency((book.getCurrency()!=null && book.getCurrency().getItemId()!=null)? book.getCurrency() : null);
+		book.setFirstCategory((book.getFirstCategory()!=null && book.getFirstCategory().getItemId()!=null)? book.getFirstCategory() : null);
+		book.setSecondCategory((book.getSecondCategory()!=null && book.getSecondCategory().getItemId()!=null)? book.getSecondCategory() : null);
+		book.setThirdCategory((book.getThirdCategory()!=null && book.getThirdCategory().getItemId()!=null)? book.getThirdCategory() : null);
 	}
 
 	public BookService getBookService() {
