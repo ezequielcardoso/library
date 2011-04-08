@@ -16,32 +16,32 @@ public interface FunctionService {
 	 * @param func
 	 * @return
 	 */
-	public boolean addOrModifyFunction(Function func) throws Exception;
+	public Function save(Function func) throws Exception;
 	
 	/**
 	 * 根据funcId 删除Function
 	 * @param func
 	 * @return
 	 */
-	public boolean removeFunction(Function func) throws Exception;
+	public void remove(Function func) throws Exception;
 	
 	/**
 	 * 根据funcId 查找Function
 	 * @param funcId
 	 * @return
 	 */
-	public Function loadFunctionById(String funcId) throws Exception;
+	public Function getById(String funcId) throws Exception;
 	
 	/**
 	 * 根据roleId查找所有的Function
 	 * @param roleId
 	 * @return
 	 */
-	public List<Function> findFunctionsByRoleId(String roleId) throws Exception;
+	public List<Function> findByRoleId(String roleId) throws Exception;
 	
 	/**
 	 * 查找模块菜单的Function
 	 * @return
 	 */
-	public List<Function> findModuleFunctions() throws Exception;
+	public List<Function> findModules() throws Exception;
 }

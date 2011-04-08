@@ -21,9 +21,9 @@ public class FunctionServiceTest {
 	}
    
     @Test 
-    public void testFindModuleFunctions(){
+    public void testFindModules(){
     	try {
-    		functionService.findModuleFunctions();
+    		functionService.findModules();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

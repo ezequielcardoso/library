@@ -1,24 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link href="../../../css/style.css" type="text/css" rel="stylesheet" />
+		<%@include file="/common/common.jsp"%>
+		<%@include file="/common/extInclude.jsp"%>
 		<title>广州市自来水综合业务管理平台</title>
 
-		<link rel="stylesheet" type="text/css" href="../../../common/extjs3.2/resources/css/ext-all.css" />
-		<script type="text/javascript" src="../../../common/extjs3.2/adapter/ext/ext-base.js"></script>
-		<script type="text/javascript" src="../../../common/extjs3.2/ext-all.js"></script>
-		<script type="text/javascript" src="../../../js/rights/user/UserGridPanel.js"></script>
-		<script type="text/javascript" src="../../../js/rights/user/RoleCheckedGridPanel.js"></script>
-		<script type="text/javascript" src="../../../js/rights/user/User.js"></script>
-		
+
 	</head>
 	<body bgcolor="#dbecff">
+
 		<table width="100%" height="100%" border="0" cellpadding="0"
 			cellspacing="0" bgcolor="#dbecff">
 			<tr>
-				<td height="4" background="../../../images/module/bodybg.jpg"></td>
+				<td height="4" background="<%=path %>/images/module/bodybg.jpg"></td>
 			</tr>
 			<tr>
 				<td valign="top">
@@ -29,12 +26,12 @@
 									cellspacing="0" class="title_border">
 									<tr>
 										<td width="19%" height="25" style="text-align: left">
-											<strong>&nbsp;<img src="../../../images/module/cl0.gif"
-													align="absmiddle"><span class="body1" style="text-align: left">系统权限 </span></strong>										</td>
+											<strong>&nbsp;<img src="<%=path %>/images/module/cl0.gif"
+													align="absmiddle"><span class="body1" style="text-align: left">系统权限</span></strong>										</td>
 								  <td width="81%" height="25" class=body1
 											style="text-align: left">
-											<img src="../../../images/module/02a.gif">
-												系统权限 &gt;&gt;用户管理
+											<img src="<%=path %>/images/module/02a.gif">
+												系统权限 &gt;&gt;部门管理
 										</td>
 									</tr>
 								</table>
@@ -62,14 +59,14 @@
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
 										<td width="189" height="25"
-											background="../../../images/module/titleb_01.jpg" class="title1">
-											用户角色列表¨
+											background="<%=path %>/images/module/titleb_01.jpg" class="title1">
+											部门管理¨
 										</td>
-										<td background="../../../images/module/titleb_02.jpg">&nbsp;
+										<td background="<%=path %>/images/module/titleb_02.jpg">&nbsp;
 											
 										</td>
 										<td width="213" align="right"
-											background="../../../images/module/titleb_03.jpg"
+											background="<%=path %>/images/module/titleb_03.jpg"
 											style="padding-bottom: 10px">
 											&nbsp;&nbsp;
 										</td>
@@ -79,27 +76,30 @@
 						</tr>
 						<tr>
 							<td valign="top">
-								<table width="99%" height="600" border="0" align="left"
-									cellpadding="0" cellspacing="0">
+								<table width="98%" border="1" align="center" cellpadding="0"
+									cellspacing="0" bordercolor="#bcc3c9"
+									bordercolorlight="#bcc3c9" bordercolordark="#ffffff"
+									bgcolor="#FFFFFF" style="margin-top: 5px">
 									<tr>
-										<td width="500" height="500" align="left" valign="top">
-											<div id="userGrid">
+										<td width="280" height="500" align="left" valign="top">
+											<div id="dictTypeList">
 											</div>
 										</td>
-										<td width="300" height="500" align="left" valign="top">
-											<div id="roleCheckedGrid">
+										<td width="280" height="500" align="left" valign="top">
+											<div id="dictTree">
+											</div>
+										</td>
+										<td width="280" height="500" align="left" valign="top">
+											<div id="dictForm">
 											</div>
 										</td>
 									</tr>
 								</table>
-							</td>
+						  </td>
 						</tr>
 					</table>
-					
 				</td>
 			</tr>
 		</table>
-		
-
 	</body>
 </html>

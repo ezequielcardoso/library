@@ -24,7 +24,7 @@ import com.huan.library.infrastructure.persistence.FunctionDao;
 public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 		FunctionDao {
 
-	public List<Function> selectFunctionsByRoleId(String roleId) {
+	public List<Function> selectByRoleId(String roleId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -58,7 +58,7 @@ public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 		}
 	}
 
-	public List<Function> selectModuleFunctions() throws Exception {
+	public List<Function> selectModules() throws Exception {
 		List<Function> funcs = new ArrayList<Function>();
 		try{
 			StringBuilder hql = new StringBuilder();

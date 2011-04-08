@@ -12,37 +12,23 @@ import com.huan.library.domain.model.rights.Role;
 public interface RoleDao {
 
 	/**
-	 * 增加或者修改角色
-	 * @param role
-	 * @return
-	 */
-	public boolean saveOrUpdateRole(Role role);
-	
-	/**
-	 * 根据roleId删除角色
-	 * @param role
-	 * @return
-	 */
-	public boolean deleteRole(Role role);
-	
-	/**
 	 * 根据userId查找所有的角色
 	 * @param userId
 	 * @return
 	 */
-	public List<Role> selectRolesByUserId(String userId);
+	public List<Role> selectByUserId(String userId) throws Exception ;
 	
 	/**
 	 * 根据roleId查找角色
 	 * @param roleId
 	 * @return
 	 */
-	public Role selectRoleById(String roleId);
+	public Role selectById(String roleId) throws Exception ;
 	
 	/**
 	 *查找所有的角色 
 	 * @return
 	 */
-	public List<Role> selectAllRoles();
+	public List<Role> selectAllRoles() throws Exception ;
 	
 }

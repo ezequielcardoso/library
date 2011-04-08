@@ -1,6 +1,6 @@
 Ext.ns('Library.rights.grid');
 
-Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.GridPanel, {
+Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 	id : 'roleGridPanel',
 	
@@ -9,22 +9,12 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		// 列表工具条
 		var tbar = new Ext.Toolbar({
 			items : [{
-				text : '查询角色',
-				handler : function() {
-					
-				}
-			}, {
-				text : '增加角色',
-				handler : function() {
-					
-				}
-			}, {
-				text : '修改角色',
+				text : '增加',
 				handler : function() {
 					
 				}
 			},  {
-				text : '删除角色',
+				text : '删除',
 				handler : function() {
 					
 				}
@@ -42,40 +32,32 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		}];
 		
-		var rolesArr = [
-			['1', '超级管理员', 'fsffsfsfs'],
-			['2', '图书管理员', 'lifewfwfsi'],
-			['3', '图书入库员', 'wafesfewfewngwu'],
-			['4', '借阅管理员', 'zhafseffesoliu']
-		];
-		
-		var store = new Ext.data.ArrayStore({
-			data : rolesArr,
+		var store = new Ext.data.JsonStore({
+			url : 'rights/findRoles.action',
+			totalProperty : 'results',
+			root : 'rows',
+			storeInfo : {
+				field : '列名',
+				direction : 'ASC|DESC'
+			},
 			fields : fields
 		});
-		
-//		var store = new Ext.data.JsonStore({
-//			url : 'rights/findRoles.action',
-//			totalProperty : 'results',
-//			root : 'rows',
-//			storeInfo : {
-//				field : '列名',
-//				direction : 'ASC|DESC'
-//			},
-//			fields : fields
-//		});
 		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), {
 				header : '角色名',
 				dataIndex : 'roleName',
 				sortable : true,
 				width : 100,
-				align : 'center'
+				align : 'center',
+				editor : new Ext.form.TextField({
+					allowBlank : false
+				})
 			}, {
 				header : '角色描述',
 				dataIndex : 'roleDesc',
 				width : 300,
 				sortable : true,
-				align : 'center'
+				align : 'center',
+				editor : new Ext.form.TextField()
 			}
 		]);
 		
@@ -89,7 +71,6 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			store : store,
 			stripeRows : true,
 			columnLines : true,
-			frame : true,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,
 					pageSize : 20,
