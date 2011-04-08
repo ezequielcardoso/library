@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.reader.ReaderCard;
+import com.huan.library.domain.model.reader.ReaderUnits;
+import com.huan.library.domain.service.DictItemService;
 import com.huan.library.domain.service.ReaderCardService;
+import com.huan.library.web.view.DictItemView;
 import com.huan.library.web.view.ReaderCardView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
@@ -25,7 +28,7 @@ public class ReaderCardAction extends BaseActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Autowired
+	@Autowired 
 	private ReaderCardService readerCardService; // service
 	private ReaderCard readerCard = new ReaderCard();
 	private ReaderCardView readerCardView = new ReaderCardView();
@@ -35,6 +38,10 @@ public class ReaderCardAction extends BaseActionSupport {
 
 	private Integer start;
 	private Integer limit;
+	
+	@Autowired
+	private DictItemService dictItemService;
+	private List<DictItemView> dictItemViews = new ArrayList<DictItemView>();
 	
 	/**
 	 * 显示主页面
@@ -67,6 +74,11 @@ public class ReaderCardAction extends BaseActionSupport {
 	 * @return
 	 */
 	public String showSaveReaderCard() {
+		try {
+			dictItemViews = dictItemService.getDictItemByItemClass(ReaderCard.class.getName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return Action.SUCCESS;
 	}
 

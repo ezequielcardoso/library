@@ -72,6 +72,18 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 //				whereSub.append(" and b.fieldName = : fieldValue ");
 //			}
 			//.......继续拼接........
+			if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
+				whereSub.append(" and b.barCode=(:barCode) ");
+			}
+			if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
+				whereSub.append(" and b.bookName=(:bookName) ");
+			}
+			if(bookView.getLocation()!=null && !"".equals(bookView.getLocation())){
+				whereSub.append(" and b.location=(:location) ");
+			}
+			if(bookView.getBookNo()!=null && !"".equals(bookView.getBookNo())){
+				whereSub.append(" and b.bookNo=(:bookNo) ");
+			}
 			
 			hql.append(whereSub);
 			hql_.append(whereSub);//count 查询hql拼接结束
@@ -89,6 +101,18 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						Query query = session.createQuery(hqlIn_);
 						//设置查询参数
 						query.setParameter("isBook", bookView.getIsBook()==1 ? true : false);
+						if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
+							query.setParameter("barCode", bookView.getBarCode());
+						}
+						if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
+							query.setParameter("bookName", bookView.getBookName());
+						}
+						if(bookView.getLocation()!=null && !"".equals(bookView.getLocation())){
+							query.setParameter("location", bookView.getLocation());
+						}
+						if(bookView.getBookNo()!=null && !"".equals(bookView.getBookNo())){
+							query.setParameter("bookNo", bookView.getBookNo());
+						}
 					return query.list();
 				}
 				
@@ -111,6 +135,18 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						}
 //						//设置查询参数
 						query.setParameter("isBook", bookView.getIsBook()==1 ? true : false );
+						if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
+							query.setParameter("barCode", bookView.getBarCode());
+						}
+						if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
+							query.setParameter("bookName", bookView.getBookName());
+						}
+						if(bookView.getLocation()!=null && !"".equals(bookView.getLocation())){
+							query.setParameter("location", bookView.getLocation());
+						}
+						if(bookView.getBookNo()!=null && !"".equals(bookView.getBookNo())){
+							query.setParameter("bookNo", bookView.getBookNo());
+						}
 					return query.list();
 				}
 			};

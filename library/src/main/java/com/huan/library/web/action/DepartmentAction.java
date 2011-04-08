@@ -27,6 +27,7 @@ public class DepartmentAction extends BaseActionSupport {
     private Long deptId;
     private List<ExtTreeNode> deptChildrenNodes = new ArrayList<ExtTreeNode>();
     
+    
 	public String getDeptChildrenItem() {
 		try {
 			List<Department> items = departmentService.getDeptsByParentId(pid);

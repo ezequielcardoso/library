@@ -65,12 +65,16 @@ public class ReaderTypeAction extends BaseActionSupport {
 	 * @return
 	 */
 	public String saveReaderType() {
-		ReaderType readerTypeCopy = new ReaderType();
 		try {
-			readerTypeCopy = readerTypeService
-					.addOrModifyReaderType(readerType);
+			readerType = readerTypeService.addOrModifyReaderType(readerType);
+			extJsonForm.setMsg("保存成功！");
+			extJsonForm.setSuccess(true);
+			extJsonForm.setData(readerType);
 		} catch (Exception e) {
 			e.printStackTrace();
+			extJsonForm.setMsg("保存失败！");
+			extJsonForm.setSuccess(false);
+			extJsonForm.setData(null);
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
@@ -82,9 +86,17 @@ public class ReaderTypeAction extends BaseActionSupport {
 	 */
 	public String deleteReaderType() {
 		try {
+			ReaderType readerType = new ReaderType();
+			readerType.setId(readerTypeView.getId());
 			readerTypeService.removeReaderType(readerType);
+			extJsonForm.setMsg("删除成功！");
+			extJsonForm.setData(null);
+			extJsonForm.setSuccess(true);
 		} catch (Exception e) {
 			e.printStackTrace();
+			extJsonForm.setMsg("删除失败！");
+			extJsonForm.setData(null);
+			extJsonForm.setSuccess(false);
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;

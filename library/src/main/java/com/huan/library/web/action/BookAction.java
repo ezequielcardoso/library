@@ -64,6 +64,19 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String findBooks() {
 		try {
+			if(book.getBarCode()!=null&&!"".equals(book.getBarCode())){
+				bookView.setBarCode(book.getBarCode());
+			}
+			if(book.getBookName()!=null&&!"".equals(book.getBookName())){
+				bookView.setBookName(book.getBookName());
+			}
+			if(book.getLocation()!=null&&!"".equals(book.getLocation())){
+				bookView.setLocation(book.getLocation());
+			}
+			if(book.getBookNo()!=null && !"".equals(book.getBookNo())){
+				bookView.setBookNo(book.getBookNo());
+			}
+			bookView.setIsBook(1);
 			bookView.setStart(start);
 			bookView.setLimit(limit);
 			List<Book> books = bookService.findBooks(bookView);
@@ -79,14 +92,44 @@ public class BookAction extends BaseActionSupport {
 	 * 显示添加或者修改期刊
 	 */
 	public String showSaveMagazine() {
-		if(book.getBookId()!=0){
+		if(bookView.getBookId()!=null){
 			try {
-				book= bookService.findBookById(book.getBookId());
+				book = bookService.getBookById(bookView.getBookId());
+				if(book.getFirstCategory()!=null){
+					book.getFirstCategory().setChildren(null);
+					book.getFirstCategory().setParent(null);
+				}
+				if(book.getSecondCategory()!=null){
+					book.getSecondCategory().setChildren(null);
+					book.getSecondCategory().setParent(null);
+				}
+				book.setAttachments(null);
+				if(book.getBookState()!=null){
+					book.getBookState().setChildren(null);
+					book.getBookState().setParent(null);
+				}
+				if(book.getBookLevel()!=null){
+					book.getBookLevel().setChildren(null);
+					book.getBookLevel().setParent(null);
+				}
+				if(book.getBookSecurity()!=null){
+					book.getBookSecurity().setChildren(null);
+					book.getBookSecurity().setParent(null);
+				}
+				if(book.getCurrency()!=null){
+					book.getCurrency().setChildren(null);
+					book.getCurrency().setParent(null);
+				}
+				if(book.getBookSource()!=null){
+					book.getBookSource().setChildren(null);
+					book.getBookSource().setParent(null);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		return Action.SUCCESS;
+
 	}
 	
 	/**

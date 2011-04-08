@@ -23,7 +23,6 @@
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
-
 									<tr>
 										<td>
 											<table width="100%" border="0" align="center" cellpadding="0"
@@ -42,14 +41,6 @@
 											</table>
 										</td>
 									</tr>
-									<TR>
-										<TD>
-											<table width="98%" border="0" align="center" cellpadding="0"
-												cellspacing="0">
-
-											</table>
-										</TD>
-									</TR>
 								</table>
 							</td>
 						</tr>

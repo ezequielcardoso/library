@@ -5,7 +5,7 @@
 		<%@ include file="/common/common.jsp"%>
 		<%@ include file="/common/extInclude.jsp"%>
 
-		<title>广州市自来水综合业务管理平台</title>
+		<title>图书馆管理系统</title>
 	    <script type="text/javascript" src="<%=path%>/js/system/Charge.js"></script>
 	    <script type="text/javascript" src="<%=path%>/js/system/ChargeGridPanel.js"></script>
 	</head>
@@ -74,22 +74,18 @@
 									</tr>
 									<tr>
 										<td valign="top">
-
 											<table width="45%" border="1" align="center" cellpadding="0"
 												cellspacing="0" bordercolor="#bcc3c9"
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#dbecff" style="margin-top: 0px">
 
 												<tr>
-													<TD height=25 align="right" valign="center" nowrap
-														class=body width="60">
-													<div id="pressGrid"></div>
-													
+													<TD height=25 align="center" valign="top">
+													  <div id=chargeForm></div>
 													</TD>
-										
-										
+												</tr>	
+												
 											</table>
-
 										</td>
 									</tr>
 								</table>

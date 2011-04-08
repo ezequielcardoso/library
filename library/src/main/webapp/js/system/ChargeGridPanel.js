@@ -5,9 +5,9 @@ Ext.ns('Library.charge.form');
  * @class Library.charge.form.ChargeForm
  * @extends Ext.form.FormPanel
  */
-Library.charge.form.ChargeForm = new Ext.extend(Ext.form.FormPanel, {
+Library.charge.form.ChargeFormPanel = new Ext.extend(Ext.form.FormPanel, {
 
-			id : 'chargeForm',
+			id : 'chargeFormPanel',
 
 			initComponent : function() {
 
@@ -18,17 +18,6 @@ Library.charge.form.ChargeForm = new Ext.extend(Ext.form.FormPanel, {
 							labelWidth : 60,
 							frame : true,
 							buttonAlign : 'center',
-							// margins :{top:10, right:0, bottom:100, left:0},
-							marging : '0px 0px 10px 0px',
-							// tbar : [
-							// {
-							// text : '增加',
-							// iconCls : 'my-icon'
-							// }, '-', {
-							// text : '增加'
-							// }, '-', {
-							// text : '增加'
-							// }],
 							items : [{
 										marging : '0px 0px 10px 0px',
 										xtype : 'combo',
@@ -77,8 +66,7 @@ Library.charge.form.ChargeForm = new Ext.extend(Ext.form.FormPanel, {
 
 						});
 
-				Library.charge.form.ChargeForm.superclass.initComponent
-						.call(this);
+				Library.charge.form.ChargeFormPanel.superclass.initComponent.call(this);
 
 			}
 		});

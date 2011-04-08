@@ -11,7 +11,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			items : [{
 				text : '查询',
 				handler : function() {
-				}
+					this.queryBook();
+				},
+				scope:this
 			}, {
 				text : '修改',
 				handler : function() {
@@ -391,6 +393,25 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			"bookView.isBook" : 1
 		}
 		
+	},
+	
+	queryBook : function(){
+	   var barCode = Ext.get('barCode').getValue();
+	   var bookName = Ext.get('bookName').getValue();
+	   var location = Ext.get('location').getValue();
+	   var bookNo = Ext.get('bookNo').getValue();
+	   this.getStore().baseParams = {
+	       'book.barCode' : barCode,
+	       'book.bookName' : bookName,
+	       'book.location' : location,
+	       'book.bookNo' :bookNo
+	   }
+	   this.getStore().load({
+	       params : {
+				start : 0,
+				limit : BooksPageSize
+			}
+	   });
 	},
 	
 	addBook : function() {

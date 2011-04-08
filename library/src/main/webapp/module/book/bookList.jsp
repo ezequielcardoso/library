@@ -24,7 +24,6 @@
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
-
 									<tr>
 										<td>
 											<table width="100%" border="0" align="center" cellpadding="0"
@@ -53,67 +52,67 @@
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 									<TR>
 										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio CHECKED value=1 name="location">
+											<INPUT type=radio checked="checked" name="unclearBarCode" id="unclearBarCode">
 											模糊
 										</TD>
 										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="location">
+											<INPUT type=radio name="clearBarCode" id="clearBarCode">
 											精确
 										</TD>
 										<TD width="7%" height=25 align="right" nowrap class="body">
 											条形码：
 										</TD>
 										<TD width="15%" height=25 align="left" nowrap class="body">
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="15">
+											<input name="barCode" type="text" class="input2"
+												id="barCode" size="15">
 										</TD>
 										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio CHECKED value=1 name="bookNo">
+											<INPUT type=radio checked="checked" id="unclearBookName" name="unclearBookName">
 											模糊
 										</TD>
 										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="bookNo">
+											<INPUT type=radio name="clearBookName" id="clearBookName">
 											精确
 										</TD>
 										<TD width="6%" height=25 align="right" nowrap class="body">
 											书名：
 										</TD>
 										<TD width="28%" height=25 align="left" nowrap class="body">
-											<input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="15">
+											<input name="bookName" type="text" class="input2"
+												id="bookName" size="15">
 										</TD>
 										<TD width="24%" height=25 align="left" class="body"></TD>
 									</TR>
 									<TR>
 										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio CHECKED value=1 name="location">
+											<INPUT type=radio checked="checked" id="unclearLocation" name="unclearLocation">
 											模糊
 										</TD>
 										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="location">
+											<INPUT type=radio id="clearLocation" name="clearLocation">
 											精确
 										</TD>
 										<TD height=25 align="right" nowrap class="body">
 											位置：
 										</TD>
 										<TD height=25 align="left" nowrap class="body">
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="15">
+											<input name="location" type="text" class="input2"
+												id="location"size="15">
 										</TD>
 										<TD height=25 align="right" nowrap class="body">
-											<INPUT type=radio CHECKED value=1 name="bookName">
+											<INPUT type=radio checked="checked" name="unclearBookNo">
 											模糊
 										</TD>
 										<TD height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="bookName">
+											<INPUT type=radio value=2 name="clearBookNo">
 											精确
 										</TD>
 										<TD height=25 align="right" nowrap class="body">
 											编号：
 										</TD>
 										<TD height=25 align="left" class="body">
-											<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="15">
+											<input name="bookNo" type="text" class="input2"
+												id="bookNo" size="15">
 										</TD>
 									</TR>
 								</TABLE>

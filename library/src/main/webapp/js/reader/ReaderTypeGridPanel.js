@@ -17,19 +17,19 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 									}, {
 										text : '修改',
 										handler : function() {
-											// this.onMOdify();
+											 this.onModify();
 										},
 										scope : this
 									}, {
 										text : '删除',
 										handler : function() {
-											// this.onDelete();
+											 this.onDelete();
 										},
 										scope : this
 									}, {
 										text : '增加',
 										handler : function() {
-											// this.onAdd();
+											 this.onAdd();
 										},
 										scope : this
 									}, {
@@ -116,7 +116,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							type : 'int'
 						},'-', {
 							name : 'rent',
-							type : 'float'
+							type : 'int'
 						}];
 
 				var store = new Ext.data.JsonStore({
@@ -175,5 +175,108 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 
 				Library.readerType.grid.ReaderTypeGridPanel.superclass.initComponent
 						.call(this);
+						
+				this.on('afteredit',function(e){
+					e.record.commit();
+					var thiz = this;
+					Ext.Ajax.request({
+					   url : contextPath + '/reader/saveReaderType.action',
+					   method : 'POST',
+					   params : {
+					     'readerType.id' : e.record.get('id'), 
+					   	 'readerType.readerCateCode': e.record.get('readerCateCode'),
+					     'readerType.readerCateName': e.record.get('readerCateName'),
+					     'readerType.borrowDays' : e.record.get('borrowDays'),
+					     'readerType.borrowedQuantity': e.record.get('borrowedQuantity'),
+					     'readerType.rent' : e.record.get('rent')
+					   },
+					   success : function(resp){
+					     var obj = Ext.util.JSON.decode(resp.responseText);
+							if (obj.success == true) {
+								Ext.Msg.alert('提示', obj.msg);
+								e.record.set("id", obj.data.id);
+								e.record.commit();
+//								thiz.getStore().reload();
+							} else if (obj.success == false) {
+								Ext.Msg.alert('提示', obj.msg);
+							}
+					   },
+					   failure : function() {
+							Ext.Msg.alert('提示', '服务器异常，请稍候再试');
+						}
+					});
+				},this);	
+			},
+			
+			onModify : function(){
+			  Ext.Msg.alert('提示','请选中记录修改即可！');
+			},
+			
+			onDelete : function(){
+			
+				var sm = this.getSelectionModel();
+				if (sm.hasSelection()) {
+					Ext.MessageBox.confirm('提示', '你确定要删除记录吗？', function(btn,
+							text) {
+
+						if (btn == 'yes') {
+							var records = sm.getSelections();
+							for (var i = 0; i < records.length; i++) {
+								var record = records[i];
+								var id = record.get('id');
+								var thiz = this;
+								Ext.Ajax.request({
+											url : contextPath
+													+ '/reader/deleteReaderType.action',
+											method : 'POST',
+											params : {
+												'readerTypeView.id' : id
+											},
+											success : function(resp) {
+												var respText = resp.responseText;
+												var obj = Ext.util.JSON.decode(respText);
+												if (obj.success == true) {
+													Ext.Msg.alert('提示',obj.msg);
+													thiz.getStore().reload();
+												} else {
+													Ext.Msg.alert('提示',obj.msg);
+												}
+											},
+											failure : function() {
+												Ext.Msg.alert('服务器异常');
+											}
+										});
+							}
+						} else {
+							return false;
+						}
+
+					}, this);
+
+				} else {
+					Ext.Msg.alert('提示', '请选择你要删除的记录');
+				}
+
+			
+			},
+			onAdd : function(){
+			  var ReaderType = this.getStore().recordType;
+			  var rt = new ReaderType({
+			      readerCateCode : 'A1000',
+			      readerCateName : '学生',
+			      borrowDays : 30,
+			      borrowedQuantity : 5,
+			      rent : 0
+			  });
+			  this.stopEditing();
+			  this.store.insert(0,rt);
+			  this.startEditing(0,0);
 			}
 		});
+		
+		
+		
+		
+		
+		
+		

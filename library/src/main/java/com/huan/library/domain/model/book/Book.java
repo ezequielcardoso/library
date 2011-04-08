@@ -39,9 +39,9 @@ public class Book implements Serializable {
 	private String donator; //捐赠人
 	private String author ; //作者
     private String translator; //译者 
-	private String ISBN; // ISBN
+	private String ISBN; // ISBN  或 期刊的国内统一刊号
 	
-	private String ISSN; // 国内统一刊号
+	private String ISSN; // ISSN
 	private String emailNo; // 邮发代码
 	private String stage; // 第几期
 	private String allStage; // 总第几期
