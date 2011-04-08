@@ -104,7 +104,7 @@ Library.readerCard.grid.ReaderCardGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		});
 		
 		var store = new Ext.data.JsonStore({
-			url : contextPath + '/book/findBooks.action',
+			url : contextPath + '/reader/findReaderCards.action',
 			totalProperty : 'totalProperty',
 			root : 'root',
 			baseParams : {

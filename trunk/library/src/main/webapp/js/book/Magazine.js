@@ -6,8 +6,8 @@ Ext.onReady(function(){
 
 	magazineGridPanel.getStore().load({
 							params : {
-								'magazineView.start' : 0,
-								'magazineView.limit' : MagazinesPageSize
+								'start' : 0,
+								'limit' : MagazinesPageSize
 							}
 						});
 	

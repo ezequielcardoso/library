@@ -75,8 +75,7 @@
 												<tr>
 													<td width="189" height="36"
 														background="<%=path %>/images/module/titleb_01.jpg"
-														class="title1">
-														&nbsp;
+														class="title1">新增借阅证
 													</td>
 													<td background="<%=path %>/images/module/titleb_02.jpg">
 														&nbsp;
@@ -162,7 +161,7 @@
 													<td width="35%" height="30" align="left" nowrap
 														bgcolor="#F4F5F9">
 														<input type="text"
-															name="readerCard.reader.readerUnits.readerUnitsName"
+															name="readerCard.readerUnits.readerUnitsName"
 															id="readerCard.reader.readerUnits.readerUnitsName"
 															value="<s:property value='readerCard.reader.readerUnits.readerUnitsName'/>" />
 													</td>
@@ -181,6 +180,7 @@
 															value="<s:property value='readerCard.entyDate'/>"
 															onClick="WdatePicker();">
 													</td>
+												</tr>	
 												<tr
 													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
 													onMouseOut="this.style.backgroundColor='';">
@@ -205,11 +205,10 @@
 													</td>
 													<td width="35%" height="30" align="left" nowrap
 														bgcolor="#F4F5F9">
-														<select id="protype" name="protype"
-															style="border-style: solid; border-color: #bcc3c9; width: 120px">
-															<option value="A">
-																启用
-															</option>
+														<select>
+														  <s:iterator id="dictItemView" value="dictItemViews" var="dictItemView">
+														     <option value="<s:property value='key'/>"><s:property value="value"/></option> 
+														  </s:iterator>
 														</select>
 													</td>
 												</tr>

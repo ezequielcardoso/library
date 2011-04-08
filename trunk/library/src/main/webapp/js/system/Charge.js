@@ -1,7 +1,7 @@
 Ext.onReady(function(){
 
-	var gridPanel = new  Library.charge.form.ChargeForm();
+	var chargeFormPanel = new  Library.charge.form.ChargeFormPanel();
 	
-	gridPanel.render('pressGrid');
+	chargeFormPanel.render('chargeForm');
 	
 });

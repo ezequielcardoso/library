@@ -25,7 +25,7 @@ public class ReaderType implements Serializable {
 	private String readerCateName; // 类别名称
 	private Integer borrowDays; // 借阅天数
 	private Integer borrowedQuantity; // 借阅数量
-	private Float rent; // 租金
+	private Float rent =0.2f ; // 租金
 
 	public ReaderType() {
 

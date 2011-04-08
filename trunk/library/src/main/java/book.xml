@@ -11,12 +11,7 @@
 		<action name="bookMain" class="com.huan.library.web.action.BookAction" method="bookMain">
 			<result name="success">/module/book/bookList.jsp</result>
 		</action>
-		
-		<!-- 跳转到期刊主页面 -->
-		<action name="magazineMain" class="com.huan.library.web.action.BookAction" method="magazineMain">
-			<result name="success">/module/book/magazineList.jsp</result>
-		</action>
-		
+	
 		<!-- 查找图书或者期刊列表 -->
 		<action name="findBooks" class="com.huan.library.web.action.BookAction" method="findBooks">
 			<result name="success" type="json">
@@ -40,6 +35,16 @@
 				<param name="root">extJsonForm</param>
 			</result>
 		</action>
+		
+		<!-- 跳转到期刊主页面 -->
+		<action name="magazineMain" class="com.huan.library.web.action.BookAction" method="magazineMain">
+			<result name="success">/module/book/magazineList.jsp</result>
+		</action>
+		
+		<action name="showSaveMagazine" class="com.huan.library.web.action.BookAction" method="showSaveMagazine">
+		    <result name="success">/module/book/saveMagazine.jsp</result>
+		</action>
+	
 		
 		<!-- 删除图书或者期刊 -->
 		<action name="deleteBook" class="com.huan.library.web.action.BookAction" method="deleteBook">

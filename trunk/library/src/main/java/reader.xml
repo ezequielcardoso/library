@@ -12,12 +12,23 @@
 		    <result name="success">/module/reader/readerCategory.jsp</result>
 		</action>
 		
-		<!-- 读者类型 -->
 		<action name="findReaderTypes" class="com.huan.library.web.action.ReaderTypeAction" method="findReaderTypes">
 		   <result name="success" type="json">
 		     <param name="root">extGridLoad</param>
 		   </result>
 		</action>
+	 
+	    <action name="saveReaderType" class="com.huan.library.web.action.ReaderTypeAction" method="saveReaderType">
+	       <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	       </result>
+	    </action>
+	    
+	    <action name="deleteReaderType" class="com.huan.library.web.action.ReaderTypeAction" method="deleteReaderType">
+	      <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	      </result>
+	    </action>	
 		
         <!-- 借阅证 -->
         <action name="readerCardMain" class="com.huan.library.web.action.ReaderCardAction" method="readerCardMain">
