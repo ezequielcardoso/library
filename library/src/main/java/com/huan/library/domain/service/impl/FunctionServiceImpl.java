@@ -21,9 +21,9 @@ public class FunctionServiceImpl implements FunctionService {
 		this.functionDao = functionDao;
 	}
 
-	public boolean addOrModifyFunction(Function func) throws Exception {
+	public Function save(Function func) throws Exception {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	public List<Function> findAllFunctions() throws Exception {
@@ -31,25 +31,24 @@ public class FunctionServiceImpl implements FunctionService {
 		return null;
 	}
 
-	public List<Function> findFunctionsByRoleId(String roleId) throws Exception {
+	public List<Function> findByRoleId(String roleId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Function loadFunctionById(String funcId) throws Exception {
+	public Function getById(String funcId) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public boolean removeFunction(Function func) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public void remove(Function func) throws Exception {
+		// v Auto-generated method stub
 	}
 
-	public List<Function> findModuleFunctions() throws Exception {
+	public List<Function> findModules() throws Exception {
 		List<Function> funcs = new ArrayList<Function>();
 		try {
-			List<Function> functions = functionDao.selectModuleFunctions();
+			List<Function> functions = functionDao.selectModules();
 			for(Function func : functions){
 				if(func.getLevel()==1){
 					funcs.add(func);

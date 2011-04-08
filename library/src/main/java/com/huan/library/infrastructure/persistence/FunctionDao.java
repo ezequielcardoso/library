@@ -15,7 +15,7 @@ public interface FunctionDao extends BaseDao<Function>{
 	 * @param roleId
 	 * @return
 	 */
-	public List<Function> selectFunctionsByRoleId(String roleId) throws Exception;
+	public List<Function> selectByRoleId(String roleId) throws Exception;
 	
 	/**
 	 * 批量增加
@@ -28,6 +28,6 @@ public interface FunctionDao extends BaseDao<Function>{
 	 * 查找leve为1和2的所有功能
 	 * @return
 	 */
-	public List<Function> selectModuleFunctions() throws Exception;
+	public List<Function> selectModules() throws Exception;
 
 }

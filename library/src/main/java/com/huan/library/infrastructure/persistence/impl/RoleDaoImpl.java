@@ -16,28 +16,15 @@ import com.huan.library.infrastructure.persistence.generic.HibernateDaoSupportBe
 @Repository("roleDao")
 public class RoleDaoImpl extends HibernateDaoSupportBean implements RoleDao {
 
-	public boolean deleteRole(Role role) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean saveOrUpdateRole(Role role) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public List<Role> selectAllRoles() {
-		// TODO Auto-generated method stub
+	public List<Role> selectAllRoles() throws Exception  {
 		return null;
 	}
 
-	public Role selectRoleById(String roleId) {
-		// TODO Auto-generated method stub
+	public Role selectById(String roleId) throws Exception  {
 		return null;
 	}
 
-	public List<Role> selectRolesByUserId(String userId) {
-		// TODO Auto-generated method stub
+	public List<Role> selectByUserId(String userId) throws Exception  {
 		return null;
 	}
 

@@ -24,7 +24,7 @@ public class FunctionAction extends BaseActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private List<Function> moduleFunctions = new ArrayList<Function>();
+	private List<Function> modules = new ArrayList<Function>();
 	
 	@Autowired
 	private FunctionService functionService ;
@@ -33,13 +33,6 @@ public class FunctionAction extends BaseActionSupport {
 		this.functionService = functionService;
 	}
 
-	public List<Function> getModuleFunctions() {
-		return moduleFunctions;
-	}
-
-	public void setModuleFunctions(List<Function> moduleFunctions) {
-		this.moduleFunctions = moduleFunctions;
-	}
 
 	/**
 	 * 查找系统模块功能
@@ -48,11 +41,21 @@ public class FunctionAction extends BaseActionSupport {
 	 */
 	public String findModuleFunctions() {
 		try {
-			moduleFunctions = functionService.findModuleFunctions();
+			modules = functionService.findModules();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
+
+	public List<Function> getModules() {
+		return modules;
+	}
+
+	public void setModules(List<Function> modules) {
+		this.modules = modules;
+	}
+	
+	
 }
