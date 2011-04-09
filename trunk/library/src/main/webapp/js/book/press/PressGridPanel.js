@@ -249,7 +249,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 												}
 											},
 											failure : function() {
-												Ext.Msg.alert('服务器异常');
+												Ext.Msg.alert('提示', '服务器异常');
 											}
 										});
 							}
@@ -266,10 +266,10 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	onAdd : function() {
 		var Press = this.getStore().recordType;
 		var p = new Press({
-					pressISBN : 'A-23455',
-					pressName : '电子工业出版社',
-					pressAddress : '武汉协会',
-					zipCode : '121212'
+					pressISBN : '',
+					pressName : '',
+					pressAddress : '',
+					zipCode : ''
 				});
 		this.stopEditing();
 		this.store.insert(0, p);

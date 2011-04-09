@@ -165,15 +165,11 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		
 	},
 	
-	addRole : function() {
+	onAdd : function() {
 		
 	},
 	
-	updateRole : function(){
-	
-	},
-	
-	deleteRole : function() {
+	onRemove : function() {
 		
 	}
 	

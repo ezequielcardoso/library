@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="<%=path %>/js/tree/BaseTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/tree/BaseCheckTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/rights/role/RoleGridPanel.js"></script>
-		<script type="text/javascript" src="<%=path %>/js/rights/role/FunctionCheckedTreePanel.js"></script>
+		<script type="text/javascript" src="<%=path %>/js/rights/role/FunctionCheckTreePanel.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/rights/role/Role.js"></script>
 		
 	</head>
