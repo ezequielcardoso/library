@@ -9,8 +9,9 @@
 	<title>图书馆管理系统</title>
 
 <script type="text/javascript" src="<%=path %>/js/tree/BaseTree.js"></script>
+<script type="text/javascript" src="<%=path %>/js/tree/BaseCheckTree.js"></script>
+<script type="text/javascript" src="<%=path %>/js/rights/user/RoleCheckTreePanel.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/UserGridPanel.js"></script>
-<script type="text/javascript" src="<%=path %>/js/rights/user/RoleCheckedGridPanel.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/DeptForm.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/DepartmentTreePanel.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/User.js"></script>
@@ -92,7 +93,7 @@
 											</div>
 										</td>
 										<td width="245" height="500" align="left" valign="top">
-											<div id="roleCheckedGrid">
+											<div id="roleCheckTree">
 											</div>
 										</td>
 									</tr>

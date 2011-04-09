@@ -1,6 +1,6 @@
-Ext.ns('Govhr.ux');
+Ext.ns('Library.combo');
 
-Govhr.ux.ArrayLocalComboBox = Ext.extend(Ext.form.ComboBox, {
+Library.combo.ArrayLocalComboBox = Ext.extend(Ext.form.ComboBox, {
 
     storeArray: null,
     
@@ -23,12 +23,10 @@ Govhr.ux.ArrayLocalComboBox = Ext.extend(Ext.form.ComboBox, {
             selectOnFocus: true
         });
 		
-		
-        
-        Govhr.ux.ArrayLocalComboBox.superclass.initComponent.call(this);
+        Library.combo.ArrayLocalComboBox.superclass.initComponent.call(this);
     }
     
     
     
 });
-Ext.reg('arraylocalcombobox', Govhr.ux.ArrayLocalComboBox);
+Ext.reg('arraylocalcombobox', Library.combo.ArrayLocalComboBox);

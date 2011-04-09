@@ -4,6 +4,9 @@ Library.rights.form.DeptForm = Ext.extend(Ext.form.FormPanel, {
 	id : 'DeptForm',
     formValues: null,
     
+    pid : null,
+    deptId : null,
+    
     initComponent: function(){
         Ext.apply(this, {
             method: 'post',
@@ -20,15 +23,7 @@ Library.rights.form.DeptForm = Ext.extend(Ext.form.FormPanel, {
             text: '保存',
             iconCls: 'icon-save',
             handler: function(){
-            	this.formSubmit
-            },
-            scope: this
-        }, {
-            text: '添加',
-            iconCls: 'icon-save',
-            handler: function(){
-            	this.formValues = null;
-            	this.getForm().setFormInitValues();
+            	this.formSubmit();
             },
             scope: this
         }]);
@@ -36,6 +31,28 @@ Library.rights.form.DeptForm = Ext.extend(Ext.form.FormPanel, {
         this.items = this.buildForm();
 
         Library.rights.form.DeptForm.superclass.initComponent.call(this, arguments);
+        
+        if(this.deptId!=null){
+        	Ext.Ajax.request({
+				url : contextPath + '/dept/getById.action',
+				params : {
+					deptId : this.deptId
+				},
+				success : function(resp){
+					var obj = Ext.util.JSON.decode(resp.responseText);
+					var form = this.getForm();
+					form.findField('department.deptName').setValue(obj.deptName);
+					form.findField('department.deptCode').setValue(obj.deptCode);
+					form.findField('department.deptShortName').setValue(obj.deptShortName);
+					form.findField('department.deptAlias').setValue(obj.deptAlias);
+					form.findField('department.deptDesc').setValue(obj.deptDesc);
+				}, 
+				failure : function(){
+					Ext.Msg.alert('提示', '服务器异常，请稍后再试！');
+				},
+				scope : this
+			});
+        }
         
         if (this.formValues != null) {
             this.setFormInitValues();
@@ -75,21 +92,28 @@ Library.rights.form.DeptForm = Ext.extend(Ext.form.FormPanel, {
             id: 'department.deptAlias'
         }, {
             fieldLabel: '简介',
+            xtype : 'textarea',
             width : 160,
+            height : 60,
+            autoScroll : true,
             name: 'department.deptDesc',
             id: 'department.deptDesc'
-        }, {
-            fieldLabel: '叶子',
-            width : 160,
-            name: 'department.leaf',
-            id: 'department.leaf'
-        }, {
+        }, 
+//        {
+//            fieldLabel: '叶子',
+//            width : 160,
+//            name: 'department.leaf',
+//            id: 'department.leaf'
+//        }, 
+        {
             name: 'department.deptId',
             id: 'department.deptId',
+            value : this.deptId,
             hidden: true
         }, {
             name: 'department.parent.deptId',
             id: 'department.parent.deptId',
+            value : this.pid,
             hidden: true
         }];
     },
@@ -109,13 +133,16 @@ Library.rights.form.DeptForm = Ext.extend(Ext.form.FormPanel, {
                 waitMsg: "请稍后,开始保存...",
                 success: function(form, action){
                     if(action.result.success && action.result.data){
-                	
+                		Ext.Msg.alert('提示', action.result.msg);
+                		this.getForm().findField('department.deptId').setValue(action.result.data.deptId);
+                		Ext.getCmp('departmentTreePanel').getRootNode().reload();
+                		Ext.getCmp('departmentTreePanel').getRootNode().expand();
                 	}else{
-                	
+                		Ext.Msg.alert('提示', action.result.msg);
                 	}
                 },
                 failure: function(form, action){
-                	
+                	Ext.Msg.alert('提示', '服务器异常，请稍后再试！');
                 },
                 scope: this
             })

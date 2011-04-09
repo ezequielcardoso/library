@@ -11,13 +11,15 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			items : [{
 				text : '增加',
 				handler : function() {
-					
-				}
+					this.onAdd();
+				},
+				scope : this
 			},'-', {
 				text : '删除',
 				handler : function() {
-					
-				}
+					this.onDelete();
+				},
+				scope : this
 			},'-', {
 				xtype : 'label',
 				text : '姓名：'
@@ -35,8 +37,21 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			}, '-', {
 				text : '查询',
 				handler : function() {
-					
-				}
+					this.onQuery();
+				},
+				scope : this
+			}, '-', {
+				text : '全部',
+				handler : function() {
+					this.getStore().baseParams = {};
+					this.getStore().load({
+							params : {
+								start : 0,
+								limit : UsersPageSize
+							}
+					});
+				},
+				scope : this
 			}]
 		});
 		
@@ -79,8 +94,11 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			},
 			fields : fields
 		});
+		
+		var sm = new Ext.grid.CheckboxSelectionModel({single : true});
+		
 		var colM = new Ext.grid.ColumnModel([
-		new Ext.grid.RowNumberer(), {
+			new Ext.grid.RowNumberer(), sm, {
 				header : '账号',
 				dataIndex : 'userAccount',
 				sortable : true,
@@ -129,11 +147,11 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		
 		Ext.apply(this, {
 			width : 505,
-//			height : document.documentElement.clientHeight * 0.82,
 			height : 500,
 			autoScroll : true,
 			tbar : tbar,
 			cm : colM,
+			sm : sm,
 			store : store,
 			stripeRows : true,
 			columnLines : true,
@@ -180,43 +198,99 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			e.record.commit();
 			var thiz = this;
 			Ext.Ajax.request({
-						url : contextPath + '/user/save.action',
-						method : 'POST',
-						params : {
-							'user.userId' : e.record.get('roleId'),
-							'user.userName' : e.record.get('roleName'),
-							'user.password' : e.record.get('password'),
-							'user.userAccount' : e.record.get('roleDesc'),
-							'user.createDate' : e.record.get('createDate'),
-							'user.userActive' : e.record.get('roleActive')
-						},
-						success : function(resp) {
-							var obj = Ext.util.JSON.decode(resp.responseText);
-							if (obj.success == true) {
-								Ext.Msg.alert('提示', obj.msg);
-								e.record.set("userId", obj.data.userId);
-								e.record.commit();
-							} else if (obj.success == false) {
-								Ext.Msg.alert('提示', obj.msg);
-							}
-						},
-						failure : function() {
-							Ext.Msg.alert('提示', '服务器异常，请稍候再试');
-						}
-					});
+				url : contextPath + '/user/save.action',
+				method : 'POST',
+				params : {
+					'user.userId' : e.record.get('userId'),
+					'user.userName' : e.record.get('userName'),
+					'user.password' : e.record.get('password'),
+					'user.userAccount' : e.record.get('userAccount'),
+					'user.createDate' : e.record.get('createDate'),
+					'user.userActive' : e.record.get('userActive')
+				},
+				success : function(resp) {
+					var obj = Ext.util.JSON.decode(resp.responseText);
+					if (obj.success == true) {
+						Ext.Msg.alert('提示', obj.msg);
+						e.record.set("userId", obj.data.userId);
+						e.record.commit();
+					} else if (obj.success == false) {
+						Ext.Msg.alert('提示', obj.msg);
+					}
+				},
+				failure : function() {
+					Ext.Msg.alert('提示', '服务器异常，请稍候再试');
+				}
+			});
 		}, this);
 	},
 	
-	addUser : function() {
-		
+	onAdd : function() {
+		var User = this.getStore().recordType;
+		var p = new User({
+					userName : '',
+					userAccount : '',
+					password : '123',
+					createDate : new Date(),
+					userActive : true
+				});
+		this.stopEditing();
+		this.store.insert(0, p);
+		this.startEditing(0, 0);
 	},
 	
-	updateUser : function(){
-	
+	onDelete : function() {
+		var sm = this.getSelectionModel();
+		if (sm.hasSelection()) {
+			Ext.MessageBox.confirm('提示', '你确定要删除记录吗？', function(btn, text) {
+
+				if (btn == 'yes') {
+					var record = sm.getSelected();
+					var userId = record.get('userId');
+					var thiz = this;
+					Ext.Ajax.request({
+						url : contextPath + '/user/remove.action',
+						method : 'POST',
+						params : {
+							'userView.userId' : userId
+						},
+						success : function(resp) {
+							var respText = resp.responseText;
+							var obj = Ext.util.JSON.decode(respText);
+							if (obj.success == true) {
+								Ext.Msg.alert('提示',obj.msg);
+								thiz.getStore().reload();
+							} else {
+								Ext.Msg.alert('提示',obj.msg);
+							}
+						},
+						failure : function() {
+							Ext.Msg.alert('提示', '服务器异常');
+						}
+					});
+				}
+
+			}, this);
+
+		} else {
+			Ext.Msg.alert('提示', '请选择你要删除的记录');
+		}
 	},
 	
-	deleteUser : function() {
-		
+	onQuery : function(){
+		var userName = Ext.get('query_userName').getValue();
+		var userAccount = Ext.get('query_userAccount').getValue();
+		this.getStore().baseParams = {};
+		this.getStore().baseParams = {
+			'userView.userName' : userName,
+			'userView.userAccount' : userAccount
+		};
+		this.getStore().load({
+			params : {
+				start : 0,
+				limit : UsersPageSize
+			}
+		})
 	}
 
 });

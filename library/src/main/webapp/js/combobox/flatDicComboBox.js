@@ -1,12 +1,12 @@
-Ext.ns('Govhr.ux');
+Ext.ns('Library.combo');
 
-Govhr.ux.FlatDicComboBox = Ext.extend(Ext.form.ComboBox, {
+Library.combo.FlatDicComboBox = Ext.extend(Ext.form.ComboBox, {
 
     className: null,
     
     initComponent: function(){
         this.store = new Ext.data.JsonStore({
-            url: contextPath + '/dict/getflatdict.do?className=' + this.className,
+            url: contextPath + '/dict/getByItemClass.action?className=' + this.className,
             fields: ['key', 'value', 'comment']
         });
         
@@ -21,10 +21,10 @@ Govhr.ux.FlatDicComboBox = Ext.extend(Ext.form.ComboBox, {
             selectOnFocus: true
         });
         
-        Govhr.ux.FlatDicComboBox.superclass.initComponent.call(this);
+        Library.combo.FlatDicComboBox.superclass.initComponent.call(this);
     }
     
     
     
 });
-Ext.reg('flatdiccombobox', Govhr.ux.FlatDicComboBox);
+Ext.reg('flatdiccombobox', Library.combo.FlatDicComboBox);

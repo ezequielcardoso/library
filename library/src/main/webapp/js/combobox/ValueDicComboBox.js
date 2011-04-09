@@ -1,14 +1,14 @@
-Ext.ns('Govhr.ux');
+Ext.ns('Library.combo');
 /**
  * 返回字典值
  */
-Govhr.ux.ValueDicComboBox = Ext.extend(Ext.form.ComboBox, {
+Library.combo.ValueDicComboBox = Ext.extend(Ext.form.ComboBox, {
 
     className: null,
     
     initComponent: function(){
         this.store = new Ext.data.JsonStore({
-            url: contextPath + '/dict/getflatdict.do?className=' + this.className,
+            url: contextPath + '/dict/getByItemClass.action?className=' + this.className,
             fields: ['key', 'value', 'comment']
         });
         
@@ -23,10 +23,8 @@ Govhr.ux.ValueDicComboBox = Ext.extend(Ext.form.ComboBox, {
             selectOnFocus: true
         });
         
-        Govhr.ux.ValueDicComboBox.superclass.initComponent.call(this);
+        Library.combo.ValueDicComboBox.superclass.initComponent.call(this);
     }
     
-    
-    
 });
-Ext.reg('valuediccombobox', Govhr.ux.ValueDicComboBox);
+Ext.reg('valuediccombobox', Library.combo.ValueDicComboBox);
