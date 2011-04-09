@@ -14,7 +14,7 @@ public interface DictItemDao extends BaseDao<DictItem>{
 	
 	public List<DictItem> selectAllDictItems() throws Exception;
 
-	public List<DictItem> getDictItemMapbyItemClass(String className);
+	public List<DictItem> getByItemClass(String className);
 	/**
 	 * 批量导入
 	 * @param dictItems
@@ -37,6 +37,6 @@ public interface DictItemDao extends BaseDao<DictItem>{
 	 */
 	public List<DictItem> getChildrenItem(String pid, String className) throws Exception ;
 	
-	public List<DictItem> getCategoryItem(String pid, 
+	public List<Category> getCategoryItem(String pid, 
 			Integer level, String itemName) throws Exception ;
 }

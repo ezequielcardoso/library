@@ -44,7 +44,7 @@ public class PunishmentServiceTest {
 		punishment.setOperator(null);
 		
 		//²Ù×÷ÏîÄ¿
-		dictItemViews = dictItemService.getDictItemByItemClass(Charge.class.getName());
+		dictItemViews = dictItemService.getByItemClass(Charge.class.getName());
 		DictItemView dictItemView = dictItemViews.get(0);
 		charge.setItemId(dictItemView.getKey());
 		charge.setItemName(dictItemView.getComment());
