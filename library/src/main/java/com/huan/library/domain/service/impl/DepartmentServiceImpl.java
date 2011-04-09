@@ -22,12 +22,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	public Department save(Department dept)  throws Exception{
 		try {
-			departmentDao.saveOrUpdate(dept);
+			dept = departmentDao.saveOrUpdate(dept);
 		} catch(Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
 		}
-		return null;
+		return dept;
 	}
 
 	public void remove(Department dept) throws Exception {

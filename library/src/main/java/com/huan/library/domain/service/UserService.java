@@ -18,21 +18,21 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	public User addOrModifyUser(User user) throws Exception;
+	public User save(User user) throws Exception;
 	
 	/**
 	 * 根据id删除User
 	 * @param user
 	 * @return
 	 */
-	public void removeUser(User user) throws Exception;
+	public void remove(User user) throws Exception;
 	
 	/**
 	 * 根据userId 查找User
 	 * @param userId
 	 * @return
 	 */
-	public User getUserById(Long userId) throws Exception;
+	public User getById(Long userId) throws Exception;
 	
 	/**
 	 * 查找所有的User
