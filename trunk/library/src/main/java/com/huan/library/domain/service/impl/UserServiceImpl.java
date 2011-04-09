@@ -22,10 +22,10 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
-	public User addOrModifyUser(User user)  throws Exception{
+	public User save(User user)  throws Exception{
 		User rtnUser = new User();
 		try {
-			rtnUser = this.addOrModifyUser(user);
+			rtnUser = this.userDao.saveOrUpdate(user);
 		} catch (Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
@@ -44,10 +44,10 @@ public class UserServiceImpl implements UserService {
 		return users;
 	}
 
-	public User getUserById(Long userId) throws Exception {
+	public User getById(Long userId) throws Exception {
 		User user = new User();
 		try {
-			user = userDao.selectUserById(userId);
+			user = userDao.getById(userId);
 		} catch (Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	public void removeUser(User user) throws Exception {
+	public void remove(User user) throws Exception {
 		try {
 			userDao.delete(user);
 		} catch(Exception e){

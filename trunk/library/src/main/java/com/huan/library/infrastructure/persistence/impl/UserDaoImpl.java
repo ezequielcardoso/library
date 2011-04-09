@@ -56,7 +56,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		return user;
 	}
 	
-	public User selectUserById(Long userId) throws Exception{
+	public User getById(Long userId) throws Exception{
 		User user = new User();
 		try{
 			String hql = " from User u where u.userId=? ";
@@ -92,10 +92,13 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 				whereSub.append("  and u.dept.deptId=(:deptId) ");
 			}
 			if(view.getDeptName()!=null && !"".equals(view.getDeptName())){
-				whereSub.append(" and  u.dept.deptName=(:deptName) ");
+				whereSub.append(" and  u.dept.deptName like (:deptName) ");
 			}
 			if(view.getUserName()!=null && !"".equals(view.getUserName())){
-				whereSub.append(" and  u.userName=(:userName) ");
+				whereSub.append(" and  u.userName like (:userName) ");
+			}
+			if(view.getUserAccount()!=null && !"".equals(view.getUserAccount())){
+				whereSub.append(" and  u.userAccount like (:userAccount) ");
 			}
 			hql.append(whereSub);
 			hql_.append(whereSub);
@@ -110,10 +113,13 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 							query.setParameter("deptId", view.getDeptId());
 						}
 						if(view.getDeptName()!=null && !"".equals(view.getDeptName())){
-							query.setParameter("deptName", view.getDeptName());
+							query.setParameter("deptName", "%" + view.getDeptName() + "%");
 						}
 						if(view.getUserName()!=null && !"".equals(view.getUserName())){
-							query.setParameter("userName", view.getUserName());
+							query.setParameter("userName", "%" + view.getUserName() + "%");
+						}
+						if(view.getUserAccount()!=null && !"".equals(view.getUserAccount())){
+							query.setParameter("userAccount", "%" + view.getUserAccount() + "%");
 						}
 					return query.list();
 				}
@@ -138,10 +144,13 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 							query.setParameter("deptId", view.getDeptId());
 						}
 						if(view.getDeptName()!=null && !"".equals(view.getDeptName())){
-							query.setParameter("deptName", view.getDeptName());
+							query.setParameter("deptName", "%" + view.getDeptName() + "%");
 						}
 						if(view.getUserName()!=null && !"".equals(view.getUserName())){
-							query.setParameter("userName", view.getUserName());
+							query.setParameter("userName", "%" + view.getUserName() + "%");
+						}
+						if(view.getUserAccount()!=null && !"".equals(view.getUserAccount())){
+							query.setParameter("userAccount", "%" + view.getUserAccount() + "%");
 						}
 					return query.list();
 				}

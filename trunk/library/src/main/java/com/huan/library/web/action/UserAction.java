@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.constant.LoginState;
+import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.UserService;
 import com.huan.library.util.DateFormatUtil;
@@ -76,6 +77,40 @@ public class UserAction extends BaseActionSupport {
 			request.getSession().invalidate();
 		}
 //		response.sendRedirect(request.getContextPath()+ "/index.jsp?message=logoff");
+		return Action.SUCCESS;
+	}
+	
+	public String save() {
+		try {
+			user = userService.save(user);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("保存成功！");
+			extJsonForm.setData(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("保存失败！");
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String remove() {
+		try {
+			User user = new User();
+			user.setUserId(userView.getUserId());
+			// 这里可以取到值
+			userService.remove(user);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("删除成功！");
+			extJsonForm.setData(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("删除失败！");
+			extJsonForm.setData(null);
+			return Action.ERROR;
+		}
 		return Action.SUCCESS;
 	}
 	

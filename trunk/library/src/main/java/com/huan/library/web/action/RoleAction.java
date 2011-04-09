@@ -56,6 +56,25 @@ public class RoleAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
+	public String remove() {
+		try {
+			Role role = new Role();
+			role.setRoleId(roleView.getRoleId());
+			// 这里可以取到值
+			roleService.remove(role);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("删除成功！");
+			extJsonForm.setData(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("删除失败！");
+			extJsonForm.setData(null);
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
 	private void formatRole(Role role) {
 		if(role.getUsers()==null || role.getUsers().size()==0){
 			role.setUsers(null);

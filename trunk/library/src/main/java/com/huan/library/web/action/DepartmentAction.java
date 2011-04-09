@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.rights.Department;
 import com.huan.library.domain.service.DepartmentService;
+import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.tree.ExtTreeNode;
 import com.opensymphony.xwork2.Action;
 
@@ -22,11 +23,11 @@ public class DepartmentAction extends BaseActionSupport {
     @Autowired
 	private DepartmentService departmentService;
     
-    private Department department;
+    private Department department = new Department();
     private Long pid;
     private Long deptId;
     private List<ExtTreeNode> childrenNodes = new ArrayList<ExtTreeNode>();
-    
+    private ExtJsonForm extJsonForm = new ExtJsonForm();
     
 	public String getChildrenByPid() {
 		try {
@@ -61,12 +62,17 @@ public class DepartmentAction extends BaseActionSupport {
 	 */
 	public String save()  {
 		try {
-
+			department = departmentService.save(department);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("保存成功！");
+			extJsonForm.setData(department);
 		} catch (Exception e) {
-		  e.printStackTrace();
-		 return Action.ERROR;
+			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("保存失败！");
+			return Action.ERROR;
 		}
-		 return Action.SUCCESS;
+		return Action.SUCCESS;
 	}
 	
 	/**
@@ -75,14 +81,30 @@ public class DepartmentAction extends BaseActionSupport {
 	 */
 	public String remove() {
 		try {
-			
+			System.out.println(deptId);
+			department.setDeptId(deptId);
+			departmentService.remove(department);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("删除成功！");
+			extJsonForm.setData(null);
 		} catch (Exception e) {
 			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("删除失败！");
+			extJsonForm.setData(null);
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
 	
+	public ExtJsonForm getExtJsonForm() {
+		return extJsonForm;
+	}
+
+	public void setExtJsonForm(ExtJsonForm extJsonForm) {
+		this.extJsonForm = extJsonForm;
+	}
+
 	public DepartmentService getDepartmentService() {
 		return departmentService;
 	}

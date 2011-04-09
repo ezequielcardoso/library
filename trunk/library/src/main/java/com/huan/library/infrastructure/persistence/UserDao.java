@@ -24,7 +24,7 @@ public interface UserDao extends BaseDao<User> {
 	 * 查找User
 	 * @return
 	 */
-	public User selectUserById(Long userId) throws Exception;
+	public User getById(Long userId) throws Exception;
 	
 	/**
 	 * 
