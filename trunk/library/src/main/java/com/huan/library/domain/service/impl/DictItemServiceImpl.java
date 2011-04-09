@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.service.DictItemService;
 import com.huan.library.infrastructure.persistence.DictItemDao;
@@ -25,7 +26,7 @@ public class DictItemServiceImpl implements DictItemService {
 		this.dictItemDao = dictItemDao;
 	}
 
-	public DictItem addOrModifyDictItem(DictItem dictItem) throws Exception {
+	public DictItem save(DictItem dictItem) throws Exception {
 		DictItem dictItemCopy =null;
 		try {
 			dictItemCopy = dictItemDao.saveOrUpdate(dictItem);
@@ -36,7 +37,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return dictItemCopy;
 	}
 	
-	public void removeDictItem(DictItem dictItem) throws Exception {
+	public void remove(DictItem dictItem) throws Exception {
 		try {
 			dictItemDao.delete(dictItem);
 		} catch (Exception e) {
@@ -45,7 +46,7 @@ public class DictItemServiceImpl implements DictItemService {
 	}
 
 
-	public List<DictItem> findAllDictItems() throws Exception {
+	public List<DictItem> findDictItems() throws Exception {
 		List<DictItem> dictItemList = null;
 		try {
 			dictItemList = dictItemDao.selectAllDictItems();
@@ -57,7 +58,7 @@ public class DictItemServiceImpl implements DictItemService {
 	}
 
 	
-	public DictItem findDictItemById(int dictItemId) throws Exception {
+	public DictItem getById(int dictItemId) throws Exception {
 		DictItem dictItem = null;
 		try {
 			dictItem =  dictItemDao.selectById(dictItemId);			
@@ -95,7 +96,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return views;
 	}
 
-	public List<DictItem> getChildrenItem(String pid, String className) throws Exception  {
+	public List<DictItem> getChildrenByPid(String pid, String className) throws Exception  {
 		List<DictItem> items = new ArrayList<DictItem>();
 		try {
 			items = dictItemDao.getChildrenItem(pid, className);
@@ -113,6 +114,12 @@ public class DictItemServiceImpl implements DictItemService {
 			e.printStackTrace();
 		}
 		return items;
+	}
+
+	public List<Category> getCategoryChildrenByPid(String pid, Integer level,
+			String itemName) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

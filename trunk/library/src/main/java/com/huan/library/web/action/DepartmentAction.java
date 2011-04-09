@@ -25,20 +25,19 @@ public class DepartmentAction extends BaseActionSupport {
     private Department department;
     private Long pid;
     private Long deptId;
-    private List<ExtTreeNode> deptChildrenNodes = new ArrayList<ExtTreeNode>();
+    private List<ExtTreeNode> childrenNodes = new ArrayList<ExtTreeNode>();
     
     
-	public String getDeptChildrenItem() {
+	public String getChildrenByPid() {
 		try {
-			List<Department> items = departmentService.getDeptsByParentId(pid);
+			List<Department> items = departmentService.getChildrenByPid(pid);
 			for (Department item : items) {
 				ExtTreeNode treeNode = new ExtTreeNode();
 				treeNode.setId(item.getDeptId().toString());
 				treeNode.setText(item.getDeptName());
-				treeNode.setCls("x-tree-noicon");
 				treeNode.setLeaf(item.getLeaf());
 				treeNode.setIsOptional(false);
-				deptChildrenNodes.add(treeNode);
+				childrenNodes.add(treeNode);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -46,10 +45,9 @@ public class DepartmentAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-	public String getDeptById() {
+	public String getById() {
 		try {
-			department = departmentService.getDeptById(deptId);
-			System.out.println(department.getDeptName());
+			department = departmentService.getById(deptId);
 			department.setChildren(null);
 			department.setParent(null);
 		} catch (Exception e) {
@@ -61,7 +59,7 @@ public class DepartmentAction extends BaseActionSupport {
 	 * 添加部门
 	 * @return
 	 */
-	public String saveDeparment()  {
+	public String save()  {
 		try {
 
 		} catch (Exception e) {
@@ -71,26 +69,11 @@ public class DepartmentAction extends BaseActionSupport {
 		 return Action.SUCCESS;
 	}
 	
-
-	/**
-	 * 修改部门
-	 * @return
-	 */
-	public String modifyDictItem()  {
-		try {
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
-	
 	/**
 	 * 删除
 	 * @return
 	 */
-	public String deleteDictItem() {
+	public String remove() {
 		try {
 			
 		} catch (Exception e) {
@@ -124,20 +107,20 @@ public class DepartmentAction extends BaseActionSupport {
 		this.pid = pid;
 	}
 
-	public List<ExtTreeNode> getDeptChildrenNodes() {
-		return deptChildrenNodes;
-	}
-
-	public void setDeptChildrenNodes(List<ExtTreeNode> deptChildrenNodes) {
-		this.deptChildrenNodes = deptChildrenNodes;
-	}
-
 	public Long getDeptId() {
 		return deptId;
 	}
 
 	public void setDeptId(Long deptId) {
 		this.deptId = deptId;
+	}
+
+	public List<ExtTreeNode> getChildrenNodes() {
+		return childrenNodes;
+	}
+
+	public void setChildrenNodes(List<ExtTreeNode> childrenNodes) {
+		this.childrenNodes = childrenNodes;
 	}
 
 }
