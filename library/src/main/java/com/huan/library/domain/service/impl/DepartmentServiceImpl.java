@@ -20,16 +20,17 @@ public class DepartmentServiceImpl implements DepartmentService {
 		this.departmentDao = departmentDao;
 	}
 
-	public void addOrModifyDept(Department dept)  throws Exception{
+	public Department save(Department dept)  throws Exception{
 		try {
 			departmentDao.saveOrUpdate(dept);
 		} catch(Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
 		}
+		return null;
 	}
 
-	public void removeDept(Department dept) throws Exception {
+	public void remove(Department dept) throws Exception {
 		try {
 			this.departmentDao.delete(dept);
 		} catch(Exception e){
@@ -38,10 +39,10 @@ public class DepartmentServiceImpl implements DepartmentService {
 		}
 	}
 
-	public Department getDeptById(Long deptId) throws Exception {
+	public Department getById(Long deptId) throws Exception {
 		Department dept = new Department();
 		try {
-			dept = this.departmentDao.selectDeptById(deptId);
+			dept = this.departmentDao.getById(deptId);
 		} catch(Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
@@ -49,15 +50,16 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return dept;
 	}
 
-	public List<Department> getDeptsByParentId(Long deptId) throws Exception {
+	public List<Department> getChildrenByPid(Long deptId) throws Exception {
 		List<Department> depts = new ArrayList<Department>();
 		try {
-			depts = this.departmentDao.selectDeptsByParentId(deptId);
+			depts = this.departmentDao.selectChildrenByPid(deptId);
 		} catch(Exception e){
 			e.printStackTrace();
 			throw new Exception(e);
 		}
 		return depts;
 	}
+
 
 }

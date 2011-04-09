@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.service.DictItemService;
 import com.huan.library.web.view.tree.ExtTreeNode;
@@ -32,15 +33,15 @@ public class DictItemAction extends BaseActionSupport {
     private String className;
     private Integer level;
     private String itemName;
-    private List<ExtTreeNode> dictChildrenNodes = new ArrayList<ExtTreeNode>();
+    private List<ExtTreeNode> childrenNodes = new ArrayList<ExtTreeNode>();
     
 	public void setDictItemService(DictItemService dictItemService) {
 		this.dictItemService = dictItemService;
 	}
     
-	public String getChildrenItem() {
+	public String getChildrenByPid() {
 		try {
-			List<DictItem> dictItems = dictItemService.getChildrenItem(pid, className);
+			List<DictItem> dictItems = dictItemService.getChildrenByPid(pid, className);
 			for (DictItem item : dictItems) {
 				ExtTreeNode treeNode = new ExtTreeNode();
 				treeNode.setId(item.getItemId());
@@ -49,7 +50,7 @@ public class DictItemAction extends BaseActionSupport {
 				treeNode.setLeaf(item.getLeaf());
 				treeNode.setChecked(false);
 				treeNode.setIsOptional(true);
-				dictChildrenNodes.add(treeNode);
+				childrenNodes.add(treeNode);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,9 +58,9 @@ public class DictItemAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-	public String getCategoryItem() {
+	public String getCategoryChildrenByPid() {
 		try {
-			List<DictItem> dictItems = dictItemService.getCategoryItem(pid, level, itemName);
+			List<Category> dictItems = dictItemService.getCategoryChildrenByPid(pid, level, itemName);
 			for (DictItem item : dictItems) {
 				ExtTreeNode treeNode = new ExtTreeNode();
 				treeNode.setId(item.getItemId());
@@ -68,7 +69,7 @@ public class DictItemAction extends BaseActionSupport {
 				treeNode.setLeaf(true);
 				treeNode.setChecked(false);
 				treeNode.setIsOptional(true);
-				dictChildrenNodes.add(treeNode);
+				childrenNodes.add(treeNode);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,9 +81,9 @@ public class DictItemAction extends BaseActionSupport {
 	 * 添加字典
 	 * @return
 	 */
-	public String saveDictItem()  {
+	public String save()  {
 		try {
-			dictItemService.addOrModifyDictItem(dictItem);
+			dictItemService.save(dictItem);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		 return Action.ERROR;
@@ -91,27 +92,14 @@ public class DictItemAction extends BaseActionSupport {
 	}
 	
 
-	/**
-	 * 修改字典
-	 * @return
-	 */
-	public String modifyDictItem()  {
-		try {
-		 dictItemService.addOrModifyDictItem(dictItem);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
 	
 	/**
 	 * 删除dictItem
 	 * @return
 	 */
-	public String deleteDictItem() {
+	public String remove() {
 		try {
-		  dictItemService.removeDictItem(dictItem);
+		  dictItemService.remove(dictItem);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -119,20 +107,6 @@ public class DictItemAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-	/**
-	 * 查找所有的dictItem
-	 * @return
-	 */
-	public String findDictItem() {
-		try {
-		  List<DictItem> dictItemList = dictItemService.findAllDictItems();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
-
 	public DictItem getDictItem() {
 		return dictItem;
 	}
@@ -157,14 +131,6 @@ public class DictItemAction extends BaseActionSupport {
 		this.className = className;
 	}
 
-	public List<ExtTreeNode> getDictChildrenNodes() {
-		return dictChildrenNodes;
-	}
-
-	public void setDictChildrenNodes(List<ExtTreeNode> dictChildrenNodes) {
-		this.dictChildrenNodes = dictChildrenNodes;
-	}
-
 	public Integer getLevel() {
 		return level;
 	}
@@ -179,6 +145,14 @@ public class DictItemAction extends BaseActionSupport {
 
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
+	}
+
+	public List<ExtTreeNode> getChildrenNodes() {
+		return childrenNodes;
+	}
+
+	public void setChildrenNodes(List<ExtTreeNode> childrenNodes) {
+		this.childrenNodes = childrenNodes;
 	}
 
 	

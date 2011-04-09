@@ -39,7 +39,7 @@ public class FunctionAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String findModuleFunctions() {
+	public String findModules() {
 		try {
 			modules = functionService.findModules();
 		} catch (Exception e) {

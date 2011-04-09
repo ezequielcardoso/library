@@ -16,8 +16,8 @@ public interface DepartmentDao extends BaseDao<Department> {
 	 * @param deptId
 	 * @return
 	 */
-	public List<Department> selectDeptsByParentId(Long parentDeptId) throws Exception ;
+	public List<Department> selectChildrenByPid(Long parentDeptId) throws Exception ;
 
-	public Department selectDeptById(Long deptId) throws Exception ;
+	public Department getById(Long deptId) throws Exception ;
 	
 }

@@ -5,29 +5,47 @@
 
 <struts>
 
-    <package name="rights" namespace="/rights" extends="library">
-		<!-- 用户 -->
-		<action name="addUser" class="com.huan.library.web.action.UserAction" method="add">
-			<result name="success">index.jsp</result>
-		</action>
-		<action name="userList" class="com.huan.library.web.action.UserAction" method="findUsers">
-			<result name="success" type="json">
-				<param name="root">extGridLoad</param>
-			</result>
-		</action>
-		<!-- 模板功能 -->
-		<action name="findModuleFunctions" class="com.huan.library.web.action.FunctionAction" method="findModuleFunctions">
+	<!--  function  -->
+    <package name="function" namespace="/function" extends="library">
+		<action name="findModules" class="com.huan.library.web.action.FunctionAction" method="findModules">
 			<result name="success">/module/left.jsp</result>
 			<result name="error">/login.jsp</result>
 		</action>
 		
-		<action name="getDeptChildrenItem" class="com.huan.library.web.action.DepartmentAction" method="getDeptChildrenItem">
+		<action name="save" class="com.huan.library.web.action.FunctionAction" method="save">
 			<result name="success" type="json">
-				<param name="root">deptChildrenNodes</param>
+				<param name="root">extJsonForm</param>
 			</result>
 		</action>
 		
-		<action name="getDeptById" class="com.huan.library.web.action.DepartmentAction" method="getDeptById">
+		<action name="remove" class="com.huan.library.web.action.FunctionAction" method="remove">
+	       <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	       </result>
+	    </action>
+    </package>
+    
+    <!-- dept -->
+    <package name="dept" namespace="/dept" extends="library">
+		<action name="save" class="com.huan.library.web.action.DepartmentAction" method="save">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
+		</action>
+		
+		<action name="remove" class="com.huan.library.web.action.DepartmentAction" method="remove">
+	       <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	       </result>
+	    </action>
+	    
+		<action name="getChildrenByPid" class="com.huan.library.web.action.DepartmentAction" method="getChildrenByPid">
+			<result name="success" type="json">
+				<param name="root">childrenNodes</param>
+			</result>
+		</action>
+		
+		<action name="getById" class="com.huan.library.web.action.DepartmentAction" method="getById">
 			<result name="success" type="json">
 				<param name="root">department</param>
 			</result>
@@ -35,22 +53,59 @@
 		
     </package>
     
-    <package name="dict" namespace="/dict" extends="library">
+    <!-- user -->
+    <package name="user" namespace="/user" extends="library">
     
-    	<action name="getChildrenItem" class="com.huan.library.web.action.DictItemAction" method="getChildrenItem">
+    	<action name="save" class="com.huan.library.web.action.UserAction" method="save">
 			<result name="success" type="json">
-				<param name="root">dictChildrenNodes</param>
+				<param name="root">extJsonForm</param>
 			</result>
 		</action>
 		
-		<action name="getCategoryItem" class="com.huan.library.web.action.DictItemAction" method="getCategoryItem">
+		<action name="remove" class="com.huan.library.web.action.UserAction" method="remove">
+	       <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	       </result>
+	    </action>
+		
+		<action name="findUsers" class="com.huan.library.web.action.UserAction" method="findUsers">
 			<result name="success" type="json">
-				<param name="root">dictChildrenNodes</param>
+				<param name="root">extGridLoad</param>
 			</result>
 		</action>
     
     </package>
     
+    <!-- dict -->
+    <package name="dict" namespace="/dict" extends="library">
+    
+    	<action name="save" class="com.huan.library.web.action.DictItemAction" method="save">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
+		</action>
+    
+    	<action name="getChildrenByPid" class="com.huan.library.web.action.DictItemAction" method="getChildrenByPid">
+			<result name="success" type="json">
+				<param name="root">childrenNodes</param>
+			</result>
+		</action>
+		
+		<action name="remove" class="com.huan.library.web.action.DictItemAction" method="remove">
+	       <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	       </result>
+	    </action>
+		
+		<action name="getCategoryChildrenByPid" class="com.huan.library.web.action.DictItemAction" method="getCategoryChildrenByPid">
+			<result name="success" type="json">
+				<param name="root">childrenNodes</param>
+			</result>
+		</action>
+    
+    </package>
+    
+    <!-- role -->
     <package name="role" namespace="/role" extends="library">
     
 		<action name="findRoles" class="com.huan.library.web.action.RoleAction" method="findRoles">
@@ -59,7 +114,13 @@
 			</result>
 		</action>
     
-    <action name="save" class="com.huan.library.web.action.RoleAction" method="save">
+    	<action name="remove" class="com.huan.library.web.action.RoleAction" method="remove">
+	       <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	       </result>
+	    </action>
+    
+    	<action name="save" class="com.huan.library.web.action.RoleAction" method="save">
 			<result name="success" type="json">
 				<param name="root">extJsonForm</param>
 			</result>
