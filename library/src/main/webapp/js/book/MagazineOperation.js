@@ -1,16 +1,21 @@
-function saveBook() {
+function saveMagazine() {
 
 	var bookId = Ext.get('book.bookId').getValue();
 	var bookName = Ext.get('book.bookName').getValue();
 	var barCode = Ext.get('book.barCode').getValue();
 	var bookNo = Ext.get('book.bookNo').getValue();
+//	var ISBN = Ext.get('book.ISBN').getValue();
 	var ISBN = Ext.get('book.ISBN').getValue();
-	var author = Ext.get('book.author').getValue();
+	var ISSN = Ext.get('book.ISSN').getValue();
+//	var author = Ext.get('book.author').getValue();
+	var emailNo = Ext.get('book.emailNo').getValue();
 	var bookDesc = Ext.get('book.bookDesc').getValue();
 	var donator = Ext.get('book.donator').getValue();
-	var translator = Ext.get('book.translator');
+//	var translator = Ext.get('book.translator');
+	var stage = Ext.get('book.stage').getValue();
+	var allStage = Ext.get('book.allStage').getValue();
 	
-	var searchBookId = Ext.get('book.searchBookId').getValue();
+//	var searchBookId = Ext.get('book.searchBookId').getValue();
 	var speciesId = Ext.get('book.speciesId').getValue();
 	var publisherDate = Ext.get('book.publisherDate').getValue();
 	var revision = Ext.get('book.revision').getValue();
@@ -41,11 +46,13 @@ function saveBook() {
 					'book.barCode' : barCode,
 					'book.bookNo' : bookNo,
 					'book.ISBN' : ISBN,
-					'book.author' : author,
+					'book.ISSN' : ISSN,
+					'book.emailNo' : emailNo,
 					'book.bookDesc' : bookDesc,
 					'book.donator' : donator,
-					'book.translator' : translator,
-					'book.isBook': 1,
+					'book.stage' : stage,
+					'book.allStage' : allStage,
+					'book.isBook': 0,
 					
 					'book.searchBookId' : searchBookId,
 					'book.speciesId' : speciesId,
@@ -85,18 +92,21 @@ function saveBook() {
 			});
 
 }
-function resetBookForm() {
+function resetMagazineForm() {
 	Ext.get('book.bookId').setValue('');
 	Ext.get('book.bookName').setValue('');
 	Ext.get('book.barcode').setValue('');
 	Ext.get('book.bookNo').setValue('');
 	Ext.get('book.donator').setValue('');
-	Ext.get('book.author').setValue('');
+//	Ext.get('book.author').setValue('');
 	Ext.get('book.bookDesc').setValue('');
 	Ext.get('book.ISBN').setValue('');
-	Ext.get('book.translator').setValue('');;	
-	
-	Ext.get('book.searchBookId').setValue('');
+	Ext.get('book.ISSN').setValue('');
+//	Ext.get('book.translator').setValue('');;	
+	Ext.get('book.emailNo').setValue('');
+	Ext.get('book.stage').setValue('');
+	Ext.get('book.allStage').setValue('');
+//	Ext.get('book.searchBookId').setValue('');
 	Ext.get('book.speciesId').setValue('');
 	Ext.get('book.publisherDate').setValue('');
 	Ext.get('book.revision').setValue('');

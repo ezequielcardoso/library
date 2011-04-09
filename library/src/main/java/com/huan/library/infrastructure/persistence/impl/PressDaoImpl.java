@@ -41,13 +41,13 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 			 * 拼接条件 如果某个字段的值不为空，则将作为查询条件
 			 */
 			if(pressView.getPressISBN()!=null && !"".equals(pressView.getPressISBN())){
-				whereSub.append(" and p.pressISBN=(:pressISBN) ");
+				whereSub.append(" and p.pressISBN like (:pressISBN) ");
 			}
 			if(pressView.getPressName()!=null && !"".equals(pressView.getPressName())){
-				whereSub.append(" and p.pressName=(:pressName) ");
+				whereSub.append(" and p.pressName like (:pressName) ");
 			}
 			if(pressView.getPressAddress()!=null && !"".equals(pressView.getPressAddress())){
-				whereSub.append(" and p.pressAddress=(:pressAddress) ");
+				whereSub.append(" and p.pressAddress like (:pressAddress) ");
 			}
 			// .......继续拼接........
 			hql.append(whereSub);
@@ -57,6 +57,7 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 
 			// order by 子句
 
+           
 			// 查找总记录
 			final String hqlIn_ = hql_.toString();
 			HibernateCallback callback_ = new HibernateCallback() {
@@ -66,13 +67,16 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 					Query query = session.createQuery(hqlIn_);
 					// 设置查询参数
 					if(pressView.getPressISBN()!=null && !"".equals(pressView.getPressISBN())){
-						query.setParameter("pressISBN", pressView.getPressISBN());
+						String temp = "%" + pressView.getPressISBN().replace(" ", "%")+"%";
+						query.setParameter("pressISBN", temp);
 					}
 					if(pressView.getPressName()!=null && !"".equals(pressView.getPressName())){
-						query.setParameter("pressName", pressView.getPressName());
+						String temp = "%" + pressView.getPressName().replace(" ", "%")+"%";
+						query.setParameter("pressName", temp);
 					}
 					if(pressView.getPressAddress()!=null && !"".equals(pressView.getPressAddress())){
-						query.setParameter("pressAddress", pressView.getPressAddress());
+						String temp = "%" + pressView.getPressAddress().replace(" ", "%")+"%";
+						query.setParameter("pressAddress", temp);
 					}
 					return query.list();
 				}
@@ -99,13 +103,16 @@ public class PressDaoImpl extends BaseDaoImpl<Press> implements PressDao {
 					}
 					// //设置查询参数
 					if(pressView.getPressISBN()!=null && !"".equals(pressView.getPressISBN())){
-						query.setParameter("pressISBN", pressView.getPressISBN());
+						String temp = "%" + pressView.getPressISBN().replace(" ", "%")+"%";
+						query.setParameter("pressISBN", temp);
 					}
 					if(pressView.getPressName()!=null && !"".equals(pressView.getPressName())){
-						query.setParameter("pressName", pressView.getPressName());
+						String temp = "%" + pressView.getPressName().replace(" ", "%")+"%";
+						query.setParameter("pressName", temp);
 					}
 					if(pressView.getPressAddress()!=null && !"".equals(pressView.getPressAddress())){
-						query.setParameter("pressAddress", pressView.getPressAddress());
+						String temp = "%" + pressView.getPressAddress().replace(" ", "%")+"%";
+						query.setParameter("pressAddress", temp);
 					}
 					return query.list();
 				}

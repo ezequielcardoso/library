@@ -14,6 +14,11 @@ import com.huan.library.domain.model.dict.DictItem;
 @DiscriminatorValue("CardState")
 public class CardState  extends DictItem {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public CardState(){
 		super();
 	}

@@ -35,7 +35,7 @@
 													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
-														<img src="<%=path %>/images/module/02a.gif">
+														<img src="<%=path%>/images/module/02a.gif">
 														当前位置：书刊管理&gt;&gt;图书基本管理
 													</td>
 												</tr>
@@ -51,61 +51,42 @@
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 									<TR>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio checked="checked" name="unclearBarCode" id="unclearBarCode">
-											模糊
-										</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio name="clearBarCode" id="clearBarCode">
-											精确
-										</TD>
 										<TD width="7%" height=25 align="right" nowrap class="body">
 											条形码：
 										</TD>
-										<TD width="15%" height=25 align="left" nowrap class="body">
+										<TD width="11%" height=25 align="left" nowrap class="body">
 											<input name="barCode" type="text" class="input2"
 												id="barCode" size="15">
 										</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio checked="checked" id="unclearBookName" name="unclearBookName">
-											模糊
-										</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio name="clearBookName" id="clearBookName">
-											精确
-										</TD>
-										<TD width="6%" height=25 align="right" nowrap class="body">
+										<TD width="7%" height=25 align="right" nowrap class="body">
 											书名：
 										</TD>
-										<TD width="28%" height=25 align="left" nowrap class="body">
+										<TD width="11%" height=25 align="left" nowrap class="body">
 											<input name="bookName" type="text" class="input2"
 												id="bookName" size="15">
 										</TD>
-										<TD width="24%" height=25 align="left" class="body"></TD>
+										<TD width="9%" height=25 align="right" nowrap class="body">
+											状态：
+										</TD>
+										<TD width="12%" height=25 align="left" nowrap class="body">
+											<input name="bookState" type="text" class="input2"
+												id="bookState" size="15">
+										</TD>
+										<TD width="7%" height=25 align="right" nowrap class="body">
+											来源：
+										</TD>
+										<TD width="36%" height=25 align="left" nowrap class="body">
+											<input name="bookSource" type="text" class="input2"
+												id="bookSource" size="15">
+										</TD>
 									</TR>
 									<TR>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio checked="checked" id="unclearLocation" name="unclearLocation">
-											模糊
-										</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body">
-											<INPUT type=radio id="clearLocation" name="clearLocation">
-											精确
-										</TD>
 										<TD height=25 align="right" nowrap class="body">
 											位置：
 										</TD>
 										<TD height=25 align="left" nowrap class="body">
 											<input name="location" type="text" class="input2"
-												id="location"size="15">
-										</TD>
-										<TD height=25 align="right" nowrap class="body">
-											<INPUT type=radio checked="checked" name="unclearBookNo">
-											模糊
-										</TD>
-										<TD height=25 align="right" nowrap class="body">
-											<INPUT type=radio value=2 name="clearBookNo">
-											精确
+												id="location" size="15">
 										</TD>
 										<TD height=25 align="right" nowrap class="body">
 											编号：
@@ -113,6 +94,50 @@
 										<TD height=25 align="left" class="body">
 											<input name="bookNo" type="text" class="input2"
 												id="bookNo" size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											索书号：
+										</TD>
+										<TD height=25 align="left" nowrap class="body">
+											<input name="searchBookId" type="text" class="input2"
+												id="searchBookId"size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											种次号：
+										</TD>
+										<TD height=25 align="left" class="body">
+											<input name="speciesId" type="text" class="input2"
+												id="speciesId" size="15">
+										</TD>
+									</TR>
+									<TR>
+										<TD height=25 align="right" nowrap class="body">
+											分类：
+										</TD>
+										<TD height=25 align="left" nowrap class="body">
+											<input name="firstCategory" type="text" class="input2"
+												id="firstCategory" size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											二级分类：
+										</TD>
+										<TD height=25 align="left" class="body">
+											<input name="secondCategory" type="text" class="input2"
+												id="secondCategory" size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											作者：
+										</TD>
+										<TD height=25 align="left" nowrap class="body">
+											<input name="author" type="text" class="input2"
+												id="author"size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											译者：
+										</TD>
+										<TD height=25 align="left" class="body">
+											<input name="translator" type="text" class="input2"
+												id="translator" size="15">
 										</TD>
 									</TR>
 								</TABLE>
@@ -131,8 +156,8 @@
 														class="title1">
 														查询列表
 													</td>
-													<td background="<%=path %>/images/module/titleb_02.jpg">
-														&nbsp;
+													<td background="<%=path %>/images/module/titleb_02.jpg">&nbsp;
+														
 													</td>
 													<td width="213" align="right"
 														background="<%=path %>/images/module/titleb_03.jpg"

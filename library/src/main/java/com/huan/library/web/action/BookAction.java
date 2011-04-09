@@ -31,52 +31,82 @@ public class BookAction extends BaseActionSupport {
 	 * 获取参数和返回数据对象
 	 */
 	private Book book = new Book(); // 图书信息--增加删除加载一个对象的时候用book,查询时用bookView对象
-	private ExtGridLoad extGridLoad = new ExtGridLoad();  //对应result的extGridLoad 
-	//应用struts2的属性驱动模式,自动填充页面的属性
-	private BookView bookView = new BookView();//接收客户端提交的参数
-	private ExtJsonForm extJsonForm = new ExtJsonForm();//回应给客户端的表单数据
-	
+	private ExtGridLoad extGridLoad = new ExtGridLoad(); // 对应result的extGridLoad
+	// 应用struts2的属性驱动模式,自动填充页面的属性
+	private BookView bookView = new BookView();// 接收客户端提交的参数
+	private ExtJsonForm extJsonForm = new ExtJsonForm();// 回应给客户端的表单数据
+
 	private Integer start;
 	private Integer limit;
-	
+
 	/**
 	 * 图书基本信息管理主页
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
 	public String bookMain() {
 		return Action.SUCCESS;
 	}
-	
+
 	/**
 	 * 期刊基本信息管理主页
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
 	public String magazineMain() {
 		return Action.SUCCESS;
 	}
-	
+
 	/**
 	 * 分页查找图书或者期刊
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
 	public String findBooks() {
 		try {
-			if(book.getBarCode()!=null&&!"".equals(book.getBarCode())){
+			if (book.getBarCode() != null && !"".equals(book.getBarCode())) {
 				bookView.setBarCode(book.getBarCode());
 			}
-			if(book.getBookName()!=null&&!"".equals(book.getBookName())){
+			if (book.getBookName() != null && !"".equals(book.getBookName())) {
 				bookView.setBookName(book.getBookName());
 			}
-			if(book.getLocation()!=null&&!"".equals(book.getLocation())){
+			// if(book.getBookState().getItemName()!=null&&!"".equals(book.getBookState().getItemName())){
+			// bookView.setBookStateName(book.getBookState().getItemName());
+			// }
+			// if(book.getBookSource().getItemName()!=null&&!"".equals(book.getBookSource().getItemName())){
+			// bookView.setBookStateName(book.getBookSource().getItemName());
+			// }
+			if (book.getLocation() != null && !"".equals(book.getLocation())) {
 				bookView.setLocation(book.getLocation());
 			}
-			if(book.getBookNo()!=null && !"".equals(book.getBookNo())){
+			if (book.getBookNo() != null && !"".equals(book.getBookNo())) {
 				bookView.setBookNo(book.getBookNo());
 			}
-			bookView.setIsBook(1);
+			if (book.getSearchBookId() != null
+					&& !"".equals(book.getSearchBookId())) {
+				bookView.setSearchBookId(book.getSearchBookId());
+			}
+			if (book.getSpeciesId() != null && !"".equals(book.getSpeciesId())) {
+				bookView.setSpeciesId(book.getSpeciesId());
+			}
+			// if(book.getFirstCategory().getItemName()!=null&&!"".equals(book.getFirstCategory().getItemName())){
+			// bookView.setFirstCategoryName(book.getFirstCategory().getItemName());
+			// }
+//			if (book.getSecondCategory().getItemName() != null
+//					&& !"".equals(book.getSecondCategory().getItemName())) {
+//				bookView.setSecondCategoryName(book.getSecondCategory().getItemName());
+//			}
+			if (book.getAuthor() != null && !"".equals(book.getAuthor())) {
+				bookView.setAuthor(book.getAuthor());
+			}
+			if (book.getTranslator() != null
+					&& !"".equals(book.getTranslator())) {
+				bookView.setTranslator(book.getTranslator());
+			}
+//			bookView.setIsBook(book.getIsBook());
 			bookView.setStart(start);
 			bookView.setLimit(limit);
 			List<Book> books = bookService.findBooks(bookView);
@@ -88,39 +118,40 @@ public class BookAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
+
 	/**
 	 * 显示添加或者修改期刊
 	 */
 	public String showSaveMagazine() {
-		if(bookView.getBookId()!=null){
+		if (bookView.getBookId() != null) {
 			try {
 				book = bookService.getBookById(bookView.getBookId());
-				if(book.getFirstCategory()!=null){
+				if (book.getFirstCategory() != null) {
 					book.getFirstCategory().setChildren(null);
 					book.getFirstCategory().setParent(null);
 				}
-				if(book.getSecondCategory()!=null){
+				if (book.getSecondCategory() != null) {
 					book.getSecondCategory().setChildren(null);
 					book.getSecondCategory().setParent(null);
 				}
 				book.setAttachments(null);
-				if(book.getBookState()!=null){
+				if (book.getBookState() != null) {
 					book.getBookState().setChildren(null);
 					book.getBookState().setParent(null);
 				}
-				if(book.getBookLevel()!=null){
+				if (book.getBookLevel() != null) {
 					book.getBookLevel().setChildren(null);
 					book.getBookLevel().setParent(null);
 				}
-				if(book.getBookSecurity()!=null){
+				if (book.getBookSecurity() != null) {
 					book.getBookSecurity().setChildren(null);
 					book.getBookSecurity().setParent(null);
 				}
-				if(book.getCurrency()!=null){
+				if (book.getCurrency() != null) {
 					book.getCurrency().setChildren(null);
 					book.getCurrency().setParent(null);
 				}
-				if(book.getBookSource()!=null){
+				if (book.getBookSource() != null) {
 					book.getBookSource().setChildren(null);
 					book.getBookSource().setParent(null);
 				}
@@ -131,40 +162,40 @@ public class BookAction extends BaseActionSupport {
 		return Action.SUCCESS;
 
 	}
-	
+
 	/**
 	 * 显示添加或者修改图书
 	 */
 	public String showSaveBook() {
-		if(bookView.getBookId()!=null){
+		if (bookView.getBookId() != null) {
 			try {
 				book = bookService.getBookById(bookView.getBookId());
-				if(book.getFirstCategory()!=null){
+				if (book.getFirstCategory() != null) {
 					book.getFirstCategory().setChildren(null);
 					book.getFirstCategory().setParent(null);
 				}
-				if(book.getSecondCategory()!=null){
+				if (book.getSecondCategory() != null) {
 					book.getSecondCategory().setChildren(null);
 					book.getSecondCategory().setParent(null);
 				}
 				book.setAttachments(null);
-				if(book.getBookState()!=null){
+				if (book.getBookState() != null) {
 					book.getBookState().setChildren(null);
 					book.getBookState().setParent(null);
 				}
-				if(book.getBookLevel()!=null){
+				if (book.getBookLevel() != null) {
 					book.getBookLevel().setChildren(null);
 					book.getBookLevel().setParent(null);
 				}
-				if(book.getBookSecurity()!=null){
+				if (book.getBookSecurity() != null) {
 					book.getBookSecurity().setChildren(null);
 					book.getBookSecurity().setParent(null);
 				}
-				if(book.getCurrency()!=null){
+				if (book.getCurrency() != null) {
 					book.getCurrency().setChildren(null);
 					book.getCurrency().setParent(null);
 				}
-				if(book.getBookSource()!=null){
+				if (book.getBookSource() != null) {
 					book.getBookSource().setChildren(null);
 					book.getBookSource().setParent(null);
 				}
@@ -177,6 +208,7 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 保存图书或者期刊
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -195,7 +227,7 @@ public class BookAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
-	
+
 	/**
 	 * 删除图书或者期刊
 	 * 
@@ -206,7 +238,7 @@ public class BookAction extends BaseActionSupport {
 		try {
 			Book book = new Book();
 			book.setBookId(bookView.getBookId());
-			//这里可以取到值
+			// 这里可以取到值
 			bookService.removeBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("删除成功！");
@@ -220,104 +252,114 @@ public class BookAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
-	
-	public List<BookView> convertToView(List<Book> books){
+
+	public List<BookView> convertToView(List<Book> books) {
 		List<BookView> views = new ArrayList<BookView>();
-		for(Book book : books){
+		for (Book book : books) {
 			BookView view = new BookView();
 			view.setBookId(book.getBookId());
-			if(book.getBookName()!=null){
+			if (book.getBookName() != null) {
 				view.setBookName(book.getBookName());
 			}
-			if(book.getBookDesc()!=null){
+			if (book.getBookDesc() != null) {
 				view.setBookDesc(book.getBookDesc());
 			}
-			if(book.getDonator()!=null){
+			if (book.getDonator() != null) {
 				view.setDonator(book.getDonator());
 			}
-			if(book.getAuthor()!=null){
+			if (book.getAuthor() != null) {
 				view.setAuthor(book.getAuthor());
 			}
-			if(book.getTranslator()!=null){
+			if (book.getTranslator() != null) {
 				view.setTranslator(book.getTranslator());
 			}
-			if(book.getISBN()!=null){
+			if (book.getISBN() != null) {
 				view.setISBN(book.getISBN());
 			}
-			if(book.getPages()!=null){
+			if (book.getPages() != null) {
 				view.setPages(book.getPages());
 			}
-			if(book.getPrice()!=null){
+			if (book.getPrice() != null) {
 				view.setPrice(book.getPrice());
 			}
-			if(book.getPublisherDate()!=null){
+			if (book.getPublisherDate() != null) {
 				view.setPublisherDate(book.getPublisherDate());
 			}
-			if(book.getQuantity()!=null){
+			if (book.getQuantity() != null) {
 				view.setQuantity(book.getQuantity());
 			}
-			if(book.getLocation()!=null){
+			if (book.getLocation() != null) {
 				view.setLocation(book.getLocation());
 			}
-			if(book.getSearchBookId()!=null){
+			if (book.getSearchBookId() != null) {
 				view.setSearchBookId(book.getSearchBookId());
 			}
-			if(book.getSpeciesId()!=null){
+			if (book.getSpeciesId() != null) {
 				view.setSpeciesId(book.getSpeciesId());
 			}
-			if(book.getStoreDate()!=null){
+			if (book.getStoreDate() != null) {
 				view.setStoreDate(book.getStoreDate());
 			}
-			if(book.getBookNo()!=null){
+			if (book.getBookNo() != null) {
 				view.setBookNo(book.getBookNo());
 			}
-			if(book.getAllStage()!=null){
+			if (book.getAllStage() != null) {
 				view.setAllStage(book.getAllStage());
 			}
-			if(book.getStage()!=null){
+			if (book.getStage() != null) {
 				view.setStage(book.getStage());
 			}
-			if(book.getFirstCategory()!=null){
+			if (book.getFirstCategory() != null) {
 				view.setFirstCategoryId(book.getFirstCategory().getItemId());
-				view.setFirstCategoryCode(book.getFirstCategory().getItemCode());
-				view.setFirstCategoryName(book.getFirstCategory().getItemName());
+				view
+						.setFirstCategoryCode(book.getFirstCategory()
+								.getItemCode());
+				view
+						.setFirstCategoryName(book.getFirstCategory()
+								.getItemName());
 			}
-			if(book.getSecondCategory()!=null){
+			if (book.getSecondCategory() != null) {
 				view.setSecondCategoryId(book.getSecondCategory().getItemId());
-				view.setSecondCategoryCode(book.getSecondCategory().getItemCode());
-				view.setSecondCategoryName(book.getSecondCategory().getItemName());
+				view.setSecondCategoryCode(book.getSecondCategory()
+						.getItemCode());
+				view.setSecondCategoryName(book.getSecondCategory()
+						.getItemName());
 			}
-			if(book.getThirdCategory()!=null){
+			if (book.getThirdCategory() != null) {
 				view.setThirdCategoryId(book.getThirdCategory().getItemId());
-				view.setThirdCategoryCode(book.getThirdCategory().getItemCode());
-				view.setThirdCategoryName(book.getThirdCategory().getItemName());
+				view
+						.setThirdCategoryCode(book.getThirdCategory()
+								.getItemCode());
+				view
+						.setThirdCategoryName(book.getThirdCategory()
+								.getItemName());
 			}
-			//附件
-//			if(null != book.getAttachment()){
-//				view.setHasAttachment("");  //有
-//			}
-//			view.setHasAttachment(null);  // 无
-			if(book.getBookState()!=null){
-				view.setBookStateId(book.getBookState().getItemId());  
+			// 附件
+			// if(null != book.getAttachment()){
+			// view.setHasAttachment(""); //有
+			// }
+			// view.setHasAttachment(null); // 无
+			if (book.getBookState() != null) {
+				view.setBookStateId(book.getBookState().getItemId());
 				view.setBookStateName(book.getBookState().getItemName());
 			}
-			if(book.getBookLevel()!=null){
+			if (book.getBookLevel() != null) {
 				view.setBookLevelId(book.getBookLevel().getItemId());
 				view.setBookLevelName(book.getBookLevel().getItemName());
 			}
-			if(book.getBookSecurity()!=null){
+			if (book.getBookSecurity() != null) {
 				view.setBookSecurityId(book.getBookSecurity().getItemId());
-				view.setBookSecurityName(book.getBookSecurity().getItemName());	
+				view.setBookSecurityName(book.getBookSecurity().getItemName());
 			}
-			if(book.getCurrency()!=null){
+			if (book.getCurrency() != null) {
 				view.setCurrencyId(book.getCurrency().getItemId());
 				view.setCurrencyName(book.getCurrency().getItemName());
 			}
-			if(book.getPress()!=null){
+			if (book.getPress() != null) {
 				view.setPressId(book.getPress().getPressId());
 				view.setPressName(book.getPress().getPressName());
 			}
-			if(book.getBookSource()!=null){
+			if (book.getBookSource() != null) {
 				view.setBookSourceId(book.getBookSource().getItemId());
 				view.setBookSourceName(book.getBookSource().getItemName());
 			}
@@ -325,18 +367,33 @@ public class BookAction extends BaseActionSupport {
 		}
 		return views;
 	}
-	
-	public void formatBook(Book book){
+
+	public void formatBook(Book book) {
 		book.setAttachments(null);
-		book.setBookLevel((book.getBookLevel()!=null && book.getBookLevel().getItemId()!=null)? book.getBookLevel() : null);
-		book.setBookSecurity((book.getBookSecurity()!=null && book.getBookSecurity().getItemId()!=null)? book.getBookSecurity() : null);
-		book.setBookSource((book.getBookSource()!=null && book.getBookSource().getItemId()!=null)? book.getBookSource() : null);
-		book.setBookState((book.getBookState()!=null && book.getBookState().getItemId()!=null)? book.getBookState() : null);
-		book.setPress((book.getPress()!=null && book.getPress().getPressId()!=null)? book.getPress() : null);
-		book.setCurrency((book.getCurrency()!=null && book.getCurrency().getItemId()!=null)? book.getCurrency() : null);
-		book.setFirstCategory((book.getFirstCategory()!=null && book.getFirstCategory().getItemId()!=null)? book.getFirstCategory() : null);
-		book.setSecondCategory((book.getSecondCategory()!=null && book.getSecondCategory().getItemId()!=null)? book.getSecondCategory() : null);
-		book.setThirdCategory((book.getThirdCategory()!=null && book.getThirdCategory().getItemId()!=null)? book.getThirdCategory() : null);
+		book.setBookLevel((book.getBookLevel() != null && book.getBookLevel()
+				.getItemId() != null) ? book.getBookLevel() : null);
+		book.setBookSecurity((book.getBookSecurity() != null && book
+				.getBookSecurity().getItemId() != null) ? book
+				.getBookSecurity() : null);
+		book.setBookSource((book.getBookSource() != null && book
+				.getBookSource().getItemId() != null) ? book.getBookSource()
+				: null);
+		book.setBookState((book.getBookState() != null && book.getBookState()
+				.getItemId() != null) ? book.getBookState() : null);
+		book
+				.setPress((book.getPress() != null && book.getPress()
+						.getPressId() != null) ? book.getPress() : null);
+		book.setCurrency((book.getCurrency() != null && book.getCurrency()
+				.getItemId() != null) ? book.getCurrency() : null);
+		book.setFirstCategory((book.getFirstCategory() != null && book
+				.getFirstCategory().getItemId() != null) ? book
+				.getFirstCategory() : null);
+		book.setSecondCategory((book.getSecondCategory() != null && book
+				.getSecondCategory().getItemId() != null) ? book
+				.getSecondCategory() : null);
+		book.setThirdCategory((book.getThirdCategory() != null && book
+				.getThirdCategory().getItemId() != null) ? book
+				.getThirdCategory() : null);
 	}
 
 	public BookService getBookService() {
@@ -394,5 +451,5 @@ public class BookAction extends BaseActionSupport {
 	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}
-	
+
 }

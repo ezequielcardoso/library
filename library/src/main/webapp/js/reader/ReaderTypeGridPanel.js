@@ -116,7 +116,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							type : 'int'
 						},'-', {
 							name : 'rent',
-							type : 'int'
+							type : 'float'
 						}];
 
 				var store = new Ext.data.JsonStore({

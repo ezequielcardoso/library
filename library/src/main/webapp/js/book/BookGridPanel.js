@@ -201,7 +201,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			totalProperty : 'totalProperty',
 			root : 'root',
 			baseParams : {
-				"bookView.isBook" : ''
+				'bookView.isBook' : 1
 			},
 			storeInfo : {
 				field : '列名',
@@ -390,7 +390,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		}, this);
 		
 		this.store.baseParams = {
-			"bookView.isBook" : 1
+			'bookView.isBook' : 1
 		}
 		
 	},
@@ -398,13 +398,31 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	queryBook : function(){
 	   var barCode = Ext.get('barCode').getValue();
 	   var bookName = Ext.get('bookName').getValue();
+	   var bookState = Ext.get('bookState').getValue();
+	   var bookSource = Ext.get('bookSource').getValue();
 	   var location = Ext.get('location').getValue();
 	   var bookNo = Ext.get('bookNo').getValue();
+	   var searchBookId = Ext.get('searchBookId').getValue();
+	   var speciesId = Ext.get('speciesId').getValue();
+	   var firstCategory = Ext.get('firstCategory').getValue();
+	   var secondCategory = Ext.get('secondCategory').getValue();
+	   var author = Ext.get('author').getValue();
+	   var translator = Ext.get('translator').getValue();
 	   this.getStore().baseParams = {
 	       'book.barCode' : barCode,
 	       'book.bookName' : bookName,
+	       'book.bookState.itemName' : bookState,
+	       'book.bookState.itemName' : bookSource,
 	       'book.location' : location,
-	       'book.bookNo' :bookNo
+	       'book.bookNo' :bookNo,
+	       'book.searchBookId' : searchBookId,
+	       'book.speciesId' : speciesId,
+	       'book.firstCategory.itemName' : firstCategory,
+	       'book.secondCategory.itemName' : secondCategory,
+	       'book.author' : author,
+	       'book.translator' : translator,
+	       'book.isBook' : 1
+	      
 	   }
 	   this.getStore().load({
 	       params : {

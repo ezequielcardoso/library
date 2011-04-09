@@ -17,4 +17,13 @@ public interface ReaderUnitsDao extends BaseDao<ReaderUnits>{
 	 * @throws Exception
 	 */
 	public void insertReaderUnitsesBatch(List<ReaderUnits> readerUnitses) throws Exception;
+	/**
+	 * 根据父节点查找其下的所有子节点
+	 * @param parentUnitId
+	 * @return
+	 * @throws Exception
+	 */
+	public List<ReaderUnits> selectUnitsByParentId(Long parentUnitId) throws Exception;
+	
+	public ReaderUnits selectUnitById(Long unitId) throws Exception;
 }
