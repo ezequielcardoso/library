@@ -151,7 +151,7 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							var obj = Ext.util.JSON.decode(resp.responseText);
 							if (obj.success == true) {
 								Ext.Msg.alert('提示', obj.msg);
-								e.record.set("pressId", obj.data.pressId);
+								e.record.set("roleId", obj.data.roleId);
 								e.record.commit();
 							} else if (obj.success == false) {
 								Ext.Msg.alert('提示', obj.msg);
