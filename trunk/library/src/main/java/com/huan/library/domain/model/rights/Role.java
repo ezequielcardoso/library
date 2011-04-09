@@ -32,7 +32,7 @@ public class Role implements Serializable{
 	private Integer roleId;//角色id
 	private String roleName;//角色名字
 	private String roleDesc;//角色描述
-	private boolean roleActive;//角色激活
+	private Boolean roleActive;//角色激活
 	private Date createDate;//角色修改时间
 	
 	@ManyToMany(
@@ -70,14 +70,6 @@ public class Role implements Serializable{
 		this.roleDesc = roleDesc;
 	}
 
-	public boolean isRoleActive() {
-		return roleActive;
-	}
-
-	public void setRoleActive(boolean roleActive) {
-		this.roleActive = roleActive;
-	}
-
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -101,5 +93,12 @@ public class Role implements Serializable{
 	public void setFunctions(List<Function> functions) {
 		this.functions = functions;
 	}
-	
+	public Boolean getRoleActive() {
+		return roleActive;
+	}
+
+	public void setRoleActive(Boolean roleActive) {
+		this.roleActive = roleActive;
+	}
+
 }

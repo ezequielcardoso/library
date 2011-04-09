@@ -17,7 +17,7 @@ Library.rights.tree.FunctionCheckedTreePanel = Ext.extend(Library.tree.BaseCheck
 		
 		Ext.apply(this, {
 			title : '资源列表',
-			width : 565,
+			width : 300,
 		    height : 500,
 		    border : true
 		});

@@ -30,44 +30,71 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		}, {
 			name : 'roleDesc',
 			type : 'string'
+		}, {
+			name : 'roleActive',
+			type : 'boolean'
+		}, {
+			name : 'createDate',
+			type : 'date',
+			dateFormat : 'Y-m-d'
 		}];
 		
 		var store = new Ext.data.JsonStore({
-			url : 'rights/findRoles.action',
-			totalProperty : 'results',
-			root : 'rows',
+			url : contextPath + '/role/findRoles.action',
+			totalProperty : 'totalProperty',
+			root : 'root',
 			storeInfo : {
 				field : '列名',
 				direction : 'ASC|DESC'
 			},
 			fields : fields
 		});
-		var colM = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), {
-				header : '角色名',
+		
+		var sm = new Ext.grid.CheckboxSelectionModel();
+		
+		var colM = new Ext.grid.ColumnModel([
+			new Ext.grid.RowNumberer(), sm, {
+				header : '名称',
 				dataIndex : 'roleName',
 				sortable : true,
 				width : 100,
-				align : 'center',
 				editor : new Ext.form.TextField({
 					allowBlank : false
 				})
 			}, {
-				header : '角色描述',
+				header : '描述',
 				dataIndex : 'roleDesc',
-				width : 300,
-				sortable : true,
-				align : 'center',
+				width : 200,
 				editor : new Ext.form.TextField()
+			}, {
+				xtype : 'datecolumn',
+				format: 'Y-m-d',
+				header : '创建时间',
+				dataIndex : 'createDate',
+				sortable : true,
+				width : 100,
+				editor : new Ext.form.DateField({
+					format : 'Y-m-d'
+				})
+			}, {
+//				xtype : 'booleancolumn',
+				header : '激活',
+				dataIndex : 'roleActive',
+				width : 50,
+				editor : new Ext.form.Checkbox()
 			}
 		]);
 		
 		Ext.apply(this, {
-			width : 450,
+			width : 500,
 //			height : document.documentElement.clientHeight * 0.82,
 			height : 500,
 			autoScroll : true,
 			tbar : tbar,
 			cm : colM,
+			sm : sm,
+			loadMask : '正在加载......',
+			clicksToEdit : 1,
 			store : store,
 			stripeRows : true,
 			columnLines : true,
@@ -105,6 +132,35 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		
 		this.addListener('rowclick', function(){
 			
+		}, this);
+		
+		this.on('afteredit', function(e) {
+			e.record.commit();
+			var thiz = this;
+			Ext.Ajax.request({
+						url : contextPath + '/role/save.action',
+						method : 'POST',
+						params : {
+							'role.roleId' : e.record.get('roleId'),
+							'role.roleName' : e.record.get('roleName'),
+							'role.roleDesc' : e.record.get('roleDesc'),
+							'role.createDate' : e.record.get('createDate'),
+							'role.roleActive' : e.record.get('roleActive')
+						},
+						success : function(resp) {
+							var obj = Ext.util.JSON.decode(resp.responseText);
+							if (obj.success == true) {
+								Ext.Msg.alert('提示', obj.msg);
+								e.record.set("pressId", obj.data.pressId);
+								e.record.commit();
+							} else if (obj.success == false) {
+								Ext.Msg.alert('提示', obj.msg);
+							}
+						},
+						failure : function() {
+							Ext.Msg.alert('提示', '服务器异常，请稍候再试');
+						}
+					});
 		}, this);
 		
 	},

@@ -51,4 +51,19 @@
     
     </package>
     
+    <package name="role" namespace="/role" extends="library">
+    
+		<action name="findRoles" class="com.huan.library.web.action.RoleAction" method="findRoles">
+			<result name="success" type="json">
+				<param name="root">extGridLoad</param>
+			</result>
+		</action>
+    
+    <action name="save" class="com.huan.library.web.action.RoleAction" method="save">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
+		</action>
+    </package>
+    
 </struts>
