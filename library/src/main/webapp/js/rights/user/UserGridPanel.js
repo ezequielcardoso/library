@@ -110,7 +110,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			}, {
 				header : '创建时间',
 				dataIndex : 'createDate',
-				width : 80,
+				width : 100,
 				sortable : true,
 				align : 'center',
 				editor : new Ext.form.DateField({
@@ -142,6 +142,8 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			store : store,
 			stripeRows : true,
 			columnLines : true,
+			loadMask : '正在加载......',
+			clicksToEdit : 1,
 			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,

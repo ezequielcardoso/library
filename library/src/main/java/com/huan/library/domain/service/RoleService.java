@@ -3,6 +3,7 @@ package com.huan.library.domain.service;
 import java.util.List;
 
 import com.huan.library.domain.model.rights.Role;
+import com.huan.library.web.view.RoleView;
 
 /**
  * 
@@ -26,23 +27,16 @@ public interface RoleService {
 	public void remove(Role role) throws Exception;
 	
 	/**
-	 * 根据userId查找所有的角色
-	 * @param userId
-	 * @return
-	 */
-	public List<Role> findByUserId(String userId) throws Exception;
-	
-	/**
 	 * 根据roleId查找角色
 	 * @param roleId
 	 * @return
 	 */
-	public Role getById(String roleId) throws Exception;
+	public Role getById(Long roleId) throws Exception;
 	
 	/**
 	 *查找所有的角色 
 	 * @return
 	 */
-	public List<Role> findAllRoles() throws Exception;
+	public List<Role> findRoles(RoleView roleView) throws Exception;
 	
 }

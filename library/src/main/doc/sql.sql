@@ -12,3 +12,6 @@ itemId like 'BookLevel_%' or
 itemId like 'BookState_%' or 
 itemId like 'Certificate_%' or 
 itemId like 'BookSecurity_%';
+
+insert Role(roleId, roleName, roleDesc, createDate, roleActive)
+values(1, '超级管理员', '拥有系统所有权限', '2011-04-09', 1);

@@ -59,8 +59,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	public User selectUserById(Long userId) throws Exception{
 		User user = new User();
 		try{
-			String hql = "from User ";
-			user = (User) this.getHibernateTemplate().find(hql).iterator().next();
+			String hql = " from User u where u.userId=? ";
+			user = (User) this.getHibernateTemplate().find(hql, userId).iterator().next();
 		}catch(Exception e){
 			e.printStackTrace();
 		}

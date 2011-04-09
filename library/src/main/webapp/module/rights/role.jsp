@@ -83,11 +83,11 @@
 								<table width="99%" height="600" border="0" align="left"
 									cellpadding="0" cellspacing="0">
 									<tr>
-										<td width="300" height="500" align="left" valign="top">
+										<td width="500" height="500" align="left" valign="top">
 											<div id="roleGrid">
 											</div>
 										</td>
-										<td width="500" height="500" align="left" valign="top">
+										<td width="300" height="500" align="left" valign="top">
 											<div id="functionCheckedTree">
 											</div>
 										</td>

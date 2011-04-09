@@ -6,5 +6,11 @@ Ext.onReady(function(){
 	var functionCheckedTreePanel = new Library.rights.tree.FunctionCheckedTreePanel();
 	functionCheckedTreePanel.render('functionCheckedTree');
 	
+	roleGridPanel.getStore().load({
+							params : {
+								start : 0,
+								limit : 20
+							}
+					});
 	
 });
