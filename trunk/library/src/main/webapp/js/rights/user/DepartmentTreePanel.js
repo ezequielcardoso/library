@@ -25,7 +25,7 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 				    	
 				    	
 				    	
-			    	}else{
+			    	}else{ 
 						Ext.Msg.alert('提示', '请选择父功能');
 					}
 				}

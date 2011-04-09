@@ -11,7 +11,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			items : [{
 				text : '查询',
 				handler : function() {
-					this.queryBook();
+					this.queryMagazine();
 				},
 				scope:this
 			}, {
@@ -201,7 +201,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			totalProperty : 'totalProperty',
 			root : 'root',
 			baseParams : {
-				"bookView.isBook" : ''
+				"bookView.isBook" : 0
 			},
 			storeInfo : {
 				field : '列名',
@@ -280,14 +280,14 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '作者',
-				dataIndex : 'author',
+				header : 'ISSN',
+				dataIndex : 'ISSN',
 				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '译者',
-				dataIndex : 'translator',
+				header : '国内统一刊号',
+				dataIndex : 'ISBN',
 				width : 80,
 				sortable : true,
 				align : 'center'
@@ -304,8 +304,8 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				sortable : true,
 				align : 'center'
 			}, {
-				header : 'ISBN',
-				dataIndex : 'ISBN',
+				header : '邮发代码',
+				dataIndex : 'emailNo',
 				width : 80,
 				sortable : true,
 				align : 'center'
@@ -390,21 +390,38 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		}, this);
 		
 		this.store.baseParams = {
-			"bookView.isBook" : 1
+			'bookView.isBook' : 0
 		}
 		
 	},
 	
-	queryBook : function(){
+	queryMagazine : function(){
 	   var barCode = Ext.get('barCode').getValue();
 	   var bookName = Ext.get('bookName').getValue();
+	   var bookState = Ext.get('bookState').getValue();
+	   var bookSource = Ext.get('bookSource').getValue();
 	   var location = Ext.get('location').getValue();
 	   var bookNo = Ext.get('bookNo').getValue();
+	   var searchBookId = Ext.get('searchBookId').getValue();
+	   var speciesId = Ext.get('speciesId').getValue();
+	   var firstCategory = Ext.get('firstCategory').getValue();
+	   var secondCategory = Ext.get('secondCategory').getValue();
+	   var emailNo = Ext.get('emailNo').getValue();
+	   var ISSN = Ext.get('ISSN').getValue();
 	   this.getStore().baseParams = {
 	       'book.barCode' : barCode,
 	       'book.bookName' : bookName,
+	       'book.bookState.itemName' : bookState,
+	       'book.bookState.itemName' : bookSource,
 	       'book.location' : location,
-	       'book.bookNo' :bookNo
+	       'book.bookNo' :bookNo,
+	       'book.searchBookId' : searchBookId,
+	       'book.speciesId' : speciesId,
+	       'book.firstCategory.itemName' : firstCategory,
+	       'book.secondCategory.itemName' : secondCategory,
+	       'book.author' : emailNo,
+	       'book.translator' : ISSN,
+	       'book.isBook' : 0
 	   }
 	   this.getStore().load({
 	       params : {
@@ -423,9 +440,9 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		if(sm.hasSelection()){
 			var record = sm.getSelected();
 			var bookId = record.get('bookId');
-			window.location = contextPath + '/book/showSaveBook.action?bookView.bookId=' + bookId;				
+			window.location = contextPath + '/book/showSaveMagazine.action?bookView.bookId=' + bookId;				
 		} else {
-			Ext.Msg.alert('提示', '请选择一个图书!');
+			Ext.Msg.alert('提示', '请选择一个期刊!');
 		}
 	},
 	

@@ -65,7 +65,7 @@ CREATE TABLE `book` (
   `bookNo` varchar(255) default NULL,
   `donator` varchar(255) default NULL,
   `emailNo` varchar(255) default NULL,
-  `isBook` bit(1) default NULL,
+  `isBook` int(11) default 1,
   `location` varchar(255) default NULL,
   `operator` varchar(255) default NULL,
   `pages` int(11) default NULL,

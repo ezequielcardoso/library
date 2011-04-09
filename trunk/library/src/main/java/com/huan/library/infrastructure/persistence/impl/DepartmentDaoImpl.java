@@ -40,7 +40,6 @@ public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 						query.setParameter("parentDeptId", parentDeptId);
 					return query.list();
 				}
-				
 			};
 			depts = (List<Department>)getHibernateTemplate().executeFind(callback);
 		} catch(Exception e){

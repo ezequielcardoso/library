@@ -3,6 +3,7 @@ package com.huan.library.domain.model.reader;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.huan.library.domain.model.rights.Department;
 /**
  * 读者单位实体
  * @author huan
@@ -32,11 +35,11 @@ public class ReaderUnits  {
 	private String unitShortName; //单位简称
 	private String unitDesc;   //单位描述
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=ReaderUnits.class)
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=ReaderUnits.class,cascade={CascadeType.MERGE,CascadeType.REMOVE})
 	@JoinColumn(name="parentUnitId",referencedColumnName="unitId")
 	private ReaderUnits parentUnit;   //上级单位
 	
-	@OneToMany(fetch=FetchType.LAZY,targetEntity=ReaderUnits.class,mappedBy="parentUnit")
+	@OneToMany(targetEntity=ReaderUnits.class,mappedBy="parentUnit")
 	private List<ReaderUnits> childrenUnits = new ArrayList<ReaderUnits>(); //下级单位
 	
 	public ReaderUnits(){

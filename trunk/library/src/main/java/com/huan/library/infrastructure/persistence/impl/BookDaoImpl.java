@@ -73,18 +73,47 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 //			}
 			//.......继续拼接........
 			if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
-				whereSub.append(" and b.barCode=(:barCode) ");
+				whereSub.append(" and b.barCode like (:barCode) ");
 			}
 			if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
-				whereSub.append(" and b.bookName=(:bookName) ");
+				whereSub.append(" and b.bookName like (:bookName) ");
 			}
+//			if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
+//				whereSub.append(" and t_st.itemName like (:bookState) ");
+//			}
+//			if(bookView.getBookSourceName()!=null && !"".equals(bookView.getBookSourceName())){
+//				whereSub.append(" and t_so.itemName like (:bookSource) ");
+//			}
 			if(bookView.getLocation()!=null && !"".equals(bookView.getLocation())){
-				whereSub.append(" and b.location=(:location) ");
+				whereSub.append(" and b.location like (:location) ");
 			}
 			if(bookView.getBookNo()!=null && !"".equals(bookView.getBookNo())){
-				whereSub.append(" and b.bookNo=(:bookNo) ");
+				whereSub.append(" and b.bookNo like (:bookNo) ");
 			}
-			
+			if(bookView.getSearchBookId()!=null && !"".equals(bookView.getSearchBookId())){
+				whereSub.append(" and b.searchBookId like (:searchBookId) ");
+			}
+			if(bookView.getSpeciesId()!=null && !"".equals(bookView.getSpeciesId())){
+				whereSub.append(" and b.speciesId like (:speciesId) ");
+			}
+//			if(bookView.getFirstCategoryName()!=null&&!"".equals(bookView.getFirstCategoryName())){
+//				whereSub.append(" and t_fc.itemName like (:firstCategory) ");
+//			}
+//			if(bookView.getSecondCategoryName()!=null&&!"".equals(bookView.getSecondCategoryName())){
+//				whereSub.append(" and t_cc.itemName like (:secondCategory) ");
+//			}
+			if(bookView.getAuthor()!=null && !"".equals(bookView.getAuthor())){
+				whereSub.append(" and b.author like (:author) ");
+			}
+			if(bookView.getTranslator()!=null && !"".equals(bookView.getTranslator())){
+				whereSub.append(" and b.translator like (:translator) ");
+			}
+			if(bookView.getEmailNo()!=null&&!"".equals(bookView.getEmailNo())){
+				whereSub.append(" and b.emailNo like (:emailNo) ");
+			}
+			if(bookView.getISSN()!=null&&!"".equals(bookView.getISSN())){
+				whereSub.append(" and b.ISSN like (:ISSN) ");
+			}
 			hql.append(whereSub);
 			hql_.append(whereSub);//count 查询hql拼接结束
 
@@ -100,23 +129,67 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						throws HibernateException, SQLException {
 						Query query = session.createQuery(hqlIn_);
 						//设置查询参数
-						query.setParameter("isBook", bookView.getIsBook()==1 ? true : false);
+						query.setParameter("isBook", bookView.getIsBook());
 						if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
-							query.setParameter("barCode", bookView.getBarCode());
+							String temp = "%"+bookView.getBarCode().replace(" ", "%")+"%";
+							query.setParameter("barCode", temp);
 						}
 						if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
-							query.setParameter("bookName", bookView.getBookName());
+							String temp = "%"+bookView.getBookName().replace(" ", "%")+"%";
+							query.setParameter("bookName",temp);
 						}
+//						if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
+//							String temp = "%"+bookView.getBookStateName().replace(" ", "%")+"%";
+//							query.setParameter("bookState",temp);
+//						}
+//						if(bookView.getBookSourceName()!=null && !"".equals(bookView.getBookSourceName())){
+//							String temp = "%"+bookView.getBookSourceName().replace(" ", "%")+"%";
+//							query.setParameter("bookSource",temp);
+//						}
 						if(bookView.getLocation()!=null && !"".equals(bookView.getLocation())){
-							query.setParameter("location", bookView.getLocation());
+							String temp = "%"+bookView.getLocation().replace(" ", "%")+"%";
+							query.setParameter("location", temp);
 						}
 						if(bookView.getBookNo()!=null && !"".equals(bookView.getBookNo())){
-							query.setParameter("bookNo", bookView.getBookNo());
+							String temp = "%"+bookView.getBookNo().replace(" ", "%")+"%";
+							query.setParameter("bookNo", temp);
+						}
+						if(bookView.getSearchBookId()!=null && !"".equals(bookView.getSearchBookId())){
+							String temp = "%"+bookView.getSearchBookId().replace(" ", "%")+"%";
+							query.setParameter("searchBookId", temp);
+						}
+						if(bookView.getSpeciesId()!=null && !"".equals(bookView.getSpeciesId())){
+							String temp = "%"+bookView.getSpeciesId().replace(" ", "%")+"%";
+							query.setParameter("speciesId", temp);
+						}
+//						if(bookView.getFirstCategoryName()!=null&&!"".equals(bookView.getFirstCategoryName())){
+//							String temp = "%"+bookView.getFirstCategoryName().replace(" ", "%")+"%";
+//							query.setParameter("firstCategory", temp);
+//						}
+//						if(bookView.getSecondCategoryName()!=null&&!"".equals(bookView.getSecondCategoryName())){
+//							String temp = "%"+bookView.getSecondCategoryName().replace(" ", "%")+"%";
+//							query.setParameter("secondCategory", temp);
+//						}
+						if(bookView.getAuthor()!=null && !"".equals(bookView.getAuthor())){
+							String temp = "%"+bookView.getAuthor().replace(" ", "%")+"%";
+							query.setParameter("author", temp);
+						}
+						if(bookView.getTranslator()!=null && !"".equals(bookView.getTranslator())){
+							String temp = "%"+bookView.getTranslator().replace(" ", "%")+"%";
+							query.setParameter("translator", temp);
+						}
+						if(bookView.getEmailNo()!=null && !"".equals(bookView.getEmailNo())){
+							String temp = "%"+bookView.getEmailNo().replace(" ", "%")+"%";
+							query.setParameter("emailNo", temp);
+						}
+						if(bookView.getISSN()!=null && !"".equals(bookView.getISSN())){
+							String temp = "%"+bookView.getISSN().replace(" ", "%")+"%";
+							query.setParameter("ISSN", temp);
 						}
 					return query.list();
 				}
 				
-			};
+				}; 
 			Long totalCount  = (Long) getHibernateTemplate().executeFind(callback_).iterator().next();
 			//把记录数设置到view对象中，在action中可取到这个值
 			bookView.setTotalCount(totalCount);
@@ -134,18 +207,61 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 							query.setFirstResult(bookView.getStart());
 						}
 //						//设置查询参数
-						query.setParameter("isBook", bookView.getIsBook()==1 ? true : false );
+						query.setParameter("isBook", bookView.getIsBook());
 						if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
 							query.setParameter("barCode", bookView.getBarCode());
 						}
 						if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
-							query.setParameter("bookName", bookView.getBookName());
+							String temp = "%"+bookView.getBookName().replace(" ", "%")+"%";
+							query.setParameter("bookName",temp);
 						}
+//						if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
+//							String temp = "%"+bookView.getBookStateName().replace(" ", "%")+"%";
+//							query.setParameter("bookState",temp);
+//						}
+//						if(bookView.getBookSourceName()!=null && !"".equals(bookView.getBookSourceName())){
+//							String temp = "%"+bookView.getBookSourceName().replace(" ", "%")+"%";
+//							query.setParameter("bookSource",temp);
+//						}
 						if(bookView.getLocation()!=null && !"".equals(bookView.getLocation())){
-							query.setParameter("location", bookView.getLocation());
+							String temp = "%"+bookView.getLocation().replace(" ", "%")+"%";
+							query.setParameter("location", temp);
 						}
 						if(bookView.getBookNo()!=null && !"".equals(bookView.getBookNo())){
-							query.setParameter("bookNo", bookView.getBookNo());
+							String temp = "%"+bookView.getBookNo().replace(" ", "%")+"%";
+							query.setParameter("bookNo", temp);
+						}
+						if(bookView.getSearchBookId()!=null && !"".equals(bookView.getSearchBookId())){
+							String temp = "%"+bookView.getSearchBookId().replace(" ", "%")+"%";
+							query.setParameter("searchBookId", temp);
+						}
+						if(bookView.getSpeciesId()!=null && !"".equals(bookView.getSpeciesId())){
+							String temp = "%"+bookView.getSpeciesId().replace(" ", "%")+"%";
+							query.setParameter("speciesId", temp);
+						}
+//						if(bookView.getFirstCategoryName()!=null&&!"".equals(bookView.getFirstCategoryName())){
+//							String temp = "%"+bookView.getFirstCategoryName().replace(" ", "%")+"%";
+//							query.setParameter("firstCategory", temp);
+//						}
+//						if(bookView.getSecondCategoryName()!=null&&!"".equals(bookView.getSecondCategoryName())){
+//							String temp = "%"+bookView.getSecondCategoryName().replace(" ", "%")+"%";
+//							query.setParameter("secondCategory", temp);
+//						}
+						if(bookView.getAuthor()!=null && !"".equals(bookView.getAuthor())){
+							String temp = "%"+bookView.getAuthor().replace(" ", "%")+"%";
+							query.setParameter("author", temp);
+						}
+						if(bookView.getTranslator()!=null && !"".equals(bookView.getTranslator())){
+							String temp = "%"+bookView.getTranslator().replace(" ", "%")+"%";
+							query.setParameter("translator", temp);
+						}
+						if(bookView.getEmailNo()!=null && !"".equals(bookView.getEmailNo())){
+							String temp = "%"+bookView.getEmailNo().replace(" ", "%")+"%";
+							query.setParameter("emailNo", temp);
+						}
+						if(bookView.getISSN()!=null && !"".equals(bookView.getISSN())){
+							String temp = "%"+bookView.getISSN().replace(" ", "%")+"%";
+							query.setParameter("ISSN", temp);
 						}
 					return query.list();
 				}

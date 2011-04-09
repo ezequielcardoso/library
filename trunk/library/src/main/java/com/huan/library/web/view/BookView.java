@@ -40,7 +40,7 @@ public class BookView extends ExtGridPost implements Serializable {
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
 	private String bookNo; // 图书编号
-	private Integer isBook; // 类型true:表示图书 false:表示期刊
+	private Integer isBook; // 类型1:表示图书 0:表示期刊
 
 	private String firstCategoryId;
 	private String firstCategoryCode;

@@ -4,16 +4,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<%@ include file="/common/common.jsp"%>
 		<%@ include file="/common/extInclude.jsp"%>
-		<link href="<%=path%>/css/style.css" type="text/css" rel="stylesheet" />
+		<link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>图书馆管理系统</title>
-		<script type="text/javascript" src="<%=path%>/js/book/Magazine.js" ></script>
-		<script type="text/javascript" src="<%=path%>/js/book/MagazineGridPanel.js" ></script>
-   </head>
+		<script type="text/javascript" src="<%=path %>/js/book/Magazine.js"></script>
+		<script type="text/javascript"
+			src="<%=path %>/js/book/MagazineGridPanel.js"></script>
+	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
 			cellspacing="0" bgcolor="#dbecff">
 			<tr id="ye">
-				<td height="4" background="<%=path%>/images/module/bodybg.jpg"></td>
+				<td height="4" background="<%=path %>/images/module/bodybg.jpg"></td>
 			</tr>
 			<tr>
 				<td valign="top" height="10">
@@ -30,11 +31,11 @@
 												<tr>
 													<td width="19%" height="25" style="text-align: left">
 														<strong>&nbsp;<img align="absmiddle"
-																src="<%=path%>/images/module/cl0.gif">书刊管理</strong>
+																src="<%=path %>/images/module/cl0.gif">书刊管理</strong>
 													</td>
 													<td width="81%" height="25" class=body1
 														style="text-align: left">
-														<img src="<%=path%>/images/module/02a.gif">
+														<img src="<%=path %>/images/module/02a.gif">
 														当前位置：书刊管理&gt;&gt;期刊基本管理
 													</td>
 												</tr>
@@ -50,27 +51,96 @@
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 									<TR>
-										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio CHECKED value=1 name="location">模糊</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio value=2 name="location">精确</TD>
-										<TD width="7%" height=25 align="right" nowrap class="body">条形码：</TD>
-										<TD width="15%" height=25 align="left" nowrap class="body"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15"></TD>
-										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio CHECKED value=1 name="bookNo">模糊</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio value=2 name="bookNo">精确</TD>
-										<TD width="6%" height=25 align="right" nowrap class="body">书名：</TD>
-										<TD width="28%" height=25 align="left" nowrap class="body"><input name=txtkeyvalue2 type="text" class="input2" id="txtkeyvalue2" value="" size="15"></TD>
-										<TD width="24%" height=25 align="left" class="body"></TD>
+										<TD width="7%" height=25 align="right" nowrap class="body">
+											条形码：
+										</TD>
+										<TD width="11%" height=25 align="left" nowrap class="body">
+											<input name="barCode" type="text" class="input2"
+												id="barCode" size="15">
+										</TD>
+										<TD width="7%" height=25 align="right" nowrap class="body">
+											刊名：
+										</TD>
+										<TD width="11%" height=25 align="left" nowrap class="body">
+											<input name="bookName" type="text" class="input2"
+												id="bookName" size="15">
+										</TD>
+										<TD width="9%" height=25 align="right" nowrap class="body">
+											状态：
+										</TD>
+										<TD width="12%" height=25 align="left" nowrap class="body">
+											<input name="bookState" type="text" class="input2"
+												id="bookState" size="15">
+										</TD>
+										<TD width="7%" height=25 align="right" nowrap class="body">
+											来源：
+										</TD>
+										<TD width="36%" height=25 align="left" nowrap class="body">
+											<input name="bookSource" type="text" class="input2"
+												id="bookSource" size="15">
+										</TD>
 									</TR>
 									<TR>
-										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio CHECKED value=1 name="location">模糊</TD>
-										<TD width="5%" height=25 align="right" nowrap class="body"><INPUT type=radio value=2 name="location">精确</TD>
-										<TD height=25 align="right" nowrap class="body">位置：</TD>
-										<TD height=25 align="left" nowrap class="body"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15"></TD>
-										<TD height=25 align="right" nowrap class="body"><INPUT type=radio CHECKED value=1 name="bookName">模糊</TD>
-										<TD height=25 align="right" nowrap class="body"><INPUT type=radio value=2 name="bookName">精确</TD>
-										<TD height=25 align="right" nowrap class="body">编号：</TD>
-										<TD height=25 align="left" class="body"><input name=txtkeyvalue type="text" class="input2" id="txtkeyvalue" value="" size="15"></TD>
+										<TD height=25 align="right" nowrap class="body">
+											位置：
+										</TD>
+										<TD height=25 align="left" nowrap class="body">
+											<input name="location" type="text" class="input2"
+												id="location" size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											编号：
+										</TD>
+										<TD height=25 align="left" class="body">
+											<input name="bookNo" type="text" class="input2"
+												id="bookNo" size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											索书号：
+										</TD>
+										<TD height=25 align="left" nowrap class="body">
+											<input name="searchBookId" type="text" class="input2"
+												id="searchBookId"size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											种次号：
+										</TD>
+										<TD height=25 align="left" class="body">
+											<input name="speciesId" type="text" class="input2"
+												id="speciesId" size="15">
+										</TD>
 									</TR>
-				             </TABLE>
+									<TR>
+										<TD height=25 align="right" nowrap class="body">
+											分类：
+										</TD>
+										<TD height=25 align="left" nowrap class="body">
+											<input name="firstCategory" type="text" class="input2"
+												id="firstCategory" size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											二级分类：
+										</TD>
+										<TD height=25 align="left" class="body">
+											<input name="secondCategory" type="text" class="input2"
+												id="secondCategory" size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											邮发代码：
+										</TD>
+										<TD height=25 align="left" nowrap class="body">
+											<input name="emailNo" type="text" class="input2"
+												id="emailNo"size="15">
+										</TD>
+										<TD height=25 align="right" nowrap class="body">
+											ISSN：
+										</TD>
+										<TD height=25 align="left" class="body">
+											<input name="ISSN" type="text" class="input2"
+												id="ISSN" size="15">
+										</TD>
+									</TR>
+								</TABLE>
 						<tr id="yb">
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
@@ -82,15 +152,15 @@
 												cellpadding="0">
 												<tr>
 													<td width="189" height="33"
-														background="<%=path%>/images/module/titleb_01.jpg"
+														background="<%=path %>/images/module/titleb_01.jpg"
 														class="title1">
 														查询列表
 													</td>
-													<td background="<%=path%>/images/module/titleb_02.jpg">
+													<td background="<%=path %>/images/module/titleb_02.jpg">
 														&nbsp;
 													</td>
 													<td width="213" align="right"
-														background="<%=path%>/images/module/titleb_03.jpg"
+														background="<%=path %>/images/module/titleb_03.jpg"
 														style="padding-bottom: 10px">
 														&nbsp;&nbsp;
 													</td>
@@ -104,11 +174,11 @@
 												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
-											     <tr>
-										            <td width="1000" height="300" align="left" valign="top">
-											          <div id="magazineGrid"></div>
-										            </td>
-									              </tr>
+												<tr>
+													<td width="1000" height="300" align="left" valign="top">
+														<div id="magazineGrid"></div>
+													</td>
+												</tr>
 											</table>
 										</td>
 									</tr>

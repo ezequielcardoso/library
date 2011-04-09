@@ -57,7 +57,7 @@ public class Book implements Serializable {
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
 	private String operator;  //录入人员
-	private Boolean isBook = true;  //类型true:表示图书 false:表示期刊
+	private Integer isBook = 1;  //类型1:表示图书 0:表示期刊
 
 	@ManyToOne(fetch = FetchType.LAZY,targetEntity=Category.class, cascade={CascadeType.MERGE})
 	@JoinColumn(name = "firstCategory")
@@ -105,7 +105,7 @@ public class Book implements Serializable {
 	public Book(Long bookId, String barCode, String bookName, String bookDesc, String donator, String author, String translator,
 			String ISBN, String ISSN, String emailNo, String stage, String allStage, Integer pages, Float price, Date publisherDate, 
 			Integer quantity, String location, Integer revision, String searchBookId, String speciesId, String spell, Date storeDate, 
-			String bookNo, Boolean isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String firstCategoryShortName,
+			String bookNo, Integer isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String firstCategoryShortName,
 			String secondCategoryId, String secondCategoryCode, String secondCategoryName, String thirdCategoryId, 
 			String thirdCategoryCode, String thirdCategoryName, String stateId, String stateName, 
 			String levelId, String levelName, String bookSecurityId, String bookSecurityName, String currencyId, String currencyName, 
@@ -364,11 +364,11 @@ public class Book implements Serializable {
 		this.storeDate = storeDate;
 	}
 
-	public Boolean getIsBook() {
+	public Integer getIsBook() {
 		return isBook;
 	}
 
-	public void setIsBook(Boolean isBook) {
+	public void setIsBook(Integer isBook) {
 		this.isBook = isBook;
 	}
 
