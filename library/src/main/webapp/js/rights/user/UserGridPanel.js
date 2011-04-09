@@ -51,13 +51,13 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			type : 'string'
 		}, {
 			name : 'createDate',
-			type : 'string'
+			type : 'date'
 		}, {
 			name : 'password',
 			type : 'string'
 		}, {
 			name : 'userActive',
-			type : 'string'
+			type : 'boolean'
 		}, {
 			name : 'depteName',
 			type : 'string'
@@ -67,7 +67,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		}];
 		
 		var store = new Ext.data.JsonStore({
-			url : contextPath + '/rights/userList.action',
+			url : contextPath + '/user/findUsers.action',
 			totalProperty : 'totalProperty',
 			baseParams : {
 				"userView.deptId" : ""
@@ -85,7 +85,6 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				dataIndex : 'userAccount',
 				sortable : true,
 				width : 90,
-				align : 'center',
 				editor : new Ext.form.TextField({
 					allowBlank : false
 				})
@@ -94,7 +93,6 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				dataIndex : 'userName',
 				width : 80,
 				sortable : true,
-				align : 'center',
 				editor : new Ext.form.TextField({
 					allowBlank : false
 				})
@@ -102,33 +100,30 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				header : '密码',
 				dataIndex : 'password',
 				width : 60,
-				sortable : true,
-				align : 'center',
 				editor : new Ext.form.TextField({
 					allowBlank : false
 				})
 			}, {
+				xtype: 'datecolumn',
 				header : '创建时间',
 				dataIndex : 'createDate',
 				width : 100,
 				sortable : true,
-				align : 'center',
 				editor : new Ext.form.DateField({
 					format : 'Y-m-d'
-				})
+				}),
+				format : 'Y-m-d'
 			}, {
-//				xtype: 'checkcolumn',
+				xtype: 'booleancolumn',
 				header : '激活',
 				dataIndex : 'userActive',
 				width : 50,
-				sortable : true,
-				align : 'center'
+				editor : new Ext.form.Checkbox()
 			}, {
 				header : '部门',
 				dataIndex : 'deptName',
 				width : 100,
-				sortable : true,
-				align : 'center'
+				sortable : true
 			}
 		]);
 		
@@ -159,23 +154,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					displayMsg : '显示第 {0}-{1}条 共{2}条 ',
 					emptyMsg : '没有数据'
 				})
-			]),
-			listeners : {
-		    	'afteredit' : function(obj) {
-			        Ext.Ajax.request( {
-				        url : 'config/updateFunds.action',
-				        params : 'fundsid=' + obj.record.get("fundsid") + '&fundsName='
-				              + obj.value,
-				        success : function() {
-				
-				        },
-				        failure : function() {
-				        Ext.Msg.alert('消息', '服务器出现错误请稍后再试！');
-				        }
-		
-		    		});
-		    	}
-		    }
+			])
 //			view : new Ext.ux.grid.BufferView({
 //				rowHeight : 23,
 //				scrollDelay : false,
@@ -197,6 +176,35 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			
 		}, this);
 		
+		this.on('afteredit', function(e) {
+			e.record.commit();
+			var thiz = this;
+			Ext.Ajax.request({
+						url : contextPath + '/user/save.action',
+						method : 'POST',
+						params : {
+							'user.userId' : e.record.get('roleId'),
+							'user.userName' : e.record.get('roleName'),
+							'user.password' : e.record.get('password'),
+							'user.userAccount' : e.record.get('roleDesc'),
+							'user.createDate' : e.record.get('createDate'),
+							'user.userActive' : e.record.get('roleActive')
+						},
+						success : function(resp) {
+							var obj = Ext.util.JSON.decode(resp.responseText);
+							if (obj.success == true) {
+								Ext.Msg.alert('提示', obj.msg);
+								e.record.set("userId", obj.data.userId);
+								e.record.commit();
+							} else if (obj.success == false) {
+								Ext.Msg.alert('提示', obj.msg);
+							}
+						},
+						failure : function() {
+							Ext.Msg.alert('提示', '服务器异常，请稍候再试');
+						}
+					});
+		}, this);
 	},
 	
 	addUser : function() {

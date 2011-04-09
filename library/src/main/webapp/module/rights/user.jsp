@@ -11,6 +11,7 @@
 <script type="text/javascript" src="<%=path %>/js/tree/BaseTree.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/UserGridPanel.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/RoleCheckedGridPanel.js"></script>
+<script type="text/javascript" src="<%=path %>/js/rights/user/DeptForm.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/DepartmentTreePanel.js"></script>
 <script type="text/javascript" src="<%=path %>/js/rights/user/User.js"></script>
 </head>

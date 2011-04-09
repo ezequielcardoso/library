@@ -17,30 +17,41 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 				text : '增加',
 				buttonAlign:'left',
 				handler : function() {
-					var node = this.getSelectionModel().getSelectedNode();
+					var node = thiz.getSelectionModel().getSelectedNode();
 			    	if(node){
-			    		this.selectNode = node;
 				    	var pid = node.attributes.id;//取到父id
 				    	//弹出增加部门表单window，把pid传过去
 				    	
+				    	var win = new Ext.Window({
+				    		width : 280,
+				    		height : 240,
+				    		title : '增加部门',
+				    		items : new Library.rights.form.DeptForm()
+				    	});
 				    	
-				    	
+				    	win.show();
 			    	}else{ 
-						Ext.Msg.alert('提示', '请选择父功能');
+						Ext.Msg.alert('提示', '请选择上级部门');
 					}
 				}
 			}, '-',{
 				text : '修改',
 				buttonAlign:'left',
 				handler : function() {
-					var node = this.getSelectionModel().getSelectedNode();
+					var node = thiz.getSelectionModel().getSelectedNode();
 					if(node){
-						this.selectNode = node;
 						var id = node.attributes.id;
 						//弹出修改部门表单window，把id传过去并加载上数据
-						
+						var win = new Ext.Window({
+				    		width : 280,
+				    		height : 240,
+				    		title : '修改部门',
+				    		items : new Library.rights.form.DeptForm()
+				    	});
+				    	
+				    	win.show();
 					}else{
-						Boa.Util.warn('请选择要修改的功能');
+						
 					}
 				}
 			}, '-',  {
@@ -56,7 +67,7 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 	
 	initComponent : function() {
 		
-		this.url = contextPath + "/rights/getDeptChildrenItem.action";
+		this.url = contextPath + "/dept/getChildrenByPid.action";
         this.isChecked = false;
         this.rootNode = this.createRootNode();
 		this.tbar = this.createTbar(this);
@@ -70,7 +81,7 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 		
 		var thiz = this;
 		Ext.Ajax.request({
-			url : contextPath + '/rights/getDeptById.action',
+			url : contextPath + '/dept/getById.action',
 			params : {
 				deptId : '1'
 			},

@@ -13,7 +13,7 @@ Library.tree.dict.BookStateCheckTree = Ext.extend(Library.tree.BaseCheckTree, {
 			id : 'BookState',
 			expanded : true
 		};
-		this.url = contextPath + '/dict/getChildrenItem.action';
+		this.url = contextPath + '/dict/getChildrenByPid.action';
 		this.rootVisible = false;
 		this.isChecked = true;
 		Library.tree.dict.BookStateCheckTree.superclass.initComponent

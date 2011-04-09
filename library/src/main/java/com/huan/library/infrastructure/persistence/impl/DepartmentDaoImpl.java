@@ -23,7 +23,7 @@ public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 		DepartmentDao {
 
 	@SuppressWarnings("unchecked")
-	public List<Department> selectDeptsByParentId(final Long parentDeptId)
+	public List<Department> selectChildrenByPid(final Long parentDeptId)
 			throws Exception {
 		List<Department> depts = new ArrayList<Department>();
 		try{
@@ -49,7 +49,7 @@ public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 		return depts;
 	}
 
-	public Department selectDeptById(Long deptId) throws Exception {
+	public Department getById(Long deptId) throws Exception {
 		StringBuilder hql = new StringBuilder();
 		hql.append(" from Department as d " ); 
 		hql.append(" where d.deptId=? ");

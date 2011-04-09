@@ -17,7 +17,7 @@ Library.tree.dict.CategoryCheckTree = Ext.extend(Library.tree.BaseCheckTree, {
 			id : this.rootId,
 			expanded : true
 		};
-		this.url = contextPath + '/dict/getCategoryItem.action';
+		this.url = contextPath + '/dict/getCategoryChildrenByPid.action';
 		this.rootVisible = false;
 		this.isChecked = true;
 		Library.tree.dict.CategoryCheckTree.superclass.initComponent

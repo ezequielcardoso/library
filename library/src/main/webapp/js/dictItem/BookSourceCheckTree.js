@@ -13,7 +13,7 @@ Library.tree.dict.BookSourceCheckTree = Ext.extend(Library.tree.BaseCheckTree, {
 			id : 'BookSource',
 			expanded : true
 		};
-		this.url = contextPath + '/dict/getChildrenItem.action';
+		this.url = contextPath + '/dict/getChildrenByPid.action';
 		this.rootVisible = false;
 		this.isChecked = true;
 		Library.tree.dict.BookSourceCheckTree.superclass.initComponent
