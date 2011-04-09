@@ -44,7 +44,7 @@ public class PunishmentAction extends BaseActionSupport {
 	public String showSavePunishment()  {
     	List<DictItemView> dictItemViews = new ArrayList<DictItemView>();
 		try {
-			dictItemViews = dictItemService.getDictItemByItemClass(Charge.class.getName());
+			dictItemViews = dictItemService.getByItemClass(Charge.class.getName());
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return Action.ERROR;

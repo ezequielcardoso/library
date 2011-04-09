@@ -45,19 +45,6 @@ public class DictItemServiceImpl implements DictItemService {
 		}
 	}
 
-
-	public List<DictItem> findDictItems() throws Exception {
-		List<DictItem> dictItemList = null;
-		try {
-			dictItemList = dictItemDao.selectAllDictItems();
-		} catch (Exception e) {
-		    e.printStackTrace();
-		    return null;
-		}
-		return dictItemList;
-	}
-
-	
 	public DictItem getById(int dictItemId) throws Exception {
 		DictItem dictItem = null;
 		try {
@@ -69,7 +56,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return dictItem;
 	}
 
-	public List<DictItemView> getDictItemByItemClass(String className) throws Exception {
+	public List<DictItemView> getByItemClass(String className) throws Exception {
 		List<DictItemView> views = new ArrayList<DictItemView>();
 		Object o = null;
 		try {
@@ -83,7 +70,7 @@ public class DictItemServiceImpl implements DictItemService {
 		}
 
 		if (o instanceof DictItem) {
-			List<DictItem> dictItems = dictItemDao.getDictItemMapbyItemClass(className);
+			List<DictItem> dictItems = dictItemDao.getByItemClass(className);
 			if (dictItems != null)
 				for (DictItem item : dictItems) {
 					DictItemView view = new DictItemView();
@@ -106,8 +93,8 @@ public class DictItemServiceImpl implements DictItemService {
 		return items;
 	}
 	
-	public List<DictItem> getCategoryItem(String pid, Integer level, String itemName) throws Exception  {
-		List<DictItem> items = new ArrayList<DictItem>();
+	public List<Category> getCategoryChildrenByPid(String pid, Integer level, String itemName) throws Exception  {
+		List<Category> items = new ArrayList<Category>();
 		try {
 			items = dictItemDao.getCategoryItem(pid, level, itemName);
 		} catch (Exception e){
@@ -116,11 +103,4 @@ public class DictItemServiceImpl implements DictItemService {
 		return items;
 	}
 
-	public List<Category> getCategoryChildrenByPid(String pid, Integer level,
-			String itemName) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
 }

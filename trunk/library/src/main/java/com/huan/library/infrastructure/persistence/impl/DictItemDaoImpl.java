@@ -33,7 +33,7 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		return DictItemList;
 	}
 
-	public List<DictItem> getDictItemMapbyItemClass(String className) {
+	public List<DictItem> getByItemClass(String className) {
 		String hql = " from " + className;
 		return this.getHibernateTemplate().find(hql);
 	}
@@ -108,7 +108,7 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		return items;
 	}
 
-	public List<DictItem> getCategoryItem(String pid, Integer level,
+	public List<Category> getCategoryItem(String pid, Integer level,
 			String itemName) throws Exception {
 		StringBuilder hql = new StringBuilder();
 		hql.append(" from Category as dict " ); 
@@ -116,7 +116,7 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		if(itemName!=null && !"".equals(itemName)){
 			hql.append(" and dict.itemName like '%?%'");
 		}
-		List<DictItem> items = new ArrayList<DictItem>();
+		List<Category> items = new ArrayList<Category>();
 		try {
 			if(itemName!=null && !"".equals(itemName)){
 				items = this.getHibernateTemplate().find(hql.toString(), pid, level, itemName);

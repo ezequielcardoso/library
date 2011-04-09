@@ -35,18 +35,11 @@ public interface DictItemService {
 	public DictItem getById(int dictItemId) throws Exception;
 	
 	/**
-	 * 查找所有的dictItem
-	 * @return
-	 * @throws Exception
-	 */
-	public List<DictItem> findDictItems() throws Exception;
-
-	/**
 	 * 根据类名的简单缩写查找DictItemView
 	 * @param className
 	 * @return
 	 */
-	public List<DictItemView> getDictItemByItemClass(String className) throws Exception ;
+	public List<DictItemView> getByItemClass(String className) throws Exception ;
 
 	/**
 	 * 根据父节点的id和字典类型取得所有的子条目

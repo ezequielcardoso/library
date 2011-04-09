@@ -45,6 +45,12 @@
 			</result>
 		</action>
 		
+		<action name="getByItemClass" class="com.huan.library.web.action.DepartmentAction" method="getByItemClass">
+			<result name="success" type="json">
+				<param name="root">dictItemViews</param>
+			</result>
+		</action>
+		
 		<action name="getById" class="com.huan.library.web.action.DepartmentAction" method="getById">
 			<result name="success" type="json">
 				<param name="root">department</param>

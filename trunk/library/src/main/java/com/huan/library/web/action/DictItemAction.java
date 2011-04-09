@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.service.DictItemService;
+import com.huan.library.web.view.DictItemView;
 import com.huan.library.web.view.tree.ExtTreeNode;
 import com.opensymphony.xwork2.Action;
 
@@ -34,6 +35,7 @@ public class DictItemAction extends BaseActionSupport {
     private Integer level;
     private String itemName;
     private List<ExtTreeNode> childrenNodes = new ArrayList<ExtTreeNode>();
+    List<DictItemView> dictItemViews = new ArrayList<DictItemView>();
     
 	public void setDictItemService(DictItemService dictItemService) {
 		this.dictItemService = dictItemService;
@@ -91,7 +93,15 @@ public class DictItemAction extends BaseActionSupport {
 		 return Action.SUCCESS;
 	}
 	
-
+	public String getByItemClass(){
+		try {
+			dictItemViews = this.dictItemService.getByItemClass(className);
+		} catch (Exception e) {
+		  e.printStackTrace();
+		 return Action.ERROR;
+		}
+		 return Action.SUCCESS;
+	}
 	
 	/**
 	 * 删除dictItem
@@ -153,6 +163,14 @@ public class DictItemAction extends BaseActionSupport {
 
 	public void setChildrenNodes(List<ExtTreeNode> childrenNodes) {
 		this.childrenNodes = childrenNodes;
+	}
+
+	public List<DictItemView> getDictItemViews() {
+		return dictItemViews;
+	}
+
+	public void setDictItemViews(List<DictItemView> dictItemViews) {
+		this.dictItemViews = dictItemViews;
 	}
 
 	
