@@ -80,6 +80,7 @@ public class ReaderAction extends BaseActionSupport {
 	 */
 	public String saveReader() {
 		try {
+			this.formatReader(reader);
 			reader = readerService.addOrModifyReader(reader);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setData(reader);
@@ -92,6 +93,29 @@ public class ReaderAction extends BaseActionSupport {
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
+	}
+	
+	public void formatReader(Reader reader){
+		if(reader.getCardState()!=null && reader.getCardState().getItemId()!=null && !"".equals(reader.getCardState().getItemId())){
+			reader.setCardState(reader.getCardState());
+		} else {
+			reader.setCardState(null);
+		}
+		if(reader.getCertificate()!=null && reader.getCertificate().getItemId()!=null && !"".equals(reader.getCertificate().getItemId())){
+			reader.setCertificate(reader.getCertificate());
+		} else {
+			reader.setCertificate(null);
+		}
+		if(reader.getReaderType()!=null && reader.getReaderType().getId()!=null && !"".equals(reader.getReaderType().getId())){
+			reader.setReaderType(reader.getReaderType());
+		} else {
+			reader.setReaderType(null);
+		}
+		if(reader.getReaderUnits()!=null && reader.getReaderUnits().getUnitId()!=null && !"".equals(reader.getReaderUnits().getUnitId())){
+			reader.setReaderUnits(reader.getReaderUnits());
+		} else {
+			reader.setReaderUnits(null);
+		}
 	}
 	
 	/**

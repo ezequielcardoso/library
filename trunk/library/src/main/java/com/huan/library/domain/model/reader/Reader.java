@@ -41,7 +41,7 @@ public class Reader implements Serializable {
 	@JoinColumn(name="readerUnits")
 	private ReaderUnits readerUnits;  //读者单位
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "certificate")
 	private Certificate certificate; // 证件类别  学生证
 	
@@ -59,7 +59,7 @@ public class Reader implements Serializable {
 	private Date effectiveDate;    //有效日期
 	private String readerPic;      //头像
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.MERGE})
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CardState")
 	private CardState cardState;    //借阅证状态
 
