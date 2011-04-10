@@ -48,9 +48,128 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							}]
 				});
 
+		var fields = [{
+					name : 'id',
+					type : 'int'
+				}, {
+					name : 'cardNo',
+					type : 'string'
+				}, {
+					name : 'password',
+					type : 'string'
+				}, {
+					name : 'barCode',
+					type : 'string'
+				}, {
+					name : 'readerName',
+					type : 'string'
+				}, {
+					name : 'birthday',
+					type : 'date',
+					dateFormat : 'Y-m-d'
+				}, {
+					name : 'sex',
+					type : 'string'
+				}, {
+					name : 'leftMoney',
+					type : 'float'
+				}, {
+					name : 'email',
+					type : 'string'
+				}, {
+					name : 'contactTel',
+					type : 'string'
+				}, {
+					name : 'entyDate',
+					type : 'date',
+					dateFormat : 'Y-m-d'
+				}, {
+					name : 'effectiveDate',
+					type : 'date'
+				}, {
+					name : 'readerPic',
+					type : 'string'
+				}, {
+					name : 'spell',
+					type : 'string'
+				}, {
+					name : 'readerDesc',
+					type : 'string'
+				}, {
+					name : 'unitId',
+					type : 'int'
+				}, {
+					name : 'unitCode',
+					type : 'string'
+				}, {
+					name : 'unitName',
+					type : 'string'
+				}, {
+					name : 'certificateId',
+					type : 'string'
+				}, {
+					name : 'certificateCode',
+					type : 'string'
+				}, {
+					name : 'certificateName',
+					type : 'string'
+				}, {
+					name : 'certificateNo',
+					type : 'string'
+				}, {
+					name : 'readerTypeId',
+					type : 'string'
+				}, {
+					name : 'readerTypeCode',
+					type : 'string'
+				}, {
+					name : 'readerTypeName',
+					type : 'string'
+				}, {
+					name : 'cardStateId',
+					type : 'string'
+				}, {
+					name : 'cardStateCode',
+					type : 'string'
+				}, {
+					name : 'cardStateName',
+					type : 'string'
+				}];
+
+		var store = new Ext.data.JsonStore({
+					url : contextPath + '/reader/findReaders.action',
+					root : 'root',
+					totalProperty : 'totalProperty',
+					baseParams : {
+						'start' : 0,
+						'limit' : ReadersPageSize
+					},
+					fields : fields,
+					storeInfo : {
+						field : '列名',
+						direction : 'ASC|DESC'
+					}
+				});
+
+		var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
+					store : store,
+					pageSize : ReadersPageSize,
+					afterPageText : '/ {0}',
+					beforePageText : '页',
+					displayInfo : true,
+					firstText : '第一页',
+					prevText : '前一页',
+					nextText : '后一页',
+					lastText : '最后一页',
+					refreshText : '刷新',
+					displayMsg : '显示第 {0}-{1}条  共{2}条 ',
+					emptyMsg : '没有数据'
+				})]);
+				
 		var sm = new Ext.grid.CheckboxSelectionModel();
 
-		var cm = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), sm, {
+		var cm = new Ext.grid.ColumnModel([
+			new Ext.grid.RowNumberer(), sm, {
 					header : '借阅证号',
 					width : 100,
 					sortable : true,
@@ -185,16 +304,10 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					sortable : true,
 					align : 'center',
 					editor : new Ext.form.ComboBox({
-						id:'certificateComboBox',
 						triggerAction : 'all',
-						valueField : 'key',
+						valueField : 'value',
 						displayField : 'value',
-						hiddenName : 'key',
-						name:'certificateComboBox',
 						mode:'remote',
-//						emptyText: '请选择所在省',   
-//                        blankText: '请选择...', 
-//						transform: 'certificateId',
 						lazyRender : true,
 						selectOnFocus : true,
 						allowBlank : false,
@@ -209,21 +322,14 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							baseParams : { className : 'com.huan.library.domain.model.reader.Certificate'}		
 						}),
 						listeners : {
-							'select' : function(e) {
-								e.record.commit();
-								var thiz = this;
-								params : {
-//							        'reader.certificate.itemId' : e.record.get('id')
-						        }
-								var d = e.value;
-//								alert(Ext.get('certificateComboBox').dom.value);
-								alert();
+							'select' : function( combo, record, Nindex ) {
+								var rec = Ext.getCmp('readerGridPanel').getSelectionModel().getSelected();
+								rec.set("certificateId", record.get('key'));
+								rec.commit()
 							}
 						}
-
-
 					}),
-					dataIndex : 'certificateId'
+					dataIndex : 'certificateName'
 				}, {
 					header : '证件号码',
 					width : 300,
@@ -233,123 +339,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								allowBlank : false
 							}),
 					dataIndex : 'certificateNo'
-				}]);
-
-		var fields = [{
-					name : 'id',
-					type : 'int'
-				}, {
-					name : 'cardNo',
-					type : 'string'
-				}, {
-					name : 'password',
-					type : 'string'
-				}, {
-					name : 'barCode',
-					type : 'string'
-				}, {
-					name : 'readerName',
-					type : 'string'
-				}, {
-					name : 'birthday',
-					type : 'date'
-				}, {
-					name : 'sex',
-					type : 'string'
-				}, {
-					name : 'leftMoney',
-					type : 'float'
-				}, {
-					name : 'email',
-					type : 'string'
-				}, {
-					name : 'contactTel',
-					type : 'string'
-				}, {
-					name : 'entyDate',
-					type : 'date'
-				}, {
-					name : 'effectiveDate',
-					type : 'date'
-				}, {
-					name : 'readerPic',
-					type : 'string'
-				}, {
-					name : 'spell',
-					type : 'string'
-				}, {
-					name : 'readerDesc',
-					type : 'string'
-				}, {
-					name : 'unitId',
-					type : 'int'
-				}, {
-					name : 'unitCode',
-					type : 'string'
-				}, {
-					name : 'unitName',
-					type : 'string'
-				}, {
-					name : 'certificateId',
-					type : 'string'
-				}, {
-					name : 'certificateCode',
-					type : 'string'
-				}, {
-					name : 'certificateName',
-					type : 'string'
-				}, {
-					name : 'certificateNo',
-					type : 'string'
-				}, {
-					name : 'readerTypeId',
-					type : 'string'
-				}, {
-					name : 'readerTypeCode',
-					type : 'string'
-				}, {
-					name : 'readerTypeName',
-					type : 'string'
-				}, {
-					name : 'cardStateId',
-					type : 'string'
-				}, {
-					name : 'cardStateCode',
-					type : 'string'
-				}, {
-					name : 'cardStateName',
-					type : 'string'
-				}];
-
-		var store = new Ext.data.JsonStore({
-					url : contextPath + '/reader/findReaders.action',
-					root : 'root',
-					totalProperty : 'totalProperty',
-					baseParams : {
-						'start' : 0,
-						'limit' : ReadersPageSize
-					},
-					fields : fields,
-					storeInfo : {
-						field : '列名',
-						direction : 'ASC|DESC'
-					}
-				});
-
-		var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
-					store : store,
-					pageSize : ReadersPageSize,
-					afterPageText : '/ {0}',
-					beforePageText : '页',
-					displayInfo : true,
-					firstText : '第一页',
-					prevText : '前一页',
-					nextText : '后一页',
-					lastText : '最后一页',
-					refreshText : '刷新',
-					displayMsg : '显示第 {0}-{1}条  共{2}条 ',
-					emptyMsg : '没有数据'
-				})]);
+				}]);		
 
 		Ext.apply(this, {
 					width : 1000,
@@ -400,7 +390,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							'reader.readerPic' : e.record.get('readerPic'),
 							'reader.spell' : e.record.get('spell'),
 							'reader.readerDesc' : e.record.get('readerDesc'),
-							'reader.certificateNo' : e.record.get('certificateNo')
+							'reader.certificate.itemId' : e.record.get('certificateId')
 						},
 						success : function(resp) {
 							var obj = Ext.util.JSON.decode(resp.responseText);
@@ -408,7 +398,6 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								Ext.Msg.alert('提示', obj.msg);
 								e.record.set("id", obj.data.id);
 								e.record.commit();
-								// thiz.getStore().reload();
 							} else if (obj.success == false) {
 								Ext.Msg.alert('提示', obj.msg);
 							}

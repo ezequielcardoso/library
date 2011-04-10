@@ -35,11 +35,12 @@ public class ReaderServiceImpl implements ReaderService {
 
 	public Reader addOrModifyReader(Reader reader) throws Exception {
 		try {
-			readerDao.saveOrUpdate(reader);
+			reader = readerDao.saveOrUpdate(reader);
 		} catch (Exception e) {
 		  e.printStackTrace();
+		  throw new Exception(e);
 		}
-		return null;
+		return reader;
 	}
 
 	
