@@ -3,11 +3,13 @@ package com.huan.library.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.service.BookService;
+import com.huan.library.util.StringUtils;
 import com.huan.library.web.view.BookView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
@@ -174,7 +176,6 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String saveBook() {
 		try {
-			this.formatBook(book);
 			book = bookService.addOrModifyBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("新增成功！");
