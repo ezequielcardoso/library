@@ -66,7 +66,8 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			type : 'string'
 		}, {
 			name : 'createDate',
-			type : 'date'
+			type : 'date',
+			dateFormat : 'Y-m-d'
 		}, {
 			name : 'password',
 			type : 'string'
