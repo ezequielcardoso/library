@@ -18,6 +18,18 @@
 		   </result>
 		</action>
 		
+		<action name="saveReader" class="com.huan.library.web.action.ReaderAction" method="saveReader">
+		    <result name="success" type="json">
+		       <param name="root">extJsonForm</param>
+		    </result>
+		</action>
+		
+		<action name="remove" class="com.huan.library.web.action.ReaderAction" method="remove">
+		    <result name="success" type="json">
+		       <param name="root">extJsonForm</param>
+		    </result>
+		</action>
+		
 		<!-- 读者类型 -->
 		<action name="readerTypeMain" class="com.huan.library.web.action.ReaderTypeAction" method="readerTypeMain">
 		    <result name="success">/module/reader/readerCategory.jsp</result>

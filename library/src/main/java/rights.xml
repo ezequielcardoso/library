@@ -102,13 +102,19 @@
 				<param name="root">childrenNodes</param>
 			</result>
 		</action>
-    
+		
+		<action name="getByItemClass" class="com.huan.library.web.action.DictItemAction" method="getByItemClass">
+		   <result name="success" type="json">
+		       <param name="root">dictItemViews</param>
+		   </result>
+		</action>
+    <!-- 
     	<action name="getByItemClass" class="com.huan.library.web.action.DepartmentAction" method="getByItemClass">
 			<result name="success" type="json">
 				<param name="root">dictItemViews</param>
 			</result>
 		</action>
-    
+     -->
     </package>
     
     <!-- role -->

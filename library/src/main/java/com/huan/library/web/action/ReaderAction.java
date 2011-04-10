@@ -80,37 +80,41 @@ public class ReaderAction extends BaseActionSupport {
 	 */
 	public String saveReader() {
 		try {
-			readerService.addOrModifyReader(reader);
+			reader = readerService.addOrModifyReader(reader);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setData(reader);
+			extJsonForm.setMsg("保存成功");
 		} catch (Exception e) {
 			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
-
-	/**
-	 * 显示修改读者
-	 * 
-	 * @return
-	 */
-	public String showModifyReader() {
-		return "showModifyReader";
-	}
-
-	/**
-	 * 修改读者
-	 * @return
-	 */
-	public String modifyReader() {
-		try {
-			readerService.addOrModifyReader(reader);
-		} catch (Exception e) {
-			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setData(null);
+			extJsonForm.setMsg("保存失败");
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
 	
+	/**
+	 * 删除读者
+	 * @return
+	 */
+	public String remove(){
+		try {
+			reader.setId(readerView.getId());
+			readerService.removeReader(reader);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("删除成功");
+			extJsonForm.setData(null);
+		} catch (Exception e) {
+          e.printStackTrace();
+          extJsonForm.setSuccess(false);
+          extJsonForm.setMsg("删除失败");
+          extJsonForm.setData(null);
+          return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+
 	public List<ReaderView> convertToView(List<Reader> readers){
 		List<ReaderView> readerViews = new ArrayList<ReaderView>();
 		for(Reader reader:readers){
@@ -264,9 +268,4 @@ public class ReaderAction extends BaseActionSupport {
 		this.limit = limit;
 	}
 	
-	
-	
-	
-	
-
 }

@@ -10,6 +10,7 @@ import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.dict.DictItem;
 import com.huan.library.domain.service.DictItemService;
 import com.huan.library.web.view.DictItemView;
+import com.huan.library.web.view.grid.ExtGridLoad;
 import com.huan.library.web.view.tree.ExtTreeNode;
 import com.opensymphony.xwork2.Action;
 
@@ -29,7 +30,22 @@ public class DictItemAction extends BaseActionSupport {
     @Autowired
 	private DictItemService dictItemService;
     
-    private DictItem dictItem;
+    private ExtGridLoad extGridLoad = new ExtGridLoad();
+    /**
+	 * @return the extGridLoad
+	 */
+	public ExtGridLoad getExtGridLoad() {
+		return extGridLoad;
+	}
+
+	/**
+	 * @param extGridLoad the extGridLoad to set
+	 */
+	public void setExtGridLoad(ExtGridLoad extGridLoad) {
+		this.extGridLoad = extGridLoad;
+	}
+
+	private DictItem dictItem;
     private String pid;
     private String className;
     private Integer level;
@@ -96,6 +112,7 @@ public class DictItemAction extends BaseActionSupport {
 	public String getByItemClass(){
 		try {
 			dictItemViews = this.dictItemService.getByItemClass(className);
+//			extGridLoad.setRoot(dictItemViews);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		 return Action.ERROR;
