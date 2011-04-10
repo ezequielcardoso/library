@@ -322,7 +322,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							baseParams : { className : 'com.huan.library.domain.model.reader.Certificate'}		
 						}),
 						listeners : {
-							'select' : function( combo, record, Nindex ) {
+							'select' : function( combo, record, index ) {
 								var rec = Ext.getCmp('readerGridPanel').getSelectionModel().getSelected();
 								rec.set("certificateId", record.get('key'));
 								rec.commit()
