@@ -67,46 +67,6 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String findBooks() {
 		try {
-			if (book.getBarCode() != null && !"".equals(book.getBarCode())) {
-				bookView.setBarCode(book.getBarCode());
-			}
-			if (book.getBookName() != null && !"".equals(book.getBookName())) {
-				bookView.setBookName(book.getBookName());
-			}
-			// if(book.getBookState().getItemName()!=null&&!"".equals(book.getBookState().getItemName())){
-			// bookView.setBookStateName(book.getBookState().getItemName());
-			// }
-			// if(book.getBookSource().getItemName()!=null&&!"".equals(book.getBookSource().getItemName())){
-			// bookView.setBookStateName(book.getBookSource().getItemName());
-			// }
-			if (book.getLocation() != null && !"".equals(book.getLocation())) {
-				bookView.setLocation(book.getLocation());
-			}
-			if (book.getBookNo() != null && !"".equals(book.getBookNo())) {
-				bookView.setBookNo(book.getBookNo());
-			}
-			if (book.getSearchBookId() != null
-					&& !"".equals(book.getSearchBookId())) {
-				bookView.setSearchBookId(book.getSearchBookId());
-			}
-			if (book.getSpeciesId() != null && !"".equals(book.getSpeciesId())) {
-				bookView.setSpeciesId(book.getSpeciesId());
-			}
-			// if(book.getFirstCategory().getItemName()!=null&&!"".equals(book.getFirstCategory().getItemName())){
-			// bookView.setFirstCategoryName(book.getFirstCategory().getItemName());
-			// }
-//			if (book.getSecondCategory().getItemName() != null
-//					&& !"".equals(book.getSecondCategory().getItemName())) {
-//				bookView.setSecondCategoryName(book.getSecondCategory().getItemName());
-//			}
-			if (book.getAuthor() != null && !"".equals(book.getAuthor())) {
-				bookView.setAuthor(book.getAuthor());
-			}
-			if (book.getTranslator() != null
-					&& !"".equals(book.getTranslator())) {
-				bookView.setTranslator(book.getTranslator());
-			}
-//			bookView.setIsBook(book.getIsBook());
 			bookView.setStart(start);
 			bookView.setLimit(limit);
 			List<Book> books = bookService.findBooks(bookView);

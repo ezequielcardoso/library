@@ -43,17 +43,19 @@ public class ReaderView extends ExtGridPost implements Serializable{
 	private String certificateName;  // 证件类别  学生证    
 
 	private Long readerTypeId; 
-	private String readerTypeCode; 
-	private String readerTypeName; // 读者类别
+	private String readerCateCode; 
+	private String readerCateName; // 读者类别
 	
 	private String cardStateId;
 	private String cardStateCode;
 	private String cardStateName;   //借阅证状态
 	
+	
+	
 	public ReaderView(){
 		super();
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -238,20 +240,20 @@ public class ReaderView extends ExtGridPost implements Serializable{
 		this.readerTypeId = readerTypeId;
 	}
 
-	public String getReaderTypeCode() {
-		return readerTypeCode;
+	public String getReaderCateCode() {
+		return readerCateCode;
 	}
 
-	public void setReaderTypeCode(String readerTypeCode) {
-		this.readerTypeCode = readerTypeCode;
+	public void setReaderCateCode(String readerCateCode) {
+		this.readerCateCode = readerCateCode;
 	}
 
-	public String getReaderTypeName() {
-		return readerTypeName;
+	public String getReaderCateName() {
+		return readerCateName;
 	}
 
-	public void setReaderTypeName(String readerTypeName) {
-		this.readerTypeName = readerTypeName;
+	public void setReaderCateName(String readerCateName) {
+		this.readerCateName = readerCateName;
 	}
 
 	public String getCardStateId() {

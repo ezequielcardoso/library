@@ -7,6 +7,17 @@
 
     <package name="reader" namespace="/reader" extends="library">
 		
+		<!-- 读者维护 -->
+		<action name="readerMain" class="com.huan.library.web.action.ReaderAction" method="readerMain">
+		    <result name="success">/module/reader/readerList.jsp</result>
+		</action>
+		
+		<action name="findReaders" class="com.huan.library.web.action.ReaderAction" method="findReaders">
+		   <result name="success" type="json">
+		      <param name="root">extGridLoad</param>
+		   </result>
+		</action>
+		
 		<!-- 读者类型 -->
 		<action name="readerTypeMain" class="com.huan.library.web.action.ReaderTypeAction" method="readerTypeMain">
 		    <result name="success">/module/reader/readerCategory.jsp</result>
@@ -30,21 +41,6 @@
 	      </result>
 	    </action>	
 		
-        <!-- 借阅证 -->
-        <action name="readerCardMain" class="com.huan.library.web.action.ReaderCardAction" method="readerCardMain">
-           <result name="success">/module/reader/card/cardList.jsp</result>
-        </action>
-        
-        <action name="findReaderCards" class="com.huan.library.web.action.ReaderCardAction" method="findReaderCards">
-           <result name="success" type="json">
-             <param name="root">extGridLoad</param>
-           </result>
-        </action>
-        
-        <action name="showSaveReaderCard" class="com.huan.library.web.action.ReaderCardAction" method="showSaveReaderCard">
-           <result name="success">/module/reader/card/saveCard.jsp</result>
-        </action>
-          
     </package>
     
 </struts>
