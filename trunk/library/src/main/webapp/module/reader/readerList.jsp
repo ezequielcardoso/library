@@ -8,6 +8,7 @@
 		<link href="<%=path%>/css/style.css" type="text/css"rel="stylesheet" />
 		<title>湖北警官学院图书馆</title>
 		 <script type="text/javascript" src="<%=path%>/js/common/common.js"></script>
+		 <script type="text/javascript" src="<%=path%>/js/combobox/ArrayLocalComboBox.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/reader/Reader.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/reader/ReaderGridPanel.js"></script>
 	

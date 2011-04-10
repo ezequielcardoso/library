@@ -220,9 +220,14 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					width : 50,
 					sortable : true,
 					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
+					editor : new Library.combo.ArrayLocalComboBox ({
+			            storeArray: [['男', '男'], ['女', '女']],
+			            listeners:{
+					    	select: function(t){
+					    	},
+					    	scope: this
+					    }
+			        }),
 					dataIndex : 'sex'
 				}, {
 					header : '余额',
