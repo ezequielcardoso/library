@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import com.huan.library.util.Constants;
 
@@ -46,7 +45,7 @@ public class Reader implements Serializable {
 	@JoinColumn(name = "certificate")
 	private Certificate certificate; // 证件类别  学生证
 	
-	private String certificateCode; // 证件号码
+	private String certificateNo; // 证件号码
 	private String readerDesc; // 读者描述
 	
 	@ManyToOne(fetch = FetchType.LAZY,targetEntity=ReaderType.class)
@@ -65,7 +64,57 @@ public class Reader implements Serializable {
 	private CardState cardState;    //借阅证状态
 
 	public Reader() {
-
+        super();
+	}
+	
+	public Reader(Long id,String cardNo,String password,String barCode,String readerName, 
+			Date birthday, String sex,Float leftMoney, String email, String contactTel,
+			 Date entyDate,Date effectiveDate, String readerPic, String spell,
+			String readerDesc,String certificateNo, Long unitId, String unitCode, String unitName,
+			 String certificateId, String certificateCode,String certificateName, Long readerTypeId, String readerTypeCode,
+			String readerTypeName, String cardStateId, String cardStateCode,
+			String cardStateName) {
+		this.id = id;
+		this.readerName = readerName;
+		this.birthday = birthday;
+		this.sex = sex;
+		this.email = email;
+		this.contactTel = contactTel;
+		this.leftMoney = leftMoney;
+		this.spell = spell;
+		this.cardNo = cardNo;
+		this.password = password;
+		this.barCode = barCode;
+		this.entyDate = entyDate;
+		this.effectiveDate = effectiveDate;
+		this.readerPic = readerPic;
+		this.certificateNo = certificateNo;
+		this.readerDesc = readerDesc;
+		
+		ReaderUnits readerUnits = new ReaderUnits();
+		readerUnits.setUnitId(unitId);
+		readerUnits.setUnitcode(unitCode);
+		readerUnits.setUnitName(unitName);
+		this.readerUnits = readerUnits;
+		
+		Certificate certificate = new Certificate();
+		certificate.setItemId(certificateId);
+		certificate.setItemCode(certificateCode);
+		certificate.setItemName(certificateName);
+		this.certificate = certificate;
+		
+		ReaderType readerType = new ReaderType();
+		readerType.setId(readerTypeId);
+		readerType.setReaderCateCode(readerTypeCode);
+		readerType.setReaderCateName(readerTypeName);
+		this.readerType = readerType;
+		
+		
+		CardState cardState = new CardState();
+		cardState.setItemId(cardStateId);
+		cardState.setItemCode(cardStateCode);
+		cardState.setItemName(cardStateName);
+		this.cardState = cardState;
 	}
 
 	public Long getId() {
@@ -147,13 +196,13 @@ public class Reader implements Serializable {
 	public void setCertificate(Certificate certificate) {
 		this.certificate = certificate;
 	}
-
-	public String getCertificateCode() {
-		return certificateCode;
+    
+	public String getCertificateNo() {
+		return certificateNo;
 	}
 
-	public void setCertificateCode(String certificateCode) {
-		this.certificateCode = certificateCode;
+	public void setCertificateNo(String certificateNo) {
+		this.certificateNo = certificateNo;
 	}
 
 	public String getReaderDesc() {

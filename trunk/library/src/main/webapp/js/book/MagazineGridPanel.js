@@ -409,19 +409,19 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   var emailNo = Ext.get('emailNo').getValue();
 	   var ISSN = Ext.get('ISSN').getValue();
 	   this.getStore().baseParams = {
-	       'book.barCode' : barCode,
-	       'book.bookName' : bookName,
-	       'book.bookState.itemName' : bookState,
-	       'book.bookState.itemName' : bookSource,
-	       'book.location' : location,
-	       'book.bookNo' :bookNo,
-	       'book.searchBookId' : searchBookId,
-	       'book.speciesId' : speciesId,
-	       'book.firstCategory.itemName' : firstCategory,
-	       'book.secondCategory.itemName' : secondCategory,
-	       'book.author' : emailNo,
-	       'book.translator' : ISSN,
-	       'book.isBook' : 0
+	       'bookView.barCode' : barCode,
+	       'bookView.bookName' : bookName,
+	       'bookView.bookStateName' : bookState,
+	       'bookView.bookSourceName' : bookSource,
+	       'bookView.location' : location,
+	       'bookView.bookNo' :bookNo,
+	       'bookView.searchBookId' : searchBookId,
+	       'bookView.speciesId' : speciesId,
+	       'bookView.firstCategoryName' : firstCategory,
+	       'bookView.thirdCategoryName' : secondCategory,
+	       'bookView.emailNo' : emailNo,
+	       'bookView.ISSN' : ISSN,
+	       'bookView.isBook' : 0
 	   }
 	   this.getStore().load({
 	       params : {

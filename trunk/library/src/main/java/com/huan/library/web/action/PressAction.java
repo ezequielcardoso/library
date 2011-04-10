@@ -56,11 +56,11 @@ public class PressAction extends BaseActionSupport{
 		return Action.SUCCESS;
 	}
 
-	
+
 	public String pressMain()  {
     	return Action.SUCCESS;
     }
-    
+	
 	/**
 	 * 添加Press
 	 * @return

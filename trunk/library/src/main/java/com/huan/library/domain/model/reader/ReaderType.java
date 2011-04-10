@@ -28,7 +28,7 @@ public class ReaderType implements Serializable {
 	private Float rent =0.2f ; // 租金
 
 	public ReaderType() {
-
+        super();
 	}
 
 	public Long getId() {

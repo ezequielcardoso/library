@@ -3,6 +3,7 @@ package com.huan.library.domain.service;
 import java.util.List;
 
 import com.huan.library.domain.model.reader.Reader;
+import com.huan.library.web.view.ReaderView;
 
 /**
  * 读者业务层
@@ -30,11 +31,12 @@ public interface ReaderService {
 	 * @return
 	 */
 	public Reader findReaderById(int readerId) throws Exception;
-	
 	/**
-	 * 查找所有的Reader
+	 * 
+	 * @param readerView
 	 * @return
+	 * @throws Exception
 	 */
-	public List<Reader> findAllReaderes() throws Exception;
+    public List<Reader> findReaders(ReaderView readerView) throws Exception;
 
 }

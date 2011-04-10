@@ -409,19 +409,19 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   var author = Ext.get('author').getValue();
 	   var translator = Ext.get('translator').getValue();
 	   this.getStore().baseParams = {
-	       'book.barCode' : barCode,
-	       'book.bookName' : bookName,
-	       'book.bookState.itemName' : bookState,
-	       'book.bookState.itemName' : bookSource,
-	       'book.location' : location,
-	       'book.bookNo' :bookNo,
-	       'book.searchBookId' : searchBookId,
-	       'book.speciesId' : speciesId,
-	       'book.firstCategory.itemName' : firstCategory,
-	       'book.secondCategory.itemName' : secondCategory,
-	       'book.author' : author,
-	       'book.translator' : translator,
-	       'book.isBook' : 1
+	       'bookView.barCode' : barCode,
+	       'bookView.bookName' : bookName,
+	       'bookView.bookStateName' : bookState,
+	       'bookView.bookSourceName' : bookSource,
+	       'bookView.location' : location,
+	       'bookView.bookNo' :bookNo,
+	       'bookView.searchBookId' : searchBookId,
+	       'bookView.speciesId' : speciesId,
+	       'bookView.firstCategoryName' : firstCategory,
+	       'bookView.thirdCategoryName' : secondCategory,
+	       'bookView.author' : author,
+	       'bookView.translator' : translator,
+	       'bookView.isBook' : 1
 	      
 	   }
 	   this.getStore().load({

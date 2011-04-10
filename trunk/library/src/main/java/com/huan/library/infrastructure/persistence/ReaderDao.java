@@ -1,8 +1,11 @@
 package com.huan.library.infrastructure.persistence;
 
 
+import java.util.List;
+
+import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.model.reader.Reader;
-import com.huan.library.infrastructure.persistence.BaseDao;
+import com.huan.library.web.view.ReaderView;
 
 /**
  * 读者持久化
@@ -10,6 +13,13 @@ import com.huan.library.infrastructure.persistence.BaseDao;
  * @time  2011-3-14 下午01:00:45
  */
 public interface ReaderDao extends BaseDao<Reader>{
+	
+	
+	public List<Reader> selectUsers(ReaderView readerView) throws Exception;
+	
+	
+	public void insertReaders(List<Reader> readers) throws Exception;
+	
 	
 	
 }
