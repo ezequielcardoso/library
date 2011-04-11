@@ -199,7 +199,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		}];
 		
 		var selectModel = new Ext.grid.CheckboxSelectionModel({
-			singleSelect : true
+//			singleSelect : true
 		});
 		
 		var store = new Ext.data.JsonStore({
@@ -438,11 +438,10 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	},
 	
 	onRefresh : function(){
+   		
    		this.getStore().baseParams={'bookView.isBook' : 0};
-		
-//		this.getStore().baseParams={};
-		
-		this.getStore().load({
+
+   		this.getStore().load({
 							params : {
 								'start' : 0,
 								'limit' : MagazinesPageSize
@@ -467,30 +466,49 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	
     deleteBook : function() {
 		var sm = this.getSelectionModel();
-		if(sm.hasSelection()){
-			var record = sm.getSelected();
-			var bookId = record.get('bookId');
-			var thiz = this;
-			Ext.Ajax.request({
-				url : contextPath + '/book/remove.action',
-				method : 'POST',
-				params : {
-					'bookView.bookId' : bookId
-				},
-				success : function(resp){
-					var respText = resp.responseText;
-					var obj = Ext.util.JSON.decode(respText);
-					if(obj.success==true){
-						Ext.Msg.alert('提示', obj.msg);
-						thiz.getStore().reload();
-					} else {
-						Ext.Msg.alert('提示', obj.msg);
-					}
-				},
-				failure : function(){
-					Ext.Msg.alert('服务器异常');
-				}
-			});
+		if (sm.hasSelection()) {
+			Ext.MessageBox.confirm('提示', '你确定要删除记录吗？', function(btn, text) {
+                   	if (btn == 'yes') {
+							var records = sm.getSelections();
+							for (var i = 0; i < records.length; i++) {
+								var record = records[i];
+								var bookId = record.get('bookId');
+								var thiz = this;
+								Ext.Ajax.request({
+											url : contextPath
+													+ '/book/remove.action',
+											method : 'POST',
+											params : {
+												'bookView.bookId' : bookId
+											},
+											success : function(resp) {
+												var respText = resp.responseText;
+												var obj = Ext.util.JSON
+														.decode(respText);
+												if (obj.success == true) {
+													Ext.Msg
+															.alert('提示',
+																	obj.msg);
+													thiz.getStore().reload();
+												} else {
+													Ext.Msg
+															.alert('提示',
+																	obj.msg);
+												}
+											},
+											failure : function() {
+												Ext.Msg.alert('提示', '服务器异常');
+											}
+										});
+							}
+						} else {
+							return false;
+						}
+
+					}, this);
+
+		} else {
+			Ext.Msg.alert('提示', '请选择你要删除的记录');
 		}
 	}	
 });
