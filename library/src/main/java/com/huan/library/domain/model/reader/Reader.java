@@ -31,7 +31,7 @@ public class Reader implements Serializable {
 	private Long id; // 主键
 	private String readerName;  // 读者姓名
 	private Date birthday;      //出生日期
-	private String sex = Constants.MALE;  // 姓名 M:男 F:女
+	private String sex ;  // 
 	private String email;       // 邮箱
 	private String contactTel;  // 联系电话
 	private Float leftMoney = 0.0f; // 余额
@@ -45,7 +45,6 @@ public class Reader implements Serializable {
 	@JoinColumn(name = "certificate")
 	private Certificate certificate; // 证件类别  学生证
 	
-	private String certificateNo; // 证件号码
 	private String readerDesc; // 读者描述
 	
 	@ManyToOne(fetch = FetchType.LAZY,targetEntity=ReaderType.class)
@@ -70,7 +69,7 @@ public class Reader implements Serializable {
 	public Reader(Long id,String cardNo,String password,String barCode,String readerName, 
 			Date birthday, String sex,Float leftMoney, String email, String contactTel,
 			 Date entyDate,Date effectiveDate, String readerPic, String spell,
-			String readerDesc,String certificateNo, Long unitId, String unitCode, String unitName,
+			String readerDesc, Long unitId, String unitCode, String unitName,
 			 String certificateId, String certificateCode,String certificateName, Long readerTypeId, String readerTypeCode,
 			String readerTypeName, String cardStateId, String cardStateCode,
 			String cardStateName) {
@@ -88,7 +87,6 @@ public class Reader implements Serializable {
 		this.entyDate = entyDate;
 		this.effectiveDate = effectiveDate;
 		this.readerPic = readerPic;
-		this.certificateNo = certificateNo;
 		this.readerDesc = readerDesc;
 		
 		ReaderUnits readerUnits = new ReaderUnits();
@@ -197,14 +195,6 @@ public class Reader implements Serializable {
 		this.certificate = certificate;
 	}
     
-	public String getCertificateNo() {
-		return certificateNo;
-	}
-
-	public void setCertificateNo(String certificateNo) {
-		this.certificateNo = certificateNo;
-	}
-
 	public String getReaderDesc() {
 		return readerDesc;
 	}

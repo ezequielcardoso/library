@@ -30,6 +30,31 @@
 		    </result>
 		</action>
 		
+		<!-- 读者单位 -->
+		<action name="getChildrenByPid" class="com.huan.library.web.action.ReaderUnitsAction" method="getChildrenByPid">
+		     <result name="success" type="json">
+		        <param name="root">childrenNodes</param>
+		     </result>
+		</action>
+		
+		<action name="getById" class="com.huan.library.web.action.ReaderUnitsAction" method="getById">
+		    <result name="success" type="json">
+		       <param name="root">unit</param>
+		    </result>
+		</action>
+		
+		<action name="save" class="com.huan.library.web.action.ReaderUnitsAction" method="save">
+		    <result name="success" type="json"> 
+		       <param name="root">extJsonForm</param>
+		    </result>
+		</action>
+		
+		<action name="remove" class="com.huan.library.web.action.ReaderUnitsAction" method="remove">
+		   <result name="success" type="json">
+		      <param name="root">extJsonForm</param>
+		   </result>
+		</action>
+		
 		<!-- 读者类型 -->
 		<action name="readerTypeMain" class="com.huan.library.web.action.ReaderTypeAction" method="readerTypeMain">
 		    <result name="success">/module/reader/readerCategory.jsp</result>

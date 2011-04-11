@@ -19,7 +19,7 @@ public class ReaderView extends ExtGridPost implements Serializable{
 	
 	private Long id; // 主键
 	private String readerName;  // 读者姓名
-	private Date birthday;      //出生日期
+	private String birthday;      //出生日期
 	private String sex = Constants.MALE;  // 姓名 M:男 F:女
 	private String email;       // 邮箱
 	private String contactTel;  // 联系电话
@@ -28,8 +28,8 @@ public class ReaderView extends ExtGridPost implements Serializable{
 	private String cardNo;         //借阅证号
 	private String password;       //密码
 	private String barCode;        //条形码
-	private Date entyDate;         //办证日期
-	private Date effectiveDate;    //有效日期
+	private String entyDate;         //办证日期
+	private String effectiveDate;    //有效日期
 	private String readerPic;      //头像
 	private String certificateNo; // 证件号码
 	private String readerDesc;    // 读者描述
@@ -72,20 +72,36 @@ public class ReaderView extends ExtGridPost implements Serializable{
 		this.readerName = readerName;
 	}
 
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-
 	public String getSex() {
 		return sex;
 	}
 
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+    
+	
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getEntyDate() {
+		return entyDate;
+	}
+
+	public void setEntyDate(String entyDate) {
+		this.entyDate = entyDate;
+	}
+
+	public String getEffectiveDate() {
+		return effectiveDate;
+	}
+
+	public void setEffectiveDate(String effectiveDate) {
+		this.effectiveDate = effectiveDate;
 	}
 
 	public String getEmail() {
@@ -144,21 +160,6 @@ public class ReaderView extends ExtGridPost implements Serializable{
 		this.barCode = barCode;
 	}
 
-	public Date getEntyDate() {
-		return entyDate;
-	}
-
-	public void setEntyDate(Date entyDate) {
-		this.entyDate = entyDate;
-	}
-
-	public Date getEffectiveDate() {
-		return effectiveDate;
-	}
-
-	public void setEffectiveDate(Date effectiveDate) {
-		this.effectiveDate = effectiveDate;
-	}
 
 	public String getReaderPic() {
 		return readerPic;

@@ -54,49 +54,6 @@
 								</table>
 							</td>
 						</tr>
-						<tr id="yy"  >
-							<td height="10" valign="top">
-								<table width="43%" border="0" align="left" cellpadding="0"
-									cellspacing="0" bordercolor="#ebebeb"
-									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-									
-								    
-									 <TR>
-										<TD width="10%" height=25 align="right" valign="center" nowrap class=body style="padding-left:6px;">
-                                            类别编码：
-										</TD>
-										<TD width="10%"  height=25 align="left" valign="top" nowrap class=body>
-                                    <input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="15">									</TD>
-                                        <TD  height=25 align="right" valign="center" nowrap class=body>
-										     类别名称：               	    		                                       </TD>
-                                       <TD width="10%"  height=25 align="left" valign="center" nowrap class=body>										                                          <input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="15">									   </TD>
-									</TR>
-								     <TR>
-										<TD width="10%" height=25 align="right" valign="center" nowrap class=body style="padding-left:8px;">
-                                            借阅天数：
-										</TD>
-										<TD width="10%" height=25 align="left" valign="top" nowrap class=body >
-                                      <input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="10">									</TD>
-                                        <TD height=25 align="right" valign="center" nowrap class=body>
-										    借阅数量：               	    		                                       </TD>
-                                       <TD width="10%"  height=25 align="left" valign="center" nowrap class=body>										                                          <input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="10">									   </TD>
-									</TR>
-								     <TR>
-										<TD width="10%" height=25 align="right" valign="center" nowrap class=body style="padding-left:8px;">
-                                            借阅租金：
-										</TD>
-										<TD height=25 colspan="3" align="left" valign="top" nowrap class=body >
-                                            <input name=txtkeyvalue2 type="text" class="input2"
-												id="txtkeyvalue2" value="" size="10">									
-                                        </TD>
-                                   </TR>
-								</TABLE>
-							</td>
-						</tr>
 						<tr  id="yb" >
 							<td height="0" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"

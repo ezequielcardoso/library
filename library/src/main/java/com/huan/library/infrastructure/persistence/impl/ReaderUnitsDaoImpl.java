@@ -24,7 +24,7 @@ import com.huan.library.infrastructure.persistence.ReaderUnitsDao;
 public class ReaderUnitsDaoImpl extends BaseDaoImpl<ReaderUnits> implements
 		ReaderUnitsDao {
 
-	public List<ReaderUnits> selectUnitsByParentId(final Long parentUnitId)
+	public List<ReaderUnits> selectChildrenByPid(final Long pUnitId)
 			throws Exception {
 		List<ReaderUnits> readerUnits = new ArrayList<ReaderUnits>();
 		try {
@@ -38,7 +38,7 @@ public class ReaderUnitsDaoImpl extends BaseDaoImpl<ReaderUnits> implements
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
 					Query query = session.createQuery(sqlIn);
-					query.setParameter("parentUnitId", parentUnitId);
+					query.setParameter("parentUnitId", pUnitId);
 					return query.list();
 				}
 			};
@@ -51,10 +51,10 @@ public class ReaderUnitsDaoImpl extends BaseDaoImpl<ReaderUnits> implements
 		return readerUnits;
 	}
 
-	public ReaderUnits selectUnitById(final Long unitId) throws Exception {
+	public ReaderUnits getById(Long unitId) throws Exception {
 		ReaderUnits readerUnits = new ReaderUnits();
 		StringBuilder sql = new StringBuilder();
-		sql.append(" from ReaderUnits ru ");
+		sql.append(" from ReaderUnits as ru ");
 		sql.append(" where ru.unitId=? ");
 		String sql_ = sql.toString();
 		try {
@@ -63,13 +63,12 @@ public class ReaderUnitsDaoImpl extends BaseDaoImpl<ReaderUnits> implements
 		  e.printStackTrace();
 		  throw new Exception(e);
 		}
-		return null;
+		return readerUnits;
 	}
 
 	public void insertReaderUnitsesBatch(List<ReaderUnits> readerUnitses)
 			throws Exception {
 		try {
-
 			SessionFactory sessionFactory = this.getSessionFactory();
 			Session session = sessionFactory.openSession();
 			Transaction tx = session.getTransaction();

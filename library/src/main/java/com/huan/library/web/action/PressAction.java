@@ -147,9 +147,9 @@ public class PressAction extends BaseActionSupport{
 		try {
 			pressView.setStart(start);
 			pressView.setLimit(limit);
-			pressView.setPressISBN(press.getPressISBN());
-			pressView.setPressAddress(press.getPressAddress());
-			pressView.setPressName(press.getPressName());
+//			pressView.setPressISBN(press.getPressISBN());
+//			pressView.setPressAddress(press.getPressAddress());
+//			pressView.setPressName(press.getPressName());
 			List<Press> presses = pressService.findPresses(pressView);
 			extGridLoad.setRoot(this.convertToView(presses));
 			extGridLoad.setTotalProperty(pressView.getTotalCount());
