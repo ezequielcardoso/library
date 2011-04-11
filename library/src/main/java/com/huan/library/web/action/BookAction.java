@@ -43,7 +43,6 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 图书基本信息管理主页
-	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -53,7 +52,6 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 期刊基本信息管理主页
-	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -63,7 +61,6 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 分页查找图书或者期刊
-	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -332,28 +329,27 @@ public class BookAction extends BaseActionSupport {
 	public void formatBook(Book book) {
 		book.setAttachments(null);
 		book.setBookLevel((book.getBookLevel() != null && book.getBookLevel()
-				.getItemId() != null) ? book.getBookLevel() : null);
+				.getItemId() != null && !"".equals(book.getBookLevel())) ? book.getBookLevel() : null);
 		book.setBookSecurity((book.getBookSecurity() != null && book
-				.getBookSecurity().getItemId() != null) ? book
+				.getBookSecurity().getItemId() != null&&!"".equals(book.getBookSecurity().getItemId())) ? book
 				.getBookSecurity() : null);
 		book.setBookSource((book.getBookSource() != null && book
-				.getBookSource().getItemId() != null) ? book.getBookSource()
+				.getBookSource().getItemId() != null&&!"".equals(book.getBookSource())) ? book.getBookSource()
 				: null);
 		book.setBookState((book.getBookState() != null && book.getBookState()
-				.getItemId() != null) ? book.getBookState() : null);
-		book
-				.setPress((book.getPress() != null && book.getPress()
-						.getPressId() != null) ? book.getPress() : null);
+				.getItemId() != null && !"".equals(book.getBookSecurity().getItemId())) ? book.getBookState() : null);
+		book.setPress((book.getPress() != null && book.getPress()
+						.getPressId() != null && !"".equals(book.getPress().getPressId())) ? book.getPress() : null);
 		book.setCurrency((book.getCurrency() != null && book.getCurrency()
-				.getItemId() != null) ? book.getCurrency() : null);
+				.getItemId() != null &&!"".equals(book.getCurrency().getItemId())) ? book.getCurrency() : null);
 		book.setFirstCategory((book.getFirstCategory() != null && book
-				.getFirstCategory().getItemId() != null) ? book
+				.getFirstCategory().getItemId() != null&&!"".equals(book.getFirstCategory().getItemId())) ? book
 				.getFirstCategory() : null);
 		book.setSecondCategory((book.getSecondCategory() != null && book
-				.getSecondCategory().getItemId() != null) ? book
+				.getSecondCategory().getItemId() != null&&!"".equals(book.getSecondCategory().getItemId())) ? book
 				.getSecondCategory() : null);
 		book.setThirdCategory((book.getThirdCategory() != null && book
-				.getThirdCategory().getItemId() != null) ? book
+				.getThirdCategory().getItemId() != null && !"".equals(book.getThirdCategory().getItemId())) ? book
 				.getThirdCategory() : null);
 	}
 
