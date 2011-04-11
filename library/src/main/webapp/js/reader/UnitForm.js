@@ -34,7 +34,7 @@ Library.tree.form.UnitForm = Ext.extend(Ext.form.FormPanel, {
         
         if(this.deptId!=null){
         	Ext.Ajax.request({
-				url : contextPath + '/reader/getById.action',
+				url : contextPath + '/units/getById.action',
 				params : {
 					unitId : this.unitId
 				},
@@ -128,7 +128,7 @@ Library.tree.form.UnitForm = Ext.extend(Ext.form.FormPanel, {
         }
         if (form.isValid()) 
             form.submit({
-                url: contextPath + '/reader/save.action',
+                url: contextPath + '/units/save.action',
                 method: "POST",
                 waitMsg: "请稍后,开始保存...",
                 success: function(form, action){

@@ -13,7 +13,7 @@ Library.tree.dict.PressCheckTree = Ext.extend(Library.tree.BaseCheckTree, {
 			id : 'Press',
 			expanded : true
 		};
-		this.url = contextPath + '/book/getPressItem.action';
+		this.url = contextPath + '/press/getPressItem.action';
 		this.rootVisible = false;
 		this.isChecked = true;
 		Library.tree.dict.PressCheckTree.superclass.initComponent

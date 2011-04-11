@@ -9,7 +9,7 @@ Library.tree.dict.BookLevelCheckTree = Ext.extend(Library.tree.BaseCheckTree, {
 			border : false
 		});
 		this.rootNode = {
-			text : '不显示的节点',
+			text : '涓嶆樉绀虹殑鑺傜偣',
 			id : 'BookLevel',
 			expanded : true
 		};

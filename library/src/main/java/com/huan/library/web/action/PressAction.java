@@ -66,7 +66,7 @@ public class PressAction extends BaseActionSupport{
 	 * @return
 	 * @throws Exception
 	 */
-	public String savePress()  {
+	public String save()  {
 		try {
 			pressService.addOrModifyPress(press);
 			extJsonForm.setSuccess(true);
@@ -83,44 +83,11 @@ public class PressAction extends BaseActionSupport{
 	}
 	
 	/**
-	 * 显示修改出版社
-	 * @return
-	 * @throws Exception
-	 */
-	public String showModifyPress() {
-		try {
-			  //press会不会为空
-	          Press pressModify = pressService.findPressById(press.getPressId());
-			} catch (Exception e) {
-				e.printStackTrace();
-				return Action.ERROR;
-			}
-		return "showModifyPress";
-	}
-	
-	/**
-	 * 修改出版社
-	 * @return
-	 * @throws Exception
-	 */
-	public String modifyPress()  {
-		try {
-			 //press会不会为空
-           pressService.addOrModifyPress(press);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}
-		return Action.SUCCESS;
-	}
-	
-	/**
 	 * 删除出版社
 	 * @return
 	 * @throws Exception
 	 */
-	public String deletePress() {
-		Press press = new Press();
+	public String remove() {
 		try {
 		   press.setPressId(pressView.getPressId());
 		   pressService.removePress(press);

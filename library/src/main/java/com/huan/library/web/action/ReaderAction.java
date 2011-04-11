@@ -1,7 +1,6 @@
 package com.huan.library.web.action;
 
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.service.ReaderService;
+import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.ReaderView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
@@ -76,10 +76,9 @@ public class ReaderAction extends BaseActionSupport {
 
 	/**
 	 * 增加读者
-	 * 
 	 * @return
 	 */
-	public String saveReader() {
+	public String save() {
 		try {
 			this.formatReader(reader);
 			reader = readerService.addOrModifyReader(reader);
@@ -143,7 +142,6 @@ public class ReaderAction extends BaseActionSupport {
 	public List<ReaderView> convertToView(List<Reader> readers){
 		List<ReaderView> readerViews = new ArrayList<ReaderView>();
 		for(Reader reader:readers){
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			ReaderView readerView = new ReaderView();
 			readerView.setId(reader.getId());
 			if(reader.getCardNo()!=null&&!"".equals(reader.getCardNo())){
@@ -159,7 +157,7 @@ public class ReaderAction extends BaseActionSupport {
 				readerView.setReaderName(reader.getReaderName());
 			}
 			if(reader.getBirthday()!=null&&!"".equals(reader.getBirthday())){
-				readerView.setBirthday(simpleDateFormat.format(reader.getBirthday()));
+				readerView.setBirthday(DateFormatUtil.format(reader.getBirthday(), "yyyy-MM-dd"));
 			}
 			if(reader.getSex()!=null&&!"".equals(reader.getSex())){
 				readerView.setSex(reader.getSex());
@@ -174,10 +172,10 @@ public class ReaderAction extends BaseActionSupport {
 				readerView.setContactTel(reader.getContactTel());
 			}
 			if(reader.getEntyDate()!=null&&!"".equals(reader.getEntyDate())){
-				readerView.setEntyDate(simpleDateFormat.format(reader.getEntyDate()));
+				readerView.setEntyDate(DateFormatUtil.format(reader.getEntyDate(), "yyyy-MM-dd"));
 			}
 			if(reader.getEffectiveDate()!=null&&!"".equals(reader.getEffectiveDate())){
-				readerView.setEffectiveDate(simpleDateFormat.format(reader.getEffectiveDate()));
+				readerView.setEffectiveDate(DateFormatUtil.format(reader.getEffectiveDate(),"yyyy-MM-dd"));
 			}
 			if(reader.getReaderPic()!=null&&!"".equals(reader.getReaderPic())){
 				readerView.setReaderPic(reader.getReaderPic());

@@ -64,7 +64,7 @@ public class ReaderTypeAction extends BaseActionSupport {
 	 * 增加读者类型
 	 * @return
 	 */
-	public String saveReaderType() {
+	public String save() {
 		try {
 			readerType = readerTypeService.addOrModifyReaderType(readerType);
 			extJsonForm.setMsg("保存成功！");
@@ -84,9 +84,8 @@ public class ReaderTypeAction extends BaseActionSupport {
 	 * 删除读者类型
 	 * @return
 	 */
-	public String deleteReaderType() {
+	public String remove() {
 		try {
-			ReaderType readerType = new ReaderType();
 			readerType.setId(readerTypeView.getId());
 			readerTypeService.removeReaderType(readerType);
 			extJsonForm.setMsg("删除成功！");

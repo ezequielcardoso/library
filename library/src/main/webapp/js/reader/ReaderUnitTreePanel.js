@@ -77,7 +77,7 @@ Library.reader.tree.ReaderUnitsTreePanel = Ext.extend(Library.tree.BaseTree, {
 						var unitId = node.attributes.id;
 						var thiz = this;
 						Ext.Ajax.request({
-							url : contextPath + '/reader/remove.action',
+							url : contextPath + '/units/remove.action',
 							method : 'POST',
 							params : {
 								'unitId' : unitId
@@ -108,7 +108,7 @@ Library.reader.tree.ReaderUnitsTreePanel = Ext.extend(Library.tree.BaseTree, {
     
 	initComponent : function() {
 		
-		this.url = contextPath + '/reader/getChildrenByPid.action';
+		this.url = contextPath + '/units/getChildrenByPid.action';
         this.isChecked = false;
         this.rootNode = this.createRootNode();
 		this.tbar = this.createTbar(this);
@@ -122,7 +122,7 @@ Library.reader.tree.ReaderUnitsTreePanel = Ext.extend(Library.tree.BaseTree, {
 		
 		var thiz = this;
 		Ext.Ajax.request({
-			url : contextPath + '/reader/getById.action',
+			url : contextPath + '/units/getById.action',
 			params : {
 				id : '1'
 			},

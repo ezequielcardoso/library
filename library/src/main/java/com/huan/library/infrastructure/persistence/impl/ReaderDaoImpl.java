@@ -52,6 +52,23 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 			sql.append(" where 1=1 ");
 			sql_.append(" where 1=1 ");
 			
+			StringBuilder whereSub = new StringBuilder();
+			if(readerView.getReaderName()!=null&&!"".equals(readerView.getReaderName())){
+				whereSub.append(" and r.readerName like (:readerName) ");
+			}
+			if(readerView.getCardNo()!=null && !"".equals(readerView.getCardNo())){
+				whereSub.append(" and r.cardNo like (:cardNo ) ");
+			}
+            if(readerView.getUnitName()!=null&&!"".equals(readerView.getUnitName())){
+            	whereSub.append(" and t_ru.unitName like (:unitName) ");
+            }
+            if(readerView.getReaderCateName()!=null&&!"".equals(readerView.getReaderCateName())){
+            	whereSub.append(" and t_rt.readerCateName like (:readerCateName) ");
+            }
+			
+			sql.append(whereSub);
+			sql_.append(whereSub);
+			
 			final String sqlIn = sql.toString();
 			HibernateCallback callback = new HibernateCallback(){
 				public Object doInHibernate(Session session)
@@ -61,6 +78,23 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 					if(readerView!=null&&readerView.getIsPage()){
 						query.setFirstResult(readerView.getStart());
 						query.setMaxResults(readerView.getLimit());
+					}
+					String temp = "";
+					if(readerView.getReaderName()!=null&&!"".equals(readerView.getReaderName())){
+					    temp = "%" + readerView.getReaderName().replace(" ", "%")+"%";
+						query.setParameter("readerName", temp);
+					}
+					if(readerView.getCardNo()!=null && !"".equals(readerView.getCardNo())){
+						temp = "%"+readerView.getCardNo().replace(" ", "%")+"%";
+						query.setParameter("cardNo", temp);
+					}
+					if(readerView.getUnitName()!=null&&!"".equals(readerView.getUnitName())){
+						temp = "%"+readerView.getUnitName().replace(" ", "%")+"%";
+						query.setParameter("unitName", temp);
+					}
+					if(readerView.getReaderCateName()!=null && !"".equals(readerView.getReaderCateName())){
+						temp = "%"+readerView.getReaderCateName().replace(" ", "%")+"%";
+						query.setParameter("readerCateName", temp);
 					}
 					return query.list();
 				}
@@ -73,6 +107,23 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
 					Query query = session.createQuery(sqlIn_);
+					String temp = "";
+					if(readerView.getReaderName()!=null&&!"".equals(readerView.getReaderName())){
+						temp = "%" + readerView.getReaderName().replace(" ", "%")+"%";
+						query.setParameter("readerName", temp);
+					}
+					if(readerView.getCardNo()!=null && !"".equals(readerView.getCardNo())){
+						temp = "%"+readerView.getCardNo().replace(" ", "%")+"%";
+						query.setParameter("cardNo", temp);
+					}
+					if(readerView.getUnitName()!=null&&!"".equals(readerView.getUnitName())){
+						temp = "%"+readerView.getUnitName().replace(" ", "%")+"%";
+						query.setParameter("unitName", temp);
+					}
+					if(readerView.getReaderCateName()!=null && !"".equals(readerView.getReaderCateName())){
+						temp = "%"+readerView.getReaderCateName().replace(" ", "%")+"%";
+						query.setParameter("readerCateName", temp);
+					}
 					return query.list();
 				}
 			};

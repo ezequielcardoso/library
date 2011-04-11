@@ -4,7 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <!-- book -->
+    <!-- 书刊模块 -->
     <package name="book" namespace="/book" extends="library">
     	
     	<!-- 跳转到图书主页面 -->
@@ -19,16 +19,21 @@
 			</result>
 		</action>
 		
-		<!-- 保存图书或者期刊 -->
-		<action name="saveBook" class="com.huan.library.web.action.BookAction" method="saveBook">
-			<result name="success" type="json">
-				<param name="root">extJsonForm</param>
-			</result>
+		<!-- 跳转到图书增加或者修改页面 -->
+		<action name="showSaveMagazine" class="com.huan.library.web.action.BookAction" method="showSaveMagazine">
+			<result name="success" >/module/book/modifyMagazine.jsp</result>
 		</action>
 		
 		<!-- 跳转到图书增加或者修改页面 -->
 		<action name="showSaveBook" class="com.huan.library.web.action.BookAction" method="showSaveBook">
 			<result name="success" >/module/book/saveBook.jsp</result>
+		</action>
+		
+		<!-- 保存图书或者期刊 -->
+		<action name="saveBook" class="com.huan.library.web.action.BookAction" method="saveBook">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
 		</action>
 		
 		<!-- 跳转到期刊主页面 -->
@@ -40,19 +45,16 @@
 		    <result name="success">/module/book/saveMagazine.jsp</result>
 		</action>
 	
+		
 		<!-- 删除图书或者期刊 -->
-		<action name="remove" class="com.huan.library.web.action.BookAction" method="remove">
+		<action name="deleteBook" class="com.huan.library.web.action.BookAction" method="deleteBook">
 			<result name="success" type="json">
 				<param name="root">extJsonForm</param>
 			</result>
 		</action>
 		
-	</package>
-     
-    <!-- press -->
-    <package name="press" namespace="/press" extends="library">
-      
-      <action name="pressMain" class="com.huan.library.web.action.PressAction" method="pressMain">
+		<!-- 出版社 -->
+		<action name="pressMain" class="com.huan.library.web.action.PressAction" method="pressMain">
 		   <result name="success">/module/book/press/pressList.jsp</result>
 		</action>
 		
@@ -62,41 +64,23 @@
 		    </result>
 		</action>
 		
+		<action name="savePress" class="com.huan.library.web.action.PressAction" method="savePress">
+		    <result name="success" type="json">
+		       <param name="root">extJsonForm</param>
+		    </result>
+		</action>
+		
+	    <action name="deletePress" class="com.huan.library.web.action.PressAction" method="deletePress">
+	       <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	       </result>
+	    </action>
+		
 		<action name="getPressItem" class="com.huan.library.web.action.PressAction" method="getPressItem">
 			<result name="success" type="json">
 				<param name="root">pressNodes</param>
 			</result>
 		</action>
 		
-		<action name="save" class="com.huan.library.web.action.PressAction" method="save">
-		    <result name="success" type="json">
-		       <param name="root">extJsonForm</param>
-		    </result>
-		</action>
-		
-	    <action name="remove" class="com.huan.library.web.action.PressAction" method="remove">
-	       <result name="success" type="json">
-	         <param name="root">extJsonForm</param>
-	       </result>
-	    </action>
-		
     </package>
 </struts>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
