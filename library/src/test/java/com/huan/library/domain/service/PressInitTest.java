@@ -21,9 +21,6 @@ import org.junit.Test;
 
 import com.huan.library.application.BaseSpringBeans;
 import com.huan.library.application.Constants;
-import com.huan.library.domain.model.book.Book;
-import com.huan.library.domain.model.book.BookState;
-import com.huan.library.domain.model.book.Category;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.infrastructure.persistence.PressDao;
 import com.huan.library.util.PageModel;

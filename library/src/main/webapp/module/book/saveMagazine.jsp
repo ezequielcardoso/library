@@ -21,7 +21,7 @@
 		<script type="text/javascript" src="<%=path %>/js/dictItem/BookLevelCheckTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/dictItem/CategoryCheckTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/dictItem/PressCheckTree.js"></script>
-        <script type="text/javascript" src="<%=path %>/js/book/BookOperation.js"></script>
+        <script type="text/javascript" src="<%=path %>/js/book/MagazineOperation.js"></script>
         
 	</head>
 	<body>
