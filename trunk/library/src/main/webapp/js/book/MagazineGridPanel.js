@@ -461,7 +461,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			var bookId = record.get('bookId');
 			window.location = contextPath + '/book/showSaveMagazine.action?bookView.bookId=' + bookId;				
 		} else {
-			Ext.Msg.alert('提示', '请选择一个期刊!');
+			Ext.Msg.alert('提示', '请选择一条记录!');
 		}
 	},
 	
@@ -472,7 +472,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			var bookId = record.get('bookId');
 			var thiz = this;
 			Ext.Ajax.request({
-				url : contextPath + '/book/deleteBook.action',
+				url : contextPath + '/book/remove.action',
 				method : 'POST',
 				params : {
 					'bookView.bookId' : bookId

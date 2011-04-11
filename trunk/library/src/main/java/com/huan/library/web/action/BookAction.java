@@ -351,6 +351,7 @@ public class BookAction extends BaseActionSupport {
 		book.setThirdCategory((book.getThirdCategory() != null && book
 				.getThirdCategory().getItemId() != null && !"".equals(book.getThirdCategory().getItemId())) ? book
 				.getThirdCategory() : null);
+		book.setPress((book.getPress()!=null&&!"".equals(book.getPress().getPressId()))  ? book.getPress() : null);	
 	}
 
 	public BookService getBookService() {

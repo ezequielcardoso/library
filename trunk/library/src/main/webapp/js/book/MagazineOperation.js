@@ -54,7 +54,7 @@ function saveMagazine() {
 					'book.allStage' : allStage,
 					'book.isBook': 0,
 					
-					'book.searchBookId' : searchBookId,
+//					'book.searchBookId' : searchBookId,
 					'book.speciesId' : speciesId,
 					'book.publisherDate' : publisherDate,
 					'book.revision' : revision,
