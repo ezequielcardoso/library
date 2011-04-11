@@ -3,7 +3,6 @@ package com.huan.library.infrastructure.persistence;
 
 import java.util.List;
 
-import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.web.view.ReaderView;
 

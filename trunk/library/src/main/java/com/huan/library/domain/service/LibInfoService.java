@@ -16,7 +16,7 @@ public interface LibInfoService {
 	 * @return
 	 * @throws Exception
 	 */
-	public LibInfo addOrModifyLibInfo(LibInfo libInfo) throws Exception;
+	public LibInfo save(LibInfo libInfo) throws Exception;
 	
 	
     /**
@@ -25,7 +25,7 @@ public interface LibInfoService {
      * @return
      * @throws Exception
      */
-	public LibInfo findLibInfoById(Long libInfoId) throws Exception;
+	public LibInfo findById(Long libInfoId) throws Exception;
 	
 
 }

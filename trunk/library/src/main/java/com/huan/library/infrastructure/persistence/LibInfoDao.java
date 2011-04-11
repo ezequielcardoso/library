@@ -9,4 +9,5 @@ import com.huan.library.domain.model.LibInfo;
  */
 public interface LibInfoDao extends BaseDao<LibInfo>{
 
+//	public LibInfo selectById(Long LibById) throws Exception;
 }

@@ -382,7 +382,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								editable : false,
 								store : new Ext.data.JsonStore({
 											url : contextPath
-													+ '/reader/findReaderTypes.action',
+													+ '/readerType/findReaderTypes.action',
 											root : 'root',
 											fields : [{
 														name : 'id'

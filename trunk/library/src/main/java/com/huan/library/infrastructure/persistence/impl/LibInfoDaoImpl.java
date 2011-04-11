@@ -12,5 +12,14 @@ import com.huan.library.infrastructure.persistence.LibInfoDao;
  */
 @Repository("libInfoDao")
 public class LibInfoDaoImpl extends BaseDaoImpl<LibInfo> implements LibInfoDao {
+
+//	public LibInfo selectById(Long LibById) throws Exception {
+//		try {
+//			
+//		} catch (Exception e) {
+//		  
+//		}
+//		return null;
+//	}
  
 }

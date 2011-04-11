@@ -72,11 +72,11 @@
 												id="bookState" size="15">
 										</TD>
 										<TD width="7%" height=25 align="right" nowrap class="body">
-											来源：
+											出版社：
 										</TD>
 										<TD width="36%" height=25 align="left" nowrap class="body">
-											<input name="bookSource" type="text" class="input2"
-												id="bookSource" size="15">
+											<input name="press" type="text" class="input2"
+												id="press" size="15">
 										</TD>
 									</TR>
 									<TR>

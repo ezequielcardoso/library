@@ -358,6 +358,14 @@
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input type="button" id="clickAttachmentBtn" style="width:60px; height:25px"  value="查 看">
 													</td>
+													 <td align="right" nowrap bgcolor="#F4F5F9">
+														入库日期：
+													</td>
+													<td height="30" align="left" bgcolor="#F4F5F9">
+														<input name="book.storeDate" id="book.storeDate" type="text" value="<s:date name='book.storeDate'
+														  format='yyyy-mm-dd'/>"
+															onClick=WdatePicker(); size="29" disabled="disabled">
+													</td>
 												</tr>
 												<tr>
 													<td height="60" align="right" nowrap bgcolor="#F4F5F9">

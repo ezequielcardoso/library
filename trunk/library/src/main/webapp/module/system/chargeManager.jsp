@@ -7,7 +7,7 @@
 
 		<title>图书馆管理系统</title>
 	    <script type="text/javascript" src="<%=path%>/js/system/Charge.js"></script>
-	    <script type="text/javascript" src="<%=path%>/js/system/ChargeGridPanel.js"></script>
+	    <script type="text/javascript" src="<%=path%>/js/system/ChargeFormPanel.js"></script>
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"

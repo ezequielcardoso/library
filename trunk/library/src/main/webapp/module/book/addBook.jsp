@@ -5,7 +5,6 @@
 		
 		<%@ include file="/common/common.jsp"%>
 		<%@ include file="/common/extInclude.jsp"%>
-		
      	<title>图书馆管理系统</title>
 		
 		<script type="text/javascript" src="<%=path %>/common/datePicker/datePicker/calendar/WdatePicker.js">
