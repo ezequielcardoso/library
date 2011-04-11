@@ -70,7 +70,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			},'-',{
 				text : '刷新',
 				handler : function() {
-//					this.onQuery();
+					this.onRefresh();
 				},
 				scope : this
 			}]
@@ -134,7 +134,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				}];
 
 		var store = new Ext.data.JsonStore({
-					url : contextPath + '/book/findPresses.action',
+					url : contextPath + '/press/findPresses.action',
 					root : 'root',
 					totalProperty : 'totalProperty',
 					baseParams : {
@@ -193,7 +193,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			e.record.commit();
 			var thiz = this;
 			Ext.Ajax.request({
-						url : contextPath + '/book/savePress.action',
+						url : contextPath + '/press/save.action',
 						method : 'POST',
 						params : {
 							'press.pressId' : e.record.get('pressId'),
@@ -255,7 +255,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								var thiz = this;
 								Ext.Ajax.request({
 											url : contextPath
-													+ '/book/deletePress.action',
+													+ '/press/remove.action',
 											method : 'POST',
 											params : {
 												'pressView.pressId' : pressId
@@ -310,6 +310,18 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	},
 	onPrint : function() {
 
+	},
+	
+	onRefresh : function(){
+	   
+	   this.getStore().baseParams={};	
+	   
+	   this.getStore().load({
+						params : {
+							'start' : 0,
+							'limit' : PressesPageSize
+						}
+					});
 	},
 	loadPressForm : function() {
 		Ext.get('press.pressId').setValue(record.pressId);

@@ -192,7 +192,7 @@ public class BookAction extends BaseActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String deleteBook() {
+	public String remove() {
 		try {
 			Book book = new Book();
 			book.setBookId(bookView.getBookId());

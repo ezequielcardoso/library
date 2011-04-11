@@ -45,7 +45,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							}, {
 								xtype : 'textfield',
 								width : 100,
-								id : 'query_userName'
+								id : 'query_readerName'
 							}, '-', {
 								xtype : 'label',
 								text : '借阅证号：'
@@ -59,24 +59,24 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							}, {
 								xtype : 'textfield',
 								width : 100,
-								id : 'query_unit'
+								id : 'query_unitName'
 							}, '-', {
 								xtype : 'label',
-								text : '类别：'
+								text : '读者类别：'
 							}, {
 								xtype : 'textfield',
 								width : 100,
-								id : 'query_readerType'
+								id : 'query_readerCateName'
 							}, {
 								text : '查询',
 								handler : function() {
-									// this.onQuery();
+									 this.onQuery();
 								},
 								scope : this
 							}, '-', {
 								text : '刷新',
 								handler : function() {
-									// this.onQuery();
+									 this.onRefresh();
 								},
 								scope : this
 							}]
@@ -509,7 +509,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			e.record.commit();
 			var thiz = this;
 			Ext.Ajax.request({
-				url : contextPath + '/reader/saveReader.action',
+				url : contextPath + '/reader/save.action',
 				method : 'POST',
 				params : {
 					'reader.id' : e.record.get('id'),
@@ -549,13 +549,15 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		}, this);
 	},
 	onQuery : function() {
-		var pressISBN = Ext.get('pressISBN').getValue();
-		var pressName = Ext.get('pressName').getValue();
-		var pressAddress = Ext.get('pressAddress').getValue();
+		var readerName = Ext.get('query_readerName').getValue();
+		var cardNo = Ext.get('query_cardNo').getValue();
+		var unitName = Ext.get('query_unitName').getValue();
+		var readerCateName = Ext.get('query_readerCateName').getValue();
 		this.getStore().baseParams = {
-			'press.pressISBN' : pressISBN,
-			'press.pressName' : pressName,
-			'press.pressAddress' : pressAddress
+			'readerView.readerName' : readerName,
+			'readerView.cardNo' : cardNo,
+			'readerView.unitName' : unitName,
+			'readerView.readerCateName' : readerCateName
 		};
 		this.getStore().load({
 					params : {
@@ -661,6 +663,17 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	},
 	loadPressForm : function() {
 		Ext.get('reader.id').setValue(record.id);
-	}
+	},
+    onRefresh : function(){
+    	
+    	this.getStore().baseParams = {};
 
+    	
+        this.getStore().load({
+						params : {
+							'start' : 0,
+							'limit' : ReadersPageSize
+						}
+					});
+    }
 });

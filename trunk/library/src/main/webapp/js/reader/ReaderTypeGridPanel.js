@@ -120,7 +120,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 						}];
 
 				var store = new Ext.data.JsonStore({
-							url : contextPath + '/reader/findReaderTypes.action',
+							url : contextPath + '/readerType/findReaderTypes.action',
 							root : 'root',
 							totalProperty : 'totalProperty',
 							baseParams : {
@@ -180,7 +180,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 					e.record.commit();
 					var thiz = this;
 					Ext.Ajax.request({
-					   url : contextPath + '/reader/saveReaderType.action',
+					   url : contextPath + '/readerType/save.action',
 					   method : 'POST',
 					   params : {
 					     'readerType.id' : e.record.get('id'), 
@@ -227,7 +227,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 								var thiz = this;
 								Ext.Ajax.request({
 											url : contextPath
-													+ '/reader/deleteReaderType.action',
+													+ '/readerType/remove.action',
 											method : 'POST',
 											params : {
 												'readerTypeView.id' : id

@@ -9,50 +9,56 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		// 操作图书列表的工具条
 		var tbar = new Ext.Toolbar({
 			items : [{
-				text : '查询',
-				handler : function() {
-					this.queryBook();
-				},
-				scope:this
-			}, {
-				text : '修改',
-				handler : function() {
-					this.updateBook();
-				},
-				scope:this
-			}, {
 				text : '增加',
 				handler : function() {
 					this.addBook();
 				},
 				scope:this
-			}, {
+			},'-', {
 				text : '删除',
 				handler : function() {
 					this.deleteBook();
 				},
 				scope:this
-			},  {
+			},'-',{
+				text : '修改',
+				handler : function() {
+					this.updateBook();
+				},
+				scope:this
+			},'-',{
 				text : '导入',
 				handler : function() {
 					
 				}
-			},  {
+			},'-',{
 				text : '导出Excel',
 				handler : function() {
 					
 				}
-			},  {
+			},'-',{
 				text : '图书标签',
 				handler : function() {
 					
 				}
-			},  {
+			},'-',{
 				text : '打印条形码',
 				handler : function() {
 					
 				}
-			}]
+			},'->',{
+				text : '查询',
+				handler : function() {
+					this.queryBook();
+				},
+				scope:this
+			},'-',{
+				text : '刷新',
+				handler : function() {
+					this.onRefresh();
+				},
+				scope:this
+			} ]
 		});
 		
 		var fields = [{
@@ -340,9 +346,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		]);
 		
 		Ext.apply(this, {
-			width : 1000,
+			width : 1250,
 //			height : document.documentElement.clientHeight * 0.82,
-			height : 480,
+			height : 450,
 			autoScroll : true,
 			tbar : tbar,
 			cm : colM,
@@ -432,6 +438,21 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   });
 	},
 	
+	onRefresh : function(){
+	   
+		this.getStore().baseParams={'bookView.isBook' : 1};
+		
+//		this.getStore().baseParams={};
+		
+		this.getStore().load({
+							params : {
+								'start' : 0,
+								'limit' : BooksPageSize
+							}
+						});
+		
+	},
+	
 	addBook : function() {
 		window.location = contextPath + '/book/showSaveBook.action';
 	},
@@ -454,7 +475,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			var bookId = record.get('bookId');
 			var thiz = this;
 			Ext.Ajax.request({
-				url : contextPath + '/book/deleteBook.action',
+				url : contextPath + '/book/remove.action',
 				method : 'POST',
 				params : {
 					'bookView.bookId' : bookId
