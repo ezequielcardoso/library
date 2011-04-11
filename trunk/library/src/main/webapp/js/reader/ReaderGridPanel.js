@@ -7,44 +7,78 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	initComponent : function() {
 
 		var tbar = new Ext.Toolbar({
-					items : [{
+					items : [ {
+								text : '增加',
+								handler : function() {
+									this.onAdd();
+								},
+								scope : this
+							},'-',{
+								text : '删除',
+								handler : function() {
+									this.onDelete();
+								},
+								scope : this
+							}, '-',{
+								text : '修改',
+								handler : function() {
+									this.onMOdify();
+								},
+								scope : this
+							},'-',{
+								text : '导入',
+								handler : function() {
+
+								}
+							},'-', {
+								text : '导出Excel',
+								handler : function() {
+
+								}
+							},'-', {
+								text : '打印',
+								handler : function() {
+								}
+							}, '->', {
+								xtype : 'label',
+								text : '姓名：'
+							}, {
+								xtype : 'textfield',
+								width : 100,
+								id : 'query_userName'
+							}, '-', {
+								xtype : 'label',
+								text : '借阅证号：'
+							}, {
+								xtype : 'textfield',
+								width : 100,
+								id : 'query_cardNo'
+							}, '-', {
+								xtype : 'label',
+								text : '部门：'
+							}, {
+								xtype : 'textfield',
+								width : 100,
+								id : 'query_unit'
+							}, '-', {
+								xtype : 'label',
+								text : '类别：'
+							}, {
+								xtype : 'textfield',
+								width : 100,
+								id : 'query_readerType'
+							},{
 								text : '查询',
 								handler : function() {
 									// this.onQuery();
 								},
 								scope : this
-							}, {
-								text : '修改',
+							},'-',{
+								text : '刷新',
 								handler : function() {
-									 this.onMOdify();
+									// this.onQuery();
 								},
 								scope : this
-							}, {
-								text : '删除',
-								handler : function() {
-									 this.onDelete();
-								},
-								scope : this
-							}, {
-								text : '增加',
-								handler : function() {
-									 this.onAdd();
-								},
-								scope : this
-							}, {
-								text : '导入',
-								handler : function() {
-
-								}
-							}, {
-								text : '导出Excel',
-								handler : function() {
-
-								}
-							}, {
-								text : '打印',
-								handler : function() {
-								}
 							}]
 				});
 
@@ -85,7 +119,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					dateFormat : 'Y-m-d'
 				}, {
 					name : 'effectiveDate',
-					type : 'date'
+					type : 'date',
+					dateFormat : 'Y-m-d'
 				}, {
 					name : 'readerPic',
 					type : 'string'
@@ -112,9 +147,6 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					type : 'string'
 				}, {
 					name : 'certificateName',
-					type : 'string'
-				}, {
-					name : 'certificateNo',
 					type : 'string'
 				}, {
 					name : 'readerTypeId',
@@ -165,11 +197,10 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					displayMsg : '显示第 {0}-{1}条  共{2}条 ',
 					emptyMsg : '没有数据'
 				})]);
-				
+
 		var sm = new Ext.grid.CheckboxSelectionModel();
 
-		var cm = new Ext.grid.ColumnModel([
-			new Ext.grid.RowNumberer(), sm, {
+		var cm = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), sm, {
 					header : '借阅证号',
 					width : 100,
 					sortable : true,
@@ -220,14 +251,14 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					width : 50,
 					sortable : true,
 					align : 'center',
-					editor : new Library.combo.ArrayLocalComboBox ({
-			            storeArray: [['男', '男'], ['女', '女']],
-			            listeners:{
-					    	select: function(t){
-					    	},
-					    	scope: this
-					    }
-			        }),
+					editor : new Library.combo.ArrayLocalComboBox({
+								storeArray : [['男', '男'], ['女', '女']],
+								listeners : {
+									select : function(t) {
+									},
+									scope : this
+								}
+							}),
 					dataIndex : 'sex'
 				}, {
 					header : '余额',
@@ -303,7 +334,75 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								allowBlank : false
 							}),
 					dataIndex : 'readerDesc'
+				},{
+					header : '读者部门',
+					width : 100,
+					sortable : true,
+					align : 'center',
+//					editor : new Ext.form.ComboBox({
+//						triggerAction : 'all',
+//						valueField : 'readerCateName',
+//						displayField : 'readerCateName',
+//						mode : 'remote',
+//						lazyRender : true,
+//						selectOnFocus : true,
+//						allowBlank : false,
+//						editable : false,
+//						store : new Ext.data.JsonStore({
+//							url : contextPath + '/reader/findReaderTypes.action',
+//							fields : [{
+//										name : 'id'
+//									}, {
+//										name : 'readerCateName'
+//									}]
+//						}),
+//						listeners : {
+//							'select' : function(combo, record, index) {
+//								var rec = Ext.getCmp('readerGridPanel')
+//										.getSelectionModel().getSelected();
+//								rec.set('id', record.get('id'));
+//								rec.commit()
+//							}
+//						}
+//					}),
+					dataIndex : 'unitName'
 				}, {
+					header : '读者类别',
+					width : 100,
+					sortable : true,
+					align : 'center',
+					editor : new Ext.form.ComboBox({
+						triggerAction : 'all',
+						valueField : 'readerCateName',
+						displayField : 'readerCateName',
+						mode : 'remote',
+						lazyRender : true,
+						selectOnFocus : true,
+						allowBlank : false,
+						editable : false,
+						store : new Ext.data.JsonStore({
+							url : contextPath + '/reader/findReaderTypes.action',
+							fields : [{
+										name : 'id'
+									}, {
+										name : 'readerCateName'
+									}],
+							baseParams : {
+								'start' : 0,
+							    'limit' : ReaderTypesPageSize
+							}		
+						}),
+						listeners : {
+							'select' : function(combo, record, index) {
+								var rec = Ext.getCmp('readerGridPanel')
+										.getSelectionModel().getSelected();
+								rec.set('readerTypeId', record.get('id'));
+								rec.commit()
+							}
+						}
+					}),
+					dataIndex : 'readerTypeName'
+				},{
 					header : '证件类别',
 					width : 100,
 					sortable : true,
@@ -312,7 +411,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 						triggerAction : 'all',
 						valueField : 'value',
 						displayField : 'value',
-						mode:'remote',
+						mode : 'remote',
 						lazyRender : true,
 						selectOnFocus : true,
 						allowBlank : false,
@@ -324,34 +423,63 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 									}, {
 										name : 'value'
 									}],
-							baseParams : { className : 'com.huan.library.domain.model.reader.Certificate'}		
+							baseParams : {
+								className : 'com.huan.library.domain.model.reader.Certificate'
+							}
 						}),
 						listeners : {
-							'select' : function( combo, record, index ) {
-								var rec = Ext.getCmp('readerGridPanel').getSelectionModel().getSelected();
+							'select' : function(combo, record, index) {
+								var rec = Ext.getCmp('readerGridPanel')
+										.getSelectionModel().getSelected();
 								rec.set("certificateId", record.get('key'));
 								rec.commit()
 							}
 						}
 					}),
 					dataIndex : 'certificateName'
-				}, {
-					header : '证件号码',
-					width : 300,
+				},{
+					header : '借阅证状态',
+					width : 100,
 					sortable : true,
 					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'certificateNo'
-				}]);		
+					editor : new Ext.form.ComboBox({
+						triggerAction : 'all',
+						valueField : 'value',
+						displayField : 'value',
+						mode : 'remote',
+						lazyRender : true,
+						selectOnFocus : true,
+						allowBlank : false,
+						editable : false,
+						store : new Ext.data.JsonStore({
+							url : contextPath + '/dict/getByItemClass.action',
+							fields : [{
+										name : 'key'
+									}, {
+										name : 'value'
+									}],
+							baseParams : {
+								className : 'com.huan.library.domain.model.reader.CardState'
+							}
+						}),
+						listeners : {
+							'select' : function(combo, record, index) {
+								var rec = Ext.getCmp('readerGridPanel')
+										.getSelectionModel().getSelected();
+								rec.set('cardStateId', record.get('key'));
+								rec.commit()
+							}
+						}
+					}),
+					dataIndex : 'cardStateName'
+				}]);
 
 		Ext.apply(this, {
-					width : 1000,
-					height : 400,
+					width : 1040,
+					height : 530,
 					autoScroll : true,
 					tbar : tbar,
-					buttonAlign:'left', 
+					buttonAlign : 'left',
 					sm : sm,
 					cm : cm,
 					store : store,
@@ -374,44 +502,55 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		Library.reader.grid.ReaderGridPanel.superclass.initComponent.call(this);
 
 		this.on('afteredit', function(e) {
-			e.record.commit();
-			var thiz = this;
-			Ext.Ajax.request({
-						url : contextPath + '/reader/saveReader.action',
-						method : 'POST',
-						params : {
-							'reader.id' : e.record.get('id'),
-							'reader.cardNo' : e.record.get('cardNo'),
-							'reader.password' : e.record.get('password'),
-							'reader.barCode' : e.record.get('barCode'),
-							'reader.readerName' : e.record.get('readerName'),
-							'reader.birthday' : e.record.get('birthday'),
-							'reader.sex' : e.record.get('sex'),
-							'reader.leftMoney' : e.record.get('leftMoney'),
-							'reader.email' : e.record.get('email'),
-							'reader.contactTel' : e.record.get('contactTel'),
-							'reader.entyDate' : e.record.get('entyDate'),
-							'reader.effectiveDate' : e.record.get('effectiveDate'),
-							'reader.readerPic' : e.record.get('readerPic'),
-							'reader.spell' : e.record.get('spell'),
-							'reader.readerDesc' : e.record.get('readerDesc'),
-							'reader.certificate.itemId' : e.record.get('certificateId')
-						},
-						success : function(resp) {
-							var obj = Ext.util.JSON.decode(resp.responseText);
-							if (obj.success == true) {
-								Ext.Msg.alert('提示', obj.msg);
-								e.record.set("id", obj.data.id);
-								e.record.commit();
-							} else if (obj.success == false) {
-								Ext.Msg.alert('提示', obj.msg);
-							}
-						},
-						failure : function() {
-							Ext.Msg.alert('提示', '服务器异常，请稍候再试');
-						}
-					});
-		}, this);
+					e.record.commit();
+					var thiz = this;
+					Ext.Ajax.request({
+								url : contextPath + '/reader/saveReader.action',
+								method : 'POST',
+								params : {
+									'reader.id' : e.record.get('id'),
+									'reader.cardNo' : e.record.get('cardNo'),
+									'reader.password' : e.record
+											.get('password'),
+									'reader.barCode' : e.record.get('barCode'),
+									'reader.readerName' : e.record
+											.get('readerName'),
+									'reader.birthday' : e.record
+											.get('birthday'),
+									'reader.sex' : e.record.get('sex'),
+									'reader.leftMoney' : e.record
+											.get('leftMoney'),
+									'reader.email' : e.record.get('email'),
+									'reader.contactTel' : e.record
+											.get('contactTel'),
+									'reader.entyDate' : e.record
+											.get('entyDate'),
+									'reader.effectiveDate' : e.record
+											.get('effectiveDate'),
+									'reader.readerPic' : e.record
+											.get('readerPic'),
+									'reader.spell' : e.record.get('spell'),
+									'reader.readerDesc' : e.record
+											.get('readerDesc'),
+									'reader.certificate.itemId' : e.record
+											.get('certificateId')
+								},
+								success : function(resp) {
+									var obj = Ext.util.JSON
+											.decode(resp.responseText);
+									if (obj.success == true) {
+										Ext.Msg.alert('提示', obj.msg);
+										e.record.set("id", obj.data.id);
+										e.record.commit();
+									} else if (obj.success == false) {
+										Ext.Msg.alert('提示', obj.msg);
+									}
+								},
+								failure : function() {
+									Ext.Msg.alert('提示', '服务器异常，请稍候再试');
+								}
+							});
+				}, this);
 	},
 	onQuery : function() {
 		var pressISBN = Ext.get('pressISBN').getValue();
@@ -441,39 +580,39 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		if (sm.hasSelection()) {
 			Ext.MessageBox.confirm('提示', '你确定要删除记录吗？', function(btn, text) {
 
-						if (btn == 'yes') {
-							var records = sm.getSelections();
-							for (var i = 0; i < records.length; i++) {
-								var record = records[i];
-								var readerId = record.get('id');
-								var thiz = this;
-								Ext.Ajax.request({
-											url : contextPath
-													+ '/reader/remove.action',
-											method : 'POST',
-											params : {
-												'readerView.id' : readerId
-											},
-											success : function(resp) {
-												var respText = resp.responseText;
-												var obj = Ext.util.JSON.decode(respText);
-												if (obj.success == true) {
-													Ext.Msg.alert('提示',obj.msg);
-													thiz.getStore().reload();
-												} else {
-													Ext.Msg.alert('提示',obj.msg);
-												}
-											},
-											failure : function() {
-												Ext.Msg.alert('服务器异常');
-											}
-										});
-							}
-						} else {
-							return false;
-						}
+				if (btn == 'yes') {
+					var records = sm.getSelections();
+					for (var i = 0; i < records.length; i++) {
+						var record = records[i];
+						var readerId = record.get('id');
+						var thiz = this;
+						Ext.Ajax.request({
+									url : contextPath + '/reader/remove.action',
+									method : 'POST',
+									params : {
+										'readerView.id' : readerId
+									},
+									success : function(resp) {
+										var respText = resp.responseText;
+										var obj = Ext.util.JSON
+												.decode(respText);
+										if (obj.success == true) {
+											Ext.Msg.alert('提示', obj.msg);
+											thiz.getStore().reload();
+										} else {
+											Ext.Msg.alert('提示', obj.msg);
+										}
+									},
+									failure : function() {
+										Ext.Msg.alert('服务器异常');
+									}
+								});
+					}
+				} else {
+					return false;
+				}
 
-					}, this);
+			}, this);
 
 		} else {
 			Ext.Msg.alert('提示', '请选择你要删除的记录');
@@ -487,8 +626,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			barCode : '0803010099', // 条形码
 			readerName : 'huan', // 读者姓名
 			birthday : '2011-3-2', // 出生日期
-			sex : '男', // 性別 M:男 F:女
-			leftMoney : 0, // 余额
+			sex : '男',      
+			leftMoney : 0.1, // 余额
 			email : '762252352@qq.com', // 邮箱
 			contactTel : '13578926265', // 联系电话
 			entyDate : '2008-5-5', // 办证日期
@@ -496,21 +635,19 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			readerPic : '080301009.jpg', // 读者照片
 
 			spell : 'huan', // 拼音
-			readerDesc : '08级学生',// 读者描述
-          
-	        
-            certificateNo : '080301009'
-//			certificateId : '',
-//			certificateCode : '',
-//			certificateName : '', // 证件类别 学生证
-//			certificateNo : '', // 证件号码
-//
-//			readerTypeId : '',
-//			readerTypeCode : '',
-//			readerTypeName : '', // 读者类别
-//
-//			cardStateId : '',
-//			cardStateCode : ''
+			readerDesc : '08级学生'// 读者描述
+
+				// certificateId : '',
+				// certificateCode : '',
+				// certificateName : '', // 证件类别 学生证
+				// certificateNo : '', // 证件号码
+				//
+				// readerTypeId : '',
+				// readerTypeCode : '',
+				// readerTypeName : '', // 读者类别
+				//
+				// cardStateId : '',
+				// cardStateCode : ''
 				// cardStateName, //借阅证状
 			});
 		this.stopEditing();

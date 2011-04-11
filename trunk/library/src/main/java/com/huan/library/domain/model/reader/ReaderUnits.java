@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.huan.library.domain.model.rights.Department;
 /**
  * 读者单位实体
  * @author huan
@@ -33,7 +32,9 @@ public class ReaderUnits  {
 	private String unitcode; //单位编号
 	private String unitName; //单位名称
 	private String unitShortName; //单位简称
+	private String unitAlias;    //别称
 	private String unitDesc;   //单位描述
+    private Boolean leaf;  
 	
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=ReaderUnits.class,cascade={CascadeType.MERGE,CascadeType.REMOVE})
 	@JoinColumn(name="parentUnitId",referencedColumnName="unitId")
@@ -101,5 +102,23 @@ public class ReaderUnits  {
 	public void setChildrenUnits(List<ReaderUnits> childrenUnits) {
 		this.childrenUnits = childrenUnits;
 	}
+
+	public String getUnitAlias() {
+		return unitAlias;
+	}
+
+	public void setUnitAlias(String unitAlias) {
+		this.unitAlias = unitAlias;
+	}
+
+	public Boolean getLeaf() {
+		return leaf;
+	}
+
+	public void setLeaf(Boolean leaf) {
+		this.leaf = leaf;
+	}
+	
+	
 	
 }

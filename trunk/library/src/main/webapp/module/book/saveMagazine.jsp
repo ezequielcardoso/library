@@ -361,7 +361,8 @@
 														入库日期：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input name="book.storeDate" id="book.storeDate" type="text" value="<s:property value='book.storeDate'/>"
+														<input name="book.storeDate" id="book.storeDate" type="text" value="<s:date name='book.storeDate'
+														  format='yyyy-mm-dd'/>"
 															onClick=WdatePicker(); size="29" disabled="disabled">
 													</td>
 												</tr>

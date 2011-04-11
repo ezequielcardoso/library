@@ -23,7 +23,7 @@ public interface ReaderUnitsDao extends BaseDao<ReaderUnits>{
 	 * @return
 	 * @throws Exception
 	 */
-	public List<ReaderUnits> selectUnitsByParentId(Long parentUnitId) throws Exception;
+	public List<ReaderUnits> selectChildrenByPid(Long pUnitId) throws Exception;
 	
-	public ReaderUnits selectUnitById(Long unitId) throws Exception;
+	public ReaderUnits getById(Long unitId) throws Exception;
 }

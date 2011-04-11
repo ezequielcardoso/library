@@ -7,7 +7,10 @@
 		
 		<link href="<%=path%>/css/style.css" type="text/css"rel="stylesheet" />
 		<title>湖北警官学院图书馆</title>
+		<script type="text/javascript" src="<%=path %>/js/tree/BaseTree.js"></script>
 		 <script type="text/javascript" src="<%=path%>/js/common/common.js"></script>
+		 <script type="text/javascript" src="<%=path%>/js/reader/ReaderUnitTreePanel.js"></script>
+		 <script type="text/javascript" src="<%=path%>/js/reader/UnitForm.js"></script>
 		 <script type="text/javascript" src="<%=path%>/js/combobox/ArrayLocalComboBox.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/reader/Reader.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/reader/ReaderGridPanel.js"></script>
@@ -47,43 +50,6 @@
 								</table>
 							</td>
 						</tr>
-						<tr id="yy" >
-							<td height="10" valign="top">
-								<table width="60%" border="0" align="left" cellpadding="0"
-									cellspacing="0" bordercolor="#ebebeb"
-									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-							          <TR>
-										<TD  width="60"  height=25 align="right" valign="middle" nowrap="nowrap">
-										借阅证号：       </TD>
-									    <td width="30" align="left" nowrap>
-										<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="20"> 
-										</td>
-										<TD  width="60"  height=25 align="right" nowrap="nowrap">
-										读者姓名：              </TD>
-									    <td width="30" align="left" nowrap>
-										<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">
-										</td>
-									 </TR>
-									 
-									 <TR>
-										<TD  width="60"  height=25 align="right" nowrap="nowrap">
-							   	      读者类别：              </TD>
-									    <td width="30" align="left" nowrap>
-										<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">
-										</td>
-										<TD  width="60"  height=25 align="right" nowrap="nowrap">
-								      读者部门：              </TD>
-									    <td width="30" align="left" nowrap>
-										<input name=txtkeyvalue type="text" class="input2"
-												id="txtkeyvalue" value="" size="20">
-										</td>
-									 </TR>
-								</TABLE>
-							</td>
-						</tr>
 						<tr  id="yb" >
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
@@ -99,8 +65,6 @@
 														查询列表
 													</td>
 													<td background="<%=path%>/images/module/titleb_02.jpg">&nbsp;
-														
-
 													</td>
 													<td width="213" align="right"
 														background="<%=path%>/images/module/titleb_03.jpg"
@@ -118,12 +82,13 @@
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
-									
-										<td width="800" height="500" align="left" valign="top">
-											<div id="readerGrid">
-											</div>
-										</td>
-									</tr> 										
+                                                    <td width="200" height="500" align="left" valign="top">
+														<div id="readerUnitsTree"></div>
+													</td>
+													<td width="800" height="500" align="left" valign="top">
+														<div id="readerGrid"></div>
+													</td>
+												</tr> 										
 											</table>
 											
 										</td>

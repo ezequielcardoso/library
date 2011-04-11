@@ -9,42 +9,42 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 
 				// 操作图书列表的工具条
 				var tbar = new Ext.Toolbar({
-							items : [{
-										text : '查询',
-										handler : function() {
-
-										}
-									}, {
-										text : '修改',
-										handler : function() {
-											 this.onModify();
-										},
-										scope : this
-									}, {
-										text : '删除',
-										handler : function() {
-											 this.onDelete();
-										},
-										scope : this
-									}, {
+							items : [ {
 										text : '增加',
 										handler : function() {
 											 this.onAdd();
 										},
 										scope : this
-									}, {
+									},'-', {
+										text : '删除',
+										handler : function() {
+											 this.onDelete();
+										},
+										scope : this
+									}, '-',{
+										text : '修改',
+										handler : function() {
+											 this.onModify();
+										},
+										scope : this
+									}, '-',{
 										text : '导入',
 										handler : function() {
 
 										}
-									}, {
+									}, '-',{
 										text : '导出Excel',
 										handler : function() {
 
 										}
-									}, {
+									},'-',{
 										text : '打印',
 										handler : function() {
+										}
+									},'-',{
+										text : '查询',
+										handler : function() {
+
 										}
 									}]
 						});
@@ -151,7 +151,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 
 				Ext.apply(this, {
 							width : 1000,
-							height : 400,
+							height : 530,
 							autoScroll : true,
 							tbar : tbar,
 							sm : sm,
@@ -266,7 +266,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 			      readerCateName : '学生',
 			      borrowDays : 30,
 			      borrowedQuantity : 5,
-			      rent : 0
+			      rent : 0.5
 			  });
 			  this.stopEditing();
 			  this.store.insert(0,rt);

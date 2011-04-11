@@ -9,43 +9,70 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		// 操作图书列表的工具条
 		var tbar = new Ext.Toolbar({
 			items : [{
-				text : '查询',
-				handler : function() {
-					this.onQuery();
-				},
-				scope : this
-			}, {
-				text : '修改',
-				handler : function() {
-					this.onMOdify();
-				},
-				scope : this
-			}, {
-				text : '删除',
-				handler : function() {
-					this.onDelete();
-				},
-				scope : this
-			}, {
 				text : '增加',
 				handler : function() {
 					this.onAdd();
 				},
 				scope : this
-			}, {
+			},'-', {
+				text : '删除',
+				handler : function() {
+					this.onDelete();
+				},
+				scope : this
+			},'-', {
+				text : '修改',
+				handler : function() {
+					this.onMOdify();
+				},
+				scope : this
+			},'-', {
 				text : '导入',
 				handler : function() {
 
 				}
-			}, {
+			},'-', {
 				text : '导出Excel',
 				handler : function() {
 
 				}
-			}, {
+			},'-', {
 				text : '打印',
 				handler : function() {
 				}
+			},'->', {
+				xtype : 'label',
+				text : '代码：'
+			}, {
+				xtype : 'textfield',
+				width : 100,
+				id : 'pressISBN'
+			},'-', {
+				xtype : 'label',
+				text : '名称：'
+			}, {
+				xtype : 'textfield',
+				width : 100,
+				id : 'pressName'
+			},'-', {
+				xtype : 'label',
+				text : '出版地：'
+			},{
+				xtype : 'textfield',
+				width : 100,
+				id : 'pressAddress'
+			},'-',{
+				text : '查询',
+				handler : function() {
+					this.onQuery();
+				},
+				scope : this
+			},'-',{
+				text : '刷新',
+				handler : function() {
+//					this.onQuery();
+				},
+				scope : this
 			}]
 		});
 
@@ -138,7 +165,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 		Ext.apply(this, {
 					width : 1000,
-					height : 400,
+					height : 530,
 					autoScroll : true,
 					tbar : tbar,
 					sm : sm,
@@ -197,9 +224,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var pressName = Ext.get('pressName').getValue();
 		var pressAddress = Ext.get('pressAddress').getValue();
 		this.getStore().baseParams = {
-			'press.pressISBN' : pressISBN,
-			'press.pressName' : pressName,
-			'press.pressAddress' : pressAddress
+			'pressView.pressISBN' : pressISBN,
+			'pressView.pressName' : pressName,
+			'pressView.pressAddress' : pressAddress
 		};
 		this.getStore().load({
 			params : {

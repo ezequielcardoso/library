@@ -1,8 +1,13 @@
 Ext.onReady(function(){
 
-	var readerGridPanel = new Library.reader.grid.ReaderGridPanel();
 	
+	var readerUnitsTreePanel = new Library.reader.tree.ReaderUnitsTreePanel();
+	readerUnitsTreePanel.render('readerUnitsTree');
+	
+	var readerGridPanel = new Library.reader.grid.ReaderGridPanel();
 	readerGridPanel.render('readerGrid');
+	
+	
 	
 	readerGridPanel.getStore().load({
 						params : {
