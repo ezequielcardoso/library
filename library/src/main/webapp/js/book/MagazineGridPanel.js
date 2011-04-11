@@ -261,7 +261,13 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				width : 80,
 				sortable : true,
 				align : 'center'
-			}, {
+			},  {
+				header : '邮发代码',
+				dataIndex : 'emailNo',
+				width : 80,
+				sortable : true,
+				align : 'center'
+			}  ,{
 				header : '数量',
 				dataIndex : 'quantity',
 				width : 50,
@@ -273,13 +279,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				width : 60,
 				sortable : true,
 				align : 'center'
-			}, {
-				header : '入库时间',
-				dataIndex : 'storeDate',
-				width : 100,
-				sortable : true,
-				align : 'center'
-			}, {
+			},  {
 				header : '出版社',
 				dataIndex : 'pressName',
 				width :150,
@@ -298,6 +298,12 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				sortable : true,
 				align : 'center'
 			}, {
+				header : '入库时间',
+				dataIndex : 'storeDate',
+				width : 100,
+				sortable : true,
+				align : 'center'
+			},{
 				header : '出版时间',
 				dataIndex : 'publisherDate',
 				width : 100,
@@ -307,12 +313,6 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				header : '页数',
 				dataIndex : 'pages',
 				width : 50,
-				sortable : true,
-				align : 'center'
-			}, {
-				header : '邮发代码',
-				dataIndex : 'emailNo',
-				width : 80,
 				sortable : true,
 				align : 'center'
 			}, {
@@ -405,7 +405,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   var barCode = Ext.get('barCode').getValue();
 	   var bookName = Ext.get('bookName').getValue();
 	   var bookState = Ext.get('bookState').getValue();
-	   var bookSource = Ext.get('bookSource').getValue();
+	   var press = Ext.get('press').getValue();
 	   var location = Ext.get('location').getValue();
 	   var bookNo = Ext.get('bookNo').getValue();
 	   var searchBookId = Ext.get('searchBookId').getValue();
@@ -418,7 +418,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	       'bookView.barCode' : barCode,
 	       'bookView.bookName' : bookName,
 	       'bookView.bookStateName' : bookState,
-	       'bookView.bookSourceName' : bookSource,
+	       'bookView.pressName' : press,
 	       'bookView.location' : location,
 	       'bookView.bookNo' :bookNo,
 	       'bookView.searchBookId' : searchBookId,

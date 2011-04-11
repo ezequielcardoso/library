@@ -3,14 +3,10 @@ package com.huan.library.domain.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
-import com.huan.library.domain.model.rights.User;
 /**
  * 图书馆信息
  * @author huan
@@ -30,11 +26,9 @@ public class LibInfo implements Serializable{
 	private String address;    //地址
 	private String telphone;   //联系电话
 	
-	@OneToOne(fetch=FetchType.LAZY,targetEntity=User.class)
-	@JoinColumn(name="libManager")
-	private User libManager;     //管理员
+	private String libManager;     //管理员
 	
-	private Float payADay=0F;    //租金
+	private Float payADay=0F;    //罚金
 	private Float baseCost=0F;   //开户费
 	private Float depositeTimes=0.0F; //押金倍数
 	private String libDesc;       //借阅证背面描述
@@ -74,12 +68,13 @@ public class LibInfo implements Serializable{
 	public void setTelphone(String telphone) {
 		this.telphone = telphone;
 	}
+    
 
-	public User getLibManager() {
+	public String getLibManager() {
 		return libManager;
 	}
 
-	public void setLibManager(User libManager) {
+	public void setLibManager(String libManager) {
 		this.libManager = libManager;
 	}
 
