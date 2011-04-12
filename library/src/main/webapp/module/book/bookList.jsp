@@ -176,7 +176,7 @@
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
 													<td width="1000" height="300" align="left" valign="top">
-														<div id="borrowTab"></div>
+														<div id="bookGrid"></div>
 													</td>
 												</tr>
 											</table>
