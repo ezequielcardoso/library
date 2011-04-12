@@ -49,7 +49,8 @@ public class ReaderView extends ExtGridPost implements Serializable{
 	private String cardStateId;
 	private String cardStateCode;
 	private String cardStateName;   //借阅证状态
-	
+	private Integer borrowedQuantiy = 0;      //当前借阅数量
+	private Integer totalBQuantity = 0;    //累计借阅数量
 	
 	
 	public ReaderView(){
@@ -215,6 +216,23 @@ public class ReaderView extends ExtGridPost implements Serializable{
 
 	public void setCertificateId(String certificateId) {
 		this.certificateId = certificateId;
+	}
+  
+    	  
+	public Integer getBorrowedQuantiy() {
+		return borrowedQuantiy;
+	}
+
+	public void setBorrowedQuantiy(Integer borrowedQuantiy) {
+		this.borrowedQuantiy = borrowedQuantiy;
+	}
+
+	public Integer getTotalBQuantity() {
+		return totalBQuantity;
+	}
+
+	public void setTotalBQuantity(Integer totalBQuantity) {
+		this.totalBQuantity = totalBQuantity;
 	}
 
 	public String getCertificateCode() {

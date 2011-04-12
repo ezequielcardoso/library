@@ -104,7 +104,7 @@ public class Book implements Serializable {
 	
 	public Book(Long bookId, String barCode, String bookName, String bookDesc, String donator, String author, String translator,
 			String ISBN, String ISSN, String emailNo, String stage, String allStage, Integer pages, Float price, Date publisherDate, 
-			Integer quantity, String location, Integer revision, String searchBookId, String speciesId, String spell, Date storeDate, 
+			Integer quantity, String location, Integer revision, String searchBookId, String speciesId, String spell,String operator, Date storeDate, 
 			String bookNo, Integer isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String firstCategoryShortName,
 			String secondCategoryId, String secondCategoryCode, String secondCategoryName, String thirdCategoryId, 
 			String thirdCategoryCode, String thirdCategoryName, String stateId, String stateName, 
@@ -122,11 +122,20 @@ public class Book implements Serializable {
 		this.emailNo = emailNo;
 		this.stage = stage;
 		this.allStage = allStage;
+		this.operator = operator;
+		this.storeDate = storeDate;
+		this.quantity = quantity;
+		this.location = location;
+		this.revision = revision;
+		this.searchBookId = searchBookId;
+		this.speciesId = speciesId;
+		this.spell = spell;
 		this.pages = pages;
 		this.price = price;
 		this.publisherDate = publisherDate;
 		this.bookNo = bookNo;
 		this.isBook = isBook;
+		this.bookDesc = bookDesc;
 		
 		Category firstCategory = new Category();
 		firstCategory.setItemId(firstCategoryId);

@@ -49,17 +49,7 @@ public class BookServiceImpl implements BookService {
 		}
 	}
 
-	public Book findBookById(Long bookId) throws Exception {
-		Book bookCopy = new Book();
-		try{
-			bookCopy = bookDao.selectById(bookId);
-		}catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return bookCopy;
-	}
-	
+
 	public PageModel<Book> findBooksByPage(int pageNo, int pageSize)
 			throws Exception {
 		PageModel<Book> pageModel = new PageModel<Book>();

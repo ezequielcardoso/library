@@ -413,7 +413,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   var firstCategory = Ext.get('firstCategory').getValue();
 	   var secondCategory = Ext.get('secondCategory').getValue();
 	   var author = Ext.get('author').getValue();
-	   var translator = Ext.get('translator').getValue();
+	   var operator = Ext.get('operator').getValue();
 	   this.getStore().baseParams = {
 	       'bookView.barCode' : barCode,
 	       'bookView.bookName' : bookName,
@@ -426,7 +426,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	       'bookView.firstCategoryName' : firstCategory,
 	       'bookView.thirdCategoryName' : secondCategory,
 	       'bookView.author' : author,
-	       'bookView.translator' : translator,
+	       'bookView.operator' : operator,
 	       'bookView.isBook' : 1
 	      
 	   }

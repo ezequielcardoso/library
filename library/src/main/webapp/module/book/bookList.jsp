@@ -133,11 +133,11 @@
 												id="author"size="15">
 										</TD>
 										<TD height=25 align="right" nowrap class="body">
-											译者：
+											录入人：
 										</TD>
 										<TD height=25 align="left" class="body">
-											<input name="translator" type="text" class="input2"
-												id="translator" size="15">
+											<input name="operator" type="text" class="input2"
+												id="operator" size="15">
 										</TD>
 									</TR>
 								</TABLE>

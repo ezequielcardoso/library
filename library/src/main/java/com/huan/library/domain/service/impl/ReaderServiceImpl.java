@@ -25,7 +25,7 @@ public class ReaderServiceImpl implements ReaderService {
 	public List<Reader> findReaders(ReaderView readerView) throws Exception {
 		List<Reader> readers = new ArrayList<Reader>();
 		try {
-			readers = readerDao.selectUsers(readerView);
+			readers = readerDao.selectReaders(readerView);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  throw new Exception(e);
@@ -45,13 +45,13 @@ public class ReaderServiceImpl implements ReaderService {
 
 	
 
-	public Reader findReaderById(int readerId) throws Exception {
+	public Reader findReaderById(String cardNo) throws Exception {
 		Reader reader = new Reader();
 		try {
-			reader = readerDao.selectById(readerId);
+			reader = readerDao.selectByCardNo(cardNo);
 		} catch (Exception e) {
           e.printStackTrace();
-          return null;
+          throw new Exception(e);
 		}
 		return reader;
 	}

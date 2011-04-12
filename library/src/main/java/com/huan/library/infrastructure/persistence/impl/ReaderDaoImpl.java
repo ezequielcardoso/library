@@ -25,14 +25,14 @@ import com.huan.library.web.view.ReaderView;
 @Repository("readerDao")
 public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 
-	public List<Reader> selectUsers(final ReaderView readerView) throws Exception {
+	public List<Reader> selectReaders(final ReaderView readerView) throws Exception {
 		List<Reader> readers = new ArrayList<Reader>();
 		try {
 			StringBuilder sql = new StringBuilder();
 			StringBuilder sql_ = new StringBuilder();
 
 			sql.append(" select new Reader( r.id, r.cardNo, r.password, r.barCode, r.readerName, r.birthday,"
-							+ " r.sex, r.leftMoney, r.email, r.contactTel, r.entyDate, r.effectiveDate, r.readerPic, r.spell"
+							+ " r.sex, r.leftMoney, r.email, r.contactTel, r.entyDate, r.effectiveDate, r.borrowedQuantiy, r.totalBQuantity, r.readerPic, r.spell"
 							+ ", r.readerDesc, t_ru.unitId, t_ru.unitcode, t_ru.unitName, t_c.itemId, t_c.itemCode,"
 							+ " t_c.itemName, t_rt.id, t_rt.readerCateCode, t_rt.readerCateName, t_rs.itemId, t_rs.itemCode, t_rs.itemName )");
 			sql_.append(" select count(r) ");
@@ -165,6 +165,28 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 			e.printStackTrace();
 			throw new Exception(e);
 		}
+	}
+
+	
+	/**
+	 *
+	 */
+	public Reader selectByCardNo(String cardNo) throws Exception {
+		 Reader reader = new Reader();
+		try {
+			StringBuilder sql = new StringBuilder();
+			sql.append(" from Reader r ");
+			sql.append(" left join fetch r.readerUnits t_ru ");
+			sql.append(" left join fetch r.certificate t_c ");
+			sql.append(" left join fetch r.readerType t_rt ");
+			sql.append(" left join fetch r.cardState t_rs ");
+			sql.append(" where r.cardNo = ? ");
+			reader = (Reader) getHibernateTemplate().find(sql.toString(), cardNo).listIterator().next();
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  throw new Exception(e);
+		}
+		return reader;
 	}
 
 }

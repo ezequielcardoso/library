@@ -27,12 +27,6 @@ public interface BookService {
 	 */
 	public void removeBook(Book book) throws Exception;
 	
-	/**
-	 * 根据Id查找Book
-	 * @param bookId
-	 * @return
-	 */
-	public Book findBookById(Long bookId) throws Exception;
 	
 	/**
 	 * 分页查找图书

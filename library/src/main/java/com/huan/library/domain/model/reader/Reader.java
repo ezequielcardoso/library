@@ -54,6 +54,8 @@ public class Reader implements Serializable {
 	private Date entyDate;         //办证日期
 	private Date effectiveDate;    //有效日期
 	private String readerPic;      //头像
+	private Integer borrowedQuantiy = 0;      //当前借阅数量
+	private Integer totalBQuantity = 0;    //累计借阅数量
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CardState")
@@ -65,7 +67,7 @@ public class Reader implements Serializable {
 	
 	public Reader(Long id,String cardNo,String password,String barCode,String readerName, 
 			Date birthday, String sex,Float leftMoney, String email, String contactTel,
-			 Date entyDate,Date effectiveDate, String readerPic, String spell,
+			 Date entyDate,Date effectiveDate,Integer borrowedQuantiy, Integer totalBQuantity, String readerPic, String spell,
 			String readerDesc, Long unitId, String unitCode, String unitName,
 			 String certificateId, String certificateCode,String certificateName, Long readerTypeId, String readerTypeCode,
 			String readerTypeName, String cardStateId, String cardStateCode,
@@ -83,6 +85,8 @@ public class Reader implements Serializable {
 		this.barCode = barCode;
 		this.entyDate = entyDate;
 		this.effectiveDate = effectiveDate;
+		this.borrowedQuantiy = borrowedQuantiy;
+		this.totalBQuantity = totalBQuantity;
 		this.readerPic = readerPic;
 		this.readerDesc = readerDesc;
 		
@@ -264,5 +268,21 @@ public class Reader implements Serializable {
 		this.cardState = cardState;
 	}
 
+	public Integer getBorrowedQuantiy() {
+		return borrowedQuantiy;
+	}
 
+	public void setBorrowedQuantiy(Integer borrowedQuantiy) {
+		this.borrowedQuantiy = borrowedQuantiy;
+	}
+
+	public Integer getTotalBQuantity() {
+		return totalBQuantity;
+	}
+
+	public void setTotalBQuantity(Integer totalBQuantity) {
+		this.totalBQuantity = totalBQuantity;
+	}
+
+   
 }

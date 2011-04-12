@@ -61,7 +61,7 @@ function ShowFLT(i, number) {
               <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="<%=path %>/book/magazineMain.action" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">期刊基本管理</a></td>
             </tr>
             <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/bookStore.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">入库统计</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="book/statistics/bookStore.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">入库统计</a></td>
           </tr>
            <tr>
 
@@ -90,7 +90,7 @@ function ShowFLT(i, number) {
           </tr>
             <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
-			<a href="borrowReturn/bookBorrow.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">图书借阅登记</a>			</td>
+			<a href="borrowReturn/bookBorrow.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">图书借阅登记</a>			</td>
           </tr>
 		   <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
