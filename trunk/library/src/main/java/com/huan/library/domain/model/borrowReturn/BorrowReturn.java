@@ -1,7 +1,6 @@
 package com.huan.library.domain.model.borrowReturn;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,9 +40,9 @@ public class BorrowReturn implements Serializable{
 	private Boolean  isPay ;         //是或归还
 	private Integer   renewTimes;        //续借次数
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Book.class)
-    @JoinColumn(name="books")
-    private List<Book> books = new ArrayList<Book>();   //图书
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class)
+    @JoinColumn(name="book")
+    private List<Book> book  ;   //图书
     
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class)
     @JoinColumn(name="reader")
@@ -122,12 +121,14 @@ public class BorrowReturn implements Serializable{
 		this.renewTimes = renewTimes;
 	}
 
-	public List<Book> getBooks() {
-		return books;
+	
+
+	public List<Book> getBook() {
+		return book;
 	}
 
-	public void setBooks(List<Book> books) {
-		this.books = books;
+	public void setBook(List<Book> book) {
+		this.book = book;
 	}
 
 	public Reader getReader() {
