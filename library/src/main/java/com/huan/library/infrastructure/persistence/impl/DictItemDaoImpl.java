@@ -22,17 +22,6 @@ import com.huan.library.infrastructure.persistence.DictItemDao;
 public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		DictItemDao {
 
-	public List<DictItem> selectAllDictItems() throws Exception {
-		List<DictItem> DictItemList = null;
-		try {
-			DictItemList = getHibernateTemplate().find("from DictItem");
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-		return DictItemList;
-	}
-
 	public List<DictItem> getByItemClass(String className) {
 		String hql = " from " + className;
 		return this.getHibernateTemplate().find(hql);
@@ -94,7 +83,7 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		}
 	}
 
-	public List<DictItem> getChildrenItem(String pid, String className)  throws Exception {
+	public List<DictItem> getChildrenByPid(String pid, String className)  throws Exception {
 		StringBuilder hql = new StringBuilder();
 		hql.append(" from " + className + " as dict " ); 
 		hql.append(" where dict.parent.itemId=? ");
@@ -108,7 +97,7 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		return items;
 	}
 
-	public List<Category> getCategoryItem(String pid, Integer level,
+	public List<Category> getCategoryChildrenByPid(String pid, Integer level,
 			String itemName) throws Exception {
 		StringBuilder hql = new StringBuilder();
 		hql.append(" from Category as dict " ); 

@@ -7,6 +7,7 @@
 
 		<title>图书馆管理系统</title>
 	    <script type="text/javascript" src="<%=path%>/js/system/Charge.js"></script>
+	    <script type="text/javascript" src="<%=path%>/js/combobox/flatDicComboBox.js"></script>
 	    <script type="text/javascript" src="<%=path%>/js/system/ChargeFormPanel.js"></script>
 	</head>
 	<body>
