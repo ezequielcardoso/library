@@ -34,7 +34,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			// count select 子句
 			hql.append(" select new Book( b.bookId, b.barCode, b.bookName, b.bookDesc, b.donator, b.author, b.translator," +
 				" b.ISBN, b.ISSN, b.emailNo, b.stage, b.allStage, b.pages, b.price, b.publisherDate, " +
-				" b.quantity, b.location, b.revision, b.searchBookId, b.speciesId, b.spell, b.storeDate," + 
+				" b.quantity, b.location, b.revision, b.searchBookId, b.speciesId, b.spell,b.operator, b.storeDate," + 
 				" b.bookNo, b.isBook, t_fc.itemId, t_fc.itemCode, t_fc.itemName, t_fc.itemShortName, t_cc.itemId," +
 				" t_cc.itemCode, t_cc.itemName, t_th.itemId, t_th.itemCode, t_th.itemName, " +
 				" t_st.itemId, t_st.itemName, t_le.itemId, t_le.itemName, t_se.itemId, t_se.itemName, t_cu.itemId, t_cu.itemName, " +
@@ -105,8 +105,8 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			if(bookView.getAuthor()!=null && !"".equals(bookView.getAuthor())){
 				whereSub.append(" and b.author like (:author) ");
 			}
-			if(bookView.getTranslator()!=null && !"".equals(bookView.getTranslator())){
-				whereSub.append(" and b.translator like (:translator) ");
+			if(bookView.getOperator()!=null && !"".equals(bookView.getOperator())){
+				whereSub.append(" and b.operator like (:operator) ");
 			}
 			if(bookView.getEmailNo()!=null&&!"".equals(bookView.getEmailNo())){
 				whereSub.append(" and b.emailNo like (:emailNo) ");
@@ -175,9 +175,9 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 							temp = "%"+bookView.getAuthor().replace(" ", "%")+"%";
 							query.setParameter("author", temp);
 						}
-						if(bookView.getTranslator()!=null && !"".equals(bookView.getTranslator())){
+						if(bookView.getOperator()!=null && !"".equals(bookView.getOperator())){
 							temp = "%"+bookView.getTranslator().replace(" ", "%")+"%";
-							query.setParameter("translator", temp);
+							query.setParameter("operator", temp);
 						}
 						if(bookView.getEmailNo()!=null && !"".equals(bookView.getEmailNo())){
 							temp = "%"+bookView.getEmailNo().replace(" ", "%")+"%";
@@ -250,9 +250,9 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 							temp = "%"+bookView.getSecondCategoryName().replace(" ", "%")+"%";
 							query.setParameter("secondCategory", temp);
 						}
-						if(bookView.getAuthor()!=null && !"".equals(bookView.getAuthor())){
-							temp = "%"+bookView.getAuthor().replace(" ", "%")+"%";
-							query.setParameter("author", temp);
+						if(bookView.getOperator()!=null && !"".equals(bookView.getOperator())){
+							temp = "%"+bookView.getTranslator().replace(" ", "%")+"%";
+							query.setParameter("operator", temp);
 						}
 						if(bookView.getTranslator()!=null && !"".equals(bookView.getTranslator())){
 							temp = "%"+bookView.getTranslator().replace(" ", "%")+"%";

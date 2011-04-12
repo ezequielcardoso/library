@@ -39,7 +39,9 @@ public class BookView extends ExtGridPost implements Serializable {
 	private String speciesId; // 种次号
 	private String spell; // 拼音
 	private Date storeDate; // 入库时间
+	private Date endStoreDate; //结束时间  检索图书入库的统计的
 	private String bookNo; // 图书编号
+	private String operator;  //录入人员
 	private Integer isBook; // 类型1:表示图书 0:表示期刊
 
 	private String firstCategoryId;
@@ -157,6 +159,14 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.stage = stage;
 	}
 
+	public String getOperator() {
+		return operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+
 	public String getAllStage() {
 		return allStage;
 	}
@@ -263,6 +273,15 @@ public class BookView extends ExtGridPost implements Serializable {
 
 	public String getFirstCategoryId() {
 		return firstCategoryId;
+	}
+	
+
+	public Date getEndStoreDate() {
+		return endStoreDate;
+	}
+
+	public void setEndStoreDate(Date endStoreDate) {
+		this.endStoreDate = endStoreDate;
 	}
 
 	public void setFirstCategoryId(String firstCategoryId) {

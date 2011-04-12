@@ -65,6 +65,16 @@ public class ReaderAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
+	public String findReader(){
+		try {
+			reader = readerService.findReaderById(readerView.getCardNo());	
+		} catch (Exception e) {
+		  e.printStackTrace();	
+		  return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
 	/**
 	 * 显示增加读者
 	 * 

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.service.BookService;
-import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.BookView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
@@ -43,6 +42,7 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 图书基本信息管理主页
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -52,6 +52,7 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 期刊基本信息管理主页
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -61,6 +62,7 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 分页查找图书或者期刊
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -71,6 +73,16 @@ public class BookAction extends BaseActionSupport {
 			List<Book> books = bookService.findBooks(bookView);
 			extGridLoad.setRoot(this.convertToView(books));
 			extGridLoad.setTotalProperty(bookView.getTotalCount());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+
+	public String findBook() {
+		try {
+			 book = bookService.getBookById(bookView.getBookId());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -173,9 +185,10 @@ public class BookAction extends BaseActionSupport {
 	 */
 	public String saveBook() {
 		try {
-			if(book.getStoreDate()==null || "".equals(book.getStoreDate())){
+			if (book.getStoreDate() == null || "".equals(book.getStoreDate())) {
 				book.setStoreDate(new Date());
-			};
+			}
+			;
 			book = bookService.addOrModifyBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("新增成功！");
@@ -331,30 +344,37 @@ public class BookAction extends BaseActionSupport {
 
 	public void formatBook(Book book) {
 		book.setAttachments(null);
-		book.setBookLevel((book.getBookLevel() != null && book.getBookLevel()
-				.getItemId() != null && !"".equals(book.getBookLevel())) ? book.getBookLevel() : null);
-		book.setBookSecurity((book.getBookSecurity() != null && book
-				.getBookSecurity().getItemId() != null&&!"".equals(book.getBookSecurity().getItemId())) ? book
+		book.setBookLevel((book.getBookLevel() != null
+				&& book.getBookLevel().getItemId() != null && !"".equals(book
+				.getBookLevel())) ? book.getBookLevel() : null);
+		book.setBookSecurity((book.getBookSecurity() != null
+				&& book.getBookSecurity().getItemId() != null && !""
+				.equals(book.getBookSecurity().getItemId())) ? book
 				.getBookSecurity() : null);
-		book.setBookSource((book.getBookSource() != null && book
-				.getBookSource().getItemId() != null&&!"".equals(book.getBookSource())) ? book.getBookSource()
-				: null);
-		book.setBookState((book.getBookState() != null && book.getBookState()
-				.getItemId() != null && !"".equals(book.getBookSecurity().getItemId())) ? book.getBookState() : null);
-		book.setPress((book.getPress() != null && book.getPress()
-						.getPressId() != null && !"".equals(book.getPress().getPressId())) ? book.getPress() : null);
-		book.setCurrency((book.getCurrency() != null && book.getCurrency()
-				.getItemId() != null &&!"".equals(book.getCurrency().getItemId())) ? book.getCurrency() : null);
-		book.setFirstCategory((book.getFirstCategory() != null && book
-				.getFirstCategory().getItemId() != null&&!"".equals(book.getFirstCategory().getItemId())) ? book
+		book.setBookSource((book.getBookSource() != null
+				&& book.getBookSource().getItemId() != null && !"".equals(book
+				.getBookSource())) ? book.getBookSource() : null);
+		book.setBookState((book.getBookState() != null
+				&& book.getBookState().getItemId() != null && !"".equals(book
+				.getBookSecurity().getItemId())) ? book.getBookState() : null);
+		book.setPress((book.getPress() != null
+				&& book.getPress().getPressId() != null && !"".equals(book
+				.getPress().getPressId())) ? book.getPress() : null);
+		book.setCurrency((book.getCurrency() != null
+				&& book.getCurrency().getItemId() != null && !"".equals(book
+				.getCurrency().getItemId())) ? book.getCurrency() : null);
+		book.setFirstCategory((book.getFirstCategory() != null
+				&& book.getFirstCategory().getItemId() != null && !""
+				.equals(book.getFirstCategory().getItemId())) ? book
 				.getFirstCategory() : null);
-		book.setSecondCategory((book.getSecondCategory() != null && book
-				.getSecondCategory().getItemId() != null&&!"".equals(book.getSecondCategory().getItemId())) ? book
+		book.setSecondCategory((book.getSecondCategory() != null
+				&& book.getSecondCategory().getItemId() != null && !""
+				.equals(book.getSecondCategory().getItemId())) ? book
 				.getSecondCategory() : null);
-		book.setThirdCategory((book.getThirdCategory() != null && book
-				.getThirdCategory().getItemId() != null && !"".equals(book.getThirdCategory().getItemId())) ? book
+		book.setThirdCategory((book.getThirdCategory() != null
+				&& book.getThirdCategory().getItemId() != null && !""
+				.equals(book.getThirdCategory().getItemId())) ? book
 				.getThirdCategory() : null);
-		book.setPress((book.getPress()!=null&&!"".equals(book.getPress().getPressId()))  ? book.getPress() : null);	
 	}
 
 	public BookService getBookService() {

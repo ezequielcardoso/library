@@ -114,6 +114,12 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					name : 'contactTel',
 					type : 'string'
 				}, {
+					name : 'borrowedQuantiy',
+					type : 'int'
+				}, {
+					name : 'totalBQuantity',
+					type : 'int'
+				}, {
 					name : 'entyDate',
 					type : 'date',
 					dateFormat : 'Y-m-d'
@@ -288,6 +294,24 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							}),
 					dataIndex : 'contactTel'
 				}, {
+					header : '当前借阅数量',
+					width : 100,
+					sortable : true,
+					align : 'center',
+					editor : new Ext.form.TextField({
+								allowBlank : false
+							}),
+					dataIndex : 'borrowedQuantiy'
+				}, {
+					header : '累计借阅数量',
+					width : 100,
+					sortable : true,
+					align : 'center',
+					editor : new Ext.form.TextField({
+								allowBlank : false
+							}),
+					dataIndex : 'totalBQuantity'
+				}, {
 					header : '办证日期',
 					width : 100,
 					sortable : true,
@@ -435,7 +459,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							'select' : function(combo, record, index) {
 								var rec = Ext.getCmp('readerGridPanel')
 										.getSelectionModel().getSelected();
-								rec.set("certificateId", record.get('key'));
+								rec.set('certificateId', record.get('key'));
 								rec.commit()
 							}
 						}
@@ -524,6 +548,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					'reader.contactTel' : e.record.get('contactTel'),
 					'reader.entyDate' : e.record.get('entyDate'),
 					'reader.effectiveDate' : e.record.get('effectiveDate'),
+					'reader.borrowedQuantiy' : e.record.get('borrowedQuantiy'),
+					'reader.totalBQuantity' : e.record.get('totalBQuantity'),
 					'reader.readerPic' : e.record.get('readerPic'),
 					'reader.spell' : e.record.get('spell'),
 					'reader.readerDesc' : e.record.get('readerDesc'),
@@ -630,6 +656,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			contactTel : '13578926265', // 联系电话
 			entyDate : '2008-5-5', // 办证日期
 			effectiveDate : '2012-5-5', // 有效日期
+			borrowedQuantiy:0,
+			totalBQuantity: 0,
 			readerPic : '080301009.jpg', // 读者照片
 
 			spell : 'huan', // 拼音
