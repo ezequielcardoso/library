@@ -116,12 +116,18 @@ public class ReaderAction extends BaseActionSupport {
 		} else {
 			reader.setCertificate(null);
 		}
-		if(reader.getReaderType()!=null && reader.getReaderType().getId()!=null && !"".equals(reader.getReaderType().getId())){
+		if(reader.getReaderType()!=null && reader.getReaderType().getId()!=null 
+				&& !"".equals(reader.getReaderType().getId())
+				&& reader.getReaderType().getId()!=0
+		){
 			reader.setReaderType(reader.getReaderType());
 		} else {
 			reader.setReaderType(null);
 		}
-		if(reader.getReaderUnits()!=null && reader.getReaderUnits().getUnitId()!=null && !"".equals(reader.getReaderUnits().getUnitId())){
+		if(reader.getReaderUnits()!=null && reader.getReaderUnits().getUnitId()!=null 
+				&& !"".equals(reader.getReaderUnits().getUnitId())
+				&& reader.getReaderUnits().getUnitId()!=0
+		){
 			reader.setReaderUnits(reader.getReaderUnits());
 		} else {
 			reader.setReaderUnits(null);
