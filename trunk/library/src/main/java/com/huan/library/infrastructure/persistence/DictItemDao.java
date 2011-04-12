@@ -12,8 +12,6 @@ import com.huan.library.domain.model.dict.DictItem;
  */
 public interface DictItemDao extends BaseDao<DictItem>{
 	
-	public List<DictItem> selectAllDictItems() throws Exception;
-
 	public List<DictItem> getByItemClass(String className);
 	/**
 	 * 批量导入
@@ -35,8 +33,8 @@ public interface DictItemDao extends BaseDao<DictItem>{
 	 * @param className
 	 * @return
 	 */
-	public List<DictItem> getChildrenItem(String pid, String className) throws Exception ;
+	public List<DictItem> getChildrenByPid(String pid, String className) throws Exception ;
 	
-	public List<Category> getCategoryItem(String pid, 
+	public List<Category> getCategoryChildrenByPid(String pid, 
 			Integer level, String itemName) throws Exception ;
 }

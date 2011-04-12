@@ -86,7 +86,7 @@ public class DictItemServiceImpl implements DictItemService {
 	public List<DictItem> getChildrenByPid(String pid, String className) throws Exception  {
 		List<DictItem> items = new ArrayList<DictItem>();
 		try {
-			items = dictItemDao.getChildrenItem(pid, className);
+			items = dictItemDao.getChildrenByPid(pid, className);
 		} catch (Exception e){
 			e.printStackTrace();
 		}
@@ -96,7 +96,7 @@ public class DictItemServiceImpl implements DictItemService {
 	public List<Category> getCategoryChildrenByPid(String pid, Integer level, String itemName) throws Exception  {
 		List<Category> items = new ArrayList<Category>();
 		try {
-			items = dictItemDao.getCategoryItem(pid, level, itemName);
+			items = dictItemDao.getCategoryChildrenByPid(pid, level, itemName);
 		} catch (Exception e){
 			e.printStackTrace();
 		}
