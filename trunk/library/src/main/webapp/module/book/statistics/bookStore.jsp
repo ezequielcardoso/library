@@ -10,12 +10,11 @@
 		<script type="text/javascript"
 			src="<%=path%>/common/datePicker/datePicker/calendar/WdatePicker.js">
         </script>
+	
 		<script type="text/javascript"
-			src="<%=path %>/js/book/BookGridPanel.js"></script>
+			src="<%=path %>/js/book/StoreBook.js"></script>
 		<script type="text/javascript"
-			src="<%=path %>/js/book/StatisticsStoreBook.js"></script>
-		<script type="text/javascript"
-			src="<%=path %>/js/book/StatisticsStoreBookGridPanel.js"></script>
+			src="<%=path %>/js/book/StoreBookGridPanel.js"></script>
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -130,7 +129,7 @@
 												bgcolor="#FFFFFF" style="margin-top: 5px">
                                                  <tr>
 													<td width="1000" height="300" align="left" valign="top">
-														<div id="staticsStoreBookGrid"></div>
+														<div id="toreBookGrid"></div>
 													</td>
 												</tr>
 											</table>
