@@ -201,12 +201,12 @@ public class BookAction extends BaseActionSupport {
 			this.formatBook(book);
 			book = bookService.addOrModifyBook(book);
 			extJsonForm.setSuccess(true);
-			extJsonForm.setMsg("新增成功！");
+			extJsonForm.setMsg("保存成功！");
 			extJsonForm.setData(book);
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setSuccess(false);
-			extJsonForm.setMsg("新增失败！");
+			extJsonForm.setMsg("保存失败！");
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
