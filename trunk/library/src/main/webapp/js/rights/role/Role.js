@@ -3,8 +3,8 @@ Ext.onReady(function(){
 	var roleGridPanel = new Library.rights.grid.RoleGridPanel();
 	roleGridPanel.render('roleGrid');
 	
-	var functionCheckedTreePanel = new Library.rights.tree.FunctionCheckedTreePanel();
-	functionCheckedTreePanel.render('functionCheckedTree');
+	var functionCheckTreePanel = new Library.rights.tree.FunctionCheckTreePanel();
+	functionCheckTreePanel.render('functionCheckedTree');
 	
 	roleGridPanel.getStore().load({
 							params : {

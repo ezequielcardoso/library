@@ -192,7 +192,11 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		}, this);
 		
 		this.addListener('rowclick', function(){
-			
+			var record = this.getSelectionModel().getSelected();
+			var tree = Ext.getCmp('roleCheckTreePanel');
+			tree.getLoader().baseParams = {};
+			tree.userId = record.get('userId');
+			tree.getRootNode().reload();
 		}, this);
 		
 		this.on('afteredit', function(e) {

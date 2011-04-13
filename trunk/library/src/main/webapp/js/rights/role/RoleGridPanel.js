@@ -11,13 +11,15 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			items : [{
 				text : '增加',
 				handler : function() {
-					
-				}
+					this.onAdd();
+				},
+				scope : this
 			},  {
 				text : '删除',
 				handler : function() {
-					
-				}
+					this.onRemove();
+				},
+				scope : this
 			}]
 		});
 		
@@ -166,11 +168,54 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	},
 	
 	onAdd : function() {
-		
+		var Role = this.getStore().recordType;
+		var p = new Role({
+					roleName : '管理员',
+					roleDesc : '',
+					createDate : new Date(),
+					roleActive : true
+				});
+		this.stopEditing();
+		this.store.insert(0, p);
+		this.startEditing(0, 0);
 	},
 	
 	onRemove : function() {
-		
+		var sm = this.getSelectionModel();
+		if (sm.hasSelection()) {
+			Ext.MessageBox.confirm('提示', '你确定要删除记录吗？', function(btn, text) {
+
+				if (btn == 'yes') {
+					var record = sm.getSelected();
+					var roleId = record.get('roleId');
+					var thiz = this;
+					Ext.Ajax.request({
+						url : contextPath + '/role/remove.action',
+						method : 'POST',
+						params : {
+							'roleView.roleId' : roleId
+						},
+						success : function(resp) {
+							var respText = resp.responseText;
+							var obj = Ext.util.JSON.decode(respText);
+							if (obj.success == true) {
+								Ext.Msg.alert('提示',obj.msg);
+								thiz.getStore().reload();
+							} else {
+								Ext.Msg.alert('提示',obj.msg);
+							}
+						},
+						failure : function() {
+							Ext.Msg.alert('提示', '服务器异常');
+						}
+					});
+				}
+
+			}, this);
+
+		} else {
+			Ext.Msg.alert('提示', '请选择你要删除的记录');
+		}
 	}
 	
 	

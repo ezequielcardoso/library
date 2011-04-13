@@ -108,13 +108,6 @@
 		       <param name="root">dictItemViews</param>
 		   </result>
 		</action>
-    <!-- 
-    	<action name="getByItemClass" class="com.huan.library.web.action.DepartmentAction" method="getByItemClass">
-			<result name="success" type="json">
-				<param name="root">dictItemViews</param>
-			</result>
-		</action>
-     -->
     </package>
     
     <!-- role -->
@@ -137,6 +130,13 @@
 				<param name="root">extJsonForm</param>
 			</result>
 		</action>
+		
+		<action name="findAllByUserId" class="com.huan.library.web.action.RoleAction" method="findAllByUserId">
+			<result name="success" type="json">
+				<param name="root">childrenNodes</param>
+			</result>
+		</action>
+		
     </package>
     
 </struts>

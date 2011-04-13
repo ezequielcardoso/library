@@ -20,6 +20,7 @@ public class RoleView extends ExtGridPost implements Serializable{
 	private String roleDesc;//角色描述
 	private Boolean roleActive;//角色激活
 	private String createDate;//角色修改时间
+	private Long userId;
 	
 	public Integer getRoleId() {
 		return roleId;
@@ -61,5 +62,12 @@ public class RoleView extends ExtGridPost implements Serializable{
 		this.createDate = createDate;
 	}
 
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
 }

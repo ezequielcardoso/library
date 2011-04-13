@@ -32,12 +32,19 @@ public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
 			hql.append(" from Role r ");//普通查询方式
 			
 			StringBuilder joinSub = new StringBuilder();
+			joinSub.append(" left join fetch r.users as t_user ");//普通查询方式要fetch
 			hql.append(joinSub);
+			hql_.append(joinSub);
 			
 			hql.append(" where 1=1 ");
 			hql_.append(" where 1=1 ");
 			
 			StringBuilder whereSub = new StringBuilder();
+			if(view.getUserId()!=null && !"".equals(view.getUserId()) 
+					&& view.getUserId()!=0){
+				whereSub.append("  and t_user.userId=(:userId) ");
+			}
+			
 			hql.append(whereSub);
 			hql_.append(whereSub);
 			//查找总记录
@@ -66,6 +73,10 @@ public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
 							&& view.getStart()!=null && view.getLimit()!=null){
 							query.setMaxResults(view.getLimit());
 							query.setFirstResult(view.getStart());
+						}
+						if(view.getUserId()!=null && !"".equals(view.getUserId()) 
+								&& view.getUserId()!=0){
+							query.setParameter("userId", view.getUserId());
 						}
 					return query.list();
 				}

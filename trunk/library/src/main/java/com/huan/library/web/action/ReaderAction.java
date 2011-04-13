@@ -75,6 +75,22 @@ public class ReaderAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
+	public String getReaderByCardNo(){
+		List<Reader> readers = new ArrayList<Reader>(); 
+		try {
+		   readers = readerService.findReaders(readerView);
+		   if(readers.size()>0){
+			   reader = readers.listIterator().next();
+		   } else {
+			   reader = null;
+		   }
+		} catch (Exception e) {
+		   e.printStackTrace();
+		   return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
 	/**
 	 * 显示增加读者
 	 * 
