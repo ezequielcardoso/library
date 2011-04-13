@@ -23,6 +23,7 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 			borrowInfo = borrowReturnDao.saveOrUpdate(borrowReturn);	
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new Exception(e);
 		}
 		return borrowInfo;
 	}
@@ -33,9 +34,20 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 			returnInfo = borrowReturnDao.saveOrUpdate(returnInfo);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			throw new Exception(e);
 		}
 		return returnInfo;
+	}
+	
+	public BorrowReturn getBRByBarCode(String barCode) throws Exception {
+		BorrowReturn borrowReturn = new BorrowReturn();
+		try {
+			borrowReturn = borrowReturnDao.selectBRByBarCode(barCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return borrowReturn;
 	}
 	
 	public void setBorrowReturnDao(BorrowReturnDao borrowReturnDao) {

@@ -47,6 +47,22 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 					
 				}
 			},'->',{
+				xtype : 'label',
+				text : '入库时间从：'
+			}, '-',{
+				xtype : 'datefield',
+				width : 100,
+				id : 'storeDate',
+				format : 'Y-m-d'
+			},'-', {
+				xtype : 'label',
+				text : '到：'
+			}, '-',{
+				xtype : 'datefield',
+				width : 100,
+				id : 'endStoreDate',
+				format : 'Y-m-d'
+			},'-',{
 				text : '查询',
 				handler : function() {
 					this.queryMagazine();
@@ -414,6 +430,8 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   var secondCategory = Ext.get('secondCategory').getValue();
 	   var emailNo = Ext.get('emailNo').getValue();
 	   var ISSN = Ext.get('ISSN').getValue();
+	   var storeDate = Ext.get('storeDate').getValue();  
+	   var endStoreDate = Ext.get('endStoreDate').getValue();
 	   this.getStore().baseParams = {
 	       'bookView.barCode' : barCode,
 	       'bookView.bookName' : bookName,
@@ -427,6 +445,8 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	       'bookView.thirdCategoryName' : secondCategory,
 	       'bookView.emailNo' : emailNo,
 	       'bookView.ISSN' : ISSN,
+	       'bookView.storeDate' : storeDate,
+	       'bookView.endStoreDate' : endStoreDate,
 	       'bookView.isBook' : 0
 	   }
 	   this.getStore().load({

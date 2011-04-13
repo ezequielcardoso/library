@@ -32,6 +32,7 @@ public class LibInfo implements Serializable{
 	private Float baseCost=0F;   //开户费
 	private Float depositeTimes=0.0F; //押金倍数
 	private String libDesc;       //借阅证背面描述
+	private Float libFunds ;     //图书馆资金
 	
 	public LibInfo(){
 		
@@ -109,5 +110,15 @@ public class LibInfo implements Serializable{
 	public void setLibDesc(String libDesc) {
 		this.libDesc = libDesc;
 	}
+
+	public Float getLibFunds() {
+		return libFunds;
+	}
+
+	public void setLibFunds(Float libFunds) {
+		this.libFunds = libFunds;
+	}
+	
+	
 
 }

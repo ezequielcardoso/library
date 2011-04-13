@@ -48,5 +48,13 @@ public interface BookService {
 	 * @return
 	 */
 	public Book getBookById(Long bookId) throws Exception;
+	
+	/**
+	 * 
+	 * @param barCode
+	 * @return
+	 * @throws Exception
+	 */
+	public Book getBookByBarCode(String barCode) throws Exception;
     
 }

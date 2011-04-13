@@ -4,8 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<%@ include file="/common/common.jsp"%>
 		<%@ include file="/common/extInclude.jsp"%>
-
-		<link href="<%=path%>/css/style.css" type="text/css" rel="stylesheet" />
+		<link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>图书馆管理系统</title>
 		<script type="text/javascript"
 			src="<%=path%>/common/datePicker/datePicker/calendar/WdatePicker.js">
@@ -60,40 +59,7 @@
 								</table>
 							</td>
 						</tr>
-						<tr id="yy" >
-							<td height="10" valign="top">
-								<table width="96%" border="0" align="center" cellpadding="0"
-									cellspacing="0" bordercolor="#ebebeb"
-									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
-
-
-									<TR
-										onMouseOver="this.style.backgroundColor='#f6fbfe';return true;"
-										onMouseOut="this.style.backgroundColor='';">
-										<TD height=25 align="left" nowrap class="body">
-											入库登记时间：从
-											<input name="" type="text"
-												style="width: 120px; border-style: solid; border-color: #bcc3c9; border-width: 1px;"
-												value="2010-2-2" onClick="WdatePicker();">
-											&nbsp; 到
-											<input name="" type="text"
-												style="width: 120px; border-style: solid; border-color: #bcc3c9; border-width: 1px;"
-												value="2010-2-2" onClick="WdatePicker();">
-										</TD>
-									</TR>
-
-									<TR>
-										<TD height=25 align="left" valign="top" nowrap class=body>
-
-											<input type="button" class="btnl" value="统 计">
-											<input type="button" class="btnl" onClick="" value="导出excel">
-											<input type="button" class="btnl" onClick="" value="打 印">
-										</TD>
-									</TR>
-
-								</TABLE>
-							</td>
-						</tr>
+					
 						<tr id="yb">
 							<td height="0" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
@@ -129,7 +95,7 @@
 												bgcolor="#FFFFFF" style="margin-top: 5px">
                                                  <tr>
 													<td width="1000" height="300" align="left" valign="top">
-														<div id="toreBookGrid"></div>
+														<div id="storeBookGrid"></div>
 													</td>
 												</tr>
 											</table>

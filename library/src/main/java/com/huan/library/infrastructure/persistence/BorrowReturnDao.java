@@ -9,5 +9,12 @@ import com.huan.library.domain.model.borrowReturn.BorrowReturn;
  */
 public interface BorrowReturnDao extends BaseDao<BorrowReturn>{
 
+	/**
+	 * 根据条形码查找借阅记录
+	 * @param barCode
+	 * @return
+	 * @throws Exception
+	 */
+	public BorrowReturn selectBRByBarCode(String barCode) throws Exception;
 	
 }
