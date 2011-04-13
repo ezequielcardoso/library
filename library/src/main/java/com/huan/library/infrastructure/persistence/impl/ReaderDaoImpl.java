@@ -57,7 +57,7 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 				whereSub.append(" and r.readerName like (:readerName) ");
 			}
 			if(readerView.getCardNo()!=null && !"".equals(readerView.getCardNo())){
-				whereSub.append(" and r.cardNo like (:cardNo ) ");
+				whereSub.append(" and r.cardNo=(:cardNo ) ");
 			}
             if(readerView.getUnitName()!=null&&!"".equals(readerView.getUnitName())){
             	whereSub.append(" and t_ru.unitName like (:unitName) ");
@@ -65,7 +65,6 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
             if(readerView.getReaderCateName()!=null&&!"".equals(readerView.getReaderCateName())){
             	whereSub.append(" and t_rt.readerCateName like (:readerCateName) ");
             }
-			
 			sql.append(whereSub);
 			sql_.append(whereSub);
 			
@@ -75,7 +74,8 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 						throws HibernateException, SQLException {
 					Query query = session.createQuery(sqlIn);
 					//判断是不是分页
-					if(readerView!=null&&readerView.getIsPage()){
+					if(readerView!=null && readerView.getIsPage()
+							&& readerView.getStart()!=null && readerView.getLimit()!=null){
 						query.setFirstResult(readerView.getStart());
 						query.setMaxResults(readerView.getLimit());
 					}
@@ -85,8 +85,7 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 						query.setParameter("readerName", temp);
 					}
 					if(readerView.getCardNo()!=null && !"".equals(readerView.getCardNo())){
-						temp = "%"+readerView.getCardNo().replace(" ", "%")+"%";
-						query.setParameter("cardNo", temp);
+						query.setParameter("cardNo", readerView.getCardNo());
 					}
 					if(readerView.getUnitName()!=null&&!"".equals(readerView.getUnitName())){
 						temp = "%"+readerView.getUnitName().replace(" ", "%")+"%";
@@ -113,8 +112,7 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 						query.setParameter("readerName", temp);
 					}
 					if(readerView.getCardNo()!=null && !"".equals(readerView.getCardNo())){
-						temp = "%"+readerView.getCardNo().replace(" ", "%")+"%";
-						query.setParameter("cardNo", temp);
+						query.setParameter("cardNo", readerView.getCardNo());
 					}
 					if(readerView.getUnitName()!=null&&!"".equals(readerView.getUnitName())){
 						temp = "%"+readerView.getUnitName().replace(" ", "%")+"%";

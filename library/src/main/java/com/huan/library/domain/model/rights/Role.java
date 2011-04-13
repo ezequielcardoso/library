@@ -34,6 +34,7 @@ public class Role implements Serializable{
 	private String roleDesc;//角色描述
 	private Boolean roleActive;//角色激活
 	private Date createDate;//角色修改时间
+	private Boolean checked;
 	
 	@ManyToMany(
 			mappedBy="roles",targetEntity=User.class)
@@ -99,6 +100,39 @@ public class Role implements Serializable{
 
 	public void setRoleActive(Boolean roleActive) {
 		this.roleActive = roleActive;
+	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((roleId == null) ? 0 : roleId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Role other = (Role) obj;
+		if (roleId == null) {
+			if (other.roleId != null)
+				return false;
+		} else if (!roleId.equals(other.roleId))
+			return false;
+		return true;
 	}
 
 }

@@ -28,6 +28,12 @@
 		    </result>
 		</action>
 		
+		<action name="getReaderByCardNo" class="com.huan.library.web.action.ReaderAction" method="getReaderByCardNo">
+		    <result name="success" type="json">
+		       <param name="root">reader</param>
+		    </result>
+		</action>
+		
 		<action name="remove" class="com.huan.library.web.action.ReaderAction" method="remove">
 		    <result name="success" type="json">
 		       <param name="root">extJsonForm</param>

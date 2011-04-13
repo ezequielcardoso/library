@@ -7,6 +7,7 @@
 		<link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>图书馆管理系统</title>
 		<script type="text/javascript" src="<%=path %>/js/common/common.js"></script>
+		
 		<script type="text/javascript"
 			src="<%=path %>/js/borrowReturn/BookBorrow.js"></script>
 		<script type="text/javascript"
@@ -83,18 +84,16 @@
 							</TD>
 							<td width="12%" align="left">
 								<input name="reader.cardNo" type="text" class="input2"
-									id="reader.cardNo" value="<s:property value='reader.cardNo'/>"
-									
-	loadReade
-r(this);" size="20">
+									id="reader.cardNo"  size="20">
+								<input name="reader.id" type="text" class="input2"
+									id="reader.id"  size="20">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
 								读者姓名：
 							</TD>
 							<td width="12%" align="left">
 								<input name="reader.readerName" type="text" class="input2"
-									id="reader.readerName"
-									value="<s:property value='reader.readerName'/>" size="22">
+									id="reader.readerName" size="22">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
 								读者部门：
@@ -102,7 +101,6 @@ r(this);" size="20">
 							<td width="12%" align="left">
 								<input name="reader.readerUnits.unitName" type="text"
 									class="input2" id="reader.readerUnits.unitName"
-									value="<s:property value='reader.readerUnits.unitName'/>"
 									size="22">
 							</td>
 							<TD width="200" height=25 align="center" nowrap="nowrap"
@@ -118,7 +116,6 @@ r(this);" size="20">
 							<td width="12%" align="left">
 								<input name="reader.readerType.readerCateName" type="text"
 									class="input2" id="reader.readerType.readerCateName"
-									value="<s:property value='reader.readerType.readerCateName'/>"
 									size="20">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
@@ -127,7 +124,6 @@ r(this);" size="20">
 							<td width="12%" align="left">
 								<input name="reader.cardState.itemName" type="text"
 									class="input2" id="reader.cardState.itemName"
-									value="<s:property value='reader.cardState.itemName'/>"
 									size="22">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
@@ -135,8 +131,7 @@ r(this);" size="20">
 							</TD>
 							<td width="12%" align="left">
 								<input name="reader.sex" type="text" class="input2"
-									id="reader.sex" value="<s:property value='reader.sex'/>"
-									size="8">
+									id="reader.sex"  size="8">
 							</td>
 						</TR>
 
@@ -146,24 +141,21 @@ r(this);" size="20">
 							</TD>
 							<td width="12%" align="left">
 								<input name="reader.borrowedQuantiy" type="text" class="input2"
-									id="reader.borrowedQuantiy"
-									value="<s:property value='reader.borrowedQuantiy'/>" size="8">
+									id="reader.borrowedQuantiy" size="8">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
 								累计借阅次数：
 							</TD>
 							<td width="12%" align="left">
 								<input name="reader.totalBQuantity" type="text" class="input2"
-									id="reader.totalBQuantity"
-									value="<s:property value='reader.totalBQuantity'/>" size="8">
+									id="reader.totalBQuantity" size="8">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
 								余额：
 							</TD>
 							<td width="12%" align="left">
 								<input name="reader.leftMoney" type="text" class="input2"
-									id="reader.leftMoney"
-									value="<s:property value='reader.leftMoney'/>" size="8">
+									id="reader.leftMoney" size="8">
 							</td>
 						</TR>
 
@@ -174,7 +166,6 @@ r(this);" size="20">
 							<td width="12%" align="left">
 								<input name="reader.readerType.borrowedQuantity" type="text"
 									class="input2" id="reader.readerType.borrowedQuantity"
-									value="<s:property value='reader.readerType.borrowedQuantity'/>"
 									size="8">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
@@ -182,8 +173,7 @@ r(this);" size="20">
 							</TD>
 							<td width="12%" align="left">
 								<input name="reader.readerType.rent" type="text" class="input2"
-									id="reader.readerType.rent"
-									value="<s:property value='reader.readerType.rent'/>" size="8">
+									id="reader.readerType.rent" size="8">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
 								借阅天数：
@@ -191,7 +181,6 @@ r(this);" size="20">
 							<td width="12%" align="left">
 								<input name="reader.readerType.borrowDays" type="text"
 									class="input2" id="reader.readerType.borrowDays"
-									value="<s:property value='reader.readerType.borrowDays'/>"
 									size="8">
 							</td>
 						</TR>
@@ -247,6 +236,8 @@ r(this);" size="20">
 				</td>
 			</tr>
 		</table>
+		<script type="text/javascript"
+			src="<%=path %>/js/borrowReturn/LoadReader.js"></script>
 
 	</body>
 </html>

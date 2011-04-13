@@ -357,6 +357,7 @@ public class BookAction extends BaseActionSupport {
 		book.setBookLevel((book.getBookLevel() != null
 				&& book.getBookLevel().getItemId() != null && !"".equals(book
 				.getBookLevel())) ? book.getBookLevel() : null);
+		System.out.println("......." + book.getBookSecurity().getItemId());
 		book.setBookSecurity((book.getBookSecurity() != null
 				&& book.getBookSecurity().getItemId() != null && !""
 				.equals(book.getBookSecurity().getItemId())) ? book
@@ -366,9 +367,10 @@ public class BookAction extends BaseActionSupport {
 				.getBookSource())) ? book.getBookSource() : null);
 		book.setBookState((book.getBookState() != null
 				&& book.getBookState().getItemId() != null && !"".equals(book
-				.getBookSecurity().getItemId())) ? book.getBookState() : null);
+				.getBookState().getItemId())) ? book.getBookState() : null);
 		book.setPress((book.getPress() != null
-				&& book.getPress().getPressId() != null && !"".equals(book
+				&& book.getPress().getPressId() != null && 
+				book.getPress().getPressId() != 0 && !"".equals(book
 				.getPress().getPressId())) ? book.getPress() : null);
 		book.setCurrency((book.getCurrency() != null
 				&& book.getCurrency().getItemId() != null && !"".equals(book

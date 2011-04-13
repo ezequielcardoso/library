@@ -18,14 +18,14 @@ Library.rights.tree.RoleCheckTreePanel = Ext.extend(Library.tree.BaseCheckTree, 
 			id : 'RoleRoot',
 			expanded : true
 		};
-		this.url = contextPath + '/role/getAllByUserId.action';
+		this.url = contextPath + '/role/findAllByUserId.action';
 		this.rootVisible = false;
 		this.isChecked = true;
 		Library.rights.tree.RoleCheckTreePanel.superclass.initComponent.call(this, arguments);
 		
 		this.getLoader().on("beforeload", function(treeLoader, node) {
 			if (!node.isLeaf()) {
-				treeLoader.baseParams['userId'] = this.userId;
+				treeLoader.baseParams['roleView.userId'] = this.userId;
 			}
 		}, this);
 	}

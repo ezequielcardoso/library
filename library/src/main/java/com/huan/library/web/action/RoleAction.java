@@ -1,7 +1,9 @@
 package com.huan.library.web.action;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.RoleView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
+import com.huan.library.web.view.tree.ExtTreeNode;
 import com.opensymphony.xwork2.Action;
 
 @Controller("roleAction")
@@ -32,6 +35,7 @@ public class RoleAction extends BaseActionSupport {
 	private RoleView roleView = new RoleView();
 	private ExtJsonForm extJsonForm = new ExtJsonForm();
 	private ExtGridLoad extGridLoad = new ExtGridLoad(); 
+	private List<ExtTreeNode> childrenNodes = new ArrayList<ExtTreeNode>();
 	private Integer start;
 	private Integer limit;
 	
@@ -118,6 +122,45 @@ public class RoleAction extends BaseActionSupport {
 			views.add(view);
 		}
 		return views;
+	}
+
+	public String findAllByUserId() {
+		try {
+			roleView.setStart(start);
+			roleView.setLimit(limit);
+			List<Role> allRoles = roleService.findRoles(roleView);
+			List<Role> roles = roleService.findRoles(new RoleView());
+			
+			for (int i=0; i<roles.size(); i++) {
+				roles.get(i).setChecked(false);
+			}
+			for (int i=0; i<allRoles.size(); i++) {
+				allRoles.get(i).setChecked(true);
+			}
+			Set<Role> roleSet = new HashSet<Role>();
+			roleSet.addAll(roles);
+			roleSet.addAll(allRoles);
+			for (Role role : roleSet) {
+				ExtTreeNode treeNode = new ExtTreeNode();
+				treeNode.setId(role.getRoleId().toString());
+				treeNode.setText(role.getRoleName());
+				treeNode.setLeaf(true);
+				treeNode.setChecked(role.getChecked());
+				treeNode.setIsOptional(true);
+				childrenNodes.add(treeNode);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
+	public List<ExtTreeNode> getChildrenNodes() {
+		return childrenNodes;
+	}
+
+	public void setChildrenNodes(List<ExtTreeNode> childrenNodes) {
+		this.childrenNodes = childrenNodes;
 	}
 
 	public Role getRole() {
