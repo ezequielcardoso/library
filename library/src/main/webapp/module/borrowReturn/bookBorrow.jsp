@@ -235,7 +235,7 @@ r(this);" size="20">
 
 									<tr>
 										<td width="1200" height="280" align="left" valign="top">
-											<div id="pressGrid"></div>
+											<div id="bookBorrowGrid"></div>
 										</td>
 									</tr>
 

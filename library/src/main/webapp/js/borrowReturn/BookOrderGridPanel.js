@@ -414,51 +414,34 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				});
 
 		Library.book.grid.BookGridPanel.superclass.initComponent.call(this);
-		
-				this.on('afteredit', function(e) {
-			e.record.commit();
-			var thiz = this;
-			Ext.Ajax.request({
-				url : contextPath + '/book/saveBook.action',
-				method : 'POST',
-				params : {
-					'reader.id' : e.record.get('id'),
-					'reader.cardNo' : e.record.get('cardNo'),
-					'reader.password' : e.record.get('password'),
-					'reader.barCode' : e.record.get('barCode'),
-					'reader.readerName' : e.record.get('readerName'),
-					'reader.birthday' : e.record.get('birthday'),
-					'reader.sex' : e.record.get('sex'),
-					'reader.leftMoney' : e.record.get('leftMoney'),
-					'reader.email' : e.record.get('email'),
-					'reader.contactTel' : e.record.get('contactTel'),
-					'reader.entyDate' : e.record.get('entyDate'),
-					'reader.effectiveDate' : e.record.get('effectiveDate'),
-					'reader.borrowedQuantiy' : e.record.get('borrowedQuantiy'),
-					'reader.totalBQuantity' : e.record.get('totalBQuantity'),
-					'reader.readerPic' : e.record.get('readerPic'),
-					'reader.spell' : e.record.get('spell'),
-					'reader.readerDesc' : e.record.get('readerDesc'),
-//					'reader.readerUnits.unitId' : e.record.get('unitId'),  //单位
-					'reader.readerType.id' : e.record.get('readerTypeId'),  //读者类别
-					'reader.certificate.itemId' : e.record.get('certificateId') //证件类别 
-//					'reader.cardState.itemId' : e.record.get('cardStateId')   //借阅证状态
-				},
-				success : function(resp) {
-					var obj = Ext.util.JSON.decode(resp.responseText);
-					if (obj.success == true) {
-						Ext.Msg.alert('提示', obj.msg);
-						e.record.set("id", obj.data.id);
-						e.record.commit();
-					} else if (obj.success == false) {
-						Ext.Msg.alert('提示', obj.msg);
-					}
-				},
-				failure : function() {
-					Ext.Msg.alert('提示', '服务器异常，请稍候再试');
-				}
-			});
-		}, this);
+
+		this.on('afteredit', function(e) {
+					e.record.commit();
+					var thiz = this;
+					Ext.Ajax.request({
+								url : contextPath + '/book/saveBook.action',
+								method : 'POST',
+								params : {
+									'book.bookId' : e.record.get('bookId'),
+									'reader.bookState.itemId' : e.record
+											.get('bookStateId')
+								},
+								success : function(resp) {
+									var obj = Ext.util.JSON
+											.decode(resp.responseText);
+									if (obj.success == true) {
+										Ext.Msg.alert('提示', obj.msg);
+										e.record.set("id", obj.data.id);
+										e.record.commit();
+									} else if (obj.success == false) {
+										Ext.Msg.alert('提示', obj.msg);
+									}
+								},
+								failure : function() {
+									Ext.Msg.alert('提示', '服务器异常，请稍候再试');
+								}
+							});
+				}, this);
 
 		this.store.baseParams = {
 			'bookView.isBook' : 1,
