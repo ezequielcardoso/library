@@ -1,8 +1,8 @@
-Ext.ns('Library.press.grid');
+Ext.ns('Library.bookBorrow.grid');
 
-Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
+Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
-	id : 'pressGridPanel',
+	id : 'bookBorrowGridPanel',
 
 	initComponent : function() {
 
@@ -315,7 +315,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							})
 				});
 
-		Library.press.grid.PressGridPanel.superclass.initComponent.call(this);
+		Library.bookBorrow.grid.BookBorrowGridPanel.superclass.initComponent.call(this);
 
 		this.on('afteredit', function(e) {
 					e.record.commit();
@@ -400,13 +400,13 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		this.getStore().load({
 					params : {
 						'start' : 0,
-						'limit' : PressesPageSize
+						'limit' : BooksPageSize
 					}
 				});
 	},
 
 	loadPressForm : function() {
-		Ext.get('press.pressId').setValue(record.pressId);
+		Ext.get('book.bookId').setValue(record.bookId);
 	}
 
 });
