@@ -62,7 +62,6 @@ public class BookAction extends BaseActionSupport {
 
 	/**
 	 * 分页查找图书或者期刊
-	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -80,7 +79,7 @@ public class BookAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 
-	public String findBook() {
+	public String findBookById() {
 		try {
 			 book = bookService.getBookById(bookView.getBookId());
 		} catch (Exception e) {
@@ -89,6 +88,17 @@ public class BookAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
+	
+	public String findBookByBarCode() {
+		try {
+			 book = bookService.getBookByBarCode(bookView.getBarCode());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
 
 	/**
 	 * 显示添加或者修改期刊
@@ -188,7 +198,7 @@ public class BookAction extends BaseActionSupport {
 			if (book.getStoreDate() == null || "".equals(book.getStoreDate())) {
 				book.setStoreDate(new Date());
 			}
-			;
+			this.formatBook(book);
 			book = bookService.addOrModifyBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("新增成功！");

@@ -2,7 +2,6 @@ package com.huan.library.domain.model.borrowReturn;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,7 +13,6 @@ import javax.persistence.ManyToOne;
 
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.reader.Reader;
-import com.huan.library.domain.model.rights.User;
 /**
  * 借阅归还
  * @author huan
@@ -37,21 +35,18 @@ public class BorrowReturn implements Serializable{
 	private Date realityReturndate;  //实还日期
 	private Integer overdueDays;         //逾期天数
 	private Float puniMoney = 0F;        //罚金
-	private Boolean  isPay ;         //是或归还
+	private Boolean  isPay ;         //是或缴款
 	private Integer   renewTimes;        //续借次数
 	
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class)
     @JoinColumn(name="book")
-    private List<Book> book  ;   //图书
+    private Book book ;   //图书
     
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class)
     @JoinColumn(name="reader")
     private Reader reader;     //借阅证
 	
-	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=User.class)
-	@JoinColumn(name="operator")
-	private User operator;          //操作员  
+	private String operator;          //操作员  
 	
 	public BorrowReturn(){
 		
@@ -121,13 +116,11 @@ public class BorrowReturn implements Serializable{
 		this.renewTimes = renewTimes;
 	}
 
-	
-
-	public List<Book> getBook() {
+    public Book getBook() {
 		return book;
 	}
 
-	public void setBook(List<Book> book) {
+	public void setBook(Book book) {
 		this.book = book;
 	}
 
@@ -139,12 +132,12 @@ public class BorrowReturn implements Serializable{
 		this.reader = reader;
 	}
 
-	public User getOperator() {
+	public String getOperator() {
 		return operator;
 	}
 
-	public void setOperator(User operator) {
+	public void setOperator(String operator) {
 		this.operator = operator;
 	}
-	
+    
 }

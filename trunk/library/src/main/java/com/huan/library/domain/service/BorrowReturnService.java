@@ -22,5 +22,8 @@ public interface BorrowReturnService {
 	 * @throws Exception
 	 */
 	public BorrowReturn addReturn(BorrowReturn borrowReturn) throws Exception;
+	
+	
+	public BorrowReturn getBRByBarCode(String barCode) throws Exception;
 
 }

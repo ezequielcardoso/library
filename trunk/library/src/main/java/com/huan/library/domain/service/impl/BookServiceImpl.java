@@ -84,4 +84,15 @@ public class BookServiceImpl implements BookService {
 		return book;
 	}
 
+	public Book getBookByBarCode(String barCode) throws Exception {
+		Book book = new Book();
+		try {
+			book = this.bookDao.selectBookByBarCode(barCode);
+		} catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return book;
+	}
+
 }

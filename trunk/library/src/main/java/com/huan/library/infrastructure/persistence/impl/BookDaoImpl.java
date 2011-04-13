@@ -2,6 +2,7 @@ package com.huan.library.infrastructure.persistence.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -31,10 +32,10 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			StringBuilder hql_ = new StringBuilder();
 			//select 子句 
 			hql_.append(" select count(b) ");
-			// count select 子句
+			// count select 子句 
 			hql.append(" select new Book( b.bookId, b.barCode, b.bookName, b.bookDesc, b.donator, b.author, b.translator," +
 				" b.ISBN, b.ISSN, b.emailNo, b.stage, b.allStage, b.pages, b.price, b.publisherDate, " +
-				" b.quantity, b.location, b.revision, b.searchBookId, b.speciesId, b.spell,b.operator, b.storeDate," + 
+				" b.quantity, b.location, b.revision, b.searchBookId, b.speciesId, b.spell, b.orderDate, b.operator, b.storeDate," + 
 				" b.bookNo, b.isBook, t_fc.itemId, t_fc.itemCode, t_fc.itemName, t_fc.itemShortName, t_cc.itemId," +
 				" t_cc.itemCode, t_cc.itemName, t_th.itemId, t_th.itemCode, t_th.itemName, " +
 				" t_st.itemId, t_st.itemName, t_le.itemId, t_le.itemName, t_se.itemId, t_se.itemName, t_cu.itemId, t_cu.itemName, " +
@@ -108,11 +109,32 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			if(bookView.getOperator()!=null && !"".equals(bookView.getOperator())){
 				whereSub.append(" and b.operator like (:operator) ");
 			}
+			if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
+				whereSub.append(" and t_st.itemName = (:bookStateName) ");
+			}
 			if(bookView.getEmailNo()!=null&&!"".equals(bookView.getEmailNo())){
 				whereSub.append(" and b.emailNo like (:emailNo) ");
 			}
 			if(bookView.getISSN()!=null&&!"".equals(bookView.getISSN())){
 				whereSub.append(" and b.ISSN like (:ISSN) ");
+			}
+			if(bookView.getStoreDate()!=null && bookView.getEndStoreDate()==null){
+				whereSub.append(" and b.storeDate =(:storeDate) ");
+			}
+			if(bookView.getStoreDate()==null && bookView.getEndStoreDate()!=null){
+				whereSub.append(" and b.storeDate =(:endStoreDate) ");
+			}
+			if(bookView.getStoreDate()!=null && bookView.getEndStoreDate()!=null){
+				whereSub.append(" and b.storeDate between (:storeDate) and (:endStoreDate) ");
+			}
+			if(bookView.getOrderDate()!=null && bookView.getEndOrderDate()==null){
+				whereSub.append(" and b.orderDate =(:orderDate) ");
+			}
+			if(bookView.getOrderDate()==null && bookView.getEndOrderDate()!=null){
+				whereSub.append(" and b.orderDate =(:endOrderDate) ");
+			}
+			if(bookView.getOrderDate()!=null && bookView.getEndOrderDate()!=null){
+				whereSub.append(" and b.orderDate between (:orderDate) and (:endOrderDate) ");
 			}
 			hql.append(whereSub);
 			hql_.append(whereSub);//count 查询hql拼接结束
@@ -179,6 +201,9 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 							temp = "%"+bookView.getTranslator().replace(" ", "%")+"%";
 							query.setParameter("operator", temp);
 						}
+						if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
+							query.setParameter("bookStateName", bookView.getBookStateName());
+						}
 						if(bookView.getEmailNo()!=null && !"".equals(bookView.getEmailNo())){
 							temp = "%"+bookView.getEmailNo().replace(" ", "%")+"%";
 							query.setParameter("emailNo", temp);
@@ -186,6 +211,26 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						if(bookView.getISSN()!=null && !"".equals(bookView.getISSN())){
 							temp = "%"+bookView.getISSN().replace(" ", "%")+"%";
 							query.setParameter("ISSN", temp);
+						}
+						if(bookView.getStoreDate()!=null && bookView.getEndStoreDate()==null){
+							query.setParameter("storeDate", bookView.getStoreDate());
+						}
+						if(bookView.getStoreDate()==null && bookView.getEndStoreDate()!=null){
+							query.setParameter("endStoreDate", bookView.getEndStoreDate());
+						}
+						if(bookView.getStoreDate()!=null && bookView.getEndStoreDate()!=null){
+							query.setParameter("storeDate", bookView.getStoreDate());
+							query.setParameter("endStoreDate", bookView.getEndStoreDate());
+						}
+						if(bookView.getOrderDate()!=null && bookView.getEndOrderDate()==null){
+							query.setParameter("orderDate", bookView.getOrderDate());
+						}
+						if(bookView.getOrderDate()==null && bookView.getEndOrderDate()!=null){
+							query.setParameter("endOrderDate", bookView.getEndOrderDate());
+						}
+						if(bookView.getOrderDate()!=null && bookView.getEndOrderDate()!=null){
+							query.setParameter("orderDate", bookView.getOrderDate());
+							query.setParameter("endOrderDate", bookView.getEndOrderDate());
 						}
 					return query.list();
 				}
@@ -254,6 +299,9 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 							temp = "%"+bookView.getTranslator().replace(" ", "%")+"%";
 							query.setParameter("operator", temp);
 						}
+						if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
+							query.setParameter("bookStateName", bookView.getBookStateName());
+						}
 						if(bookView.getTranslator()!=null && !"".equals(bookView.getTranslator())){
 							temp = "%"+bookView.getTranslator().replace(" ", "%")+"%";
 							query.setParameter("translator", temp);
@@ -265,6 +313,26 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						if(bookView.getISSN()!=null && !"".equals(bookView.getISSN())){
 							temp = "%"+bookView.getISSN().replace(" ", "%")+"%";
 							query.setParameter("ISSN", temp);
+						}
+						if(bookView.getStoreDate()!=null && bookView.getEndStoreDate()==null){
+							query.setParameter("storeDate", bookView.getStoreDate());
+						}
+						if(bookView.getStoreDate()==null && bookView.getEndStoreDate()!=null){
+							query.setParameter("endStoreDate", bookView.getEndStoreDate());
+						}
+						if(bookView.getStoreDate()!=null && bookView.getEndStoreDate()!=null){
+							query.setParameter("storeDate", bookView.getStoreDate());
+							query.setParameter("endStoreDate", bookView.getEndStoreDate());
+						}
+						if(bookView.getOrderDate()!=null && bookView.getEndOrderDate()==null){
+							query.setParameter("orderDate", bookView.getOrderDate());
+						}
+						if(bookView.getOrderDate()==null && bookView.getEndOrderDate()!=null){
+							query.setParameter("endOrderDate", bookView.getEndOrderDate());
+						}
+						if(bookView.getOrderDate()!=null && bookView.getEndOrderDate()!=null){
+							query.setParameter("orderDate", bookView.getOrderDate());
+							query.setParameter("endOrderDate", bookView.getEndOrderDate());
 						}
 					return query.list();
 				}
@@ -289,10 +357,33 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 		hql.append(" left join fetch b.currency t_cu ");
 		hql.append(" left join fetch b.press t_pr ");
 		hql.append(" left join fetch b.bookSource t_so ");
-		hql.append(" where b.bookId=? ");
+		hql.append(" where b.bookId = ? ");
 		Book book = new Book();
 		try {
 			book = (Book) this.getHibernateTemplate().find(hql.toString(), bookId).listIterator().next();
+		} catch (Exception e){
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return book;
+	}
+	
+	public Book selectBookByBarCode(String barCode) throws Exception {
+		StringBuilder hql = new StringBuilder();
+		hql.append(" from Book as b " ); 
+		hql.append(" left join fetch b.firstCategory t_fc ");
+		hql.append(" left join fetch b.secondCategory t_cc ");
+		hql.append(" left join fetch b.thirdCategory t_th ");
+		hql.append(" left join fetch b.bookState t_st ");
+		hql.append(" left join fetch b.bookLevel t_le ");
+		hql.append(" left join fetch b.bookSecurity t_se ");
+		hql.append(" left join fetch b.currency t_cu ");
+		hql.append(" left join fetch b.press t_pr ");
+		hql.append(" left join fetch b.bookSource t_so ");
+		hql.append(" where b.barCode=? ");
+		Book book = new Book();
+		try {
+			book = (Book) this.getHibernateTemplate().find(hql.toString(), barCode).listIterator().next();
 		} catch (Exception e){
 			e.printStackTrace();
 			throw new Exception(e);

@@ -19,6 +19,18 @@
 			</result>
 		</action>
 		
+		<action name="findBookById" class="com.huan.library.web.action.BookAction" method="findBookById">
+		    <result name="success" type="json">
+		       <param name="root">book</param>
+		    </result>
+		</action>
+		
+		<action name="findBookByBarCode" class="com.huan.library.web.action.BookAction" method="findBookByBarCode">
+		    <result name="success" type="json">
+		       <param name="root">book</param>
+		    </result>
+		</action>
+		
 		<!-- 保存图书或者期刊 -->
 		<action name="saveBook" class="com.huan.library.web.action.BookAction" method="saveBook">
 			<result name="success" type="json">

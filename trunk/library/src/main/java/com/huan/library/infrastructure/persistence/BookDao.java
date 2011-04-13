@@ -16,7 +16,8 @@ public interface BookDao extends BaseDao<Book>{
 	public List<Book> selectBooks(BookView bookView) throws Exception;
 
 	public Book selectBookById(Long bookId) throws Exception;
-
+	
+	public Book selectBookByBarCode(String barCode) throws Exception;
 	/**
 	 * 批量增加图书
 	 * @param books

@@ -55,6 +55,7 @@ public class Book implements Serializable {
 	private String searchBookId; // 索书号
 	private String speciesId; // 种次号
 	private String spell; // 拼音
+	private Date orderDate;  //预约时间
 	private Date storeDate; // 入库时间
 	private String operator;  //录入人员
 	private Integer isBook = 1;  //类型1:表示图书 0:表示期刊
@@ -104,7 +105,7 @@ public class Book implements Serializable {
 	
 	public Book(Long bookId, String barCode, String bookName, String bookDesc, String donator, String author, String translator,
 			String ISBN, String ISSN, String emailNo, String stage, String allStage, Integer pages, Float price, Date publisherDate, 
-			Integer quantity, String location, Integer revision, String searchBookId, String speciesId, String spell,String operator, Date storeDate, 
+			Integer quantity, String location, Integer revision, String searchBookId, String speciesId, String spell,Date orderDate,String operator, Date storeDate, 
 			String bookNo, Integer isBook, String firstCategoryId, String firstCategoryCode, String firstCategoryName, String firstCategoryShortName,
 			String secondCategoryId, String secondCategoryCode, String secondCategoryName, String thirdCategoryId, 
 			String thirdCategoryCode, String thirdCategoryName, String stateId, String stateName, 
@@ -130,6 +131,7 @@ public class Book implements Serializable {
 		this.searchBookId = searchBookId;
 		this.speciesId = speciesId;
 		this.spell = spell;
+		this.orderDate = orderDate;
 		this.pages = pages;
 		this.price = price;
 		this.publisherDate = publisherDate;
@@ -339,6 +341,15 @@ public class Book implements Serializable {
 
 	public void setRevision(Integer revision) {
 		this.revision = revision;
+	}
+  
+	
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
 	}
 
 	public String getSearchBookId() {

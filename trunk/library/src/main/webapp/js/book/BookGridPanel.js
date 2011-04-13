@@ -46,7 +46,23 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				handler : function() {
 					
 				}
-			},'->',{
+			},'->', {
+				xtype : 'label',
+				text : '入库时间从：'
+			}, '-',{
+				xtype : 'datefield',
+				width : 100,
+				id : 'storeDate',
+				format : 'Y-m-d'
+			},'-', {
+				xtype : 'label',
+				text : '到：'
+			}, '-',{
+				xtype : 'datefield',
+				width : 100,
+				id : 'endStoreDate',
+				format : 'Y-m-d'
+			},'-',{
 				text : '查询',
 				handler : function() {
 					this.queryBook();
@@ -107,6 +123,9 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			name : 'publisherDate',
 			type : 'string'
 		}, {
+			name : 'operator',
+			type : 'string'
+		},{
 			name : 'quantity',
 			type : 'int'
 		}, {
@@ -124,7 +143,10 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		}, {
 			name : 'spell',
 			type : 'string'
-		}, {
+		},  {
+			name : 'orderDate',
+			type : 'string'
+		},{
 			name : 'storeDate',
 			type : 'string'
 		}, {
@@ -414,6 +436,8 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   var secondCategory = Ext.get('secondCategory').getValue();
 	   var author = Ext.get('author').getValue();
 	   var operator = Ext.get('operator').getValue();
+	   var storeDate = Ext.get('storeDate').getValue();  
+	   var endStoreDate = Ext.get('endStoreDate').getValue();
 	   this.getStore().baseParams = {
 	       'bookView.barCode' : barCode,
 	       'bookView.bookName' : bookName,
@@ -427,6 +451,8 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	       'bookView.thirdCategoryName' : secondCategory,
 	       'bookView.author' : author,
 	       'bookView.operator' : operator,
+	       'bookView.storeDate' : storeDate,
+	       'bookView.endStoreDate' : endStoreDate,
 	       'bookView.isBook' : 1
 	      
 	   }
