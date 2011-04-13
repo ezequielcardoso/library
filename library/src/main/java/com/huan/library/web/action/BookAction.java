@@ -91,7 +91,12 @@ public class BookAction extends BaseActionSupport {
 	
 	public String findBookByBarCode() {
 		try {
-			 book = bookService.getBookByBarCode(bookView.getBarCode());
+			List<Book> books = bookService.findBooks(bookView);
+			if(books.size()>0){
+				book = books.listIterator().next();
+			} else {
+				book = null;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

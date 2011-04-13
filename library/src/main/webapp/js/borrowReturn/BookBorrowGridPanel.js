@@ -261,7 +261,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 				}];
 
 		var store = new Ext.data.JsonStore({
-					url : contextPath + '/book/findBooks.action',
+//					url : contextPath + '/book/findBooks.action',
 					root : 'root',
 					totalProperty : 'totalProperty',
 					baseParams : {
@@ -275,20 +275,20 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 					}
 				});
 
-		var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
-					store : store,
-					pageSize : BooksPageSize,
-					afterPageText : '/ {0}',
-					beforePageText : '页',
-					displayInfo : true,
-					firstText : '第一页',
-					prevText : '前一页',
-					nextText : '后一页',
-					lastText : '最后一页',
-					refreshText : '刷新',
-					displayMsg : '显示第 {0}-{1}条  共{2}条 ',
-					emptyMsg : '没有数据'
-				})]);
+//		var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
+//					store : store,
+//					pageSize : BooksPageSize,
+//					afterPageText : '/ {0}',
+//					beforePageText : '页',
+//					displayInfo : true,
+//					firstText : '第一页',
+//					prevText : '前一页',
+//					nextText : '后一页',
+//					lastText : '最后一页',
+//					refreshText : '刷新',
+//					displayMsg : '显示第 {0}-{1}条  共{2}条 ',
+//					emptyMsg : '没有数据'
+//				})]);
 
 		Ext.apply(this, {
 					width : 1200,
@@ -301,8 +301,8 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 					stripeRows : true,
 					columnLines : true,
 					frame : true,
-					bbar : bbar,
-					loadMask : '正在加载......',
+//					bbar : bbar,
+//					loadMask : '正在加载......',
 					clicksToEdit : 1,
 					viewConfig : new Ext.grid.GridView({
 								rowHeight : 23,
@@ -324,38 +324,30 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 										+ '/book/findBookByBarCode.action',
 								method : 'POST',
 								params : {
-									'bookView.barCode' : e.record
-											.get('barCode')
+									'bookView.barCode' : e.record.get('barCode')
 								},
 								success : function(resp) {
-									var obj = Ext.util.JSON
-											.decode(resp.responseText);
-									if (obj.success == true) {
-										// Ext.Msg.alert('提示', obj.msg);
-										e.record.set('barCode',
-												obj.data.barCode);
-										e.record.set('bookName',
-												obj.data.bookName);
-										e.record.set('firstCategoryName',
-												obj.data.firstCategoryName);
-										e.record.set('quantity',
-												obj.data.quantity);
-										e.record.set('location',
-												obj.data.location);
-										e.record.set('author', obj.data.author);
-										e.record.set('pressName',
-												obj.data.operator);
-										e.record.set('pressName',
-												obj.data.operator);
-										e.record.set('price',
-												obj.data.price);
-										e.record.set('bookStateName',
-												obj.data.bookStateName);
-										e.record.commit();
-										// thiz.getStore().reload();
-									} else if (obj.success == false) {
-										Ext.Msg.alert('提示', obj.msg);
-									}
+									var book = Ext.util.JSON.decode(resp.responseText);
+									e.record.set('barCode',
+											book.barCode);
+									e.record.set('bookName',
+											book.bookName);
+									e.record.set('firstCategoryName',
+											book.firstCategoryName);
+									e.record.set('quantity',
+											book.quantity);
+									e.record.set('location',
+											book.location);
+									e.record.set('author', book.author);
+									e.record.set('pressName',
+											book.operator);
+									e.record.set('pressName',
+											book.operator);
+									e.record.set('price',
+											book.price);
+									e.record.set('bookStateName',
+											book.bookStateName);
+									e.record.commit();
 								},
 								failure : function() {
 									Ext.Msg.alert('提示', '服务器异常，请稍候再试');

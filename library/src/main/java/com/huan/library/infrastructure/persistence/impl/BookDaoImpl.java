@@ -74,7 +74,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 //			}
 			//.......继续拼接........
 			if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
-				whereSub.append(" and b.barCode like (:barCode) ");
+				whereSub.append(" and b.barCode = (:barCode) ");
 			}
 			if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
 				whereSub.append(" and b.bookName like (:bookName) ");
@@ -154,8 +154,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						query.setParameter("isBook", bookView.getIsBook());
 						String temp = "";
 						if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
-							temp = "%"+bookView.getBarCode().replace(" ", "%")+"%";
-							query.setParameter("barCode", temp);
+							query.setParameter("barCode", bookView.getBarCode());
 						}
 						if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
 							temp = "%"+bookView.getBookName().replace(" ", "%")+"%";
@@ -248,7 +247,8 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						throws HibernateException, SQLException {
 						Query query = session.createQuery(hqlIn);
 						//判断是否分页
-						if(bookView!=null && bookView.getIsPage()){
+						if(bookView!=null && bookView.getIsPage()
+								&& bookView.getStart()!=null && bookView.getLimit()!=null ){
 							query.setMaxResults(bookView.getLimit());
 							query.setFirstResult(bookView.getStart());
 						}
@@ -256,8 +256,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 						query.setParameter("isBook", bookView.getIsBook());
 						String temp = "";
 						if(bookView.getBarCode()!=null && !"".equals(bookView.getBarCode())){
-							temp = "%"+bookView.getBarCode().replace(" ", "%")+"%";
-							query.setParameter("barCode", temp);
+							query.setParameter("barCode", bookView.getBarCode());
 						}
 						if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
 							temp = "%"+bookView.getBookName().replace(" ", "%")+"%";
