@@ -262,7 +262,6 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 
 		var store = new Ext.data.JsonStore({
 					url : contextPath + '/book/findBooks.action',
-					// url : '',
 					root : 'root',
 					totalProperty : 'totalProperty',
 					baseParams : {
