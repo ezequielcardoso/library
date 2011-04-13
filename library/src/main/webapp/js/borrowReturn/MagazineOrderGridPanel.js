@@ -1,8 +1,8 @@
-Ext.ns('Library.book.grid');
+Ext.ns('Library.magazineOrder.grid');
 
-Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
+Library.magazineOrder.grid.MagazineOrderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
-	id : 'bookGridPanel',
+	id : 'magazineOrderGridPanel',
 
 	initComponent : function() {
 
@@ -207,7 +207,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					root : 'root',
 					baseParams : {
 						'bookView.bookStateName' : '预约中',
-						'bookView.isBook' : 1
+						'bookView.isBook' : 0
 					},
 					storeInfo : {
 						field : '列名',
@@ -325,18 +325,6 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					sortable : true,
 					align : 'center'
 				}, {
-					header : '作者',
-					dataIndex : 'author',
-					width : 80,
-					sortable : true,
-					align : 'center'
-				}, {
-					header : '译者',
-					dataIndex : 'translator',
-					width : 80,
-					sortable : true,
-					align : 'center'
-				}, {
 					header : '出版时间',
 					dataIndex : 'publisherDate',
 					width : 100,
@@ -391,7 +379,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					frame : false,
 					bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 								store : store,
-								pageSize : BooksPageSize,
+								pageSize : MagazinesPageSize,
 								afterPageText : '/ {0}',
 								beforePageText : '页',
 								displayInfo : true,
@@ -413,7 +401,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							})
 				});
 
-		Library.book.grid.BookGridPanel.superclass.initComponent.call(this);
+		Library.magazineOrder.grid.MagazineOrderGridPanel.superclass.initComponent.call(this);
 
 		this.on('afteredit', function(e) {
 					e.record.commit();
@@ -431,7 +419,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 											.decode(resp.responseText);
 									if (obj.success == true) {
 										Ext.Msg.alert('提示', obj.msg);
-										e.record.set("bookId", obj.data.bookId);
+										e.record.set('bookId', obj.data.bookId);
 										e.record.commit();
 									} else if (obj.success == false) {
 										Ext.Msg.alert('提示', obj.msg);
@@ -444,7 +432,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				}, this);
 
 		this.store.baseParams = {
-			'bookView.isBook' : 1,
+			'bookView.isBook' : 0,
 			'bookView.bookStateName' : '预约中'
 		}
 
@@ -481,13 +469,13 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			'bookView.orderDate' : orderDate,
 			'bookView.endOrderDate' : endOrderDate,
 			'bookView.bookStateName' : '预约中',
-			'bookView.isBook' : 1
+			'bookView.isBook' : 0
 
 		}
 		this.getStore().load({
 					params : {
 						start : 0,
-						limit : BooksPageSize
+						limit : MagazinesPageSize
 					}
 				});
 	},
@@ -495,14 +483,14 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	onRefresh : function() {
 
 		this.getStore().baseParams = {
-			'bookView.isBook' : 1,
+			'bookView.isBook' : 0,
 			'bookView.bookStateName' : '预约中'
 		};
 
 		this.getStore().load({
 					params : {
 						'start' : 0,
-						'limit' : BooksPageSize
+						'limit' : MagazinesPageSize
 					}
 				});
 	}
