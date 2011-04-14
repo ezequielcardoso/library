@@ -17,8 +17,8 @@ public class ReaderTypeView extends ExtGridPost implements Serializable{
 	private Long id; // 主键
 	private String readerCateCode; // 类别编码
 	private String readerCateName; // 类别名称
-	private Integer borrowDays = 0; // 借阅天数
-	private Integer borrowedQuantity =0; // 借阅数量
+	private Integer maxBorrowDays = 0; // 借阅天数
+	private Integer maxBorrowedQuantity =0; // 借阅数量
 	private Float rent; // 租金
 	
 	public ReaderTypeView(){
@@ -49,20 +49,20 @@ public class ReaderTypeView extends ExtGridPost implements Serializable{
 		this.readerCateName = readerCateName;
 	}
 
-	public Integer getBorrowDays() {
-		return borrowDays;
+	public Integer getMaxBorrowDays() {
+		return maxBorrowDays;
 	}
 
-	public void setBorrowDays(Integer borrowDays) {
-		this.borrowDays = borrowDays;
+	public void setMaxBorrowDays(Integer maxBorrowDays) {
+		this.maxBorrowDays = maxBorrowDays;
 	}
 
-	public Integer getBorrowedQuantity() {
-		return borrowedQuantity;
+	public Integer getMaxBorrowedQuantity() {
+		return maxBorrowedQuantity;
 	}
 
-	public void setBorrowedQuantity(Integer borrowedQuantity) {
-		this.borrowedQuantity = borrowedQuantity;
+	public void setMaxBorrowedQuantity(Integer maxBorrowedQuantity) {
+		this.maxBorrowedQuantity = maxBorrowedQuantity;
 	}
 
 	public Float getRent() {

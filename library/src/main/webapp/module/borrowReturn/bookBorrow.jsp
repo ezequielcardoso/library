@@ -156,8 +156,8 @@
 								数量限制：
 							</TD>
 							<td width="12%" align="left">
-								<input name="reader.readerType.borrowedQuantity" type="text"
-									class="input2" id="reader.readerType.borrowedQuantity"
+								<input name="reader.readerType.maxBorrowedQuantity" type="text"
+									class="input2" id="reader.readerType.maxBorrowedQuantity"
 									size="8">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
@@ -171,8 +171,8 @@
 								借阅天数：
 							</TD>
 							<td width="12%" align="left">
-								<input name="reader.readerType.borrowDays" type="text"
-									class="input2" id="reader.readerType.borrowDays"
+								<input name="reader.readerType.maxBorrowDays" type="text"
+									class="input2" id="reader.readerType.maxBorrowDays"
 									size="8">
 							</td>
 						</TR>

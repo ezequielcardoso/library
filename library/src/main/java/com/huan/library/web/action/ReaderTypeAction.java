@@ -129,12 +129,12 @@ public class ReaderTypeAction extends BaseActionSupport {
 				readerTypeView
 						.setReaderCateName(readerType.getReaderCateName());
 			}
-			if (readerType.getBorrowDays() != null) {
-				readerTypeView.setBorrowDays(readerType.getBorrowDays());
+			if (readerType.getMaxBorrowDays() != null) {
+				readerTypeView.setMaxBorrowDays(readerType.getMaxBorrowDays());
 			}
-			if (readerType.getBorrowedQuantity() != null) {
-				readerTypeView.setBorrowedQuantity(readerType
-						.getBorrowedQuantity());
+			if (readerType.getMaxBorrowedQuantity() != null) {
+				readerTypeView.setMaxBorrowedQuantity(readerType
+						.getMaxBorrowedQuantity());
 			}
 			if (readerType.getRent() != null) {
 				readerTypeView.setRent(readerType.getRent());
