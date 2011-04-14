@@ -22,9 +22,9 @@ function loadReader(cardNo){
 			document.getElementById('reader.borrowedQuantiy').value = reader.borrowedQuantiy;
 			document.getElementById('reader.totalBQuantity').value = reader.totalBQuantity;
 			document.getElementById('reader.leftMoney').value = reader.leftMoney;
-			document.getElementById('reader.readerType.borrowedQuantity').value = reader.readerType.borrowedQuantity;
+			document.getElementById('reader.readerType.maxBorrowedQuantity').value = reader.readerType.maxBorrowedQuantity;
 			document.getElementById('reader.readerType.rent').value = reader.readerType.rent;
-			document.getElementById('reader.readerType.borrowDays').value = reader.readerType.borrowDays;
+			document.getElementById('reader.readerType.maxBorrowDays').value = reader.readerType.maxBorrowDays;
 		},
 		failure : function(){
 		   Ext.Msg.alert('∑˛ŒÒ∆˜∑±√¶,«Î…‘∫Ú÷ÿ ‘!');

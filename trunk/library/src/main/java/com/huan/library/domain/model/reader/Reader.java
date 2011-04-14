@@ -68,9 +68,8 @@ public class Reader implements Serializable {
 	public Reader(Long id,String cardNo,String password,String barCode,String readerName, 
 			Date birthday, String sex,Float leftMoney, String email, String contactTel,
 			 Date entyDate,Date effectiveDate,Integer borrowedQuantiy, Integer totalBQuantity, String readerPic, String spell,
-			String readerDesc, Long unitId, String unitCode, String unitName,
-			 String certificateId, String certificateCode,String certificateName, Long readerTypeId, String readerTypeCode,
-			String readerTypeName, String cardStateId, String cardStateCode,
+			String readerDesc, Long unitId, String unitCode, String unitName,String certificateId, String certificateCode,String certificateName, Long readerTypeId, String readerTypeCode,
+			String readerTypeName,Integer maxBorrowDays, Integer maxBorrowedQuantity, Float rent,String cardStateId, String cardStateCode,
 			String cardStateName) {
 		this.id = id;
 		this.readerName = readerName;
@@ -100,20 +99,22 @@ public class Reader implements Serializable {
 		certificate.setItemId(certificateId);
 		certificate.setItemCode(certificateCode);
 		certificate.setItemName(certificateName);
-		this.certificate = certificate;
+		this.setCertificate(certificate);
 		
 		ReaderType readerType = new ReaderType();
 		readerType.setId(readerTypeId);
 		readerType.setReaderCateCode(readerTypeCode);
 		readerType.setReaderCateName(readerTypeName);
-		this.readerType = readerType;
-		
+		readerType.setMaxBorrowDays(maxBorrowDays);
+		readerType.setMaxBorrowedQuantity(maxBorrowedQuantity);
+		readerType.setRent(rent);
+		this.setReaderType(readerType);
 		
 		CardState cardState = new CardState();
 		cardState.setItemId(cardStateId);
 		cardState.setItemCode(cardStateCode);
 		cardState.setItemName(cardStateName);
-		this.cardState = cardState;
+	    this.setCardState(cardState);
 	}
 
 	public Long getId() {

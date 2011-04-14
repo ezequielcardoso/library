@@ -34,7 +34,8 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 			sql.append(" select new Reader( r.id, r.cardNo, r.password, r.barCode, r.readerName, r.birthday,"
 							+ " r.sex, r.leftMoney, r.email, r.contactTel, r.entyDate, r.effectiveDate, r.borrowedQuantiy, r.totalBQuantity, r.readerPic, r.spell"
 							+ ", r.readerDesc, t_ru.unitId, t_ru.unitcode, t_ru.unitName, t_c.itemId, t_c.itemCode,"
-							+ " t_c.itemName, t_rt.id, t_rt.readerCateCode, t_rt.readerCateName, t_rs.itemId, t_rs.itemCode, t_rs.itemName )");
+							+ " t_c.itemName, t_rt.id, t_rt.readerCateCode, t_rt.readerCateName, t_rt.maxBorrowDays, t_rt.maxBorrowedQuantity," +
+									" t_rt.rent , t_rs.itemId, t_rs.itemCode, t_rs.itemName )");
 			sql_.append(" select count(r) ");
 
 			sql.append(" from Reader r ");

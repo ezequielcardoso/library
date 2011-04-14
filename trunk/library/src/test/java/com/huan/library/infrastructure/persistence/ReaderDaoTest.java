@@ -44,8 +44,8 @@ public class ReaderDaoTest {
 		ReaderType readerType = new ReaderType();
 		readerType.setReaderCateName("ΩÃ ¶");
 		readerType.setReaderCateCode("s002");
-		readerType.setBorrowDays(15);
-		readerType.setBorrowedQuantity(5);
+//		readerType.setBorrowDays(15);
+//		readerType.setBorrowedQuantity(5);
 		readerType.setRent(0.5f);
 		readerTypeDao.saveOrUpdate(readerType);
 		reader.setReaderType(readerType);

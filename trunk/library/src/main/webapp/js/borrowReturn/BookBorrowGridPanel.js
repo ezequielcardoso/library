@@ -108,35 +108,6 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 					width : 80,
 					sortable : true,
 					align : 'center',
-					editor : new Ext.form.ComboBox({
-						triggerAction : 'all',
-						valueField : 'value',
-						displayField : 'value',
-						mode : 'remote',
-						lazyRender : true,
-						selectOnFocus : true,
-						allowBlank : false,
-						editable : false,
-						store : new Ext.data.JsonStore({
-							url : contextPath + '/dict/getByItemClass.action',
-							fields : [{
-										name : 'key'
-									}, {
-										name : 'value'
-									}],
-							baseParams : {  
-								className : 'com.huan.library.domain.model.book.BookState'
-							}
-						}),
-						listeners : {
-							'select' : function(combo, record, index) {
-								var rec = Ext.getCmp('bookBorrowGridPanel')
-										.getSelectionModel().getSelected();
-								rec.set('bookStateId', record.get('key'));
-								rec.commit()
-							}
-						}
-					}),
 					dataIndex : 'bookStateName'
 				}]);
 
@@ -392,7 +363,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 		this.startEditing(0, 0);
 	},
 	onBorrowed : function() {
-          var cardNo = Ext.get('reader.cardNo').getValue();
+          var readerId = Ext.get('reader.id').getValue();
 //          var bookId = Ext.get('book.barCode').getValue();
          var sm = this.getSelectionModel();
 		if (sm.hasSelection()) {
@@ -408,8 +379,8 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 													+ '/borrowReturn/bookBorrow.action',
 											method : 'POST',
 											params : {
-												'book.bookId' : bookId,
-												'reader.cardNo' : cardNo
+												'borrowReturnView.bookId' : bookId,
+												'borrowReturnView.readerId' : readerId
 											},
 											success : function(resp) {
 												var respText = resp.responseText;
