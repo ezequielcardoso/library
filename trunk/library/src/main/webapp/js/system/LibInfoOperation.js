@@ -4,10 +4,11 @@ function save(){
 	var libName = Ext.get('libInfo.libName').getValue();
 	var baseCost = Ext.get('libInfo.baseCost').getValue();
 	var telphone = Ext.get('libInfo.telphone').getValue();
-//	var libManager = Ext.get('libInfo.libManager').getValue();
+	var libManager = Ext.get('libInfo.libManager').getValue();
 	var depositeTimes = Ext.get('libInfo.depositeTimes').getValue();
 	var payADay = Ext.get('libInfo.payADay').getValue();
 	var address = Ext.get('libInfo.address').getValue();
+	var libFunds = Ext.get('libInfo.libFunds').getValue();
 	var libDesc = Ext.get('libInfo.libDesc').getValue();
 	
 		Ext.Ajax.request({
@@ -18,10 +19,11 @@ function save(){
 					'libInfo.libName' : libName,
 					'libInfo.baseCost' : baseCost,
 					'libInfo.telphone' : telphone,
-//					'libInfo.libManager' : libManager,
+					'libInfo.libManager' : libManager,
 					'libInfo.depositeTimes' : depositeTimes,
 					'libInfo.payADay' : payADay,
 					'libInfo.address' : address,
+					'libInfo.libFunds' : libFunds,
 					'libInfo.libDesc' : libDesc
 				},
 				success : function(resp) {
@@ -50,5 +52,6 @@ function clear(){
     Ext.get('libInfo.depositeTimes').set('');
     Ext.get('libInfo.payADay').set('');
     Ext.get('libInfo.address').set('');
+    Ext.get('libInfo.libFunds').set('');
     Ext.get('libInfo.libDesc').set('');
 }

@@ -10,11 +10,19 @@ import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 public interface BorrowReturnDao extends BaseDao<BorrowReturn>{
 
 	/**
-	 * 根据条形码查找借阅记录
-	 * @param barCode
+	 * 根据图书条形码查找借阅记录
+	 * @param bookBar
 	 * @return
 	 * @throws Exception
 	 */
-	public BorrowReturn selectBRByBarCode(String barCode) throws Exception;
+	public BorrowReturn selectBRByBookBar(String bookBar) throws Exception;
+	/**
+	 * 根据读者条形码查找借阅记录
+	 * @param readerBar
+	 * @return
+	 * @throws Exception
+	 */
+	public BorrowReturn selectBRByReaderBar(String readerBar) throws Exception;
 	
+//	public BorrowReturn selectBorrowReturn(BorrowReturnView borrowReturnView) throws Exception; 
 }

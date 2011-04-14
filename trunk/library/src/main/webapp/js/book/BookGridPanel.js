@@ -81,7 +81,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			name : 'bookId',
 			type : 'int'
 		}, {
-			name : 'barCode',
+			name : 'barCode', 
 			type : 'string'
 		}, {
 			name : 'bookName',
@@ -154,7 +154,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		}, {
 			name : 'isBook',
-			type : 'boolean'
+			type : 'int'
 		}, {
 			name : 'firstCategoryId',
 			type : 'string'
@@ -266,9 +266,15 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '分类号',
-				dataIndex : 'firstCategoryCode',
-				width : 80,
+				header : '二级分类',
+				dataIndex : 'secondCategoryName',
+				width : 150,
+				sortable : true,
+				align : 'center'
+			},{
+				header : '三级分类',
+				dataIndex : 'thirdCategoryName',
+				width : 150,
 				sortable : true,
 				align : 'center'
 			}, {
@@ -426,7 +432,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	queryBook : function(){
 	   var barCode = Ext.get('barCode').getValue();
 	   var bookName = Ext.get('bookName').getValue();
-	   var bookState = Ext.get('bookState').getValue();
+	   var spell = Ext.get('spell').getValue();
 	   var press = Ext.get('press').getValue();
 	   var location = Ext.get('location').getValue();
 	   var bookNo = Ext.get('bookNo').getValue();
@@ -441,14 +447,14 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   this.getStore().baseParams = {
 	       'bookView.barCode' : barCode,
 	       'bookView.bookName' : bookName,
-	       'bookView.bookStateName' : bookState,
+	       'bookView.spell' : spell,
 	       'bookView.pressName' : press,
 	       'bookView.location' : location,
 	       'bookView.bookNo' :bookNo,
 	       'bookView.searchBookId' : searchBookId,
 	       'bookView.speciesId' : speciesId,
 	       'bookView.firstCategoryName' : firstCategory,
-	       'bookView.thirdCategoryName' : secondCategory,
+	       'bookView.secondCategoryName' : secondCategory,
 	       'bookView.author' : author,
 	       'bookView.operator' : operator,
 	       'bookView.storeDate' : storeDate,

@@ -8,8 +8,8 @@
 		<title>图书馆管理系统</title>
 		<script type="text/javascript" src="<%=path %>/js/common/common.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/combobox/ArrayLocalComboBox.js"></script>
-		<script type="text/javascript" src="<%=path %>/js/borrowReturn/BookReturn.js"></script>
-		<script type="text/javascript" src="<%=path %>/js/borrowReturn/BookReturnGridPanel.js"></script>
+		<script type="text/javascript" src="<%=path %>/js/borrowReturn/MagazineReturn.js"></script>
+		<script type="text/javascript" src="<%=path %>/js/borrowReturn/MagazineReturnGridPanel.js"></script>
 
 	</head>
 	<body bgcolor="#dbecff">
@@ -27,13 +27,13 @@
 									cellspacing="0" class="title_border">
 									<tr>
 										<td width="19%" height="25" style="text-align: left">
-											<strong>&nbsp;<img
-													src="<%=path %>/images/module/cl0.gif" align="absmiddle">书刊归还</strong>
+											<strong>&nbsp;<img src="<%=path %>/images/module/cl0.gif"
+													align="absmiddle">书刊归还</strong>
 										</td>
 										<td width="81%" height="25" class=body1
 											style="text-align: left">
 											<img src="<%=path %>/images/module/02a.gif">
-											书刊归还&gt;&gt;图书归还
+											书刊归还&gt;&gt;期刊归还
 										</td>
 									</tr>
 								</table>
@@ -45,8 +45,7 @@
 									align="center">
 									<tr>
 										<td width="189" height="25"
-											background="<%=path %>/images/module/titleb_01.jpg"
-											class="title1">
+											background="<%=path %>/images/module/titleb_01.jpg" class="title1">
 											归还列表
 										</td>
 										<td background="<%=path %>/images/module/titleb_02.jpg">
@@ -65,17 +64,18 @@
 				</td>
 			</tr>
 			<tr>
-				<td valign="top">
-					<table width="98%" border="0" align="left" cellpadding="0"
+				<td height="10" valign="top">
+					<table width="80%" border="0" align="left" cellpadding="0"
 						cellspacing="0" bordercolor="#ebebeb" borderColorLight="#ebebeb"
 						borderColorDark="#ffffff" id="LM1">
 
 						<tr>
 							<td width="1200" height="500" align="left" valign="top">
-								<div id="bookReturnGrid"></div>
+								<div id="magazineReturnGrid"></div>
 							</td>
 						</tr>
-
+						
+						
 					</table>
 				</td>
 			</tr>

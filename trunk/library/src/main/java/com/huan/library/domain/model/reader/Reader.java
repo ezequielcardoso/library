@@ -58,7 +58,7 @@ public class Reader implements Serializable {
 	private Integer totalBQuantity = 0;    //累计借阅数量
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CardState")
+	@JoinColumn(name = "cardState")
 	private CardState cardState;    //借阅证状态
 
 	public Reader() {

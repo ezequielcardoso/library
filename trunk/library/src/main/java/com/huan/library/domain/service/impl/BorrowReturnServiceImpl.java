@@ -42,7 +42,7 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 	public BorrowReturn getBRByBarCode(String barCode) throws Exception {
 		BorrowReturn borrowReturn = new BorrowReturn();
 		try {
-			borrowReturn = borrowReturnDao.selectBRByBarCode(barCode);
+			borrowReturn = borrowReturnDao.selectBRByBookBar(barCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception(e);

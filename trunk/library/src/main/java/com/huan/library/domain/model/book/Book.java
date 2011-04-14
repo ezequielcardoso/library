@@ -79,7 +79,7 @@ public class Book implements Serializable {
 	@JoinColumn(name="bookState")
 	private BookState bookState; // 图书状态
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true ,targetEntity=BookLevel.class)
 	@JoinColumn(name = "bookLevel")
 	private BookLevel bookLevel; // 图书级别
 	
@@ -149,14 +149,14 @@ public class Book implements Serializable {
 		Category secondCategory = new Category();
 		secondCategory.setItemId(secondCategoryId);
 		secondCategory.setItemCode(secondCategoryCode);
-		firstCategory.setItemName(secondCategoryName);
+		secondCategory.setItemName(secondCategoryName);
 		this.setSecondCategory(secondCategory);
 		
 		Category thirdCategory = new Category();
-		thirdCategory.setItemId(secondCategoryId);
-		thirdCategory.setItemCode(secondCategoryCode);
-		thirdCategory.setItemName(secondCategoryName);
-		this.setSecondCategory(thirdCategory);
+		thirdCategory.setItemId(thirdCategoryId);
+		thirdCategory.setItemCode(thirdCategoryCode);
+		thirdCategory.setItemName(thirdCategoryName);
+		this.setThirdCategory(thirdCategory);
 		
 //		this.hasAttachment = hasAttachment;
 		

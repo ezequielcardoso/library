@@ -179,7 +179,7 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 			sql.append(" left join fetch r.readerType t_rt ");
 			sql.append(" left join fetch r.cardState t_rs ");
 			sql.append(" where r.cardNo = ? ");
-			reader = (Reader) getHibernateTemplate().find(sql.toString(), cardNo).listIterator().next();
+			reader = (Reader) getHibernateTemplate().find(sql.toString(), cardNo.toString()).listIterator().next();
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  throw new Exception(e);

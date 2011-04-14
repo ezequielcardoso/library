@@ -250,7 +250,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			}, {
 				header : '名称',
 				dataIndex : 'bookName',
-				width : 200,
+				width : 150,
 				sortable : true,
 				align : 'center'
 			}, {
@@ -260,9 +260,15 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				sortable : true,
 				align : 'center'
 			}, {
-				header : '分类号',
-				dataIndex : 'firstCategoryCode',
-				width : 80,
+				header : '二级分类',
+				dataIndex : 'secondCategoryName',
+				width : 150,
+				sortable : true,
+				align : 'center'
+			},{
+				header : '三级分类',
+				dataIndex : 'thirdCategoryName',
+				width : 150,
 				sortable : true,
 				align : 'center'
 			}, {
@@ -420,7 +426,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	queryMagazine : function(){
 	   var barCode = Ext.get('barCode').getValue();
 	   var bookName = Ext.get('bookName').getValue();
-	   var bookState = Ext.get('bookState').getValue();
+	   var spell = Ext.get('spell').getValue();
 	   var press = Ext.get('press').getValue();
 	   var location = Ext.get('location').getValue();
 	   var bookNo = Ext.get('bookNo').getValue();
@@ -435,14 +441,14 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   this.getStore().baseParams = {
 	       'bookView.barCode' : barCode,
 	       'bookView.bookName' : bookName,
-	       'bookView.bookStateName' : bookState,
+	       'bookView.spell' : spell,
 	       'bookView.pressName' : press,
 	       'bookView.location' : location,
 	       'bookView.bookNo' :bookNo,
 	       'bookView.searchBookId' : searchBookId,
 	       'bookView.speciesId' : speciesId,
 	       'bookView.firstCategoryName' : firstCategory,
-	       'bookView.thirdCategoryName' : secondCategory,
+	       'bookView.secondCategoryName' : secondCategory,
 	       'bookView.emailNo' : emailNo,
 	       'bookView.ISSN' : ISSN,
 	       'bookView.storeDate' : storeDate,

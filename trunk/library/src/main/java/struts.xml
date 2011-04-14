@@ -16,6 +16,7 @@
 	<include file="dict.xml"></include>
 	<include file="reader.xml"></include>
 	<include file="system.xml"></include>
+	<include file="borrowReturn.xml"></include>
 	
 	<!-- 中文支持等配置 -->
 	<constant name="struts.custom.i18n.resources"

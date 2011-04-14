@@ -8,7 +8,7 @@ function saveBook() {
 	var author = Ext.get('book.author').getValue();
 	var bookDesc = Ext.get('book.bookDesc').getValue();
 	var donator = Ext.get('book.donator').getValue();
-	var translator = Ext.get('book.translator');
+	var translator = Ext.get('book.translator').getValue();
 	
 	var searchBookId = Ext.get('book.searchBookId').getValue();
 	var speciesId = Ext.get('book.speciesId').getValue();

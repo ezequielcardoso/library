@@ -33,8 +33,8 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			//select 子句 
 			hql_.append(" select count(b) ");
 			// count select 子句 
-			hql.append(" select new Book( b.bookId, b.barCode, b.bookName, b.bookDesc, b.donator, b.author, b.translator," +
-				" b.ISBN, b.ISSN, b.emailNo, b.stage, b.allStage, b.pages, b.price, b.publisherDate, " +
+			hql.append(" select new Book( b.bookId, b.barCode, b.bookName, b.bookDesc, b.donator, b.author, b.translator, b.ISBN, " +
+					" b.ISSN, b.emailNo, b.stage, b.allStage, b.pages, b.price, b.publisherDate, " +
 				" b.quantity, b.location, b.revision, b.searchBookId, b.speciesId, b.spell, b.orderDate, b.operator, b.storeDate," + 
 				" b.bookNo, b.isBook, t_fc.itemId, t_fc.itemCode, t_fc.itemName, t_fc.itemShortName, t_cc.itemId," +
 				" t_cc.itemCode, t_cc.itemName, t_th.itemId, t_th.itemCode, t_th.itemName, " +
@@ -79,8 +79,8 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			if(bookView.getBookName()!=null && !"".equals(bookView.getBookName())){
 				whereSub.append(" and b.bookName like (:bookName) ");
 			}
-			if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
-				whereSub.append(" and t_st.itemName like (:bookState) ");
+			if(bookView.getSpell()!=null && !"".equals(bookView.getSpell())){
+				whereSub.append(" and b.spell like (:spell) ");
 			}
 			if(bookView.getPressName()!=null && !"".equals(bookView.getPressName())){
 				whereSub.append(" and t_pr.pressName like (:press) ");
@@ -160,9 +160,9 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 							temp = "%"+bookView.getBookName().replace(" ", "%")+"%";
 							query.setParameter("bookName",temp);
 						}
-						if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
-							temp = "%"+bookView.getBookStateName().replace(" ", "%")+"%";
-							query.setParameter("bookState",temp);
+						if(bookView.getSpell()!=null && !"".equals(bookView.getSpell())){
+							temp = "%"+bookView.getSpell().replace(" ", "%")+"%";
+							query.setParameter("spell",temp);
 						}
 						if(bookView.getPressName()!=null && !"".equals(bookView.getPressName())){
 							temp = "%"+bookView.getPressName().replace(" ", "%")+"%";
@@ -262,9 +262,9 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 							temp = "%"+bookView.getBookName().replace(" ", "%")+"%";
 							query.setParameter("bookName",temp);
 						}
-						if(bookView.getBookStateName()!=null && !"".equals(bookView.getBookStateName())){
-							temp = "%"+bookView.getBookStateName().replace(" ", "%")+"%";
-							query.setParameter("bookState",temp);
+						if(bookView.getSpell()!=null && !"".equals(bookView.getSpell())){
+							temp = "%"+bookView.getSpell().replace(" ", "%")+"%";
+							query.setParameter("spell",temp);
 						}
 						if(bookView.getPressName()!=null && !"".equals(bookView.getPressName())){
 							temp = "%"+bookView.getPressName().replace(" ", "%")+"%";
@@ -379,7 +379,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 		hql.append(" left join fetch b.currency t_cu ");
 		hql.append(" left join fetch b.press t_pr ");
 		hql.append(" left join fetch b.bookSource t_so ");
-		hql.append(" where b.barCode=? ");
+		hql.append(" where b.barCode = ? ");
 		Book book = new Book();
 		try {
 			book = (Book) this.getHibernateTemplate().find(hql.toString(), barCode).listIterator().next();

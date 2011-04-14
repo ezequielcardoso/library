@@ -93,14 +93,14 @@ function ShowFLT(i, number) {
           </tr>
 		   <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
-			<a href="borrowReturn/magazineBorrow.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">期刊借阅登记</a>			</td>
+			<a href="borrowReturn/magazineBorrow.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">期刊借阅登记</a>			</td>
           </tr>
 		   
 		  <tr>
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="borrowReturn/bookReturn.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">图书归还</a></td>
           </tr>
 		    <tr>
-            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="borrowReturn/magazineReturn.html" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">期刊归还</a></td>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'"><a href="borrowReturn/magazineReturn.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">期刊归还</a></td>
           </tr>
         	
 			<tr>
