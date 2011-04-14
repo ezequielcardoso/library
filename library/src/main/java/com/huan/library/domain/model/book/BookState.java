@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import com.huan.library.domain.model.dict.DictItem;
 
 /**
- * 图书状态
+ * 图书状态 在图书状态上加上破寻和丢失
  * @author huan
  *
  */

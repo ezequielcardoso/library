@@ -65,11 +65,11 @@
 												id="bookName" size="15">
 										</TD>
 										<TD width="9%" height=25 align="right" nowrap class="body">
-											状态：
+											期刊拼写：
 										</TD>
 										<TD width="12%" height=25 align="left" nowrap class="body">
-											<input name="bookState" type="text" class="input2"
-												id="bookState" size="15">
+											<input name="spell" type="text" class="input2"
+												id="spell" size="15">
 										</TD>
 										<TD width="7%" height=25 align="right" nowrap class="body">
 											出版社：

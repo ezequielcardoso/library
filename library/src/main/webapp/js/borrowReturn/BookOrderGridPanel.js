@@ -453,7 +453,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	queryBook : function() {
 		var barCode = Ext.get('barCode').getValue();
 		var bookName = Ext.get('bookName').getValue();
-		var bookState = Ext.get('bookState').getValue();
+		var spell = Ext.get('spell').getValue();
 		var press = Ext.get('press').getValue();
 		var location = Ext.get('location').getValue();
 		var bookNo = Ext.get('bookNo').getValue();
@@ -468,7 +468,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		this.getStore().baseParams = {
 			'bookView.barCode' : barCode,
 			'bookView.bookName' : bookName,
-			'bookView.bookStateName' : bookState,
+			'bookView.spell' : spell,
 			'bookView.pressName' : press,
 			'bookView.location' : location,
 			'bookView.bookNo' : bookNo,

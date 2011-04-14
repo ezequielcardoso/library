@@ -1,13 +1,9 @@
 Ext.onReady(function() {
 
-	var pressGridPanel = new Library.press.grid.PressGridPanel();
+	
+	var bookReturnGridPanel= new Library.bookReturn.grid.BookReturnGridPanel();
 
-	pressGridPanel.render('pressGrid');
-
-			pressGridPanel.getStore().load({
-						params : {
-							'start' : 0,
-							'limit' : PressesPageSize
-						}
-					});
+	
+    bookReturnGridPanel.render('bookReturnGrid');
+	
 });

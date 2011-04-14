@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.infrastructure.persistence.BorrowReturnDao;
+import com.huan.library.web.view.BorrowReturnView;
 /**
  * 图书借阅dao实现
  * @author huan
@@ -14,7 +15,10 @@ import com.huan.library.infrastructure.persistence.BorrowReturnDao;
 public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
 		BorrowReturnDao {
 
-	public BorrowReturn selectBRByBarCode(String barCode) throws Exception {
+	
+	
+	
+	public BorrowReturn selectBRByBookBar(String bookBar) throws Exception {
 		BorrowReturn borrowReturn = new BorrowReturn();
 		try {
 			StringBuilder sql = new StringBuilder();
@@ -22,7 +26,7 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
 			sql.append(" left join fetch br.book t_b ");
 			sql.append(" left join fetch br.reader t_r ");
 			sql.append(" where t_b.barCode = ? ");
-			borrowReturn = (BorrowReturn)getHibernateTemplate().find(sql.toString(), barCode).listIterator().next();
+			borrowReturn = (BorrowReturn)getHibernateTemplate().find(sql.toString(), bookBar).listIterator().next();
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  throw new Exception(e);
@@ -30,5 +34,36 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
 		return borrowReturn;
 	}
 
-	
+	public BorrowReturn selectBRByReaderBar(String readerBar) throws Exception {
+		BorrowReturn borrowReturn = new BorrowReturn();
+		try {
+			StringBuilder sql = new StringBuilder();
+			sql.append(" from BorrowReturn br ");
+			sql.append(" left join fetch br.book t_b ");
+			sql.append(" left join fetch br.reader t_r ");
+			sql.append(" where t_r.cardNo = ? ");
+			borrowReturn = (BorrowReturn)getHibernateTemplate().find(sql.toString(), readerBar).listIterator().next();
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  throw new Exception(e);
+		}
+		return borrowReturn;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

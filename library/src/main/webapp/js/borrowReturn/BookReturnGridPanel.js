@@ -1,8 +1,8 @@
-Ext.ns('Library.press.grid');
+Ext.ns('Library.bookReturn.grid');
 
-Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
+Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
-	id : 'pressGridPanel',
+	id : 'bookReturnGridPanel',
 
 	initComponent : function() {
 
@@ -14,255 +14,283 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 									this.onAdd();
 								},
 								scope : this
-							}, '-', {
-								text : '导出Excel',
+							}, '-',{
+								text : '归还',
 								handler : function() {
-
-								}
-							}, '-', {
-								text : '打印',
-								handler : function() {
-								}
+									this.onBorrowed();
+								},
+								scope : this
 							}]
 				});
 
 		var sm = new Ext.grid.CheckboxSelectionModel();
 
 		var cm = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), sm, {
-					header : '条形码',
+					header : '图书条形码',
 					width : 100,
 					sortable : true,
 					align : 'center',
 					editor : new Ext.form.TextField({
 								allowBlank : false
 							}),
-					dataIndex : 'barCode'
+					dataIndex : 'bookBarCode'
 				}, {
-					header : '书名',
-					width : 150,
+					header : '读者条形码',
+					width : 100,
 					sortable : true,
 					align : 'center',
 					editor : new Ext.form.TextField({
 								allowBlank : false
-							}),
+					}),
+					dataIndex : 'readerBarCode'
+				}, {
+					header : '读者姓名',
+					width : 100,
+					sortable : true,
+					align : 'center',
+					dataIndex : 'readerName'
+				},  {
+					header : '书名',
+					width : 80,
+					sortable : true,
+					align : 'center',
 					dataIndex : 'bookName'
 				}, {
-					header : '类别',
+					header : '借阅日期',
 					width : 100,
 					sortable : true,
 					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'firstCategoryName'
-				}, {
-					header : '数量',
-					width : 100,
-					sortable : true,
-					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'quantity'
-				}, {
-					header : '存放位置',
-					width : 100,
-					sortable : true,
-					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'location'
-				}, {
-					header : '作者',
-					width : 100,
-					sortable : true,
-					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'author'
-				}, {
-					header : '录入人员',
-					width : 150,
-					sortable : true,
-					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'operator'
-				},  {
-					header : '出版社',
-					width : 150,
-					sortable : true,
-					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'pressName'
-				}, {
-					header : '价格',
-					width : 100,
-					sortable : true,
-					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'price'
+					dataIndex : 'borrowedDate'
 				},{
-					header : '状态',
+					header : '应还日期',
 					width : 100,
+					sortable : true,
+					align : 'center',
+					dataIndex : 'duetoReturnDate'
+				},{
+					header : '超期天数',
+					width : 100,
+					sortable : true,
+					align : 'center',
+					dataIndex : 'overdueDays'
+				}, {
+					header : '罚金',
+					width : 80,
 					sortable : true,
 					align : 'center',
 					editor : new Ext.form.TextField({
 								allowBlank : false
 							}),
+					dataIndex : 'puniMoney'
+				}, {
+					header : '是或缴款',
+					width : 60,
+					sortable : true,
+					align : 'center',
+					editor : new Library.combo.ArrayLocalComboBox({
+								storeArray : [['是', '是'], ['否', '否']],
+								listeners : {
+									select : function(t) {
+									},
+									scope : this
+								}
+					}),
+					dataIndex : 'isPay'
+				},{
+					header : '图书状态',
+					width : 80,
+					sortable : true,
+					align : 'center',
+					editor : new Ext.form.ComboBox({
+						triggerAction : 'all',
+						valueField : 'value',
+						displayField : 'value',
+						mode : 'remote',
+						lazyRender : true,
+						selectOnFocus : true,
+						allowBlank : false,
+						editable : false,
+						store : new Ext.data.JsonStore({
+							url : contextPath + '/dict/getByItemClass.action',
+							fields : [{
+										name : 'key'
+									}, {
+										name : 'value'
+									}],
+							baseParams : {  
+								className : 'com.huan.library.domain.model.book.BookState'
+							}
+						}),
+						listeners : {
+							'select' : function(combo, record, index) {
+								var rec = Ext.getCmp('bookReturnGridPanel')
+										.getSelectionModel().getSelected();
+								rec.set('bookStateId', record.get('key'));
+								rec.commit()
+							}
+						}
+					}),
 					dataIndex : 'bookStateName'
+				}, {
+					header : '图书类别',
+					width : 80,
+					sortable : true,
+					align : 'center',
+					dataIndex : 'firstCategoryName'
+				},  {
+					header : '读者单位',
+					width : 100,
+					sortable : true,
+					align : 'center',
+					dataIndex : 'unitName'
+				}, {
+					header : '读者类别',
+					width : 80,
+					sortable : true,
+					align : 'center',
+					editor : new Ext.form.ComboBox({
+								triggerAction : 'all',
+								valueField : 'readerCateName',
+								displayField : 'readerCateName',
+								mode : 'remote',
+								lazyRender : true,
+								selectOnFocus : true,
+								allowBlank : false,
+								editable : false,
+								store : new Ext.data.JsonStore({
+											url : contextPath
+													+ '/readerType/findReaderTypes.action',
+											root : 'root',
+											fields : [{
+														name : 'id'
+													}, {
+														name : 'readerCateName'
+													}],
+											baseParams : {
+												'start' : 0,
+												'limit' : ReaderTypesPageSize
+											}
+										}),
+								listeners : {
+									'select' : function(combo, record, index) {
+										var rec = Ext.getCmp('bookReturnGridPanel')
+												.getSelectionModel()
+												.getSelected();
+										rec.set('readerTypeId', record
+														.get('id'));
+										rec.commit()
+									}
+								}
+							}),
+					dataIndex : 'readerCateName'
+				},{
+					header : '存放位置',
+					width : 80,
+					sortable : true,
+					align : 'center',
+					dataIndex : 'location'
+				},{
+					header : '借阅操作员',
+					width : 80,
+					sortable : true,
+					align : 'center',
+					dataIndex : 'borrowOperator'
 				}]);
 
 		var fields = [{
-					name : 'bookId',
+					name : 'id',
 					type : 'int'
 				}, {
-					name : 'barCode',
+					name : 'borrowedDate',
 					type : 'string'
 				}, {
-					name : 'bookName',
+					name : 'duetoReturnDate',
 					type : 'string'
 				}, {
-					name : 'bookDesc',
+					name : 'realityReturndate',
 					type : 'string'
 				}, {
-					name : 'donator',
-					type : 'string'
-				}, {
-					name : 'author',
-					type : 'string'
-				}, {
-					name : 'translator',
-					type : 'string'
-				}, {
-					name : 'ISBN',
-					type : 'string'
-				}, {
-					name : 'ISSN',
-					type : 'string'
-				}, {
-					name : 'operator',
-					type : 'string'
-				}, {
-					name : 'emailNo',
-					type : 'string'
-				}, {
-					name : 'stage',
-					type : 'string'
-				}, {
-					name : 'allStage',
-					type : 'string'
-				}, {
-					name : 'pages',
+					name : 'overdueDays',
 					type : 'int'
 				}, {
-					name : 'price',
+					name : 'puniMoney',
 					type : 'float'
 				}, {
-					name : 'publisherDate',
-					type : 'string'
-				}, {
-					name : 'quantity',
+					name : 'isPay',
 					type : 'int'
 				}, {
-					name : 'location',
-					type : 'string'
-				}, {
-					name : 'revision',
+					name : 'renewTimes',
 					type : 'int'
 				}, {
-					name : 'searchBookId',
+					name : 'borrowOperator',
 					type : 'string'
 				}, {
-					name : 'speciesId',
+					name : 'returnOperator',
 					type : 'string'
 				}, {
-					name : 'spell',
-					type : 'string'
-				}, {
-					name : 'storeDate',
-					type : 'string'
+					name : 'bookId',
+					type : 'int'
 				}, {
 					name : 'bookNo',
 					type : 'string'
 				}, {
-					name : 'isBook',
-					type : 'boolean'
+					name : 'bookBarCode',
+					type : 'string'
+				},{
+					name : 'bookName',
+					type : 'string'
+				}, {
+					name : 'location',
+					type : 'int'
 				}, {
 					name : 'firstCategoryId',
-					type : 'string'
-				}, {
-					name : 'firstCategoryName',
-					type : 'string'
+					type : 'float'
 				}, {
 					name : 'firstCategoryCode',
 					type : 'string'
 				}, {
-					name : 'secondCategoryId',
-					type : 'string'
-				}, {
-					name : 'secondCategoryName',
-					type : 'string'
-				}, {
-					name : 'secondCategoryCode',
-					type : 'string'
-				}, {
-					name : 'thirdCategoryId',
-					type : 'string'
-				}, {
-					name : 'thirdCategoryName',
-					type : 'string'
-				}, {
-					name : 'thirdCategoryCode',
-					type : 'string'
-				}, {
-					name : 'hasAttachment',
+					name : 'firstCategoryName',
 					type : 'string'
 				}, {
 					name : 'bookStateId',
 					type : 'string'
 				}, {
 					name : 'bookStateName',
+					type : 'int'
+				}, {
+					name : 'readerId',
+					type : 'int'
+				}, {
+					name : 'readerName',
 					type : 'string'
 				}, {
-					name : 'bookLevelId',
+					name : 'cardNo',
 					type : 'string'
 				}, {
-					name : 'bookLevelName',
+					name : 'readerBarCode',
 					type : 'string'
 				}, {
-					name : 'bookSecurityId',
+					name : 'unitId',
+					type : 'int'
+				}, {
+					name : 'unitCode',
 					type : 'string'
 				}, {
-					name : 'bookSecurityName',
+					name : 'unitName',
 					type : 'string'
 				}, {
-					name : 'currencyId',
+					name : 'readerTypeId',
+					type : 'int'
+				}, {
+					name : 'readerCateCode',
 					type : 'string'
 				}, {
-					name : 'pressId',
-					type : 'string'
-				}, {
-					name : 'pressName',
-					type : 'string'
-				}, {
-					name : 'bookSourceId',
-					type : 'string'
-				}, {
-					name : 'bookSourceName',
+					name : 'readerCateName',
 					type : 'string'
 				}];
 
 		var store = new Ext.data.JsonStore({
-					url : contextPath + '/book/findBooks.action',
-					// url : '',
+//					url : contextPath + '/book/findBooks.action',
 					root : 'root',
 					totalProperty : 'totalProperty',
 					baseParams : {
@@ -276,24 +304,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					}
 				});
 
-		var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
-					store : store,
-					pageSize : BooksPageSize,
-					afterPageText : '/ {0}',
-					beforePageText : '页',
-					displayInfo : true,
-					firstText : '第一页',
-					prevText : '前一页',
-					nextText : '后一页',
-					lastText : '最后一页',
-					refreshText : '刷新',
-					displayMsg : '显示第 {0}-{1}条  共{2}条 ',
-					emptyMsg : '没有数据'
-				})]);
-
 		Ext.apply(this, {
 					width : 1200,
-					height : 400,
+					height : 500,
 					autoScroll : true,
 					tbar : tbar,
 					sm : sm,
@@ -302,8 +315,6 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					stripeRows : true,
 					columnLines : true,
 					frame : true,
-					bbar : bbar,
-					loadMask : '正在加载......',
 					clicksToEdit : 1,
 					viewConfig : new Ext.grid.GridView({
 								rowHeight : 23,
@@ -315,7 +326,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							})
 				});
 
-		Library.press.grid.PressGridPanel.superclass.initComponent.call(this);
+		Library.bookReturn.grid.BookReturnGridPanel.superclass.initComponent.call(this);
 
 		this.on('afteredit', function(e) {
 					e.record.commit();
@@ -325,38 +336,25 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 										+ '/book/findBookByBarCode.action',
 								method : 'POST',
 								params : {
-									'bookView.barCode' : e.record
-											.get('barCode')
+									'bookView.isBook' : 1,
+									'bookView.barCode' : e.record.get('barCode')
 								},
 								success : function(resp) {
-									var obj = Ext.util.JSON
-											.decode(resp.responseText);
-									if (obj.success == true) {
-										// Ext.Msg.alert('提示', obj.msg);
-										e.record.set('barCode',
-												obj.data.barCode);
-										e.record.set('bookName',
-												obj.data.bookName);
-										e.record.set('firstCategoryName',
-												obj.data.firstCategoryName);
-										e.record.set('quantity',
-												obj.data.quantity);
-										e.record.set('location',
-												obj.data.location);
-										e.record.set('author', obj.data.author);
-										e.record.set('pressName',
-												obj.data.operator);
-										e.record.set('pressName',
-												obj.data.operator);
-										e.record.set('price',
-												obj.data.price);
-										e.record.set('bookStateName',
-												obj.data.bookStateName);
-										e.record.commit();
-										// thiz.getStore().reload();
-									} else if (obj.success == false) {
-										Ext.Msg.alert('提示', obj.msg);
-									}
+									var book = Ext.util.JSON.decode(resp.responseText);
+									e.record.set('bookId',book.bookId);
+									e.record.set('barCode',book.barCode);
+									e.record.set('bookNo',book.bookNo);
+									e.record.set('bookName',book.bookName);
+									e.record.set('quantity',book.quantity);
+									e.record.set('firstCategoryName',book.firstCategory.itemName);
+									e.record.set('secondCategoryName',book.secondCategory.itemName);
+									e.record.set('location',book.location);
+									e.record.set('author', book.author);
+									e.record.set('operator',book.operator);
+									e.record.set('pressName',book.press.pressName);
+									e.record.set('price',book.price);
+									e.record.set('bookStateName',book.bookState.itemName);
+									e.record.commit();
 								},
 								failure : function() {
 									Ext.Msg.alert('提示', '服务器异常，请稍候再试');
@@ -366,25 +364,77 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	},
 
 	onAdd : function() {
-		var Book = this.getStore().recordType;
-		var b = new Book({
-					barCode : '',
+		var BorrowReturn = this.getStore().recordType;
+		var br = new BorrowReturn({
+					bookBarCode : '',
+					readerBarCode : '' ,
+					readerName : '',
 					bookName : '',
+					borrowedDate : '',
+					duetoReturnDate : '',
+					overdueDays : '',
+					puniMoney : '',
+					isPay : '',
 					firstCategoryName : '',
-					quantity : '',
-					location : '',
-					author : '',
-					operator : '',
-					pressName : '',
-					price : '',
-					bookStateName : ''
+					unitName : '',
+					readerCateName : '',
+					location : '' ,
+					bookStateName : '',
+					borrowOperator : ''
 				});
 		this.stopEditing();
-		this.store.insert(0, b);
+		this.store.insert(0, br);
 		this.startEditing(0, 0);
 	},
-	onImport : function() {
+	onBorrowed : function() {
+          var cardNo = Ext.get('reader.cardNo').getValue();
+//          var bookId = Ext.get('book.barCode').getValue();
+         var sm = this.getSelectionModel();
+		if (sm.hasSelection()) {
+			Ext.MessageBox.confirm('提示', '你确定要借出图书吗？', function(btn, text) {
+                   	if (btn == 'yes') {
+							var records = sm.getSelections();
+							for (var i = 0; i < records.length; i++) {
+								var record = records[i];
+								var bookId = record.get('bookId');
+								var thiz = this;
+								Ext.Ajax.request({
+											url : contextPath
+													+ '/borrowReturn/bookBorrow.action',
+											method : 'POST',
+											params : {
+												'book.bookId' : bookId,
+												'reader.cardNo' : cardNo
+											},
+											success : function(resp) {
+												var respText = resp.responseText;
+												var obj = Ext.util.JSON
+														.decode(respText);
+												if (obj.success == true) {
+													Ext.Msg
+															.alert('提示',
+																	obj.msg);
+													thiz.getStore().reload();
+												} else {
+													Ext.Msg
+															.alert('提示',
+																	obj.msg);
+												}
+											},
+											failure : function() {
+												Ext.Msg.alert('提示', '服务器异常');
+											}
+										});
+							}
+						} else {
+							return false;
+						}
 
+					}, this);
+
+		} else {
+			Ext.Msg.alert('提示', '请选择你要借阅的图书');
+		}
 	},
 	onExport : function() {
 
@@ -393,20 +443,8 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 	},
 
-	onRefresh : function() {
-
-		this.getStore().baseParams = {};
-
-		this.getStore().load({
-					params : {
-						'start' : 0,
-						'limit' : PressesPageSize
-					}
-				});
-	},
-
 	loadPressForm : function() {
-		Ext.get('press.pressId').setValue(record.pressId);
+		Ext.get('book.bookId').setValue(record.bookId);
 	}
 
 });

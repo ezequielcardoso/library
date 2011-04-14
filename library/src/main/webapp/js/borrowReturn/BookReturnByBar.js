@@ -1,8 +1,8 @@
-Ext.ns('Library.bookBorrow.grid');
+Ext.ns('Library.bookReturn.bookBar.grid');
 
-Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
+Library.bookReturn.bookBar.grid.BookReturnByBarGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
-	id : 'bookBorrowGridPanel',
+	id : 'bookReturnByBarGridPanel',
 
 	initComponent : function() {
 
@@ -35,7 +35,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 		var sm = new Ext.grid.CheckboxSelectionModel();
 
 		var cm = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(), sm, {
-					header : '条形码',
+					header : '图书条形码',
 					width : 100,
 					sortable : true,
 					align : 'center',
@@ -108,35 +108,6 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 					width : 80,
 					sortable : true,
 					align : 'center',
-					editor : new Ext.form.ComboBox({
-						triggerAction : 'all',
-						valueField : 'value',
-						displayField : 'value',
-						mode : 'remote',
-						lazyRender : true,
-						selectOnFocus : true,
-						allowBlank : false,
-						editable : false,
-						store : new Ext.data.JsonStore({
-							url : contextPath + '/dict/getByItemClass.action',
-							fields : [{
-										name : 'key'
-									}, {
-										name : 'value'
-									}],
-							baseParams : {  
-								className : 'com.huan.library.domain.model.book.BookState'
-							}
-						}),
-						listeners : {
-							'select' : function(combo, record, index) {
-								var rec = Ext.getCmp('bookBorrowGridPanel')
-										.getSelectionModel().getSelected();
-								rec.set('bookStateId', record.get('key'));
-								rec.commit()
-							}
-						}
-					}),
 					dataIndex : 'bookStateName'
 				}]);
 
@@ -312,7 +283,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 
 		Ext.apply(this, {
 					width : 1200,
-					height : 400,
+					height : 260,
 					autoScroll : true,
 					tbar : tbar,
 					sm : sm,
@@ -334,7 +305,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(Ext.grid.EditorGridPane
 							})
 				});
 
-		Library.bookBorrow.grid.BookBorrowGridPanel.superclass.initComponent.call(this);
+		Library.bookReturn.bookBar.grid.BookReturnByBarGridPanel.superclass.initComponent.call(this);
 
 		this.on('afteredit', function(e) {
 					e.record.commit();

@@ -250,6 +250,9 @@ public class BookAction extends BaseActionSupport {
 			if (book.getBookName() != null) {
 				view.setBookName(book.getBookName());
 			}
+			if(book.getBarCode()!=null){
+				view.setBarCode(book.getBarCode());
+			}
 			if (book.getBookDesc() != null) {
 				view.setBookDesc(book.getBookDesc());
 			}
@@ -264,6 +267,12 @@ public class BookAction extends BaseActionSupport {
 			}
 			if (book.getISBN() != null) {
 				view.setISBN(book.getISBN());
+			}
+			if(book.getISSN()!=null){
+				view.setISSN(book.getISSN());
+			}
+			if(book.getEmailNo()!=null){
+				view.setEmailNo(book.getEmailNo());
 			}
 			if (book.getPages() != null) {
 				view.setPages(book.getPages());

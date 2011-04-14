@@ -7,13 +7,11 @@
 		<link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>图书馆管理系统</title>
 		<script type="text/javascript" src="<%=path %>/js/common/common.js"></script>
-		
-		<script type="text/javascript"
-			src="<%=path %>/js/borrowReturn/BookBorrow.js"></script>
-		<script type="text/javascript"
-			src="<%=path %>/js/borrowReturn/BookBorrowGridPanel.js"></script>
+        
+        <script type="text/javascript" src="<%=path %>/js/borrowReturn/MagazineBorrow.js"></script>
+		<script type="text/javascript" src="<%=path %>/js/borrowReturn/MagazineBorrowGridPanel.js"></script>
 
-		
+
 	</head>
 	<body bgcolor="#dbecff">
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -23,7 +21,6 @@
 			</tr>
 			<tr>
 				<td valign="top">
-
 					<table width="100%" border="0" cellpadding="0" cellspacing="0">
 						<tr>
 							<td>
@@ -32,12 +29,13 @@
 									<tr>
 										<td width="19%" height="25" style="text-align: left">
 											<strong>&nbsp;<img
-													src="<%=path %>/images/module/cl0.gif" align="absmiddle">借阅归还</strong>
+													src="<%=path %>/images/module/cl0.gif" align="absmiddle">
+												借阅归还 </strong>
 										</td>
 										<td width="81%" height="25" class=body1
 											style="text-align: left">
 											<img src="<%=path %>/images/module/02a.gif">
-											借阅归还&gt;&gt;图书借阅登记
+											借阅归还&gt;&gt;期刊借阅登记
 										</td>
 									</tr>
 								</table>
@@ -56,6 +54,11 @@
 										<td background="<%=path %>/images/module/titleb_02.jpg">
 											&nbsp;
 										</td>
+										<td width="213" align="right"
+											background="<%=path %>/images/module/titleb_03.jpg"
+											style="padding-bottom: 10px">
+											&nbsp;&nbsp;
+										</td>
 									</tr>
 								</table>
 							</td>
@@ -68,8 +71,7 @@
 					<table width="80%" border="0" align="left" cellpadding="0"
 						cellspacing="0" bordercolor="#ebebeb" borderColorLight="#ebebeb"
 						borderColorDark="#ffffff" id="LM1">
-
-						<TR>
+												<TR>
 							<TD width="8%" height=25 align="right" nowrap="nowrap"
 								style="padding-left: 12px;">
 								借阅证号：
@@ -176,7 +178,6 @@
 									size="8">
 							</td>
 						</TR>
-
 					</TABLE>
 				</td>
 			</tr>
@@ -206,29 +207,25 @@
 								</table>
 							</td>
 						</tr>
-
 						<tr>
 							<td valign="top">
 								<table width="98%" border="1" align="center" cellpadding="0"
 									cellspacing="0" bordercolor="#bcc3c9"
 									bordercolorlight="#bcc3c9" bordercolordark="#ffffff"
 									bgcolor="#FFFFFF" style="margin-top: 5px">
-
 									<tr>
 										<td width="1200" height="280" align="left" valign="top">
-											<div id="bookBorrowGrid"></div>
+											<div id="magazineBorrowGrid"></div>
 										</td>
 									</tr>
-
 								</table>
-
 							</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
 		</table>
-		<script type="text/javascript"
+        <script type="text/javascript"
 			src="<%=path %>/js/borrowReturn/LoadReader.js"></script>
 	</body>
 </html>

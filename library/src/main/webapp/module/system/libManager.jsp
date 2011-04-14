@@ -50,8 +50,8 @@
 									<tr>
 										<td height="30" class="body1">
 											<input type="button" class="btn"
-												value="设置" onclick="save();">
-											<input type="button" class="btn" value="清除" onclick="clear();">
+												value="设置" onClick="save();">
+											<input type="button" class="btn" value="清除" onClick="clear();">
 											<input type="button" class="btn"
 												onClick="window.history.back(-1);" value="返回">
 										</td>
@@ -93,94 +93,101 @@
 												cellspacing="0" bordercolor="#bcc3c9"
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
-												<tr>
-												  <td>
+												<tr align="right">
+												  <td nowrap>
                                                      <input type="hidden" name="libInfo.id" id="libInfo.id"
                                                        value="<s:property value='libInfo.id'/>">   
                                                   </td>
-												</tr>
+											  </tr>
 												<tr align="right" valign="middle">
-													<TD width="113" height="30"  
+													<TD width="113" height="30" align="right" nowrap  
 														class="body">
 														图书管名字：
-													</TD>
+												  </TD>
 													<TD
-														width="140" height="25" align="left"  class="body">
+														width="140" height="25" align="left" nowrap  class="body">
 														<input name="libInfo.libName" type="text" id="libInfo.libName"
 														  value="<s:property value='libInfo.libName'/>" size="20">  
-													</TD>
-													<TD width="113" height="30" 
+												  </TD>
+													<TD width="113" height="30" align="right" nowrap 
 														 class="body">
 														开户费：
-												  </TD>
-													<TD width="206" height="30" align="left" 
+											    </TD>
+													<TD width="206" height="30" align="left" nowrap 
 														class="body">
 														<input name="libInfo.baseCost" type="text" id="libInfo.baseCost"
 														 value="<s:property value='libInfo.baseCost'/>" size="20">
 													</TD>
-												</tr>
-												<tr>
-												  <TD width="113" height="30" align="right" valign="center"  
+											  </tr>
+												<tr align="right">
+											  <TD width="113" height="30" align="right" valign="center" nowrap  
 														class="body">
 														电话：
-													</TD>
+												  </TD>
 													<TD
-														width="140" height="25" align="left" valign="top"  class="body">
+														width="140" height="25" align="left" valign="top" nowrap  class="body">
 														<input name="libInfo.telphone" type="text" id="libInfo.telphone"
 														 value="<s:property value='libInfo.telphone'/>" size="20">
-													</TD>
-													<TD height="30" align="right" valign="center"  
+												  </TD>
+													<TD height="30" align="right" valign="center" nowrap  
 														class="body">
 														负责人：
 													</TD>
-													<TD height="30" align="left" valign="top"  class="body">
+													<TD height="30" align="left" valign="top" nowrap  class="body">
 														<input name="libInfo.libManager" type="text" id="libInfo.libManager" 
 														value="<s:property value='libInfo.libManager'/>" size="20">
 													</TD>
-												</tr>
-												<tr>
-													<TD width="113" height="30" align="right" valign="center"  
+											  </tr>
+												<tr align="right">
+													<TD width="113" height="30" align="right" valign="center" nowrap  
 														class="body">
 														押金倍数：
 													</TD>
 													<TD
-														width="140" height="25" align="left" valign="top"  class="body">
+														width="140" height="25" align="left" valign="top" nowrap  class="body">
 														<input name="libInfo.depositeTimes" type="text" id="libInfo.depositeTimes" 
 														value="<s:property value='libInfo.depositeTimes'/>" size="20">
-													</TD>
-													<TD height="30" align="right" valign="center"  
+												  </TD>
+													<TD height="30" align="right" valign="center" nowrap  
 														class="body">
 														超期日罚金：
 													</TD>
-													<TD height="30" align="left" valign="top"  class="body">
+													<TD height="30" align="left" valign="top" nowrap  class="body">
 														<input name="libInfo.payADay" type="text" id="libInfo.payADay" 
 														value="<s:property value='libInfo.payADay'/>" size="20">
 													</TD>
-												</tr>
-												<tr>
-													<TD width="113" height="30" align="right" valign="center"  
+											  </tr>
+												<tr align="right">
+													<TD width="113" height="23" align="right" valign="center" nowrap  
 														class="body">
 														地址：
 													</TD>
-													<TD height="25"
-														colspan="3" align="left" valign="top"  class="body">
+													<TD height="23" align="left" valign="top" nowrap  class="body">
 														<input name="libInfo.address" type="text" id="libInfo.address" 
-														value="<s:property value='libInfo.address'/>" size="68">
+														value="<s:property value='libInfo.address'/>" size="20">
+												  </TD>
+													<TD height="23" align="right" valign="center" nowrap  
+														class="body">
+														本馆资金：
+												  </TD>
+													<TD height="23" align="left" valign="top" nowrap  class="body">
+														<input name="libInfo.libFunds" type="text" id="libInfo.libFunds" 
+														value="<s:property value='libInfo.libFunds'/>" size="20">
 													</TD>
-												</tr>
-												<tr>
-													<td height="60" align="right"   bgcolor="#F4F5F9">
+											  </tr>
+												<tr align="right">
+													<td width="100" height="60" align="right" nowrap   bgcolor="#F4F5F9">
 														简介：
 													</td>
-													<td height="80" colspan="3" align="left"  bgcolor="#F4F5F9">
-														<textarea cols="53" rows="4" id="libInfo.libDesc"  name="libInfo.libDesc"
+													<td height="60" colspan="3" align="left" nowrap  bgcolor="#F4F5F9">
+														<textarea  name="libInfo.libDesc" rows="8" cols="70" id="libInfo.libDesc"
 															style="border-color: #bcc3c9; border-width: 1px;">
                                                             <s:property value="libInfo.libDesc"/>
                                                       </textarea>
-													</td>
-												</tr>
-											</table>
-										</td>
+												  </td>
+											  </tr>
+										  </table>
+									  </td>
 									</tr>
 								</table>
 							</td>

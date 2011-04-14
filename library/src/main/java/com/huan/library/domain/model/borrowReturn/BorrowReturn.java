@@ -35,7 +35,7 @@ public class BorrowReturn implements Serializable{
 	private Date realityReturndate;  //实还日期
 	private Integer overdueDays;         //逾期天数
 	private Float puniMoney = 0F;        //罚金
-	private Boolean  isPay ;         //是或缴款
+	private Integer isPay ;         //是或缴款
 	private Integer   renewTimes;        //续借次数
 	
 	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class)
@@ -46,7 +46,8 @@ public class BorrowReturn implements Serializable{
     @JoinColumn(name="reader")
     private Reader reader;     //借阅证
 	
-	private String operator;          //操作员  
+	private String borrowOperator;          //借阅操作员
+	private String returnOperator;          //归还操作员 
 	
 	public BorrowReturn(){
 		
@@ -100,11 +101,12 @@ public class BorrowReturn implements Serializable{
 		this.puniMoney = puniMoney;
 	}
 
-	public Boolean getIsPay() {
+	
+	public Integer getIsPay() {
 		return isPay;
 	}
 
-	public void setIsPay(Boolean isPay) {
+	public void setIsPay(Integer isPay) {
 		this.isPay = isPay;
 	}
 
@@ -132,12 +134,21 @@ public class BorrowReturn implements Serializable{
 		this.reader = reader;
 	}
 
-	public String getOperator() {
-		return operator;
+
+	public String getBorrowOperator() {
+		return borrowOperator;
 	}
 
-	public void setOperator(String operator) {
-		this.operator = operator;
+	public void setBorrowOperator(String borrowOperator) {
+		this.borrowOperator = borrowOperator;
 	}
-    
+
+	public String getReturnOperator() {
+		return returnOperator;
+	}
+
+	public void setReturnOperator(String returnOperator) {
+		this.returnOperator = returnOperator;
+	}
+
 }

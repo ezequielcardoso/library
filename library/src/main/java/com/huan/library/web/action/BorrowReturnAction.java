@@ -33,8 +33,11 @@ public class BorrowReturnAction extends BaseActionSupport {
 
 	@Autowired
 	private BorrowReturnService borrowReturnService; // 借还service
+	@Autowired
 	private BookService bookService ;   //图书service
+	@Autowired
 	private ReaderService readerService; //读者service
+	@Autowired
 	private LibInfoService libInfoService ; //图书馆service
 	private BorrowReturn borrowReturn = new BorrowReturn();
 
@@ -46,7 +49,13 @@ public class BorrowReturnAction extends BaseActionSupport {
 	
 	public String findBRByBarcode() {
 		try {
-			borrowReturn = borrowReturnService.getBRByBarCode(book.getBarCode());
+			if(book.getBarCode()!=null && !"".equals(book.getBarCode())){
+				borrowReturn = borrowReturnService.getBRByBarCode(book.getBarCode());
+			}
+			if(reader.getBarCode()!=null && !"".equals(reader.getBarCode())){
+//				borrowReturn = borrowReturnService.get
+			}
+			
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
@@ -67,6 +76,8 @@ public class BorrowReturnAction extends BaseActionSupport {
 	 */
 	public String bookBorrow() {
 		try {
+            reader = readerService.findReaderById(reader.getCardNo());
+			book = bookService.getBookById(book.getBookId());
 			if(book.getQuantity()==null||book.getQuantity()<=0){
 				extJsonForm.setData(null);
 				extJsonForm.setMsg("图书数量不足！");
@@ -96,19 +107,21 @@ public class BorrowReturnAction extends BaseActionSupport {
 			borrowReturn.setDuetoReturnDate(DateFormatUtil.convertToDate(String.valueOf(((new Date().getTime()/1000)+60*60*24*30)*1000)));
 			borrowReturn.setRealityReturndate(null);
 			borrowReturn.setPuniMoney(0f);
-			borrowReturn.setIsPay(true);
+			borrowReturn.setIsPay(1);
 			borrowReturn.setRenewTimes(0);
+
+		
 			borrowReturn.setBook(book);
 			borrowReturn.setReader(reader);
-			
-			borrowReturn = borrowReturnService.addOrModifyBorrow(borrowReturn);
-			
 			book.getBookState().setItemName("借阅中");
 			book.setQuantity(book.getQuantity()-1);
 			bookService.addOrModifyBook(book);
-			
 			reader.setBorrowedQuantiy(reader.getBorrowedQuantiy()+1);
 		    readerService.addOrModifyReader(reader);
+			
+			borrowReturn = borrowReturnService.addOrModifyBorrow(borrowReturn);
+			
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -141,7 +154,7 @@ public class BorrowReturnAction extends BaseActionSupport {
 		          readerService.addOrModifyReader(reader);
                   libInfo.setLibFunds(libInfo.getLibFunds() + fineMoney);
 		          libInfoService.save(libInfo);
-		          borrowReturn.setIsPay(true);
+		          borrowReturn.setIsPay(1);
 			}
 			borrowReturn.setOverdueDays(overdueDays);
 			borrowReturn.setRealityReturndate(new Date());

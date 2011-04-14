@@ -1,10 +1,8 @@
 package com.huan.library.web.view;
 
 import java.io.Serializable;
-import java.util.Date;
 
 
-import com.huan.library.util.Constants;
 import com.huan.library.web.view.grid.ExtGridPost;
 /**
  * @author huan
@@ -20,7 +18,7 @@ public class ReaderView extends ExtGridPost implements Serializable{
 	private Long id; // 主键
 	private String readerName;  // 读者姓名
 	private String birthday;      //出生日期
-	private String sex = Constants.MALE;  // 姓名 M:男 F:女
+	private String sex ;  // 姓名 M:男 F:女
 	private String email;       // 邮箱
 	private String contactTel;  // 联系电话
 	private Float leftMoney = 0.0f; // 余额
