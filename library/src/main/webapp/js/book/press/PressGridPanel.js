@@ -254,25 +254,19 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								var pressId = record.get('pressId');
 								var thiz = this;
 								Ext.Ajax.request({
-											url : contextPath
-													+ '/press/remove.action',
+											url : contextPath+ '/press/remove.action',
 											method : 'POST',
 											params : {
 												'pressView.pressId' : pressId
 											},
 											success : function(resp) {
 												var respText = resp.responseText;
-												var obj = Ext.util.JSON
-														.decode(respText);
+												var obj = Ext.util.JSON.decode(respText);
 												if (obj.success == true) {
-													Ext.Msg
-															.alert('提示',
-																	obj.msg);
+													Ext.Msg.alert('提示',obj.msg);
 													thiz.getStore().reload();
 												} else {
-													Ext.Msg
-															.alert('提示',
-																	obj.msg);
+													Ext.Msg.alert('提示',obj.msg);
 												}
 											},
 											failure : function() {

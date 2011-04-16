@@ -26,11 +26,18 @@ public interface ReaderService {
 	public void removeReader(Reader reader) throws Exception;
 	
 	/**
-	 * 根据Id查找Reader
+	 * 根据借阅证号查找Reader
 	 * @param readerId
 	 * @return
 	 */
-	public Reader findReaderById(String cardNo) throws Exception;
+	public Reader findReaderByCardNo(String cardNo) throws Exception;
+	/**
+	 * 
+	 * @param readerId
+	 * @return
+	 * @throws Exception
+	 */
+	public Reader findReaderById(Long readerId) throws Exception;
 	/**
 	 * 
 	 * @param readerView

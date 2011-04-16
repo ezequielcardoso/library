@@ -1,6 +1,9 @@
 package com.huan.library.domain.service;
 
+import java.util.List;
+
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
+import com.huan.library.web.view.BorrowReturnView;
 
 /**
  * 图书归还service
@@ -25,5 +28,12 @@ public interface BorrowReturnService {
 	
 	
 	public BorrowReturn getBRByBarCode(String barCode) throws Exception;
+	/**
+	 * 根据读者条形码和图书条形码查找借阅记录
+	 * @param borrowReturnView
+	 * @return
+	 * @throws Exception
+	 */
+	public List<BorrowReturn> getByBarCodeOrReaderCode(BorrowReturnView borrowReturnView) throws Exception;
 
 }

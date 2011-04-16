@@ -166,6 +166,23 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 		}
 	}
 
+	public Reader selectById(Long readerId) throws Exception {
+		 Reader reader = new Reader();
+			try {
+				StringBuilder sql = new StringBuilder();
+				sql.append(" from Reader r ");
+				sql.append(" left join fetch r.readerUnits t_ru ");
+				sql.append(" left join fetch r.certificate t_c ");
+				sql.append(" left join fetch r.readerType t_rt ");
+				sql.append(" left join fetch r.cardState t_rs ");
+				sql.append(" where r.id = ? ");
+				reader = (Reader) getHibernateTemplate().find(sql.toString(), readerId).listIterator().next();
+			} catch (Exception e) {
+			  e.printStackTrace();
+			  throw new Exception(e);
+			}
+			return reader;
+	}
 	
 	/**
 	 *
@@ -180,7 +197,7 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 			sql.append(" left join fetch r.readerType t_rt ");
 			sql.append(" left join fetch r.cardState t_rs ");
 			sql.append(" where r.cardNo = ? ");
-			reader = (Reader) getHibernateTemplate().find(sql.toString(), cardNo.toString()).listIterator().next();
+			reader = (Reader) getHibernateTemplate().find(sql.toString(), cardNo).listIterator().next();
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  throw new Exception(e);

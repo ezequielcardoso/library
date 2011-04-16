@@ -75,11 +75,11 @@ public class Book implements Serializable {
 	@OneToMany(fetch=FetchType.LAZY,targetEntity=Attachment.class,mappedBy="book", cascade=CascadeType.REMOVE)
 	private List<Attachment> attachments = new ArrayList<Attachment>(); // 附件
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=BookState.class)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="bookState")
 	private BookState bookState; // 图书状态
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = true ,targetEntity=BookLevel.class)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "bookLevel")
 	private BookLevel bookLevel; // 图书级别
 	

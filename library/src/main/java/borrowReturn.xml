@@ -17,6 +17,12 @@
            </result>
        </action>
        
+       <action name="findByByBarCodeOrReaderCode" class="com.huan.library.web.action.BorrowReturnAction" method="findByByBarCodeOrReaderCode">
+          <result name="success" type="json">
+             <param name="root">borrowReturn</param>
+          </result>
+       </action>
+       
     </package>    		
 </struts>
 

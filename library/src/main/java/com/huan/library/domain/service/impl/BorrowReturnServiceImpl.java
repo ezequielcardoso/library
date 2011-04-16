@@ -1,11 +1,15 @@
 package com.huan.library.domain.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.domain.service.BorrowReturnService;
 import com.huan.library.infrastructure.persistence.BorrowReturnDao;
+import com.huan.library.web.view.BorrowReturnView;
 /**
  * 书刊借阅归还service实现
  * @author huan
@@ -48,6 +52,17 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 			throw new Exception(e);
 		}
 		return borrowReturn;
+	}
+	
+	public List<BorrowReturn> getByBarCodeOrReaderCode(BorrowReturnView borrowReturnView) throws Exception{
+		List<BorrowReturn> borrowReturns = new ArrayList<BorrowReturn>(); 
+		try {
+			borrowReturns = borrowReturnDao.selectBorrowReturn(borrowReturnView);
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  throw new Exception(e);
+		}
+		return borrowReturns;
 	}
 	
 	public void setBorrowReturnDao(BorrowReturnDao borrowReturnDao) {

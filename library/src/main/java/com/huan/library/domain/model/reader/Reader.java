@@ -55,6 +55,7 @@ public class Reader implements Serializable {
 	private Date effectiveDate;    //有效日期
 	private String readerPic;      //头像
 	private Integer borrowedQuantiy = 0;      //当前借阅数量
+	private Integer renewTimes = 0;     //续借次数
 	private Integer totalBQuantity = 0;    //累计借阅数量
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -283,6 +284,14 @@ public class Reader implements Serializable {
 
 	public void setTotalBQuantity(Integer totalBQuantity) {
 		this.totalBQuantity = totalBQuantity;
+	}
+
+	public Integer getRenewTimes() {
+		return renewTimes;
+	}
+
+	public void setRenewTimes(Integer renewTimes) {
+		this.renewTimes = renewTimes;
 	}
 
    

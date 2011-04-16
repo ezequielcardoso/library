@@ -48,6 +48,7 @@ public class ReaderView extends ExtGridPost implements Serializable{
 	private String cardStateCode;
 	private String cardStateName;   //借阅证状态
 	private Integer borrowedQuantiy = 0;      //当前借阅数量
+	private Integer renewTimes = 0 ; //续借次数
 	private Integer totalBQuantity = 0;    //累计借阅数量
 	
 	
@@ -296,5 +297,15 @@ public class ReaderView extends ExtGridPost implements Serializable{
 	public void setCardStateName(String cardStateName) {
 		this.cardStateName = cardStateName;
 	}
+
+	public Integer getRenewTimes() {
+		return renewTimes;
+	}
+
+	public void setRenewTimes(Integer renewTimes) {
+		this.renewTimes = renewTimes;
+	}
+	
+	
     
 }

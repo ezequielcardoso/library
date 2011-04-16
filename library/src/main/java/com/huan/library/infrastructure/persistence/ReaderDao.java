@@ -18,6 +18,8 @@ public interface ReaderDao extends BaseDao<Reader>{
 	
 	public Reader selectByCardNo(String cardNo) throws Exception;
 	
+	public Reader selectById(Long readerId) throws Exception;
+	
 	
 	public void insertReaders(List<Reader> readers) throws Exception;
 	
