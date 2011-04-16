@@ -1,8 +1,6 @@
 package com.huan.library.web.view;
 
 import java.io.Serializable;
-import java.util.Date;
-
 
 import com.huan.library.web.view.form.ExtJsonForm;
 
@@ -14,9 +12,9 @@ public class BorrowReturnView extends ExtJsonForm implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id; //主键
-	private Date borrowedDate;       //借阅日期
-	private Date duetoReturnDate;    //应还日期
-	private Date realityReturndate;  //实还日期
+	private String borrowedDate;       //借阅日期
+	private String duetoReturnDate;    //应还日期
+	private String realityReturndate;  //实还日期
 	private Integer overdueDays;         //逾期天数
 	private Float puniMoney = 0F;        //罚金
 	private Integer isPay = 1;         //是或缴款  1表示是缴款  0表示没
@@ -58,22 +56,23 @@ public class BorrowReturnView extends ExtJsonForm implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getBorrowedDate() {
+	
+	public String getBorrowedDate() {
 		return borrowedDate;
 	}
-	public void setBorrowedDate(Date borrowedDate) {
+	public void setBorrowedDate(String borrowedDate) {
 		this.borrowedDate = borrowedDate;
 	}
-	public Date getDuetoReturnDate() {
+	public String getDuetoReturnDate() {
 		return duetoReturnDate;
 	}
-	public void setDuetoReturnDate(Date duetoReturnDate) {
+	public void setDuetoReturnDate(String duetoReturnDate) {
 		this.duetoReturnDate = duetoReturnDate;
 	}
-	public Date getRealityReturndate() {
+	public String getRealityReturndate() {
 		return realityReturndate;
 	}
-	public void setRealityReturndate(Date realityReturndate) {
+	public void setRealityReturndate(String realityReturndate) {
 		this.realityReturndate = realityReturndate;
 	}
 	public Integer getOverdueDays() {

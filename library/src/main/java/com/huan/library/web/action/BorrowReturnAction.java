@@ -15,6 +15,7 @@ import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.domain.service.BorrowReturnService;
 import com.huan.library.domain.service.ReaderService;
+import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.BorrowReturnView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.opensymphony.xwork2.Action;
@@ -45,6 +46,8 @@ public class BorrowReturnAction extends BaseActionSupport {
 	private BorrowReturnView borrowReturnView = new BorrowReturnView();
 	
 	private BorrowReturn borrowReturn = new BorrowReturn();
+	
+	private List<BorrowReturnView> borrowReturnViews = new ArrayList<BorrowReturnView>();
     
 	private LibInfo libInfo = new LibInfo();
     
@@ -72,20 +75,8 @@ public class BorrowReturnAction extends BaseActionSupport {
 	 */
 	public String bookBorrow() {
 		try {
-           	Reader reader = new Reader();
-           	reader.setId(borrowReturnView.getReaderId());
-           	Book book = new Book();
-           	book.setBookId(borrowReturnView.getBookId());
-           	
-           	if(borrowReturn.getBook()!=null && borrowReturn.getId()!=null &&!"".equals(borrowReturn.getBook().getBookId())){
-           		borrowReturn.setBook(book);	
-           	}
-           	if(borrowReturn.getReader()!=null && borrowReturn.getReader()!=null &&!"".equals(borrowReturn.getReader().getId())){
-           		borrowReturn.setReader(reader);	
-           	}
-           	
-           	reader = readerService.findReaderById(borrowReturnView.getReaderId());
-           	book = bookService.getBookById(borrowReturnView.getBookId());
+           	Reader reader = readerService.findReaderById(borrowReturnView.getReaderId());
+           	Book book = bookService.getBookById(borrowReturnView.getBookId());
            	Date borrowedDate = new Date();  //借阅日期
            	borrowReturn.setBorrowedDate(borrowedDate);
            	long maxBorrowedTime=(borrowedDate.getTime()/1000)+60*60*24*(reader.getReaderType().getMaxBorrowDays());    
@@ -94,21 +85,21 @@ public class BorrowReturnAction extends BaseActionSupport {
             borrowReturn.setDuetoReturnDate(duetoReturnDate);  //归还日期
             
             borrowReturn.setRenewTimes(0);
-            borrowReturn.setBorrowOperator("huan");
-            
-           	borrowReturnService.addOrModifyBorrow(borrowReturn); 
+//            User currUser = (User)this.session.get("currUser");
+//            borrowReturn.setBorrowOperator(currUser.getUserName());
            	
            	reader.setBorrowedQuantiy(reader.getBorrowedQuantiy()+1);
            	reader.setTotalBQuantity(reader.getTotalBQuantity()+1);
-//           	reader.set
-           	readerService.addOrModifyReader(reader);
            	
            	book.setQuantity(book.getQuantity()-1);
-//           	BookState bookState = new BookState();
-//           	bookState.setItemName("借阅中");
-//           	book.setBookState(bookState);
-           	bookService.addOrModifyBook(book);
+           	BookState bookState = new BookState();
+           	bookState.setItemId("BookState_JY");
+           	book.setBookState(bookState);
 
+           	borrowReturn.setBook(book);
+           	borrowReturn.setReader(reader);
+           	borrowReturnService.addOrModifyBorrow(borrowReturn); 
+           	
            	extJsonForm.setSuccess(true);
             extJsonForm.setMsg("借出成功");
             extJsonForm.setData(null);
@@ -134,10 +125,12 @@ public class BorrowReturnAction extends BaseActionSupport {
 	 * 书刊归还
 	 * @return
 	 */
-	public String findByByBarCodeOrReaderCode(){
-		List<BorrowReturn> borrowReturns = new ArrayList<BorrowReturn>();
+	public String findByBarCodeOrReaderCode(){
 		try {
-		  borrowReturns = borrowReturnService.getByBarCodeOrReaderCode(borrowReturnView);
+		  List<BorrowReturn> borrowReturns = borrowReturnService.getByBarCodeOrReaderCode(borrowReturnView);
+		  this.convertToViews(borrowReturns, borrowReturnViews);
+		  extJsonForm.setSuccess(true);
+		  extJsonForm.setData(borrowReturnViews);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
@@ -146,6 +139,105 @@ public class BorrowReturnAction extends BaseActionSupport {
 	}
 	
 	
+	private void convertToViews(List<BorrowReturn> borrowReturns,
+			List<BorrowReturnView> views) {
+		for(BorrowReturn borrowReturn:borrowReturns){
+			BorrowReturnView view = new BorrowReturnView();
+			   view.setId(borrowReturn.getId());
+		   	if(borrowReturn.getBorrowedDate()!=null){
+		   	   view.setBorrowedDate(DateFormatUtil.format(borrowReturn.getBorrowedDate(), "yyyy-MM-dd"));	
+		   	}
+		   	if(borrowReturn.getDuetoReturnDate()!=null){
+		   	   view.setDuetoReturnDate(DateFormatUtil.format(borrowReturn.getDuetoReturnDate(), "yyyy-MM-dd"));
+		   	}
+		   	if(borrowReturn.getRealityReturndate()!=null){
+		   		view.setRealityReturndate(DateFormatUtil.format(borrowReturn.getRealityReturndate(), "yyyy-MM-dd"));
+		   	}
+		   	if(borrowReturn.getOverdueDays()!=null){
+		   		view.setOverdueDays(borrowReturn.getOverdueDays());
+		   	}
+		   	if(borrowReturn.getPuniMoney()!=null){
+		   		view.setPuniMoney(borrowReturn.getPuniMoney());
+		   	}
+		   	if(borrowReturn.getIsPay()!=null){
+		   		view.setIsPay(borrowReturn.getIsPay());
+		   	}
+		   	if(borrowReturn.getRenewTimes()!=null){
+		   		view.setRenewTimes(borrowReturn.getRenewTimes());
+		   	}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getBookId()!=null){
+				view.setBookId(borrowReturn.getBook().getBookId());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getBookNo()!=null){
+				view.setBookNo(borrowReturn.getBook().getBookNo());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getBarCode()!=null){
+				view.setBookBarCode(borrowReturn.getBook().getBarCode());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getBookName()!=null){
+				view.setBookName(borrowReturn.getBook().getBookName());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getLocation()!=null){
+				view.setLocation(borrowReturn.getBook().getLocation());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getFirstCategory()!=null &&
+					borrowReturn.getBook().getFirstCategory().getItemId() !=null){
+				view.setFirstCategoryId(borrowReturn.getBook().getFirstCategory().getItemId());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getFirstCategory()!=null &&
+					borrowReturn.getBook().getFirstCategory().getItemName() !=null){
+				view.setFirstCategoryName(borrowReturn.getBook().getFirstCategory().getItemName());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getFirstCategory()!=null &&
+					borrowReturn.getBook().getFirstCategory().getItemCode() !=null){
+				view.setFirstCategoryCode(borrowReturn.getBook().getFirstCategory().getItemCode());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getBookState()!=null && borrowReturn.getBook().getBookState().getItemId()!=null){
+				view.setBookStateId(borrowReturn.getBook().getBookState().getItemId());
+			}
+			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getBookState()!=null && borrowReturn.getBook().getBookState().getItemName()!=null){
+				view.setBookStateId(borrowReturn.getBook().getBookState().getItemName());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getId()!=null){
+				view.setReaderId(borrowReturn.getReader().getId());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getCardNo()!=null){
+				view.setCardNo(borrowReturn.getReader().getCardNo());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getBarCode()!=null){
+				view.setReaderBarCode((borrowReturn.getReader().getBarCode()));
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderName()!=null){
+				view.setReaderName(borrowReturn.getReader().getReaderName());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderUnits()!=null && borrowReturn.getReader().getReaderUnits().getUnitId()!=null){
+			   view.setUnitId(borrowReturn.getReader().getReaderUnits().getUnitId());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderUnits()!=null && borrowReturn.getReader().getReaderUnits().getUnitcode()!=null){
+				   view.setUnitCode(borrowReturn.getReader().getReaderUnits().getUnitcode());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderUnits()!=null && borrowReturn.getReader().getReaderUnits().getUnitName()!=null){
+				   view.setUnitName(borrowReturn.getReader().getReaderUnits().getUnitName());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderType()!=null && borrowReturn.getReader().getReaderType().getId()!=null){
+				   view.setReaderTypeId(borrowReturn.getReader().getReaderType().getId());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderType()!=null && borrowReturn.getReader().getReaderType().getReaderCateCode()!=null){
+				   view.setReaderCateCode(borrowReturn.getReader().getReaderType().getReaderCateCode());
+			}
+			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderType()!=null && borrowReturn.getReader().getReaderType().getReaderCateName()!=null){
+				   view.setReaderCateName(borrowReturn.getReader().getReaderType().getReaderCateName());
+			}
+			if(borrowReturn.getBorrowOperator()!=null &&!"".equals(borrowReturn.getBorrowOperator())){
+				  view.setBorrowOperator(borrowReturn.getBorrowOperator());
+			}
+			if(borrowReturn.getReturnOperator()!=null &&!"".equals(borrowReturn.getReturnOperator())){
+				  view.setReturnOperator(borrowReturn.getReturnOperator());
+			}
+			views.add(view);
+		}
+	}
+
 	public String bookReturn(){
 		try {
 			int overdueDays = borrowReturnView.getOverdueDays();  //超期天数
@@ -209,6 +301,14 @@ public class BorrowReturnAction extends BaseActionSupport {
 	
 	public void setReaderService(ReaderService readerService) {
 		this.readerService = readerService;
+	}
+
+	public List<BorrowReturnView> getBorrowReturnViews() {
+		return borrowReturnViews;
+	}
+
+	public void setBorrowReturnViews(List<BorrowReturnView> borrowReturnViews) {
+		this.borrowReturnViews = borrowReturnViews;
 	}
 
 }

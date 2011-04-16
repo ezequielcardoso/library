@@ -216,7 +216,7 @@
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input name="book.publisherDate" id="book.publisherDate" type="text" value="<s:date
-														 name='book.publisherDate' format='yyyy-mm-dd'/>"
+														 name='book.publisherDate' format='yyyy-MM-dd'/>"
 															onClick=WdatePicker(); size="29">
 													</td>
 												</tr>
@@ -362,7 +362,7 @@
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
 														<input name="book.storeDate" id="book.storeDate" type="text" value="<s:date name='book.storeDate'
-														  format='yyyy-mm-dd'/>"
+														  format='yyyy-MM-dd'/>"
 															onClick=WdatePicker(); size="29" disabled="disabled">
 													</td>
 												</tr>

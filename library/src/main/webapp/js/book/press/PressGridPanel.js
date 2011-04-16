@@ -208,7 +208,6 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								Ext.Msg.alert('提示', obj.msg);
 								e.record.set("pressId", obj.data.pressId);
 								e.record.commit();
-//								thiz.getStore().reload();
 							} else if (obj.success == false) {
 								Ext.Msg.alert('提示', obj.msg);
 							}
