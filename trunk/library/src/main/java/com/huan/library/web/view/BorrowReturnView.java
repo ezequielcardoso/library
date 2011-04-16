@@ -19,8 +19,8 @@ public class BorrowReturnView extends ExtJsonForm implements Serializable{
 	private Date realityReturndate;  //实还日期
 	private Integer overdueDays;         //逾期天数
 	private Float puniMoney = 0F;        //罚金
-	private Integer isPay ;         //是或缴款  1表示是缴款  0表示没
-	private Integer   renewTimes;        //续借次数
+	private Integer isPay = 1;         //是或缴款  1表示是缴款  0表示没
+	private Integer   renewTimes = 0;        //续借次数
 
     private Long bookId; // 图书主键
     private String bookNo; // 图书编号

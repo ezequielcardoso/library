@@ -371,7 +371,6 @@ public class BookAction extends BaseActionSupport {
 		book.setBookLevel((book.getBookLevel() != null
 				&& book.getBookLevel().getItemId() != null && !"".equals(book
 				.getBookLevel())) ? book.getBookLevel() : null);
-		System.out.println("......." + book.getBookSecurity().getItemId());
 		book.setBookSecurity((book.getBookSecurity() != null
 				&& book.getBookSecurity().getItemId() != null && !""
 				.equals(book.getBookSecurity().getItemId())) ? book

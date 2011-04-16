@@ -67,7 +67,7 @@ public class ReaderAction extends BaseActionSupport {
 	
 	public String findReader(){
 		try {
-			reader = readerService.findReaderById(readerView.getCardNo());	
+//			reader = readerService.findReaderById(readerView.getCardNo());	
 		} catch (Exception e) {
 		  e.printStackTrace();	
 		  return Action.ERROR;

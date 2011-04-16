@@ -1,6 +1,9 @@
 package com.huan.library.infrastructure.persistence;
 
+import java.util.List;
+
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
+import com.huan.library.web.view.BorrowReturnView;
 
 /**
  * 书刊借阅dao
@@ -23,6 +26,11 @@ public interface BorrowReturnDao extends BaseDao<BorrowReturn>{
 	 * @throws Exception
 	 */
 	public BorrowReturn selectBRByReaderBar(String readerBar) throws Exception;
-	
-//	public BorrowReturn selectBorrowReturn(BorrowReturnView borrowReturnView) throws Exception; 
+	/**
+	 * 根据读者条形码/读者条形码查找借阅记录
+	 * @param borrowReturnView
+	 * @return
+	 * @throws Exception
+	 */
+	public List<BorrowReturn> selectBorrowReturn(BorrowReturnView borrowReturnView) throws Exception; 
 }
