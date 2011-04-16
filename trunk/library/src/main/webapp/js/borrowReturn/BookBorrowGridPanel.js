@@ -33,86 +33,6 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 									}]
 						});
 
-				var sm = new Ext.grid.CheckboxSelectionModel();
-
-				var cm = new Ext.grid.ColumnModel([new Ext.grid.RowNumberer(),
-						sm, {
-							header : '条形码',
-							width : 100,
-							sortable : true,
-							align : 'center',
-							editor : new Ext.form.TextField({
-										allowBlank : false
-									}),
-							dataIndex : 'barCode'
-						}, {
-							header : '编号',
-							width : 100,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'bookNo'
-						}, {
-							header : '书名',
-							width : 100,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'bookName'
-						}, {
-							header : '数量',
-							width : 80,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'quantity'
-						}, {
-							header : '分类',
-							width : 100,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'firstCategoryName'
-						}, {
-							header : '二级分类',
-							width : 100,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'secondCategoryName'
-						}, {
-							header : '存放位置',
-							width : 100,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'location'
-						}, {
-							header : '作者',
-							width : 80,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'author'
-						}, {
-							header : '录入人员',
-							width : 80,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'operator'
-						}, {
-							header : '出版社',
-							width : 100,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'pressName'
-						}, {
-							header : '价格',
-							width : 80,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'price'
-						}, {
-							header : '状态',
-							width : 80,
-							sortable : true,
-							align : 'center',
-							dataIndex : 'bookStateName'
-						}]);
-
 				var fields = [{
 							name : 'bookId',
 							type : 'int'
@@ -160,7 +80,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 							type : 'float'
 						}, {
 							name : 'publisherDate',
-							type : 'string'
+							type : 'date'
 						}, {
 							name : 'quantity',
 							type : 'int'
@@ -267,7 +187,86 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 								direction : 'ASC|DESC'
 							}
 						});
+				var sm = new Ext.grid.CheckboxSelectionModel();
 
+				var cm = new Ext.grid.ColumnModel([
+					new Ext.grid.RowNumberer(),
+					sm, {
+						header : '条形码',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						editor : new Ext.form.TextField({
+									allowBlank : false
+								}),
+						dataIndex : 'barCode'
+					}, {
+						header : '编号',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'bookNo'
+					}, {
+						header : '书名',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'bookName'
+					}, {
+						header : '数量',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'quantity'
+					}, {
+						header : '分类',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'firstCategoryName'
+					}, {
+						header : '二级分类',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'secondCategoryName'
+					}, {
+						header : '存放位置',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'location'
+					}, {
+						header : '作者',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'author'
+					}, {
+						header : '录入人员',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'operator'
+					}, {
+						header : '出版社',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'pressName'
+					}, {
+						header : '价格',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'price'
+					}, {
+						header : '状态',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'bookStateName'
+					}]);
 				// var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
 				// store : store,
 				// pageSize : BooksPageSize,
@@ -425,9 +424,9 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 										var obj = Ext.util.JSON
 												.decode(respText);
 										if (obj.success == true) {
-//											record.get('bookStateName').setValue('借阅中');
+											record.set('bookStateName','借阅中');
+											record.commit();
 											Ext.Msg.alert('提示', obj.msg);
-//											thiz.getStore().reload();
 										} else {
 											Ext.Msg.alert('提示', obj.msg);
 										}

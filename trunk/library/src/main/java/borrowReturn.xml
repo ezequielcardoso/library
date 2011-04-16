@@ -17,9 +17,9 @@
            </result>
        </action>
        
-       <action name="findByByBarCodeOrReaderCode" class="com.huan.library.web.action.BorrowReturnAction" method="findByByBarCodeOrReaderCode">
+       <action name="findByBarCodeOrReaderCode" class="com.huan.library.web.action.BorrowReturnAction" method="findByBarCodeOrReaderCode">
           <result name="success" type="json">
-             <param name="root">borrowReturn</param>
+             <param name="root">extJsonForm</param>
           </result>
        </action>
        

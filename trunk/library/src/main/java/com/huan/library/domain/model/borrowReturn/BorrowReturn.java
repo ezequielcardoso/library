@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import javax.persistence.CascadeType;
+
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.BookState;
 import com.huan.library.domain.model.book.Category;
@@ -44,11 +46,11 @@ public class BorrowReturn implements Serializable{
 	private String borrowOperator;          //借阅操作员
 	private String returnOperator;          //归还操作员 
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Book.class)
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Book.class, cascade={CascadeType.REFRESH})
     @JoinColumn(name="book")
     private Book book ;   //图书
     
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class)
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class, cascade={CascadeType.REFRESH})
     @JoinColumn(name="reader")
     private Reader reader;     //读者
 	
