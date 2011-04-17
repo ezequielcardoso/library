@@ -3,16 +3,16 @@ package com.huan.library.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.apache.log4j.Logger;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.constant.LoginState;
-import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.UserService;
 import com.huan.library.util.DateFormatUtil;
+import com.huan.library.util.StringUtils;
 import com.huan.library.web.view.UserView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
@@ -82,6 +82,18 @@ public class UserAction extends BaseActionSupport {
 	
 	public String save() {
 		try {
+			String ignore[] = StringUtils.getIgnore(user);
+			if(user.getUserId()!=null){
+				User oldUser = userService.getById(user.getUserId());
+				if(ignore!=null && ignore.length>0){
+					BeanUtils.copyProperties(user, oldUser, ignore);
+					this.format(oldUser);
+					if(user.getDept()!=null && user.getDept().getDeptId()!=null){
+						oldUser.setDept(user.getDept());
+					}
+					user = oldUser;
+				}
+			}
 			user = userService.save(user);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("保存成功！");
@@ -112,6 +124,20 @@ public class UserAction extends BaseActionSupport {
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;
+	}
+	
+	public void format(User user){
+		if(user.getDept()!=null && user.getDept().getDeptId()!=null){
+			user.getDept().setChildren(null);
+			user.getDept().setParent(null);
+		}
+		if(user.getRoles()!=null && user.getRoles().size()>0){
+			for(int i=0; i<user.getRoles().size(); i++){
+				user.getRoles().get(i).setFunctions(null);
+				user.getRoles().get(i).setUsers(null);
+			}
+		}
+		
 	}
 	
 	public String findUsers(){

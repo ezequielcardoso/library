@@ -26,6 +26,7 @@ public class DepartmentAction extends BaseActionSupport {
     private Department department = new Department();
     private Long pid;
     private Long deptId;
+    private Boolean isOptional = false;
     private List<ExtTreeNode> childrenNodes = new ArrayList<ExtTreeNode>();
     private ExtJsonForm extJsonForm = new ExtJsonForm();
     
@@ -37,6 +38,9 @@ public class DepartmentAction extends BaseActionSupport {
 				treeNode.setId(item.getDeptId().toString());
 				treeNode.setText(item.getDeptName());
 				treeNode.setLeaf(item.getLeaf());
+				if(this.getIsOptional()){
+					treeNode.setChecked(false);
+				}
 				treeNode.setIsOptional(false);
 				childrenNodes.add(treeNode);
 			}
@@ -143,6 +147,14 @@ public class DepartmentAction extends BaseActionSupport {
 
 	public void setChildrenNodes(List<ExtTreeNode> childrenNodes) {
 		this.childrenNodes = childrenNodes;
+	}
+
+	public Boolean getIsOptional() {
+		return isOptional;
+	}
+
+	public void setIsOptional(Boolean isOptional) {
+		this.isOptional = isOptional;
 	}
 
 }

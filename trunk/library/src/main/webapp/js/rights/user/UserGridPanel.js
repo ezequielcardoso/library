@@ -21,6 +21,27 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				},
 				scope : this
 			},'-', {
+				text : '分配部门',
+				handler : function() {
+					var sm = this.getSelectionModel();
+					if(sm.hasSelection()){
+						var record = sm.getSelected();
+						var checkWin = new Library.tree.DepartmentCheckTreeWindow({
+							checkTree : new Library.rights.tree.DepartmentCheckTree({
+										checkModel : 'single'
+									}),
+							record : record,
+							height : 500,
+							width : 300,
+							title : '分配部门'
+						});
+						checkWin.show();
+					} else {
+						Ext.Msg.alert('提示', '请选择用户');
+					}
+				},
+				scope : this
+			},'-', {
 				xtype : 'label',
 				text : '姓名：'
 			}, {
@@ -57,7 +78,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		
 		var fields = [{
 			name : 'userId',
-			type : 'string'
+			type : 'int'
 		}, {
 			name : 'userAccount',
 			type : 'string'
@@ -75,11 +96,11 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			name : 'userActive',
 			type : 'boolean'
 		}, {
-			name : 'depteName',
+			name : 'deptName',
 			type : 'string'
 		}, {
 			name : 'deptId',
-			type : 'string'
+			type : 'int'
 		}];
 		
 		var store = new Ext.data.JsonStore({
