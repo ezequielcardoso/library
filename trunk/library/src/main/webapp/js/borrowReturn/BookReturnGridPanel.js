@@ -30,6 +30,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 															+ '/borrowReturn/findByBarCodeOrReaderCode.action',
 													method : 'POST',
 													params : {
+														'borrowReturnView.isBook' : 1,
 														'borrowReturnView.readerBarCode' : readerBarCode
 													},
 													success : function(resp) {
@@ -321,6 +322,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 								+ '/borrowReturn/findByBarCodeOrReaderCode.action',
 						method : 'POST',
 						params : {
+							'borrowReturnView.isBook' : 1,
 							'borrowReturnView.bookBarCode' : e.record
 									.get('bookBarCode')
 						},
@@ -354,7 +356,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 							duetoReturnDate : '',
 							overdueDays : '',
 							puniMoney : '',
-							isPay : '',
+							renewTimes : '',
 							firstCategoryName : '',
 							unitName : '',
 							readerCateName : '',
@@ -379,6 +381,9 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 								var record = records[i];
 								var borrowReturnId = record.get('id');
 								var thiz = this;
+								var bookStateName = record.get('bookStateName');
+								if(bookStateName == '借阅中'){
+								
 								Ext.Ajax.request({
 									url : contextPath
 											+ '/borrowReturn/bookReturn.action',
@@ -402,13 +407,17 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 										Ext.Msg.alert('提示', '服务器异常');
 									}
 								});
+								}else{
+								  Ext.Msg.alert('提示','图书状态不对');
+								  return ;
+								}	
 							}
 						} else {
 							return false;
 						}
 
 					}, this);
-
+ 
 				} else {
 					Ext.Msg.alert('提示', '请选择你要归还的图书');
 				}
@@ -421,15 +430,27 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 			},
 			
 			onRenew : function(){
+			
 			  var sm = this.getSelectionModel();
-				if (sm.hasSelection()) {
-					Ext.MessageBox.confirm('提示', '你确定要续借图书吗？', function(btn,
+			if (sm.hasSelection()) {
+				Ext.MessageBox.confirm('提示', '你确定要续借图书吗？', function(btn,
 							text) {
 						if (btn == 'yes') {
 							var records = sm.getSelections();
 							for (var i = 0; i < records.length; i++) {
 								var record = records[i];
 								var borrowReturnId = record.get('id');
+								var renewTimes = record.get('renewTimes');
+								var bookStateName = record.get('bookStateName');
+				
+								if(bookStateName == '借阅中'){
+				
+								
+								if(renewTimes > 2){
+								  Ext.Msg.alert('提示','sorry,本类图书只能被续借两次')
+								}
+								
+								
 								var thiz = this;
 								Ext.Ajax.request({
 									url : contextPath
@@ -453,6 +474,10 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 										Ext.Msg.alert('提示', '服务器异常');
 									}
 								});
+							  }else{
+							     Ext.Msg.alert('提示', '图书状态不可续借');
+							     return false;
+							  }
 							}
 						} else {
 							return false;
@@ -473,7 +498,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 				record.set('borrowedDate', borrowReturn.borrowedDate);
 				record.set('duetoReturnDate', borrowReturn.duetoReturnDate);
 				record.set('overdueDays', borrowReturn.overdueDays);
-				record.set('isPay', borrowReturn.isPay);
+				record.set('renewTimes', borrowReturn.renewTimes);
 				record.set('bookStateName',borrowReturn.bookStateName);
 				record.set('firstCategoryName', borrowReturn.firstCategoryName);
 				record.set('unitName', borrowReturn.unitName);

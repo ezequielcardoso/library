@@ -41,8 +41,8 @@ public class BorrowReturn implements Serializable{
 	private Date realityReturndate;  //实还日期
 	private Integer overdueDays;         //逾期天数
 	private Float puniMoney = 0F;        //罚金
-	private Integer isPay = 1;         //是或缴款
-	private Integer   renewTimes = 0;        //续借次数
+	private Integer isPay;         //是或缴款
+	private Integer   renewTimes;        //续借次数
 	private String borrowOperator;          //借阅操作员
 	private String returnOperator;          //归还操作员 
 	

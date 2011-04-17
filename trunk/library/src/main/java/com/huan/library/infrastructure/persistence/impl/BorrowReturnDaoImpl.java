@@ -86,6 +86,7 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
            
            //fiedls
            StringBuilder whereSub = new StringBuilder();
+           whereSub.append(" and t_b.isBook = :isBook ");
            if(borrowReturnView.getBookBarCode()!=null && !"".equals(borrowReturnView.getBookBarCode())){
         	   whereSub.append(" and t_b.barCode = (:bookBarCode) ");
         	   whereSub.append(" and t_bs.itemId = (:bookState) ");
@@ -103,6 +104,7 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				Query query = session.createQuery(sqlIn);
+				query.setParameter("isBook", borrowReturnView.getIsBook());
 				if(borrowReturnView.getBookBarCode()!=null &&!"".equals(borrowReturnView.getBookBarCode())){
 					query.setParameter("bookBarCode", borrowReturnView.getBookBarCode());
 					query.setParameter("bookState", "BookState_JY");

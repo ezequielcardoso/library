@@ -17,14 +17,15 @@ public class BorrowReturnView extends ExtJsonForm implements Serializable{
 	private String realityReturndate;  //实还日期
 	private Integer overdueDays;         //逾期天数
 	private Float puniMoney = 0F;        //罚金
-	private Integer isPay = 1;         //是或缴款  1表示是缴款  0表示没
-	private Integer   renewTimes = 0;        //续借次数
+	private Integer isPay ;         //是或缴款  1表示是缴款  0表示没
+	private Integer   renewTimes ;        //续借次数
 
     private Long bookId; // 图书主键
     private String bookNo; // 图书编号
 	private String bookBarCode; //条形码
 	private String bookName; //图书名字 
 	private String location; //存放位置
+	private Integer isBook; //是图书 还是期刊
 	
 	private String firstCategoryId;
 	private String firstCategoryCode;
@@ -116,6 +117,13 @@ public class BorrowReturnView extends ExtJsonForm implements Serializable{
 	}
 	public void setBookBarCode(String bookBarCode) {
 		this.bookBarCode = bookBarCode;
+	}
+	
+	public Integer getIsBook() {
+		return isBook;
+	}
+	public void setIsBook(Integer isBook) {
+		this.isBook = isBook;
 	}
 	public String getCardNo() {
 		return cardNo;

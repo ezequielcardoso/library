@@ -101,8 +101,8 @@ public class BorrowReturnAction extends BaseActionSupport {
 			book.setBookState(bookState);
 			bookService.addOrModifyBook(book);
 
-			// borrowReturn.setBook(book);
-			// borrowReturn.setReader(reader);
+			 borrowReturn.setBook(book);
+			 borrowReturn.setReader(reader);
 			borrowReturnService.addOrModifyBorrow(borrowReturn);
 
 			extJsonForm.setSuccess(true);
@@ -151,8 +151,13 @@ public class BorrowReturnAction extends BaseActionSupport {
 
 			Reader reader = readerService.findReaderById(borrowReturn
 					.getReader().getId());
-			reader.setBorrowedQuantiy(borrowReturn.getReader()
-					.getBorrowedQuantiy() - 1);
+            if(reader.getBorrowedQuantiy()<=0){
+            	reader.setBorrowedQuantiy(0);
+            }else{
+            	reader.setBorrowedQuantiy(reader.getBorrowedQuantiy() - 1);
+            }
+            
+//			reader.setBorrowedQuantiy();
 			this.readerService.addOrModifyReader(reader);
 			// borrowReturn.setReader(reader);
 			// borrowReturn.setBook(book);
