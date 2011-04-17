@@ -74,9 +74,6 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 							width : 100,
 							sortable : true,
 							align : 'center',
-							editor : new Ext.form.TextField({
-										allowBlank : false
-									}),
 							dataIndex : 'secondCategoryName'
 						}, {
 							header : '存放位置',
@@ -268,21 +265,6 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 							}
 						});
 
-				// var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
-				// store : store,
-				// pageSize : BooksPageSize,
-				// afterPageText : '/ {0}',
-				// beforePageText : '页',
-				// displayInfo : true,
-				// firstText : '第一页',
-				// prevText : '前一页',
-				// nextText : '后一页',
-				// lastText : '最后一页',
-				// refreshText : '刷新',
-				// displayMsg : '显示第 {0}-{1}条 共{2}条 ',
-				// emptyMsg : '没有数据'
-				// })]);
-
 				Ext.apply(this, {
 							width : 1200,
 							height : 400,
@@ -294,8 +276,6 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 							stripeRows : true,
 							columnLines : true,
 							frame : true,
-							// bbar : bbar,
-							// loadMask : '正在加载......',
 							clicksToEdit : 1,
 							viewConfig : new Ext.grid.GridView({
 										rowHeight : 23,
@@ -319,8 +299,7 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 										method : 'POST',
 										params : {
 											'bookView.isBook' : 0,
-											'bookView.barCode' : e.record
-													.get('barCode')
+											'bookView.barCode' : e.record.get('barCode')
 										},
 										success : function(resp) {
 											var book = Ext.util.JSON.decode(resp.responseText);
@@ -349,7 +328,7 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 				var Book = this.getStore().recordType;
 				var b = new Book({
 							barCode : '',
-							barCode:'',
+							bookNo:'',
 							bookName : '',
 							quantity : '',
 							firstCategoryName:'',
@@ -364,9 +343,44 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 				this.store.insert(0, b);
 				this.startEditing(0, 0);
 			},
+			
 			onBorrowed : function() {
-				var cardNo = Ext.get('reader.cardNo').getValue();
-				// var bookId = Ext.get('book.barCode').getValue();
+			  // 读者校验
+				var borrowedQuantiy = Ext.get('reader.borrowedQuantiy').getValue();
+				var maxBorrowedQuantity = Ext.get('reader.readerType.maxBorrowedQuantity').getValue();
+				if (borrowedQuantiy >= maxBorrowedQuantity) {
+					Ext.Msg.alert('提示', '已达最大借阅数量');
+					return false;
+				}
+
+				var leftMoney = Ext.get('reader.leftMoney').getValue();
+				if (leftMoney <= 0) {
+					Ext.Msg.alert('提示', '余额不足,请充值');
+					return false;
+				}
+
+				// 图书校验
+				var sm = this.getSelectionModel();
+				if (sm.hasSelection()) {
+					var records = sm.getSelections();
+					for (var i = 0; i < records.length; i++) {
+						var record = records[i];
+
+						var quantity = record.get('quantity'); // 图书数量
+						if (quantity <= 0) {
+							Ext.Msg.alert('提示', '期刊数量有不足的,请查看');
+							return false;
+						}
+
+						var bookStateName = record.get('bookStateName'); // 图书状态
+						if (bookStateName != '在馆') {
+							Ext.Msg.alert('提示', 'sorry,该期刊不可借,详细请询问管理员');
+							return false;
+						}
+					}
+				}
+
+				var readerId = Ext.get('reader.id').getValue();
 				var sm = this.getSelectionModel();
 				if (sm.hasSelection()) {
 					Ext.MessageBox.confirm('提示', '你确定要借出期刊吗？', function(btn,
@@ -378,20 +392,20 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 								var bookId = record.get('bookId');
 								var thiz = this;
 								Ext.Ajax.request({
-									url : contextPath
-											+ '/borrowReturn/bookBorrow.action',
+									url : contextPath + '/borrowReturn/bookBorrow.action',
 									method : 'POST',
 									params : {
-										'book.bookId' : bookId,
-										'reader.cardNo' : cardNo
+										'borrowReturnView.bookId' : bookId,
+										'borrowReturnView.readerId' : readerId
 									},
 									success : function(resp) {
 										var respText = resp.responseText;
 										var obj = Ext.util.JSON
 												.decode(respText);
 										if (obj.success == true) {
+											record.set('bookStateName','借阅中');
+											record.commit();
 											Ext.Msg.alert('提示', obj.msg);
-											thiz.getStore().reload();
 										} else {
 											Ext.Msg.alert('提示', obj.msg);
 										}
@@ -408,7 +422,7 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 					}, this);
 
 				} else {
-					Ext.Msg.alert('提示', '请选择你要借阅的的期刊');
+					Ext.Msg.alert('提示', '请选择你要借出的期刊');
 				}
 			},
 			onExport : function() {

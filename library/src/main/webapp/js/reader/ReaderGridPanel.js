@@ -659,7 +659,6 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			borrowedQuantiy:0,
 			totalBQuantity: 0,
 			readerPic : '080301009.jpg', // 读者照片
-
 			spell : 'huan', // 拼音
 			readerDesc : '08级学生'// 读者描述
 

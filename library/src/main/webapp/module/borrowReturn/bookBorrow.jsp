@@ -77,7 +77,7 @@
 							<td width="12%" align="left">
 								<input name="reader.cardNo" type="text" class="input2"
 									id="reader.cardNo"  size="20">
-								<input name="reader.id" type="text" class="input2"
+								<input name="reader.id" type="hidden" class="input2"
 									id="reader.id"  size="20">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">

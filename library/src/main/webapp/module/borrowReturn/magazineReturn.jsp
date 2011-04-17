@@ -64,8 +64,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td height="10" valign="top">
-					<table width="80%" border="0" align="left" cellpadding="0"
+				<td valign="top">
+					<table width="98%" border="0" align="left" cellpadding="0"
 						cellspacing="0" bordercolor="#ebebeb" borderColorLight="#ebebeb"
 						borderColorDark="#ffffff" id="LM1">
 

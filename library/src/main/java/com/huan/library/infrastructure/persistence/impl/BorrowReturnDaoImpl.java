@@ -88,6 +88,7 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
            StringBuilder whereSub = new StringBuilder();
            if(borrowReturnView.getBookBarCode()!=null && !"".equals(borrowReturnView.getBookBarCode())){
         	   whereSub.append(" and t_b.barCode = (:bookBarCode) ");
+        	   whereSub.append(" and t_bs.itemId = (:bookState) ");
            }
            if(borrowReturnView.getReaderBarCode()!=null && !"".equals(borrowReturnView.getReaderBarCode())){
         	   whereSub.append(" and t_r.barCode = (:readerBarCode) ");
@@ -104,6 +105,7 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
 				Query query = session.createQuery(sqlIn);
 				if(borrowReturnView.getBookBarCode()!=null &&!"".equals(borrowReturnView.getBookBarCode())){
 					query.setParameter("bookBarCode", borrowReturnView.getBookBarCode());
+					query.setParameter("bookState", "BookState_JY");
 				}
 				if(borrowReturnView.getReaderBarCode()!=null &&!"".equals(borrowReturnView.getReaderBarCode())){
 					query.setParameter("readerBarCode", borrowReturnView.getReaderBarCode());
