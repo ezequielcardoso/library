@@ -46,11 +46,11 @@ public class BorrowReturn implements Serializable{
 	private String borrowOperator;          //借阅操作员
 	private String returnOperator;          //归还操作员 
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Book.class, cascade={CascadeType.REFRESH})
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Book.class, cascade={CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name="book")
     private Book book ;   //图书
     
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class, cascade={CascadeType.REFRESH})
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class, cascade={CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name="reader")
     private Reader reader;     //读者
 	

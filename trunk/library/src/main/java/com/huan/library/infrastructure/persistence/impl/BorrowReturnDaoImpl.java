@@ -121,4 +121,22 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
 		return borrowReturns;
 	}
 
+	public BorrowReturn selectBRById(Long id) throws Exception {
+		BorrowReturn borrowReturn = new BorrowReturn();
+		try {
+			StringBuilder sql = new StringBuilder();
+			sql.append(" from BorrowReturn br ");
+			sql.append(" left join fetch br.book t_b ");
+			sql.append(" left join fetch br.reader t_r ");
+			sql.append(" left join fetch br.book.bookState t_b_st ");
+			sql.append(" where br.id = ? ");
+			borrowReturn = (BorrowReturn) getHibernateTemplate().find(
+					sql.toString(), id).listIterator().next();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return borrowReturn;
+	}
+
 }

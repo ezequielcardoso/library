@@ -65,7 +65,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 									}, '-', {
 										text : '归还',
 										handler : function() {
-											this.onBorrowed();
+											this.onReturn();
 										},
 										scope : this
 									}]
@@ -77,15 +77,15 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 						}, {
 							name : 'borrowedDate',
 							type : 'date',
-							dateFormat : 'Y-m-d'
+							dateFormat : 'm/d/Y'
 						}, {
 							name : 'duetoReturnDate',
 							type : 'date',
-							dateFormat : 'Y-m-d'
+							dateFormat : 'm/d/Y'
 						}, {
 							name : 'realityReturndate',
 							type : 'date',
-							dateFormat : 'Y-m-d'
+							dateFormat : 'm/d/Y'
 						}, {
 							name : 'overdueDays',
 							type : 'int'
@@ -213,7 +213,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 						dataIndex : 'bookName'
 					}, {
 						xtype : 'datecolumn',
-						format: 'Y-m-d',
+						format: 'm/d/Y',
 						header : '借阅日期',
 						width : 100,
 						sortable : true,
@@ -221,7 +221,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 						dataIndex : 'borrowedDate'
 					}, {
 						xtype : 'datecolumn',
-						format: 'Y-m-d',
+						format: 'm/d/Y',
 						header : '应还日期',
 						width : 100,
 						sortable : true,
@@ -362,32 +362,31 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 				this.startEditing(0, 0);
 				return br;
 			},
-			onBorrowed : function() {
-				var cardNo = Ext.get('reader.cardNo').getValue();
-				// var bookId = Ext.get('book.barCode').getValue();
+			onReturn : function() {
+				
 				var sm = this.getSelectionModel();
 				if (sm.hasSelection()) {
-					Ext.MessageBox.confirm('提示', '你确定要借出图书吗？', function(btn,
+					Ext.MessageBox.confirm('提示', '你确定要归还图书吗？', function(btn,
 							text) {
 						if (btn == 'yes') {
 							var records = sm.getSelections();
 							for (var i = 0; i < records.length; i++) {
 								var record = records[i];
-								var bookId = record.get('bookId');
+								var borrowReturnId = record.get('id');
 								var thiz = this;
 								Ext.Ajax.request({
 									url : contextPath
-											+ '/borrowReturn/bookBorrow.action',
+											+ '/borrowReturn/bookReturn.action',
 									method : 'POST',
 									params : {
-										'book.bookId' : bookId,
-										'reader.cardNo' : cardNo
+										'borrowReturnView.id' : borrowReturnId
 									},
 									success : function(resp) {
 										var respText = resp.responseText;
 										var obj = Ext.util.JSON
 												.decode(respText);
 										if (obj.success == true) {
+											record.set('bookStateName','在馆');
 											Ext.Msg.alert('提示', obj.msg);
 											thiz.getStore().reload();
 										} else {
@@ -406,7 +405,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 					}, this);
 
 				} else {
-					Ext.Msg.alert('提示', '请选择你要借阅的图书');
+					Ext.Msg.alert('提示', '请选择你要归还的图书');
 				}
 			},
 			onExport : function() {

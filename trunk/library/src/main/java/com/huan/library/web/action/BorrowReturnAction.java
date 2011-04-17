@@ -125,6 +125,39 @@ public class BorrowReturnAction extends BaseActionSupport {
 	 * 书刊归还
 	 * @return
 	 */
+	public String bookReturn(){
+		try {
+            
+			borrowReturn = borrowReturnService.getBRById(borrowReturnView.getId());
+            borrowReturn.setRealityReturndate(new Date());
+//          User currUser = (User)this.session.get("currUser");
+//          borrowReturn.setBorrowOperator(currUser.getUserName());
+           	
+            Book book = bookService.getBookById(borrowReturn.getBook().getBookId());
+            book.setQuantity(borrowReturn.getBook().getQuantity()+1);
+            BookState bookState = new BookState();
+           	bookState.setItemId("BookState_ZG");
+           	book.setBookState(bookState);
+           	this.bookService.addOrModifyBook(book);
+           	
+           	Reader reader = readerService.findReaderById(borrowReturn.getReader().getId());
+            reader.setBorrowedQuantiy(borrowReturn.getReader().getBorrowedQuantiy()-1);
+            this.readerService.addOrModifyReader(reader);
+//            borrowReturn.setReader(reader);
+//            borrowReturn.setBook(book);
+           	borrowReturnService.addOrModifyBorrow(borrowReturn); 
+           	extJsonForm.setSuccess(true);
+            extJsonForm.setMsg("归还成功");
+            extJsonForm.setData(null);
+		} catch (Exception e) {
+		   e.printStackTrace();
+		   extJsonForm.setSuccess(false);
+           extJsonForm.setMsg("归还失败");
+           extJsonForm.setData(null);
+           return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
 	public String findByBarCodeOrReaderCode(){
 		try {
 		  List<BorrowReturn> borrowReturns = borrowReturnService.getByBarCodeOrReaderCode(borrowReturnView);
@@ -144,14 +177,14 @@ public class BorrowReturnAction extends BaseActionSupport {
 		for(BorrowReturn borrowReturn:borrowReturns){
 			BorrowReturnView view = new BorrowReturnView();
 			   view.setId(borrowReturn.getId());
-		   	if(borrowReturn.getBorrowedDate()!=null){
-		   	   view.setBorrowedDate(DateFormatUtil.format(borrowReturn.getBorrowedDate(), "yyyy-MM-dd"));	
+		   	if(borrowReturn.getBorrowedDate()!=null){  
+		   	   view.setBorrowedDate(DateFormatUtil.format(borrowReturn.getBorrowedDate(), "MM/dd/yyyy"));	
 		   	}
 		   	if(borrowReturn.getDuetoReturnDate()!=null){
-		   	   view.setDuetoReturnDate(DateFormatUtil.format(borrowReturn.getDuetoReturnDate(), "yyyy-MM-dd"));
+		   	   view.setDuetoReturnDate(DateFormatUtil.format(borrowReturn.getDuetoReturnDate(), "MM/dd/yyyy"));
 		   	}
 		   	if(borrowReturn.getRealityReturndate()!=null){
-		   		view.setRealityReturndate(DateFormatUtil.format(borrowReturn.getRealityReturndate(), "yyyy-MM-dd"));
+		   		view.setRealityReturndate(DateFormatUtil.format(borrowReturn.getRealityReturndate(), "MM/dd/yyyy"));
 		   	}
 		   	if(borrowReturn.getOverdueDays()!=null){
 		   		view.setOverdueDays(borrowReturn.getOverdueDays());
@@ -194,38 +227,22 @@ public class BorrowReturnAction extends BaseActionSupport {
 			}
 			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getBookState()!=null && borrowReturn.getBook().getBookState().getItemId()!=null){
 				view.setBookStateId(borrowReturn.getBook().getBookState().getItemId());
-			}
-			if(borrowReturn.getBook()!=null && borrowReturn.getBook().getBookState()!=null && borrowReturn.getBook().getBookState().getItemName()!=null){
-				view.setBookStateId(borrowReturn.getBook().getBookState().getItemName());
+				view.setBookStateName(borrowReturn.getBook().getBookState().getItemName());
 			}
 			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getId()!=null){
 				view.setReaderId(borrowReturn.getReader().getId());
-			}
-			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getCardNo()!=null){
 				view.setCardNo(borrowReturn.getReader().getCardNo());
-			}
-			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getBarCode()!=null){
 				view.setReaderBarCode((borrowReturn.getReader().getBarCode()));
-			}
-			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderName()!=null){
 				view.setReaderName(borrowReturn.getReader().getReaderName());
 			}
 			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderUnits()!=null && borrowReturn.getReader().getReaderUnits().getUnitId()!=null){
 			   view.setUnitId(borrowReturn.getReader().getReaderUnits().getUnitId());
-			}
-			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderUnits()!=null && borrowReturn.getReader().getReaderUnits().getUnitcode()!=null){
-				   view.setUnitCode(borrowReturn.getReader().getReaderUnits().getUnitcode());
-			}
-			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderUnits()!=null && borrowReturn.getReader().getReaderUnits().getUnitName()!=null){
-				   view.setUnitName(borrowReturn.getReader().getReaderUnits().getUnitName());
+			   view.setUnitCode(borrowReturn.getReader().getReaderUnits().getUnitcode());
+			   view.setUnitName(borrowReturn.getReader().getReaderUnits().getUnitName());
 			}
 			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderType()!=null && borrowReturn.getReader().getReaderType().getId()!=null){
 				   view.setReaderTypeId(borrowReturn.getReader().getReaderType().getId());
-			}
-			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderType()!=null && borrowReturn.getReader().getReaderType().getReaderCateCode()!=null){
 				   view.setReaderCateCode(borrowReturn.getReader().getReaderType().getReaderCateCode());
-			}
-			if(borrowReturn.getReader()!=null && borrowReturn.getReader().getReaderType()!=null && borrowReturn.getReader().getReaderType().getReaderCateName()!=null){
 				   view.setReaderCateName(borrowReturn.getReader().getReaderType().getReaderCateName());
 			}
 			if(borrowReturn.getBorrowOperator()!=null &&!"".equals(borrowReturn.getBorrowOperator())){
@@ -238,17 +255,7 @@ public class BorrowReturnAction extends BaseActionSupport {
 		}
 	}
 
-	public String bookReturn(){
-		try {
-			int overdueDays = borrowReturnView.getOverdueDays();  //超期天数
-			if(overdueDays >= 0){  //图书过期
-				
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return Action.SUCCESS;
-	}
+	
 	
 	
 	/**

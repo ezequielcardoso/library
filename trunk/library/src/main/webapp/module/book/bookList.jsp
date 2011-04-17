@@ -130,7 +130,7 @@
 										</TD>
 										<TD height=25 align="left" nowrap class="body">
 											<input name="author" type="text" class="input2"
-												id="author"size="15">
+												id="author" size="15">
 										</TD>
 										<TD height=25 align="right" nowrap class="body">
 											录入人：

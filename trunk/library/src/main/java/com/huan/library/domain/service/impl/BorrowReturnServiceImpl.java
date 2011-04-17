@@ -54,6 +54,17 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 		return borrowReturn;
 	}
 	
+	public BorrowReturn getBRById(Long id) throws Exception{
+		BorrowReturn borrowReturn = new BorrowReturn();
+		try {
+			borrowReturn = borrowReturnDao.selectBRById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+		return borrowReturn;
+	}
+	
 	public List<BorrowReturn> getByBarCodeOrReaderCode(BorrowReturnView borrowReturnView) throws Exception{
 		List<BorrowReturn> borrowReturns = new ArrayList<BorrowReturn>(); 
 		try {

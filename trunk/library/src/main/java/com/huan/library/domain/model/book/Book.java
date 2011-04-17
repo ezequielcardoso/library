@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -33,6 +34,7 @@ public class Book implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long bookId; // 主键
 	private String bookNo; // 图书编号
+	@Column(unique=true)
 	private String barCode; //条形码
 	private String bookName; //书刊名字
 	private String bookDesc; //图书简介

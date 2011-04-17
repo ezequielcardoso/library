@@ -19,6 +19,14 @@ public interface BorrowReturnDao extends BaseDao<BorrowReturn>{
 	 * @throws Exception
 	 */
 	public BorrowReturn selectBRByBookBar(String bookBar) throws Exception;
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	public BorrowReturn selectBRById(Long id) throws Exception;
 	/**
 	 * 根据读者条形码查找借阅记录
 	 * @param readerBar

@@ -3,6 +3,7 @@ package com.huan.library.domain.model.reader;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -50,6 +51,7 @@ public class Reader implements Serializable {
 	
 	private String cardNo; //借阅证号
 	private String password;       //密码
+	@Column(unique=true)
 	private String barCode;        //条形码
 	private Date entyDate;         //办证日期
 	private Date effectiveDate;    //有效日期
