@@ -360,7 +360,20 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				dataIndex : 'bookStateName',
 				width : 60,
 				sortable : true,
-				align : 'center'
+				align : 'center',
+				renderer : function(value){
+					var html = "";
+					if(value=="借阅中"){
+						html = "<font color='red'>" + value +"<span class='zaiguan'>&nbsp&nbsp&nbsp&nbsp</span></font>";
+						
+					} else if(value=="在馆"){
+						html = "<font color='blue'>" + value +"</font>";
+						
+					} else {
+						html = value;
+					}
+					return html;
+				}
 			}, {
 				header : '附件',
 				dataIndex : 'hasAttachment',

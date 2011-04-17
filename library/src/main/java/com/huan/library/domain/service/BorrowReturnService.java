@@ -28,6 +28,8 @@ public interface BorrowReturnService {
 	
 	
 	public BorrowReturn getBRByBarCode(String barCode) throws Exception;
+	
+	public BorrowReturn getBRById(Long id) throws Exception;
 	/**
 	 * 根据读者条形码和图书条形码查找借阅记录
 	 * @param borrowReturnView
