@@ -99,8 +99,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					type : 'string'
 				}, {
 					name : 'birthday',
-					type : 'date',
-					dateFormat : 'Y-m-d'
+				    type : 'date',
+                    dateFormat : 'Y-m-d'
 				}, {
 					name : 'sex',
 					type : 'string'
@@ -122,11 +122,11 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				}, {
 					name : 'entyDate',
 					type : 'date',
-					dateFormat : 'Y-m-d'
+                    dateFormat : 'Y-m-d'
 				}, {
 					name : 'effectiveDate',
 					type : 'date',
-					dateFormat : 'Y-m-d'
+                    dateFormat : 'Y-m-d'
 				}, {
 					name : 'readerPic',
 					type : 'string'
@@ -244,13 +244,14 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					dataIndex : 'readerName'
 				}, {
 					header : '出生日期',
+					xtype : 'datecolumn',
 					width : 100,
 					sortable : true,
 					align : 'center',
 					editor : new Ext.form.DateField({
 								format : 'Y-m-d'
 							}),
-					format : 'Y-m-d',
+					format: 'Y-m-d',
 					dataIndex : 'birthday'
 				}, {
 					header : '性別',
@@ -319,7 +320,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					editor : new Ext.form.DateField({
 								format : 'Y-m-d'
 							}),
-					format : 'Y-m-d',
+					xtype : 'datecolumn',
+					format: 'Y-m-d',
 					dataIndex : 'entyDate'
 				}, {
 					header : '有效日期',
@@ -329,7 +331,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					editor : new Ext.form.DateField({
 								format : 'Y-m-d'
 							}),
-					format : 'Y-m-d',
+					xtype : 'datecolumn',
+					format: 'Y-m-d',
 					dataIndex : 'effectiveDate'
 				}, {
 					header : '读者照片',
@@ -655,9 +658,9 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			email : '762252352@qq.com', // 邮箱
 			contactTel : '13578926265', // 联系电话
 			entyDate : '2008-5-5', // 办证日期
-			effectiveDate : '2012-5-5', // 有效日期
-			borrowedQuantiy:0,
-			totalBQuantity: 0,
+			effectiveDate : '05/05/2005', // 有效日期
+			borrowedQuantiy: 0,
+			totalBQuantity:  0,
 			readerPic : '080301009.jpg', // 读者照片
 			spell : 'huan', // 拼音
 			readerDesc : '08级学生'// 读者描述

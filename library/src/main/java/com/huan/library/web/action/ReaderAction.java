@@ -197,6 +197,12 @@ public class ReaderAction extends BaseActionSupport {
 			if(reader.getLeftMoney()!=null&&!"".equals(reader.getLeftMoney())){
 				readerView.setLeftMoney(reader.getLeftMoney());
 			}
+			if(reader.getBorrowedQuantiy()!=null && !"".equals(reader.getBorrowedQuantiy())){
+			   readerView.setBorrowedQuantiy(reader.getBorrowedQuantiy());	
+			}
+			if(reader.getTotalBQuantity()!=null && !"".equals(reader.getTotalBQuantity())){
+				readerView.setTotalBQuantity(reader.getTotalBQuantity());
+			}
 			if(reader.getEmail()!=null&&!"".equals(reader.getEmail())){
 				readerView.setEmail(reader.getEmail());
 			}
