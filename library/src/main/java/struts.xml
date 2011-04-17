@@ -13,7 +13,6 @@
 	<!--导入各模块Action配置文件 -->
 	<include file="rights.xml"></include>
 	<include file="book.xml"></include>
-	<include file="dict.xml"></include>
 	<include file="reader.xml"></include>
 	<include file="system.xml"></include>
 	<include file="borrowReturn.xml"></include>
