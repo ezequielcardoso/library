@@ -71,7 +71,7 @@
 					<table width="80%" border="0" align="left" cellpadding="0"
 						cellspacing="0" bordercolor="#ebebeb" borderColorLight="#ebebeb"
 						borderColorDark="#ffffff" id="LM1">
-												<TR>
+					   <TR>
 							<TD width="8%" height=25 align="right" nowrap="nowrap"
 								style="padding-left: 12px;">
 								借阅证号：
@@ -79,7 +79,7 @@
 							<td width="12%" align="left">
 								<input name="reader.cardNo" type="text" class="input2"
 									id="reader.cardNo"  size="20">
-								<input name="reader.id" type="text" class="input2"
+								<input name="reader.id" type="hidden" class="input2"
 									id="reader.id"  size="20">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
@@ -158,8 +158,8 @@
 								数量限制：
 							</TD>
 							<td width="12%" align="left">
-								<input name="reader.readerType.borrowedQuantity" type="text"
-									class="input2" id="reader.readerType.borrowedQuantity"
+								<input name="reader.readerType.maxBorrowedQuantity" type="text"
+									class="input2" id="reader.readerType.maxBorrowedQuantity"
 									size="8">
 							</td>
 							<TD width="8%" height=25 align="right" nowrap="nowrap">
@@ -173,12 +173,12 @@
 								借阅天数：
 							</TD>
 							<td width="12%" align="left">
-								<input name="reader.readerType.borrowDays" type="text"
-									class="input2" id="reader.readerType.borrowDays"
+								<input name="reader.readerType.maxBorrowDays" type="text"
+									class="input2" id="reader.readerType.maxBorrowDays"
 									size="8">
 							</td>
 						</TR>
-					</TABLE>
+					</table>
 				</td>
 			</tr>
 			<tr>

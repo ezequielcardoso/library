@@ -56,9 +56,9 @@ public class Reader implements Serializable {
 	private Date entyDate;         //办证日期
 	private Date effectiveDate;    //有效日期
 	private String readerPic;      //头像
-	private Integer borrowedQuantiy = 0;      //当前借阅数量
-	private Integer renewTimes = 0;     //续借次数
-	private Integer totalBQuantity = 0;    //累计借阅数量
+	private Integer borrowedQuantiy ;      //当前借阅数量
+	private Integer renewTimes ;     //续借次数
+	private Integer totalBQuantity ;    //累计借阅数量
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cardState")
@@ -271,7 +271,7 @@ public class Reader implements Serializable {
 	public void setCardState(CardState cardState) {
 		this.cardState = cardState;
 	}
-
+    
 	public Integer getBorrowedQuantiy() {
 		return borrowedQuantiy;
 	}
