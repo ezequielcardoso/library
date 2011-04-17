@@ -15,7 +15,7 @@ public class ExtTreeNode {
 	private Boolean leaf = false;
 	private Boolean expanded;
 	private Boolean checked;
-	private Boolean isOptional = true;
+	private Boolean isOptional = false;
 	
 	public Boolean getLeaf() {
 		return leaf;
