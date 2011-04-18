@@ -33,7 +33,7 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 
 			sql.append(" select new Reader( r.id, r.cardNo, r.password, r.barCode, r.readerName, r.birthday,"
 							+ " r.sex, r.leftMoney, r.email, r.contactTel, r.entyDate, r.effectiveDate, r.borrowedQuantiy, r.totalBQuantity, r.readerPic, r.spell"
-							+ ", r.readerDesc, t_ru.unitId, t_ru.unitcode, t_ru.unitName, t_c.itemId, t_c.itemCode,"
+							+ ", r.readerDesc, t_ru.unitId, t_ru.unitcode, t_ru.unitName, t_ru.unitShortName, t_c.itemId, t_c.itemCode,"
 							+ " t_c.itemName, t_rt.id, t_rt.readerCateCode, t_rt.readerCateName, t_rt.maxBorrowDays, t_rt.maxBorrowedQuantity," +
 									" t_rt.rent , t_rs.itemId, t_rs.itemCode, t_rs.itemName )");
 			sql_.append(" select count(r) ");
@@ -54,6 +54,9 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 			sql_.append(" where 1=1 ");
 			
 			StringBuilder whereSub = new StringBuilder();
+			if(readerView.getUnitId()!=null&&!"".equals(readerView.getUnitId())){
+				whereSub.append(" and t_ru.unitId = (:unitId) ");
+			}
 			if(readerView.getReaderName()!=null&&!"".equals(readerView.getReaderName())){
 				whereSub.append(" and r.readerName like (:readerName) ");
 			}
@@ -79,6 +82,9 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 							&& readerView.getStart()!=null && readerView.getLimit()!=null){
 						query.setFirstResult(readerView.getStart());
 						query.setMaxResults(readerView.getLimit());
+					}
+					if(readerView.getUnitId()!=null && !"".equals(readerView.getUnitId())){
+						query.setParameter("unitId", readerView.getUnitId());
 					}
 					String temp = "";
 					if(readerView.getReaderName()!=null&&!"".equals(readerView.getReaderName())){
@@ -107,6 +113,9 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
 					Query query = session.createQuery(sqlIn_);
+					if(readerView.getUnitId()!=null && !"".equals(readerView.getUnitId())){
+						query.setParameter("unitId", readerView.getUnitId());
+					}
 					String temp = "";
 					if(readerView.getReaderName()!=null&&!"".equals(readerView.getReaderName())){
 						temp = "%" + readerView.getReaderName().replace(" ", "%")+"%";

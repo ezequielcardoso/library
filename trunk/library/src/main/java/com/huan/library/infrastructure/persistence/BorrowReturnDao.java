@@ -13,6 +13,13 @@ import com.huan.library.web.view.BorrowReturnView;
 public interface BorrowReturnDao extends BaseDao<BorrowReturn>{
 
 	/**
+	 * 查找借阅记录
+	 * @param borrowReturnView
+	 * @return
+	 * @throws Exception
+	 */
+	public List<BorrowReturn> selectBorrowReturns(BorrowReturnView borrowReturnView) throws Exception;
+	/**
 	 * 根据图书条形码查找借阅记录
 	 * @param bookBar
 	 * @return

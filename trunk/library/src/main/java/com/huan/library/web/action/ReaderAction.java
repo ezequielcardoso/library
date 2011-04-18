@@ -4,12 +4,14 @@ package com.huan.library.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.service.ReaderService;
 import com.huan.library.util.DateFormatUtil;
+import com.huan.library.util.StringUtils;
 import com.huan.library.web.view.ReaderView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
@@ -107,6 +109,18 @@ public class ReaderAction extends BaseActionSupport {
 	public String save() {
 		try {
 			this.formatReader(reader);
+			String ignore[] = StringUtils.getIgnore(reader);
+			if(reader.getId()!=null){
+				Reader oldReader = readerService.findReaderById(reader.getId());
+				if(ignore!=null && ignore.length>0){
+					BeanUtils.copyProperties(reader, oldReader, ignore);
+					this.formatReader(oldReader);
+					if(reader.getReaderUnits()!=null && reader.getReaderUnits().getUnitId()!=null){
+						oldReader.setReaderUnits(reader.getReaderUnits());
+					}
+					reader = oldReader;
+				}
+			}
 			reader = readerService.addOrModifyReader(reader);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setData(reader);
@@ -224,11 +238,10 @@ public class ReaderAction extends BaseActionSupport {
 			if(reader.getReaderDesc()!=null&&!"".equals(reader.getReaderDesc())){
 				readerView.setReaderDesc(reader.getReaderDesc());
 			}
-			if(reader.getReaderUnits()!=null){
-				readerView.setUnitId(reader.getReaderUnits().getUnitId());
-				readerView.setUnitCode(reader.getReaderUnits().getUnitcode());
-				readerView.setUnitName(reader.getReaderUnits().getUnitName());
-			}
+		    if(reader.getReaderUnits()!=null){
+		    	readerView.setUnitId(reader.getReaderUnits().getUnitId());
+		    	readerView.setUnitName(reader.getReaderUnits().getUnitName());
+		    }
 			if(reader.getCertificate()!=null){
 				readerView.setCertificateId(reader.getCertificate().getItemId());
 				readerView.setCertificateCode(reader.getCertificate().getItemCode());

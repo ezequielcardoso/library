@@ -7,8 +7,14 @@
      <!-- book borrow -->
     <package name="borrowReturn" namespace="/borrowReturn" extends="library">
        
+       
+       <!-- 借阅 -->
        <action name="bookBorrowMain" class="com.huan.library.web.action.BorrowReturnAction" method="bookBorrowMain">
            <result name="success">/module/borrowReturn/bookBorrow.jsp</result>       
+       </action>
+       
+       <action name="magazineBorrowMain" class="com.huan.library.web.action.BorrowReturnAction" method="magazineBorrowMain">
+           <result name="success">/module/borrowReturn/magazineBorrow.jsp</result>       
        </action>
        
        <action name="bookBorrow" class="com.huan.library.web.action.BorrowReturnAction" method="bookBorrow">
@@ -16,6 +22,16 @@
               <param name="root">extJsonForm</param>
            </result>
        </action>
+       
+        <!-- 归还 -->
+        <action name="bookReturnMain" class="com.huan.library.web.action.BorrowReturnAction" method="bookReturnMain">
+           <result name="success">/module/borrowReturn/bookReturn.jsp</result>       
+       </action>
+       
+       <action name="magazineReturnMain" class="com.huan.library.web.action.BorrowReturnAction" method="magazineReturnMain">
+           <result name="success">/module/borrowReturn/magazineReturn.jsp</result>       
+       </action>
+       
        
        <action name="bookReturn" class="com.huan.library.web.action.BorrowReturnAction" method="bookReturn">
            <result name="success" type="json">
@@ -32,6 +48,12 @@
        <action name="findByBarCodeOrReaderCode" class="com.huan.library.web.action.BorrowReturnAction" method="findByBarCodeOrReaderCode">
           <result name="success" type="json">
              <param name="root">extJsonForm</param>
+          </result>
+       </action>
+       <!-- staticts -->
+       <action name="findBorrowReturns" class="com.huan.library.web.action.BorrowReturnAction" method="findBorrowReturns">
+          <result name="success" type="json">
+             <param name="root">extGridLoad</param>
           </result>
        </action>
        

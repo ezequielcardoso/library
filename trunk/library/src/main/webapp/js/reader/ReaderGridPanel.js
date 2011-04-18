@@ -31,13 +31,30 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 								}
 							}, '-', {
+								text : '分配部门',
+								handler : function() {
+									var sm = this.getSelectionModel();
+									if(sm.hasSelection()){
+										var record = sm.getSelected();
+										var checkWin = new Library.tree.ReaderUnitsCheckTreeWindow({
+											checkTree : new Library.reader.tree.ReaderUnitsCheckTree({
+														checkModel : 'single'
+													}),
+											record : record,
+											height : 500,
+											width : 300,
+											title : '分配部门'
+										  });
+										checkWin.show();
+									   } else {
+										Ext.Msg.alert('提示', '请选择读者');
+									   }
+								  },
+								scope: this
+							}, '-', {
 								text : '导出Excel',
 								handler : function() {
 
-								}
-							}, '-', {
-								text : '打印',
-								handler : function() {
 								}
 							}, '->', {
 								xtype : 'label',
@@ -366,32 +383,6 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					width : 100,
 					sortable : true,
 					align : 'center',
-					// editor : new Ext.form.ComboBox({
-					// triggerAction : 'all',
-					// valueField : 'readerCateName',
-					// displayField : 'readerCateName',
-					// mode : 'remote',
-					// lazyRender : true,
-					// selectOnFocus : true,
-					// allowBlank : false,
-					// editable : false,
-					// store : new Ext.data.JsonStore({
-					// url : contextPath + '/reader/findReaderTypes.action',
-					// fields : [{
-					// name : 'id'
-					// }, {
-					// name : 'readerCateName'
-					// }]
-					// }),
-					// listeners : {
-					// 'select' : function(combo, record, index) {
-					// var rec = Ext.getCmp('readerGridPanel')
-					// .getSelectionModel().getSelected();
-					// rec.set('id', record.get('id'));
-					// rec.commit()
-					// }
-					// }
-					// }),
 					dataIndex : 'unitName'
 				}, {
 					header : '读者类别',
@@ -652,31 +643,18 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			password : '0803010099', // 密码
 			barCode : '0803010099', // 条形码
 			readerName : 'huan', // 读者姓名
-			birthday : '2011-3-2', // 出生日期
+			birthday : new Date(), // 出生日期
 			sex : '男',
-			leftMoney : 0.1, // 余额
+			leftMoney : 0.2, // 余额
 			email : '762252352@qq.com', // 邮箱
 			contactTel : '13578926265', // 联系电话
-			entyDate : '2008-5-5', // 办证日期
-			effectiveDate : '05/05/2005', // 有效日期
+			entyDate : new Date(),
+			effectiveDate : new Date(),
 			borrowedQuantiy: 0,
 			totalBQuantity:  0,
 			readerPic : '080301009.jpg', // 读者照片
 			spell : 'huan', // 拼音
 			readerDesc : '08级学生'// 读者描述
-
-				// certificateId : '',
-				// certificateCode : '',
-				// certificateName : '', // 证件类别 学生证
-				// certificateNo : '', // 证件号码
-				//
-				// readerTypeId : '',
-				// readerTypeCode : '',
-				// readerTypeName : '', // 读者类别
-				//
-				// cardStateId : '',
-				// cardStateCode : ''
-				// cardStateName, //借阅证状
 			});
 		this.stopEditing();
 		this.store.insert(0, r);

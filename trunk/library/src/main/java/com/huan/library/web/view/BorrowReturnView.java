@@ -2,9 +2,9 @@ package com.huan.library.web.view;
 
 import java.io.Serializable;
 
-import com.huan.library.web.view.form.ExtJsonForm;
+import com.huan.library.web.view.grid.ExtGridPost;
 
-public class BorrowReturnView extends ExtJsonForm implements Serializable{
+public class BorrowReturnView extends ExtGridPost implements Serializable{
 
 	/**
 	 * 
@@ -13,8 +13,10 @@ public class BorrowReturnView extends ExtJsonForm implements Serializable{
 	
 	private Long id; //主键
 	private String borrowedDate;       //借阅日期
+	private String endBorrowedDate;   
 	private String duetoReturnDate;    //应还日期
 	private String realityReturndate;  //实还日期
+	private String endRealityReturnDate;
 	private Integer overdueDays;         //逾期天数
 	private Float puniMoney = 0F;        //罚金
 	private Integer isPay ;         //是或缴款  1表示是缴款  0表示没
@@ -238,6 +240,18 @@ public class BorrowReturnView extends ExtJsonForm implements Serializable{
 	}
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
+	}
+	public String getEndBorrowedDate() {
+		return endBorrowedDate;
+	}
+	public void setEndBorrowedDate(String endBorrowedDate) {
+		this.endBorrowedDate = endBorrowedDate;
+	}
+	public String getEndRealityReturnDate() {
+		return endRealityReturnDate;
+	}
+	public void setEndRealityReturnDate(String endRealityReturnDate) {
+		this.endRealityReturnDate = endRealityReturnDate;
 	}
 	
 }

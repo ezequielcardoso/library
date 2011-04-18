@@ -142,7 +142,7 @@ Library.reader.tree.ReaderUnitsTreePanel = Ext.extend(Library.tree.BaseTree, {
 			}
 		}, this);
 		
-		//双击击时加载该部门的用户
+		//双击击时加载该部门的读者
 		this.on('dblclick', function(node){
 			if(node.getDepth()>0){
 				var grid = Ext.getCmp('readerGridPanel');

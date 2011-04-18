@@ -18,6 +18,7 @@ import com.huan.library.domain.service.ReaderService;
 import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.BorrowReturnView;
 import com.huan.library.web.view.form.ExtJsonForm;
+import com.huan.library.web.view.grid.ExtGridLoad;
 import com.opensymphony.xwork2.Action;
 
 /**
@@ -42,6 +43,7 @@ public class BorrowReturnAction extends BaseActionSupport {
 	private BookService bookService;
 
 	private ExtJsonForm extJsonForm = new ExtJsonForm(); // 返回给客户端的信息
+	private ExtGridLoad extGridLoad = new ExtGridLoad();
 
 	private BorrowReturnView borrowReturnView = new BorrowReturnView();
 
@@ -50,28 +52,56 @@ public class BorrowReturnAction extends BaseActionSupport {
 	private List<BorrowReturnView> borrowReturnViews = new ArrayList<BorrowReturnView>();
 
 	private LibInfo libInfo = new LibInfo();
-
-	public String findBRByBarcode() {
-		try {
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return Action.SUCCESS;
-	}
+    
+	private Integer start;
+	private Integer limit;
 
 	/**
 	 * 图书借阅界面
-	 * 
 	 * @return
 	 */
 	public String bookBorrowMain() {
 		return Action.SUCCESS;
 	}
-
+	/**
+	 * 期刊借阅界面
+	 * @return
+	 */
+	public String magazineBorrowMain() {
+		return Action.SUCCESS;
+	}
+	/**
+	 * 图书归还界面
+	 * @return
+	 */
+	public String bookReturnMain() {
+		return Action.SUCCESS;
+	}
+    /**
+     * 期刊归还界面
+     * @return
+     */
+	public String magazineReturnMain() {
+		return Action.SUCCESS;
+	}
+    
+	public String findBorrowReturns(){
+		try {
+		  borrowReturnView.setStart(start);
+		  borrowReturnView.setLimit(limit);
+		  List<BorrowReturn> borrowReturns = borrowReturnService.findBorrowReturns(borrowReturnView);
+		  this.convertToViews(borrowReturns, borrowReturnViews);
+		  extGridLoad.setRoot(borrowReturnViews);
+		  extGridLoad.setTotalProperty(borrowReturnView.getTotalCount());
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  return Action.ERROR; 
+		}
+		return Action.SUCCESS;
+	}
+	
 	/**
 	 * 图书借阅
-	 * 
 	 * @return
 	 */
 	public String bookBorrow() {
@@ -115,15 +145,6 @@ public class BorrowReturnAction extends BaseActionSupport {
 			extJsonForm.setData(null);
 			return Action.ERROR;
 		}
-		return Action.SUCCESS;
-	}
-
-	/**
-	 * 显示归还页面
-	 * 
-	 * @return
-	 */
-	public String bookReturnMain() {
 		return Action.SUCCESS;
 	}
 
@@ -387,5 +408,23 @@ public class BorrowReturnAction extends BaseActionSupport {
 	public void setBorrowReturnViews(List<BorrowReturnView> borrowReturnViews) {
 		this.borrowReturnViews = borrowReturnViews;
 	}
-
+	public ExtGridLoad getExtGridLoad() {
+		return extGridLoad;
+	}
+	public void setExtGridLoad(ExtGridLoad extGridLoad) {
+		this.extGridLoad = extGridLoad;
+	}
+	public Integer getStart() {
+		return start;
+	}
+	public void setStart(Integer start) {
+		this.start = start;
+	}
+	public Integer getLimit() {
+		return limit;
+	}
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+    
 }
