@@ -7,14 +7,17 @@
 		
 		<link href="<%=path%>/css/style.css" type="text/css"rel="stylesheet" />
 		<title>湖北警官学院图书馆</title>
-		<script type="text/javascript" src="<%=path %>/js/tree/BaseTree.js"></script>
+		 <script type="text/javascript" src="<%=path %>/js/tree/BaseTree.js"></script>
+         <script type="text/javascript" src="<%=path %>/js/tree/BaseCheckTree.js"></script>
 		 <script type="text/javascript" src="<%=path%>/js/common/common.js"></script>
 		 <script type="text/javascript" src="<%=path%>/js/reader/ReaderUnitTreePanel.js"></script>
 		 <script type="text/javascript" src="<%=path%>/js/reader/UnitForm.js"></script>
 		 <script type="text/javascript" src="<%=path%>/js/combobox/ArrayLocalComboBox.js"></script>
-		<script type="text/javascript" src="<%=path%>/js/reader/Reader.js"></script>
-		<script type="text/javascript" src="<%=path%>/js/reader/ReaderGridPanel.js"></script>
-	
+		 <script type="text/javascript" src="<%=path %>/js/reader/ReaderUnitsCheckTree.js"></script>
+         <script type="text/javascript" src="<%=path %>/js/reader/ReaderUnitsCheckTreeWindow.js"></script>
+		 <script type="text/javascript" src="<%=path%>/js/reader/Reader.js"></script>
+		 <script type="text/javascript" src="<%=path%>/js/reader/ReaderGridPanel.js"></script>
+	    
    </head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"

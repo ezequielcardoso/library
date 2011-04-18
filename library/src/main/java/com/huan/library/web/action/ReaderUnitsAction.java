@@ -32,8 +32,10 @@ public class ReaderUnitsAction extends BaseActionSupport {
 	private ReaderUnits unit = new ReaderUnits();
 	private Long pid;
 	private Long id;
+	private Boolean isOptional = false;
 	private List<ExtTreeNode> childrenNodes = new ArrayList<ExtTreeNode>();
 	private ExtJsonForm extJsonForm = new ExtJsonForm();
+
 
 	public String getChildrenByPid() {
 		List<ReaderUnits> units = new ArrayList<ReaderUnits>();
@@ -44,6 +46,9 @@ public class ReaderUnitsAction extends BaseActionSupport {
 				treeNode.setId(unit.getUnitId().toString());
 				treeNode.setText(unit.getUnitName());
 				treeNode.setLeaf(unit.getLeaf());
+				if(this.getIsOptional()){
+					treeNode.setChecked(false);
+				}
 				treeNode.setIsOptional(false);    //干什么用的
 				
 				childrenNodes.add(treeNode);
@@ -151,5 +156,14 @@ public class ReaderUnitsAction extends BaseActionSupport {
 	public void setReaderUnitsService(ReaderUnitsService readerUnitsService) {
 		this.readerUnitsService = readerUnitsService;
 	}
+
+	public Boolean getIsOptional() {
+		return isOptional;
+	}
+
+	public void setIsOptional(Boolean isOptional) {
+		this.isOptional = isOptional;
+	}
+	
 
 }

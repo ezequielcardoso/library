@@ -1,0 +1,381 @@
+Ext.ns('Library.magazine.statics.grid');
+
+Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.GridPanel, {
+	
+	id : 'magazineStaticsGridPanel',
+	
+	initComponent : function(){
+		
+		// 操作图书列表的工具条
+		var tbar = new Ext.Toolbar({
+			items : [{
+				text : '导出Excel',
+				handler : function() {
+					
+				}
+			},'-',{
+				text : '图书标签',
+				handler : function() {
+					
+				}
+			},'-',{
+				text : '打印条形码',
+				handler : function() {
+					
+				}
+			},'->', {
+				xtype : 'label',
+				text : '借阅时间从：'
+			}, '-',{
+				xtype : 'datefield',
+				width : 100,
+				id : 'borrowedDate',
+				format : 'Y-m-d'
+			},'-', {
+				xtype : 'label',
+				text : '到：'
+			}, '-',{
+				xtype : 'datefield',
+				width : 100,
+				id : 'endBorrowedDate',
+				format : 'Y-m-d'
+			},'-',{
+				xtype : 'label',
+				text : '归还时间从：'
+			},'-',{
+				xtype : 'datefield',
+				width : 100,
+				id : 'realityReturndate',
+				format : 'Y-m-d'
+			},'-', {
+				xtype : 'label',
+				text : '到：'
+			}, '-',{
+				xtype : 'datefield',
+				width : 100,
+				id : 'endRealityReturnDate',
+				format : 'Y-m-d'
+			},'-',{
+				text : '查询',
+				handler : function() {
+					this.queryBorrowed();
+				},
+				scope:this
+			},'-',{
+				text : '刷新',
+				handler : function() {
+					this.onRefresh();
+				},
+				scope:this
+			} ]
+		});
+		
+		var fields = [{
+							name : 'id',
+							type : 'int'
+						}, {
+							name : 'borrowedDate',
+							type : 'date',
+							dateFormat : 'm/d/Y'
+						}, {
+							name : 'duetoReturnDate',
+							type : 'date',
+							dateFormat : 'm/d/Y'
+						}, {
+							name : 'realityReturndate',
+							type : 'date',
+							dateFormat : 'm/d/Y'
+						}, {
+							name : 'overdueDays',
+							type : 'int'
+						}, {
+							name : 'puniMoney',
+							type : 'float'
+						}, {
+							name : 'isPay',
+							type : 'int'
+						}, {
+							name : 'renewTimes',
+							type : 'int'
+						}, {
+							name : 'borrowOperator',
+							type : 'string'
+						}, {
+							name : 'returnOperator',
+							type : 'string'
+						}, {
+							name : 'bookId',
+							type : 'int'
+						}, {
+							name : 'bookNo',
+							type : 'string'
+						}, {
+							name : 'bookBarCode',
+							type : 'string'
+						}, {
+							name : 'bookName',
+							type : 'string'
+						}, {
+							name : 'location',
+							type : 'int'
+						}, {
+							name : 'firstCategoryId',
+							type : 'float'
+						}, {
+							name : 'firstCategoryCode',
+							type : 'string'
+						}, {
+							name : 'firstCategoryName',
+							type : 'string'
+						}, {
+							name : 'bookStateId',
+							type : 'string'
+						}, {
+							name : 'bookStateName',
+							type : 'string'
+						}, {
+							name : 'readerId',
+							type : 'int'
+						}, {
+							name : 'readerName',
+							type : 'string'
+						}, {
+							name : 'cardNo',
+							type : 'string'
+						}, {
+							name : 'readerBarCode',
+							type : 'string'
+						}, {
+							name : 'unitId',
+							type : 'int'
+						}, {
+							name : 'unitCode',
+							type : 'string'
+						}, {
+							name : 'unitName',
+							type : 'string'
+						}, {
+							name : 'readerTypeId',
+							type : 'int'
+						}, {
+							name : 'readerCateCode',
+							type : 'string'
+						}, {
+							name : 'readerCateName',
+							type : 'string'
+						}];
+		
+		var store = new Ext.data.JsonStore({
+			url : contextPath + '/borrowReturn/findBorrowReturns.action',
+			totalProperty : 'totalProperty',
+			root : 'root',
+			baseParams : {
+				'borrowReturnView.isBook' : 0
+			},
+			storeInfo : {
+				field : '列名',
+				direction : 'ASC|DESC'
+			},
+			fields : fields
+		});
+		
+	   var cm = new Ext.grid.ColumnModel([
+					new Ext.grid.RowNumberer(),
+					{
+						header : '期刊条形码',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						editor : new Ext.form.TextField({
+									allowBlank : false
+								}),
+						dataIndex : 'bookBarCode'
+					},{
+						header : '读者条形码',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'readerBarCode'
+					},{
+						header : '读者姓名',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'readerName'
+					}, {
+						header : '刊名',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'bookName'
+					}, {
+						xtype : 'datecolumn',
+						format: 'm/d/Y',
+						header : '借阅日期',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'borrowedDate'
+					}, {
+						xtype : 'datecolumn',
+						format: 'm/d/Y',
+						header : '应还日期',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'duetoReturnDate'
+					}, {
+						header : '超期天数',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'overdueDays'
+					}, {
+						header : '罚金',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'puniMoney'
+					}, {
+						header : '续借次数',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'renewTimes'
+					}, {
+						header : '期刊状态',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'bookStateName'
+					}, {
+						header : '期刊类别',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'firstCategoryName'
+					}, {
+						header : '读者单位',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'unitName'
+					}, {
+						header : '读者类别',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'readerCateName'
+					}, {
+						header : '存放位置',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'location'
+					}, {
+						header : '借阅操作员',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'borrowOperator'
+					}, {
+						header : '归还操作员',
+						width : 80,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'returnOperator'
+					}]);
+
+		
+		Ext.apply(this, {
+			width : 1250,
+//			height : document.documentElement.clientHeight * 0.82,
+			height : 450,
+			autoScroll : true,
+			tbar : tbar,
+			cm : cm,
+			store : store,
+			stripeRows : true,
+			columnLines : true,
+			frame : false,
+			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
+					store : store,
+					pageSize : MagazinesPageSize,
+					afterPageText : '/ {0}',
+					beforePageText : '页',
+					displayInfo : true,
+					firstText : '第一页',
+					prevText : '前一页',
+					nextText : '后一页',
+					lastText : '最后一页',
+					refreshText : '刷新',
+					displayMsg : '显示第 {0}-{1}条 共{2}条 ',
+					emptyMsg : '没有数据'
+				})
+			]),
+			viewConfig : new Ext.grid.GridView({
+				rowHeight : 23,
+				scrollDelay : false,
+				columnsText : '显示的列',
+				scrollOffset : 30,
+				sortAscText : '升序',
+				sortDescText : '降序'
+			})
+		});
+		
+		Library.magazine.statics.grid.MagazineStaticsGridPanel.superclass.initComponent.call(this);
+		
+	},
+	
+	queryBorrowed : function(){
+	   var readerBarCode = Ext.get('readerBarCode').getValue();
+	   var readerName = Ext.get('readerName').getValue();
+	   var unitName = Ext.get('unitName').getValue();
+	   var bookBarCode = Ext.get('bookBarCode').getValue();
+	   var bookName = Ext.get('bookName').getValue();
+	   var firstCategoryName = Ext.get('firstCategoryName').getValue();
+	   var borrowOperator = Ext.get('borrowOperator').getValue();
+	   var returnOperator = Ext.get('returnOperator').getValue();
+	   var bookStateName = Ext.get('bookStateName').getValue();
+	   var borrowedDate = Ext.get('borrowedDate').getValue();
+	   var endBorrowedDate = Ext.get('endBorrowedDate').getValue();
+	   var realityReturndate = Ext.get('realityReturndate').getValue();
+	   var endRealityReturnDate = Ext.get('endRealityReturnDate').getValue();
+	   
+	   this.getStore().baseParams = {
+	       'borrowReturnView.readerBarCode' : readerBarCode,
+	       'borrowReturnView.readerName' : readerName,
+	       'borrowReturnView.unitName' : unitName,
+	       'borrowReturnView.bookBarCode' : bookBarCode,
+	       'borrowReturnView.bookName' : bookName,
+	       'borrowReturnView.firstCategoryName' : firstCategoryName,
+	       'borrowReturnView.borrowOperator' : borrowOperator,
+	       'borrowReturnView.returnOperator' : returnOperator,
+	       'borrowReturnView.bookStateName' : bookStateName,
+	       'borrowReturnView.endBorrowedDate' : endBorrowedDate,
+	       'borrowReturnView.realityReturndate' : realityReturndate,
+	       'borrowReturnView.endRealityReturnDate' : endRealityReturnDate,
+	       'borrowReturnView.isBook' : 0
+	      
+	   }
+	   this.getStore().load({
+	       params : {
+				start : 0,
+				limit : MagazinesPageSize
+			}
+	   });
+	},
+	
+	onRefresh : function(){
+	   
+		this.getStore().baseParams={'borrowReturnView.isBook' : 0};
+		
+		this.getStore().load({
+							params : {
+								'start' : 0,
+								'limit' : MagazinesPageSize
+							}
+						});
+		
+	}
+});

@@ -71,7 +71,7 @@ public class Reader implements Serializable {
 	public Reader(Long id,String cardNo,String password,String barCode,String readerName, 
 			Date birthday, String sex,Float leftMoney, String email, String contactTel,
 			 Date entyDate,Date effectiveDate,Integer borrowedQuantiy, Integer totalBQuantity, String readerPic, String spell,
-			String readerDesc, Long unitId, String unitCode, String unitName,String certificateId, String certificateCode,String certificateName, Long readerTypeId, String readerTypeCode,
+			String readerDesc, Long unitId, String unitCode, String unitName,String unitShortName,String certificateId, String certificateCode,String certificateName, Long readerTypeId, String readerTypeCode,
 			String readerTypeName,Integer maxBorrowDays, Integer maxBorrowedQuantity, Float rent,String cardStateId, String cardStateCode,
 			String cardStateName) {
 		this.id = id;
@@ -96,7 +96,8 @@ public class Reader implements Serializable {
 		readerUnits.setUnitId(unitId);
 		readerUnits.setUnitcode(unitCode);
 		readerUnits.setUnitName(unitName);
-		this.readerUnits = readerUnits;
+		readerUnits.setUnitShortName(unitShortName);
+		this.setReaderUnits(readerUnits);
 		
 		Certificate certificate = new Certificate();
 		certificate.setItemId(certificateId);

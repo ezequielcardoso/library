@@ -80,4 +80,16 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 		this.borrowReturnDao = borrowReturnDao;
 	}
 
+	public List<BorrowReturn> findBorrowReturns(
+			BorrowReturnView borrowReturnView) throws Exception {
+		List<BorrowReturn> borrowReturns = new ArrayList<BorrowReturn>(); 
+		try {
+			borrowReturns = borrowReturnDao.selectBorrowReturns(borrowReturnView);
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  throw new Exception(e);
+		}
+		return borrowReturns;
+	}
+
 }
