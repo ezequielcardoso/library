@@ -21,6 +21,7 @@ public class RoleView extends ExtGridPost implements Serializable{
 	private Boolean roleActive;//角色激活
 	private String createDate;//角色修改时间
 	private Long userId;
+	private Boolean checked;
 	
 	public Integer getRoleId() {
 		return roleId;
@@ -68,6 +69,14 @@ public class RoleView extends ExtGridPost implements Serializable{
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
 	}
 
 }

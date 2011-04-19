@@ -28,5 +28,31 @@ Library.rights.tree.RoleCheckTreePanel = Ext.extend(Library.tree.BaseCheckTree, 
 				treeLoader.baseParams['roleView.userId'] = this.userId;
 			}
 		}, this);
+		
+		this.on('checkchange', function(node, checked ){
+			var id = node.attributes.id;
+			Ext.Ajax.request({
+				url : contextPath + '/role/setUserRole.action',
+				params : {
+					'roleView.userId' : this.userId,
+					'roleView.roleId' : id,
+					'roleView.checked' : checked
+				},
+				success : function(resp){
+					var obj = Ext.util.JSON.decode(resp.responseText);
+					if(obj.success){
+						Ext.Msg.alert('提示', obj.msg);
+					} else {
+						Ext.Msg.alert('提示', obj.msg);
+						this.getRootNode().reload();
+					}
+					
+				}, 
+				failure : function(){
+					Ext.Msg.alert('提示', '服务器异常，请稍候再试');
+				},
+				scope : this
+			});	
+		}, this);
 	}
 });

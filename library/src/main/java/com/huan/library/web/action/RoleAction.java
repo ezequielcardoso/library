@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.rights.Role;
+import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.RoleService;
+import com.huan.library.domain.service.UserService;
 import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.RoleView;
 import com.huan.library.web.view.form.ExtJsonForm;
@@ -31,6 +33,21 @@ public class RoleAction extends BaseActionSupport {
 	@Autowired
 	private RoleService roleService;
 	
+	@Autowired
+	private UserService userService;
+	
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	public RoleService getRoleService() {
+		return roleService;
+	}
+
 	private Role role = new Role();
 	private RoleView roleView = new RoleView();
 	private ExtJsonForm extJsonForm = new ExtJsonForm();
@@ -124,22 +141,39 @@ public class RoleAction extends BaseActionSupport {
 		return views;
 	}
 
+	public String setUserRole(){
+		try {
+			User user = userService.getById(roleView.getUserId());
+			Role role = new Role();
+			role.setRoleId(roleView.getRoleId());
+			if(roleView.getChecked()){
+				user.getRoles().add(role);
+			}
+			user.getRoles().remove(role);
+			userService.save(user);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("设置成功！");
+			extJsonForm.setData(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
 	public String findAllByUserId() {
 		try {
-			roleView.setStart(start);
-			roleView.setLimit(limit);
-			List<Role> allRoles = roleService.findRoles(roleView);
+			List<Role> userRoles = userService.getById(roleView.getUserId()).getRoles();
 			List<Role> roles = roleService.findRoles(new RoleView());
 			
 			for (int i=0; i<roles.size(); i++) {
 				roles.get(i).setChecked(false);
 			}
-			for (int i=0; i<allRoles.size(); i++) {
-				allRoles.get(i).setChecked(true);
+			for (int i=0; i<userRoles.size(); i++) {
+				userRoles.get(i).setChecked(true);
 			}
 			Set<Role> roleSet = new HashSet<Role>();
+			roleSet.addAll(userRoles);
 			roleSet.addAll(roles);
-			roleSet.addAll(allRoles);
 			for (Role role : roleSet) {
 				ExtTreeNode treeNode = new ExtTreeNode();
 				treeNode.setId(role.getRoleId().toString());
