@@ -1,11 +1,11 @@
 Ext.onReady(function(){
 
-	var bookGridPanel = new Library.book.grid.BookGridPanel();
+	var bookOrderGridPanel = new Library.bookOrder.grid.BookOrderGridPanel();
 	
-	bookGridPanel.render('bookGrid');
+	bookOrderGridPanel.render('bookOrderGrid');
 	
 
-	bookGridPanel.getStore().load({
+	bookOrderGridPanel.getStore().load({
 							params : {
 								'start' : 0,
 								'limit' : BooksPageSize

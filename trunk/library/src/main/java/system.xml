@@ -25,5 +25,20 @@
         </action>
      
    </package>
+   
+   <!-- sysLog -->
+   <package name="sysLog" namespace="/sysLog" extends="library">
+      
+      <action name="sysLogMain" class="com.huan.library.web.action.SysLogAction" method="sysLogMain">
+         <result name="success">/module/system/sysLog.jsp</result>
+      </action>
+      
+      <action name="findSysLogs" class="com.huan.library.web.action.SysLogAction" method="findSysLogs">
+        <result name="success" type="json">
+          <param name="root">extGridLoad</param>
+        </result>
+      </action>
+        
+   </package>
         
 </struts>
