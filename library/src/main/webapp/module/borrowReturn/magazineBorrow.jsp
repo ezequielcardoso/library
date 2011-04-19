@@ -97,10 +97,6 @@
 									class="input2" id="reader.readerUnits.unitName"
 									size="22">
 							</td>
-							<TD width="200" height=25 align="center" nowrap="nowrap"
-								rowspan="4">
-								<img src="images/pc001.png" />
-							</TD>
 						</TR>
 
 						<TR>
