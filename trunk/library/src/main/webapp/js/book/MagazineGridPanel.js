@@ -436,6 +436,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   var secondCategory = Ext.get('secondCategory').getValue();
 	   var emailNo = Ext.get('emailNo').getValue();
 	   var ISSN = Ext.get('ISSN').getValue();
+	   var bookStateName = Ext.get('bookStateName').getValue();
 	   var storeDate = Ext.get('storeDate').getValue();  
 	   var endStoreDate = Ext.get('endStoreDate').getValue();
 	   this.getStore().baseParams = {
@@ -451,6 +452,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	       'bookView.secondCategoryName' : secondCategory,
 	       'bookView.emailNo' : emailNo,
 	       'bookView.ISSN' : ISSN,
+	       'bookView.bookStateName' : bookStateName,
 	       'bookView.storeDate' : storeDate,
 	       'bookView.endStoreDate' : endStoreDate,
 	       'bookView.isBook' : 0

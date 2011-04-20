@@ -348,6 +348,13 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 			  // 读者校验
 				var borrowedQuantiy = Ext.get('reader.borrowedQuantiy').getValue();
 				var maxBorrowedQuantity = Ext.get('reader.readerType.maxBorrowedQuantity').getValue();
+				var cardState= Ext.get('reader.cardState.itemName').getValue();
+				
+				if(cardState != '可用'){
+				  Ext.Msg.alert('提示','借阅证状态不可用,请联系管理员');
+				  return;
+				}
+				
 				if (borrowedQuantiy >= maxBorrowedQuantity) {
 					Ext.Msg.alert('提示', '已达最大借阅数量');
 					return false;
