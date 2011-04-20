@@ -1,6 +1,9 @@
 package com.huan.library.infrastructure.persistence;
 
+import java.util.List;
+
 import com.huan.library.domain.model.Punishment;
+import com.huan.library.web.view.PunishmentView;
 
 /**
  * 罚款dao
@@ -9,4 +12,6 @@ import com.huan.library.domain.model.Punishment;
  */
 public interface PunishmentDao extends BaseDao<Punishment>{
   
+	public List<Punishment> selectPunishments(PunishmentView punishmentView) throws Exception;
+	
 }

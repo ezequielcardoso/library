@@ -38,7 +38,14 @@
           <param name="root">extGridLoad</param>
         </result>
       </action>
-        
+   </package>
+ 
+   <package name="punishment" namespace="/punishment" extends="library">
+     <action name="findPunishments" class="com.huan.library.web.action.PunishmentAction" method="findPunishments">
+        <result name="success" type="json">
+          <param name="root">extGridLoad</param>
+        </result>
+     </action>
    </package>
         
 </struts>

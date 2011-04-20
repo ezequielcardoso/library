@@ -163,6 +163,7 @@ Library.bookOrder.grid.BookOrderGridPanel = Ext.extend(Ext.grid.GridPanel, {
 
 		var cm = new Ext.grid.ColumnModel([
 					new Ext.grid.RowNumberer(),
+					selectModel,
 					 {
 						header : '图书条形码',
 						width : 100,

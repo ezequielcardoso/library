@@ -5,3 +5,4 @@ var ReaderTypesPageSize=20;
 var ReadersPageSize = 20;
 var UsersPageSize=20;
 var SysLogsPageSize = 20;
+var ReaderAccountsPageSize = 20;
