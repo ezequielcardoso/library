@@ -139,6 +139,19 @@
 												id="operator" size="15">
 										</TD>
 									</TR>
+                                    <TR>
+										<TD height=25 align="right" nowrap class="body">
+											图书状态：
+										</TD>
+										<TD height=25 align="left" nowrap class="body">
+											<input name="bookStateName" type="text" class="input2"
+												id="bookStateName" size="15">
+										</TD>
+                                    
+									    <TD height=25 colspan="6" align="left" nowrap class="body">
+											提示：图书状态包括 核审中,在馆,借阅中,预约中,逾期中
+										</TD>
+								     </TR>      
 								</TABLE>
 						<tr id="yb">
 							<td height="10" valign="top">

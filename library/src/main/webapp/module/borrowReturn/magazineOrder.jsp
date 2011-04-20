@@ -61,97 +61,56 @@
 									cellspacing="0" bordercolor="#ebebeb"
 									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
 
-                                  <TR>
-										<TD width="7%" height="25" align="right" nowrap class="body">
-											条形码：
+                                 <TR>
+										<TD width="18%" height=25 align="right" nowrap="nowrap"
+											style="padding-left: 10px;">
+											读者条形码：
 										</TD>
-										<TD width="11%" height="25" align="left" nowrap class="body">
-											<input name="barCode" type="text" class="input2"
-												id="barCode" size="15">
+										<td width="13%" align="left" nowrap>
+											<input name="readerBarCode" type="text" class="input2"
+												id="readerBarCode" size="15">
+										</td>
+										<TD width="9%" height=25 align="right" nowrap="nowrap">
+											姓名：
 										</TD>
-										<TD width="7%" height="25" align="right" nowrap class="body">
-											刊名：
+										<td width="14%" align="left" nowrap>
+											<input name="readerName" type="text" class="input2"
+												id="readerName" size="15">
+										</td>
+										<TD width="11%" height=25 align="right" nowrap="nowrap"
+											style="padding-left: 10px;">
+											读者单位：
 										</TD>
-										<TD width="11%" height="25" align="left" nowrap class="body">
+										<td width="35%" align="left" nowrap>
+											<input name="unitName" type="text" class="input2"
+												id="unitName" size="15">
+										</td>
+									</TR>
+								
+									<TR>
+										<TD width="18%" height=25 align="right" nowrap="nowrap"
+											style="padding-left: 8px;">
+											图书条形码：
+										</TD>
+										<td width="13%" align="left" nowrap>
+											<input name="bookBarCode" type="text" class="input2"
+												id="bookBarCode"  size="15">
+										</td>
+										<TD height=25 align="right" nowrap="nowrap">
+											书名：
+										</TD>
+										<td width="14%" align="left" nowrap>
 											<input name="bookName" type="text" class="input2"
 												id="bookName" size="15">
+										</td>
+										<TD height=25 align="right" nowrap="nowrap">
+											图书类别：
 										</TD>
-										<TD width="9%" height="25" align="right" nowrap class="body">
-											期刊拼写：
-										</TD>
-										<TD width="12%" height="25" align="left" nowrap class="body">
-											<input name="spell" type="text" class="input2"
-												id="spell" size="15">
-										</TD>
-										<TD width="7%" height="25" align="right" nowrap class="body">
-											出版社：
-										</TD>
-										<TD width="36%" height="25" align="left" nowrap class="body">
-											<input name="press" type="text" class="input2"
-												id="press" size="15">
-										</TD>
+										<td width="35%" align="left" nowrap>
+											<input name="firstCategoryName" type="text" class="input2"
+												id="firstCategoryName" size="15">
+										</td>
 									</TR>
-									<TR>
-										<TD height="25" align="right" nowrap class="body">
-											位置：
-										</TD>
-										<TD height="25" align="left" nowrap class="body">
-											<input name="location" type="text" class="input2"
-												id="location" size="15">
-										</TD>
-										<TD height="25" align="right" nowrap class="body">
-											编号：
-										</TD>
-										<TD height="25" align="left" class="body">
-											<input name="bookNo" type="text" class="input2"
-												id="bookNo" size="15">
-										</TD>
-										<TD height="25" align="right" nowrap class="body">
-											索书号：
-										</TD>
-										<TD height="25" align="left" nowrap class="body">
-											<input name="searchBookId" type="text" class="input2"
-												id="searchBookId"size="15">
-										</TD>
-										<TD height="25" align="right" nowrap class="body">
-											种次号：
-										</TD>
-										<TD height="25" align="left" class="body">
-											<input name="speciesId" type="text" class="input2"
-												id="speciesId" size="15">
-										</TD>
-									</TR>
-									<TR>
-										<TD height="25" align="right" nowrap class="body">
-											分类：
-										</TD>
-										<TD height="25" align="left" nowrap class="body">
-											<input name="firstCategory" type="text" class="input2"
-												id="firstCategory" size="15">
-										</TD>
-										<TD height="25" align="right" nowrap class="body">
-											二级分类：
-										</TD>
-										<TD height="25" align="left" class="body">
-											<input name="secondCategory" type="text" class="input2"
-												id="secondCategory" size="15">
-										</TD>
-										<TD height="25" align="right" nowrap class="body">
-											邮发代码：
-										</TD>
-										<TD height="25" align="left" nowrap class="body">
-											<input name="emailNo" type="text" class="input2"
-												id="emailNo"size="15">
-										</TD>
-										<TD height="25" align="right" nowrap class="body">
-											ISSN：
-										</TD>
-										<TD height="25" align="left" class="body">
-											<input name="ISSN" type="text" class="input2"
-												id="ISSN" size="15">
-										</TD>
-									</TR>
-
 
 								</TABLE>
 						<tr id="yb" >

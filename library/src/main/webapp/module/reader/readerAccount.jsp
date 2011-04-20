@@ -1,0 +1,355 @@
+<%@ page language="java" import="java.util.*;" pageEncoding="UTF-8"%>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<%@ include file="/common/common.jsp"%>
+		<%@ include file="/common/extInclude.jsp"%>
+		
+		<link href="<%=path%>/css/style.css" type="text/css"rel="stylesheet" />
+		<title>图书馆管理系统</title>
+		
+	  	</head>
+	<body>
+		<table width="100%" height="100%" border="0" cellpadding="0"
+			cellspacing="0" bgcolor="#dbecff">
+			<tr id="ye" style="DISPLAY: block">
+				<td height="4" background="<%=path%>/images/module/bodybg.jpg"></td>
+			</tr>
+			
+				<td valign="top" height="10">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"
+						height="100%">
+						<tr id="yd" style="DISPLAY: block">
+							<td height="10" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0">
+
+									<tr>
+										<td>
+											<table width="100%" border="0" align="center" cellpadding="0"
+												cellspacing="0" class="title_border">
+												<tr>
+													<td width="19%" height="25" style="text-align: left">
+														<strong>&nbsp;<img align="absmiddle"
+																src="<%=path%>/images/module/cl0.gif"> 读者管理</strong>
+													</td>
+													<td width="81%" height="25" class=body1
+														style="text-align: left">
+														<img src="<%=path%>/images/module/02a.gif">
+														当前位置：读者管理 &gt;&gt;读者帐单													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<TR>
+										<TD>
+											<table width="98%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+
+											</table>
+										</TD>
+									</TR>
+								</table>
+							</td>
+						</tr>
+						<tr id="yy" style="DISPLAY: block">
+							<td height="10" valign="top">
+								<table width="20%" border="0" align="left" cellpadding="0"
+									cellspacing="0" bordercolor="#ebebeb"
+									borderColorLight="#ebebeb" borderColorDark="#ffffff" id="LM1">
+									
+								    
+									 <TR>
+										<TD height=25 align="right" valign="center" nowrap class=body width="6%" style="padding-left:0px;">借阅证号：
+									   </TD>
+										<TD width="12%" height=25 align="left" valign="top" nowrap class=body>
+                                    <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="">									</TD>
+                            		</TR>
+                                    <TR>
+										<TD height=25 align="right" valign="center" nowrap class=body width="6%" >读者姓名：
+									   </TD>
+										<TD width="12%" height=25 align="left" valign="top" nowrap class=body>
+                                    <input name=txtkeyvalue2 type="text" class="input2"
+												id="txtkeyvalue2" value="">									</TD>
+                            		</TR>
+									<TR align="left">
+										<TD height=25 colspan="2" valign="top" nowrap class=body style="padding-left:10px;">
+                                           <input type="button" class="btnl" value="查询">
+										   <input name="button" type="reset" class="btnl"
+												value="重置">
+							      </TR>
+								</TABLE>
+							</td>
+						</tr>
+						<tr  id="yb" style="DISPLAY: block">
+							<td height="0" valign="top">
+								<table width="99%" border="0" align="center" cellpadding="0"
+									cellspacing="0" bgcolor="#f1f8ff"
+									style="border: 1px solid #2686d2; margin-top: 2px">
+									<tr>
+										<td>
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0">
+												<tr>
+													<td width="189" height="33" nowrap
+														background="<%=path%>/images/module/titleb_01.jpg" class="title1">
+														查询列表
+													</td>
+													<td nowrap background="<%=path%>/images/module/titleb_02.jpg">&nbsp;
+														
+
+												  </td>
+													<td width="213" align="right" nowrap
+														background="<%=path%>/images/module/titleb_03.jpg"
+														style="padding-bottom: 10px">
+														&nbsp;&nbsp;
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td valign="top">
+											<table id="tab1" width="97%" border="1" align="center"
+												cellpadding="0" cellspacing="0" bordercolor="#bcc3c9"
+												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
+												bgcolor="#FFFFFF" style="margin-top: 5px">
+												<tr align="center">
+													<td align="center" bgcolor="#F4F5F9" class="body" width="150">
+														借阅证号
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="200">姓名</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="150">
+														部门
+													</td>
+													<td align="center" bgcolor="#F4F5F9" class="body"  width="150">
+														项目</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="100">
+														日期</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="180">
+														备注</td>
+													<td align="center" bgcolor="#F4F5F9" class="body" width="180">
+														操作员</td>
+													</tr>
+												
+												<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													080301009<br></td>
+													<td class="body">
+                                                     huan<br>
+													</td>
+													<td class="body">
+														五班
+														<br>
+													</td>
+													<td class="body">
+														办卡
+														<br>
+													</td>
+													<td class="body">
+														2008-2-2
+														<br>
+													</td>
+													<td class="body">
+														正常
+														<br>
+													</td>
+														<td class="body">
+														huan
+														<br>
+													</td>
+											   </tr>
+												
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+												</tr>
+															<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													080301009<br></td>
+													<td class="body">
+                                                     huan<br>
+													</td>
+													<td class="body">
+														五班
+														<br>
+													</td>
+													<td class="body">
+                                                      补卡<br>
+													</td>
+													<td class="body">
+														2008-2-2
+														<br>
+													</td>
+													<td class="body">
+														正常
+														<br>
+													</td>
+														<td class="body">
+														huan
+														<br>
+													</td>
+											   </tr>
+												
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+												</tr>
+									
+                                    			<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													080301009<br></td>
+													<td class="body">
+                                                     huan<br>
+													</td>
+													<td class="body">
+														五班
+														<br>
+													</td>
+													<td class="body">
+														罚金
+														<br>
+													</td>
+													<td class="body">
+														2008-2-2
+														<br>
+													</td>
+													<td class="body">
+														正常
+														<br>
+													</td>
+														<td class="body">
+														huan
+														<br>
+													</td>
+											   </tr>
+												
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+												</tr>
+									
+                                    			<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													080301009<br></td>
+													<td class="body">
+                                                     huan<br>
+													</td>
+													<td class="body">
+														五班
+														<br>
+													</td>
+													<td class="body">
+														办卡
+														<br>
+													</td>
+													<td class="body">
+														2008-2-2
+														<br>
+													</td>
+													<td class="body">
+														正常
+														<br>
+													</td>
+														<td class="body">
+														huan
+														<br>
+													</td>
+											   </tr>
+												
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+												</tr>
+									
+                                    			<tr align="center" onDblClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+													<td class="body">
+													080301009<br></td>
+													<td class="body">
+                                                     huan<br>
+													</td>
+													<td class="body">
+														五班
+														<br>
+													</td>
+													<td class="body">
+														办卡
+														<br>
+													</td>
+													<td class="body">
+														2008-2-2
+														<br>
+													</td>
+													<td class="body">
+														正常
+														<br>
+													</td>
+														<td class="body">
+														huan
+														<br>
+													</td>
+											   </tr>
+												
+												<tr onClick="oncli()"
+													onMouseOver="this.style.backgroundColor='#eff1f4';return true;"
+													onMouseOut="this.style.backgroundColor='';">
+
+												</tr>
+										</table>
+                                        
+                                        	<table width="99%" border="0" align="center" cellpadding="0"
+												cellspacing="0">
+												<tr>
+													<td height="30" align="center" class="body">
+														共有11条主题 共2页 现在是第1页 [首页] [上一页] [下一页] [尾页]&nbsp; 跳转到
+														<select size="1" name=""
+															onChange="viewpage(this.value,this.name);">
+															<option value="t0">
+																第1页
+															</option>
+															<option selected value="t0_1">
+																第2页
+															</option>
+														</select>
+														<script language=javascript>      
+  <!--
+  function viewpage(val,id)
+  {
+  location="produc"+val+".html"}
+  //-->
+                  </script>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+							<tr id="div_yy" style="DISPLAY: none" height="100%">
+							<td>
+							</td>
+						</tr>
+						
+					</table>
+				</td>
+			</tr>
+		</table>
+
+	</body>
+</html>
