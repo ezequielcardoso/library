@@ -20,11 +20,12 @@ public class PunishmentView extends ExtGridPost implements Serializable{
 		private Float punishMoney; //罚金
 		private String eventsDesc; //描述
 		private Date operatorDate;  //时间  如 : 2011-3-8 06:16:12
+		private Date endOperatorDate ; 
 		
 		private String operator;   //操作员  
 		
 		private String chargeId;
-		private String chargeName; // 图书状态
+		private String chargeName; // 收费项目
 	    
 	
 	    private Long readerId; // 读者主键
@@ -32,15 +33,13 @@ public class PunishmentView extends ExtGridPost implements Serializable{
 	    private String readerName;  // 读者姓名
 		
 		private Long unitId; 
-		private String unitCode;
 		private String unitName;     //读者单位 
 		
 		private Long readerTypeId; 
-		private String readerCateCode; 
 		private String readerCateName; // 读者类别
 		
 		public PunishmentView(){
-			
+			super();
 		}
 		
 		public Long getId() {
@@ -109,12 +108,7 @@ public class PunishmentView extends ExtGridPost implements Serializable{
 		public void setUnitId(Long unitId) {
 			this.unitId = unitId;
 		}
-		public String getUnitCode() {
-			return unitCode;
-		}
-		public void setUnitCode(String unitCode) {
-			this.unitCode = unitCode;
-		}
+		
 		public String getUnitName() {
 			return unitName;
 		}
@@ -127,17 +121,20 @@ public class PunishmentView extends ExtGridPost implements Serializable{
 		public void setReaderTypeId(Long readerTypeId) {
 			this.readerTypeId = readerTypeId;
 		}
-		public String getReaderCateCode() {
-			return readerCateCode;
-		}
-		public void setReaderCateCode(String readerCateCode) {
-			this.readerCateCode = readerCateCode;
-		}
+	
 		public String getReaderCateName() {
 			return readerCateName;
 		}
 		public void setReaderCateName(String readerCateName) {
 			this.readerCateName = readerCateName;
+		}
+
+		public Date getEndOperatorDate() {
+			return endOperatorDate;
+		}
+
+		public void setEndOperatorDate(Date endOperatorDate) {
+			this.endOperatorDate = endOperatorDate;
 		}
 		
 		

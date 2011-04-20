@@ -163,6 +163,7 @@ Library.magazineOrder.grid.MagazineOrderGridPane = Ext.extend(Ext.grid.GridPanel
 
 		var cm = new Ext.grid.ColumnModel([
 					new Ext.grid.RowNumberer(),
+					selectModel,
 					 {
 						header : '期刊条形码',
 						width : 100,

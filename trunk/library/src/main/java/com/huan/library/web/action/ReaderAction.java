@@ -48,6 +48,13 @@ public class ReaderAction extends BaseActionSupport {
 	public String readerMain() {
 		return Action.SUCCESS;
 	}
+	/**
+	 * 显示读者账单主页面
+	 * @return
+	 */
+	public String readerAccountMain(){
+		return Action.SUCCESS;
+	}
     /**
      * 查找所有的读者
      * @return

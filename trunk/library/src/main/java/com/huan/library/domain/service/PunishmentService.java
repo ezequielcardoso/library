@@ -1,6 +1,9 @@
 package com.huan.library.domain.service;
 
+import java.util.List;
+
 import com.huan.library.domain.model.Punishment;
+import com.huan.library.web.view.PunishmentView;
 
 
 /**
@@ -16,5 +19,13 @@ public interface PunishmentService {
 	 * @throws Exception
 	 */
 	public Punishment addOrModifyPunlishment(Punishment punishment) throws Exception; 
+	
+	/**
+	 * 查找所有的罚款
+	 * @param punishmentView
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Punishment> findPunishments(PunishmentView punishmentView) throws Exception;
 
 }

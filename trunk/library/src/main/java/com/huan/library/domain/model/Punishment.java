@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.huan.library.domain.model.reader.Reader;
+import com.huan.library.domain.model.reader.ReaderType;
+import com.huan.library.domain.model.reader.ReaderUnits;
 
 
 
@@ -45,8 +47,40 @@ public class Punishment implements Serializable{
     @JoinColumn(name="reader")
 	private Reader reader;
 	
-	public Punishment(){
+	public Punishment(Long id,Float punishMoney,String eventsDesc,Date operatorDate,String operator,
+			String chargeId,String chargeName,Long readerId,String readerBarCode,String readerName,Long unitId,
+			String unitName,Long readerTypeId,String readerCateName){
+		this.id = id ;
+		this.punishMoney = punishMoney;
+		this.eventsDesc = eventsDesc;
+		this.operatorDate = operatorDate;
+		this.operator = operator;
+	  
+		Charge charge = new Charge();
+		charge.setItemId(chargeId);
+		charge.setItemName(chargeName);
+		this.setCharge(charge);
 		
+		Reader reader = new Reader();
+		reader.setId(readerId);
+		reader.setBarCode(readerBarCode);
+		reader.setReaderName(readerName);
+		
+		ReaderUnits readerUnits = new ReaderUnits();
+		readerUnits.setUnitId(unitId);
+		readerUnits.setUnitName(unitName);
+		reader.setReaderUnits(readerUnits);
+		
+		ReaderType readerType = new ReaderType();
+		readerType.setId(readerTypeId);
+		readerType.setReaderCateName(readerCateName);
+		reader.setReaderType(readerType);
+	     	
+		this.setReader(reader);
+	}
+	
+	public Punishment(){
+		super();
 	}
 
 	public Long getId() {
