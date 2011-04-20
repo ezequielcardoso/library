@@ -3,6 +3,7 @@ package com.huan.library.domain.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,7 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.huan.library.domain.model.rights.User;
+import com.huan.library.domain.model.reader.Reader;
+
 
 
 /**
@@ -33,13 +35,15 @@ public class Punishment implements Serializable{
 	private String eventsDesc; //描述
 	private Date operatorDate;  //时间  如 : 2011-3-8 06:16:12
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=User.class)
-	@JoinColumn(name="operator")
-	private User operator;   //操作员  
+	private String operator;   //操作员  
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="project")
-	private Project project; //项目
+	@JoinColumn(name="charge")
+	private Charge charge; //项目
+	
+	@ManyToOne(fetch=FetchType.LAZY,targetEntity=Reader.class, cascade={CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name="reader")
+	private Reader reader;
 	
 	public Punishment(){
 		
@@ -77,20 +81,29 @@ public class Punishment implements Serializable{
 		this.operatorDate = operatorDate;
 	}
 
-	public User getOperator() {
+	public String getOperator() {
 		return operator;
 	}
 
-	public void setOperator(User operator) {
+	public void setOperator(String operator) {
 		this.operator = operator;
 	}
 
-	public Project getProject() {
-		return project;
+	public Charge getCharge() {
+		return charge;
 	}
 
-	public void setProject(Project project) {
-		this.project = project;
+	public void setCharge(Charge charge) {
+		this.charge = charge;
 	}
+
+	public Reader getReader() {
+		return reader;
+	}
+
+	public void setReader(Reader reader) {
+		this.reader = reader;
+	}
+ 
     
 }
