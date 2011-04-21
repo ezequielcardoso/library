@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -52,6 +53,9 @@ public class Function implements Serializable{
 	@ManyToOne(targetEntity=Function.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="parentFuncId",referencedColumnName="funcId")
 	private Function parent;
+	
+	@Column(insertable=false,updatable=false)
+	private String parentFuncId;
 	
 	//子功能
 	@OneToMany(targetEntity=Function.class, mappedBy="parent")
@@ -209,6 +213,14 @@ public class Function implements Serializable{
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getParentFuncId() {
+		return parentFuncId;
+	}
+
+	public void setParentFuncId(String parentFuncId) {
+		this.parentFuncId = parentFuncId;
 	}
 	
 

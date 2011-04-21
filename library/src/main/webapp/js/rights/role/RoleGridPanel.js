@@ -133,7 +133,9 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		}, this);
 		
 		this.addListener('rowclick', function(){
-			
+			var functree = Ext.getCmp('FunctionCheckTreePanel');
+			functree.getLoader().baseParams['functionView.roleId'] = this.getSelectionModel().getSelected().get('roleId');
+			functree.root.reload();
 		}, this);
 		
 		this.on('afteredit', function(e) {

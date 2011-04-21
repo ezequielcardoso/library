@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.huan.library.domain.model.SysLog;
 import com.huan.library.domain.service.SysLogService;
-import com.huan.library.infrastructure.SysLogDao;
+import com.huan.library.infrastructure.persistence.SysLogDao;
 import com.huan.library.web.view.SysLogView;
 @Service("sysLogService")
 public class SysLogServiceImpl implements SysLogService {

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.huan.library.domain.model.rights.Function;
 import com.huan.library.domain.service.FunctionService;
 import com.huan.library.infrastructure.persistence.FunctionDao;
+import com.huan.library.web.view.FunctionView;
 
 
 @Service("functionService")
@@ -22,27 +23,23 @@ public class FunctionServiceImpl implements FunctionService {
 	}
 
 	public Function save(Function func) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return functionDao.saveOrUpdate(func);
 	}
 
 	public List<Function> findAllFunctions() throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Function> findByRoleId(String roleId) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Function> findByRoleId(FunctionView functionView) {
+		return functionDao.selectByRoleId(functionView);
 	}
 
 	public Function getById(String funcId) throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public void remove(Function func) throws Exception {
-		// v Auto-generated method stub
+		this.functionDao.delete(func);
 	}
 
 	public List<Function> findModules() throws Exception {
@@ -75,6 +72,14 @@ public class FunctionServiceImpl implements FunctionService {
 			}
 		}
 		return funcs;
+	}
+
+	public List<Function> findFunctions(FunctionView functionView) {
+		return this.functionDao.selectFunctions(functionView);
+	}
+
+	public List<Function> findAll() {
+		return this.functionDao.selectAll();
 	}
 
 }
