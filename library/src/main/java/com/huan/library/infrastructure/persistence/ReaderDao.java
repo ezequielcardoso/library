@@ -16,7 +16,7 @@ public interface ReaderDao extends BaseDao<Reader>{
 	
 	public List<Reader> selectReaders(ReaderView readerView) throws Exception;
 	
-	public Reader selectByCardNo(String cardNo) throws Exception;
+	public Reader selectByBarCode(String barCode) throws Exception;
 	
 	public Reader selectById(Long readerId) throws Exception;
 	

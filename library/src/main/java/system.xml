@@ -39,8 +39,14 @@
         </result>
       </action>
    </package>
- 
+    
+    <!-- 罚款 --> 
    <package name="punishment" namespace="/punishment" extends="library">
+     
+     <action name="readerAccountMain" class="com.huan.library.web.action.PunishmentAction" method="readerAccountMain">
+        <result name="success">/module/system/chargeManager.jsp</result>
+     </action>
+     
      <action name="findPunishments" class="com.huan.library.web.action.PunishmentAction" method="findPunishments">
         <result name="success" type="json">
           <param name="root">extGridLoad</param>

@@ -10,16 +10,19 @@ Library.charge.form.ChargeFormPanel = new Ext.extend(Ext.form.FormPanel, {
 	id : 'chargeFormPanel',
 
 	initComponent : function() {
+		
+		
 		Ext.apply(this, {
 			width : 400,
 			height : 360,
 			labelAlign : 'center',
 			labelWidth : 80,
 			frame : true,
+			xtype : 'form',
 			buttonAlign : 'center',
 			items : [
 				    {
-						xtype : 'hidden',
+						xtype : 'textfield',
 						name : 'id',
 						id:'id',
 						anchor : '-20'
@@ -31,7 +34,7 @@ Library.charge.form.ChargeFormPanel = new Ext.extend(Ext.form.FormPanel, {
 						fieldLabel : '读者条形码'
 					},{
 						name : 'charge.itemId',
-						id : 'charge.itemId',
+//						id : 'charge.itemId',
 						fieldLabel : '项目',
 						anchor : '-20',
 						displayField : 'name',    // name 显示的数据
@@ -43,13 +46,13 @@ Library.charge.form.ChargeFormPanel = new Ext.extend(Ext.form.FormPanel, {
 					{
 						xtype : 'textfield',
 						name : 'punishMoney',
-						id : 'punishMoney',
+//						id : 'punishMoney',
 						anchor : '-20',
 						fieldLabel : '金额'
 					}, {
-						xtype : 'textarea',
+						xtype : 'textfield',
 						name : 'eventsDesc',
-						id : 'eventsDesc',
+//						id : 'eventsDesc',
 						anchor : '-20',
 						flex : 1,
 						height : '220',
@@ -71,35 +74,17 @@ Library.charge.form.ChargeFormPanel = new Ext.extend(Ext.form.FormPanel, {
 	},
 
 	onAdd : function() {
-          var id = Ext.get('id').getValue();
-          var readerCateCode = Ext.get('readerCateCode').getValue();
-          var chargeId = Ext.get('charge.itemId').getValue();
-          var punishMoney = Ext.get('punishMoney').getValue();
-          var eventsDesc = Ext.get('eventsDesc').getValue();
-          Ext.Ajax.request({
-//				url : contextPath + '/book/saveBook.action',
-				method : 'POST',
-				params : {
-					'punishment.id' : id,
-					'punishment.reader.readerCateCode' : readerCateCode,
-					'punishment.charge.itemId' : chargeId,
-					'punishment.punishMoney' : punishMoney,
-					'punishment.eventsDesc' : eventsDesc
-				},
-				success : function(resp) {
-					var obj = Ext.util.JSON.decode(resp.responseText);
-					if (obj.success == true) {
-						Ext.Msg.alert('提示', obj.msg);
-//						loadBookForm(obj.data);
-
-					} else if (obj.success == false) {
-						Ext.Msg.alert('提示', obj.msg);
-					}
-				},
-				failure : function() {
-					Ext.Msg.alert('提示', '服务器异常，请稍候再试');
-				}
-			});
+//        this.getComponent('chargeFormPanel').getForm().submit({
+//           url:''
+//           success:function(){
+//		Ext.Msg.alert('提示','添加成功');
+		chargeFormPanel.getForm().submit({url:'',success : function(){
+		   alert('提示','保存成功');
+		}});
+//             
+//           },
+//           falie 
+//        });         
 	}
 
 });

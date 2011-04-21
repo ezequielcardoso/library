@@ -30,7 +30,7 @@ public interface ReaderService {
 	 * @param readerId
 	 * @return
 	 */
-	public Reader findReaderByCardNo(String cardNo) throws Exception;
+	public Reader findReaderByBarCode(String barCode) throws Exception;
 	/**
 	 * 
 	 * @param readerId

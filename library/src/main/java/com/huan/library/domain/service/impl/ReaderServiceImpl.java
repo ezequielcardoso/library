@@ -44,10 +44,10 @@ public class ReaderServiceImpl implements ReaderService {
 		return reader;
 	}
 
-	public Reader findReaderByCardNo(String cardNo) throws Exception {
+	public Reader findReaderByBarCode(String barCode) throws Exception {
 		Reader reader = new Reader();
 		try {
-			reader = readerDao.selectByCardNo(cardNo);
+			reader = readerDao.selectByBarCode(barCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception(e);

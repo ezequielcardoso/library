@@ -92,6 +92,12 @@
 	       </result>
 	    </action>
 		
+		 <action name="exportExcel" class="com.huan.library.web.action.PressAction" method="exportExcel">
+	       <result name="success" type="json">
+	         <param name="root">extGridLoad</param>
+	       </result>
+	    </action>
+		
     </package>
 </struts>
 

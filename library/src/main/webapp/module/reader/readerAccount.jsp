@@ -9,7 +9,6 @@
 		<title>图书馆管理系统</title>
 		<script type="text/javascript" src="<%=path%>/js/reader/ReaderAccount.js"></script>
 		<script type="text/javascript" src="<%=path%>/js/reader/ReaderAccountGridPanel.js"></script>
-		
 	  	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -25,7 +24,6 @@
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"
 									cellspacing="0">
-
 									<tr>
 										<td>
 											<table width="100%" border="0" align="center" cellpadding="0"
@@ -110,7 +108,6 @@
 												id="readerCateName" size="15">
 										</td>
 									</TR>
-								
 								</TABLE>
 							</td>
 						</tr>
@@ -129,8 +126,6 @@
 														查询列表
 													</td>
 													<td nowrap background="<%=path%>/images/module/titleb_02.jpg">&nbsp;
-														
-
 												  </td>
 													<td width="213" align="right" nowrap
 														background="<%=path%>/images/module/titleb_03.jpg"

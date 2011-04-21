@@ -196,7 +196,7 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 	/**
 	 *
 	 */
-	public Reader selectByCardNo(String cardNo) throws Exception {
+	public Reader selectByBarCode(String barCode) throws Exception {
 		 Reader reader = new Reader();
 		try {
 			StringBuilder sql = new StringBuilder();
@@ -205,8 +205,8 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 			sql.append(" left join fetch r.certificate t_c ");
 			sql.append(" left join fetch r.readerType t_rt ");
 			sql.append(" left join fetch r.cardState t_rs ");
-			sql.append(" where r.cardNo = ? ");
-			reader = (Reader) getHibernateTemplate().find(sql.toString(), cardNo).listIterator().next();
+			sql.append(" where r.barCode = ? ");
+			reader = (Reader) getHibernateTemplate().find(sql.toString(), barCode).listIterator().next();
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  throw new Exception(e);

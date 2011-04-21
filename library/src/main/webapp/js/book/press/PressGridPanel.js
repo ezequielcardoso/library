@@ -34,8 +34,9 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			},'-', {
 				text : '导出Excel',
 				handler : function() {
-
-				}
+					this.onExport();
+				},
+				scope : this
 			},'-', {
 				text : '打印',
 				handler : function() {
@@ -296,10 +297,33 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		this.startEditing(0, 0);
 	},
 	onImport : function() {
-
+ 
 	},
 	onExport : function() {
-
+        var pressISBN = Ext.get('pressISBN').getValue();
+		var pressName = Ext.get('pressName').getValue();
+		var pressAddress = Ext.get('pressAddress').getValue();
+		
+		Ext.Ajax.request({
+				url : contextPath+ '/press/remove.action',
+				method : 'POST',
+				params : {
+					'pressView.pressId' : pressId
+				},
+				success : function(resp) {
+					var respText = resp.responseText;
+					var obj = Ext.util.JSON.decode(respText);
+					if (obj.success == true) {
+						Ext.Msg.alert('提示',obj.msg);
+						thiz.getStore().reload();
+					} else {
+						Ext.Msg.alert('提示',obj.msg);
+					}
+				},
+				failure : function() {
+					Ext.Msg.alert('提示', '服务器异常');
+				}
+			});
 	},
 	onPrint : function() {
 
