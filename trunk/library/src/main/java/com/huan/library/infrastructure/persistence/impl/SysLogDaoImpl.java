@@ -11,7 +11,7 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.SysLog;
-import com.huan.library.infrastructure.SysLogDao;
+import com.huan.library.infrastructure.persistence.SysLogDao;
 import com.huan.library.web.view.SysLogView;
 @Repository("sysLogDao")
 public class SysLogDaoImpl extends BaseDaoImpl<SysLog> implements SysLogDao {

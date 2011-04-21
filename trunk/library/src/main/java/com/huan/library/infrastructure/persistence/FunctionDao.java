@@ -2,6 +2,7 @@ package com.huan.library.infrastructure.persistence;
 import java.util.List;
 
 import com.huan.library.domain.model.rights.Function;
+import com.huan.library.web.view.FunctionView;
 
 /**
  * 
@@ -15,7 +16,7 @@ public interface FunctionDao extends BaseDao<Function>{
 	 * @param roleId
 	 * @return
 	 */
-	public List<Function> selectByRoleId(String roleId) throws Exception;
+	public List<Function> selectByRoleId(FunctionView functionView) ;
 	
 	/**
 	 * 批量增加
@@ -29,5 +30,9 @@ public interface FunctionDao extends BaseDao<Function>{
 	 * @return
 	 */
 	public List<Function> selectModules() throws Exception;
+
+	public List<Function> selectFunctions(FunctionView functionView);
+
+	public List<Function> selectAll();
 
 }

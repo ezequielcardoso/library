@@ -23,6 +23,20 @@
 	         <param name="root">extJsonForm</param>
 	       </result>
 	    </action>
+	    
+	    <action name="findTreeColumn" class="com.huan.library.web.action.FunctionAction" method="findTreeColumn">
+	       <result name="success" type="json">
+	         <param name="root">views</param>
+	       </result>
+	    </action>
+	    
+	    <action name="findFunctionTree" class="com.huan.library.web.action.FunctionAction" method="findFunctionTree">
+	       <result name="success" type="json">
+	         <param name="root">completeTree</param>
+	       </result>
+	    </action>
+	    
+	    
     </package>
     
     <!-- dept -->

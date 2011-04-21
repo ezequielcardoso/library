@@ -1,8 +1,9 @@
-Ext.ns('Boa.System.Resource');
+Ext.ns('Library.rights.treegrid');
 
-Boa.System.Resource.GridPanel = Ext.extend(Ext.ux.tree.TreeGrid, {
+Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
+    
     id: null,
-    url: Boa.Config.ContextPath + '/resource/loadTreeCol.do',
+    url: contextPath + '/function/findTreeColumn.action',
     
     selectNode: null,
     
@@ -10,30 +11,30 @@ Boa.System.Resource.GridPanel = Ext.extend(Ext.ux.tree.TreeGrid, {
     	var thiz = this;
     	Ext.apply(this, {
 	        autoScroll: true,
-	    	height: document.body.clientHeight - Boa.Config.gridHeight,
+	    	height: 500,
 	        enableDD: true,
 	        enableSort: false,
 	        useArrows: false,
 	        lines: true,
 	        columnsText: '列',
 	        border: false,
-	        tbar: ['<b>功能列表</b>','-',{
+	        tbar: [{
 	        	text: '新增',
-	        	iconCls: 'boa-add',
+	        	iconCls: '',
 				handler: function(){
 					this.onAdd();
 				},
 				scope: this
 	        },{
 	        	text: '修改',
-	        	iconCls: 'boa-edit',
+	        	iconCls: '',
 				handler: function(){
 					this.onUpdate();
 				},
 				scope: this
 	        },{
 	        	text: '删除',
-	        	iconCls: 'boa-delete',
+	        	iconCls: '',
 				handler: function(){
 					this.onDelete();
 				},
@@ -41,31 +42,39 @@ Boa.System.Resource.GridPanel = Ext.extend(Ext.ux.tree.TreeGrid, {
 	        }],
 	        columns: [{
 	            header: '功能名称',
-	            dataIndex: 'resText'
+	            width : 200,
+	            dataIndex: 'funcName'
 	        }, {
-	            header: '功能标识(resId)',
-	            dataIndex: 'resId'
+	            header: '功能标识',
+	            width : 100,
+	            dataIndex: 'resCmpId'
 	        }, {
 	            header: '资源链接',
-	            dataIndex: 'resDerict'
+	            width : 100,
+	            dataIndex: 'resCmpHandURL'
 	        }, {
 	            header: '图标',
-	            dataIndex: 'resIconCls',
+	            width : 60,
+	            dataIndex: 'resCmpIconCls',
 	            renderer: function(icon){
 	                var returnHtml = '<span class="' + icon + '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>' + icon;                
 	                return returnHtml;
 	            }
 	        }, {
 	            header: '排序',
-	            dataIndex: 'resOrder'
+	            width : 60,
+	            dataIndex: 'funcOrder'
 	        }, {
-	            header: '功能ID(oid)',
-	            dataIndex: 'oid'
+	            header: '功能ID',
+	            width : 100,
+	            dataIndex: 'funcId'
 	        }, {
-	            header: '上级功能(poid)',
-	            dataIndex: 'parentOid'
+	            header: '上级功能',
+	            width : 100,
+	            dataIndex: 'parentId'
 	        }, {
 	            header: '子节点',
+	            width : 60,
 	            dataIndex: 'leaf'
 	        }],
 	        listeners: {
@@ -87,52 +96,52 @@ Boa.System.Resource.GridPanel = Ext.extend(Ext.ux.tree.TreeGrid, {
 			})
 	    });
 	    this.on("beforeload", function(node){
-	    	if(node.attributes.oid != 'root'){
-    			this.getLoader().baseParams['parentOid'] = node.attributes.oid;
+	    	if(node.attributes.funcId != 'root'){
+    			this.getLoader().baseParams['functionView.parentId'] = node.attributes.funcId;
 	    	}else{
-	    		this.getLoader().baseParams['parentOid'] = null;
+	    		this.getLoader().baseParams['functionView.parentId'] = null;
 	    	}
         },this);
-        Boa.System.Resource.GridPanel.superclass.initComponent.apply(this, arguments);
+        Library.rights.treegrid.FunctionTreeGrid.superclass.initComponent.apply(this, arguments);
     },
     //添加
     onAdd: function(){
-    	var node = this.getSelectionModel().getSelectedNode();
-    	if(node){
-    		this.selectNode = node;
-	    	var pid = node.attributes.oid;
-	    	var pname = node.attributes.resText;
-	    	node.attributes = [];
-			node.attributes.poid = pid;
-			node.attributes.presText = pname;
-	    	var win = new Boa.Window({
-	    		formPanel: new Boa.System.Resource.FormPanel({formValues: node.attributes }),
-	    		title: '添加功能'
-	    	});
-    	}else{
-			Boa.Util.warn('请选择父功能');
-		}
+//    	var node = this.getSelectionModel().getSelectedNode();
+//    	if(node){
+//    		this.selectNode = node;
+//	    	var pid = node.attributes.oid;
+//	    	var pname = node.attributes.resText;
+//	    	node.attributes = [];
+//			node.attributes.poid = pid;
+//			node.attributes.presText = pname;
+//	    	var win = new Boa.Window({
+//	    		formPanel: new Boa.System.Resource.FormPanel({formValues: node.attributes }),
+//	    		title: '添加功能'
+//	    	});
+//    	}else{
+//			Boa.Util.warn('请选择父功能');
+//		}
     },
     //修改
     onUpdate: function(){
-    	var node = this.getSelectionModel().getSelectedNode();
-		if(node){
-			this.selectNode = node;
-			var pid = node.parentNode.attributes.oid;
-	    	var pname = node.parentNode.attributes.resText;
-			if(pid == 'root'){
-				pid = null;
-				pname = null;
-			}
-			node.attributes.poid = pid;
-			node.attributes.presText = pname;
-			new Boa.Window({
-	    		formPanel: new Boa.System.Resource.FormPanel({formValues: node.attributes}),
-	    		title: '修改功能'
-	    	});
-		}else{
-			Boa.Util.warn('请选择要修改的功能');
-		}
+//    	var node = this.getSelectionModel().getSelectedNode();
+//		if(node){
+//			this.selectNode = node;
+//			var pid = node.parentNode.attributes.oid;
+//	    	var pname = node.parentNode.attributes.resText;
+//			if(pid == 'root'){
+//				pid = null;
+//				pname = null;
+//			}
+//			node.attributes.poid = pid;
+//			node.attributes.presText = pname;
+//			new Boa.Window({
+//	    		formPanel: new Boa.System.Resource.FormPanel({formValues: node.attributes}),
+//	    		title: '修改功能'
+//	    	});
+//		}else{
+//			Boa.Util.warn('请选择要修改的功能');
+//		}
     },
     //删除
     onDelete: function(){
@@ -142,7 +151,7 @@ Boa.System.Resource.GridPanel = Ext.extend(Ext.ux.tree.TreeGrid, {
     			if(btn == 'yes'){
 					Ext.Ajax.request({
 		            	method: 'GET',
-		            	url: Boa.Config.ContextPath + '/resource/deleteResource.do',
+		            	url: Boa.Config.ContextPath + '/function/remove.do',
 			            success: function(resp,opts){
 			            	var msg = Ext.util.JSON.decode(resp.responseText);
 			            	if(msg.data == 'y'){
@@ -165,8 +174,8 @@ Boa.System.Resource.GridPanel = Ext.extend(Ext.ux.tree.TreeGrid, {
 			    }
     		});
 		}else{
-			Boa.Util.warn('请选择要删除的功能');
+//			Boa.Util.warn('请选择要删除的功能');
 		}
     }
 });
-Ext.reg('systemresourcegrid', Boa.System.Resource.GridPanel);
+Ext.reg('functiontreegrid', Library.rights.treegrid.FunctionTreeGrid);

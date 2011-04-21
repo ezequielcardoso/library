@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<%@ include file="/common/common.jsp"%>
 		<%@ include file="/common/extInclude.jsp"%>
-		<link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet" />
 		<title>图书馆管理系统</title>
 		<script type="text/javascript" src="<%=path %>/js/book/Book.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/book/BookGridPanel.js"></script>
@@ -153,6 +152,8 @@
 										</TD>
 								     </TR>      
 								</TABLE>
+							</td>
+						</tr>
 						<tr id="yb">
 							<td height="10" valign="top">
 								<table width="99%" border="0" align="center" cellpadding="0"

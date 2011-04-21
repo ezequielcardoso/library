@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.rights.Function;
 import com.huan.library.infrastructure.persistence.FunctionDao;
+import com.huan.library.web.view.FunctionView;
 
 /**
  * 
@@ -24,9 +25,17 @@ import com.huan.library.infrastructure.persistence.FunctionDao;
 public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 		FunctionDao {
 
-	public List<Function> selectByRoleId(String roleId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Function> selectByRoleId(final FunctionView functionView) {
+		final String getHql = "from Function func left join fetch func.roles as roles where roles.roleId = :roleId ";
+		List executeFind = getHibernateTemplate().executeFind(new HibernateCallback() {
+			public Object doInHibernate(Session s) throws HibernateException,
+					SQLException {
+				Query query = s.createQuery(getHql);
+				query.setParameter("roleId",functionView.getRoleId());
+				return query.list();
+			}
+		});
+		return executeFind;
 	}
 
 	public void insertFunctionsBatch(List<Function> functions) throws Exception {
@@ -84,6 +93,21 @@ public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 			throw new Exception(e);
 		}
 		return funcs;
+	}
+
+	public List<Function> selectFunctions(FunctionView functionView) {
+		String hql = "from Function func ";
+		if(functionView.getParentId()!=null && !"".equals(functionView.getParentId())){
+			hql += "where func.parentFuncId = '" + functionView.getParentId() + "' order by func.level,func.funcOrder";
+		}else{
+			hql += "where func.level = 1 order by func.funcOrder";
+		}
+		List<Function> executeFind = getHibernateTemplate().find(hql);
+		return executeFind;
+	}
+
+	public List<Function> selectAll() {
+		return getHibernateTemplate().find("from Function func ");
 	}
 
 }

@@ -1,8 +1,7 @@
 Ext.onReady(function(){
 
-	var functionTreePanel = new Library.rights.tree.FunctionTreePanel();
-	functionTreePanel.render('functionTree');
+	var functionTreePanel = new Library.rights.treegrid.FunctionTreeGrid();
+	functionTreePanel.render('functionTreeGrid');
 	
-//	departmentTreePanel.getRootNode().expand(false);
 });
 
