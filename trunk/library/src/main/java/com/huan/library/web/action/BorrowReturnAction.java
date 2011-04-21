@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.huan.library.domain.model.LibInfo;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.BookState;
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
@@ -50,8 +49,6 @@ public class BorrowReturnAction extends BaseActionSupport {
 	private BorrowReturn borrowReturn = new BorrowReturn();
 
 	private List<BorrowReturnView> borrowReturnViews = new ArrayList<BorrowReturnView>();
-
-	private LibInfo libInfo = new LibInfo();
     
 	private Integer start;
 	private Integer limit;
@@ -364,15 +361,6 @@ public class BorrowReturnAction extends BaseActionSupport {
 	public void setExtJsonForm(ExtJsonForm extJsonForm) {
 		this.extJsonForm = extJsonForm;
 	}
-
-	public LibInfo getLibInfo() {
-		return libInfo;
-	}
-
-	public void setLibInfo(LibInfo libInfo) {
-		this.libInfo = libInfo;
-	}
-
 	public BorrowReturnView getBorrowReturnView() {
 		return borrowReturnView;
 	}

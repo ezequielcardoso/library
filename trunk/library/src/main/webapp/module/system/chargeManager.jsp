@@ -96,6 +96,7 @@
 				</td>
 			</tr>
 		</table>
-
+             <script type="text/javascript"
+			             src="<%=path %>/js/system/LoadReader.js"></script>
 	</body>
 </html>

@@ -3,6 +3,8 @@ package com.huan.library.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.ws.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -114,15 +116,22 @@ public class PressAction extends BaseActionSupport{
 		try {
 			pressView.setStart(start);
 			pressView.setLimit(limit);
-//			pressView.setPressISBN(press.getPressISBN());
-//			pressView.setPressAddress(press.getPressAddress());
-//			pressView.setPressName(press.getPressName());
 			List<Press> presses = pressService.findPresses(pressView);
 			extGridLoad.setRoot(this.convertToView(presses));
 			extGridLoad.setTotalProperty(pressView.getTotalCount());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String exportExcel(){
+   	    try {
+   	    	String rootDir = request.getContextPath();
+   	    	pressService.exportExcel(rootDir,pressView);
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return Action.SUCCESS;
 	}

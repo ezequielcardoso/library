@@ -48,13 +48,7 @@ public class ReaderAction extends BaseActionSupport {
 	public String readerMain() {
 		return Action.SUCCESS;
 	}
-	/**
-	 * 显示读者账单主页面
-	 * @return
-	 */
-	public String readerAccountMain(){
-		return Action.SUCCESS;
-	}
+	
     /**
      * 查找所有的读者
      * @return
@@ -74,9 +68,9 @@ public class ReaderAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-	public String findReader(){
+	public String findReaderByBarCode(){
 		try {
-//			reader = readerService.findReaderById(readerView.getCardNo());	
+//			reader = readerService.findReaderByBarCode(readerView.getCardNo());	
 		} catch (Exception e) {
 		  e.printStackTrace();	
 		  return Action.ERROR;

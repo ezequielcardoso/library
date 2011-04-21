@@ -44,5 +44,11 @@ public interface PressService {
 	 * @throws Exception
 	 */
 	public List<Press> findPresses(PressView pressView) throws Exception;
+    /**
+     * 导出excel
+     * @param rootDir
+     * @param pressView
+     */
+	public void exportExcel(String rootDir, PressView pressView);
 
 }
