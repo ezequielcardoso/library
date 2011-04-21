@@ -78,7 +78,7 @@ public class PunishmentAction extends BaseActionSupport {
 	
 	public String save(){
 		try {
-			Reader reader = readerService.findReaderById(punishmentView.getReaderId());
+			Reader reader = readerService.findReaderByBarCode(punishmentView.getReaderBarCode());
 			//读者资金减去
 			reader.setLeftMoney(reader.getLeftMoney() - punishmentView.getPunishMoney());
 			punishment.setReader(reader);
