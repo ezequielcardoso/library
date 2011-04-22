@@ -12,6 +12,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.huan.library.util.FileOperate;
 import com.huan.library.util.StringAndUTF8;
+import com.huan.library.web.view.form.ExtJsonForm;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -41,10 +42,12 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
     // 文件输入流
     public InputStream fileStream;
     
+    private ExtJsonForm efj = new ExtJsonForm();
     
     public String downloadFile() {//下载文件
         try {
-    		request.getSession().setAttribute("deleteFileName", this.getWebRoot() + "upload" + File.separator + fileName);
+        	//把要删除的文件设置到request中
+    		request.setAttribute("deleteFileName", this.getWebRoot() + "upload" + File.separator + fileName);
         	fileStream = new FileInputStream(new File(this.getWebRoot() + "upload" + File.separator + fileName));
         	fileName = "attachment;filename=\"" + StringAndUTF8.toUtf8String(fileName) + "\"";
             if (fileName.indexOf(".xls") != -1) {
@@ -68,14 +71,18 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
     		//上传文件
     		File dst = new File(this.getWebRoot() + "upload" + File.separator , upfileFileName);
     		FileOperate.copy(upfile, dst);
+    		efj.setSuccess(true);
+    		efj.setMsg("文件上传成功！");
     	} catch(Exception e){
     		e.printStackTrace();
+    		efj.setSuccess(false);
+    		efj.setMsg("文件上传失败，请重新上传！");
     	}
 		return SUCCESS;
     }
     
     /**
-	 * 
+	 * 取得webapp绝对路径
 	 * @return
 	 */
 	public String getWebRoot(){
@@ -85,7 +92,6 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}
@@ -93,62 +99,43 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
 	public File getUpfile() {
 		return upfile;
 	}
-
-
 	public void setUpfile(File upfile) {
 		this.upfile = upfile;
 	}
-
-
 	public String getUpfileFileName() {
 		return upfileFileName;
 	}
-
-
 	public void setUpfileFileName(String upfileFileName) {
 		this.upfileFileName = upfileFileName;
 	}
-
-
 	public String getUpfileContentType() {
 		return upfileContentType;
 	}
-
-
 	public void setUpfileContentType(String upfileContentType) {
 		this.upfileContentType = upfileContentType;
 	}
-
-
 	public String getFileName() {
 		return fileName;
 	}
-
-
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-
-
 	public String getContentType() {
 		return contentType;
 	}
-
-
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
-
-
 	public InputStream getFileStream() {
 		return fileStream;
 	}
-
-
 	public void setFileStream(InputStream fileStream) {
 		this.fileStream = fileStream;
 	}
-	
-	
-
+	public ExtJsonForm getEfj() {
+		return efj;
+	}
+	public void setEfj(ExtJsonForm efj) {
+		this.efj = efj;
+	}
 }

@@ -35,4 +35,35 @@
 		</action>
     </package>
 
+	<package name="file" namespace="/file" extends="library">
+	
+		<!--文件下载-->
+		<action name="downloadFile" class="com.huan.library.web.action.BaseActionSupport"
+			method="downloadFile">
+			<result name="success" type="stream">
+				<!-- 对应BaseActionSupport中的属性contentType -->  
+	            <param name="contentType">${contentType}</param> 
+	            <!-- BaseActionSupport中对应的InputStream的属性名 -->  
+	            <param name="inputName">fileStream</param>  
+	            <!-- 对应BaseActionSupport中的属性fileName，定义流输出格式 -->  
+	            <param name="contentDisposition">${fileName}</param>  
+	            <!-- 定义bufferSize，可选 -->  
+	            <param name="bufferSize">1024</param>  			
+			</result>
+			<!-- 配置拦截器 -->
+			<!-- 默认拦截器 -->
+			<!-- <interceptor-ref name="defaultStack"/> -->
+			<!-- 文件删除拦截器 -->
+           	<!-- <interceptor-ref name="fileDeleteInterceptor"/> -->
+		</action>
+		
+		<!--文件上传-->
+		<action name="uploadFile" class="com.huan.library.web.action.BaseActionSupport"
+			method="uploadFile">
+			<result name="success" type="json">
+				<param name="root">ejf</param>
+			</result>
+		</action>
+	</package>
+
 </struts>
