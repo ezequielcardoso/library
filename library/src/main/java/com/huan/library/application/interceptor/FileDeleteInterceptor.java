@@ -1,6 +1,11 @@
 package com.huan.library.application.interceptor;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.huan.library.util.FileOperate;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
@@ -21,8 +26,9 @@ public class FileDeleteInterceptor extends AbstractInterceptor{
 		try{
 			invocation.invoke();
 			if(invocation.isExecuted()){
-				String deleteFileName = (String) invocation.getInvocationContext().getSession().get("deleteFileName");
-				FileOperate.delFile(deleteFileName);
+				ActionContext ctx = invocation.getInvocationContext();
+				HttpServletRequest request = (HttpServletRequest)ctx.get(ServletActionContext.HTTP_REQUEST);
+				FileOperate.delFile((String) request.getAttribute("deleteFileName"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
