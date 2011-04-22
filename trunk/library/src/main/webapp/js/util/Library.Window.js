@@ -23,7 +23,7 @@ Library.util.Window = Ext.extend(Ext.Window, {
         this.tbar = this.tbar;
         this.fbar = this.fbar;
         if(!this.tbar && !this.fbar)this.fbar = this.buildFbar();
-        Boa.Window.superclass.initComponent.apply(this, arguments);
+        Library.util.Window.superclass.initComponent.apply(this, arguments);
         this.show();
 	},
 	buildFbar: function(){

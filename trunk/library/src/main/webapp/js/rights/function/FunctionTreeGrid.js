@@ -2,7 +2,7 @@ Ext.ns('Library.rights.treegrid');
 
 Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
     
-    id: null,
+    id: 'FunctionTreeGrid',
     url: contextPath + '/function/findTreeColumn.action',
     
     selectNode: null,
@@ -42,39 +42,39 @@ Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 	        }],
 	        columns: [{
 	            header: '功能名称',
-	            width : 200,
+//	            width : 200,
 	            dataIndex: 'funcName'
 	        }, {
-	            header: '功能标识',
-	            width : 100,
+	            header: '资源标识',
+//	            width : 100,
 	            dataIndex: 'resCmpId'
 	        }, {
 	            header: '资源链接',
-	            width : 100,
+//	            width : 100,
 	            dataIndex: 'resCmpHandURL'
 	        }, {
-	            header: '图标',
-	            width : 60,
+	            header: '资源图标',
+//	            width : 60,
 	            dataIndex: 'resCmpIconCls',
 	            renderer: function(icon){
 	                var returnHtml = '<span class="' + icon + '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>' + icon;                
 	                return returnHtml;
 	            }
 	        }, {
-	            header: '排序',
-	            width : 60,
+	            header: '资源排序',
+//	            width : 60,
 	            dataIndex: 'funcOrder'
 	        }, {
 	            header: '功能ID',
-	            width : 100,
+//	            width : 100,
 	            dataIndex: 'funcId'
 	        }, {
-	            header: '上级功能',
-	            width : 100,
+	            header: '上级功能ID',
+//	            width : 100,
 	            dataIndex: 'parentId'
 	        }, {
 	            header: '子节点',
-	            width : 60,
+//	            width : 60,
 	            dataIndex: 'leaf'
 	        }],
 	        listeners: {
@@ -106,70 +106,70 @@ Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
     },
     //添加
     onAdd: function(){
-//    	var node = this.getSelectionModel().getSelectedNode();
-//    	if(node){
-//    		this.selectNode = node;
-//	    	var pid = node.attributes.oid;
-//	    	var pname = node.attributes.resText;
-//	    	node.attributes = [];
-//			node.attributes.poid = pid;
-//			node.attributes.presText = pname;
-//	    	var win = new Boa.Window({
-//	    		formPanel: new Boa.System.Resource.FormPanel({formValues: node.attributes }),
-//	    		title: '添加功能'
-//	    	});
-//    	}else{
-//			Boa.Util.warn('请选择父功能');
-//		}
+		var node = this.getSelectionModel().getSelectedNode();
+		if(node){
+			this.selectNode = node;
+			var parentId = node.attributes.funcId;
+	    	var parentName = node.attributes.funcName;
+			node.attributes = [];
+			node.attributes.parentId = parentId;
+			node.attributes.parentName = parentName;
+			new Library.util.Window({
+	    		formPanel: new Library.rights.form.FunctionForm({formValues: node.attributes}),
+	    		title: '添加功能'
+	    	});
+		}else{
+			Ext.Msg.alert('提示','请选择父功能');
+		}
     },
     //修改
     onUpdate: function(){
-//    	var node = this.getSelectionModel().getSelectedNode();
-//		if(node){
-//			this.selectNode = node;
-//			var pid = node.parentNode.attributes.oid;
-//	    	var pname = node.parentNode.attributes.resText;
-//			if(pid == 'root'){
-//				pid = null;
-//				pname = null;
-//			}
-//			node.attributes.poid = pid;
-//			node.attributes.presText = pname;
-//			new Boa.Window({
-//	    		formPanel: new Boa.System.Resource.FormPanel({formValues: node.attributes}),
-//	    		title: '修改功能'
-//	    	});
-//		}else{
-//			Boa.Util.warn('请选择要修改的功能');
-//		}
+    	var node = this.getSelectionModel().getSelectedNode();
+		if(node){
+			this.selectNode = node;
+			var parentId = node.parentNode.attributes.funcId;
+	    	var parentName = node.parentNode.attributes.funcName;
+			if(parentId == 'root'){
+				parentId = null;
+				parentName = null;
+			}
+			node.attributes.parentId = parentId;
+			node.attributes.parentName = parentName;
+			new Library.util.Window({
+	    		formPanel: new Library.rights.form.FunctionForm({formValues: node.attributes}),
+	    		title: '修改功能'
+	    	});
+		}else{
+			Ext.Msg.alert('提示','请选择要修改的功能');
+		}
     },
     //删除
     onDelete: function(){
     	var node = this.getSelectionModel().getSelectedNode();
-		if(node && node.attributes.oid){
-			Boa.Util.confirm('确定要删除选择的功能['+node.attributes.resText+']？', function(btn){
+		if(node && node.attributes.funcId){
+			Library.Util.confirm('确定要删除选择的功能['+node.attributes.funcName+']？', function(btn){
     			if(btn == 'yes'){
 					Ext.Ajax.request({
 		            	method: 'GET',
-		            	url: Boa.Config.ContextPath + '/function/remove.do',
+		            	url: contextPath + '/function/remove.action',
 			            success: function(resp,opts){
-			            	var msg = Ext.util.JSON.decode(resp.responseText);
-			            	if(msg.data == 'y'){
-			            		Boa.Util.msg("删除成功");
+			            	var obj = Ext.util.JSON.decode(resp.responseText);
+			            	if(obj.data == 'y'){
+			            		Library.Util.msg("删除成功");
     							node.parentNode.reload();
-			            	}else if(msg.data == 'c'){
-			            		Boa.Util.warn("该功能有下级功能，无法删除");
-			            	}else if(msg.data == 'p'){//同级节点没有了
-			            		Boa.Util.msg("删除成功");
+			            	}else if(obj.data == 'c'){
+			            		Library.Util.warn("该功能有下级功能，无法删除");
+			            	}else if(obj.data == 'p'){//同级节点没有了
+			            		Library.Util.msg("删除成功");
     							node.parentNode.parentNode.reload();
 			            	}else{
-			            		Boa.Util.error("删除失败");
+			            		Library.Util.error("删除失败");
 			            	}
 			            },
 			            failure: function(resp,opts){
-			            	Boa.Util.error("删除失败");
+			            	Library.Util.error("删除失败");
 			            },
-			            params: {'oid': node.attributes.oid }
+			            params: {'function.funcId': node.attributes.funcId }
 			        });
 			    }
     		});
