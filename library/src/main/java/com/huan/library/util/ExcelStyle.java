@@ -6,6 +6,7 @@ import jxl.format.BorderLineStyle;
 import jxl.format.CellFormat;
 import jxl.format.Colour;
 import jxl.format.VerticalAlignment;
+import jxl.write.DateFormats;
 import jxl.write.WritableCellFormat;
 import jxl.write.WritableFont;
 
@@ -110,6 +111,20 @@ public class ExcelStyle {
         return wformat;   
 	}
 	
+	 /**  
+     * 内容样式  
+     */  
+    public static WritableCellFormat getContentStyle() throws Exception {   
+        WritableFont font = new WritableFont(WritableFont.TIMES, 14);   
+        font.setColour(Colour.BLUE);   
+        WritableCellFormat format = new WritableCellFormat(font);   
+        format.setBackground(Colour.VERY_LIGHT_YELLOW);   
+        format.setBorder(Border.ALL, BorderLineStyle.THIN, Colour.BLACK);   
+        format.setAlignment(Alignment.CENTRE);   
+        format.setVerticalAlignment(VerticalAlignment.CENTRE);   
+        return format;   
+    }   
+	
     /**  
      * 标题样式  
      */  
@@ -124,4 +139,33 @@ public class ExcelStyle {
         return format;   
     }  
 
+    /**  
+     * 普通样式  
+     */  
+    public static WritableCellFormat getNormalStyle() throws Exception {   
+        WritableFont font = new WritableFont(WritableFont.TIMES, 14);   
+        font.setColour(Colour.BLUE);   
+        WritableCellFormat format = new WritableCellFormat(   
+                DateFormats.FORMAT12);   
+        format.setBackground(Colour.VERY_LIGHT_YELLOW);   
+        format.setBorder(Border.ALL, BorderLineStyle.THIN, Colour.BLACK);   
+        format.setAlignment(Alignment.CENTRE);   
+        format.setVerticalAlignment(VerticalAlignment.CENTRE);   
+        return format;   
+    }   
+
+    /**  
+     * 日期样式  
+     */  
+    public static WritableCellFormat getDateStyle() throws Exception {   
+        WritableFont font = new WritableFont(WritableFont.TIMES, 14);   
+        font.setColour(Colour.BLUE);   
+        WritableCellFormat format = new WritableCellFormat(   
+                DateFormats.FORMAT1);   
+        format.setBackground(Colour.VERY_LIGHT_YELLOW);   
+        format.setBorder(Border.ALL, BorderLineStyle.THIN, Colour.BLACK);   
+        format.setAlignment(Alignment.CENTRE);   
+        format.setVerticalAlignment(VerticalAlignment.CENTRE);   
+        return format;   
+    }   
 }

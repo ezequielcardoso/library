@@ -49,6 +49,6 @@ public interface PressService {
      * @param rootDir
      * @param pressView
      */
-	public void exportExcel(String rootDir, PressView pressView);
+	public String exportExcel(String rootDir, PressView pressView);
 
 }

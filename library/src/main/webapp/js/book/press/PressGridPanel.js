@@ -315,9 +315,8 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				success : function(resp) {
 					var respText = resp.responseText;
 					var obj = Ext.util.JSON.decode(respText);
-					if (obj.success == true) {
-						Ext.Msg.alert('提示',obj.msg);
-						thiz.getStore().reload();
+					if (obj.success) {
+						window.location.href = contextPath + "/file/downloadFile.action?fileName=" + obj.data;
 					} else {
 						Ext.Msg.alert('提示',obj.msg);
 					}
