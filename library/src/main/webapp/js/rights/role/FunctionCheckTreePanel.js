@@ -14,7 +14,7 @@ Library.rights.tree.FunctionCheckTreePanel = Ext.extend(Library.tree.BaseCheckTr
     },
     createTbar: function(){
     	return [{
-			text: '保存角色权限',
+			text: '保存',
 			iconCls : '',
 			handler: function(){
 				this.saveRoleFunc();
@@ -28,9 +28,6 @@ Library.rights.tree.FunctionCheckTreePanel = Ext.extend(Library.tree.BaseCheckTr
         this.tbar = this.createTbar();
         Library.rights.tree.FunctionCheckTreePanel.superclass.initComponent.call(this);
         
-        
-        
-        
 	},
     checkModel : 'cascade',
     saveRoleFunc: function(){
@@ -38,7 +35,7 @@ Library.rights.tree.FunctionCheckTreePanel = Ext.extend(Library.tree.BaseCheckTr
 			var checkedNodes = this.getChecked();
 			var s = [];
 			for (var i = 0; i < checkedNodes.length; i++) {
-				if(checkedNodes[i].id!='root')s.push(checkedNodes[i].id)
+				if(checkedNodes[i].id!='root') s.push(checkedNodes[i].id);
 			}
 			Ext.Ajax.request({
 				url : contextPath + '/role/saveRoleFunc.do',
@@ -61,7 +58,6 @@ Library.rights.tree.FunctionCheckTreePanel = Ext.extend(Library.tree.BaseCheckTr
 			
 		}
 	},
-	title : '资源列表',
 	width : 500,
     height : 500,
     border : true,

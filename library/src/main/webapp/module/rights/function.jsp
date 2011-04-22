@@ -10,9 +10,12 @@
         <script type="text/javascript" src="<%=path %>/common/extjs3.2/examples/ux/treegrid/TreeGridColumnResizer.js"></script> 
         <script type="text/javascript" src="<%=path %>/common/extjs3.2/examples/ux/treegrid/TreeGridNodeUI.js"></script> 
         <script type="text/javascript" src="<%=path %>/common/extjs3.2/examples/ux/treegrid/TreeGridLoader.js"></script> 
-        <script type="text/javascript" src="<%=path %>/common/extjs3.2/examples/ux/treegrid/TreeGridColumns.js"></script> 
+        <script type="text/javascript" src="<%=path %>/common/extjs3.2/examples/ux/treegrid/TreeGridColumns.js"></script>
+        <script language="JavaScript" src="<%=path %>/js/util/Library.Window.js"></script> 
+        <script language="JavaScript" src="<%=path %>/js/util/Library.Util.js"></script> 
 		<script type="text/javascript" src="<%=path %>/js/rights/function/Function.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/rights/function/FunctionTreeGrid.js"></script>
+		<script type="text/javascript" src="<%=path %>/js/rights/function/FunctionForm.js"></script>
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"

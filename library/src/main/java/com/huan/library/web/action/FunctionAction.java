@@ -13,6 +13,7 @@ import com.huan.library.domain.model.rights.Function;
 import com.huan.library.domain.service.FunctionService;
 import com.huan.library.web.view.FunctionTreeNode;
 import com.huan.library.web.view.FunctionView;
+import com.huan.library.web.view.form.ExtJsonForm;
 import com.opensymphony.xwork2.Action;
 
 /**
@@ -28,10 +29,11 @@ public class FunctionAction extends BaseActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private Function function = new Function();
 	private FunctionView functionView = new FunctionView();
 	private List<Function> modules = new ArrayList<Function>();
 	List<FunctionView> views = new ArrayList<FunctionView>();
-	
+	private ExtJsonForm extJsonForm = new ExtJsonForm();
 	List<FunctionTreeNode> completeTree = new ArrayList<FunctionTreeNode>();
 	
 	@Autowired
@@ -67,6 +69,29 @@ public class FunctionAction extends BaseActionSupport {
 			view.setLeaf(func.getLeaf());
 			view.setParentId(func.getParentFuncId());
 			views.add(view);
+		}
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 保存功能
+	 * @return
+	 * @throws Exception
+	 */
+	public String save() {
+		try {
+			function.setParent((function.getParent() != null
+					&& function.getParent().getFuncId() != null && !"".equals(function
+					.getParent().getFuncId())) ? function.getParent() : null);
+			function = functionService.save(function);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("保存成功！");
+			extJsonForm.setData(function);
+		} catch (Exception e) {
+			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("保存失败！");
+			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
@@ -119,42 +144,44 @@ public class FunctionAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
-	public List<Function> getModules() {
-		return modules;
+	public Function getFunction() {
+		return function;
 	}
-
-	public void setModules(List<Function> modules) {
-		this.modules = modules;
+	public void setFunction(Function function) {
+		this.function = function;
 	}
-
 	public FunctionView getFunctionView() {
 		return functionView;
 	}
-
 	public void setFunctionView(FunctionView functionView) {
 		this.functionView = functionView;
 	}
-
+	public List<Function> getModules() {
+		return modules;
+	}
+	public void setModules(List<Function> modules) {
+		this.modules = modules;
+	}
 	public List<FunctionView> getViews() {
 		return views;
 	}
-
 	public void setViews(List<FunctionView> views) {
 		this.views = views;
 	}
-
-	public FunctionService getFunctionService() {
-		return functionService;
+	public ExtJsonForm getExtJsonForm() {
+		return extJsonForm;
 	}
-
-
+	public void setExtJsonForm(ExtJsonForm extJsonForm) {
+		this.extJsonForm = extJsonForm;
+	}
 	public List<FunctionTreeNode> getCompleteTree() {
 		return completeTree;
 	}
-
-
 	public void setCompleteTree(List<FunctionTreeNode> completeTree) {
 		this.completeTree = completeTree;
+	}
+	public FunctionService getFunctionService() {
+		return functionService;
 	}
 	
 }
