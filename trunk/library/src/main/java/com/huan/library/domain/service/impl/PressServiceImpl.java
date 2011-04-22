@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.PressService;
 import com.huan.library.infrastructure.persistence.PressDao;
+import com.huan.library.util.ExcelOperate;
+import com.huan.library.util.ExcelStyle;
 import com.huan.library.util.FileOperate;
 import com.huan.library.util.PageModel;
 import com.huan.library.web.view.PressView;
@@ -85,46 +87,43 @@ public class PressServiceImpl implements PressService {
 	}
 
 	
-	/**
-	 * public static void writeExcel(OutputStream os) throws Exception {
-	    jxl.write.WritableWorkbook wwb = Workbook.createWorkbook(os);
-	    
-	    jxl.write.WritableSheet ws = wwb.createSheet("TestSheet1", 0);
-	    jxl.write.Label labelC = new jxl.write.Label(0, 0, "我爱中国");
-	    ws.addCell(labelC);
-	    jxl.write.WritableFont wfc = new jxl.write.WritableFont(WritableFont.ARIAL,20, WritableFont.BOLD, false,
-	    UnderlineStyle.NO_UNDERLINE, jxl.format.Colour.GREEN);
-	    jxl.write.WritableCellFormat wcfFC = new jxl.write.WritableCellFormat(wfc);
-	    wcfFC.setBackground(jxl.format.Colour.RED);
-	    labelC = new jxl.write.Label(6, 0, "中国爱我",wcfFC);
-	    ws.addCell(labelC);
-	    //写入Exel工作表
-	    wwb.write();
-	    //关闭Excel工作薄对象
-	    wwb.close();
-	    }
-
-	    //最好写一个这样的main方法来测试一下你的这个class是否写好了。
-	    public static void main(String[] args)throws Exception{
-	    
-	     File f= new File("F://kk.xls");
-	    f.createNewFile();
-	    writeExcel(new FileOutputStream(f));
-	    }
-	 */
 	public void exportExcel(String rootDir, PressView pressView) {
-		List<Press> presses = new ArrayList<Press>();
-		try {
-			presses = this.pressDao.selectPresses(pressView);
-			FileOperate.newFile("temp", rootDir);
-			File reportFile = new File(rootDir+"/temp/presses.xls");
-			reportFile.createNewFile();
-			
-//			WritableWorkbook wwb = Workbook.createWorkbook(os);		
-			
-		} catch (Exception e) {
-		  
-		}	
+	  	   List<Press> presses = new ArrayList<Press>();
+			String fileName = "presses.xls";
+			WritableWorkbook ww; 
+			rootDir = rootDir + "\\upload";
+			rootDir = rootDir + fileName;
+			File file = new File(rootDir);
+			try {
+				 presses = pressDao.selectPresses(pressView);
+				 ww = Workbook.createWorkbook(file);  
+				 WritableSheet ws = ww.createSheet("出版社信息", 0);
+				 ExcelOperate.addLabelToSheet(ws, 0, 0, 9, 0, "出版社信息", ExcelStyle.getHeaderStyle());   
+				 ExcelOperate.addLabelToSheet(ws, 0, 1, "代码", ExcelStyle.getTitleStyle());   
+				 ExcelOperate.addLabelToSheet(ws, 1, 1, "名称", ExcelStyle.getTitleStyle());   
+				 ExcelOperate.addLabelToSheet(ws, 2, 1, "出版第", ExcelStyle.getTitleStyle());   
+				 ExcelOperate.addLabelToSheet(ws, 3, 1, "邮编", ExcelStyle.getTitleStyle()); 
+				 
+				 int count =2;
+		            for(Press press : presses){
+		            	ExcelOperate.addLabelToSheet(ws, 0, count, press.getPressISBN(), ExcelStyle.getContentStyle(null));   
+		            	ExcelOperate.addLabelToSheet(ws, 1, count, press.getPressName(), ExcelStyle.getContentStyle(null));
+		            	ExcelOperate.addLabelToSheet(ws, 2, count, press.getPressAddress(), ExcelStyle.getContentStyle(null));
+		            	ExcelOperate.addLabelToSheet(ws, 3, count, press.getZipCode(), ExcelStyle.getContentStyle(null));
+		            	count++;
+		            }
+				 
+		            for (int i = 0; i < 5; i++) {   
+		                ws.setColumnView(i, 16);   
+		            }   
+		            ws.setRowView(0, 20); 
+		            ww.write();   
+		            ww.close();   
+		            System.out.println("写入excel成功！");
+			} catch (Exception e) {
+				System.out.println("写入excel失败！");
+	            e.printStackTrace();  
+			}
 	}
 }
 	

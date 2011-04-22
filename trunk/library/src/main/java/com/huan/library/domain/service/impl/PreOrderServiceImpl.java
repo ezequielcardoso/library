@@ -32,5 +32,15 @@ public class PreOrderServiceImpl implements PreOrderService {
 	public void setPreOrderDao(PreOrderDao preOrderDao) {
 		this.preOrderDao = preOrderDao;
 	}
+
+	public PreOrder save(PreOrder preOrder) throws Exception {
+		try {
+			preOrder = preOrderDao.saveOrUpdate(preOrder);
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  throw new Exception(e);
+		}
+		return preOrder;
+	}
 	
 }

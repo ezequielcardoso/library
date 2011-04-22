@@ -53,12 +53,18 @@
         </result>
      </action>
      
+      <action name="save" class="com.huan.library.web.action.PunishmentAction" method="save">
+        <result name="success" type="json">
+          <param name="root">extJsonForm</param>
+        </result>
+     </action>
+
+     
      <action name="save" class="com.huan.library.web.action.PunishmentAction" method="save">
         <result name="success" type="json">
           <param name="root">extJsonForm</param>
         </result>
      </action>
-     
    </package>
         
 </struts>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 读者登录 -->  
+    <package name="" namespace="" extends="">
+    
+    </package>
+    <!-- 读者预约 -->    
+   <package name="" namespace="" extends="">
+       <action name="save" class="com.huan.library.web.action.PreOrderAction" method="save">
+          <result name="success" type="json">
+            <param name="root">extJsonForm</param>
+          </result>
+       </action>
+    </package>   
+ 
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
