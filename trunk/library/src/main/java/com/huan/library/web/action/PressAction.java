@@ -3,8 +3,6 @@ package com.huan.library.web.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.ws.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -129,8 +127,14 @@ public class PressAction extends BaseActionSupport{
 	public String exportExcel(){
    	    try {
    	    	String rootDir = this.getWebRoot();
-   	    	pressService.exportExcel(rootDir,pressView);
+   	    	String fileName = pressService.exportExcel(rootDir,pressView);
+   	    	extJsonForm.setData(fileName);
+   	    	extJsonForm.setSuccess(true);
+   	    	extJsonForm.setMsg("导出成功");
 		} catch (Exception e) {
+			extJsonForm.setData("");
+   	    	extJsonForm.setSuccess(false);
+   	    	extJsonForm.setMsg("导出失败");
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;

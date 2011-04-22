@@ -87,13 +87,11 @@ public class PressServiceImpl implements PressService {
 	}
 
 	
-	public void exportExcel(String rootDir, PressView pressView) {
+	public String exportExcel(String rootDir, PressView pressView) {
 	  	   List<Press> presses = new ArrayList<Press>();
-			String fileName = "presses.xls";
 			WritableWorkbook ww; 
-			rootDir = rootDir + "\\upload";
-			rootDir = rootDir + fileName;
-			File file = new File(rootDir);
+			String fileName = "upload" + File.separator + "presses.xls";
+			File file = new File(rootDir + fileName);
 			try {
 				 presses = pressDao.selectPresses(pressView);
 				 ww = Workbook.createWorkbook(file);  
@@ -106,10 +104,10 @@ public class PressServiceImpl implements PressService {
 				 
 				 int count =2;
 		            for(Press press : presses){
-		            	ExcelOperate.addLabelToSheet(ws, 0, count, press.getPressISBN(), ExcelStyle.getContentStyle(null));   
-		            	ExcelOperate.addLabelToSheet(ws, 1, count, press.getPressName(), ExcelStyle.getContentStyle(null));
-		            	ExcelOperate.addLabelToSheet(ws, 2, count, press.getPressAddress(), ExcelStyle.getContentStyle(null));
-		            	ExcelOperate.addLabelToSheet(ws, 3, count, press.getZipCode(), ExcelStyle.getContentStyle(null));
+		            	ExcelOperate.addLabelToSheet(ws, 0, count, press.getPressISBN(), ExcelStyle.getContentStyle());   
+		            	ExcelOperate.addLabelToSheet(ws, 1, count, press.getPressName(), ExcelStyle.getContentStyle());
+		            	ExcelOperate.addLabelToSheet(ws, 2, count, press.getPressAddress(), ExcelStyle.getContentStyle());
+		            	ExcelOperate.addLabelToSheet(ws, 3, count, press.getZipCode(), ExcelStyle.getContentStyle());
 		            	count++;
 		            }
 				 
@@ -124,6 +122,7 @@ public class PressServiceImpl implements PressService {
 				System.out.println("写入excel失败！");
 	            e.printStackTrace();  
 			}
+		return fileName;	
 	}
 }
 	
