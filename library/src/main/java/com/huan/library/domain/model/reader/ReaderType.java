@@ -55,6 +55,15 @@ public class ReaderType implements Serializable {
 		this.readerCateName = readerCateName;
 	}
 
+
+	public Float getRent() {
+		return rent;
+	}
+
+	public void setRent(Float rent) {
+		this.rent = rent;
+	}
+
 	public Integer getMaxBorrowDays() {
 		return maxBorrowDays;
 	}
@@ -70,13 +79,5 @@ public class ReaderType implements Serializable {
 	public void setMaxBorrowedQuantity(Integer maxBorrowedQuantity) {
 		this.maxBorrowedQuantity = maxBorrowedQuantity;
 	}
-
-	public Float getRent() {
-		return rent;
-	}
-
-	public void setRent(Float rent) {
-		this.rent = rent;
-	}
-
+    
 }

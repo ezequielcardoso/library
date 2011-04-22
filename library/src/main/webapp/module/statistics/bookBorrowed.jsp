@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<%@ include file="/common/common.jsp"%>
 		<%@ include file="/common/extInclude.jsp"%>
 		<link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet" />

@@ -305,10 +305,12 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var pressAddress = Ext.get('pressAddress').getValue();
 		
 		Ext.Ajax.request({
-				url : contextPath+ '/press/remove.action',
+				url : contextPath+ '/press/exportExcel.action',
 				method : 'POST',
 				params : {
-					'pressView.pressId' : pressId
+					'pressView.pressISBN' : pressISBN,
+					'pressView.pressName' : pressName,
+					'pressView.pressAddress' : pressAddress
 				},
 				success : function(resp) {
 					var respText = resp.responseText;

@@ -1,13 +1,31 @@
 package com.huan.library.util;
 
+import jxl.format.Alignment;
 import jxl.format.Border;
 import jxl.format.BorderLineStyle;
 import jxl.format.CellFormat;
 import jxl.format.Colour;
+import jxl.format.VerticalAlignment;
 import jxl.write.WritableCellFormat;
 import jxl.write.WritableFont;
 
 public class ExcelStyle {
+	/**
+	 * 列头
+	 * @return
+	 * @throws Exception
+	 */
+    public static WritableCellFormat getHeaderStyle() throws Exception {   
+        WritableFont font = new WritableFont(WritableFont.TIMES, 14); // 设置14号字体   
+        font.setColour(Colour.BLUE); // 设置字体颜色   
+        font.setBoldStyle(WritableFont.BOLD); // 设置粗体字   
+        WritableCellFormat format = new WritableCellFormat(font); // 设置单元格样式   
+        format.setBackground(Colour.LIGHT_GREEN); // 设置背景颜色   
+        format.setBorder(Border.ALL, BorderLineStyle.THIN, Colour.BLACK);//设置边界样式   
+        format.setAlignment(Alignment.CENTRE); // 设置水平位置   
+        format.setVerticalAlignment(VerticalAlignment.CENTRE); // 设置竖直位置   
+        return format;   
+    } 
 
     /**
      * 列表内容样式   
@@ -91,5 +109,19 @@ public class ExcelStyle {
     	wformat.setBorder(Border.RIGHT, format.getBorderLine(Border.RIGHT));
         return wformat;   
 	}
+	
+    /**  
+     * 标题样式  
+     */  
+    public static WritableCellFormat getTitleStyle() throws Exception {   
+        WritableFont font = new WritableFont(WritableFont.TIMES, 14);   
+        font.setColour(Colour.GREEN);   
+        WritableCellFormat format = new WritableCellFormat(font);   
+        format.setBackground(Colour.VERY_LIGHT_YELLOW);   
+        format.setBorder(Border.ALL, BorderLineStyle.THIN, Colour.BLACK);   
+        format.setAlignment(Alignment.CENTRE);   
+        format.setVerticalAlignment(VerticalAlignment.CENTRE);   
+        return format;   
+    }  
 
 }

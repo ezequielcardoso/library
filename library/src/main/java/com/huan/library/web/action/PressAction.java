@@ -128,10 +128,10 @@ public class PressAction extends BaseActionSupport{
 	
 	public String exportExcel(){
    	    try {
-   	    	String rootDir = request.getContextPath();
+   	    	String rootDir = this.getWebRoot();
    	    	pressService.exportExcel(rootDir,pressView);
 		} catch (Exception e) {
-			// TODO: handle exception
+			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}

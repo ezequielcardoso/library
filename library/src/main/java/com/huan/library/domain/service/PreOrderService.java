@@ -14,4 +14,6 @@ public interface PreOrderService {
 
 	public List<PreOrder> findPreOrders(PreOrderView preOrderView) throws Exception;
 	
+	public PreOrder save(PreOrder preOrder) throws Exception;
+	
 }

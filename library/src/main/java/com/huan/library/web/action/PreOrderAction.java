@@ -1,14 +1,20 @@
 package com.huan.library.web.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.huan.library.domain.model.book.Book;
+import com.huan.library.domain.model.book.BookState;
 import com.huan.library.domain.model.borrowReturn.PreOrder;
+import com.huan.library.domain.model.reader.Reader;
+import com.huan.library.domain.service.BookService;
 import com.huan.library.domain.service.PreOrderService;
 import com.huan.library.web.view.PreOrderView;
+import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
 import com.opensymphony.xwork2.Action;
 
@@ -27,9 +33,13 @@ public class PreOrderAction extends BaseActionSupport {
 	
 	@Autowired
 	private PreOrderService preOrderService;
+	@Autowired
+	private BookService bookService;
 	private ExtGridLoad extGridLoad = new ExtGridLoad();
 	private PreOrderView preOrderView = new PreOrderView();
+	private ExtJsonForm extJsonForm = new ExtJsonForm();
 	private List<PreOrderView> preOrderViews = new ArrayList<PreOrderView>();
+	private Reader reader = new Reader();
 	private Integer start;
 	private Integer limit;
 	
@@ -52,6 +62,41 @@ public class PreOrderAction extends BaseActionSupport {
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return Action.ERROR; 
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String save(){
+		try {
+			reader = (Reader)session.get("reader");
+			
+			if(reader==null){
+				return Action.INPUT;
+			}
+			PreOrder preOrder = new PreOrder();
+			preOrder.setPreOrderDate(new Date());  //预约时间 
+			preOrder.setPreOrderEndDate(new Date()); //预约到期时间
+			preOrder.setReader(reader);
+	
+			Book book = bookService.getBookById(preOrderView.getBookId());
+			BookState bookState = new BookState();
+			bookState.setItemId("BookState_YY");
+			book.setBookState(bookState);
+			bookService.addOrModifyBook(book);
+			preOrder.setBook(book);
+			
+			preOrder = preOrderService.save(preOrder);
+			
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("预约成功");
+			extJsonForm.setData(preOrder);
+			
+		} catch (Exception e) {
+		  e.printStackTrace();
+		    extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("预约失败");
+			extJsonForm.setData(null);
+		  return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
@@ -178,6 +223,18 @@ public class PreOrderAction extends BaseActionSupport {
 
 	public void setLimit(Integer limit) {
 		this.limit = limit;
+	}
+
+	public void setBookService(BookService bookService) {
+		this.bookService = bookService;
+	}
+
+	public ExtJsonForm getExtJsonForm() {
+		return extJsonForm;
+	}
+
+	public void setExtJsonForm(ExtJsonForm extJsonForm) {
+		this.extJsonForm = extJsonForm;
 	}
 	
 	

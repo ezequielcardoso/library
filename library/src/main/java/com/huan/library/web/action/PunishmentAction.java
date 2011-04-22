@@ -107,23 +107,23 @@ public class PunishmentAction extends BaseActionSupport {
 	}
 
 	
-	private void formatPunishment(Punishment punishment2) {
-	   punishment.setCharge((punishment.getCharge()!=null && punishment.getCharge().getItemId()!=null 
-			   &&!"".equals(punishment.getId())?punishment.getCharge():null));
-	   if(punishment.getReader()!=null && punishment.getReader().getId()!=null && !"".equals(punishment.getReader().getId())){
-		   if(punishment.getReader().getReaderUnits()!=null && !"".equals(punishment.getReader().getReaderUnits().getUnitId())){
-			   punishment.getReader().setReaderUnits(punishment.getReader().getReaderUnits());
+	private void formatPunishment(Punishment punish) {
+		punish.setCharge((punish.getCharge()!=null && punish.getCharge().getItemId()!=null 
+			   &&!"".equals(punish.getId())?punish.getCharge():null));
+	   if(punish.getReader()!=null && punish.getReader().getId()!=null && !"".equals(punish.getReader().getId())){
+		   if(punish.getReader().getReaderUnits()!=null && !"".equals(punish.getReader().getReaderUnits().getUnitId())){
+			   punish.getReader().setReaderUnits(punish.getReader().getReaderUnits());
 		   }else{
-			   punishment.getReader().setReaderUnits(null);
+			   punish.getReader().setReaderUnits(null);
 		   }
-		   if(punishment.getReader().getReaderType()!=null && !"".equals(punishment.getReader().getReaderType().getId())){
-			   punishment.getReader().setReaderType(punishment.getReader().getReaderType());
+		   if(punish.getReader().getReaderType()!=null && !"".equals(punish.getReader().getReaderType().getId())){
+			   punish.getReader().setReaderType(punish.getReader().getReaderType());
 		   }else{
-			   punishment.getReader().setReaderType(null);
+			   punish.getReader().setReaderType(null);
 		   }
-		   punishment.setReader(punishment.getReader());
+		   punish.setReader(punish.getReader());
 	   }else{
-		   punishment.setReader(null);
+		   punish.setReader(null);
 	   }
 	}
 
