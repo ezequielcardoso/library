@@ -16,16 +16,16 @@ public interface DictItemDao extends BaseDao<DictItem>{
 	/**
 	 * 批量导入
 	 * @param dictItems
-	 * @throws Exception
+	 * @
 	 */
-	public void insertDictItemsBatch(List<DictItem> dictItems) throws Exception;
+	public void insertDictItemsBatch(List<DictItem> dictItems) ;
 	
 	/**
 	 * 批量导入
 	 * @param dictItems
-	 * @throws Exception
+	 * @
 	 */
-	public void insertCategorysBatch(List<Category> dictItems) throws Exception;
+	public void insertCategorysBatch(List<Category> dictItems) ;
 
 	/**
 	 * 
@@ -33,8 +33,8 @@ public interface DictItemDao extends BaseDao<DictItem>{
 	 * @param className
 	 * @return
 	 */
-	public List<DictItem> getChildrenByPid(String pid, String className) throws Exception ;
+	public List<DictItem> getChildrenByPid(String pid, String className)  ;
 	
 	public List<Category> getCategoryChildrenByPid(String pid, 
-			Integer level, String itemName) throws Exception ;
+			Integer level, String itemName)  ;
 }

@@ -17,12 +17,12 @@ public interface RoleDao  extends BaseDao<Role>{
 	 * @param roleId
 	 * @return
 	 */
-	public Role selectById(Long roleId) throws Exception ;
+	public Role selectById(Long roleId)  ;
 	
 	/**
 	 *查找所有的角色 
 	 * @return
 	 */
-	public List<Role> selectRoles(RoleView view) throws Exception ;
+	public List<Role> selectRoles(RoleView view)  ;
 	
 }

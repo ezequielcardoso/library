@@ -18,27 +18,27 @@ public interface UserDao extends BaseDao<User> {
 	 * @param deptId
 	 * @return
 	 */
-	public List<User> selectUsers(UserView view) throws Exception;
+	public List<User> selectUsers(UserView view) ;
 	
 	/**
 	 * 查找User
 	 * @return
 	 */
-	public User getById(Long userId) throws Exception;
+	public User getById(Long userId) ;
 	
 	/**
 	 * 
 	 * @param user
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public LoginState getUserLoginState(User user) throws Exception ;
+	public LoginState getUserLoginState(User user)  ;
 	
 	/**
 	 * 
 	 * @param user
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public User getUserRole(User user)  throws Exception ;
+	public User getUserRole(User user)   ;
 }

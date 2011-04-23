@@ -13,15 +13,15 @@ import com.huan.library.web.view.BookView;
  */
 public interface BookDao extends BaseDao<Book>{
 
-	public List<Book> selectBooks(BookView bookView) throws Exception;
+	public List<Book> selectBooks(BookView bookView) ;
 
-	public Book selectBookById(Long bookId) throws Exception;
+	public Book selectBookById(Long bookId) ;
 	
-	public Book selectBookByBarCode(String barCode) throws Exception;
+	public Book selectBookByBarCode(String barCode) ;
 	/**
 	 * 批量增加图书
 	 * @param books
 	 */
-	public void insertBooksBatch(List<Book> books) throws Exception;
+	public void insertBooksBatch(List<Book> books) ;
 	
 }	

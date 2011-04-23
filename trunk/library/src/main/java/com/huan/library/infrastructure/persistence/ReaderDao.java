@@ -14,14 +14,14 @@ import com.huan.library.web.view.ReaderView;
 public interface ReaderDao extends BaseDao<Reader>{
 	
 	
-	public List<Reader> selectReaders(ReaderView readerView) throws Exception;
+	public List<Reader> selectReaders(ReaderView readerView) ;
 	
-	public Reader selectByBarCode(String barCode) throws Exception;
+	public Reader selectByBarCode(String barCode) ;
 	
-	public Reader selectById(Long readerId) throws Exception;
+	public Reader selectById(Long readerId) ;
 	
 	
-	public void insertReaders(List<Reader> readers) throws Exception;
+	public void insertReaders(List<Reader> readers) ;
 	
 	
 	
