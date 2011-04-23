@@ -84,6 +84,9 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 							name : 'readerName',
 							type : 'string'
 						}, {
+							name : 'readerBarCode',
+							type : 'string'
+						},{
 							name : 'unitId',
 							type : 'int'
 						}, {

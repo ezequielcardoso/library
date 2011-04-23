@@ -30,7 +30,7 @@ public class PunishmentDaoImpl extends BaseDaoImpl<Punishment> implements Punish
 			StringBuilder sql_ = new StringBuilder();
 			
 			sql.append(" select new Punishment( p.id , p.punishMoney , p.eventsDesc, p.operatorDate ," +
-					"p.operator , t_pc.itemId , t_pc.itemName , t_pr.readerId , t_pr.readerBarCode ," +
+					"p.operator , t_pc.itemId , t_pc.itemName , t_pr.id , t_pr.barCode ," +
 					" t_pr.readerName, t_pru.unitId , t_pru.unitName , t_prt.id , t_prt.readerCateName ) ");
 			sql_.append(" select count(p) ");
 			
