@@ -12,5 +12,5 @@ import com.huan.library.web.view.SysLogView;
  */
 public interface SysLogService {
 
-	public List<SysLog> findSysLogs(SysLogView sysLogView) throws Exception;
+	public List<SysLog> findSysLogs(SysLogView sysLogView) ;
 }

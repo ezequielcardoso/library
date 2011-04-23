@@ -17,21 +17,21 @@ public interface FunctionService {
 	 * @param func
 	 * @return
 	 */
-	public Function save(Function func) throws Exception;
+	public Function save(Function func) ;
 	
 	/**
 	 * 根据funcId 删除Function
 	 * @param func
 	 * @return
 	 */
-	public void remove(Function func) throws Exception;
+	public void remove(Function func) ;
 	
 	/**
 	 * 根据funcId 查找Function
 	 * @param funcId
 	 * @return
 	 */
-	public Function getById(String funcId) throws Exception;
+	public Function getById(String funcId) ;
 	
 	/**
 	 * 根据roleId查找所有的Function
@@ -44,7 +44,7 @@ public interface FunctionService {
 	 * 查找模块菜单的Function
 	 * @return
 	 */
-	public List<Function> findModules() throws Exception;
+	public List<Function> findModules() ;
 
 	public List<Function> findFunctions(FunctionView functionView);
 

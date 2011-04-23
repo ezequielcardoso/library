@@ -19,49 +19,49 @@ public interface BorrowReturnService {
 	 * 
 	 * @param borrowReturn
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
 	public BorrowReturn addOrModifyBorrow(BorrowReturn borrowReturn)
-			throws Exception;
+			;
 
 	/**
 	 * 添加一条归还记录
 	 * 
 	 * @param borrowReturn
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public BorrowReturn addReturn(BorrowReturn borrowReturn) throws Exception;
+	public BorrowReturn addReturn(BorrowReturn borrowReturn) ;
 
-	public BorrowReturn getBRByBarCode(String barCode) throws Exception;
+	public BorrowReturn getBRByBarCode(String barCode) ;
 
-	public BorrowReturn getBRById(Long id) throws Exception;
+	public BorrowReturn getBRById(Long id) ;
 
 	/**
 	 * 根据读者条形码和图书条形码查找借阅记录
 	 * 
 	 * @param borrowReturnView
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
 	public List<BorrowReturn> getByBarCodeOrReaderCode(
-			BorrowReturnView borrowReturnView) throws Exception;
+			BorrowReturnView borrowReturnView) ;
 
 	/**
 	 * 
 	 * @param borrowReturnView
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
 	public List<BorrowReturn> findBorrowReturns(BorrowReturnView borrowReturnView)
-			throws Exception;
+			;
     
 	/**
 	 * 导出Excel
 	 * @param rootDir
 	 * @param borrowReturnView
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public String exportExcel(String rootDir, BorrowReturnView borrowReturnView) throws Exception;
+	public String exportExcel(String rootDir, BorrowReturnView borrowReturnView) ;
 }

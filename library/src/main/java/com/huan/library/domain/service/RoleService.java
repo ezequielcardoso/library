@@ -17,26 +17,26 @@ public interface RoleService {
 	 * @param role
 	 * @return
 	 */
-	public Role save(Role role) throws Exception;
+	public Role save(Role role) ;
 	
 	/**
 	 * 根据roleId删除角色
 	 * @param role
 	 * @return
 	 */
-	public void remove(Role role) throws Exception;
+	public void remove(Role role) ;
 	
 	/**
 	 * 根据roleId查找角色
 	 * @param roleId
 	 * @return
 	 */
-	public Role getById(Long roleId) throws Exception;
+	public Role getById(Long roleId) ;
 	
 	/**
 	 *查找所有的角色 
 	 * @return
 	 */
-	public List<Role> findRoles(RoleView roleView) throws Exception;
+	public List<Role> findRoles(RoleView roleView) ;
 	
 }

@@ -12,8 +12,8 @@ import com.huan.library.web.view.PreOrderView;
  */
 public interface PreOrderService {
 
-	public List<PreOrder> findPreOrders(PreOrderView preOrderView) throws Exception;
+	public List<PreOrder> findPreOrders(PreOrderView preOrderView) ;
 	
-	public PreOrder save(PreOrder preOrder) throws Exception;
+	public PreOrder save(PreOrder preOrder) ;
 	
 }
