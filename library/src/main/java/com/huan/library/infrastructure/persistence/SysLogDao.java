@@ -7,5 +7,5 @@ import com.huan.library.web.view.SysLogView;
 
 public interface SysLogDao extends BaseDao<SysLog> {
 
-	public List<SysLog> selectSysLogs(SysLogView sysLogView) throws Exception;
+	public List<SysLog> selectSysLogs(SysLogView sysLogView) ;
 }

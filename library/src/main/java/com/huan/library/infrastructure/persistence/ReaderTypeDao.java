@@ -12,9 +12,9 @@ import com.huan.library.web.view.ReaderTypeView;
 public interface ReaderTypeDao extends BaseDao<ReaderType> {
     
 	//查询所有的读者类型
-	public List<ReaderType> selectReaderTypes(ReaderTypeView readerTypeView) throws Exception;
+	public List<ReaderType> selectReaderTypes(ReaderTypeView readerTypeView) ;
 	
 	//批量导入读者类型
-	public void insertReaderTypeBatch(List<ReaderType> readerTypes) throws Exception;
+	public void insertReaderTypeBatch(List<ReaderType> readerTypes) ;
 	
 }

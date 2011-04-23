@@ -16,36 +16,36 @@ public interface BorrowReturnDao extends BaseDao<BorrowReturn>{
 	 * 查找借阅记录
 	 * @param borrowReturnView
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public List<BorrowReturn> selectBorrowReturns(BorrowReturnView borrowReturnView) throws Exception;
+	public List<BorrowReturn> selectBorrowReturns(BorrowReturnView borrowReturnView) ;
 	/**
 	 * 根据图书条形码查找借阅记录
 	 * @param bookBar
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public BorrowReturn selectBRByBookBar(String bookBar) throws Exception;
+	public BorrowReturn selectBRByBookBar(String bookBar) ;
 	
 	/**
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public BorrowReturn selectBRById(Long id) throws Exception;
+	public BorrowReturn selectBRById(Long id) ;
 	/**
 	 * 根据读者条形码查找借阅记录
 	 * @param readerBar
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public BorrowReturn selectBRByReaderBar(String readerBar) throws Exception;
+	public BorrowReturn selectBRByReaderBar(String readerBar) ;
 	/**
 	 * 根据读者条形码/读者条形码查找借阅记录
 	 * @param borrowReturnView
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public List<BorrowReturn> selectBorrowReturn(BorrowReturnView borrowReturnView) throws Exception; 
+	public List<BorrowReturn> selectBorrowReturn(BorrowReturnView borrowReturnView) ; 
 }

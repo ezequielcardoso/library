@@ -21,15 +21,15 @@ public interface FunctionDao extends BaseDao<Function>{
 	/**
 	 * 批量增加
 	 * @param functions
-	 * @throws Exception
+	 * @
 	 */
-	public void insertFunctionsBatch(List<Function> functions) throws Exception;
+	public void insertFunctionsBatch(List<Function> functions) ;
 	
 	/**
 	 * 查找leve为1和2的所有功能
 	 * @return
 	 */
-	public List<Function> selectModules() throws Exception;
+	public List<Function> selectModules() ;
 
 	public List<Function> selectFunctions(FunctionView functionView);
 

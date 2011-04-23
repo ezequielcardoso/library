@@ -12,6 +12,6 @@ import com.huan.library.web.view.PunishmentView;
  */
 public interface PunishmentDao extends BaseDao<Punishment>{
   
-	public List<Punishment> selectPunishments(PunishmentView punishmentView) throws Exception;
+	public List<Punishment> selectPunishments(PunishmentView punishmentView) ;
 	
 }

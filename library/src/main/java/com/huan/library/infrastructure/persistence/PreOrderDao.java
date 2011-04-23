@@ -7,6 +7,6 @@ import com.huan.library.web.view.PreOrderView;
 
 public interface PreOrderDao extends BaseDao<PreOrder> {
 	
-	public List<PreOrder> selectPreOrders(PreOrderView preOrderView) throws Exception;
+	public List<PreOrder> selectPreOrders(PreOrderView preOrderView) ;
 
 }
