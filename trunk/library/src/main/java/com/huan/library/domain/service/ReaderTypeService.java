@@ -47,5 +47,8 @@ public interface ReaderTypeService {
 	 */
 	public List<ReaderType> findReaderTypes(ReaderTypeView readerTypeView) throws Exception;
 
+	public String exportExcel(String rootDir, ReaderTypeView readerTypeView) throws Exception;
+
+
 
 }

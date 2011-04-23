@@ -141,6 +141,11 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 			//group by 子句 
 			
 			//order by 子句
+			StringBuilder orderSub = new StringBuilder();
+			orderSub.append(" order by b.storeDate desc ");
+			
+			hql.append(orderSub);
+			hql_.append(orderSub);
 			
 			//查找总记录
 			final String hqlIn_ = hql_.toString();

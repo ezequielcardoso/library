@@ -11,8 +11,9 @@ Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.Gri
 			items : [{
 				text : '导出Excel',
 				handler : function() {
-					
-				}
+			     	this.onExport();	
+				},
+				scope : this
 			},'-',{
 				text : '图书标签',
 				handler : function() {
@@ -225,6 +226,14 @@ Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.Gri
 						align : 'center',
 						dataIndex : 'duetoReturnDate'
 					}, {
+						xtype : 'datecolumn',
+						format: 'm/d/Y',
+						header : '实还日期',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'realityReturndate'
+					}, {
 						header : '超期天数',
 						width : 100,
 						sortable : true,
@@ -365,7 +374,57 @@ Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.Gri
 			}
 	   });
 	},
+	onExport : function(){
 	
+	   var readerBarCode = Ext.get('readerBarCode').getValue();
+	   var readerName = Ext.get('readerName').getValue();
+	   var unitName = Ext.get('unitName').getValue();
+	   var bookBarCode = Ext.get('bookBarCode').getValue();
+	   var bookName = Ext.get('bookName').getValue();
+	   var firstCategoryName = Ext.get('firstCategoryName').getValue();
+	   var borrowOperator = Ext.get('borrowOperator').getValue();
+	   var returnOperator = Ext.get('returnOperator').getValue();
+	   var bookStateName = Ext.get('bookStateName').getValue();
+	   var borrowedDate = Ext.get('borrowedDate').getValue();
+	   var endBorrowedDate = Ext.get('endBorrowedDate').getValue();
+	   var realityReturndate = Ext.get('realityReturndate').getValue();
+	   var endRealityReturnDate = Ext.get('endRealityReturnDate').getValue();
+	   
+	    
+	   Ext.Ajax.request({
+				url : contextPath+ '/borrowReturn/exportExcel.action',
+				method : 'POST',
+				params : {
+					   'borrowReturnView.readerBarCode' : readerBarCode,
+				       'borrowReturnView.readerName' : readerName,
+				       'borrowReturnView.unitName' : unitName,
+				       'borrowReturnView.bookBarCode' : bookBarCode,
+				       'borrowReturnView.bookName' : bookName,
+				       'borrowReturnView.firstCategoryName' : firstCategoryName,
+				       'borrowReturnView.borrowOperator' : borrowOperator,
+				       'borrowReturnView.returnOperator' : returnOperator,
+				       'borrowReturnView.bookStateName' : bookStateName,
+				       'borrowReturnView.endBorrowedDate' : endBorrowedDate,
+				       'borrowReturnView.realityReturndate' : realityReturndate,
+				       'borrowReturnView.endRealityReturnDate' : endRealityReturnDate,
+				       'borrowReturnView.isBook' : 0
+				},
+				success : function(resp) {
+					var respText = resp.responseText;
+					var obj = Ext.util.JSON.decode(respText);
+					if (obj.success) {
+						window.location.href = contextPath + "/file/downloadFile.action?fileName=" + obj.data;
+					} else {
+						Ext.Msg.alert('提示',obj.msg);
+					}
+				},
+				failure : function() {
+					Ext.Msg.alert('提示', '服务器异常');
+				}
+			});
+		
+	}
+	,
 	onRefresh : function(){
 	   
 		this.getStore().baseParams={'borrowReturnView.isBook' : 0};

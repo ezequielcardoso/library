@@ -422,18 +422,17 @@ Library.bookQuery.grid.BookQueryGridPanel = Ext.extend(Ext.grid.GridPanel, {
 								var bookId = record.get('bookId');
 								var thiz = this;
 								Ext.Ajax.request({
-									url : contextPath + '/borrowReturn/save.action',
+									url : contextPath + '/preOrder/save.action',
 									method : 'POST',
 									params : {
-										'borrowReturnView.bookId' : bookId,
-										'borrowReturnView.readerId' : readerId
+										'preOrderView.bookId' : bookId
 									},
 									success : function(resp) {
 										var respText = resp.responseText;
 										var obj = Ext.util.JSON
 												.decode(respText);
 										if (obj.success == true) {
-											record.set('bookStateName','借阅中');
+											record.set('bookStateName','预约中');
 											record.commit();
 											Ext.Msg.alert('提示', obj.msg);
 										} else {
@@ -454,8 +453,6 @@ Library.bookQuery.grid.BookQueryGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				} else {
 					Ext.Msg.alert('提示', '请选择你要借出的图书');
 				}
-		 Ext.Msg.alert('提示','预约');
-		
 	}
 	,
 	queryBook : function(){
@@ -470,8 +467,6 @@ Library.bookQuery.grid.BookQueryGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   var firstCategory = Ext.get('firstCategory').getValue();
 	   var secondCategory = Ext.get('secondCategory').getValue();
 	   var author = Ext.get('author').getValue();
-	   var operator = Ext.get('operator').getValue();
-	   var bookStateName = Ext.get('bookStateName').getValue();
 	   var storeDate = Ext.get('storeDate').getValue();  
 	   var endStoreDate = Ext.get('endStoreDate').getValue();
 	   this.getStore().baseParams = {
@@ -486,8 +481,6 @@ Library.bookQuery.grid.BookQueryGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	       'bookView.firstCategoryName' : firstCategory,
 	       'bookView.secondCategoryName' : secondCategory,
 	       'bookView.author' : author,
-	       'bookView.operator' : operator,
-	       'bookView.bookStateName' : bookStateName,
 	       'bookView.storeDate' : storeDate,
 	       'bookView.endStoreDate' : endStoreDate,
 	       'bookView.isBook' : 1

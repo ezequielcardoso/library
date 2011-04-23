@@ -49,6 +49,7 @@ public class PunishmentDaoImpl extends BaseDaoImpl<Punishment> implements Punish
 			sql.append(" where 1=1 ");
 			sql_.append(" where 1=1 ");
 			
+			
 			/**
 			 * 
 			 */

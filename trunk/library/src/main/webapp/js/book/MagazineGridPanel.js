@@ -34,13 +34,15 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			},'-',{
 				text : '导出Excel',
 				handler : function() {
-					
-				}
+					this.onExport();
+				},
+				scope:this
 			},'-',{
 				text : '图书标签',
 				handler : function() {
-					
-				}
+//					this.onExport();
+				},
+				scope:this
 			},'-',{
 				text : '打印条形码',
 				handler : function() {
@@ -465,6 +467,62 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   });
 	},
 	
+	onExport : function(){
+	
+	   var barCode = Ext.get('barCode').getValue();
+	   var bookName = Ext.get('bookName').getValue();
+	   var spell = Ext.get('spell').getValue();
+	   var press = Ext.get('press').getValue();
+	   var location = Ext.get('location').getValue();
+	   var bookNo = Ext.get('bookNo').getValue();
+	   var searchBookId = Ext.get('searchBookId').getValue();
+	   var speciesId = Ext.get('speciesId').getValue();
+	   var firstCategory = Ext.get('firstCategory').getValue();
+	   var secondCategory = Ext.get('secondCategory').getValue();
+	   var emailNo = Ext.get('emailNo').getValue();
+	   var ISSN = Ext.get('ISSN').getValue();
+	   var bookStateName = Ext.get('bookStateName').getValue();
+	   var storeDate = Ext.get('storeDate').getValue();  
+	   var endStoreDate = Ext.get('endStoreDate').getValue();
+		
+	    Ext.Ajax.request({
+				url : contextPath+ '/book/exportExcel.action',
+				method : 'POST',
+				params : {
+					   'bookView.barCode' : barCode,
+				       'bookView.bookName' : bookName,
+				       'bookView.spell' : spell,
+				       'bookView.pressName' : press,
+				       'bookView.location' : location,
+				       'bookView.bookNo' :bookNo,
+				       'bookView.searchBookId' : searchBookId,
+				       'bookView.speciesId' : speciesId,
+				       'bookView.firstCategoryName' : firstCategory,
+				       'bookView.secondCategoryName' : secondCategory,
+				       'bookView.emailNo' : emailNo,
+				       'bookView.ISSN' : ISSN,
+				       'bookView.bookStateName' : bookStateName,
+				       'bookView.storeDate' : storeDate,
+				       'bookView.endStoreDate' : endStoreDate,
+				       'bookView.isBook' : 0
+				},
+				success : function(resp) {
+					var respText = resp.responseText;
+					var obj = Ext.util.JSON.decode(respText);
+					if (obj.success) {
+						window.location.href = contextPath + "/file/downloadFile.action?fileName=" + obj.data;
+					} else {
+						Ext.Msg.alert('提示',obj.msg);
+					}
+				},
+				failure : function() {
+					Ext.Msg.alert('提示', '服务器异常');
+				}
+			});
+	 
+	
+	}
+	,
 	onRefresh : function(){
    		
    		this.getStore().baseParams={'bookView.isBook' : 0};

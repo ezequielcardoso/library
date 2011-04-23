@@ -11,8 +11,9 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 					items : [{
 								text : '导出Excel',
 								handler : function() {
-
-								}
+                                  this.onExport();
+								},
+								scope : this
 							}, '-', {
 								text : '图书标签',
 								handler : function() {
@@ -127,7 +128,19 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 						sortable : true,
 						align : 'center',
 						dataIndex : 'unitName'
+					},{
+						header : '读者类别',
+						width : 200,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'readerCateName'
 					}, {
+						header : '罚金',
+						width : 100,
+						sortable : true,
+						align : 'center',
+						dataIndex : 'punishMoney'
+					},{
 						header : '收费项目',
 						width : 80,
 						sortable : true,
@@ -147,7 +160,7 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 						sortable : true,
 						align : 'center',
 						dataIndex : 'operator'
-					}, {
+					},{
 						header : '收费描述',
 						width : 200,
 						sortable : true,
@@ -223,6 +236,48 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 				});
 	},
 
+	onExport : function(){
+	 
+	   var readerBarCode = Ext.get('readerBarCode').getValue();
+	   var readerName = Ext.get('readerName').getValue();
+	   var unitName = Ext.get('unitName').getValue();
+	   var chargeName = Ext.get('chargeName').getValue();
+	   var operator = Ext.get('operator').getValue();
+	   var readerCateName = Ext.get('readerCateName').getValue();
+	   var operatorDate = Ext.get('operatorDate').getValue();
+	   var endOperatorDate = Ext.get('endOperatorDate').getValue();
+	   
+	   Ext.Ajax.request({
+				url : contextPath+ '/punishment/exportExcel.action',
+				method : 'POST',
+				params : {
+				   'punishmentView.readerBarCode' : readerBarCode,
+			       'punishmentView.readerName' : readerName,
+			       'punishmentView.unitName' : unitName,
+			       'punishmentView.chargeName' : chargeName,
+			       'punishmentView.operator' : operator,
+			       'punishmentView.readerCateName' : readerCateName,
+			       'punishmentView.operatorDate' : operatorDate,
+			       'punishmentView.endOperatorDate' : endOperatorDate
+				},
+				success : function(resp) {
+					var respText = resp.responseText;
+					var obj = Ext.util.JSON.decode(respText);
+					if (obj.success) {
+						window.location.href = contextPath + "/file/downloadFile.action?fileName=" + obj.data;
+					} else {
+						Ext.Msg.alert('提示',obj.msg);
+					}
+				},
+				failure : function() {
+					Ext.Msg.alert('提示', '服务器异常');
+				}
+			});
+
+	   
+	
+	}
+	,
 	onRefresh : function() {
 
 		this.getStore().baseParams = {};

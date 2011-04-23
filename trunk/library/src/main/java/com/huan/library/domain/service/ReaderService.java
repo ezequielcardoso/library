@@ -45,5 +45,12 @@ public interface ReaderService {
 	 * @throws Exception
 	 */
     public List<Reader> findReaders(ReaderView readerView) throws Exception;
+    /**
+     * 导出Excel
+     * @param rootDir
+     * @param readerView
+     * @return
+     */
+	public String exportExcel(String rootDir, ReaderView readerView) throws Exception;
 
 }

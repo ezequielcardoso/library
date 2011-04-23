@@ -57,4 +57,5 @@ public interface BookService {
 	 */
 	public Book getBookByBarCode(String barCode) throws Exception;
     
+	public String exportExcel(String rootDir, BookView bookView) throws Exception;
 }

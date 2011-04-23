@@ -40,6 +40,11 @@
 		    </result>
 		</action>
 		
+		<action name="exportExcel" class="com.huan.library.web.action.ReaderAction" method="exportExcel">
+		    <result name="success" type="json">
+		       <param name="root">extJsonForm</param>
+		    </result>
+		</action>
     </package>
     
     <!-- readerunits -->
@@ -94,5 +99,11 @@
 	         <param name="root">extJsonForm</param>
 	      </result>
 	    </action>	
+	    
+	     <action name="exportExcel" class="com.huan.library.web.action.ReaderTypeAction" method="exportExcel">
+	      <result name="success" type="json">
+	         <param name="root">extJsonForm</param>
+	      </result>
+	    </action>	 
     </package>
 </struts>

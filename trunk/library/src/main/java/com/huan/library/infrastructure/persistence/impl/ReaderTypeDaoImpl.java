@@ -33,7 +33,7 @@ public class ReaderTypeDaoImpl extends BaseDaoImpl<ReaderType> implements Reader
 			//查找共记录
 			StringBuilder hql_ = new StringBuilder();
 			
-			hql.append(" from ReaderType where 1=1 ");
+			hql.append(" from ReaderType rt where 1=1 ");
 			hql_.append(" select count(rt) from ReaderType rt where 1=1 ");
 			
 			StringBuilder whereSub = new StringBuilder();
@@ -58,7 +58,7 @@ public class ReaderTypeDaoImpl extends BaseDaoImpl<ReaderType> implements Reader
 				public Object doInHibernate(Session session)
 						throws HibernateException, SQLException {
 					Query query = session.createQuery(halIn);
-					if(readerTypeView!=null && readerTypeView.getIsPage()){
+					if(readerTypeView!=null &&readerTypeView.getId()!=null&& readerTypeView.getIsPage()){
 						query.setMaxResults(readerTypeView.getLimit());
 						query.setFirstResult(readerTypeView.getStart());
 					}

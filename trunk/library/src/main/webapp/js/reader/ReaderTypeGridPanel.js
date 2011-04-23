@@ -35,8 +35,9 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 									}, '-',{
 										text : '导出Excel',
 										handler : function() {
-
-										}
+                                           this.onExport();
+										},
+										scope : this
 									},'-',{
 										text : '打印',
 										handler : function() {
@@ -78,7 +79,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							editor : new Ext.form.TextField({
 										allowBlank : false
 									}),
-							dataIndex : 'borrowDays'
+							dataIndex : 'maxBorrowDays'
 						}, {
 							header : '借阅数量',
 							width : 120,
@@ -87,7 +88,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							editor : new Ext.form.TextField({
 										allowBlank : false
 									}),
-							dataIndex : 'borrowedQuantity'
+							dataIndex : 'maxBorrowedQuantity'
 						}, {
 							header : '租金',
 							width : 120,
@@ -109,10 +110,10 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 							name : 'readerCateName',
 							type : 'string'
 						}, '-',{
-							name : 'borrowDays',
+							name : 'maxBorrowDays',
 							type : 'int'
 						},'-', {
-							name : 'borrowedQuantity',
+							name : 'maxBorrowedQuantity',
 							type : 'int'
 						},'-', {
 							name : 'rent',
@@ -186,8 +187,8 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 					     'readerType.id' : e.record.get('id'), 
 					   	 'readerType.readerCateCode': e.record.get('readerCateCode'),
 					     'readerType.readerCateName': e.record.get('readerCateName'),
-					     'readerType.borrowDays' : e.record.get('borrowDays'),
-					     'readerType.borrowedQuantity': e.record.get('borrowedQuantity'),
+					     'readerType.maxBorrowDays' : e.record.get('maxBorrowDays'),
+					     'readerType.maxBorrowedQuantity': e.record.get('maxBorrowedQuantity'),
 					     'readerType.rent' : e.record.get('rent')
 					   },
 					   success : function(resp){
@@ -259,13 +260,39 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 
 			
 			},
+			
+			onExport : function(){
+				
+				
+				Ext.Ajax.request({
+				url : contextPath+ '/readerType/exportExcel.action',
+				method : 'POST',
+				params : {
+				},
+				success : function(resp) {
+					var respText = resp.responseText;
+					var obj = Ext.util.JSON.decode(respText);
+					if (obj.success) {
+						window.location.href = contextPath + "/file/downloadFile.action?fileName=" + obj.data;
+					} else {
+						Ext.Msg.alert('提示',obj.msg);
+					}
+				},
+				failure : function() {
+					Ext.Msg.alert('提示', '服务器异常');
+				}
+			});
+			
+			}
+			
+			,
 			onAdd : function(){
 			  var ReaderType = this.getStore().recordType;
 			  var rt = new ReaderType({
 			      readerCateCode : 'A1000',
 			      readerCateName : '学生',
-			      borrowDays : 30,
-			      borrowedQuantity : 5,
+			      maxBorrowDays : 30,
+			      maxBorrowedQuantity : 5,
 			      rent : 0.5
 			  });
 			  this.stopEditing();
