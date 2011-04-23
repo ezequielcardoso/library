@@ -548,11 +548,11 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					'reader.readerPic' : e.record.get('readerPic'),
 					'reader.spell' : e.record.get('spell'),
 					'reader.readerDesc' : e.record.get('readerDesc'),
-//					'reader.readerUnits.unitId' : e.record.get('unitId'),  //单位
+					'reader.readerUnits.unitId' : e.record.get('unitId'),  //单位
 					'reader.readerType.id' : e.record.get('readerTypeId'),  //读者类别
 					'reader.certificate.itemId' : e.record.get('certificateId'), //证件类别
-					'reader.certificate.certificateCode' : e.record.get('certificateCode') //证件类别
-//					'reader.cardState.itemId' : e.record.get('cardStateId')   //借阅证状态
+//					'reader.certificate.certificateCode' : e.record.get('certificateCode'), //证件类别
+					'reader.cardState.itemId' : e.record.get('cardStateId')   //借阅证状态
 				},
 				success : function(resp) {
 					var obj = Ext.util.JSON.decode(resp.responseText);

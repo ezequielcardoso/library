@@ -1,6 +1,7 @@
 package com.huan.library.web.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,9 +90,16 @@ public class PunishmentAction extends BaseActionSupport {
 			//罚款项目
 			Charge charge = new Charge();
 			charge.setItemId(punishmentView.getChargeId());
-            punishment.setCharge(charge);			
-			
-			this.formatPunishment(punishment);
+            punishment.setCharge(charge);
+            //设置操作员
+//          User currUser = (User)this.session.get("currUser");
+//            punishment.setOperator(currUser.getUserName());
+            
+            punishment.setOperatorDate(new Date());
+            punishment.setEventsDesc(punishmentView.getEventsDesc());
+            punishment.setPunishMoney(punishmentView.getPunishMoney());
+            
+            this.formatPunishment(punishment);
 			punishment = punishmentService.addOrModifyPunlishment(punishment);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("罚款成功");
@@ -179,7 +187,7 @@ public class PunishmentAction extends BaseActionSupport {
 			}
 			if(punishment.getReader()!=null && punishment.getReader().getReaderType()!=null){
 				punishmentView.setReaderTypeId(punishment.getReader().getReaderType().getId());
-				punishmentView.setReaderName(punishment.getReader().getReaderType().getReaderCateName());
+				punishmentView.setReaderCateName(punishment.getReader().getReaderType().getReaderCateName());
 			}
 			punishmentViews.add(punishmentView);
 		}
