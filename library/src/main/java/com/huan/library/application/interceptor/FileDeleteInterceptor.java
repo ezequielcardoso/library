@@ -23,15 +23,13 @@ public class FileDeleteInterceptor extends AbstractInterceptor{
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
-		try{
 			invocation.invoke();
-			if(invocation.isExecuted()){
-				ActionContext ctx = invocation.getInvocationContext();
-				HttpServletRequest request = (HttpServletRequest)ctx.get(ServletActionContext.HTTP_REQUEST);
-				FileOperate.delFile((String) request.getAttribute("deleteFileName"));
-			}
-		}catch(Exception e){
-			e.printStackTrace();
+		if (invocation.isExecuted()) {
+			ActionContext ctx = invocation.getInvocationContext();
+			HttpServletRequest request = (HttpServletRequest) ctx
+					.get(ServletActionContext.HTTP_REQUEST);
+			FileOperate
+					.delFile((String) request.getAttribute("deleteFileName"));
 		}
 		return "";
 	}
