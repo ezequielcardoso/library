@@ -37,72 +37,36 @@ public class BookServiceImpl implements BookService {
 		this.bookDao = bookDao;
 	}
 
-	public Book addOrModifyBook(Book book) throws Exception {
-		try{
+	public Book addOrModifyBook(Book book)  {
 			book = bookDao.saveOrUpdate(book);
-		}catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
 		return book;
 	}
 	
-	public void removeBook(Book book) throws Exception {
-		try{
+	public void removeBook(Book book)  {
+		
 		    bookDao.delete(book);
-		}catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+		
 	}
 
 
 	public PageModel<Book> findBooksByPage(int pageNo, int pageSize)
-			throws Exception {
-		PageModel<Book> pageModel = new PageModel<Book>();
-		try {
-			pageModel = bookDao.selectByPage(pageNo, pageSize);
-		} catch (Exception e) {
-		    e.printStackTrace();
-		    throw new Exception();
-		}
-		return pageModel;
+			 {
+		return bookDao.selectByPage(pageNo, pageSize);
 	}
 
-	public List<Book> findBooks(BookView bookView) throws Exception {
-		List<Book> books = new ArrayList<Book>();
-		try {
-			books = this.bookDao.selectBooks(bookView);
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return books;
+	public List<Book> findBooks(BookView bookView)  {
+		return this.bookDao.selectBooks(bookView);
 	}
 
-	public Book getBookById(Long bookId) throws Exception {
-		Book book = new Book();
-		try {
-			book = this.bookDao.selectBookById(bookId);
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return book;
+	public Book getBookById(Long bookId)  {
+		return this.bookDao.selectBookById(bookId);
 	}
 
-	public Book getBookByBarCode(String barCode) throws Exception {
-		Book book = new Book();
-		try {
-			book = this.bookDao.selectBookByBarCode(barCode);
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return book;
+	public Book getBookByBarCode(String barCode)  {
+		return this.bookDao.selectBookByBarCode(barCode);
 	}
 	
-	public String exportExcel(String rootDir, BookView bookView) throws Exception{
+	public String exportExcel(String rootDir, BookView bookView) {
 		List<Book> books = new ArrayList<Book>();
 		WritableWorkbook ww;
 		String fileName = "upload" + File.separator +"books.xls";
@@ -201,7 +165,6 @@ public class BookServiceImpl implements BookService {
 	            System.out.println("写入excel成功！");	
 		} catch (Exception e) {
 			e.printStackTrace();
-		  throw new Exception(e);
 		}
 		return fileName;
 	}

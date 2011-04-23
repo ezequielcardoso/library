@@ -16,15 +16,8 @@ public class SysLogServiceImpl implements SysLogService {
 	@Autowired
 	private SysLogDao sysLogDao;
 	
-	public List<SysLog> findSysLogs(SysLogView sysLogView) throws Exception {
-		List<SysLog> sysLogs = new ArrayList<SysLog>();
-		try {
-			sysLogs = sysLogDao.selectSysLogs(sysLogView);
-		} catch (Exception e) {
-		  e.printStackTrace();
-		  throw new Exception(e);
-		}
-		return sysLogs;
+	public List<SysLog> findSysLogs(SysLogView sysLogView)  {
+		return sysLogDao.selectSysLogs(sysLogView);
 	}
 
 	public void setSysLogDao(SysLogDao sysLogDao) {

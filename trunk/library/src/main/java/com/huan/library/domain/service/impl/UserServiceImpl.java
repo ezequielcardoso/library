@@ -14,7 +14,7 @@ import com.huan.library.web.view.UserView;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserDao userDao;
 
@@ -22,53 +22,32 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
-	public User save(User user)  throws Exception{
-		User rtnUser = new User();
-		try {
-			rtnUser = this.userDao.saveOrUpdate(user);
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return rtnUser;
+	public User save(User user) {
+
+		return this.userDao.saveOrUpdate(user);
 	}
 
-	public List<User> findUsers(UserView view) throws Exception {
-		List<User> users = new ArrayList<User>();
-		try {
-			users = userDao.selectUsers(view);
-		} catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return users;
+	public List<User> findUsers(UserView view) {
+
+		return userDao.selectUsers(view);
 	}
 
-	public User getById(Long userId) throws Exception {
-		User user = new User();
-		try {
-			user = userDao.getById(userId);
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return user;
+	public User getById(Long userId) {
+
+		return userDao.getById(userId);
 	}
 
-	public void remove(User user) throws Exception {
-		try {
-			userDao.delete(user);
-		} catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+	public void remove(User user) {
+
+		userDao.delete(user);
+
 	}
 
-	public User getUserRole(User user) throws Exception {
+	public User getUserRole(User user) {
 		return this.userDao.getUserRole(user);
 	}
 
-	public LoginState getUserLoginState(User user) throws Exception {
+	public LoginState getUserLoginState(User user) {
 		return this.userDao.getUserLoginState(user);
 	}
 

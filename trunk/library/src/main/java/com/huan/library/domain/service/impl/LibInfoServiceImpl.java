@@ -21,26 +21,12 @@ public class LibInfoServiceImpl implements LibInfoService {
 		this.libInfoDao = libInfoDao;
 	}
 
-	public LibInfo save(LibInfo libInfo) throws Exception {
-		LibInfo libInfoCopy = new LibInfo();
-		try {
-			libInfoCopy = libInfoDao.saveOrUpdate(libInfo);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-		return libInfoCopy;
+	public LibInfo save(LibInfo libInfo)  {
+		return libInfoDao.saveOrUpdate(libInfo);
 	}
 
-	public LibInfo findById(Long libInfoId) throws Exception {
-		LibInfo libInfo = new LibInfo();
-		try {
-			libInfo = libInfoDao.selectById(libInfoId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-		return libInfo;
+	public LibInfo findById(Long libInfoId)  {
+		return libInfoDao.selectById(libInfoId);
 	}
 
 }

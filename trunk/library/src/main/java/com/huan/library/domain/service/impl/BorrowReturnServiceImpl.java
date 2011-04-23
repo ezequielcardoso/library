@@ -29,57 +29,24 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 	@Autowired
 	private BorrowReturnDao borrowReturnDao;
 	
-	public BorrowReturn addOrModifyBorrow(BorrowReturn borrowReturn) throws Exception {
-		try {
-			borrowReturn = borrowReturnDao.saveOrUpdate(borrowReturn);	
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return borrowReturn;
+	public BorrowReturn addOrModifyBorrow(BorrowReturn borrowReturn)  {
+		return borrowReturnDao.saveOrUpdate(borrowReturn);
 	}
 
-	public BorrowReturn addReturn(BorrowReturn borrowReturn) throws Exception {
-		try {
-			borrowReturn = borrowReturnDao.saveOrUpdate(borrowReturn);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return borrowReturn;
+	public BorrowReturn addReturn(BorrowReturn borrowReturn)  {
+		return borrowReturnDao.saveOrUpdate(borrowReturn);
 	}
 	
-	public BorrowReturn getBRByBarCode(String barCode) throws Exception {
-		BorrowReturn borrowReturn = new BorrowReturn();
-		try {
-			borrowReturn = borrowReturnDao.selectBRByBookBar(barCode);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return borrowReturn;
+	public BorrowReturn getBRByBarCode(String barCode)  {
+		return borrowReturnDao.selectBRByBookBar(barCode);
 	}
 	
-	public BorrowReturn getBRById(Long id) throws Exception{
-		BorrowReturn borrowReturn = new BorrowReturn();
-		try {
-			borrowReturn = borrowReturnDao.selectBRById(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return borrowReturn;
+	public BorrowReturn getBRById(Long id) {
+		return borrowReturnDao.selectBRById(id);
 	}
 	
-	public List<BorrowReturn> getByBarCodeOrReaderCode(BorrowReturnView borrowReturnView) throws Exception{
-		List<BorrowReturn> borrowReturns = new ArrayList<BorrowReturn>(); 
-		try {
-			borrowReturns = borrowReturnDao.selectBorrowReturn(borrowReturnView);
-		} catch (Exception e) {
-		  e.printStackTrace();
-		  throw new Exception(e);
-		}
-		return borrowReturns;
+	public List<BorrowReturn> getByBarCodeOrReaderCode(BorrowReturnView borrowReturnView) {
+		return borrowReturnDao.selectBorrowReturn(borrowReturnView);
 	}
 	
 	public void setBorrowReturnDao(BorrowReturnDao borrowReturnDao) {
@@ -87,19 +54,12 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 	}
 
 	public List<BorrowReturn> findBorrowReturns(
-			BorrowReturnView borrowReturnView) throws Exception {
-		List<BorrowReturn> borrowReturns = new ArrayList<BorrowReturn>(); 
-		try {
-			borrowReturns = borrowReturnDao.selectBorrowReturns(borrowReturnView);
-		} catch (Exception e) {
-		  e.printStackTrace();
-		  throw new Exception(e);
-		}
-		return borrowReturns;
+			BorrowReturnView borrowReturnView)  {
+		return borrowReturnDao.selectBorrowReturns(borrowReturnView);
 	}
 
 	public String exportExcel(String rootDir, BorrowReturnView borrowReturnView)
-			throws Exception {
+			 {
 		List<BorrowReturn> borrowReturns = new ArrayList<BorrowReturn>();
 		WritableWorkbook ww ;
 		String fileName = "upload"+File.separator+"booksBorrored.xls";
@@ -185,7 +145,6 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  System.out.println("写入excel失败！");
-		  throw new Exception(e);
 		}
 		return fileName;
 	}

@@ -26,7 +26,7 @@ public class DictItemServiceImpl implements DictItemService {
 		this.dictItemDao = dictItemDao;
 	}
 
-	public DictItem save(DictItem dictItem) throws Exception {
+	public DictItem save(DictItem dictItem)  {
 		DictItem dictItemCopy =null;
 		try {
 			dictItemCopy = dictItemDao.saveOrUpdate(dictItem);
@@ -37,7 +37,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return dictItemCopy;
 	}
 	
-	public void remove(DictItem dictItem) throws Exception {
+	public void remove(DictItem dictItem)  {
 		try {
 			dictItemDao.delete(dictItem);
 		} catch (Exception e) {
@@ -45,7 +45,7 @@ public class DictItemServiceImpl implements DictItemService {
 		}
 	}
 
-	public DictItem getById(int dictItemId) throws Exception {
+	public DictItem getById(int dictItemId)  {
 		DictItem dictItem = null;
 		try {
 			dictItem =  dictItemDao.selectById(dictItemId);			
@@ -56,7 +56,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return dictItem;
 	}
 
-	public List<DictItemView> getByItemClass(String className) throws Exception {
+	public List<DictItemView> getByItemClass(String className)  {
 		List<DictItemView> views = new ArrayList<DictItemView>();
 		Object o = null;
 		try {
@@ -83,7 +83,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return views;
 	}
 
-	public List<DictItem> getChildrenByPid(String pid, String className) throws Exception  {
+	public List<DictItem> getChildrenByPid(String pid, String className)   {
 		List<DictItem> items = new ArrayList<DictItem>();
 		try {
 			items = dictItemDao.getChildrenByPid(pid, className);
@@ -93,7 +93,7 @@ public class DictItemServiceImpl implements DictItemService {
 		return items;
 	}
 	
-	public List<Category> getCategoryChildrenByPid(String pid, Integer level, String itemName) throws Exception  {
+	public List<Category> getCategoryChildrenByPid(String pid, Integer level, String itemName)   {
 		List<Category> items = new ArrayList<Category>();
 		try {
 			items = dictItemDao.getCategoryChildrenByPid(pid, level, itemName);

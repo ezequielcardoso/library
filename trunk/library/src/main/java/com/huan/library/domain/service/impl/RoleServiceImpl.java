@@ -12,54 +12,32 @@ import com.huan.library.infrastructure.persistence.RoleDao;
 import com.huan.library.web.view.RoleView;
 
 @Service("roleService")
-public class RoleServiceImpl implements RoleService{
+public class RoleServiceImpl implements RoleService {
 
 	@Autowired
 	private RoleDao roleDao;
 
-	public List<Role> findRoles(RoleView roleView) throws Exception {
-		List<Role> roles = new ArrayList<Role>();
-		try {
-			roles = this.roleDao.selectRoles(roleView);
-		} catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return roles;
+	public List<Role> findRoles(RoleView roleView) {
+		return this.roleDao.selectRoles(roleView);
 	}
 
-	public Role getById(Long roleId) throws Exception {
-		Role role = new Role();
-		try {
-			role = this.roleDao.selectById(roleId);
-		} catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return role;
+	public Role getById(Long roleId) {
+		return this.roleDao.selectById(roleId);
 	}
 
-	public void remove(Role role) throws Exception {
-		try {
-			this.roleDao.delete(role);
-		} catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+	public void remove(Role role) {
+
+		this.roleDao.delete(role);
+
 	}
 
-	public Role save(Role role) throws Exception {
-		try {
-			role = this.roleDao.saveOrUpdate(role);
-		} catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return role;
+	public Role save(Role role) {
+
+		return this.roleDao.saveOrUpdate(role);
 	}
 
 	public void setRoleDao(RoleDao roleDao) {
 		this.roleDao = roleDao;
 	}
-	
+
 }
