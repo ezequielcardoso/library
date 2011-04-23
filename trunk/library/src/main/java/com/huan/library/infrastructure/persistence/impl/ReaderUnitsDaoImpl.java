@@ -17,6 +17,7 @@ import com.huan.library.infrastructure.persistence.ReaderUnitsDao;
 
 /**
  * 读者单位dao实现
+ * 
  * @author huan
  * @time 2011-3-17 上午10:52:07
  */
@@ -24,74 +25,61 @@ import com.huan.library.infrastructure.persistence.ReaderUnitsDao;
 public class ReaderUnitsDaoImpl extends BaseDaoImpl<ReaderUnits> implements
 		ReaderUnitsDao {
 
-	public List<ReaderUnits> selectChildrenByPid(final Long pUnitId)
-			throws Exception {
+	public List<ReaderUnits> selectChildrenByPid(final Long pUnitId) {
 		List<ReaderUnits> readerUnits = new ArrayList<ReaderUnits>();
-		try {
-			StringBuilder sql = new StringBuilder();
-			sql.append(" from ReaderUnits ru ");
-			sql.append(" left join fetch ru.parentUnit t_parent ");
-			sql.append(" where t_parent.unitId=(:parentUnitId) ");
 
-			final String sqlIn = sql.toString();
-			HibernateCallback callback = new HibernateCallback() {
-				public Object doInHibernate(Session session)
-						throws HibernateException, SQLException {
-					Query query = session.createQuery(sqlIn);
-					query.setParameter("parentUnitId", pUnitId);
-					return query.list();
-				}
-			};
-			readerUnits = (List<ReaderUnits>) getHibernateTemplate()
-					.executeFind(callback);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+		StringBuilder sql = new StringBuilder();
+		sql.append(" from ReaderUnits ru ");
+		sql.append(" left join fetch ru.parentUnit t_parent ");
+		sql.append(" where t_parent.unitId=(:parentUnitId) ");
+
+		final String sqlIn = sql.toString();
+		HibernateCallback callback = new HibernateCallback() {
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				Query query = session.createQuery(sqlIn);
+				query.setParameter("parentUnitId", pUnitId);
+				return query.list();
+			}
+		};
+		readerUnits = (List<ReaderUnits>) getHibernateTemplate().executeFind(
+				callback);
 		return readerUnits;
 	}
 
-	public ReaderUnits getById(Long unitId) throws Exception {
+	public ReaderUnits getById(Long unitId) {
 		ReaderUnits readerUnits = new ReaderUnits();
 		StringBuilder sql = new StringBuilder();
 		sql.append(" from ReaderUnits as ru ");
 		sql.append(" where ru.unitId=? ");
 		String sql_ = sql.toString();
-		try {
-			readerUnits = (ReaderUnits) getHibernateTemplate().find(sql_, unitId).listIterator().next();
-		} catch (Exception e) {
-		  e.printStackTrace();
-		  throw new Exception(e);
-		}
+
+		readerUnits = (ReaderUnits) getHibernateTemplate().find(sql_, unitId)
+				.listIterator().next();
 		return readerUnits;
 	}
 
-	public void insertReaderUnitsesBatch(List<ReaderUnits> readerUnitses)
-			throws Exception {
-		try {
-			SessionFactory sessionFactory = this.getSessionFactory();
-			Session session = sessionFactory.openSession();
-			Transaction tx = session.getTransaction();
-			int i = 0;
-			for (ReaderUnits readerUnits : readerUnitses) {
-				session.save(readerUnits);
-				if (i % 100 == 0) {
-					tx.begin();
-					session.flush();
-					session.clear();
-					tx.commit();
-				}
-				i++;
+	public void insertReaderUnitsesBatch(List<ReaderUnits> readerUnitses) {
+
+		SessionFactory sessionFactory = this.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.getTransaction();
+		int i = 0;
+		for (ReaderUnits readerUnits : readerUnitses) {
+			session.save(readerUnits);
+			if (i % 100 == 0) {
+				tx.begin();
+				session.flush();
+				session.clear();
+				tx.commit();
 			}
-			tx.begin();
-			session.flush();
-			session.clear();
-			tx.commit();
-			session.close();
-			sessionFactory.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
+			i++;
 		}
+		tx.begin();
+		session.flush();
+		session.clear();
+		tx.commit();
+		session.close();
+		sessionFactory.close();
 	}
 }

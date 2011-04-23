@@ -27,79 +27,74 @@ public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 
 	public List<Function> selectByRoleId(final FunctionView functionView) {
 		final String getHql = "from Function func left join fetch func.roles as roles where roles.roleId = :roleId ";
-		List executeFind = getHibernateTemplate().executeFind(new HibernateCallback() {
-			public Object doInHibernate(Session s) throws HibernateException,
-					SQLException {
-				Query query = s.createQuery(getHql);
-				query.setParameter("roleId",functionView.getRoleId());
-				return query.list();
-			}
-		});
+		List executeFind = getHibernateTemplate().executeFind(
+				new HibernateCallback() {
+					public Object doInHibernate(Session s)
+							throws HibernateException, SQLException {
+						Query query = s.createQuery(getHql);
+						query.setParameter("roleId", functionView.getRoleId());
+						return query.list();
+					}
+				});
 		return executeFind;
 	}
 
-	public void insertFunctionsBatch(List<Function> functions) throws Exception {
-		try {
+	public void insertFunctionsBatch(List<Function> functions) {
 
-			SessionFactory sessionFactory = this.getSessionFactory();
-			Session session = sessionFactory.openSession();
-			Transaction tx = session.getTransaction();
-			int i = 0;
-			for (Function function : functions) {
-				session.save(function);
-				if (i % 100 == 0) {
-					tx.begin();
-					session.flush();
-					session.clear();
-					tx.commit();
-				}
-				i++;
+		SessionFactory sessionFactory = this.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.getTransaction();
+		int i = 0;
+		for (Function function : functions) {
+			session.save(function);
+			if (i % 100 == 0) {
+				tx.begin();
+				session.flush();
+				session.clear();
+				tx.commit();
 			}
-			tx.begin();
-			session.flush();
-			session.clear();
-			tx.commit();
-			session.close();
-			sessionFactory.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
+			i++;
 		}
+		tx.begin();
+		session.flush();
+		session.clear();
+		tx.commit();
+		session.close();
+		sessionFactory.close();
+
 	}
 
-	public List<Function> selectModules() throws Exception {
+	public List<Function> selectModules() {
 		List<Function> funcs = new ArrayList<Function>();
-		try{
-			StringBuilder hql = new StringBuilder();
-			hql.append(" select new Function( f.funcId, f.funcName, f.funcActive, f.funcOrder, f.level, " +
-					"f.resCmpId, f.resCmpText, f.resCmpIconCls, f.resCmpHandURL, p.funcId) "); 
-			hql.append(" from Function f " +
-					" left join f.parent p ");
-			hql.append(" where f.level>0 and f.level<=2 " +
-					" order by f.funcOrder ");
-			final String hqlIn = hql.toString();
-			HibernateCallback callback = new HibernateCallback(){
 
-				public Object doInHibernate(Session session)
-						throws HibernateException, SQLException {
-						Query query = session.createQuery(hqlIn);
-					return query.list();
-				}
-				
-			};
-			funcs = (List<Function>)getHibernateTemplate().executeFind(callback);
-		} catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+		StringBuilder hql = new StringBuilder();
+		hql.append(" select new Function( f.funcId, f.funcName, f.funcActive, f.funcOrder, f.level, "
+				+ "f.resCmpId, f.resCmpText, f.resCmpIconCls, f.resCmpHandURL, p.funcId) ");
+		hql.append(" from Function f " + " left join f.parent p ");
+		hql.append(" where f.level>0 and f.level<=2 "
+				+ " order by f.funcOrder ");
+		final String hqlIn = hql.toString();
+		HibernateCallback callback = new HibernateCallback() {
+
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				Query query = session.createQuery(hqlIn);
+				return query.list();
+			}
+
+		};
+		funcs = (List<Function>) getHibernateTemplate().executeFind(callback);
+
 		return funcs;
 	}
 
 	public List<Function> selectFunctions(FunctionView functionView) {
 		String hql = "from Function func ";
-		if(functionView.getParentId()!=null && !"".equals(functionView.getParentId())){
-			hql += "where func.parentFuncId = '" + functionView.getParentId() + "' order by func.level,func.funcOrder";
-		}else{
+		if (functionView.getParentId() != null
+				&& !"".equals(functionView.getParentId())) {
+			hql += "where func.parentFuncId = '" + functionView.getParentId()
+					+ "' order by func.level,func.funcOrder";
+		} else {
 			hql += "where func.level = 1 order by func.funcOrder";
 		}
 		List<Function> executeFind = getHibernateTemplate().find(hql);

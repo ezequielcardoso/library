@@ -27,95 +27,85 @@ public class DictItemDaoImpl extends BaseDaoImpl<DictItem> implements
 		return this.getHibernateTemplate().find(hql);
 	}
 
-	public void insertDictItemsBatch(List<DictItem> dictItems) throws Exception {
-		try {
-			SessionFactory sessionFactory = this.getSessionFactory();
-			Session session = sessionFactory.openSession();
-			Transaction tx = session.getTransaction();
-			int i = 0;
-			for (DictItem dictItem : dictItems) {
-				session.save(dictItem);
-				if (i % 100 == 0) {
-					tx.begin();
-					session.flush();
-					session.clear();
-					tx.commit();
-				}
-				i++;
+	public void insertDictItemsBatch(List<DictItem> dictItems) {
+
+		SessionFactory sessionFactory = this.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.getTransaction();
+		int i = 0;
+		for (DictItem dictItem : dictItems) {
+			session.save(dictItem);
+			if (i % 100 == 0) {
+				tx.begin();
+				session.flush();
+				session.clear();
+				tx.commit();
 			}
-			tx.begin();
-			session.flush();
-			session.clear();
-			tx.commit();
-			session.close();
-			sessionFactory.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
+			i++;
 		}
-	}
-	
-	public void insertCategorysBatch(List<Category> dictItems) throws Exception {
-		try {
-			SessionFactory sessionFactory = this.getSessionFactory();
-			Session session = sessionFactory.openSession();
-			Transaction tx = session.getTransaction();
-			int i = 0;
-			for (Category dictItem : dictItems) {
-				session.saveOrUpdate(dictItem);
-				if (i % 500 == 0) {
-					tx.begin();
-					session.flush();
-					session.clear();
-					tx.commit();
-				}
-				i++;
-			}
-			tx.begin();
-			session.flush();
-			session.clear();
-			tx.commit();
-			session.close();
-			sessionFactory.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+		tx.begin();
+		session.flush();
+		session.clear();
+		tx.commit();
+		session.close();
+		sessionFactory.close();
+
 	}
 
-	public List<DictItem> getChildrenByPid(String pid, String className)  throws Exception {
+	public void insertCategorysBatch(List<Category> dictItems) {
+
+		SessionFactory sessionFactory = this.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.getTransaction();
+		int i = 0;
+		for (Category dictItem : dictItems) {
+			session.saveOrUpdate(dictItem);
+			if (i % 500 == 0) {
+				tx.begin();
+				session.flush();
+				session.clear();
+				tx.commit();
+			}
+			i++;
+		}
+		tx.begin();
+		session.flush();
+		session.clear();
+		tx.commit();
+		session.close();
+		sessionFactory.close();
+
+	}
+
+	public List<DictItem> getChildrenByPid(String pid, String className) {
 		StringBuilder hql = new StringBuilder();
-		hql.append(" from " + className + " as dict " ); 
+		hql.append(" from " + className + " as dict ");
 		hql.append(" where dict.parent.itemId=? ");
 		List<DictItem> items = new ArrayList<DictItem>();
-		try {
-			items = this.getHibernateTemplate().find(hql.toString(), pid);
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+
+		items = this.getHibernateTemplate().find(hql.toString(), pid);
+
 		return items;
 	}
 
 	public List<Category> getCategoryChildrenByPid(String pid, Integer level,
-			String itemName) throws Exception {
+			String itemName) {
 		StringBuilder hql = new StringBuilder();
-		hql.append(" from Category as dict " ); 
+		hql.append(" from Category as dict ");
 		hql.append(" where dict.parent.itemId=? and dict.level=? ");
-		if(itemName!=null && !"".equals(itemName)){
+		if (itemName != null && !"".equals(itemName)) {
 			hql.append(" and dict.itemName like '%?%'");
 		}
 		List<Category> items = new ArrayList<Category>();
-		try {
-			if(itemName!=null && !"".equals(itemName)){
-				items = this.getHibernateTemplate().find(hql.toString(), pid, level, itemName);
-			} else {
-				items = this.getHibernateTemplate().find(hql.toString(), pid, level);
-			} 
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
+
+		if (itemName != null && !"".equals(itemName)) {
+			items = this.getHibernateTemplate().find(hql.toString(), pid,
+					level, itemName);
+		} else {
+			items = this.getHibernateTemplate()
+					.find(hql.toString(), pid, level);
 		}
+
 		return items;
 	}
 }

@@ -23,44 +23,36 @@ public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements
 		DepartmentDao {
 
 	@SuppressWarnings("unchecked")
-	public List<Department> selectChildrenByPid(final Long parentDeptId)
-			throws Exception {
+	public List<Department> selectChildrenByPid(final Long parentDeptId) {
 		List<Department> depts = new ArrayList<Department>();
-		try{
-			StringBuilder hql = new StringBuilder();
-			hql.append(" from Department d ");
-			hql.append(" left join fetch d.parent t_parent ");
-			hql.append(" where t_parent.deptId=(:parentDeptId) ");
-			final String hqlIn = hql.toString();
-			HibernateCallback callback = new HibernateCallback(){
+		StringBuilder hql = new StringBuilder();
+		hql.append(" from Department d ");
+		hql.append(" left join fetch d.parent t_parent ");
+		hql.append(" where t_parent.deptId=(:parentDeptId) ");
+		final String hqlIn = hql.toString();
+		HibernateCallback callback = new HibernateCallback() {
 
-				public Object doInHibernate(Session session)
-						throws HibernateException, SQLException {
-						Query query = session.createQuery(hqlIn);
-						query.setParameter("parentDeptId", parentDeptId);
-					return query.list();
-				}
-			};
-			depts = (List<Department>)getHibernateTemplate().executeFind(callback);
-		} catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				Query query = session.createQuery(hqlIn);
+				query.setParameter("parentDeptId", parentDeptId);
+				return query.list();
+			}
+		};
+		depts = (List<Department>) getHibernateTemplate().executeFind(callback);
+
 		return depts;
 	}
 
-	public Department getById(Long deptId) throws Exception {
+	public Department getById(Long deptId) {
 		StringBuilder hql = new StringBuilder();
-		hql.append(" from Department as d " ); 
+		hql.append(" from Department as d ");
 		hql.append(" where d.deptId=? ");
 		Department department = new Department();
-		try {
-			department = (Department) this.getHibernateTemplate().find(hql.toString(), deptId).listIterator().next();
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+
+		department = (Department) this.getHibernateTemplate()
+				.find(hql.toString(), deptId).listIterator().next();
+
 		return department;
 	}
-
 }
