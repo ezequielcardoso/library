@@ -14,30 +14,30 @@ public interface ReaderUnitsService {
 	 * 
 	 * @param readerUnits
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public ReaderUnits save(ReaderUnits unit) throws Exception;
+	public ReaderUnits save(ReaderUnits unit) ;
 	
 	/**
 	 * 
 	 * @param unit
-	 * @throws Exception
+	 * @
 	 */
-	public void remove(ReaderUnits unit) throws Exception;
+	public void remove(ReaderUnits unit) ;
 	
     /**
      * 
      * @param unitId
      * @return
-     * @throws Exception
+     * @
      */
-	public ReaderUnits getById(Long unitId) throws Exception;
+	public ReaderUnits getById(Long unitId) ;
 	
 	/**
 	 * 
 	 * @param pUnitId
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public List<ReaderUnits> getChildrenByPid(Long pUnitId) throws Exception;
+	public List<ReaderUnits> getChildrenByPid(Long pUnitId) ;
 }

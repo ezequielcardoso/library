@@ -14,18 +14,18 @@ public interface LibInfoService {
 	 * 保存或是修改
 	 * @param libInfo
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public LibInfo save(LibInfo libInfo) throws Exception;
+	public LibInfo save(LibInfo libInfo) ;
 	
 	
     /**
      * 根据id查找LibInfo
      * @param libInfoId
      * @return
-     * @throws Exception
+     * @
      */
-	public LibInfo findById(Long libInfoId) throws Exception;
+	public LibInfo findById(Long libInfoId) ;
 	
 
 }

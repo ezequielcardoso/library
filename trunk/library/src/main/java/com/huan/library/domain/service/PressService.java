@@ -16,39 +16,39 @@ public interface PressService {
 	 * @param press
 	 * @return
 	 */
-	public Press addOrModifyPress(Press press) throws Exception;
+	public Press addOrModifyPress(Press press) ;
 	
 	/**
 	 * 删除Press
 	 * @param press
 	 */
-	public void removePress(Press press) throws Exception;
+	public void removePress(Press press) ;
 	
 	/**
 	 * 根据Id查找Press
 	 * @param pressId
 	 * @return
 	 */
-	public Press findPressById(Long pressId) throws Exception;
+	public Press findPressById(Long pressId) ;
 	
 	/**
 	 * 分页查找出版社
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public PageModel<Press> findPressesByPage(int pageNo,int pageSize) throws Exception;
+	public PageModel<Press> findPressesByPage(int pageNo,int pageSize) ;
 
 	/**
 	 * 分页查找出版社
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public List<Press> findPresses(PressView pressView) throws Exception;
+	public List<Press> findPresses(PressView pressView) ;
     /**
      * 导出excel
      * @param rootDir
      * @param pressView
      */
-	public String exportExcel(String rootDir, PressView pressView) throws Exception;
+	public String exportExcel(String rootDir, PressView pressView) ;
 
 }

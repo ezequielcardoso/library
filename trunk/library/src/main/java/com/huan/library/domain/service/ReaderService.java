@@ -14,43 +14,43 @@ public interface ReaderService {
 	/**
 	 * 增加或是修改读者
 	 * @param reader
-	 * @throws Exception
+	 * @
 	 */
-	public Reader addOrModifyReader(Reader reader) throws Exception;
+	public Reader addOrModifyReader(Reader reader) ;
 	
 	/**
 	 * 删除读者
 	 * @param reader
-	 * @throws Exception
+	 * @
 	 */
-	public void removeReader(Reader reader) throws Exception;
+	public void removeReader(Reader reader) ;
 	
 	/**
 	 * 根据借阅证号查找Reader
 	 * @param readerId
 	 * @return
 	 */
-	public Reader findReaderByBarCode(String barCode) throws Exception;
+	public Reader findReaderByBarCode(String barCode) ;
 	/**
 	 * 
 	 * @param readerId
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public Reader findReaderById(Long readerId) throws Exception;
+	public Reader findReaderById(Long readerId) ;
 	/**
 	 * 
 	 * @param readerView
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-    public List<Reader> findReaders(ReaderView readerView) throws Exception;
+    public List<Reader> findReaders(ReaderView readerView) ;
     /**
      * 导出Excel
      * @param rootDir
      * @param readerView
      * @return
      */
-	public String exportExcel(String rootDir, ReaderView readerView) throws Exception;
+	public String exportExcel(String rootDir, ReaderView readerView) ;
 
 }

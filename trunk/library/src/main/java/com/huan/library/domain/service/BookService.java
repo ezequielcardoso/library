@@ -18,44 +18,44 @@ public interface BookService {
 	 * @param book
 	 * @return
 	 */
-	public Book addOrModifyBook(Book book) throws Exception;
+	public Book addOrModifyBook(Book book) ;
 	
 	/**
 	 * 根据id删除Book
 	 * @param book
 	 * @return
 	 */
-	public void removeBook(Book book) throws Exception;
+	public void removeBook(Book book) ;
 	
 	
 	/**
 	 * 分页查找图书
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public PageModel<Book> findBooksByPage(int pageNo,int pageSize) throws Exception;
+	public PageModel<Book> findBooksByPage(int pageNo,int pageSize) ;
 
 	/**
 	 * 分页查找图书
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public List<Book> findBooks(BookView bookView) throws Exception;
+	public List<Book> findBooks(BookView bookView) ;
 
 	/**
 	 * 根据Id查找Book
 	 * @param bookId
 	 * @return
 	 */
-	public Book getBookById(Long bookId) throws Exception;
+	public Book getBookById(Long bookId) ;
 	
 	/**
 	 * 
 	 * @param barCode
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public Book getBookByBarCode(String barCode) throws Exception;
+	public Book getBookByBarCode(String barCode) ;
     
-	public String exportExcel(String rootDir, BookView bookView) throws Exception;
+	public String exportExcel(String rootDir, BookView bookView) ;
 }

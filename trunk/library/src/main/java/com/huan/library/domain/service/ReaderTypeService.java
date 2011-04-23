@@ -15,39 +15,39 @@ public interface ReaderTypeService {
 	 * 增加或是修改读者类别
 	 * @param readerType
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public ReaderType addOrModifyReaderType(ReaderType readerType) throws Exception;
+	public ReaderType addOrModifyReaderType(ReaderType readerType) ;
 	
 	/**
 	 * 删除读者类别
 	 * @param readerType
-	 * @throws Exception
+	 * @
 	 */
-	public void removeReaderType(ReaderType readerType) throws Exception;
+	public void removeReaderType(ReaderType readerType) ;
 	
 	/**
 	 * 根据Id查找readerType
 	 * @param readerTypeId
 	 * @return
 	 */
-	public ReaderType findReaderTypeById(int readerTypeId) throws Exception;
+	public ReaderType findReaderTypeById(int readerTypeId) ;
 	
 	/**
 	 * 查找所有的readerType
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public List<ReaderType> findAllReaderTypes() throws Exception;
+	public List<ReaderType> findAllReaderTypes() ;
 	
 	/**
 	 * 查找所有的readerType
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public List<ReaderType> findReaderTypes(ReaderTypeView readerTypeView) throws Exception;
+	public List<ReaderType> findReaderTypes(ReaderTypeView readerTypeView) ;
 
-	public String exportExcel(String rootDir, ReaderTypeView readerTypeView) throws Exception;
+	public String exportExcel(String rootDir, ReaderTypeView readerTypeView) ;
 
 
 

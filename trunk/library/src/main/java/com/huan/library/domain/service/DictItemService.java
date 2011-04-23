@@ -15,31 +15,31 @@ public interface DictItemService {
 	/**
 	 * 添加或是修改DictItem
 	 * @param dictItem
-	 * @throws Exception
+	 * @
 	 */
-	public DictItem save(DictItem dictItem) throws Exception;
+	public DictItem save(DictItem dictItem) ;
 	
 	/**
 	 * 删除dictItem
 	 * @param dictItem
-	 * @throws Exception
+	 * @
 	 */
-	public void remove(DictItem dictItem) throws Exception;
+	public void remove(DictItem dictItem) ;
 	
 	/**
 	 * 根据id查找dictItem
 	 * @param dictItemId
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public DictItem getById(int dictItemId) throws Exception;
+	public DictItem getById(int dictItemId) ;
 	
 	/**
 	 * 根据类名的简单缩写查找DictItemView
 	 * @param className
 	 * @return
 	 */
-	public List<DictItemView> getByItemClass(String className) throws Exception ;
+	public List<DictItemView> getByItemClass(String className)  ;
 
 	/**
 	 * 根据父节点的id和字典类型取得所有的子条目
@@ -47,7 +47,7 @@ public interface DictItemService {
 	 * @param className
 	 * @return
 	 */
-	public List<DictItem> getChildrenByPid(String pid, String className) throws Exception ;
+	public List<DictItem> getChildrenByPid(String pid, String className)  ;
 	
 	/**
 	 * 根据Category父节点的id和字典类型取得所有的子条目
@@ -55,6 +55,6 @@ public interface DictItemService {
 	 * @param className
 	 * @return
 	 */
-	public List<Category> getCategoryChildrenByPid(String pid, Integer level, String itemName) throws Exception ;
+	public List<Category> getCategoryChildrenByPid(String pid, Integer level, String itemName)  ;
 	
 }

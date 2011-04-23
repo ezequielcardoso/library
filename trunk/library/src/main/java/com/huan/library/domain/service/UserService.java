@@ -18,41 +18,41 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	public User save(User user) throws Exception;
+	public User save(User user) ;
 	
 	/**
 	 * 根据id删除User
 	 * @param user
 	 * @return
 	 */
-	public void remove(User user) throws Exception;
+	public void remove(User user) ;
 	
 	/**
 	 * 根据userId 查找User
 	 * @param userId
 	 * @return
 	 */
-	public User getById(Long userId) throws Exception;
+	public User getById(Long userId) ;
 	
 	/**
 	 * 查找所有的User
 	 * @return
 	 */
-	public List<User> findUsers(UserView view) throws Exception;
+	public List<User> findUsers(UserView view) ;
 	
 	/**
 	 * 
 	 * @param user
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public LoginState getUserLoginState(User user) throws Exception ;
+	public LoginState getUserLoginState(User user)  ;
 	
 	/**
 	 * 
 	 * @param sysUser
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public User getUserRole(User sysUser)  throws Exception ;
+	public User getUserRole(User sysUser)   ;
 }

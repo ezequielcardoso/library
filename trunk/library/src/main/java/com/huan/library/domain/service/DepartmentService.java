@@ -16,27 +16,27 @@ public interface DepartmentService {
 	 * @param dept
 	 * @return
 	 */
-	public Department save(Department dept) throws Exception;
+	public Department save(Department dept) ;
 	
 	/**
 	 * 根据id删除Dept
 	 * @param dept
 	 * @return
 	 */
-	public void remove(Department dept) throws Exception;
+	public void remove(Department dept) ;
 	
 	/**
 	 * 根据Id查找Dept
 	 * @param deptId
 	 * @return
 	 */
-	public Department getById(Long deptId) throws Exception;
+	public Department getById(Long deptId) ;
 	
 	/**
 	 * 根据Id查找Dept
 	 * @param deptId
 	 * @return
 	 */
-	public List<Department> getChildrenByPid(Long deptId) throws Exception;
+	public List<Department> getChildrenByPid(Long deptId) ;
 	
 }

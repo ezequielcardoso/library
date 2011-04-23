@@ -16,24 +16,24 @@ public interface PunishmentService {
 	 * 增加罚单
 	 * @param punlishment
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public Punishment addOrModifyPunlishment(Punishment punishment) throws Exception; 
+	public Punishment addOrModifyPunlishment(Punishment punishment) ; 
 	
 	/**
 	 * 查找所有的罚款
 	 * @param punishmentView
 	 * @return
-	 * @throws Exception
+	 * @
 	 */
-	public List<Punishment> findPunishments(PunishmentView punishmentView) throws Exception;
+	public List<Punishment> findPunishments(PunishmentView punishmentView) ;
     /**
      * 导出Excel
      * @param rootDir
      * @param punishmentView
      * @return
-     * @throws Exception
+     * @
      */
-	public String exportExcel(String rootDir, PunishmentView punishmentView) throws Exception;
+	public String exportExcel(String rootDir, PunishmentView punishmentView) ;
 
 }
