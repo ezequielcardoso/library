@@ -34,111 +34,72 @@ public class PressServiceImpl implements PressService {
 		this.pressDao = pressDao;
 	}
 
-	public Press addOrModifyPress(Press press) throws Exception {
-		try {
-			press = pressDao.saveOrUpdate(press);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return press;
+	public Press addOrModifyPress(Press press) {
+		return pressDao.saveOrUpdate(press);
 	}
 
-	public void removePress(Press press) throws Exception {
-		try{
-		   pressDao.delete(press);
-		}catch(Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
+	public void removePress(Press press) {
+
+		pressDao.delete(press);
+
 	}
 
-	public Press findPressById(Long pressId) throws Exception {
-		Press pressCopy = new Press();
-		try {
-			pressCopy = pressDao.selectById(pressId);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return pressCopy;
+	public Press findPressById(Long pressId) {
+		return pressDao.selectById(pressId);
 	}
 
-	public PageModel<Press> findPressesByPage(int pageNo, int pageSize)
-			throws Exception {
-		PageModel<Press> pageModel = new PageModel<Press>();
-		try {
-			pageModel = pressDao.selectByPage(pageNo, pageSize);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return pageModel;
+	public PageModel<Press> findPressesByPage(int pageNo, int pageSize) {
+		return pressDao.selectByPage(pageNo, pageSize);
 	}
 
-	public List<Press> findPresses(PressView pressView) throws Exception{
+	public List<Press> findPresses(PressView pressView) {
+		return this.pressDao.selectPresses(pressView);
+	}
+
+	public String exportExcel(String rootDir, PressView pressView) {
 		List<Press> presses = new ArrayList<Press>();
+		WritableWorkbook ww;
+		String fileName = "upload" + File.separator + "presses.xls";
+		File file = new File(rootDir + fileName);
 		try {
-			presses = this.pressDao.selectPresses(pressView);
-		} catch (Exception e){
-			e.printStackTrace();
-			throw new Exception(e);
-		}
-		return presses;
-	}
+			presses = pressDao.selectPresses(pressView);
+			ww = Workbook.createWorkbook(file);
+			WritableSheet ws = ww.createSheet("出版社信息", 0);
+			ExcelOperate.addLabelToSheet(ws, 0, 0, 9, 0, "出版社信息",
+					ExcelStyle.getHeaderStyle());
+			ExcelOperate.addLabelToSheet(ws, 0, 1, "代码",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 1, 1, "名称",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 2, 1, "出版第",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 3, 1, "邮编",
+					ExcelStyle.getTitleStyle());
 
-	
-	public String exportExcel(String rootDir, PressView pressView) throws Exception{
-	  	   List<Press> presses = new ArrayList<Press>();
-			WritableWorkbook ww; 
-			String fileName = "upload" + File.separator + "presses.xls";
-			File file = new File(rootDir + fileName);
-			try {
-				 presses = pressDao.selectPresses(pressView);
-				 ww = Workbook.createWorkbook(file);  
-				 WritableSheet ws = ww.createSheet("出版社信息", 0);
-				 ExcelOperate.addLabelToSheet(ws, 0, 0, 9, 0, "出版社信息", ExcelStyle.getHeaderStyle());   
-				 ExcelOperate.addLabelToSheet(ws, 0, 1, "代码", ExcelStyle.getTitleStyle());   
-				 ExcelOperate.addLabelToSheet(ws, 1, 1, "名称", ExcelStyle.getTitleStyle());   
-				 ExcelOperate.addLabelToSheet(ws, 2, 1, "出版第", ExcelStyle.getTitleStyle());   
-				 ExcelOperate.addLabelToSheet(ws, 3, 1, "邮编", ExcelStyle.getTitleStyle()); 
-				 
-				 int count =2;
-		           for(Press press : presses){
-		            	ExcelOperate.addLabelToSheet(ws, 0, count, press.getPressISBN(), ExcelStyle.getContentStyle());   
-		            	ExcelOperate.addLabelToSheet(ws, 1, count, press.getPressName(), ExcelStyle.getContentStyle());
-		            	ExcelOperate.addLabelToSheet(ws, 2, count, press.getPressAddress(), ExcelStyle.getContentStyle());
-		            	ExcelOperate.addLabelToSheet(ws, 3, count, press.getZipCode(), ExcelStyle.getContentStyle());
-		            	count++;
-		            }
-				 
-		            for (int i = 0; i < 5; i++) {   
-		                ws.setColumnView(i, 16);   
-		            }   
-		            ws.setRowView(0, 20); 
-		            ww.write();   
-		            ww.close();   
-		            System.out.println("写入excel成功！");
-			} catch (Exception e) {
-				System.out.println("写入excel失败！");
-	            e.printStackTrace();  
+			int count = 2;
+			for (Press press : presses) {
+				ExcelOperate.addLabelToSheet(ws, 0, count,
+						press.getPressISBN(), ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 1, count,
+						press.getPressName(), ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 2, count,
+						press.getPressAddress(), ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 3, count, press.getZipCode(),
+						ExcelStyle.getContentStyle());
+				count++;
 			}
-		return fileName;	
+
+			for (int i = 0; i < 5; i++) {
+				ws.setColumnView(i, 16);
+			}
+			ws.setRowView(0, 20);
+			ww.write();
+			ww.close();
+			System.out.println("写入excel成功！");
+		} catch (Exception e) {
+			System.out.println("写入excel失败！");
+			e.printStackTrace();
+		}
+		return fileName;
 	}
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

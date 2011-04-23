@@ -18,29 +18,16 @@ public class PreOrderServiceImpl implements PreOrderService {
 	private PreOrderDao preOrderDao;
 	
 	public List<PreOrder> findPreOrders(PreOrderView preOrderView)
-			throws Exception {
-		List<PreOrder> preOrders = new ArrayList<PreOrder>();
-		try {
-			preOrders = preOrderDao.selectPreOrders(preOrderView);
-		} catch (Exception e) {
-		  e.printStackTrace();
-		  throw new Exception(e);
-		}
-		return preOrders;
+			 {
+		return preOrderDao.selectPreOrders(preOrderView);
 	}
 
 	public void setPreOrderDao(PreOrderDao preOrderDao) {
 		this.preOrderDao = preOrderDao;
 	}
 
-	public PreOrder save(PreOrder preOrder) throws Exception {
-		try {
-			preOrder = preOrderDao.saveOrUpdate(preOrder);
-		} catch (Exception e) {
-		  e.printStackTrace();
-		  throw new Exception(e);
-		}
-		return preOrder;
+	public PreOrder save(PreOrder preOrder)  {
+		return preOrderDao.saveOrUpdate(preOrder);
 	}
 	
 }

@@ -22,11 +22,11 @@ public class FunctionServiceImpl implements FunctionService {
 		this.functionDao = functionDao;
 	}
 
-	public Function save(Function func) throws Exception {
+	public Function save(Function func)  {
 		return functionDao.saveOrUpdate(func);
 	}
 
-	public List<Function> findAllFunctions() throws Exception {
+	public List<Function> findAllFunctions()  {
 		return null;
 	}
 
@@ -34,15 +34,15 @@ public class FunctionServiceImpl implements FunctionService {
 		return functionDao.selectByRoleId(functionView);
 	}
 
-	public Function getById(String funcId) throws Exception {
+	public Function getById(String funcId)  {
 		return null;
 	}
 
-	public void remove(Function func) throws Exception {
+	public void remove(Function func)  {
 		this.functionDao.delete(func);
 	}
 
-	public List<Function> findModules() throws Exception {
+	public List<Function> findModules()  {
 		List<Function> funcs = new ArrayList<Function>();
 		try {
 			List<Function> functions = functionDao.selectModules();
@@ -62,7 +62,6 @@ public class FunctionServiceImpl implements FunctionService {
 			}
 		} catch(Exception e){
 			e.printStackTrace();
-			throw new Exception(e);
 		}
 		for(Function func : funcs){
 			System.out.println(func.getFuncName());
