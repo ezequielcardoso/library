@@ -239,6 +239,26 @@ public class BorrowReturnAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
+	
+	/**
+	 * 导出Excel
+	 * @return
+	 */
+	public String exportExcel(){
+   	    try {
+   	    	String rootDir = this.getWebRoot();
+   	    	String fileName =  borrowReturnService.exportExcel(rootDir,borrowReturnView);
+   	    	extJsonForm.setData(fileName);
+   	    	extJsonForm.setSuccess(true);
+   	    	extJsonForm.setMsg("导出成功");
+		} catch (Exception e) {
+			extJsonForm.setData("");
+   	    	extJsonForm.setSuccess(false);
+   	    	extJsonForm.setMsg("导出失败");
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
 
 	private void convertToViews(List<BorrowReturn> borrowReturns,
 			List<BorrowReturnView> views) {

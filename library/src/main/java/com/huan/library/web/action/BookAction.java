@@ -241,7 +241,27 @@ public class BookAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
-
+    /**
+     * 导出书刊
+     * @return
+     */
+	public String exportExcel(){
+		try {
+		  String rootDir = this.getWebRoot();
+		  String fileName = bookService.exportExcel(rootDir,bookView);
+		  extJsonForm.setMsg("导出成功");
+		  extJsonForm.setSuccess(true);
+		  extJsonForm.setData(fileName);
+		} catch (Exception e) {
+			e.printStackTrace();
+			 extJsonForm.setMsg("导出失败");
+			  extJsonForm.setSuccess(false);
+			  extJsonForm.setData(null);
+		  return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
 	public List<BookView> convertToView(List<Book> books) {
 		List<BookView> views = new ArrayList<BookView>();
 		for (Book book : books) {

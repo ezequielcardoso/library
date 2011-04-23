@@ -55,4 +55,13 @@ public interface BorrowReturnService {
 	 */
 	public List<BorrowReturn> findBorrowReturns(BorrowReturnView borrowReturnView)
 			throws Exception;
+    
+	/**
+	 * 导出Excel
+	 * @param rootDir
+	 * @param borrowReturnView
+	 * @return
+	 * @throws Exception
+	 */
+	public String exportExcel(String rootDir, BorrowReturnView borrowReturnView) throws Exception;
 }

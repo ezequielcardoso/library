@@ -116,6 +116,25 @@ public class ReaderTypeAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 
+	/**
+	 * 导出Excel
+	 * @return
+	 */
+	public String exportExcel(){
+   	    try {
+   	    	String rootDir = this.getWebRoot();
+   	    	String fileName = readerTypeService.exportExcel(rootDir,readerTypeView);
+   	    	extJsonForm.setData(fileName);
+   	    	extJsonForm.setSuccess(true);
+   	    	extJsonForm.setMsg("导出成功");
+		} catch (Exception e) {
+			extJsonForm.setData("");
+   	    	extJsonForm.setSuccess(false);
+   	    	extJsonForm.setMsg("导出失败");
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
 	public List<ReaderTypeView> convertToView(List<ReaderType> readerTypes) {
 		List<ReaderTypeView> readerTypeViews = new ArrayList<ReaderTypeView>();
 		for (ReaderType readerType : readerTypes) {

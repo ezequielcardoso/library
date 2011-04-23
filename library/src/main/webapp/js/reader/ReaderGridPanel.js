@@ -54,8 +54,9 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 							}, '-', {
 								text : '导出Excel',
 								handler : function() {
-
-								}
+                                   this.onExport();
+								},
+								scope:this
 							}, '->', {
 								xtype : 'label',
 								text : '姓名：'
@@ -352,15 +353,6 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					format: 'Y-m-d',
 					dataIndex : 'effectiveDate'
 				}, {
-					header : '读者照片',
-					width : 100,
-					sortable : true,
-					align : 'center',
-					editor : new Ext.form.TextField({
-								allowBlank : false
-							}),
-					dataIndex : 'readerPic'
-				}, {
 					header : '拼音',
 					width : 100,
 					sortable : true,
@@ -459,7 +451,16 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 						}
 					}),
 					dataIndex : 'certificateName'
-				}, {
+				},  {
+					header : '证件号码',
+					width : 100,
+					sortable : true,
+					align : 'center',
+					editor : new Ext.form.TextField({
+								allowBlank : false
+							}),
+					dataIndex : 'certificateCode'
+				},{
 					header : '借阅证状态',
 					width : 100,
 					sortable : true,
@@ -549,7 +550,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					'reader.readerDesc' : e.record.get('readerDesc'),
 //					'reader.readerUnits.unitId' : e.record.get('unitId'),  //单位
 					'reader.readerType.id' : e.record.get('readerTypeId'),  //读者类别
-					'reader.certificate.itemId' : e.record.get('certificateId') //证件类别 
+					'reader.certificate.itemId' : e.record.get('certificateId'), //证件类别
+					'reader.certificate.certificateCode' : e.record.get('certificateCode') //证件类别
 //					'reader.cardState.itemId' : e.record.get('cardStateId')   //借阅证状态
 				},
 				success : function(resp) {
@@ -652,7 +654,6 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			effectiveDate : new Date(),
 			borrowedQuantiy: 0,
 			totalBQuantity:  0,
-			readerPic : '080301009.jpg', // 读者照片
 			spell : 'huan', // 拼音
 			readerDesc : '08级学生'// 读者描述
 			});
@@ -664,7 +665,33 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 
 	},
 	onExport : function() {
-
+        var readerName = Ext.get('query_readerName').getValue();
+		var cardNo = Ext.get('query_cardNo').getValue();
+		var unitName = Ext.get('query_unitName').getValue();
+		var readerCateName = Ext.get('query_readerCateName').getValue();
+		
+		Ext.Ajax.request({
+				url : contextPath+ '/reader/exportExcel.action',
+				method : 'POST',
+				params : {
+					'readerView.readerName' : readerName,
+			        'readerView.cardNo' : cardNo,
+			        'readerView.unitName' : unitName,
+			        'readerView.readerCateName' : readerCateName
+				},
+				success : function(resp) {
+					var respText = resp.responseText;
+					var obj = Ext.util.JSON.decode(respText);
+					if (obj.success) {
+						window.location.href = contextPath + "/file/downloadFile.action?fileName=" + obj.data;
+					} else {
+						Ext.Msg.alert('提示',obj.msg);
+					}
+				},
+				failure : function() {
+					Ext.Msg.alert('提示', '服务器异常');
+				}
+			});
 	},
 	onPrint : function() {
 

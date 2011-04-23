@@ -27,5 +27,13 @@ public interface PunishmentService {
 	 * @throws Exception
 	 */
 	public List<Punishment> findPunishments(PunishmentView punishmentView) throws Exception;
+    /**
+     * 导出Excel
+     * @param rootDir
+     * @param punishmentView
+     * @return
+     * @throws Exception
+     */
+	public String exportExcel(String rootDir, PunishmentView punishmentView) throws Exception;
 
 }

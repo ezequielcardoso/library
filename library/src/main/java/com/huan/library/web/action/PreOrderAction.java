@@ -70,9 +70,9 @@ public class PreOrderAction extends BaseActionSupport {
 		try {
 			reader = (Reader)session.get("reader");
 			
-			if(reader==null){
-				return Action.INPUT;
-			}
+//			if(reader==null){
+//				return Action.INPUT;
+//			}
 			PreOrder preOrder = new PreOrder();
 			preOrder.setPreOrderDate(new Date());  //预约时间 
 			preOrder.setPreOrderEndDate(new Date()); //预约到期时间

@@ -35,14 +35,13 @@ public class PressServiceImpl implements PressService {
 	}
 
 	public Press addOrModifyPress(Press press) throws Exception {
-		Press pressCopy = new Press();
 		try {
-			pressCopy = pressDao.saveOrUpdate(press);
+			press = pressDao.saveOrUpdate(press);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			throw new Exception(e);
 		}
-		return pressCopy;
+		return press;
 	}
 
 	public void removePress(Press press) throws Exception {
@@ -50,6 +49,7 @@ public class PressServiceImpl implements PressService {
 		   pressDao.delete(press);
 		}catch(Exception e){
 			e.printStackTrace();
+			throw new Exception(e);
 		}
 	}
 
@@ -59,7 +59,7 @@ public class PressServiceImpl implements PressService {
 			pressCopy = pressDao.selectById(pressId);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			throw new Exception(e);
 		}
 		return pressCopy;
 	}
@@ -70,7 +70,8 @@ public class PressServiceImpl implements PressService {
 		try {
 			pageModel = pressDao.selectByPage(pageNo, pageSize);
 		} catch (Exception e) {
-		    e.printStackTrace();
+			e.printStackTrace();
+			throw new Exception(e);
 		}
 		return pageModel;
 	}
@@ -87,7 +88,7 @@ public class PressServiceImpl implements PressService {
 	}
 
 	
-	public String exportExcel(String rootDir, PressView pressView) {
+	public String exportExcel(String rootDir, PressView pressView) throws Exception{
 	  	   List<Press> presses = new ArrayList<Press>();
 			WritableWorkbook ww; 
 			String fileName = "upload" + File.separator + "presses.xls";
@@ -103,7 +104,7 @@ public class PressServiceImpl implements PressService {
 				 ExcelOperate.addLabelToSheet(ws, 3, 1, "邮编", ExcelStyle.getTitleStyle()); 
 				 
 				 int count =2;
-		            for(Press press : presses){
+		           for(Press press : presses){
 		            	ExcelOperate.addLabelToSheet(ws, 0, count, press.getPressISBN(), ExcelStyle.getContentStyle());   
 		            	ExcelOperate.addLabelToSheet(ws, 1, count, press.getPressName(), ExcelStyle.getContentStyle());
 		            	ExcelOperate.addLabelToSheet(ws, 2, count, press.getPressAddress(), ExcelStyle.getContentStyle());

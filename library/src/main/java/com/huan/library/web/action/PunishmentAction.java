@@ -107,6 +107,26 @@ public class PunishmentAction extends BaseActionSupport {
 	}
 
 	
+	/**
+	 * 导出Excel
+	 * @return
+	 */
+	public String exportExcel(){
+   	    try {
+   	    	String rootDir = this.getWebRoot();
+   	    	String fileName = punishmentService.exportExcel(rootDir,punishmentView);
+   	    	extJsonForm.setData(fileName);
+   	    	extJsonForm.setSuccess(true);
+   	    	extJsonForm.setMsg("导出成功");
+		} catch (Exception e) {
+			extJsonForm.setData("");
+   	    	extJsonForm.setSuccess(false);
+   	    	extJsonForm.setMsg("导出失败");
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
 	private void formatPunishment(Punishment punish) {
 		punish.setCharge((punish.getCharge()!=null && punish.getCharge().getItemId()!=null 
 			   &&!"".equals(punish.getId())?punish.getCharge():null));

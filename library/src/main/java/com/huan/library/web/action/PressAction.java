@@ -124,6 +124,10 @@ public class PressAction extends BaseActionSupport{
 		return Action.SUCCESS;
 	}
 	
+	/**
+	 * 导出Excel
+	 * @return
+	 */
 	public String exportExcel(){
    	    try {
    	    	String rootDir = this.getWebRoot();
