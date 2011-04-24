@@ -21,7 +21,7 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 											this.onBorrowed();
 										},
 										scope : this
-									}, '-', {
+									}/**, '-', {
 										text : '导出Excel',
 										handler : function() {
 
@@ -30,7 +30,7 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 										text : '打印',
 										handler : function() {
 										}
-									}]
+									}*/]
 						});
 
 				var sm = new Ext.grid.CheckboxSelectionModel();

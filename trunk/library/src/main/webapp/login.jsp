@@ -41,7 +41,7 @@
 	          </tr>
 	          <tr>
 	            <td height="28" align="right">密码：</td>
-	            <td><input name="user.password" id="user.password" type="password" class="input1" id="password" maxlength="18" /></td>
+	            <td><input name="user.password" id="user.password" type="password" class="input1" maxlength="18" /></td>
 	          </tr>
         	</table>
         </td>

@@ -14,7 +14,7 @@ Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.Gri
 			     	this.onExport();	
 				},
 				scope : this
-			},'-',{
+			}/**,'-',{
 				text : '图书标签',
 				handler : function() {
 					
@@ -24,7 +24,7 @@ Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.Gri
 				handler : function() {
 					
 				}
-			},'->', {
+			}*/,'-', {
 				xtype : 'label',
 				text : '借阅时间从：'
 			}, '-',{

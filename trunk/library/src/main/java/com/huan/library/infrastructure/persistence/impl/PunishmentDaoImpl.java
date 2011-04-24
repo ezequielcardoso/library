@@ -32,7 +32,7 @@ public class PunishmentDaoImpl extends BaseDaoImpl<Punishment> implements
 		StringBuilder sql_ = new StringBuilder();
 
 		sql.append(" select new Punishment( p.id , p.punishMoney , p.eventsDesc, p.operatorDate ,"
-				+ "p.operator , t_pc.itemId , t_pc.itemName , t_pr.readerId , t_pr.readerBarCode ,"
+				+ "p.operator , t_pc.itemId , t_pc.itemName , t_pr.id , t_pr.barCode ,"
 				+ " t_pr.readerName, t_pru.unitId , t_pru.unitName , t_prt.id , t_prt.readerCateName ) ");
 		sql_.append(" select count(p) ");
 
@@ -52,7 +52,40 @@ public class PunishmentDaoImpl extends BaseDaoImpl<Punishment> implements
 		sql_.append(" where 1=1 ");
 
 		StringBuilder whereSub = new StringBuilder();
-
+		if(punishmentView.getReaderBarCode()!=null && !"".equals(punishmentView.getReaderBarCode())){
+			whereSub.append(" and t_pr.barCode like (:readerBarCode) ");
+		}
+		if(punishmentView.getReaderName()!=null && !"".equals(punishmentView.getReaderName())){
+			whereSub.append(" and t_pr.readerName like (:readerName) ");
+		}
+		if(punishmentView.getUnitName()!=null && !"".equals(punishmentView.getUnitName())){
+			whereSub.append(" and t_pru.unitName like (:unitName) ");
+		}
+		if(punishmentView.getChargeName()!=null && !"".equals(punishmentView.getChargeName())){
+			whereSub.append(" and t_pc.itemName like (:chargeName) ");
+		}
+		if(punishmentView.getOperator()!=null && !"".equals(punishmentView.getOperator())){
+			whereSub.append(" and p.operator like (:operator) ");
+		}
+		if(punishmentView.getReaderCateName()!=null && !"".equals(punishmentView.getReaderCateName())){
+			whereSub.append(" and t_prt.readerCateName like (:readerCateName) ");
+		}
+		if (punishmentView.getOperatorDate() != null
+				&& punishmentView.getEndOperatorDate() == null) {
+			whereSub.append(" and p.operatorDate = (:operatorDate) ");
+		}
+		if (punishmentView.getOperatorDate() == null
+				&& punishmentView.getEndOperatorDate() != null) {
+			whereSub.append(" and p.operatorDate = (:endOperatorDate) ");
+		}
+		if (punishmentView.getOperatorDate() != null
+				&& punishmentView.getEndOperatorDate() != null) {
+			whereSub.append(" and p.operatorDate between (:operatorDate) and (:endOperatorDate) ");
+		}
+		
+		sql.append(whereSub);
+		sql_.append(whereSub);
+		
 		final String sqlIn = sql.toString();
 		HibernateCallback callback = new HibernateCallback() {
 
@@ -64,6 +97,44 @@ public class PunishmentDaoImpl extends BaseDaoImpl<Punishment> implements
 						&& punishmentView.getLimit() != null) {
 					query.setFirstResult(punishmentView.getStart());
 					query.setMaxResults(punishmentView.getLimit());
+				}
+				String temp = "";
+				if(punishmentView.getReaderBarCode()!=null && !"".equals(punishmentView.getReaderBarCode())){
+					temp = "%" + punishmentView.getReaderBarCode().replace(" ", "%") + "%";
+					query.setParameter("readerBarCode", temp);
+				}
+				if(punishmentView.getReaderName()!=null && !"".equals(punishmentView.getReaderName())){
+					temp = "%" + punishmentView.getReaderName().replace(" ", "%") + "%";
+					query.setParameter("readerName", temp);
+				}
+				if(punishmentView.getUnitName()!=null && !"".equals(punishmentView.getUnitName())){
+					temp = "%" + punishmentView.getUnitName().replace(" ", "%") + "%";
+					query.setParameter("unitName", temp);
+				}
+				if(punishmentView.getChargeName()!=null && !"".equals(punishmentView.getChargeName())){
+					temp = "%" + punishmentView.getChargeName().replace(" ", "%") + "%";
+					query.setParameter("chargeName", temp);
+				}
+				if(punishmentView.getOperator()!=null && !"".equals(punishmentView.getOperator())){
+					temp = "%" + punishmentView.getOperator().replace(" ", "%") + "%";
+					query.setParameter("operator", temp);
+				}
+				if(punishmentView.getReaderCateName()!=null && !"".equals(punishmentView.getReaderCateName())){
+					temp = "%" + punishmentView.getReaderCateName().replace(" ", "%") + "%";
+					query.setParameter("readerCateName", temp);
+				}
+				if (punishmentView.getOperatorDate() != null
+						&& punishmentView.getEndOperatorDate() == null) {
+					query.setParameter("operatorDate", punishmentView.getOperatorDate());
+				}
+				if (punishmentView.getOperatorDate() == null
+						&& punishmentView.getEndOperatorDate() != null) {
+					query.setParameter("endOperatorDate", punishmentView.getEndOperatorDate());
+				}
+				if (punishmentView.getOperatorDate() != null
+						&& punishmentView.getEndOperatorDate() != null) {
+					query.setParameter("operatorDate", punishmentView.getOperatorDate());
+					query.setParameter("endOperatorDate", punishmentView.getEndOperatorDate());
 				}
 				return query.list();
 			}
@@ -77,6 +148,44 @@ public class PunishmentDaoImpl extends BaseDaoImpl<Punishment> implements
 			public Object doInHibernate(Session session)
 					throws HibernateException, SQLException {
 				Query query = session.createQuery(sqlIn_);
+				String temp = "";
+				if(punishmentView.getReaderBarCode()!=null && !"".equals(punishmentView.getReaderBarCode())){
+					temp = "%" + punishmentView.getReaderBarCode().replace(" ", "%") + "%";
+					query.setParameter("readerBarCode", temp);
+				}
+				if(punishmentView.getReaderName()!=null && !"".equals(punishmentView.getReaderName())){
+					temp = "%" + punishmentView.getReaderName().replace(" ", "%") + "%";
+					query.setParameter("readerName", temp);
+				}
+				if(punishmentView.getUnitName()!=null && !"".equals(punishmentView.getUnitName())){
+					temp = "%" + punishmentView.getUnitName().replace(" ", "%") + "%";
+					query.setParameter("unitName", temp);
+				}
+				if(punishmentView.getChargeName()!=null && !"".equals(punishmentView.getChargeName())){
+					temp = "%" + punishmentView.getChargeName().replace(" ", "%") + "%";
+					query.setParameter("chargeName", temp);
+				}
+				if(punishmentView.getOperator()!=null && !"".equals(punishmentView.getOperator())){
+					temp = "%" + punishmentView.getOperator().replace(" ", "%") + "%";
+					query.setParameter("operator", temp);
+				}
+				if(punishmentView.getReaderCateName()!=null && !"".equals(punishmentView.getReaderCateName())){
+					temp = "%" + punishmentView.getReaderCateName().replace(" ", "%") + "%";
+					query.setParameter("readerCateName", temp);
+				}
+				if (punishmentView.getOperatorDate() != null
+						&& punishmentView.getEndOperatorDate() == null) {
+					query.setParameter("operatorDate", punishmentView.getOperatorDate());
+				}
+				if (punishmentView.getOperatorDate() == null
+						&& punishmentView.getEndOperatorDate() != null) {
+					query.setParameter("endOperatorDate", punishmentView.getEndOperatorDate());
+				}
+				if (punishmentView.getOperatorDate() != null
+						&& punishmentView.getEndOperatorDate() != null) {
+					query.setParameter("operatorDate", punishmentView.getOperatorDate());
+					query.setParameter("endOperatorDate", punishmentView.getEndOperatorDate());
+				}
 				return query.list();
 			}
 		};

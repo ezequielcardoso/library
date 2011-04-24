@@ -288,6 +288,9 @@ public class BookAction extends BaseActionSupport {
 			if (book.getISBN() != null) {
 				view.setISBN(book.getISBN());
 			}
+			if(book.getRevision()!=null){
+				view.setRevision(book.getRevision());
+			}
 			if(book.getISSN()!=null){
 				view.setISSN(book.getISSN());
 			}

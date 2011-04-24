@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.huan.library.domain.model.reader.CardState;
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.service.ReaderService;
 import com.huan.library.util.DateFormatUtil;
@@ -131,6 +132,32 @@ public class ReaderAction extends BaseActionSupport {
 			extJsonForm.setSuccess(false);
 			extJsonForm.setData(null);
 			extJsonForm.setMsg("保存失败");
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 借阅证挂失
+	 * @return
+	 */
+	public String cardLost(){
+		try {
+			Reader reader = readerService.findReaderByBarCode(readerView.getBarCode());
+			
+			CardState cardState = new CardState();
+			cardState.setItemId(readerView.getCardStateId());
+			reader.setCardState(cardState);
+			
+			reader = readerService.addOrModifyReader(reader);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setData(reader);
+			extJsonForm.setMsg("挂失成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setData(null);
+			extJsonForm.setMsg("挂失失败");
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;

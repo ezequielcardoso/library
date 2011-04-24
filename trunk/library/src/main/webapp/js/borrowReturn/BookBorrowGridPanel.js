@@ -21,7 +21,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 											this.onBorrowed();
 										},
 										scope : this
-									}, '-', {
+									}/**, '-', {
 										text : '导出Excel',
 										handler : function() {
 
@@ -30,7 +30,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 										text : '打印',
 										handler : function() {
 										}
-									}]
+									}*/]
 						});
 
 				var fields = [{

@@ -86,24 +86,28 @@ public class PunishmentServiceImpl implements PunishmentService {
 				ExcelOperate.addLabelToSheet(ws, 2, count, punishment
 						.getReader().getReaderUnits().getUnitName(),
 						ExcelStyle.getContentStyle());
+				
 				ExcelOperate.addLabelToSheet(ws, 3, count,
+						punishment.getReader().getReaderType().getReaderCateName(),
+						ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 4, count,
 						punishment.getPunishMoney(),
 						ExcelStyle.getContentStyle());
-				ExcelOperate.addLabelToSheet(ws, 4, count, punishment
+				ExcelOperate.addLabelToSheet(ws, 5, count, punishment
 						.getCharge().getItemName(), ExcelStyle
 						.getContentStyle());
-				ExcelOperate.addLabelToSheet(ws, 5, count,
+				ExcelOperate.addLabelToSheet(ws, 6, count,
 						punishment.getOperatorDate(),
 						ExcelStyle.getContentStyle());
-				ExcelOperate.addLabelToSheet(ws, 6, count,
-						punishment.getOperator(), ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 7, count,
+						punishment.getOperator(), ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 8, count,
 						punishment.getEventsDesc(),
 						ExcelStyle.getContentStyle());
 				count++;
 			}
 
-			for (int i = 0; i < 8; i++) {
+			for (int i = 0; i < 9; i++) {
 				ws.setColumnView(i, 16);
 			}
 			ws.setRowView(0, 20);

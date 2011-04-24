@@ -68,7 +68,7 @@ Library.charge.form.ChargeFormPanel = new Ext.extend(Ext.form.FormPanel, {
 		this.getForm().submit({
 					url : contextPath + '/punishment/save.action',
 					success : function() {
-						alert('提示', '保存成功');
+						Ext.Msg.alert('提示','收费成功');
 					}
 				});
 	}
