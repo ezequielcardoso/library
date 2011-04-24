@@ -1,6 +1,5 @@
 package com.huan.library.domain.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import com.huan.library.domain.model.SysLog;
 import com.huan.library.domain.service.SysLogService;
 import com.huan.library.infrastructure.persistence.SysLogDao;
 import com.huan.library.web.view.SysLogView;
+
 @Service("sysLogService")
 public class SysLogServiceImpl implements SysLogService {
    
@@ -22,6 +22,10 @@ public class SysLogServiceImpl implements SysLogService {
 
 	public void setSysLogDao(SysLogDao sysLogDao) {
 		this.sysLogDao = sysLogDao;
+	}
+
+	public void save(SysLog sysLog) {
+		this.sysLogDao.saveOrUpdate(sysLog);
 	}
    
 }

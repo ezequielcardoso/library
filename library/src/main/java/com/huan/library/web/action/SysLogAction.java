@@ -58,9 +58,6 @@ public class SysLogAction extends BaseActionSupport{
 			if(sysLog.getFuncName()!=null &&!"".equals(sysLog.getFuncName())){
 				sysLogView.setFuncName(sysLog.getFuncName());
 			}
-			if(sysLog.getOperatorName()!=null &&!"".equals(sysLog.getOperatorName())){
-				sysLogView.setOperatorName(sysLog.getOperatorName());
-			}
 			if(sysLog.getOperateDescription()!=null &&!"".equals(sysLog.getOperateDescription())){
 				sysLogView.setOperateDescription(sysLog.getOperateDescription());
 			}
