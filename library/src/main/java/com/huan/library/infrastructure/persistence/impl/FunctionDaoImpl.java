@@ -105,4 +105,10 @@ public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 		return getHibernateTemplate().find("from Function func ");
 	}
 
+	public Function getById(Function func) {
+		String hql = " from Function fun left join fetch fun.parent left join fetch fun.children where fun.funcId=?";
+		Function executeFind = (Function) getHibernateTemplate().find(hql, func.getFuncId()).listIterator().next();
+		return executeFind;
+	}
+
 }

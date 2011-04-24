@@ -6,6 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	var contextPath = '<%=path%>';
 </script>
 <link href="<%=path %>/css/style.css" type="text/css" rel="stylesheet" />
+<link href="<%=path %>/css/library.css" type="text/css" rel="stylesheet" />
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
 <script language="JavaScript" src="<%=path %>/js/common/PageSize.js"></script>

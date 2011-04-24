@@ -10,18 +10,21 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		var tbar = new Ext.Toolbar({
 			items : [{
 				text : '增加',
+				iconCls : 'library-add',
 				handler : function() {
 					this.addBook();
 				},
 				scope:this
 			},'-', {
 				text : '删除',
+				iconCls : 'library-delete',
 				handler : function() {
 					this.deleteBook();
 				},
 				scope:this
 			},'-',{
 				text : '修改',
+				iconCls : 'library-edit',
 				handler : function() {
 					this.updateBook();
 				},
@@ -34,6 +37,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				}
 			},*/'-',{
 				text : '导出Excel',
+				iconCls : 'library-export-excel',
 				handler : function() {
 					this.onExport();
 				},
@@ -68,12 +72,14 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				format : 'Y-m-d'
 			},'-',{
 				text : '查询',
+				iconCls : 'library-query',
 				handler : function() {
 					this.queryBook();
 				},
 				scope:this
 			},'-',{
 				text : '刷新',
+				iconCls : '',
 				handler : function() {
 					this.onRefresh();
 				},

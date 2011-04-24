@@ -31,7 +31,7 @@ public interface FunctionService {
 	 * @param funcId
 	 * @return
 	 */
-	public Function getById(String funcId) ;
+	public Function getById(Function func) ;
 	
 	/**
 	 * 根据roleId查找所有的Function
