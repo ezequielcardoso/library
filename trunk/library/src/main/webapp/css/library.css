@@ -1,0 +1,160 @@
+@CHARSET "UTF-8";
+body
+{
+	FONT-size: 12px;
+	margin-top : 0px;
+	margin-left : 0px;
+	margin-right:0px;
+	margin-bottom:0px;
+	font-family: "宋体", "sans-serif";
+    scrollbar-arrow-color: #000000;
+    scrollbar-3dlight-color: #e0e9f3;
+    scrollbar-base-color: #ffffff;
+    scrollbar-darkshadow-color: #C4D7EB;
+    scrollbar-face-color: #E0E9F3;
+	scrollbar-track-color: #f0f7ff;
+    scrollbar-highlight-color: #ffffff;
+}
+td {
+	font-size:12px;
+}
+a {
+	text-decoration: none;
+	cursor: hand;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+
+.complete .x-tree-node-anchor span {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.textfield
+{
+	border-right: #BCC6CE 1px solid;
+	border-top: #BCC6CE 1px solid;
+	border-left: #BCC6CE 1px solid;
+	border-bottom: #BCC6CE 1px solid;
+	font-size:12px;
+}
+
+.bt_upload {
+	background-image:  url(../images/button/bt_upload.gif);
+	background-repeat: no-repeat;
+	font-size:12px;  
+    padding-left:14px;
+	height: 19px;
+	width: 53px;
+	border: 1px none;
+	cursor: hand;
+	background-color:transparent;
+}
+
+/* 更改树节点图标 */
+.x-tree-node-leaf .x-tree-node-icon{
+	height: 0px;
+	width: 0px;
+	background-image:url(../images/default/tree/folder.gif);
+}
+
+.x-tree-node-expanded .x-tree-node-icon
+{
+ 	background-image: url(../images/tree/blue-folder-horizontal-open.png) !important;
+	background-repeat: no-repeat;
+}
+
+.x-tree-node-collapsed .x-tree-node-icon{
+ 	background-image: url(../images/tree/blue-folder-horizontal.png) !important;
+	background-repeat: no-repeat;
+}
+
+/* window标题图标 */
+.library-window-title{
+	background-image: url(../images/application.png) !important;
+	background-repeat: no-repeat;
+}
+
+/* 添加 */
+.library-add {
+	background-image:  url(../images/smart/add.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 修改 */
+.library-edit {
+	background-image:  url(../images/smart/edit.png) !important; 
+	background-repeat: no-repeat; 
+}
+
+/* 确定 */
+.library-accept {
+	background-image:  url(../images/smart/accept.png) !important; 
+	background-repeat: no-repeat; 
+}
+
+/* 删除 */
+.library-delete {
+	background-image:  url(../images/smart/delete.png) !important; 
+	background-repeat: no-repeat; 
+}
+
+/* 查询 */
+.library-query {
+	background-image:  url(../images/smart/search.png) !important; 
+	background-repeat: no-repeat; 
+}
+
+/* 保存 */
+.library-save {
+	background-image:  url(../images/smart/save.png) !important; 
+	background-repeat: no-repeat; 
+}
+
+/* 取消 关闭 */
+.library-cancel {
+	background-image:  url(../images/smart/cancel.png) !important; 
+	background-repeat: no-repeat;
+}
+/* 选择 */
+.library-select {
+	background-image:  url(../images/smart/select.png) !important; 
+	background-repeat: no-repeat;
+}
+/* 绑定用户 */
+.library-binding-user {
+	background-image:  url(../images/smart/binding_user.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 绑定角色 */
+.library--binding-role {
+	background-image:  url(../images/smart/binding_role.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 导出excel */
+.library-export-excel {
+	background-image:  url(../images/smart/export_excel.png) !important; 
+	background-repeat: no-repeat;
+}
+
+.expense-red {
+    background-color: #e4765c;
+}
+            
+.expense-green {
+    background-color: #93de8b;
+}
+            
+.expense-must {
+   	background-color: #e4765c;
+}
+            
+.expense-hidden {
+    background-color: #e4765c;
+}

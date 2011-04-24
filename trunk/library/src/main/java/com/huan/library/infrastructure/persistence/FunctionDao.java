@@ -35,4 +35,6 @@ public interface FunctionDao extends BaseDao<Function>{
 
 	public List<Function> selectAll();
 
+	public Function getById(Function func);
+
 }

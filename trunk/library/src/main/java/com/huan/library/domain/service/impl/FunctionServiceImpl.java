@@ -26,16 +26,12 @@ public class FunctionServiceImpl implements FunctionService {
 		return functionDao.saveOrUpdate(func);
 	}
 
-	public List<Function> findAllFunctions()  {
-		return null;
-	}
-
 	public List<Function> findByRoleId(FunctionView functionView) {
 		return functionDao.selectByRoleId(functionView);
 	}
 
-	public Function getById(String funcId)  {
-		return null;
+	public Function getById(Function func)  {
+		return this.functionDao.getById(func);
 	}
 
 	public void remove(Function func)  {

@@ -150,7 +150,7 @@ Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 			Library.Util.confirm('确定要删除选择的功能['+node.attributes.funcName+']？', function(btn){
     			if(btn == 'yes'){
 					Ext.Ajax.request({
-		            	method: 'GET',
+		            	method: 'POST',
 		            	url: contextPath + '/function/remove.action',
 			            success: function(resp,opts){
 			            	var obj = Ext.util.JSON.decode(resp.responseText);

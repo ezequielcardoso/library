@@ -43,6 +43,29 @@ public class FunctionAction extends BaseActionSupport {
 		this.functionService = functionService;
 	}
 
+	public String remove(){
+		Function oldFunc = this.functionService.getById(function);
+		Function parent = this.functionService.getById(oldFunc.getParent());
+		if(oldFunc.getChildren().size()>0){
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("");
+			extJsonForm.setData("c");
+			return Action.SUCCESS;
+		}
+		this.functionService.remove(function);
+		parent.getChildren().remove(oldFunc);
+		if(parent.getChildren().size()>0){
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("");
+			extJsonForm.setData("y");
+			return Action.SUCCESS;
+		}
+		extJsonForm.setSuccess(true);
+		extJsonForm.setMsg("");
+		extJsonForm.setData("p");
+		return Action.SUCCESS;
+	}
+	
 
 	/**
 	 * 查找系统模块功能
@@ -137,7 +160,6 @@ public class FunctionAction extends BaseActionSupport {
 				if (ri.getParentId() == null) {				
 					ri = ri.buildTree(ri, retp);
 					completeTree.add(ri);
-					ri.setExpanded(true);
 				}
 			}
 		}
