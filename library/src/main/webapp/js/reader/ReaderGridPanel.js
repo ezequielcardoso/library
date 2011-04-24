@@ -25,12 +25,12 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 									this.onMOdify();
 								},
 								scope : this
-							}, '-', {
+							}/*, '-', {
 								text : '导入',
 								handler : function() {
 
 								}
-							}, '-', {
+							}*/, '-', {
 								text : '分配部门',
 								handler : function() {
 									var sm = this.getSelectionModel();
@@ -451,7 +451,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 						}
 					}),
 					dataIndex : 'certificateName'
-				},  {
+				},/**  {
 					header : '证件号码',
 					width : 100,
 					sortable : true,
@@ -460,7 +460,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								allowBlank : false
 							}),
 					dataIndex : 'certificateCode'
-				},{
+				},*/{
 					header : '借阅证状态',
 					width : 100,
 					sortable : true,

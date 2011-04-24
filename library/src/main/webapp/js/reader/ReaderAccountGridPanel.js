@@ -14,7 +14,7 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
                                   this.onExport();
 								},
 								scope : this
-							}, '-', {
+							}/**, '-', {
 								text : '图书标签',
 								handler : function() {
 
@@ -24,7 +24,7 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 								handler : function() {
 
 								}
-							}, '->', {
+							}*/, '-', {
 								xtype : 'label',
 								text : '收费时间从：'
 							}, '-', {
@@ -66,8 +66,8 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 							type : 'string'
 						}, {
 							name : 'operatorDate',
-							type : 'date',
-							dateFormat : 'm/d/Y'
+							type : 'date'
+//							dateFormat : 'm/d/Y'
 						},  {
 							name : 'operator',
 							type : 'string'
@@ -151,7 +151,7 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 						dataIndex : 'chargeName'
 					}, {
 						xtype : 'datecolumn',
-						format: 'm/d/Y',
+						format: 'Y-m-d',
 						header : '操作日期',
 						width : 100,
 						sortable : true,
@@ -211,7 +211,7 @@ Library.readerAccount.grid.ReaderAccountGridPanel = Ext.extend(Ext.grid.GridPane
 
 	},
 
-	queryBookOrder : function() {
+	queryReaderAccount : function() {
 	   var readerBarCode = Ext.get('readerBarCode').getValue();
 	   var readerName = Ext.get('readerName').getValue();
 	   var unitName = Ext.get('unitName').getValue();

@@ -27,18 +27,18 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 											 this.onModify();
 										},
 										scope : this
-									}, '-',{
+									}/*, '-',{
 										text : '导入',
 										handler : function() {
 
 										}
-									}, '-',{
+									}*/, '-',{
 										text : '导出Excel',
 										handler : function() {
                                            this.onExport();
 										},
 										scope : this
-									},'-',{
+									}/**,'-',{
 										text : '打印',
 										handler : function() {
 										}
@@ -47,7 +47,7 @@ Library.readerType.grid.ReaderTypeGridPanel = Ext.extend(
 										handler : function() {
 
 										}
-									}]
+									}*/]
 						});
 
 				var sm = new Ext.grid.CheckboxSelectionModel();

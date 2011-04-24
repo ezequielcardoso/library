@@ -26,18 +26,18 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 					this.updateBook();
 				},
 				scope:this
-			},'-',{
+			}/**,'-',{
 				text : '导入',
 				handler : function() {
 					
 				}
-			},'-',{
+			}*/,'-',{
 				text : '导出Excel',
 				handler : function() {
 					this.onExport();
 				},
 				scope:this
-			},'-',{
+			}/**,'-',{
 				text : '图书标签',
 				handler : function() {
 //					this.onExport();
@@ -48,7 +48,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				handler : function() {
 					
 				}
-			},'->',{
+			}*/,'-',{
 				xtype : 'label',
 				text : '入库时间从：'
 			}, '-',{

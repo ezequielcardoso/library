@@ -26,22 +26,22 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 					this.onMOdify();
 				},
 				scope : this
-			},'-', {
+			}/**,'-', {
 				text : '导入',
 				handler : function() {
 
 				}
-			},'-', {
+			}*/,'-', {
 				text : '导出Excel',
 				handler : function() {
 					this.onExport();
 				},
 				scope : this
-			},'-', {
+			}/**,'-', {
 				text : '打印',
 				handler : function() {
 				}
-			},'->', {
+			}*/,'-', {
 				xtype : 'label',
 				text : '代码：'
 			}, {

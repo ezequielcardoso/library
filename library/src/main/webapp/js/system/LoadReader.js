@@ -4,7 +4,6 @@ Ext.get('readerCateCode').on('blur', function(){
 
 function loadReader(readerCateCode){
 
-	Ext.Msg.alert(211111111111111);
 	
 	Ext.Ajax.request({
 		url : contextPath + '/reader/getReaderByCardNo.action',

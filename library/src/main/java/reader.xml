@@ -39,6 +39,12 @@
 		       <param name="root">extJsonForm</param>
 		    </result>
 		</action>
+		<!-- 借阅证挂失 -->
+		<action name="cardLost" class="com.huan.library.web.action.ReaderAction" method="cardLost">
+		    <result name="success" type="json">
+		       <param name="root">extJsonForm</param>
+		    </result>
+		</action>
 		
 		<action name="exportExcel" class="com.huan.library.web.action.ReaderAction" method="exportExcel">
 		    <result name="success" type="json">
