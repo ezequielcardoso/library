@@ -155,6 +155,11 @@ function ShowFLT(i, number) {
             <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
 			<a href="<%=path %>/module/statistics/readerBorrowed.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">读者借阅统计</a>			</td>
           </tr> 
+          
+           <tr>
+            <td height="26" background="<%=path %>/images/module/main_11.jpg" class="menu" onMouseOver="this.style.background='url(<%=path %>/images/module/main_10.jpg)'" onMouseOut="this.style.background='url(<%=path %>/images/module/main_11.jpg)'">
+			<a href="<%=path %>/module/statistics/readerCharts.jsp" target="mainFrame">&nbsp;&nbsp;&nbsp; <img src="<%=path %>/images/module/0.gif">读者统计曲线图</a>			</td>
+          </tr> 
 		
           <tr>
             <td>&nbsp;</td>

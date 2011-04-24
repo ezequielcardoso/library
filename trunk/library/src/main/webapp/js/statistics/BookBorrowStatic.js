@@ -4,11 +4,4 @@ Ext.onReady(function(){
 	
 	bookStaticsGridPanel.render('bookStaticsGrid');
 	
-
-	bookStaticsGridPanel.getStore().load({
-							params : {
-								'start' : 0,
-								'limit' : BooksPageSize
-							}
-						});
 });

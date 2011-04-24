@@ -42,7 +42,7 @@ public class ReaderTypeServiceImpl implements ReaderTypeService {
 		readerTypeDao.delete(readerType);
 	}
 
-	public ReaderType findReaderTypeById(int readerTypeId) {
+	public ReaderType findReaderTypeById(Long readerTypeId) {
 		return readerTypeDao.selectById(readerTypeId);
 	}
 

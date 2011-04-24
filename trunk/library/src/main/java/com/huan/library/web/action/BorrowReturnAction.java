@@ -11,6 +11,7 @@ import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.book.BookState;
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.domain.model.reader.Reader;
+import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.domain.service.BorrowReturnService;
 import com.huan.library.domain.service.ReaderService;
@@ -115,8 +116,8 @@ public class BorrowReturnAction extends BaseActionSupport {
 			borrowReturn.setDuetoReturnDate(duetoReturnDate); // 归还日期
 
 			borrowReturn.setRenewTimes(0);
-			// User currUser = (User)this.session.get("currUser");
-			// borrowReturn.setBorrowOperator(currUser.getUserName());
+			User currUser = (User)this.session.get("currUser");
+			borrowReturn.setBorrowOperator(currUser.getUserName());
 
 			reader.setBorrowedQuantiy(reader.getBorrowedQuantiy() + 1);
 			reader.setTotalBQuantity(reader.getTotalBQuantity() + 1);
@@ -156,8 +157,8 @@ public class BorrowReturnAction extends BaseActionSupport {
 			borrowReturn = borrowReturnService.getBRById(borrowReturnView
 					.getId());
 			borrowReturn.setRealityReturndate(new Date());
-			// User currUser = (User)this.session.get("currUser");
-			// borrowReturn.setBorrowOperator(currUser.getUserName());
+			User currUser = (User)this.session.get("currUser");
+			borrowReturn.setBorrowOperator(currUser.getUserName());
 
 			Book book = bookService.getBookById(borrowReturn.getBook()
 					.getBookId());
@@ -212,8 +213,8 @@ public class BorrowReturnAction extends BaseActionSupport {
 			borrowReturn = borrowReturnService.getBRById(borrowReturnView
 					.getId());
 			// borrowReturn.setRealityReturndate(new Date());
-			// User currUser = (User)this.session.get("currUser");
-			// borrowReturn.setBorrowOperator(currUser.getUserName());
+			 User currUser = (User)this.session.get("currUser");
+			 borrowReturn.setBorrowOperator(currUser.getUserName());
 
 			Reader reader = readerService.findReaderById(borrowReturn
 					.getReader().getId());

@@ -38,6 +38,10 @@
 
 	<package name="file" namespace="/file" extends="library">
 	
+	     <interceptors>
+	       <interceptor name="fileDeleteInterceptor" class="com.huan.library.application.interceptor.FileDeleteInterceptor"></interceptor>
+	     </interceptors>
+	
 		<!--文件下载-->
 		<action name="downloadFile" class="com.huan.library.web.action.BaseActionSupport"
 			method="downloadFile">
@@ -53,9 +57,9 @@
 			</result>
 			<!-- 配置拦截器 -->
 			<!-- 默认拦截器 -->
-			<!-- <interceptor-ref name="defaultStack"/> -->
+			 <interceptor-ref name="defaultStack"/> 
 			<!-- 文件删除拦截器 -->
-           	<!-- <interceptor-ref name="fileDeleteInterceptor"/> -->
+           	 <interceptor-ref name="fileDeleteInterceptor"/> 
 		</action>
 		
 		<!--文件上传-->

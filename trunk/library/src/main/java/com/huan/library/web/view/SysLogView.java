@@ -16,7 +16,6 @@ public class SysLogView extends ExtGridPost implements Serializable{
 	private Long id;
 	private String operateType;  //操作类型
 	private String funcName;    //事件
-	private String operatorName;  //业务名称
 	private String operateDescription; //业务描述
 	private String operator;  //操作人
 	private Date operateDate;  //日期
@@ -39,12 +38,6 @@ public class SysLogView extends ExtGridPost implements Serializable{
 	}
 	public void setFuncName(String funcName) {
 		this.funcName = funcName;
-	}
-	public String getOperatorName() {
-		return operatorName;
-	}
-	public void setOperatorName(String operatorName) {
-		this.operatorName = operatorName;
 	}
 	public String getOperateDescription() {
 		return operateDescription;

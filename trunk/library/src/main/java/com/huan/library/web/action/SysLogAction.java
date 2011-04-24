@@ -10,6 +10,7 @@ import com.huan.library.domain.model.SysLog;
 import com.huan.library.domain.service.SysLogService;
 import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.SysLogView;
+import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
 import com.opensymphony.xwork2.Action;
 
@@ -26,6 +27,7 @@ public class SysLogAction extends BaseActionSupport{
 
 	private ExtGridLoad extGridLoad = new ExtGridLoad();
 	private SysLogView sysLogView = new SysLogView();
+	private ExtJsonForm extJsonForm = new ExtJsonForm();
 	private Integer start;
 	private Integer limit;
 	
@@ -43,6 +45,26 @@ public class SysLogAction extends BaseActionSupport{
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 导出Excel
+	 * @return
+	 */
+	public String exportExcel(){
+   	    try {
+   	    	String rootDir = this.getWebRoot();
+   	    	String fileName = sysLogService.exportExcel(rootDir,sysLogView);
+   	    	extJsonForm.setData(fileName);
+   	    	extJsonForm.setSuccess(true);
+   	    	extJsonForm.setMsg("导出成功");
+		} catch (Exception e) {
+			extJsonForm.setData("");
+   	    	extJsonForm.setSuccess(false);
+   	    	extJsonForm.setMsg("导出失败");
+			return Action.ERROR;
 		}
 		return Action.SUCCESS;
 	}
@@ -109,6 +131,14 @@ public class SysLogAction extends BaseActionSupport{
 
 	public void setLimit(Integer limit) {
 		this.limit = limit;
+	}
+
+	public ExtJsonForm getExtJsonForm() {
+		return extJsonForm;
+	}
+
+	public void setExtJsonForm(ExtJsonForm extJsonForm) {
+		this.extJsonForm = extJsonForm;
 	}
 	
 	

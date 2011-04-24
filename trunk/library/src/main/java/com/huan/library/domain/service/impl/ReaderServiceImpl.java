@@ -170,6 +170,74 @@ public class ReaderServiceImpl implements ReaderService {
 		return fileName;
 	}
 
+	public String exportReaderBorrowedExcel(String rootDir,
+			ReaderView readerView) {
+		List<Reader> readers = new ArrayList<Reader>();
+		WritableWorkbook ww;
+		String fileName = "upload" + File.separator + "readerBorrowedsStatics.xls";
+		File file = new File(rootDir + fileName);
+		try {
+			readers = readerDao.selectReaders(readerView);
+			ww = Workbook.createWorkbook(file);
+			WritableSheet ws = ww.createSheet("读者借阅信息统计", 0);
+			ExcelOperate.addLabelToSheet(ws, 0, 0, 9, 0, "读者借阅信息统计",
+					ExcelStyle.getHeaderStyle());
+			ExcelOperate.addLabelToSheet(ws, 0, 1, "借阅证号",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 1, 1, "条形码",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 2, 1, "读者姓名",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 3, 1, "姓别",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 4, 1, "当前借阅数量",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 5, 1, "累计借阅数量",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 6, 1, "读者单位",
+					ExcelStyle.getTitleStyle());
+			ExcelOperate.addLabelToSheet(ws, 7, 1, "读者类别",
+					ExcelStyle.getTitleStyle());
+		
+			int count = 2;
+			for (Reader reader : readers) {
+				ExcelOperate.addLabelToSheet(ws, 0, count, reader.getCardNo(),
+						ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 1, count, reader.getBarCode(),
+						ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 2, count,
+						reader.getReaderName(), ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 3, count, reader.getSex(),
+						ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 4, count,
+						reader.getBorrowedQuantiy(),
+						ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 5, count,
+						reader.getTotalBQuantity(),
+						ExcelStyle.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 6, count, reader
+						.getReaderUnits().getUnitName(), ExcelStyle
+						.getContentStyle());
+				ExcelOperate.addLabelToSheet(ws, 7, count, reader
+						.getReaderType().getReaderCateName(), ExcelStyle
+						.getContentStyle());
+					count++;
+			}
+
+			for (int i = 0; i < 8; i++) {
+				ws.setColumnView(i, 16);
+			}
+			ws.setRowView(0, 20);
+			ww.write();
+			ww.close();
+			System.out.println("写入excel成功！");
+		} catch (Exception e) {
+			System.out.println("写入excel失败！");
+			e.printStackTrace();
+		}
+		return fileName;
+	}
+	
 	public void setReaderDao(ReaderDao readerDao) {
 		this.readerDao = readerDao;
 	}

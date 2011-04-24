@@ -63,6 +63,8 @@
 			<result name="success" type="json">
 				<param name="root">extJsonForm</param>
 			</result>
+			<interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
 		
 		<action name="exportExcel" class="com.huan.library.web.action.BookAction" method="exportExcel">
@@ -75,6 +77,10 @@
      
     <!-- press -->
     <package name="press" namespace="/press" extends="library">
+      
+      <interceptors>
+			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
+		</interceptors> 
       
       <action name="pressMain" class="com.huan.library.web.action.PressAction" method="pressMain">
 		   <result name="success">/module/book/press/pressList.jsp</result>
@@ -96,12 +102,16 @@
 		    <result name="success" type="json">
 		       <param name="root">extJsonForm</param>
 		    </result>
+		    <interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
 		
 	    <action name="remove" class="com.huan.library.web.action.PressAction" method="remove">
 	       <result name="success" type="json">
 	         <param name="root">extJsonForm</param>
 	       </result>
+	       <interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 	    </action>
 		
 		 <action name="exportExcel" class="com.huan.library.web.action.PressAction" method="exportExcel">

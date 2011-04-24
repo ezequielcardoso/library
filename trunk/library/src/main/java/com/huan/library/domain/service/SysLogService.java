@@ -15,4 +15,6 @@ public interface SysLogService {
 	public List<SysLog> findSysLogs(SysLogView sysLogView) ;
 	
 	public void save(SysLog sysLog);
+
+	public String exportExcel(String rootDir, SysLogView sysLogView);
 }

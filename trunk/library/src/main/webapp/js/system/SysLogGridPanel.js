@@ -11,21 +11,17 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			items : [{
 				text : '导出Excel',
 				handler : function() {
-					
-				}
-			},'-',{
-				text : '转Excel',
-				handler : function() {
-					
-				}
-			},'->', {
+				this.onExport();
+				},
+				scope : this
+			},'-', {
 				xtype : 'label',
 				text : '操作日期从：'
 			}, '-',{
 				xtype : 'datefield',
 				width : 100,
 				id : 'operateDate',
-				format : 'm/d/Y'
+				format : 'Y-m-d'
 			},'-', {
 				xtype : 'label',
 				text : '到：'
@@ -33,7 +29,7 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				xtype : 'datefield',
 				width : 100,
 				id : 'endOperateDate',
-				format : 'm/d/Y'
+				format : 'Y-m-d'
 			},'-',{
 				text : '查询',
 				handler : function() {
@@ -59,9 +55,6 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 							name : 'funcName',
 							type : 'string'
 						},{
-							name : 'operatorName',
-							type : 'string'
-						},{
 							name : 'operateDescription',
 							type : 'string'
 						},{
@@ -69,8 +62,8 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 							type : 'string'
 						}, {
 							name : 'operateDate',
-							 type : 'date',
-                             dateFormat : 'Y-m-d'
+							 type : 'date'
+//                             dateFormat : 'Y-m-d'
 						} , {
 							name : 'operateIPAddress',
 							type : 'string'
@@ -102,12 +95,6 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 						align : 'center',
 						dataIndex : 'funcName'
 					},{
-						header : '业务名称',
-						width : 150,
-						sortable : true,
-						align : 'center',
-						dataIndex : 'operatorName'
-					},{
 						header : '操作人',
 						width : 100,
 						sortable : true,
@@ -123,7 +110,6 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 						editor : new Ext.form.DateField({
 								format : 'Y-m-d'
 							}),
-					format: 'Y-m-d',
 						dataIndex : 'operateDate'
 					}, {
 						header : 'ip地址',
@@ -133,7 +119,7 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 						dataIndex : 'operateIPAddress'
 					}, {
 						header : '业务描述',
-						width : 300,
+						width : 500,
 						sortable : true,
 						align : 'center',
 						dataIndex : 'operateDescription'
@@ -182,18 +168,18 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	},
 	
 	querySysLogs : function(){
+	   var operateIPAddress = Ext.get('sysLog.operateIPAddress').getValue();
 	   var operateType = Ext.get('sysLog.operateType').getValue();
 	   var funcName = Ext.get('sysLog.funcName').getValue();
-	   var operatorName = Ext.get('sysLog.operatorName').getValue();
 	   var operator = Ext.get('sysLog.operator').getValue();
 	   var operateDate = Ext.get('operateDate').getValue();
 	   var endOperateDate = Ext.get('endOperateDate').getValue();
 	   
 	   
 	   this.getStore().baseParams = {
+	   	   'sysLogView.operateIPAddress' : operateIPAddress,
 	       'sysLogView.operateType' : operateType,
 	       'sysLogView.funcName' : funcName,
-	       'sysLogView.operatorName' : operatorName,
 	       'sysLogView.operator' : operator,
 	       'sysLogView.operateDate' : operateDate,
 	       'sysLogView.endOperateDate' : endOperateDate
@@ -208,6 +194,39 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	   });
 	},
 	
+	onExport : function() {
+		   var operateIPAddress = Ext.get('	sysLog.operateIPAddress').getValue();
+	       var operateType = Ext.get('sysLog.operateType').getValue();
+		   var funcName = Ext.get('sysLog.funcName').getValue();
+		   var operator = Ext.get('sysLog.operator').getValue();
+		   var operateDate = Ext.get('operateDate').getValue();
+		   var endOperateDate = Ext.get('endOperateDate').getValue();
+		
+		Ext.Ajax.request({
+				url : contextPath+ '/sysLog/exportExcel.action',
+				method : 'POST',
+				params : {
+				   'sysLogView.operateIPAddress' : operateIPAddress,
+				   'sysLogView.operateType' : operateType,
+			       'sysLogView.funcName' : funcName,
+			       'sysLogView.operator' : operator,
+			       'sysLogView.operateDate' : operateDate,
+			       'sysLogView.endOperateDate' : endOperateDate
+				},
+				success : function(resp) {
+					var respText = resp.responseText;
+					var obj = Ext.util.JSON.decode(respText);
+					if (obj.success) {
+						window.location.href = contextPath + "/file/downloadFile.action?fileName=" + obj.data;
+					} else {
+						Ext.Msg.alert('提示',obj.msg);
+					}
+				},
+				failure : function() {
+					Ext.Msg.alert('提示', '服务器异常');
+				}
+			});
+	},
 	onRefresh : function(){
 	   
 		this.getStore().baseParams={};

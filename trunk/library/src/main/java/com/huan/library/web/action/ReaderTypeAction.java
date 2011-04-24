@@ -70,6 +70,10 @@ public class ReaderTypeAction extends BaseActionSupport {
 			extJsonForm.setMsg("保存成功！");
 			extJsonForm.setSuccess(true);
 			extJsonForm.setData(readerType);
+			request.setAttribute("operateType", "保存");
+			request.setAttribute("funcName", "增加或者修改读者类型");
+			request.setAttribute("operateDescription", "增加或者修改了ID为：" + readerType.getId() + 
+					"、名字为：" + readerType.getReaderCateName() + " 读者类型");
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setMsg("保存失败！");
@@ -86,11 +90,16 @@ public class ReaderTypeAction extends BaseActionSupport {
 	 */
 	public String remove() {
 		try {
-			readerType.setId(readerTypeView.getId());
+//			readerType.setId(readerTypeView.getId());
+			readerType = readerTypeService.findReaderTypeById(readerTypeView.getId());
 			readerTypeService.removeReaderType(readerType);
 			extJsonForm.setMsg("删除成功！");
-			extJsonForm.setData(null);
+			extJsonForm.setData(readerType);
 			extJsonForm.setSuccess(true);
+			request.setAttribute("operateType", "删除");
+			request.setAttribute("funcName", "删除读者类型");
+			request.setAttribute("operateDescription", "删除读者类型的ID为：" + readerType.getId() + 
+					", 名字为：" + readerType.getReaderCateName()+ " 读者类型");
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setMsg("删除失败！");
