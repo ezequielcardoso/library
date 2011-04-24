@@ -41,33 +41,22 @@ public class UserAction extends BaseActionSupport {
 	public String loginVerify(){
 		logger.info("目前登录的用户为:" + user);
 		LoginState loginState = null;
-		try {
-			System.out.println(user.getUserName() + "-" + user.getPassword());
-			loginState = userService.getUserLoginState(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Action.ERROR;
-		}		
+		loginState = userService.getUserLoginState(user);
 		logger.info("登录验证状态为:" + loginState);
-		
 		switch(loginState){
 			case ERROR_PWD_USER :{
 				extJsonForm.setSuccess(false);
 				extJsonForm.setData("用户名或密码错误!");
+				break;
 			}
-			break;
 			case PASS :{
-				try {
-					user = userService.getUserRole(user);
-				} catch (Exception e) {
-					e.printStackTrace();
-					return Action.ERROR;
-				}
+				user = userService.getUserRole(user);
+				logger.info("userId=>" + user.getUserId());
 				this.session.put("currUser", user);
 				extJsonForm.setSuccess(true);
 				extJsonForm.setData("登录成功");
+				break;
 			}
-			break;
 		}
 		return Action.SUCCESS;	
 	}

@@ -208,6 +208,10 @@ public class BookAction extends BaseActionSupport {
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("保存成功！");
 			extJsonForm.setData(book);
+			request.setAttribute("operateType", "保存");
+			request.setAttribute("funcName", "增加或者修改图书");
+			request.setAttribute("operateDescription", "增加或者修改了ID为：" + book.getBookId() + 
+					"、名字为：" + book.getBookName() + " 图书");
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setSuccess(false);

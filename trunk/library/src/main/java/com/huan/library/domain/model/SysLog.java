@@ -23,8 +23,6 @@ public class SysLog implements Serializable {
 	private String operateType;  //操作类型
 	@Column(nullable=false)
 	private String funcName;    //事件
-	@Column(nullable=false)
-	private String operatorName;  //业务名称
 	private String operateDescription; //业务描述
 	@Column(nullable=false)
 	private String operator;  //操作人
@@ -48,12 +46,6 @@ public class SysLog implements Serializable {
 	}
 	public void setFuncName(String funcName) {
 		this.funcName = funcName;
-	}
-	public String getOperatorName() {
-		return operatorName;
-	}
-	public void setOperatorName(String operatorName) {
-		this.operatorName = operatorName;
 	}
 	public String getOperateDescription() {
 		return operateDescription;

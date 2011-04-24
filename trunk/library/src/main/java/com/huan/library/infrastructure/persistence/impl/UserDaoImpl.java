@@ -37,13 +37,12 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	}
 
 	public User getUserRole(User sysUser) {
-		String hql = " from User as user left join fetch user.roles as r "
-				+ " where (user.userName=? or user.userAccount=?) and r.roleActive = ?";
+		String hql = " from User as u left join fetch u.roles as r "
+				+ " where (u.userName=? or u.userAccount=?) and r.roleActive = ?";
 		User user = new User();
-
 		List users = this.getHibernateTemplate().find(hql,
 				sysUser.getUserName(), sysUser.getUserName(), true);
-		if (users != null && !users.isEmpty()) {
+		if (users.listIterator().hasNext()) {
 			user = (User) users.listIterator().next();
 		}
 		return user;

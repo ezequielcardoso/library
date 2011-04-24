@@ -7,6 +7,10 @@
     <!-- book -->
     <package name="book" namespace="/book" extends="library">
     	
+    	<interceptors>
+			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
+		</interceptors> 
+    	
     	<!-- 跳转到图书主页面 -->
 		<action name="bookMain" class="com.huan.library.web.action.BookAction" method="bookMain">
 			<result name="success">/module/book/bookList.jsp</result>
@@ -36,6 +40,8 @@
 			<result name="success" type="json">
 				<param name="root">extJsonForm</param>
 			</result>
+			<interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
 		
 		<!-- 跳转到图书增加或者修改页面 -->
