@@ -54,10 +54,10 @@
 						         
 								  <TR>
 										<TD width="8%" height=25 align="right" valign="center" nowrap class=body style="padding-left:12px;">
-                                             业务名称：
+                                             操作ip地址：
 										</TD>
                                          <TD width="10%" height=25 align="left" valign="top" nowrap class=body>
-                                           <input name="sysLog.operatorName" type="text"  id="sysLog.operatorName"
+                                           <input name="sysLog.operateIPAddress" type="text"  id="sysLog.operateIPAddress"
 												 size="15" >
 										</TD> 
 										<TD width="8%" height=25 align="right" valign="center" nowrap class=body>

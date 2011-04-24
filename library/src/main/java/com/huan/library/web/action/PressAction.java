@@ -72,6 +72,10 @@ public class PressAction extends BaseActionSupport{
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("保存成功！");
 			extJsonForm.setData(press);
+			request.setAttribute("operateType", "保存");
+			request.setAttribute("funcName", "增加或是修改出版社");
+			request.setAttribute("operateDescription", "增加或者修改ID为：" + press.getPressId() + 
+					"、名字为：" + press.getPressName() + " 出版社");
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  extJsonForm.setSuccess(false);
@@ -89,11 +93,16 @@ public class PressAction extends BaseActionSupport{
 	 */
 	public String remove() {
 		try {
-		   press.setPressId(pressView.getPressId());
+//		   press.setPressId(pressView.getPressId());
+		   press = pressService.findPressById(pressView.getPressId());
 		   pressService.removePress(press);
 		   extJsonForm.setMsg("删除成功！");
 		   extJsonForm.setSuccess(true);
-		   extJsonForm.setData(null);
+		   extJsonForm.setData(press);
+		   request.setAttribute("operateType", "删除");
+			request.setAttribute("funcName", "删除出版社");
+			request.setAttribute("operateDescription", "删除出版社ID为：" + press.getPressId() + 
+					"、名字为：" + press.getPressName() + " 出版社");
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setMsg("删除失败！");

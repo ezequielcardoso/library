@@ -127,6 +127,10 @@ public class ReaderAction extends BaseActionSupport {
 			extJsonForm.setSuccess(true);
 			extJsonForm.setData(reader);
 			extJsonForm.setMsg("保存成功");
+			request.setAttribute("operateType", "保存");
+			request.setAttribute("funcName", "增加或者修改读者");
+			request.setAttribute("operateDescription", "增加或者修改了读者ID为：" + reader.getId() + 
+					"、名字为：" + reader.getReaderName() + " 读者");
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setSuccess(false);
@@ -153,6 +157,10 @@ public class ReaderAction extends BaseActionSupport {
 			extJsonForm.setSuccess(true);
 			extJsonForm.setData(reader);
 			extJsonForm.setMsg("挂失成功");
+			request.setAttribute("operateType", "挂失");
+			request.setAttribute("funcName", "挂失或是解除挂失");
+			request.setAttribute("operateDescription", "挂失或是解除挂失的读者ID为：：" + reader.getId() + 
+					", 名字为：" + reader.getReaderName()+ " 读者");
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setSuccess(false);
@@ -198,11 +206,16 @@ public class ReaderAction extends BaseActionSupport {
 	 */
 	public String remove(){
 		try {
-			reader.setId(readerView.getId());
+//			reader.setId(readerView.getId());
+			reader = readerService.findReaderById(readerView.getId());
 			readerService.removeReader(reader);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("删除成功");
-			extJsonForm.setData(null);
+			extJsonForm.setData(reader);
+			request.setAttribute("operateType", "删除");
+			request.setAttribute("funcName", "删除读者");
+			request.setAttribute("operateDescription", "删除读者的ID为：" + reader.getId() + 
+					", 名字为：" + reader.getReaderName()+ " 读者");
 		} catch (Exception e) {
           e.printStackTrace();
           extJsonForm.setSuccess(false);
@@ -214,13 +227,33 @@ public class ReaderAction extends BaseActionSupport {
 	}
 
 	/**
-	 * 导出Excel
+	 * 导出读者信息Excel exportReaderBorrowedExcel
 	 * @return
 	 */
 	public String exportExcel(){
    	    try {
    	    	String rootDir = this.getWebRoot();
    	    	String fileName = readerService.exportExcel(rootDir,readerView);
+   	    	extJsonForm.setData(fileName);
+   	    	extJsonForm.setSuccess(true);
+   	    	extJsonForm.setMsg("导出成功");
+		} catch (Exception e) {
+			extJsonForm.setData("");
+   	    	extJsonForm.setSuccess(false);
+   	    	extJsonForm.setMsg("导出失败");
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 读者借阅信息导出Excel
+	 * @return
+	 */
+	public String exportReaderBorrowedExcel(){
+   	    try {
+   	    	String rootDir = this.getWebRoot();
+   	    	String fileName = readerService.exportReaderBorrowedExcel(rootDir,readerView);
    	    	extJsonForm.setData(fileName);
    	    	extJsonForm.setSuccess(true);
    	    	extJsonForm.setMsg("导出成功");

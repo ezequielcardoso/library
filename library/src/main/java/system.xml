@@ -38,6 +38,13 @@
           <param name="root">extGridLoad</param>
         </result>
       </action>
+      
+       <action name="exportExcel" class="com.huan.library.web.action.SysLogAction" method="exportExcel">
+        <result name="success" type="json">
+          <param name="root">extJsonForm</param>
+        </result>
+      </action>
+      
    </package>
     
     <!-- 罚款 --> 

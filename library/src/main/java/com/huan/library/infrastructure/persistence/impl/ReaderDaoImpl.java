@@ -76,6 +76,13 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 		}
 		sql.append(whereSub);
 		sql_.append(whereSub);
+		
+		// order by 子句
+		StringBuilder orderSub = new StringBuilder();
+		orderSub.append(" order by r.totalBQuantity desc ");
+
+		sql.append(orderSub);
+		sql_.append(orderSub);
 
 		final String sqlIn = sql.toString();
 		HibernateCallback callback = new HibernateCallback() {

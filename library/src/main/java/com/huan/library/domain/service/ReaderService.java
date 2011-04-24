@@ -52,5 +52,12 @@ public interface ReaderService {
      * @return
      */
 	public String exportExcel(String rootDir, ReaderView readerView) ;
+    /**
+     * 读者借阅信息导出Excel
+     * @param rootDir
+     * @param readerView
+     * @return
+     */
+	public String exportReaderBorrowedExcel(String rootDir,ReaderView readerView);
 
 }

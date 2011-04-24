@@ -27,6 +27,9 @@ public class SysLogDaoImpl extends BaseDaoImpl<SysLog> implements SysLogDao {
 		sql_.append(" select count(sl) from SysLog sl where 1=1 ");
 		// 查询字段
 		StringBuilder whereSub = new StringBuilder();
+		if(sysLogView.getOperateIPAddress()!=null && !"".equals(sysLogView.getOperateIPAddress())){
+			whereSub.append(" and sl.operateIPAddress like (:operateIPAddress) ");
+		}
 		if (sysLogView.getOperateType() != null
 				&& !"".equals(sysLogView.getOperateType())) {
 			whereSub.append(" and sl.operateType like (:operateType) ");
@@ -34,10 +37,6 @@ public class SysLogDaoImpl extends BaseDaoImpl<SysLog> implements SysLogDao {
 		if (sysLogView.getFuncName() != null
 				&& !"".equals(sysLogView.getFuncName())) {
 			whereSub.append(" and sl.funcName like (:funcName) ");
-		}
-		if (sysLogView.getOperatorName() != null
-				&& !"".equals(sysLogView.getOperatorName())) {
-			whereSub.append(" and sl.operatorName like (:operatorName) ");
 		}
 		if (sysLogView.getOperator() != null
 				&& !"".equals(sysLogView.getOperator())) {
@@ -70,7 +69,13 @@ public class SysLogDaoImpl extends BaseDaoImpl<SysLog> implements SysLogDao {
 					query.setFirstResult(sysLogView.getStart());
 					query.setMaxResults(sysLogView.getLimit());
 				}
-				String temp = "";
+				String temp = "";  
+				if (sysLogView.getOperateIPAddress() != null
+						&& !"".equals(sysLogView.getOperateIPAddress())) {
+					temp = "%" + sysLogView.getOperateIPAddress().replace(" ", "%")
+							+ "%";
+					query.setParameter("operateIPAddress", temp);
+				}
 				if (sysLogView.getOperateType() != null
 						&& !"".equals(sysLogView.getOperateType())) {
 					temp = "%" + sysLogView.getOperateType().replace(" ", "%")
@@ -82,12 +87,6 @@ public class SysLogDaoImpl extends BaseDaoImpl<SysLog> implements SysLogDao {
 					temp = "%" + sysLogView.getFuncName().replace(" ", "%")
 							+ "%";
 					query.setParameter("funcName", temp);
-				}
-				if (sysLogView.getOperatorName() != null
-						&& !"".equals(sysLogView.getOperatorName())) {
-					temp = "%" + sysLogView.getOperatorName().replace(" ", "%")
-							+ "%";
-					query.setParameter("operatorName", temp);
 				}
 				if (sysLogView.getOperator() != null
 						&& !"".equals(sysLogView.getOperator())) {
@@ -123,6 +122,12 @@ public class SysLogDaoImpl extends BaseDaoImpl<SysLog> implements SysLogDao {
 					throws HibernateException, SQLException {
 				Query query = session.createQuery(sqlIn_);
 				String temp = "";
+				if (sysLogView.getOperateIPAddress() != null
+						&& !"".equals(sysLogView.getOperateIPAddress())) {
+					temp = "%" + sysLogView.getOperateIPAddress().replace(" ", "%")
+							+ "%";
+					query.setParameter("operateIPAddress", temp);
+				}
 				if (sysLogView.getOperateType() != null
 						&& !"".equals(sysLogView.getOperateType())) {
 					temp = "%" + sysLogView.getOperateType().replace(" ", "%")
@@ -134,12 +139,6 @@ public class SysLogDaoImpl extends BaseDaoImpl<SysLog> implements SysLogDao {
 					temp = "%" + sysLogView.getFuncName().replace(" ", "%")
 							+ "%";
 					query.setParameter("funcName", temp);
-				}
-				if (sysLogView.getOperatorName() != null
-						&& !"".equals(sysLogView.getOperatorName())) {
-					temp = "%" + sysLogView.getOperatorName().replace(" ", "%")
-							+ "%";
-					query.setParameter("operatorName", temp);
 				}
 				if (sysLogView.getOperator() != null
 						&& !"".equals(sysLogView.getOperator())) {

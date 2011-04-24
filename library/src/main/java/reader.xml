@@ -7,6 +7,10 @@
 
     <package name="reader" namespace="/reader" extends="library">
 		
+		<interceptors>
+			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
+		</interceptors> 
+		
 		<!-- 读者维护 -->
 		<action name="readerMain" class="com.huan.library.web.action.ReaderAction" method="readerMain">
 		    <result name="success">/module/reader/readerList.jsp</result>
@@ -26,6 +30,8 @@
 		    <result name="success" type="json">
 		       <param name="root">extJsonForm</param>
 		    </result>
+		    <interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
 		
 		<action name="getReaderByCardNo" class="com.huan.library.web.action.ReaderAction" method="getReaderByCardNo">
@@ -38,12 +44,16 @@
 		    <result name="success" type="json">
 		       <param name="root">extJsonForm</param>
 		    </result>
+		    <interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
 		<!-- 借阅证挂失 -->
 		<action name="cardLost" class="com.huan.library.web.action.ReaderAction" method="cardLost">
 		    <result name="success" type="json">
 		       <param name="root">extJsonForm</param>
 		    </result>
+		    <interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
 		
 		<action name="exportExcel" class="com.huan.library.web.action.ReaderAction" method="exportExcel">
@@ -51,10 +61,21 @@
 		       <param name="root">extJsonForm</param>
 		    </result>
 		</action>
+		
+		<action name="exportReaderBorrowedExcel" class="com.huan.library.web.action.ReaderAction" method="exportReaderBorrowedExcel">
+		    <result name="success" type="json">
+		       <param name="root">extJsonForm</param>
+		    </result>
+		</action>
+		
     </package>
     
     <!-- readerunits -->
     <package name="units" namespace="/units" extends="library">
+        
+        <interceptors>
+			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
+		</interceptors> 
         
         <action name="getChildrenByPid" class="com.huan.library.web.action.ReaderUnitsAction" method="getChildrenByPid">
 		     <result name="success" type="json">
@@ -72,17 +93,25 @@
 		    <result name="success" type="json"> 
 		       <param name="root">extJsonForm</param>
 		    </result>
+		    <interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
 		
 		<action name="remove" class="com.huan.library.web.action.ReaderUnitsAction" method="remove">
 		   <result name="success" type="json">
 		      <param name="root">extJsonForm</param>
 		   </result>
+		   <interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
     </package>
     
     <!-- readerType -->
     <package name="readerType" namespace="/readerType" extends="library">
+       
+       <interceptors>
+			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
+		</interceptors> 
        
        <action name="readerTypeMain" class="com.huan.library.web.action.ReaderTypeAction" method="readerTypeMain">
 		    <result name="success">/module/reader/readerCategory.jsp</result>
@@ -98,12 +127,16 @@
 	       <result name="success" type="json">
 	         <param name="root">extJsonForm</param>
 	       </result>
+	       <interceptor-ref name="defaultStack"/>
+           <interceptor-ref name="sysLogInterceptor"/>
 	    </action>
 	    
 	    <action name="remove" class="com.huan.library.web.action.ReaderTypeAction" method="remove">
 	      <result name="success" type="json">
 	         <param name="root">extJsonForm</param>
 	      </result>
+	      <interceptor-ref name="defaultStack"/>
+          <interceptor-ref name="sysLogInterceptor"/>
 	    </action>	
 	    
 	     <action name="exportExcel" class="com.huan.library.web.action.ReaderTypeAction" method="exportExcel">

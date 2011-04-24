@@ -5,10 +5,4 @@ Ext.onReady(function(){
 	magazineStaticsGridPanel.render('magazineStaticsGrid');
 	
 
-	magazineStaticsGridPanel.getStore().load({
-							params : {
-								'start' : 0,
-								'limit' : MagazinesPageSize
-							}
-						});
 });

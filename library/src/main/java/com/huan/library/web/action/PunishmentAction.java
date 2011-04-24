@@ -11,6 +11,7 @@ import com.huan.library.domain.model.Charge;
 import com.huan.library.domain.model.LibInfo;
 import com.huan.library.domain.model.Punishment;
 import com.huan.library.domain.model.reader.Reader;
+import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.LibInfoService;
 import com.huan.library.domain.service.PunishmentService;
 import com.huan.library.domain.service.ReaderService;
@@ -92,8 +93,8 @@ public class PunishmentAction extends BaseActionSupport {
 			charge.setItemId(punishmentView.getChargeId());
             punishment.setCharge(charge);
             //设置操作员
-//          User currUser = (User)this.session.get("currUser");
-//            punishment.setOperator(currUser.getUserName());
+            User currUser = (User)this.session.get("currUser");
+            punishment.setOperator(currUser.getUserName());
             
             punishment.setOperatorDate(new Date());
             punishment.setEventsDesc(punishmentView.getEventsDesc());

@@ -230,12 +230,17 @@ public class BookAction extends BaseActionSupport {
 	public String remove() {
 		try {
 			Book book = new Book();
-			book.setBookId(bookView.getBookId());
+//			book.setBookId(bookView.getBookId());
+			book = bookService.getBookById(bookView.getBookId());
 			// 这里可以取到值
 			bookService.removeBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("删除成功！");
-			extJsonForm.setData(null);
+			extJsonForm.setData(book);
+			request.setAttribute("operateType", "删除");
+			request.setAttribute("funcName", "删除图书");
+			request.setAttribute("operateDescription", "删除图书的ID为：" + book.getBookId() + 
+					", 名字为：" + book.getBookName()+ " 图书");
 		} catch (Exception e) {
 			e.printStackTrace();
 			extJsonForm.setSuccess(false);

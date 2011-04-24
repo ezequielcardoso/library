@@ -31,7 +31,7 @@ public interface ReaderTypeService {
 	 * @param readerTypeId
 	 * @return
 	 */
-	public ReaderType findReaderTypeById(int readerTypeId) ;
+	public ReaderType findReaderTypeById(Long readerTypeId) ;
 	
 	/**
 	 * 查找所有的readerType
