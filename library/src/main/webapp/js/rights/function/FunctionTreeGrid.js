@@ -12,6 +12,7 @@ Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
     	Ext.apply(this, {
 	        autoScroll: true,
 	    	height: 500,
+	    	width : 1000,
 	        enableDD: true,
 	        enableSort: false,
 	        useArrows: false,
@@ -42,19 +43,19 @@ Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 	        }],
 	        columns: [{
 	            header: '功能名称',
-//	            width : 200,
+	            width : 200,
 	            dataIndex: 'funcName'
 	        }, {
 	            header: '资源标识',
-//	            width : 100,
+	            width : 120,
 	            dataIndex: 'resCmpId'
 	        }, {
 	            header: '资源链接',
-//	            width : 100,
+	            width : 150,
 	            dataIndex: 'resCmpHandURL'
 	        }, {
 	            header: '资源图标',
-//	            width : 60,
+	            width : 100,
 	            dataIndex: 'resCmpIconCls',
 	            renderer: function(icon){
 	                var returnHtml = '<span class="' + icon + '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>' + icon;                
@@ -62,19 +63,20 @@ Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 	            }
 	        }, {
 	            header: '资源排序',
-//	            width : 60,
+	            width : 60,
+	            align : 'center',
 	            dataIndex: 'funcOrder'
 	        }, {
 	            header: '功能ID',
-//	            width : 100,
+	            width : 150,
 	            dataIndex: 'funcId'
 	        }, {
 	            header: '上级功能ID',
-//	            width : 100,
+	            width : 150,
 	            dataIndex: 'parentId'
 	        }, {
 	            header: '子节点',
-//	            width : 60,
+	            width : 60,
 	            dataIndex: 'leaf'
 	        }],
 	        listeners: {
