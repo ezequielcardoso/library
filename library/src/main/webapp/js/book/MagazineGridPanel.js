@@ -10,18 +10,21 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		var tbar = new Ext.Toolbar({
 			items : [ {
 				text : '增加',
+				iconCls : 'library-add',
 				handler : function() {
 					this.addBook();
 				},
 				scope:this
 			},'-', {
 				text : '删除',
+				iconCls : 'library-delete',
 				handler : function() {
 					this.deleteBook();
 				},
 				scope:this
 			},'-',{
 				text : '修改',
+				iconCls : 'library-edit',
 				handler : function() {
 					this.updateBook();
 				},
@@ -33,6 +36,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				}
 			}*/,'-',{
 				text : '导出Excel',
+				iconCls : 'library-export-excel',
 				handler : function() {
 					this.onExport();
 				},
@@ -66,12 +70,14 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				format : 'Y-m-d'
 			},'-',{
 				text : '查询',
+				iconCls : 'library-query',
 				handler : function() {
 					this.queryMagazine();
 				},
 				scope:this
 			},'-',{
 				text : '刷新',
+				iconCls : 'library-refresh',
 				handler : function() {
 					this.onRefresh();
 				},
@@ -356,7 +362,26 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				dataIndex : 'bookStateName',
 				width : 60,
 				sortable : true,
-				align : 'center'
+				align : 'center',
+				renderer : function(value){
+					var html = "";
+					if(value=="核审中"){
+						html = "<font color='red'>" + value + "</font>";
+						
+					}else if(value=="预约中"){
+						html = "<font color='blue'>" + value +"</font>";
+						
+					}else if(value=="借阅中"){
+						html = "<font color='green'>" + value +"</font>";
+						
+					}else if(value=="逾期中"){
+						html = "<font color='yellow'>" + value +"</font>";
+						
+					} else {
+						html = value;
+					}
+					return html;
+				}
 			}, {
 				header : '附件',
 				dataIndex : 'hasAttachment',

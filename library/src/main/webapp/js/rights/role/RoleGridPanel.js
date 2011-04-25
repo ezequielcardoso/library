@@ -10,12 +10,14 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var tbar = new Ext.Toolbar({
 			items : [{
 				text : '增加',
+				iconCls : 'library-reader-add',
 				handler : function() {
 					this.onAdd();
 				},
 				scope : this
 			},  {
 				text : '删除',
+				iconCls : 'library-reader-delete',
 				handler : function() {
 					this.onRemove();
 				},

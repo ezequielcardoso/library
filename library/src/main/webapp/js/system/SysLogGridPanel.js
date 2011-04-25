@@ -10,6 +10,7 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		var tbar = new Ext.Toolbar({
 			items : [{
 				text : '导出Excel',
+				iconCls : 'library-export-excel',
 				handler : function() {
 				this.onExport();
 				},
@@ -32,12 +33,14 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				format : 'Y-m-d'
 			},'-',{
 				text : '查询',
+				iconCls : 'library-query',
 				handler : function() {
 					this.querySysLogs();
 				},
 				scope:this
 			},'-',{
 				text : '刷新',
+				iconCls : 'library-refresh',
 				handler : function() {
 					this.onRefresh();
 				},

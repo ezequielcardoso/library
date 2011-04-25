@@ -10,18 +10,21 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var tbar = new Ext.Toolbar({
 			items : [{
 				text : '增加',
+				iconCls : 'library-reader-add',
 				handler : function() {
 					this.onAdd();
 				},
 				scope : this
 			},'-', {
 				text : '删除',
+				iconCls : 'library-reader-delete',
 				handler : function() {
 					this.onDelete();
 				},
 				scope : this
 			},'-', {
 				text : '分配部门',
+				iconCls : 'library-binding-readerUnits',
 				handler : function() {
 					var sm = this.getSelectionModel();
 					if(sm.hasSelection()){
@@ -57,6 +60,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				id : 'query_userAccount'
 			}, '-', {
 				text : '查询',
+				iconCls : 'library-reader-query',
 				handler : function() {
 					this.onQuery();
 				},
@@ -168,7 +172,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		]);
 		
 		Ext.apply(this, {
-			width : 505,
+			width : 550,
 			height : 500,
 			autoScroll : true,
 			tbar : tbar,

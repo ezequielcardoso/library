@@ -81,7 +81,7 @@ public class Book implements Serializable {
 	@JoinColumn(name="bookState")
 	private BookState bookState; // 图书状态
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=BookLevel.class)
 	@JoinColumn(name = "bookLevel")
 	private BookLevel bookLevel; // 图书级别
 	
@@ -97,7 +97,7 @@ public class Book implements Serializable {
 	@JoinColumn(name = "press")
 	private Press press; // 出版社
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,targetEntity=BookSource.class)
 	@JoinColumn(name = "bookSource")
 	private BookSource bookSource; // 来源
 	

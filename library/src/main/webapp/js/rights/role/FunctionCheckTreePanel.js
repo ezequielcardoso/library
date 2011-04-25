@@ -15,7 +15,7 @@ Library.rights.tree.FunctionCheckTreePanel = Ext.extend(Library.tree.BaseCheckTr
     createTbar: function(){
     	return [{
 			text: '保存',
-			iconCls : '',
+			iconCls : 'library-reader-save',
 			handler: function(){
 				this.saveRoleFunc();
 			},

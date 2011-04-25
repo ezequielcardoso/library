@@ -21,21 +21,21 @@ Library.rights.treegrid.FunctionTreeGrid = Ext.extend(Ext.ux.tree.TreeGrid, {
 	        border: false,
 	        tbar: [{
 	        	text: '新增',
-	        	iconCls: '',
+	        	iconCls : 'library-readerUnits-add',
 				handler: function(){
 					this.onAdd();
 				},
 				scope: this
 	        },{
 	        	text: '修改',
-	        	iconCls: '',
+	        	iconCls : 'library-binding-readerUnits',
 				handler: function(){
 					this.onUpdate();
 				},
 				scope: this
 	        },{
 	        	text: '删除',
-	        	iconCls: '',
+	        	iconCls : 'library-readerUnits-delete',
 				handler: function(){
 					this.onDelete();
 				},

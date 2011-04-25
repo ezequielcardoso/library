@@ -11,12 +11,14 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 				var tbar = new Ext.Toolbar({
 							items : [{
 										text : '增加',
+										iconCls : 'library-add', 
 										handler : function() {
 											this.onAdd();
 										},
 										scope : this
 									}, '-', {
 										text : '借阅',
+										iconCls : 'library-borrow',
 										handler : function() {
 											this.onBorrowed();
 										},
@@ -265,6 +267,25 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 						width : 80,
 						sortable : true,
 						align : 'center',
+						renderer : function(value){
+					var html = "";
+					if(value=="核审中"){
+						html = "<font color='red'>" + value + "</font>";
+						
+					}else if(value=="预约中"){
+						html = "<font color='blue'>" + value +"</font>";
+						
+					}else if(value=="借阅中"){
+						html = "<font color='green'>" + value +"</font>";
+						
+					}else if(value=="逾期中"){
+						html = "<font color='yellow'>" + value +"</font>";
+						
+					} else {
+						html = value;
+					}
+					return html;
+				},
 						dataIndex : 'bookStateName'
 					}]);
 				// var bbar = new Ext.Toolbar([new Ext.PagingToolbar({
@@ -371,7 +392,7 @@ Library.bookBorrow.grid.BookBorrowGridPanel = Ext.extend(
 				var maxBorrowedQuantity = Ext.get('reader.readerType.maxBorrowedQuantity').getValue();
 				var cardState= Ext.get('reader.cardState.itemName').getValue();
 				
-				if(cardState != '可用'){
+				if(cardState != '启用'){
 				  Ext.Msg.alert('提示','借阅证状态不可用,请联系管理员');
 				  return;
 				}

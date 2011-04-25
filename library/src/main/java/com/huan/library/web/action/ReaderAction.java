@@ -159,7 +159,7 @@ public class ReaderAction extends BaseActionSupport {
 			extJsonForm.setMsg("挂失成功");
 			request.setAttribute("operateType", "挂失");
 			request.setAttribute("funcName", "挂失或是解除挂失");
-			request.setAttribute("operateDescription", "挂失或是解除挂失的读者ID为：：" + reader.getId() + 
+			request.setAttribute("operateDescription", "挂失或是解除挂失的读者ID为：" + reader.getId() + 
 					", 名字为：" + reader.getReaderName()+ " 读者");
 		} catch (Exception e) {
 			e.printStackTrace();

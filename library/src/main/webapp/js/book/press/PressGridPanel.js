@@ -10,18 +10,21 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var tbar = new Ext.Toolbar({
 			items : [{
 				text : '增加',
+				iconCls : 'library-add',
 				handler : function() {
 					this.onAdd();
 				},
 				scope : this
 			},'-', {
 				text : '删除',
+				iconCls : 'library-delete',
 				handler : function() {
 					this.onDelete();
 				},
 				scope : this
 			},'-', {
 				text : '修改',
+				iconCls : 'library-edit',
 				handler : function() {
 					this.onMOdify();
 				},
@@ -33,6 +36,7 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				}
 			}*/,'-', {
 				text : '导出Excel',
+				iconCls : 'library-export-excel',
 				handler : function() {
 					this.onExport();
 				},
@@ -64,12 +68,14 @@ Library.press.grid.PressGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				id : 'pressAddress'
 			},'-',{
 				text : '查询',
+				iconCls : 'library-query',
 				handler : function() {
 					this.onQuery();
 				},
 				scope : this
 			},'-',{
 				text : '刷新',
+				iconCls : 'library-refresh',
 				handler : function() {
 					this.onRefresh();
 				},

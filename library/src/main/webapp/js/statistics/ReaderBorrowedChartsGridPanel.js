@@ -142,10 +142,21 @@ Library.readerCharts.grid.ReaderChartsGridPanel = Ext.extend(Ext.grid.GridPanel,
 					columnLines : true,
 					frame : true,
 					   items: {
-			           xtype: 'linechart',
+			           xtype: 'columnchart',
 			           store: store,
 			           xField: 'readerName',
 			           yField: 'totalBQuantity',
+			           xAxis: new Ext.chart.CategoryAxis({
+				                title: '读者姓名'
+				            }),
+				            yAxis: new Ext.chart.NumericAxis({
+				                title: '累计借阅数量'
+				            }),
+				            extraStyle: {
+				               xAxis: {
+				                    labelRotation: -90
+				                }
+				            },
 					listeners: {
 							itemclick: function(o){
 								var rec = store.getAt(o.index);

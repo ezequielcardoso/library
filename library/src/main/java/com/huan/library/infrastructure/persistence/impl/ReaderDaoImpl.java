@@ -64,7 +64,7 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 		}
 		if (readerView.getCardNo() != null
 				&& !"".equals(readerView.getCardNo())) {
-			whereSub.append(" and r.cardNo=(:cardNo ) ");
+			whereSub.append(" and r.cardNo = (:cardNo ) ");
 		}
 		if (readerView.getUnitName() != null
 				&& !"".equals(readerView.getUnitName())) {

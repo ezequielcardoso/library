@@ -85,10 +85,28 @@ a:hover {
 	background-repeat: no-repeat;
 }
 
+/* 读者添加 */
+.library-reader-add {
+	background-image:  url(../images/smart/user_add.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 读者单位添加 */
+.library-readerUnits-add {
+	background-image:  url(../images/smart/chart_organisation_add.png) !important; 
+	background-repeat: no-repeat;
+}
+
 /* 修改 */
 .library-edit {
 	background-image:  url(../images/smart/edit.png) !important; 
 	background-repeat: no-repeat; 
+}
+
+/* 读者修改 */
+.library-reader-edit {
+	background-image:  url(../images/smart/user_edit.png) !important; 
+	background-repeat: no-repeat;
 }
 
 /* 确定 */
@@ -103,15 +121,45 @@ a:hover {
 	background-repeat: no-repeat; 
 }
 
+/* 读者删除 */
+.library-reader-delete {
+	background-image:  url(../images/smart/user_delete.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 读者单位删除 */
+.library-readerUnits-delete {
+	background-image:  url(../images/smart/chart_organisation_delete.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 读者绑定部门 */
+.library-binding-readerUnits {
+	background-image:  url(../images/smart/chart_organisation.png) !important; 
+	background-repeat: no-repeat; 
+}
+
 /* 查询 */
 .library-query {
 	background-image:  url(../images/smart/search.png) !important; 
 	background-repeat: no-repeat; 
 }
 
+/* 读者查询 */
+.library-reader-query {
+	background-image:  url(../images/smart/user_suit.png) !important; 
+	background-repeat: no-repeat;
+}
+
 /* 保存 */
 .library-save {
 	background-image:  url(../images/smart/save.png) !important; 
+	background-repeat: no-repeat; 
+}
+
+/* 角色保存 */
+.library-reader-save {
+	background-image:  url(../images/smart/drive_user.png) !important; 
 	background-repeat: no-repeat; 
 }
 
@@ -137,9 +185,39 @@ a:hover {
 	background-repeat: no-repeat;
 }
 
+/* 刷新 */
+.library-refresh {
+	background-image:  url(../images/smart/arrow_refresh.png) !important; 
+	background-repeat: no-repeat;
+}
+
 /* 导出excel */
 .library-export-excel {
 	background-image:  url(../images/smart/export_excel.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 借出 */
+.library-borrow {
+	background-image:  url(../images/smart/arrow_right.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 归还 */
+.library-return {
+	background-image:  url(../images/smart/arrow_left.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 预约 */
+.library-preOrder {
+	background-image:  url(../images/smart/phone.png) !important; 
+	background-repeat: no-repeat;
+}
+
+/* 借出 */
+.library-renew {
+	background-image:  url(../images/smart/arrow_redo.png) !important; 
 	background-repeat: no-repeat;
 }
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.book.Book;
+import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.web.view.BookView;
 import com.huan.library.web.view.form.ExtJsonForm;
@@ -204,6 +205,10 @@ public class BookAction extends BaseActionSupport {
 				book.setStoreDate(new Date());
 			}
 			this.formatBook(book);
+			
+			User currUser = (User)this.session.get("currUser");
+			book.setOperator(currUser.getUserName());
+			
 			book = bookService.addOrModifyBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("保存成功！");

@@ -58,18 +58,21 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 										text : '输入读者借阅证号请回车..'
 									},'-', {
 										text : '增加',
+										iconCls : 'library-add', 
 										handler : function() {
 											this.onAdd();
 										},
 										scope : this
 									}, '-', {
 										text : '归还',
+										iconCls : 'library-return',
 										handler : function() {
 											this.onReturn();
 										},
 										scope : this
 									},'-', {
 										text : '续借',
+										iconCls : 'library-renew',
 										handler : function() {
 											this.onRenew();
 										},
@@ -256,6 +259,25 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 						width : 80,
 						sortable : true,
 						align : 'center',
+						renderer : function(value){
+					var html = "";
+					if(value=="核审中"){
+						html = "<font color='red'>" + value + "</font>";
+						
+					}else if(value=="预约中"){
+						html = "<font color='blue'>" + value +"</font>";
+						
+					}else if(value=="借阅中"){
+						html = "<font color='green'>" + value +"</font>";
+						
+					}else if(value=="逾期中"){
+						html = "<font color='yellow'>" + value +"</font>";
+						
+					} else {
+						html = value;
+					}
+					return html;
+				},
 						dataIndex : 'bookStateName'
 					}, {
 						header : '图书类别',

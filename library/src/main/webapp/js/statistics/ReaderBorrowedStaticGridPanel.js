@@ -9,6 +9,7 @@ Library.readerStatic.grid.ReaderStaticGridPanel = Ext.extend(Ext.grid.GridPanel,
 		var tbar = new Ext.Toolbar({
 					items : [ {
 								text : '导出Excel',
+								iconCls : 'library-export-excel',
 								handler : function() {
                                    this.onExport();
 								},
@@ -43,12 +44,14 @@ Library.readerStatic.grid.ReaderStaticGridPanel = Ext.extend(Ext.grid.GridPanel,
 								id : 'query_readerCateName'
 							}, {
 								text : '查询',
+								iconCls : 'library-query',
 								handler : function() {
 									 this.onQuery();
 								},
 								scope : this
 							}, '-', {
 								text : '刷新',
+								iconCls : 'library-refresh',
 								handler : function() {
 									 this.onRefresh();
 								},

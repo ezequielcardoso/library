@@ -73,7 +73,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 		// }
 		// .......继续拼接........
 		if (bookView.getBarCode() != null && !"".equals(bookView.getBarCode())) {
-			whereSub.append(" and b.barCode = (:barCode) ");
+			whereSub.append(" and b.barCode like (:barCode) ");
 		}
 		if (bookView.getBookName() != null
 				&& !"".equals(bookView.getBookName())) {
@@ -174,7 +174,8 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 				String temp = "";
 				if (bookView.getBarCode() != null
 						&& !"".equals(bookView.getBarCode())) {
-					query.setParameter("barCode", bookView.getBarCode());
+					temp = "%" + bookView.getBarCode().replace(" ", "%") + "%";
+					query.setParameter("barCode", temp);
 				}
 				if (bookView.getBookName() != null
 						&& !"".equals(bookView.getBookName())) {
@@ -311,7 +312,8 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 				String temp = "";
 				if (bookView.getBarCode() != null
 						&& !"".equals(bookView.getBarCode())) {
-					query.setParameter("barCode", bookView.getBarCode());
+					temp = "%" + bookView.getBarCode().replace(" ", "%") + "%";
+					query.setParameter("barCode", temp);
 				}
 				if (bookView.getBookName() != null
 						&& !"".equals(bookView.getBookName())) {
