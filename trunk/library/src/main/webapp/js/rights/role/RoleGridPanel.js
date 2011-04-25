@@ -139,6 +139,7 @@ Library.rights.grid.RoleGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			functree.roleId = rd.get('roleId');
 			functree.getLoader().baseParams['functionView.roleId'] = rd.get('roleId');
 			functree.root.reload();
+			
 		}, this);
 		
 		this.on('afteredit', function(e) {
