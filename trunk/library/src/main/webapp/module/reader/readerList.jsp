@@ -85,10 +85,10 @@
 												borderColorLight="#bcc3c9" borderColorDark="#ffffff"
 												bgcolor="#FFFFFF" style="margin-top: 5px">
 												<tr>
-                                                    <td width="200" height="500" align="left" valign="top">
+                                                    <td width="180" height="500" align="left" valign="top">
 														<div id="readerUnitsTree"></div>
 													</td>
-													<td width="800" height="500" align="left" valign="top">
+													<td width="850" height="500" align="left" valign="top">
 														<div id="readerGrid"></div>
 													</td>
 												</tr> 										

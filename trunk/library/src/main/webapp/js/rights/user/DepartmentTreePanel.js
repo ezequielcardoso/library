@@ -15,6 +15,7 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
     	var tbar = new Ext.Toolbar({
 			items : [{
 				text : '增加',
+				iconCls : 'library-readerUnits-add',
 				handler : function() {
 					var node = thiz.getSelectionModel().getSelectedNode();
 			    	if(node){
@@ -36,6 +37,7 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 				scope : this
 			}, '-',{
 				text : '修改',
+				iconCls : 'library-binding-readerUnits',
 				handler : function() {
 					var node = thiz.getSelectionModel().getSelectedNode();
 					if(node){
@@ -60,6 +62,7 @@ Library.rights.tree.DepartmentTreePanel = Ext.extend(Library.tree.BaseTree, {
 				scope : this
 			}, '-',  {
 				text : '删除',
+				iconCls : 'library-readerUnits-delete',
 				handler : function() {
 					this.onRemove();
 				},

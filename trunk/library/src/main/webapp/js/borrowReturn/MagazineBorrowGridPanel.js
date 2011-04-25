@@ -11,12 +11,14 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 				var tbar = new Ext.Toolbar({
 							items : [{
 										text : '增加',
+										iconCls : 'library-add', 
 										handler : function() {
 											this.onAdd();
 										},
 										scope : this
 									}, '-', {
 										text : '借阅',
+										iconCls : 'library-borrow',
 										handler : function() {
 											this.onBorrowed();
 										},
@@ -110,7 +112,26 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 							width : 80,
 							sortable : true,
 							align : 'center',
-							dataIndex : 'bookStateName'
+							dataIndex : 'bookStateName',
+							renderer : function(value){
+									var html = "";
+									if(value=="核审中"){
+										html = "<font color='red'>" + value + "</font>";
+										
+									}else if(value=="预约中"){
+										html = "<font color='blue'>" + value +"</font>";
+										
+									}else if(value=="借阅中"){
+										html = "<font color='green'>" + value +"</font>";
+										
+									}else if(value=="逾期中"){
+										html = "<font color='yellow'>" + value +"</font>";
+										
+									} else {
+										html = value;
+									}
+									return html;
+								}
 						}]);
 
 				var fields = [{

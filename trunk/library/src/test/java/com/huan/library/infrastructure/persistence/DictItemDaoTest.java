@@ -29,8 +29,8 @@ public class DictItemDaoTest {
 
 	private static DictItemDao dictItemDao;
 	
-//	private String filePath = Constants.ExcelDir + "dictitem.xls";
-	private String filePath = Constants.ExcelDir + "categories.xls";
+	private String filePath = Constants.ExcelDir + "dictitem.xls";
+//	private String filePath = Constants.ExcelDir + "categories.xls";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {

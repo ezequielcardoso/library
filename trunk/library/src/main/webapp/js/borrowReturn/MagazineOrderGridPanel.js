@@ -12,8 +12,9 @@ Library.magazineOrder.grid.MagazineOrderGridPane = Ext.extend(Ext.grid.GridPanel
 								text : '导出Excel',
 								handler : function() {
 
-								}
-							}, '-', {
+								},
+								iconCls : 'library-export-excel'
+							}/**, '-', {
 								text : '期刊标签',
 								handler : function() {
 
@@ -23,7 +24,7 @@ Library.magazineOrder.grid.MagazineOrderGridPane = Ext.extend(Ext.grid.GridPanel
 								handler : function() {
 
 								}
-							}, '->', {
+							}*/, '-', {
 								xtype : 'label',
 								text : '预约时间从：'
 							}, '-', {
@@ -57,12 +58,14 @@ Library.magazineOrder.grid.MagazineOrderGridPane = Ext.extend(Ext.grid.GridPanel
 								format : 'Y-m-d'
 							}, '-', {
 								text : '查询',
+								iconCls : 'library-query',
 								handler : function() {
 									this.queryBookOrder();
 								},
 								scope : this
 							}, '-', {
 								text : '刷新',
+								iconCls : 'library-refresh', 
 								handler : function() {
 									this.onRefresh();
 								},
@@ -209,6 +212,25 @@ Library.magazineOrder.grid.MagazineOrderGridPane = Ext.extend(Ext.grid.GridPanel
 						width : 80,
 						sortable : true,
 						align : 'center',
+						renderer : function(value){
+							var html = "";
+							if(value=="核审中"){
+								html = "<font color='red'>" + value + "</font>";
+								
+							}else if(value=="预约中"){
+								html = "<font color='blue'>" + value +"</font>";
+								
+							}else if(value=="借阅中"){
+								html = "<font color='green'>" + value +"</font>";
+								
+							}else if(value=="逾期中"){
+								html = "<font color='yellow'>" + value +"</font>";
+								
+							} else {
+								html = value;
+							}
+							return html;
+						},
 						dataIndex : 'bookStateName'
 					}, {
 						header : '期刊类别',

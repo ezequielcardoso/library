@@ -104,7 +104,11 @@ public class PunishmentAction extends BaseActionSupport {
 			punishment = punishmentService.addOrModifyPunlishment(punishment);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("罚款成功");
-			extJsonForm.setData(null);
+			extJsonForm.setData(punishment);
+			request.setAttribute("operateType", "罚款");
+			request.setAttribute("funcName", "图书丢失或是破坏罚款");
+			request.setAttribute("operateDescription", "罚款的读者ID为：：" + reader.getId() + 
+					", 名字为：" + reader.getReaderName()+ " 读者");
 		} catch (Exception e) {
 		  e.printStackTrace();
 			extJsonForm.setSuccess(false);
@@ -153,6 +157,18 @@ public class PunishmentAction extends BaseActionSupport {
 		   punish.setReader(punish.getReader());
 	   }else{
 		   punish.setReader(null);
+	   }
+	   if(punish.getOperator()!=null && !"".equals(punish.getOperator())){
+		   punish.setOperator(punish.getOperator());
+	   }
+	   if(punish.getOperatorDate()!=null){
+		   punish.setOperatorDate(punish.getOperatorDate());
+	   }
+	   if(punish.getPunishMoney()!=null){
+		   punish.setPunishMoney(punish.getPunishMoney());
+	   }
+	   if(punish.getEventsDesc()!=null && !"".equals(punish.getEventsDesc())){
+		   punish.setEventsDesc(punish.getEventsDesc());
 	   }
 	}
 

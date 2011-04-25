@@ -9,18 +9,21 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		var tbar = new Ext.Toolbar({
 					items : [{
 								text : '增加',
+								iconCls : 'library-reader-add',
 								handler : function() {
 									this.onAdd();
 								},
 								scope : this
 							}, '-', {
 								text : '删除',
+								iconCls : 'library-reader-delete',
 								handler : function() {
 									this.onDelete();
 								},
 								scope : this
 							}, '-', {
 								text : '修改',
+								iconCls : 'library-reader-edit',
 								handler : function() {
 									this.onMOdify();
 								},
@@ -32,6 +35,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								}
 							}*/, '-', {
 								text : '分配部门',
+								iconCls : 'library-binding-readerUnits',
 								handler : function() {
 									var sm = this.getSelectionModel();
 									if(sm.hasSelection()){
@@ -53,6 +57,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								scope: this
 							}, '-', {
 								text : '导出Excel',
+								iconCls : 'library-export-excel',
 								handler : function() {
                                    this.onExport();
 								},
@@ -87,12 +92,14 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 								id : 'query_readerCateName'
 							}, {
 								text : '查询',
+								iconCls : 'library-reader-query',
 								handler : function() {
 									 this.onQuery();
 								},
 								scope : this
 							}, '-', {
 								text : '刷新',
+								iconCls : 'library-refresh',
 								handler : function() {
 									 this.onRefresh();
 								},
@@ -498,7 +505,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				}]);
 
 		Ext.apply(this, {
-					width : 1000,
+					width : 1100,
 					height : 530,
 					autoScroll : true,
 					tbar : tbar,

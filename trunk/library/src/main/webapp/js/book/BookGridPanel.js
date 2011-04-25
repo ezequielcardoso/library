@@ -78,8 +78,8 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				},
 				scope:this
 			},'-',{
-				text : '刷新',
-				iconCls : '',
+				text : '刷新', 
+				iconCls : 'library-refresh',
 				handler : function() {
 					this.onRefresh();
 				},
@@ -373,11 +373,17 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				align : 'center',
 				renderer : function(value){
 					var html = "";
-					if(value=="借阅中"){
-						html = "<font color='red'>" + value +"<span class='zaiguan'>&nbsp&nbsp&nbsp&nbsp</span></font>";
+					if(value=="核审中"){
+						html = "<font color='red'>" + value + "</font>";
 						
-					} else if(value=="在馆"){
+					}else if(value=="预约中"){
 						html = "<font color='blue'>" + value +"</font>";
+						
+					}else if(value=="借阅中"){
+						html = "<font color='green'>" + value +"</font>";
+						
+					}else if(value=="逾期中"){
+						html = "<font color='yellow'>" + value +"</font>";
 						
 					} else {
 						html = value;
