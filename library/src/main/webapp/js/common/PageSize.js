@@ -8,3 +8,4 @@ var SysLogsPageSize = 20;
 var ReaderAccountsPageSize = 20;
 var ReaderStaticsPageSize = 40;
 var ReaderChartsPageSize = 40 ;
+var BookBorrowedStaticsPageSize = 40;

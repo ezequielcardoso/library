@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -81,13 +82,16 @@ public class PunishmentAction extends BaseActionSupport {
 	public String save(){
 		try {
 			Reader reader = readerService.findReaderByBarCode(punishmentView.getReaderBarCode());
+			Float leftMoney = reader.getLeftMoney();
 			//读者资金减去
-			reader.setLeftMoney(reader.getLeftMoney() - punishmentView.getPunishMoney());
+			reader.setLeftMoney(leftMoney - punishmentView.getPunishMoney());
+			readerService.addOrModifyReader(reader);
 			punishment.setReader(reader);
 			
 			//图书馆资金加上
 			libInfo = libInfoService.findById(1L);
 			libInfo.setLibFunds(libInfo.getLibFunds() + punishmentView.getPunishMoney());
+			libInfoService.save(libInfo);
 			//罚款项目
 			Charge charge = new Charge();
 			charge.setItemId(punishmentView.getChargeId());
@@ -107,8 +111,8 @@ public class PunishmentAction extends BaseActionSupport {
 			extJsonForm.setData(punishment);
 			request.setAttribute("operateType", "罚款");
 			request.setAttribute("funcName", "图书丢失或是破坏罚款");
-			request.setAttribute("operateDescription", "罚款的读者ID为：：" + reader.getId() + 
-					", 名字为：" + reader.getReaderName()+ " 读者");
+			request.setAttribute("operateDescription", "罚款的读者ID为：：" + reader.getId()+"读者姓名为："+reader.getReaderName()+
+					" 读者");
 		} catch (Exception e) {
 		  e.printStackTrace();
 			extJsonForm.setSuccess(false);

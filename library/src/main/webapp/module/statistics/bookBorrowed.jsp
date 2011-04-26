@@ -153,8 +153,6 @@
 													</td>
 													<td background="<%=path %>/images/module/titleb_02.jpg">
 														&nbsp;
-
-
 													</td>
 													<td width="213" align="right"
 														background="<%=path %>/images/module/titleb_03.jpg"
