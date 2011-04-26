@@ -151,6 +151,12 @@
 			</result>
 		</action>
 		
+		<action name="saveRoleFunc" class="com.huan.library.web.action.RoleAction" method="saveRoleFunc">
+			<result name="success" type="json">
+				<param name="root">extJsonForm</param>
+			</result>
+		</action>
+		
 		<action name="findAllByUserId" class="com.huan.library.web.action.RoleAction" method="findAllByUserId">
 			<result name="success" type="json">
 				<param name="root">childrenNodes</param>

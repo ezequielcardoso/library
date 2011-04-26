@@ -362,7 +362,8 @@
 														电子文档：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input type="button" onclick="upLoadAttach();" style="width:60px; height:25px"  value="查 看">
+														&nbsp;&nbsp;&nbsp;<input type="button" onclick="upLoadAttach();" style="width:60px; height:25px"  value="上 传">
+														&nbsp;&nbsp;&nbsp;<input type="button" onclick="listAttach();" style="width:60px; height:25px"  value="查 看">
 													</td>
 												</tr>
 												<tr>

@@ -21,7 +21,7 @@ public class RoleServiceImpl implements RoleService {
 		return this.roleDao.selectRoles(roleView);
 	}
 
-	public Role getById(Long roleId) {
+	public Role getById(Integer roleId) {
 		return this.roleDao.selectById(roleId);
 	}
 

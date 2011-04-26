@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.huan.library.domain.model.rights.Function;
 import com.huan.library.domain.model.rights.Role;
 import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.RoleService;
@@ -72,6 +73,32 @@ public class RoleAction extends BaseActionSupport {
 			e.printStackTrace();
 			extJsonForm.setSuccess(false);
 			extJsonForm.setMsg("保存失败！");
+			return Action.ERROR;
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String saveRoleFunc(){
+		try {
+			Role role = this.roleService.getById(roleView.getRoleId());
+			role.setFunctions(null);
+			List<Function> funcs = new ArrayList<Function>();
+			for(String funcId : roleView.getFuncIds()){
+				Function func = new Function();
+				func.setFuncId(funcId);
+				funcs.add(func);
+			}
+			role.setFunctions(funcs);
+			// 这里可以取到值
+			roleService.save(role);
+			extJsonForm.setSuccess(true);
+			extJsonForm.setMsg("设置成功！");
+			extJsonForm.setData(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			extJsonForm.setSuccess(false);
+			extJsonForm.setMsg("设置失败！");
+			extJsonForm.setData(null);
 			return Action.ERROR;
 		}
 		return Action.SUCCESS;

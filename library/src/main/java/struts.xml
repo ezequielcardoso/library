@@ -25,6 +25,7 @@
 	<constant name="struts.i18n.reload" value="false"></constant>
 	<constant name="struts.action.extension" value="action" />
 	<constant name="struts.multipart.maxSize" value="500000000" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
 	
     <package name="library" namespace="/" extends="json-default">
 		
@@ -69,6 +70,23 @@
 				<param name="root">ejf</param>
 			</result>
 		</action>
+		
+		<!--文件上传-->
+		<action name="uploadFiles" class="com.huan.library.web.action.BaseActionSupport"
+			method="uploadFiles">
+			<result name="success" type="json">
+				<param name="root">ejf</param>
+			</result>
+		</action>
+		
+		<!--文件上传-->
+		<action name="uploadFilesByStream" class="com.huan.library.web.action.BaseActionSupport"
+			method="uploadFilesByStream">
+			<result name="success" type="json">
+				<param name="root">ejf</param>
+			</result>
+		</action>
+		
 	</package>
 
 </struts>

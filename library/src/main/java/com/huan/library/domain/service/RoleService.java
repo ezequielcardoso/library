@@ -31,7 +31,7 @@ public interface RoleService {
 	 * @param roleId
 	 * @return
 	 */
-	public Role getById(Long roleId) ;
+	public Role getById(Integer roleId) ;
 	
 	/**
 	 *查找所有的角色 

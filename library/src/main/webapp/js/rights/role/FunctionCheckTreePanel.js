@@ -38,14 +38,14 @@ Library.rights.tree.FunctionCheckTreePanel = Ext.extend(Library.tree.BaseCheckTr
 				if(checkedNodes[i].id!='root') s.push(checkedNodes[i].id);
 			}
 			Ext.Ajax.request({
-				url : contextPath + '/role/saveRoleFunc.do',
+				url : contextPath + '/role/saveRoleFunc.action',
 				method : 'POST',
 				params : {
-					roleOid : this.roleId,
-					funcIds : s
+					"roleView.roleId" : this.roleId,
+					"roleView.funcIds" : s
 				},
 				success : function(response, options) {
-					this.loader.dataUrl = this.url + '?functionView.roleId=' + this.roleId;
+//					this.loader.dataUrl = this.url + '?functionView.roleId=' + this.roleId;
 					this.root.reload();
 					
 				},

@@ -277,27 +277,21 @@ function checkPress() {
 
 function upLoadAttach( ){
 	var bookId = Ext.get('book.bookId').dom.value;
+	if(bookId==""){
+		Library.Util.warn("请先添加图书");
+		return;
+	}
 	var dialog = new Files.UploadWindow({
         fileSize : '500 MB',
-        uploadUrl : contextPath + '/files/uploadFiles.action',
+        uploadUrl : contextPath + '/file/uploadFiles.action',
+        filePostName : 'filelist', // 这里很重要，默认值为'fileData',这里匹配action中的setMyUpload
         fileTypes : '*.*', 
 		fileTypesDescription : '任何文件',
+		postParams : {
+			bookId : bookId
+		},
 		listeners : {
 			'allfileoid': function(allfileoid){
-//				var fileid = allfileoid[0];
-				Ext.Ajax.request({
-					url : contextPath + '/book/save.do',
-					params : {
-						'bookId' : record.get('oid'),
-						'attach.attachIds' : allfileoid
-					},
-					success : function(){
-						thiz.getStore().reload();
-					},
-					failure : function(){
-						Ext.Msg.alert('提示', '服务器异常，请稍后再试！');
-					}
-				});
 			}
 		}
 	});
