@@ -60,7 +60,7 @@ Files.SelectPanel = Ext.extend(Ext.Panel, {
 	//添加附件
     addFile: function(){
     	var dialog = new Files.UploadWindow({
-			uploadUrl : contextPath + 'common/files/uploadFiles.do?fileType='+this.fileType+'&uploadPath='+this.uploadPath,
+			uploadUrl : contextPath + '/files/uploadFiles.do',
 			fileTypes : (this.fileTypes) ? this.fileTypes : '*.*', // 在这里限制文件类型:'*.jpg,*.png,*.gif'
 			fileTypesDescription : (this.fileTypesDescription) ? this.fileTypesDescription : '所有文件',
 			listeners : {

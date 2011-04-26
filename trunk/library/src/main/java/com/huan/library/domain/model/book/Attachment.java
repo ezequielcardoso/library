@@ -1,5 +1,7 @@
 package com.huan.library.domain.model.book;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,7 +32,7 @@ public class Attachment implements java.io.Serializable {
 	private String attachmentFileType;
 	private Long attachmentSize;
 	private String attachmentUploadMan;
-	private String attachmentUploadDate;
+	private Date attachmentUploadDate;
 	
 	@ManyToOne(targetEntity=Book.class,fetch=FetchType.EAGER)
 	@JoinColumn(name="bookId",referencedColumnName="bookId")
@@ -88,11 +90,11 @@ public class Attachment implements java.io.Serializable {
 		this.attachmentUploadMan = attachmentUploadMan;
 	}
 
-	public String getAttachmentUploadDate() {
+	public Date getAttachmentUploadDate() {
 		return attachmentUploadDate;
 	}
 
-	public void setAttachmentUploadDate(String attachmentUploadDate) {
+	public void setAttachmentUploadDate(Date attachmentUploadDate) {
 		this.attachmentUploadDate = attachmentUploadDate;
 	}
 
