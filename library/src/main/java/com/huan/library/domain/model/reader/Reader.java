@@ -35,17 +35,17 @@ public class Reader implements Serializable {
 	private Float leftMoney = 0.0f; // 余额
 	private String spell;           //拼音
 	
-	@ManyToOne(fetch=FetchType.LAZY,targetEntity=ReaderUnits.class)
+	@ManyToOne(targetEntity=ReaderUnits.class)
 	@JoinColumn(name="readerUnits")
 	private ReaderUnits readerUnits;  //读者单位
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(targetEntity = Certificate.class)
 	@JoinColumn(name = "certificate")
 	private Certificate certificate; // 证件类别  学生证
 	
 	private String readerDesc; // 读者描述
 	
-	@ManyToOne(fetch = FetchType.LAZY,targetEntity=ReaderType.class)
+	@ManyToOne(targetEntity=ReaderType.class)
 	@JoinColumn(name = "readerType")
 	private ReaderType readerType; // 读者类别
 	
@@ -60,7 +60,7 @@ public class Reader implements Serializable {
 	private Integer renewTimes ;     //续借次数
 	private Integer totalBQuantity ;    //累计借阅数量
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity =CardState.class)
 	@JoinColumn(name = "cardState")
 	private CardState cardState;    //借阅证状态
 

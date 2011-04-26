@@ -29,8 +29,8 @@ public class DictItemDaoTest {
 
 	private static DictItemDao dictItemDao;
 	
-	private String filePath = Constants.ExcelDir + "dictitem.xls";
-//	private String filePath = Constants.ExcelDir + "categories.xls";
+//	private String filePath = Constants.ExcelDir + "dictitem.xls";
+	private String filePath = Constants.ExcelDir + "categories.xls";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -38,7 +38,7 @@ public class DictItemDaoTest {
 				"dictItemDao");
 	}
 
-	@Test
+//	@Test
 	public void testImportItemsFromExcel() {
 		// 取得excel文件
 		File file = new File(filePath);

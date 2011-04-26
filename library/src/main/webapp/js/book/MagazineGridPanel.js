@@ -623,3 +623,4 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		}
 	}	
 });
+

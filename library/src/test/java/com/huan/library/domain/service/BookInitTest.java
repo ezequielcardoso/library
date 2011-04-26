@@ -32,7 +32,7 @@ public class BookInitTest {
 		pressDao = (PressDao)BaseSpringBeans.getInstance().getBean("pressDao");
 	}
    
-    @Test  //∑÷“≥≤‚ ‘
+//    @Test  //∑÷“≥≤‚ ‘
     public void findByPage(){
     	try {
 			PageModel<Press> pressModel = pressDao.selectByPage(0, 3);
