@@ -331,7 +331,7 @@ Library.book.statics.grid.BookStaticsGridPanel = Ext.extend(Ext.grid.GridPanel, 
 			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,
-					pageSize : BooksPageSize,
+					pageSize : BookBorrowedStaticsPageSize,
 					afterPageText : '/ {0}',
 					beforePageText : '页',
 					displayInfo : true,
@@ -392,7 +392,7 @@ Library.book.statics.grid.BookStaticsGridPanel = Ext.extend(Ext.grid.GridPanel, 
 	   this.getStore().load({
 	       params : {
 				start : 0,
-				limit : BooksPageSize
+				limit : BookBorrowedStaticsPageSize
 			}
 	   });
 	},
@@ -456,7 +456,7 @@ Library.book.statics.grid.BookStaticsGridPanel = Ext.extend(Ext.grid.GridPanel, 
 		this.getStore().load({
 							params : {
 								'start' : 0,
-								'limit' : BooksPageSize
+								'limit' : BookBorrowedStaticsPageSize
 							}
 						});
 		

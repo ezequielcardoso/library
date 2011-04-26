@@ -205,10 +205,10 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 
 		StringBuilder sql = new StringBuilder();
 		sql.append(" from Reader r ");
-		sql.append(" left join fetch r.readerUnits t_ru ");
-		sql.append(" left join fetch r.certificate t_c ");
-		sql.append(" left join fetch r.readerType t_rt ");
-		sql.append(" left join fetch r.cardState t_rs ");
+		sql.append(" left join fetch r.readerUnits  ");
+		sql.append(" left join fetch r.certificate  ");
+		sql.append(" left join fetch r.readerType  ");
+		sql.append(" left join fetch r.cardState  ");
 		sql.append(" where r.id = ? ");
 		reader = (Reader) getHibernateTemplate().find(sql.toString(), readerId)
 				.listIterator().next();
@@ -224,10 +224,10 @@ public class ReaderDaoImpl extends BaseDaoImpl<Reader> implements ReaderDao {
 
 		StringBuilder sql = new StringBuilder();
 		sql.append(" from Reader r ");
-		sql.append(" left join fetch r.readerUnits t_ru ");
-		sql.append(" left join fetch r.certificate t_c ");
-		sql.append(" left join fetch r.readerType t_rt ");
-		sql.append(" left join fetch r.cardState t_rs ");
+		sql.append(" left join fetch r.readerUnits ");
+		sql.append(" left join fetch r.certificate ");
+		sql.append(" left join fetch r.readerType  ");
+		sql.append(" left join fetch r.cardState  ");
 		sql.append(" where r.barCode = ? ");
 		reader = (Reader) getHibernateTemplate().find(sql.toString(), barCode)
 				.listIterator().next();

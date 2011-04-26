@@ -331,7 +331,7 @@ Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.Gri
 			frame : false,
 			bbar : new Ext.Toolbar([new Ext.PagingToolbar({
 					store : store,
-					pageSize : MagazinesPageSize,
+					pageSize : BookBorrowedStaticsPageSize,
 					afterPageText : '/ {0}',
 					beforePageText : '页',
 					displayInfo : true,
@@ -392,7 +392,7 @@ Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.Gri
 	   this.getStore().load({
 	       params : {
 				start : 0,
-				limit : MagazinesPageSize
+				limit : BookBorrowedStaticsPageSize
 			}
 	   });
 	},
@@ -454,7 +454,7 @@ Library.magazine.statics.grid.MagazineStaticsGridPanel = Ext.extend(Ext.grid.Gri
 		this.getStore().load({
 							params : {
 								'start' : 0,
-								'limit' : MagazinesPageSize
+								'limit' : BookBorrowedStaticsPageSize
 							}
 						});
 		

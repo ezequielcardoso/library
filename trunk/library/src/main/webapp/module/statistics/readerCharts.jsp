@@ -61,12 +61,12 @@
 				</td>
 			</tr>
 			<tr>
-				<td height="10" valign="top">
-					<table width="80%" border="0" align="left" cellpadding="0"
+				<td valign="top">
+					<table width="99%" border="0" align="left" cellpadding="0"
 						cellspacing="0" bordercolor="#ebebeb" borderColorLight="#ebebeb"
 						borderColorDark="#ffffff" id="LM1">
                             <tr>
-                                   	<td width="1000" height="800" align="left" valign="top">
+                                   	<td width="1000" height="500" align="left" valign="top">
 											<div id=readerChartsGrid></div>
 							       </td>
 					      </tr>   
