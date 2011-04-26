@@ -15,7 +15,7 @@ Ext.onReady(function(){
 
 	var dialog = new Files.UploadWindow({
 		fileSize : '500 MB',
-		uploadUrl : contextPath + '/files/uploadFiles.action,
+		uploadUrl : contextPath + '/files/uploadFiles.action',
 		fileTypes : '*.doc', // 在这里限制文件类型:'*.jpg,*.png,*.gif'
 		fileTypesDescription : 'Word文件',
 		listeners : {

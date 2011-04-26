@@ -260,24 +260,24 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 						sortable : true,
 						align : 'center',
 						renderer : function(value){
-					var html = "";
-					if(value=="核审中"){
-						html = "<font color='red'>" + value + "</font>";
-						
-					}else if(value=="预约中"){
-						html = "<font color='blue'>" + value +"</font>";
-						
-					}else if(value=="借阅中"){
-						html = "<font color='green'>" + value +"</font>";
-						
-					}else if(value=="逾期中"){
-						html = "<font color='yellow'>" + value +"</font>";
-						
-					} else {
-						html = value;
-					}
-					return html;
-				},
+							var html = "";
+							if(value=="核审中"){
+								html = "<font color='red'>" + value + "</font>";
+								
+							}else if(value=="预约中"){
+								html = "<font color='blue'>" + value +"</font>";
+								
+							}else if(value=="借阅中"){
+								html = "<font color='green'>" + value +"</font>";
+								
+							}else if(value=="逾期中"){
+								html = "<font color='yellow'>" + value +"</font>";
+								
+							} else {
+								html = value;
+							}
+							return html;
+						},
 						dataIndex : 'bookStateName'
 					}, {
 						header : '图书类别',
@@ -377,7 +377,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 							borrowedDate : '',
 							duetoReturnDate : '',
 							overdueDays : '',
-							puniMoney : '',
+							puniMoney : 0.0,
 							renewTimes : '',
 							firstCategoryName : '',
 							unitName : '',
@@ -453,7 +453,7 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 			
 			onRenew : function(){
 			
-			  var sm = this.getSelectionModel();
+			 var sm = this.getSelectionModel();
 			if (sm.hasSelection()) {
 				Ext.MessageBox.confirm('提示', '你确定要续借图书吗？', function(btn,
 							text) {
@@ -464,15 +464,14 @@ Library.bookReturn.grid.BookReturnGridPanel = Ext.extend(
 								var borrowReturnId = record.get('id');
 								var renewTimes = record.get('renewTimes');
 								var bookStateName = record.get('bookStateName');
-				
-								if(bookStateName == '借阅中'){
-				
-								
-								if(renewTimes > 2){
-								  Ext.Msg.alert('提示','sorry,本类图书只能被续借两次')
+				                
+				                if(renewTimes > 2){
+								  Ext.Msg.alert('提示','sorry,本类图书只能被续借两次');
+								  return false;
 								}
 								
-								
+								if(bookStateName == '借阅中'){
+								Ext.Msg.alert(renewTimes);
 								var thiz = this;
 								Ext.Ajax.request({
 									url : contextPath

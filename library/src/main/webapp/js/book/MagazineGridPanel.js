@@ -129,7 +129,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'float'
 		}, {
 			name : 'publisherDate',
-			type : 'string'
+			type : 'date'
 		}, {
 			name : 'quantity',
 			type : 'int'
@@ -150,7 +150,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		}, {
 			name : 'storeDate',
-			type : 'string'
+			type : 'date'
 		}, {
 			name : 'bookNo',
 			type : 'string'
@@ -331,6 +331,8 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				header : '入库时间',
 				dataIndex : 'storeDate',
 				width : 100,
+				xtype : 'datecolumn',
+                format : 'Y-m-d',
 				sortable : true,
 				align : 'center'
 			},{
@@ -338,6 +340,8 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				dataIndex : 'publisherDate',
 				width : 100,
 				sortable : true,
+				xtype : 'datecolumn',
+                format : 'Y-m-d',
 				align : 'center'
 			}, {
 				header : '页数',

@@ -131,7 +131,8 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'float'
 		}, {
 			name : 'publisherDate',
-			type : 'string'
+			type : 'date'
+//			dateFormat  : 'Y-m-d'
 		}, {
 			name : 'operator',
 			type : 'string'
@@ -155,10 +156,11 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		},  {
 			name : 'orderDate',
-			type : 'string'
+			type : 'date'
 		},{
 			name : 'storeDate',
-			type : 'string'
+			type : 'date'
+//			dateFormat  : 'Y-m-d'
 		}, {
 			name : 'bookNo',
 			type : 'string'
@@ -316,6 +318,8 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				dataIndex : 'storeDate',
 				width : 100,
 				sortable : true,
+				xtype : 'datecolumn',
+				format : 'Y-m-d',
 				align : 'center'
 			}, {
 				header : '出版社',
@@ -339,6 +343,8 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 				header : '出版时间',
 				dataIndex : 'publisherDate',
 				width : 100,
+				xtype : 'datecolumn',
+				format : 'Y-m-d',
 				sortable : true,
 				align : 'center'
 			}, {

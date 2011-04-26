@@ -375,7 +375,7 @@ Library.magazineReturn.grid.MagazineReturnGridPanel = Ext.extend(Ext.grid.Editor
 							borrowedDate : '',
 							duetoReturnDate : '',
 							overdueDays : '',
-							puniMoney : '',
+							puniMoney : 0,
 							renewTimes : '',
 							firstCategoryName : '',
 							unitName : '',
@@ -441,7 +441,7 @@ Library.magazineReturn.grid.MagazineReturnGridPanel = Ext.extend(Ext.grid.Editor
 				}, this);
 
 			} else {
-				Ext.Msg.alert('提示', '请选择你要期刊的图书');
+				Ext.Msg.alert('提示', '请选择你要归还的期刊');
 			}
 		},
 	onExport : function() {
@@ -461,15 +461,16 @@ Library.magazineReturn.grid.MagazineReturnGridPanel = Ext.extend(Ext.grid.Editor
 							for (var i = 0; i < records.length; i++) {
 								var record = records[i];
 								var borrowReturnId = record.get('id');
-								var renewTimes = record.get('renewTimes');
 								var bookStateName = record.get('bookStateName');
+								var renewTimes = record.get('renewTimes');
+							
+								if(renewTimes > 2){
+									  Ext.Msg.alert('提示','sorry,本类期刊只能被续借两次');
+									  return false;
+								}
+							
 								
 								if(bookStateName == '借阅中'){
-								
-								if(renewTimes > 2){
-								  Ext.Msg.alert('提示','sorry,本类期刊只能被续借两次')
-								}
-								
 								var thiz = this;
 								Ext.Ajax.request({
 									url : contextPath
@@ -494,7 +495,7 @@ Library.magazineReturn.grid.MagazineReturnGridPanel = Ext.extend(Ext.grid.Editor
 									}
 								});
 								 }else{
-							     Ext.Msg.alert('提示', '图书状态不可续借');
+							     Ext.Msg.alert('提示', '期刊状态不可续借');
 							     return false;
 							  }
 							}
@@ -505,7 +506,7 @@ Library.magazineReturn.grid.MagazineReturnGridPanel = Ext.extend(Ext.grid.Editor
 					}, this);
 
 				} else {
-					Ext.Msg.alert('提示', '请选择你要续借的图期刊');
+					Ext.Msg.alert('提示', '请选择你要续借的期刊');
 				}
 			}
 	,

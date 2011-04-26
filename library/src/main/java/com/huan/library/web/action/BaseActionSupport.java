@@ -3,6 +3,8 @@ package com.huan.library.web.action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +13,10 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.huan.library.util.FileOperate;
+import com.huan.library.util.PropertiesUtil;
 import com.huan.library.util.StringAndUTF8;
 import com.huan.library.web.view.form.ExtJsonForm;
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -28,11 +32,20 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
 	private static final long serialVersionUID = 1L;
 	protected Map<String,Object> session;
 	protected HttpServletRequest request;
+	private String pieceid;
 	
 	//=============文件上传用=============
 	private File upfile;  
 	private String upfileFileName;
 	private String upfileContentType;
+	private String thingType;
+	
+	//批量山传
+	private String realThingArr[];
+	private List<File> filelist = new ArrayList<File>();
+	private List<String> filelistFileName = new ArrayList<String>();
+	private List<String> filelistContentType = new ArrayList<String>();
+	
 
 	//=============文件下载用==============
     // 文件名
@@ -67,6 +80,60 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
     }
 
 
+	/**
+	 * 实物文件上传,包括图片图像类（thingType=1），视频音频类（thingType=2）
+	 */
+    public String uploadRealFile(){
+    	Integer[] ids = new Integer[50];
+    	try{
+			if(!"".equals(thingType) && thingType.equalsIgnoreCase("1")){
+				for(int i=0; i<filelist.size(); i++){
+					File imgFile = filelist.get(i);
+					//取得实物存放路径
+					String localRealThingPath = PropertiesUtil.getProperty("localRealThingPath");
+					//上传文件
+					String dir = localRealThingPath + File.separator + pieceid + File.separator + "image";
+					FileOperate.newFolder(localRealThingPath);
+					FileOperate.newFolder(localRealThingPath + File.separator + pieceid);
+					FileOperate.newFolder(dir);
+					File dst = new File(dir, filelistFileName.get(i));
+					FileOperate.copy(imgFile, dst);
+					ids[i]= i;
+				}
+				efj.setSuccess(true);
+	    		efj.setMsg("文件上传成功！");
+	    		efj.setData(ids);
+				request.setAttribute("operateType", "上传");
+				request.setAttribute("funcName", "上传图片");
+				request.setAttribute("operateDescription", "上传图片 ,数量：" + filelist.size() + " 个 ");
+			} else if(!"".equals(thingType) && thingType.equalsIgnoreCase("2")){
+				for(int i=0; i<filelist.size(); i++){
+					File imgFile = filelist.get(i);
+					//取得实物存放路径
+					String localRealThingPath = PropertiesUtil.getProperty("localRealThingPath");
+					//上传文件
+					String dir = localRealThingPath + File.separator + pieceid + File.separator + "vedio";
+					FileOperate.newFolder(localRealThingPath);
+					FileOperate.newFolder(localRealThingPath + File.separator + pieceid);
+					FileOperate.newFolder(dir);
+					File dst = new File(dir, filelistFileName.get(i));
+					FileOperate.copy(imgFile, dst);
+					ids[i]= i;
+				}
+				efj.setSuccess(true);
+	    		efj.setMsg("文件上传成功！");
+	    		efj.setData(ids);
+				request.setAttribute("operateType", "上传");
+				request.setAttribute("funcName", "上传视频");
+				request.setAttribute("operateDescription", "上传频 ,数量：" + filelist.size() + " 个 ");
+			} 
+		} catch(Exception e){
+			e.printStackTrace();
+			return "failure";
+		}
+		return Action.SUCCESS;
+    }
+    
     public String uploadFile(){
     	try{
     		//上传文件

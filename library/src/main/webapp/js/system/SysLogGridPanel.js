@@ -198,7 +198,7 @@ Library.sysLog.grid.SysLogGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	},
 	
 	onExport : function() {
-		   var operateIPAddress = Ext.get('	sysLog.operateIPAddress').getValue();
+		   var operateIPAddress = Ext.get('sysLog.operateIPAddress').getValue();
 	       var operateType = Ext.get('sysLog.operateType').getValue();
 		   var funcName = Ext.get('sysLog.funcName').getValue();
 		   var operator = Ext.get('sysLog.operator').getValue();

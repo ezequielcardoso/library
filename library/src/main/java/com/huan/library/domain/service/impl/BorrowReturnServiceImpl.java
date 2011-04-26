@@ -11,10 +11,10 @@ import jxl.write.WritableWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.domain.service.BorrowReturnService;
 import com.huan.library.infrastructure.persistence.BorrowReturnDao;
+import com.huan.library.util.DateFormatUtil;
 import com.huan.library.util.ExcelOperate;
 import com.huan.library.util.ExcelStyle;
 import com.huan.library.web.view.BorrowReturnView;
@@ -117,9 +117,18 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 	            	ExcelOperate.addLabelToSheet(ws, 1, count, borrowReturn.getReader().getBarCode(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 2, count, borrowReturn.getReader().getReaderName(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 3, count, borrowReturn.getBook().getBookName(), ExcelStyle.getContentStyle());
-	            	ExcelOperate.addLabelToSheet(ws, 4, count, borrowReturn.getBorrowedDate(), ExcelStyle.getContentStyle());
-	            	ExcelOperate.addLabelToSheet(ws, 5, count, borrowReturn.getDuetoReturnDate(), ExcelStyle.getContentStyle());
-	            	ExcelOperate.addLabelToSheet(ws, 6, count, borrowReturn.getRealityReturndate(), ExcelStyle.getContentStyle());
+	            	
+	            	String borrowedDate = DateFormatUtil.format(borrowReturn.getBorrowedDate(), "yyyy-MM-dd");
+					ExcelOperate.addLabelToSheet(ws, 4, count, DateFormatUtil.convertToDate(borrowedDate), ExcelStyle.getDateStyle());
+//	            	ExcelOperate.addLabelToSheet(ws, 4, count, borrowReturn.getBorrowedDate(), ExcelStyle.getContentStyle());
+	            	
+	            	String duetoReturnDate = DateFormatUtil.format(borrowReturn.getDuetoReturnDate(), "yyyy-MM-dd");
+					ExcelOperate.addLabelToSheet(ws, 5, count, DateFormatUtil.convertToDate(duetoReturnDate), ExcelStyle.getDateStyle());
+//	            	ExcelOperate.addLabelToSheet(ws, 5, count, borrowReturn.getDuetoReturnDate(), ExcelStyle.getContentStyle());
+	            	
+	            	String realityReturndate = DateFormatUtil.format(borrowReturn.getRealityReturndate(), "yyyy-MM-dd");
+					ExcelOperate.addLabelToSheet(ws, 6, count, DateFormatUtil.convertToDate(realityReturndate), ExcelStyle.getDateStyle());
+//	            	ExcelOperate.addLabelToSheet(ws, 6, count, borrowReturn.getRealityReturndate(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 7, count, borrowReturn.getOverdueDays(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 8, count, borrowReturn.getPuniMoney(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 9, count, borrowReturn.getRenewTimes(), ExcelStyle.getContentStyle());
