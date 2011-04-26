@@ -648,12 +648,12 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 	onAdd : function() {
 		var Reader = this.getStore().recordType;
 		var r = new Reader({
-			cardNo : '0803010099', // 借阅证号
-			password : '0803010099', // 密码
-			barCode : '0803010099', // 条形码
-			readerName : 'huan', // 读者姓名
+			cardNo : '', // 借阅证号
+			password : '123', // 密码
+			barCode : '', // 条形码
+			readerName : '', // 读者姓名
 			birthday : new Date(), // 出生日期
-			sex : '男',
+			sex : '',
 			leftMoney : 0.2, // 余额
 			email : '762252352@qq.com', // 邮箱
 			contactTel : '13578926265', // 联系电话
@@ -661,8 +661,8 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 			effectiveDate : new Date(),
 			borrowedQuantiy: 0,
 			totalBQuantity:  0,
-			spell : 'huan', // 拼音
-			readerDesc : '08级学生'// 读者描述
+			spell : '', // 拼音
+			readerDesc : ''// 读者描述
 			});
 		this.stopEditing();
 		this.store.insert(0, r);

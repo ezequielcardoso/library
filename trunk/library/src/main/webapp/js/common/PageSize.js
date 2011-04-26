@@ -6,5 +6,5 @@ var ReadersPageSize = 20;
 var UsersPageSize=20;
 var SysLogsPageSize = 20;
 var ReaderAccountsPageSize = 20;
-var ReaderStaticsPageSize = 20;
-var ReaderChartsPageSize = 20 ;
+var ReaderStaticsPageSize = 40;
+var ReaderChartsPageSize = 40 ;

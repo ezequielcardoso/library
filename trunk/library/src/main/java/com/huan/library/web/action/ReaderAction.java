@@ -206,16 +206,15 @@ public class ReaderAction extends BaseActionSupport {
 	 */
 	public String remove(){
 		try {
-//			reader.setId(readerView.getId());
-			reader = readerService.findReaderById(readerView.getId());
+			reader.setId(readerView.getId());
+//			reader = readerService.findReaderById(readerView.getId());
 			readerService.removeReader(reader);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("删除成功");
 			extJsonForm.setData(reader);
 			request.setAttribute("operateType", "删除");
 			request.setAttribute("funcName", "删除读者");
-			request.setAttribute("operateDescription", "删除读者的ID为：" + reader.getId() + 
-					", 名字为：" + reader.getReaderName()+ " 读者");
+			request.setAttribute("operateDescription", "删除读者的ID为：" + reader.getId()+ " 读者");
 		} catch (Exception e) {
           e.printStackTrace();
           extJsonForm.setSuccess(false);

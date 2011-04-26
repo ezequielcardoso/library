@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.huan.library.domain.model.reader.Reader;
 import com.huan.library.domain.service.ReaderService;
 import com.huan.library.infrastructure.persistence.ReaderDao;
+import com.huan.library.util.DateFormatUtil;
 import com.huan.library.util.ExcelOperate;
 import com.huan.library.util.ExcelStyle;
 import com.huan.library.web.view.ReaderView;
@@ -97,9 +98,7 @@ public class ReaderServiceImpl implements ReaderService {
 					ExcelStyle.getTitleStyle());
 			ExcelOperate.addLabelToSheet(ws, 17, 1, "证件类别",
 					ExcelStyle.getTitleStyle());
-			ExcelOperate.addLabelToSheet(ws, 18, 1, "证件号码",
-					ExcelStyle.getTitleStyle());
-			ExcelOperate.addLabelToSheet(ws, 19, 1, "借阅证状态",
+			ExcelOperate.addLabelToSheet(ws, 18, 1, "借阅证状态",
 					ExcelStyle.getTitleStyle());
 
 			int count = 2;
@@ -112,8 +111,10 @@ public class ReaderServiceImpl implements ReaderService {
 						ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 3, count,
 						reader.getReaderName(), ExcelStyle.getContentStyle());
-				ExcelOperate.addLabelToSheet(ws, 4, count,
-						reader.getBirthday(), ExcelStyle.getContentStyle());
+				
+				String birthday = DateFormatUtil.format(reader.getBirthday(), "yyyy-MM-dd");
+				ExcelOperate.addLabelToSheet(ws, 4, count, DateFormatUtil.convertToDate(birthday), ExcelStyle.getDateStyle());
+//				ExcelOperate.addLabelToSheet(ws, 4, count,reader.getBirthday(), ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 5, count, reader.getSex(),
 						ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 6, count, reader.getEmail(),
@@ -124,12 +125,14 @@ public class ReaderServiceImpl implements ReaderService {
 						reader.getLeftMoney(), ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 9, count, reader.getSpell(),
 						ExcelStyle.getContentStyle());
-				ExcelOperate.addLabelToSheet(ws, 10, count,
-						reader.getEntyDate(), ExcelStyle.getContentStyle());
-				ExcelOperate
-						.addLabelToSheet(ws, 11, count,
-								reader.getEffectiveDate(),
-								ExcelStyle.getContentStyle());
+				
+				String entyDate = DateFormatUtil.format(reader.getEntyDate(), "yyyy-MM-dd");
+				ExcelOperate.addLabelToSheet(ws, 10, count, DateFormatUtil.convertToDate(entyDate), ExcelStyle.getDateStyle());
+//				ExcelOperate.addLabelToSheet(ws, 10, count,reader.getEntyDate(), ExcelStyle.getContentStyle());
+				
+				String effectiveDate = DateFormatUtil.format(reader.getEffectiveDate(), "yyyy-MM-dd");
+				ExcelOperate.addLabelToSheet(ws, 11, count, DateFormatUtil.convertToDate(effectiveDate), ExcelStyle.getDateStyle());
+//				ExcelOperate.addLabelToSheet(ws, 11, count,reader.getEffectiveDate(),ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 12, count,
 						reader.getBorrowedQuantiy(),
 						ExcelStyle.getContentStyle());
@@ -148,9 +151,6 @@ public class ReaderServiceImpl implements ReaderService {
 						.getCertificate().getItemName(), ExcelStyle
 						.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 18, count, reader
-						.getCertificate().getItemCode(), ExcelStyle
-						.getContentStyle());
-				ExcelOperate.addLabelToSheet(ws, 19, count, reader
 						.getCardState().getItemName(), ExcelStyle
 						.getContentStyle());
 				count++;

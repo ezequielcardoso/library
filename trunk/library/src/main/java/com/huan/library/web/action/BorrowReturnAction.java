@@ -108,13 +108,13 @@ public class BorrowReturnAction extends BaseActionSupport {
 					.getReaderId());
 			Book book = bookService.getBookById(borrowReturnView.getBookId());
 			Date borrowedDate = new Date(); // 借阅日期
+			Long borrowedDateTime = borrowedDate.getTime();
 			borrowReturn.setBorrowedDate(borrowedDate);
-			long maxBorrowedTime = (borrowedDate.getTime() / 1000) + 60 * 60
-					* 24 * (reader.getReaderType().getMaxBorrowDays());
+			Long maxBorrowedTime = (borrowedDate.getTime() / 1000) + 60 * 60 * 24 * (reader.getReaderType().getMaxBorrowDays());
 			Date duetoReturnDate = new Date();
 			duetoReturnDate.setTime(maxBorrowedTime * 1000);
 			borrowReturn.setDuetoReturnDate(duetoReturnDate); // 归还日期
-
+          
 			borrowReturn.setRenewTimes(0);
 			User currUser = (User)this.session.get("currUser");
 			borrowReturn.setBorrowOperator(currUser.getUserName());
@@ -122,7 +122,16 @@ public class BorrowReturnAction extends BaseActionSupport {
 			reader.setBorrowedQuantiy(reader.getBorrowedQuantiy() + 1);
 			reader.setTotalBQuantity(reader.getTotalBQuantity() + 1);
 			readerService.addOrModifyReader(reader);
-
+             
+			Long overdueDays= (maxBorrowedTime - borrowedDateTime)/(24*60*60*1000);
+			if(overdueDays > 0){
+				borrowReturn.setOverdueDays(overdueDays.intValue());
+				borrowReturn.setPuniMoney((overdueDays.intValue())*reader.getReaderType().getRent());
+			}else{
+			    borrowReturn.setOverdueDays(0);
+			    borrowReturn.setPuniMoney(0f);
+			}
+			
 			book.setQuantity(book.getQuantity() - 1);
 			BookState bookState = new BookState();
 			bookState.setItemId("BookState_JY");
@@ -160,26 +169,24 @@ public class BorrowReturnAction extends BaseActionSupport {
 			User currUser = (User)this.session.get("currUser");
 			borrowReturn.setBorrowOperator(currUser.getUserName());
 
-			Book book = bookService.getBookById(borrowReturn.getBook()
-					.getBookId());
+			Book book = bookService.getBookById(borrowReturn.getBook().getBookId());
 			book.setQuantity(borrowReturn.getBook().getQuantity() + 1);
 			BookState bookState = new BookState();
 			bookState.setItemId("BookState_ZG");
 			book.setBookState(bookState);
 			this.bookService.addOrModifyBook(book);
 
-			Reader reader = readerService.findReaderById(borrowReturn
-					.getReader().getId());
+			Reader reader = readerService.findReaderById(borrowReturn.getReader().getId());
             if(reader.getBorrowedQuantiy()<=0){
             	reader.setBorrowedQuantiy(0);
             }else{
             	reader.setBorrowedQuantiy(reader.getBorrowedQuantiy() - 1);
             }
-            
+            reader.setRenewTimes(0);
 //			reader.setBorrowedQuantiy();
 			this.readerService.addOrModifyReader(reader);
-			// borrowReturn.setReader(reader);
-			// borrowReturn.setBook(book);
+//			borrowReturn.setReader(reader);
+//			borrowReturn.setBook(book);
 			borrowReturnService.addOrModifyBorrow(borrowReturn);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("归还成功");
@@ -219,12 +226,12 @@ public class BorrowReturnAction extends BaseActionSupport {
 			Reader reader = readerService.findReaderById(borrowReturn
 					.getReader().getId());
 
-			Date borrowedDate = borrowReturn.getBorrowedDate();
-			long maxBorrowedTime = (borrowedDate.getTime() / 1000) + 60 * 60
-					* 24 * (reader.getReaderType().getMaxBorrowDays());
-			Date reNewReturnDate = new Date();
-			reNewReturnDate.setTime(maxBorrowedTime * 1000 * 2);
-			borrowReturn.setDuetoReturnDate(reNewReturnDate);
+			Date currentDate = new Date(); // 借阅日期
+			Long maxBorrowedTime = (currentDate.getTime() / 1000) + 60 * 60 * 24 * 30;
+			Date duetoReturnDate = new Date();
+			duetoReturnDate.setTime(maxBorrowedTime * 1000);
+			borrowReturn.setDuetoReturnDate(duetoReturnDate); // 归还日期
+//			borrowReturn.setDuetoReturnDate(reNewReturnDate);
 
 			borrowReturn.setRenewTimes(borrowReturn.getRenewTimes() + 1);
 			borrowReturnService.addOrModifyBorrow(borrowReturn);

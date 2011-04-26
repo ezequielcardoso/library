@@ -357,7 +357,7 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 							location : '',
 							operator : '',
 							pressName : '',
-							price : '',
+							emailNo : '',
 							bookStateName : ''
 						});
 				this.stopEditing();
@@ -371,7 +371,7 @@ Library.magazineBorrow.grid.MagazineBorrowGridPanel = Ext.extend(
 				var maxBorrowedQuantity = Ext.get('reader.readerType.maxBorrowedQuantity').getValue();
 				var cardState= Ext.get('reader.cardState.itemName').getValue();
 				
-				if(cardState != '可用'){
+				if(cardState != '启用'){
 				  Ext.Msg.alert('提示','借阅证状态不可用,请联系管理员');
 				  return;
 				}

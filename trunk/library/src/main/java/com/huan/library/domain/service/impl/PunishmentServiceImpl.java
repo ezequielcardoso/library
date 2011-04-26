@@ -12,13 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.huan.library.domain.model.Punishment;
-import com.huan.library.domain.model.book.Press;
-import com.huan.library.domain.model.borrowReturn.BorrowReturn;
 import com.huan.library.domain.service.PunishmentService;
 import com.huan.library.infrastructure.persistence.PunishmentDao;
+import com.huan.library.util.DateFormatUtil;
 import com.huan.library.util.ExcelOperate;
 import com.huan.library.util.ExcelStyle;
-import com.huan.library.web.view.PressView;
 import com.huan.library.web.view.PunishmentView;
 
 /**
@@ -96,9 +94,10 @@ public class PunishmentServiceImpl implements PunishmentService {
 				ExcelOperate.addLabelToSheet(ws, 5, count, punishment
 						.getCharge().getItemName(), ExcelStyle
 						.getContentStyle());
-				ExcelOperate.addLabelToSheet(ws, 6, count,
-						punishment.getOperatorDate(),
-						ExcelStyle.getContentStyle());
+				
+				String operateDate = DateFormatUtil.format(punishment.getOperatorDate(), "yyyy-MM-dd");
+				ExcelOperate.addLabelToSheet(ws, 6, count, DateFormatUtil.convertToDate(operateDate), ExcelStyle.getDateStyle());
+//				ExcelOperate.addLabelToSheet(ws, 6, count,punishment.getOperatorDate(),ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 7, count,
 						punishment.getOperator(), ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 8, count,

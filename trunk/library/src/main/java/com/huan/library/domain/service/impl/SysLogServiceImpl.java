@@ -15,6 +15,7 @@ import com.huan.library.domain.model.SysLog;
 import com.huan.library.domain.model.book.Press;
 import com.huan.library.domain.service.SysLogService;
 import com.huan.library.infrastructure.persistence.SysLogDao;
+import com.huan.library.util.DateFormatUtil;
 import com.huan.library.util.ExcelOperate;
 import com.huan.library.util.ExcelStyle;
 import com.huan.library.web.view.SysLogView;
@@ -69,8 +70,8 @@ public class SysLogServiceImpl implements SysLogService {
 						sysLog.getFuncName(), ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 2, count,
 						sysLog.getOperator(), ExcelStyle.getContentStyle());
-				ExcelOperate.addLabelToSheet(ws, 3, count, sysLog.getOperateDate(),
-						ExcelStyle.getContentStyle());
+				String operateDate = DateFormatUtil.format(sysLog.getOperateDate(), "yyyy-MM-dd");
+				ExcelOperate.addLabelToSheet(ws, 3, count, DateFormatUtil.convertToDate(operateDate), ExcelStyle.getDateStyle());
 				ExcelOperate.addLabelToSheet(ws, 4, count, sysLog.getOperateIPAddress(),
 						ExcelStyle.getContentStyle());
 				ExcelOperate.addLabelToSheet(ws, 5, count, sysLog.getOperateDescription(),
