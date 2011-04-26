@@ -77,13 +77,13 @@ Library.reader.tree.ReaderUnitsTreePanel = Ext.extend(Library.tree.BaseTree, {
 			if (node) {
 				Ext.MessageBox.confirm('提示', '你确定要删除该部门及其所有下属部门吗？', function(btn, text) {
 					if (btn == 'yes') {
-						var unitId = node.attributes.id;
+						var id = node.attributes.id;
 						var thiz = this;
 						Ext.Ajax.request({
 							url : contextPath + '/units/remove.action',
 							method : 'POST',
 							params : {
-								'unitId' : unitId
+								'id' : id
 							},
 							success : function(resp) {
 								var respText = resp.responseText;

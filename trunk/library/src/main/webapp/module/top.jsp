@@ -11,7 +11,7 @@
 				<td>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td width="500" valign="top"  
+							<td width="500" valign="top"
 								background="<%=path%>/images/module/main_02.jpg">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
@@ -20,19 +20,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td height="21" style="padding-left: 42px" class="title">
-											<MARQUEE onmouseover=
-	Javascript:
-	;
-this.stop();
-onmouseout=
-	Javascript:
-	;
-this.start();
-scrollAmount=4 scrollDelay=40 width="100%"
-												height=13>
-												图书馆管理系统试用版
-											</MARQUEE>
+										<td height="21" style="padding-right: 42px" class="title">
 										</td>
 									</tr>
 								</table>
@@ -47,7 +35,7 @@ scrollAmount=4 scrollDelay=40 width="100%"
 						<tr>
 							<td width="508" height="27"
 								background="<%=path%>/images/module/title_01.jpg" align="right">
-								&nbsp;&nbsp;欢迎您：administrator&nbsp;&nbsp;
+								&nbsp;&nbsp;欢迎您：${currUser.userName}&nbsp;&nbsp;
 								<img src="<%=path%>/images/module/play.gif" width="16"
 									height="17" align="absmiddle">
 								&nbsp;
@@ -75,9 +63,9 @@ scrollAmount=4 scrollDelay=40 width="100%"
 							</td>
 							<td width="500" align="right"
 								background="<%=path%>/images/module/title_03.jpg">
-								<a href="main.htm" target="mainFrame"><img
+								<a href="<%=path%>/module/main.htm" target="mainFrame"><img
 										src="<%=path%>/images/module/home.gif" align="absmiddle">首页</a>&nbsp;
-								<a href="login.html" target="_parent"><img
+								<a href="<%=path%>/login.jsp" target="_parent"><img
 										src="<%=path%>/images/module/quit.jpg" align="absmiddle">退出系统&nbsp;&nbsp;</a>
 							</td>
 						</tr>

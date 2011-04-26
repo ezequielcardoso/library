@@ -22,7 +22,12 @@
 		<script type="text/javascript" src="<%=path %>/js/dictItem/CategoryCheckTree.js"></script>
 		<script type="text/javascript" src="<%=path %>/js/dictItem/PressCheckTree.js"></script>
         <script type="text/javascript" src="<%=path %>/js/book/MagazineOperation.js"></script>
-        
+         <!-- 文件上传 start -->
+  		<link rel="stylesheet" type="text/css"	href="<%=path%>/common/files/css/UploadPanel.css" />
+  		<script type="text/javascript" src="<%=path%>/common/files/swfu/swfupload.js"></script>
+  		<script type="text/javascript" src="<%=path%>/common/files/js/Files.UploadWindow.js"></script>
+  		<script type="text/javascript" src="<%=path%>/common/files/js/Files.SelectPanel.js"></script>
+  		<!-- 文件上传 end -->
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
@@ -355,7 +360,7 @@
 														电子文档：
 													</td>
 													<td height="30" align="left" bgcolor="#F4F5F9">
-														<input type="button" id="clickAttachmentBtn" style="width:60px; height:25px"  value="查 看">
+														<input type="button" onclick="upLoadAttach();" style="width:60px; height:25px"  value="查 看">
 													</td>
 													 <td align="right" nowrap bgcolor="#F4F5F9">
 														入库日期：
