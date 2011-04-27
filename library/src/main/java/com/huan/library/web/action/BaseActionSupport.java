@@ -136,7 +136,7 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
 			request.setAttribute("operateDescription", "上传附件 ,数量：" + filelist.size() + " 个 ");
 		} catch(Exception e){
 			e.printStackTrace();
-			return "failure";
+			return Action.ERROR;
 		}
 		return Action.SUCCESS;
     }

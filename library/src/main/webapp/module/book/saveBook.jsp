@@ -28,7 +28,8 @@
   		<script type="text/javascript" src="<%=path%>/common/files/js/Files.UploadWindow.js"></script>
   		<script type="text/javascript" src="<%=path%>/common/files/js/Files.SelectPanel.js"></script>
   		<!-- 文件上传 end -->
-        
+  		<script type="text/javascript" src="<%=path%>/common/files/js/Files.DownWindow.js"></script>
+        <!-- 文件查看 --> 
 	</head>
 	<body>
 		<table width="100%" height="100%" border="0" cellpadding="0"
