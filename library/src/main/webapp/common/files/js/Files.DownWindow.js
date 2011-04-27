@@ -73,7 +73,7 @@ Files.FileDownWindow = Ext.extend(Ext.Window,{
 				}];
 
 		var store = new Ext.data.JsonStore({
-//					url : contextPath + '/book/findBookById.action',
+					url : contextPath + '/book/findBookById.action',
 //					root : 'root',
 //					totalProperty : 'totalProperty',
 //					baseParams : {
@@ -86,20 +86,22 @@ Files.FileDownWindow = Ext.extend(Ext.Window,{
 						direction : 'ASC|DESC'
 					}
 				});			
-		
-	  Ext.apply(this,{
-	    title : '文件下载',
-	  	width : 650,
-	  	height : 400,
-//	  	modal:true,
-	  	items:[new Ext.grid.GridPanel({   
+	 var gridPanel = new Ext.grid.GridPanel({   
+           id : 'fileGridPanel',
            width : 650,
 	       height : 350,
            autoScroll: false,
            sm : sm,
 		   cm : cm,
 		   store : store
-		      })],
+		      })	
+				
+	  Ext.apply(this,{
+	    title : '文件下载',
+	  	width : 650,
+	  	height : 400,
+//	  	modal:true,
+	  	items:[gridPanel],
 		buttons:[
 		{
 		  xtype:'button',
@@ -113,6 +115,6 @@ Files.FileDownWindow = Ext.extend(Ext.Window,{
 		}]
 	 })
 	Files.FileDownWindow.superclass.initComponent.call(this);
-//	 this.str
+//    this.gridPanel.store.load();
 	}
 });

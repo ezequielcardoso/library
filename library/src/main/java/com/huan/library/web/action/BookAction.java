@@ -212,7 +212,7 @@ public class BookAction extends BaseActionSupport {
 			book = bookService.addOrModifyBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("保存成功！");
-			extJsonForm.setData(book);
+			extJsonForm.setData(null);
 			request.setAttribute("operateType", "保存");
 			request.setAttribute("funcName", "增加或者修改图书");
 			request.setAttribute("operateDescription", "增加或者修改了ID为：" + book.getBookId() + 
@@ -241,7 +241,7 @@ public class BookAction extends BaseActionSupport {
 			bookService.removeBook(book);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("删除成功！");
-			extJsonForm.setData(book);
+			extJsonForm.setData(null);
 			request.setAttribute("operateType", "删除");
 			request.setAttribute("funcName", "删除图书");
 			request.setAttribute("operateDescription", "删除图书的ID为：" + book.getBookId()+ " 图书");
