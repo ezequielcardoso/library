@@ -300,7 +300,7 @@ function upLoadAttach(){
 	dialog.show();
 }
 /**
- * 上传文件查看
+ * 查看附件
  */
 function listAttach(){
 	var bookId = Ext.get('book.bookId').dom.value;
@@ -309,10 +309,8 @@ function listAttach(){
 		return;
 	}
 	
-	var dialog = new Files.FileDownWindow({
-		postParams : {
-			'bookView.bookId' : bookId
-		}
+	var win = new Library.book.window.AttachListWindow({
+		bookId : bookId
 	});
-	dialog.show();
+	win.show();
 }
