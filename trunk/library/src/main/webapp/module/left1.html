@@ -1,0 +1,359 @@
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>图书馆管理系统</title>
+		
+<script language="JavaScript">
+	var contextPath = '/library';
+</script>
+<link href="/library/css/style.css" type="text/css" rel="stylesheet" />
+<link href="/library/css/library.css" type="text/css" rel="stylesheet" />
+
+
+<script language="JavaScript" src="/library/js/common/PageSize.js"></script>
+
+
+		<script language="javascript"> 
+
+function LMYC(number) { 
+	var lbmc; 
+	var treePic; 
+	for (i=0;i<number;i++) { 
+		alert(i);
+		lbmc = eval('LM' + i); 
+		var imageName='treePic'+ i; 
+		var tName='tPic'+ i; 
+		document.getElementById(tName).src="/library/images/module/t02.jpg";
+		lbmc.style.display = 'none'; 
+		document.getElementById(imageName).style.height='50px';
+	} 
+} 
+
+function ShowFLT(i, number) { 
+	var lbmc = eval('LM' + i); 
+	var imageName='treePic'+ i;
+	var tName='tPic'+ i; 
+    if (lbmc.style.display == 'none') { 
+		LMYC(number); 
+		lbmc.style.display = ''; 
+		document.getElementById(tName).src="/library/images/module/t01.jpg";
+			document.getElementById(imageName).style.height = '';
+		}
+	}
+ 
+</script>
+	</head>
+	<body>
+		<table width="138" height="100%" border="0" cellpadding="0"
+			cellspacing="0">
+				<tr>
+					<td height="5">
+						<img src="/library/images/module/main_05.jpg" width="138"
+							height="5">
+					</td>
+				</tr>
+				<!-- 外层迭代开始 -->
+				
+					<tr>
+						<td height="29" background="/library/images/module/main_08.jpg">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td class="title" style="padding-left: 23px">
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(0,3-1)"><strong>书刊管理</strong>
+										</a>
+									</td>
+									<td width="32" align="right">
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(0,3-1)">
+											<img src="/library/images/module/t01.jpg" id="tPic0"
+												width="32" height="29"> </a>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr id="LM0">
+						<td valign="top" id="treePic0">
+							<table width="100%" height="100%" border="0" align="center"
+								cellpadding="0" cellspacing="0"
+								background="/library/images/module/main_12.jpg">
+								<tr>
+									<td height="8">
+										<img src="/library/images/module/main_09.jpg" width="138"
+											height="8">
+									</td>
+								</tr>
+								<!-- 内层迭代开始 -->
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/book/bookList.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">图书管理 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/book/magazineList.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">期刊管理 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/book/storeStatistics.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">入库统计 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/book/pressList.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">出版社管理 </a>
+									</td>
+								</tr>
+								
+								<!-- 内层迭代结束 -->
+								<tr>
+									<td>
+										&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td height="17">
+										<img src="/library/images/module/main_15.jpg">
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				
+					<tr>
+						<td height="29" background="/library/images/module/main_08.jpg">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td class="title" style="padding-left: 23px">
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(1,3-1)"><strong>借阅归还</strong>
+										</a>
+									</td>
+									<td width="32" align="right">
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(1,3-1)">
+											<img src="/library/images/module/t01.jpg" id="tPic1"
+												width="32" height="29"> </a>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr id="LM1">
+						<td valign="top" id="treePic1">
+							<table width="100%" height="100%" border="0" align="center"
+								cellpadding="0" cellspacing="0"
+								background="/library/images/module/main_12.jpg">
+								<tr>
+									<td height="8">
+										<img src="/library/images/module/main_09.jpg" width="138"
+											height="8">
+									</td>
+								</tr>
+								<!-- 内层迭代开始 -->
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/borrowReturn/bookBorrow.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">图书借阅登记 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/borrowReturn/magazineBorrow.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">期刊借阅登记 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/borrowReturn/bookReturn.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">图书归还 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/borrowReturn/magazineReturn.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">期刊归还 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/borrowReturn/bookPreOrdering.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">图书预约登记 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/borrowReturn/magazinePreOrdering.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">期刊预约登记 </a>
+									</td>
+								</tr>
+								
+								<!-- 内层迭代结束 -->
+								<tr>
+									<td>
+										&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td height="17">
+										<img src="/library/images/module/main_15.jpg">
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				
+					<tr>
+						<td height="29" background="/library/images/module/main_08.jpg">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td class="title" style="padding-left: 23px">
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(2,3-1)"><strong>查询统计</strong>
+										</a>
+									</td>
+									<td width="32" align="right">
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(2,3-1)">
+											<img src="/library/images/module/t01.jpg" id="tPic2"
+												width="32" height="29"> </a>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr id="LM2">
+						<td valign="top" id="treePic2">
+							<table width="100%" height="100%" border="0" align="center"
+								cellpadding="0" cellspacing="0"
+								background="/library/images/module/main_12.jpg">
+								<tr>
+									<td height="8">
+										<img src="/library/images/module/main_09.jpg" width="138"
+											height="8">
+									</td>
+								</tr>
+								<!-- 内层迭代开始 -->
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/query/bookBorrowed.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">图书借阅查询 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/query/magazineBorrowed.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">期刊借阅查询 </a>
+									</td>
+								</tr>
+								
+								<tr>
+									<td height="26"
+										background="/library/images/module/main_11.jpg"
+										class="menu"
+										onMouseOver="this.style.background='url(/library/images/module/main_10.jpg)'"
+										onMouseOut="this.style.background='url(/library/images/module/main_11.jpg)'">
+										<a href="/library/module/query/borrowed.jsp"
+											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
+												src="/library/images/module/0.gif">借阅统计 </a>
+									</td>
+								</tr>
+								
+								<!-- 内层迭代结束 -->
+								<tr>
+									<td>
+										&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td height="17">
+										<img src="/library/images/module/main_15.jpg">
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				
+				<!-- 外层迭代结束 -->
+			
+			<tr>
+				<td height="5">
+					<img src="/library/images/module/leftbottom.jpg">
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
+       ⳇ妍ï耀ǖ          ⳉ妍߯耀ǘ /i    s/deⳋ妍ï耀ǚ ed    /tb-ⳍ妍ï耀ǜ .g嫸妊ï耀Ǧ߾ ⳏ妍߯耀Ǟ ߾         ⲱ妍懯耀Ǣ 汵⽥    畴湲洯条ⲳ妍䋯耀Ǧ 獪p    ᅀׁ  ⲵ妍ï耀Ǡ /i    s/deⲷ妍ï耀Ǫ ed    /tb-媍妊ï耀Ǳ .g        ⲻ妍ï耀Ǭ ߾         ⲽ妍ï耀Ǩ           ⲿ妍ï耀ǰ           ⲡ妍ï耀Ǵ /i    s/deⲣ妍ï耀Ǯ ed媖妊ï耀￿tb-ⲥ妍ï耀Ǻ .g        ⲧ妍

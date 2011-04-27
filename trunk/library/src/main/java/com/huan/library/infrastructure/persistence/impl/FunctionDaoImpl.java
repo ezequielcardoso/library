@@ -76,7 +76,7 @@ public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 			
 			final List<Integer> roleIdList = roleIds;
 			StringBuilder hql = new StringBuilder();
-			hql.append(" from Function f left join f.roles roles ");
+			hql.append(" from Function f left join fetch f.roles roles ");
 			hql.append(" where f.level>0 and f.level<=2 and f.funcActive=(:funcActive) and roles.roleId in (:roleIds)"
 					+ " order by f.funcOrder ");
 			final String hqlIn = hql.toString();
