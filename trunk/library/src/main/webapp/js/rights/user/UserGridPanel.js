@@ -66,7 +66,8 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				},
 				scope : this
 			}, '-', {
-				text : '全部',
+				text : '刷新',
+				iconCls : 'library-refresh',
 				handler : function() {
 					this.getStore().baseParams = {};
 					this.getStore().load({
@@ -172,7 +173,7 @@ Library.rights.grid.UserGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 		]);
 		
 		Ext.apply(this, {
-			width : 550,
+			width : 600,
 			height : 500,
 			autoScroll : true,
 			tbar : tbar,

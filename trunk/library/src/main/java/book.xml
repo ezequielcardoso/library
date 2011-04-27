@@ -80,8 +80,8 @@
       
       <interceptors>
 			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
-		</interceptors> 
-      
+	  </interceptors> 
+		
       <action name="pressMain" class="com.huan.library.web.action.PressAction" method="pressMain">
 		   <result name="success">/module/book/press/pressList.jsp</result>
 		</action>

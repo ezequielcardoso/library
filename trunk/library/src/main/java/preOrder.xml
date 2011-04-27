@@ -11,7 +11,7 @@
     <!-- 读者预约 -->    
    <package name="preOrder" namespace="/preOrder" extends="library">
    
-      
+       
        <action name="save" class="com.huan.library.web.action.PreOrderAction" method="save">
           <result name="success" type="json">
             <param name="root">extJsonForm</param>

@@ -113,6 +113,7 @@
 			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
 		</interceptors> 
        
+       
        <action name="readerTypeMain" class="com.huan.library.web.action.ReaderTypeAction" method="readerTypeMain">
 		    <result name="success">/module/reader/readerCategory.jsp</result>
 		</action>
