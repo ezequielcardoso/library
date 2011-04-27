@@ -274,8 +274,10 @@ function checkPress() {
 			});
 	checkWin.show();
 }
-
-function upLoadAttach( ){
+/**
+ * 文件上传
+ */
+function upLoadAttach(){
 	var bookId = Ext.get('book.bookId').dom.value;
 	if(bookId==""){
 		Library.Util.warn("请先添加图书");
@@ -293,6 +295,23 @@ function upLoadAttach( ){
 		listeners : {
 			'allfileoid': function(allfileoid){
 			}
+		}
+	});
+	dialog.show();
+}
+/**
+ * 上传文件查看
+ */
+function listAttach(){
+	var bookId = Ext.get('book.bookId').dom.value;
+	if(bookId==""){
+		Library.Util.warn("请先添加图书");
+		return;
+	}
+	
+	var dialog = new Files.FileDownWindow({
+		postParams : {
+			bookId : bookId
 		}
 	});
 	dialog.show();
