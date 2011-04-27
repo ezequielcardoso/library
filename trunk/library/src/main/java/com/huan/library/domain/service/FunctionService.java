@@ -3,6 +3,7 @@ package com.huan.library.domain.service;
 import java.util.List;
 
 import com.huan.library.domain.model.rights.Function;
+import com.huan.library.domain.model.rights.Role;
 import com.huan.library.web.view.FunctionView;
 
 /**
@@ -44,7 +45,7 @@ public interface FunctionService {
 	 * 查找模块菜单的Function
 	 * @return
 	 */
-	public List<Function> findModules() ;
+	public List<Function> findModules(List<Role> roles) ;
 
 	public List<Function> findFunctions(FunctionView functionView);
 
