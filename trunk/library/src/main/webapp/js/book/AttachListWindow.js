@@ -98,7 +98,7 @@ Library.book.window.AttachListWindow = Ext.extend(Ext.Window, {
 		
 		this.grid.on('rowdblclick', function(){
 			var record = this.getSelectionModel().getSelected();
-			window.open(contextPath + "/attach/downLoadAttach.action?attachView.attachmentId=" + encodeURIComponent(record.get('attachmentId')));
+			window.open(contextPath + "/file/downloadFile.action?fileName=" + encodeURIComponent(record.get('attachmentSavePath')));
 		}, this.grid);
 		
 		this.grid.getStore().baseParams = {
