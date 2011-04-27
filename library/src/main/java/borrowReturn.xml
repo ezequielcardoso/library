@@ -7,6 +7,9 @@
      <!-- book borrow -->
     <package name="borrowReturn" namespace="/borrowReturn" extends="library">
        
+       <global-results>
+    	   <result name="error">/module/error.jsp</result>
+    	</global-results>
        
        <!-- 借阅 -->
        <action name="bookBorrowMain" class="com.huan.library.web.action.BorrowReturnAction" method="bookBorrowMain">
@@ -67,6 +70,7 @@
     
     <!-- 预约 -->
     <package name="preOreder" namespace="/preOreder" extends="library">
+      
       
       <action name="bookPreOrderMain" class="com.huan.library.web.action.PreOrderAction" method="bookPreOrderMain">
          <result name="success">/module/borrowReturn/bookOrder.jsp</result>

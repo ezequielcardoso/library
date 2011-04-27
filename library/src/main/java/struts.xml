@@ -29,6 +29,10 @@
 	
     <package name="library" namespace="/" extends="json-default">
 		
+		<global-results>
+    	   <result name="error">/module/error.jsp</result>
+    	</global-results>
+		
 		<action name="loginVerify" class="com.huan.library.web.action.UserAction" method="loginVerify">
 			<result name="success" type="json">
 				<param name="root">extJsonForm</param>

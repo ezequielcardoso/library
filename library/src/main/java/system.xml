@@ -50,6 +50,10 @@
     <!-- 罚款 --> 
    <package name="punishment" namespace="/punishment" extends="library">
      
+       <interceptors>
+			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
+		</interceptors> 
+     
      <action name="readerAccountMain" class="com.huan.library.web.action.PunishmentAction" method="readerAccountMain">
         <result name="success">/module/system/chargeManager.jsp</result>
      </action>
@@ -64,6 +68,8 @@
         <result name="success" type="json">
           <param name="root">extJsonForm</param>
         </result>
+        <interceptor-ref name="defaultStack"/>
+        <interceptor-ref name="sysLogInterceptor"/>
      </action>
 
      
