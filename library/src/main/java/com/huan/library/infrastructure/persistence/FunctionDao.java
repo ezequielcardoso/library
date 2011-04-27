@@ -2,6 +2,8 @@ package com.huan.library.infrastructure.persistence;
 import java.util.List;
 
 import com.huan.library.domain.model.rights.Function;
+import com.huan.library.domain.model.rights.Role;
+import com.huan.library.domain.model.rights.User;
 import com.huan.library.web.view.FunctionView;
 
 /**
@@ -29,7 +31,7 @@ public interface FunctionDao extends BaseDao<Function>{
 	 * 查找leve为1和2的所有功能
 	 * @return
 	 */
-	public List<Function> selectModules() ;
+	public List<Function> selectModules(List<Role> roles) ;
 
 	public List<Function> selectFunctions(FunctionView functionView);
 

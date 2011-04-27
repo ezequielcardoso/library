@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.huan.library.domain.model.rights.Function;
+import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.FunctionService;
 import com.huan.library.web.view.FunctionTreeNode;
 import com.huan.library.web.view.FunctionView;
@@ -74,7 +75,8 @@ public class FunctionAction extends BaseActionSupport {
 	 */
 	public String findModules() {
 		try {
-			modules = functionService.findModules();
+			User currUser = (User)request.getSession().getAttribute("currUser");
+			modules = functionService.findModules(currUser.getRoles());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Action.ERROR;

@@ -13,6 +13,8 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.stereotype.Repository;
 
 import com.huan.library.domain.model.rights.Function;
+import com.huan.library.domain.model.rights.Role;
+import com.huan.library.domain.model.rights.User;
 import com.huan.library.infrastructure.persistence.FunctionDao;
 import com.huan.library.web.view.FunctionView;
 
@@ -64,28 +66,33 @@ public class FunctionDaoImpl extends BaseDaoImpl<Function> implements
 
 	}
 
-	public List<Function> selectModules() {
-		List<Function> funcs = new ArrayList<Function>();
-
-		StringBuilder hql = new StringBuilder();
-		hql.append(" select new Function( f.funcId, f.funcName, f.funcActive, f.funcOrder, f.level, "
-				+ "f.resCmpId, f.resCmpText, f.resCmpIconCls, f.resCmpHandURL, p.funcId) ");
-		hql.append(" from Function f " + " left join f.parent p ");
-		hql.append(" where f.level>0 and f.level<=2 "
-				+ " order by f.funcOrder ");
-		final String hqlIn = hql.toString();
-		HibernateCallback callback = new HibernateCallback() {
-
-			public Object doInHibernate(Session session)
-					throws HibernateException, SQLException {
-				Query query = session.createQuery(hqlIn);
-				return query.list();
+	public List<Function> selectModules(final List<Role> roles) {
+		List<Function> functions = new ArrayList<Function>();
+		List<Integer> roleIds = new ArrayList<Integer>();
+		if(roles.size()>0){
+			for(Role role : roles){
+				roleIds.add(role.getRoleId());
 			}
+			
+			final List<Integer> roleIdList = roleIds;
+			StringBuilder hql = new StringBuilder();
+			hql.append(" from Function f left join f.roles roles ");
+			hql.append(" where f.level>0 and f.level<=2 and f.funcActive=(:funcActive) and roles.roleId in (:roleIds)"
+					+ " order by f.funcOrder ");
+			final String hqlIn = hql.toString();
+			functions = getHibernateTemplate().executeFind(new HibernateCallback() {
 
-		};
-		funcs = (List<Function>) getHibernateTemplate().executeFind(callback);
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					Query query = session.createQuery(hqlIn);
+					query.setBoolean("funcActive", true);
+					query.setParameterList("roleIds", roleIdList);
+					return query.list();
+				}
 
-		return funcs;
+			});
+		}
+		return functions;
 	}
 
 	public List<Function> selectFunctions(FunctionView functionView) {

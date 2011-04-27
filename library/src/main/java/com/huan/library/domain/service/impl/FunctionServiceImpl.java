@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.huan.library.domain.model.rights.Function;
+import com.huan.library.domain.model.rights.Role;
+import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.FunctionService;
 import com.huan.library.infrastructure.persistence.FunctionDao;
 import com.huan.library.web.view.FunctionView;
@@ -38,10 +40,10 @@ public class FunctionServiceImpl implements FunctionService {
 		this.functionDao.delete(func);
 	}
 
-	public List<Function> findModules()  {
+	public List<Function> findModules(List<Role> roles)  {
 		List<Function> funcs = new ArrayList<Function>();
 		try {
-			List<Function> functions = functionDao.selectModules();
+			List<Function> functions = functionDao.selectModules(roles);
 			for(Function func : functions){
 				if(func.getLevel()==1){
 					funcs.add(func);
