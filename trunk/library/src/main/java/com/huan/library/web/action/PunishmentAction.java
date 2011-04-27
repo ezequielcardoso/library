@@ -108,7 +108,7 @@ public class PunishmentAction extends BaseActionSupport {
 			punishment = punishmentService.addOrModifyPunlishment(punishment);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("罚款成功");
-			extJsonForm.setData(punishment);
+			extJsonForm.setData(null);
 			request.setAttribute("operateType", "罚款");
 			request.setAttribute("funcName", "图书丢失或是破坏罚款");
 			request.setAttribute("operateDescription", "罚款的读者ID为：：" + reader.getId()+"读者姓名为："+reader.getReaderName()+
@@ -136,7 +136,7 @@ public class PunishmentAction extends BaseActionSupport {
    	    	extJsonForm.setSuccess(true);
    	    	extJsonForm.setMsg("导出成功");
 		} catch (Exception e) {
-			extJsonForm.setData("");
+			extJsonForm.setData(null);
    	    	extJsonForm.setSuccess(false);
    	    	extJsonForm.setMsg("导出失败");
 			return Action.ERROR;

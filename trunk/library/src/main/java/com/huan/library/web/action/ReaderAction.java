@@ -147,7 +147,8 @@ public class ReaderAction extends BaseActionSupport {
 	 */
 	public String cardLost(){
 		try {
-			Reader reader = readerService.findReaderByBarCode(readerView.getBarCode());
+			reader = readerService.findReaderByBarCode(readerView.getBarCode());
+			
 			
 			CardState cardState = new CardState();
 			cardState.setItemId(readerView.getCardStateId());
@@ -155,7 +156,7 @@ public class ReaderAction extends BaseActionSupport {
 			
 			reader = readerService.addOrModifyReader(reader);
 			extJsonForm.setSuccess(true);
-			extJsonForm.setData(reader);
+			extJsonForm.setData(null);
 			extJsonForm.setMsg("挂失成功");
 			request.setAttribute("operateType", "挂失");
 			request.setAttribute("funcName", "挂失或是解除挂失");

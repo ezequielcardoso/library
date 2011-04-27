@@ -311,7 +311,7 @@ function listAttach(){
 	
 	var dialog = new Files.FileDownWindow({
 		postParams : {
-			bookId : bookId
+			'bookView.bookId' : bookId
 		}
 	});
 	dialog.show();

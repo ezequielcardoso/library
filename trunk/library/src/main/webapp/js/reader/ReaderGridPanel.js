@@ -564,7 +564,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 				success : function(resp) {
 					var obj = Ext.util.JSON.decode(resp.responseText);
 					if (obj.success == true) {
-						Ext.Msg.alert('提示', obj.msg);
+//						Ext.Msg.alert('提示', obj.msg);
 						e.record.set("id", obj.data.id);
 						e.record.commit();
 					} else if (obj.success == false) {
