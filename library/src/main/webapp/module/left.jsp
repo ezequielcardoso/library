@@ -11,7 +11,6 @@ function LMYC(number) {
 	var lbmc; 
 	var treePic; 
 	for (i=0;i<number;i++) { 
-		alert(i);
 		lbmc = eval('LM' + i); 
 		var imageName='treePic'+ i; 
 		var tName='tPic'+ i; 
@@ -25,9 +24,7 @@ function ShowFLT(i, number) {
 	var lbmc = eval('LM' + i); 
 	var imageName='treePic'+ i;
 	var tName='tPic'+ i; 
-	alert("22222222222222222222222222");
     if (lbmc.style.display == 'none') { 
-    	alert("111111111111111111");
 		LMYC(number); 
 		lbmc.style.display = ''; 
 		document.getElementById(tName).src="<%=path %>/images/module/t01.jpg";
@@ -47,17 +44,17 @@ function ShowFLT(i, number) {
 					</td>
 				</tr>
 				<!-- 外层迭代开始 -->
-				<s:iterator value="#request.moduleFunctions" id="parent" status="status" >
+				<s:iterator value="#request.modules" id="parent" status="status" >
 					<tr>
 						<td height="29" background="<%=path%>/images/module/main_08.jpg">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td class="title" style="padding-left: 23px">
-										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,<s:property value="#request.moduleFunctions.size()"/>-1)"><strong><s:property value="resCmpText"/></strong>
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,<s:property value="#request.modules.size()"/>-1)"><strong><s:property value="resCmpText"/></strong>
 										</a>
 									</td>
 									<td width="32" align="right">
-										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,<s:property value="#request.moduleFunctions.size()"/>-1)">
+										<a href="javascript:void(0)" onClick="javascript:ShowFLT(<s:property value="#status.index"/>,<s:property value="#request.modules.size()"/>-1)">
 											<img src="<%=path%>/images/module/t01.jpg" id="tPic<s:property value="#status.index"/>"
 												width="32" height="29"> </a>
 									</td>
@@ -65,7 +62,7 @@ function ShowFLT(i, number) {
 							</table>
 						</td>
 					</tr>
-					<tr id="LM<s:property value="#status.index"/>">
+					<tr id="LM<s:property value="#status.index"/>" style="DISPLAY: none">
 						<td valign="top" id="treePic<s:property value="#status.index"/>">
 							<table width="100%" height="100%" border="0" align="center"
 								cellpadding="0" cellspacing="0"
@@ -114,4 +111,7 @@ function ShowFLT(i, number) {
 			</tr>
 		</table>
 	</body>
+	<script type="text/javascript">
+		ShowFLT(0,0);
+	</script>
 </html>
