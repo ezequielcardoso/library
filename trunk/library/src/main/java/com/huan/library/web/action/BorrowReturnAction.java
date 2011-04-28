@@ -82,6 +82,22 @@ public class BorrowReturnAction extends BaseActionSupport {
 	public String magazineReturnMain() {
 		return Action.SUCCESS;
 	}
+	
+	  /**
+     * 期刊归还界面bookBorrowed
+     * @return
+     */
+	public String bookBorrowedStaticMain() {
+		return Action.SUCCESS;
+	}
+	
+	/**
+     * 期刊归还界面bookBorrowed
+     * @return
+     */
+	public String magazineBorrowedStaticMain() {
+		return Action.SUCCESS;
+	}
     
 	public String findBorrowReturns(){
 		try {

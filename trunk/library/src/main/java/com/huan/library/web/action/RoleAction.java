@@ -57,6 +57,10 @@ public class RoleAction extends BaseActionSupport {
 	private Integer start;
 	private Integer limit;
 	
+	public String roleMain(){
+		return Action.SUCCESS;
+	}
+	
 	/**
 	 * 保存角色
 	 * @return

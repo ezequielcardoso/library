@@ -38,6 +38,10 @@ public class UserAction extends BaseActionSupport {
 	private Integer start;
 	private Integer limit;
 	
+	public String userMain(){
+		return Action.SUCCESS;
+	}
+	
 	public String loginVerify(){
 		logger.info("目前登录的用户为:" + user);
 		LoginState loginState = null;

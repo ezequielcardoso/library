@@ -11,7 +11,7 @@
 			<interceptor name="sysLogInterceptor" class="com.huan.library.application.interceptor.SysLogInterceptor" />  
 		</interceptors> 
 		
-		<!-- 读者维护 -->
+		<!-- 读者维护  -->
 		<action name="readerMain" class="com.huan.library.web.action.ReaderAction" method="readerMain">
 		    <result name="success">/module/reader/readerList.jsp</result>
 		</action>
@@ -47,7 +47,12 @@
 		    <interceptor-ref name="defaultStack"/>
         	<interceptor-ref name="sysLogInterceptor"/>
 		</action>
+		
 		<!-- 借阅证挂失 -->
+		<action name="cardLostMain" class="com.huan.library.web.action.ReaderAction" method="cardLostMain">
+		    <result name="success">/module/system/cardLost.jsp</result>
+		</action>
+		
 		<action name="cardLost" class="com.huan.library.web.action.ReaderAction" method="cardLost">
 		    <result name="success" type="json">
 		       <param name="root">extJsonForm</param>
@@ -68,6 +73,19 @@
 		    </result>
 		</action>
 		
+		<!-- 读者借阅记录统计 -->
+		<action name="readerStatic" class="com.huan.library.web.action.ReaderAction" method="readerStatic">
+		   <result name="success">/module/statistics/readerBorrowed.jsp</result>
+		</action>
+		
+		<action name="readerStaticCharts" class="com.huan.library.web.action.ReaderAction" method="readerStaticCharts">
+		   <result name="success">/module/statistics/readerCharts.jsp</result>
+		</action>
+		
+		<!-- 读者账单 -->
+		<action name="readerAccount" class="com.huan.library.web.action.ReaderAction" method="readerAccount">
+		   <result name="success">/module/reader/readerAccount.jsp</result>
+		</action>
     </package>
     
     <!-- readerunits -->
