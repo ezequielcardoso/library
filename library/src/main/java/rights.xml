@@ -7,6 +7,12 @@
 
 	<!--  function  -->
     <package name="function" namespace="/function" extends="library">
+		
+		<action name="functionMain" class="com.huan.library.web.action.FunctionAction" method="functionMain">
+			<result name="success">/module/rights/function.jsp</result>
+		</action>
+		
+		
 		<action name="findModules" class="com.huan.library.web.action.FunctionAction" method="findModules">
 			<result name="success">/module/left.jsp</result>
 			<result name="error">/login.jsp</result>
@@ -41,6 +47,7 @@
     
     <!-- dept -->
     <package name="dept" namespace="/dept" extends="library">
+		
 		<action name="save" class="com.huan.library.web.action.DepartmentAction" method="save">
 			<result name="success" type="json">
 				<param name="root">extJsonForm</param>
@@ -70,6 +77,10 @@
     <!-- user -->
     <package name="user" namespace="/user" extends="library">
     
+        <action name="userMain" class="com.huan.library.web.action.UserAction" method="userMain">
+			<result name="success">/module/rights/user.jsp</result>
+		</action>
+    
     	<action name="save" class="com.huan.library.web.action.UserAction" method="save">
 			<result name="success" type="json">
 				<param name="root">extJsonForm</param>
@@ -92,6 +103,10 @@
     
     <!-- dict -->
     <package name="dict" namespace="/dict" extends="library">
+    
+        <action name="dictItemMain" class="com.huan.library.web.action.DictItemAction" method="dictItemMain">
+			<result name="success">/module/rights/dict.jsp</result>
+		</action>
     
     	<action name="save" class="com.huan.library.web.action.DictItemAction" method="save">
 			<result name="success" type="json">
@@ -126,7 +141,11 @@
     
     <!-- role -->
     <package name="role" namespace="/role" extends="library">
-    
+        
+        <action name="roleMain" class="com.huan.library.web.action.RoleAction" method="roleMain">
+			<result name="success">/module/rights/role.jsp</result>
+		</action>
+            
 		<action name="findRoles" class="com.huan.library.web.action.RoleAction" method="findRoles">
 			<result name="success" type="json">
 				<param name="root">extGridLoad</param>

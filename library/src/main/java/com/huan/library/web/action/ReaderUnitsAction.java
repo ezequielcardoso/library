@@ -81,7 +81,7 @@ public class ReaderUnitsAction extends BaseActionSupport {
 			unit = readerUnitsService.save(unit);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("保存成功！");
-			extJsonForm.setData(unit);
+			extJsonForm.setData(null);
 			request.setAttribute("operateType", "保存");
 			request.setAttribute("funcName", "增加或者修改读者单位");
 			request.setAttribute("operateDescription", "增加或者修改了ID为：" + unit.getUnitId() + 
@@ -106,7 +106,7 @@ public class ReaderUnitsAction extends BaseActionSupport {
 			readerUnitsService.remove(unit);
 		    extJsonForm.setSuccess(true);
 		    extJsonForm.setMsg("删除成功！");
-		    extJsonForm.setData(unit);
+		    extJsonForm.setData(null);
 		    request.setAttribute("operateType", "删除");
 			request.setAttribute("funcName", "删除读者单位");
 			request.setAttribute("operateDescription", "删除读者单位的ID为：" + unit.getUnitId());

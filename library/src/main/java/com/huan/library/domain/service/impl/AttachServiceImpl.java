@@ -1,5 +1,7 @@
 package com.huan.library.domain.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,10 @@ public class AttachServiceImpl implements AttachService {
 
 	public Attachment save(Attachment attach) {
 		return attachDao.saveOrUpdate(attach);
+	}
+
+	public List<Attachment> findByBookId(Long bookId) {
+		return attachDao.getAttachmentsByBookId(bookId);
 	}
 
 }

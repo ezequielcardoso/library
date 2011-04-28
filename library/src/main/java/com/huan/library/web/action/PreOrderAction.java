@@ -50,6 +50,14 @@ public class PreOrderAction extends BaseActionSupport {
 	public String bookPreOrderMain(){
 		return Action.SUCCESS;
 	}
+	
+	/**
+	 * 期刊预约主页面
+	 * @return
+	 */
+	public String magazinePreOrderMain(){
+		return Action.SUCCESS;
+	}
   
 	public String findPreOrders(){
 		try {

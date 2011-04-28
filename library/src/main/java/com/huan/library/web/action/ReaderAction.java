@@ -96,14 +96,37 @@ public class ReaderAction extends BaseActionSupport {
 	}
 	
 	/**
-	 * 显示增加读者
-	 * 
+	 * 读者统计
 	 * @return
 	 */
-	public String showSaveReader() {
-		return "showSaveReader";
+	public String readerStaticMain() {
+		return Action.SUCCESS;
+	}
+	
+	/**
+	 * 读者统计柱状图
+	 * @return
+	 */
+	public String readerStaticChartsMain() {
+		return Action.SUCCESS;
 	}
 
+	/**
+	 * 读者账单
+	 * @return
+	 */
+	public String readerAccountMain() {
+		return Action.SUCCESS;
+	}
+
+	/**
+	 * 借阅证挂失
+	 * @return
+	 */
+	public String cardLostMain() {
+		return Action.SUCCESS;
+	}
+	
 	/**
 	 * 增加读者
 	 * @return
@@ -125,7 +148,7 @@ public class ReaderAction extends BaseActionSupport {
 			}
 			reader = readerService.addOrModifyReader(reader);
 			extJsonForm.setSuccess(true);
-			extJsonForm.setData(reader);
+			extJsonForm.setData(null);
 			extJsonForm.setMsg("保存成功");
 			request.setAttribute("operateType", "保存");
 			request.setAttribute("funcName", "增加或者修改读者");
@@ -212,7 +235,7 @@ public class ReaderAction extends BaseActionSupport {
 			readerService.removeReader(reader);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("删除成功");
-			extJsonForm.setData(reader);
+			extJsonForm.setData(null);
 			request.setAttribute("operateType", "删除");
 			request.setAttribute("funcName", "删除读者");
 			request.setAttribute("operateDescription", "删除读者的ID为：" + reader.getId()+ " 读者");

@@ -81,7 +81,7 @@ function ShowFLT(i, number) {
 										class="menu"
 										onMouseOver="this.style.background='url(<%=path%>/images/module/main_10.jpg)'"
 										onMouseOut="this.style.background='url(<%=path%>/images/module/main_11.jpg)'">
-										<a href="<%=path%>/module/<s:property value="resCmpHandURL"/>"
+										<a href="<%=path%>/<s:property value="resCmpHandURL"/>"
 											target="mainFrame">&nbsp;&nbsp;&nbsp; <img
 												src="<%=path%>/images/module/0.gif"><s:property value="resCmpText"/> </a>
 									</td>

@@ -69,7 +69,7 @@ public class ReaderTypeAction extends BaseActionSupport {
 			readerType = readerTypeService.addOrModifyReaderType(readerType);
 			extJsonForm.setMsg("保存成功！");
 			extJsonForm.setSuccess(true);
-			extJsonForm.setData(readerType);
+			extJsonForm.setData(null);
 			request.setAttribute("operateType", "保存");
 			request.setAttribute("funcName", "增加或者修改读者类型");
 			request.setAttribute("operateDescription", "增加或者修改了ID为：" + readerType.getId() + 
@@ -94,7 +94,7 @@ public class ReaderTypeAction extends BaseActionSupport {
 			readerType = readerTypeService.findReaderTypeById(readerTypeView.getId());
 			readerTypeService.removeReaderType(readerType);
 			extJsonForm.setMsg("删除成功！");
-			extJsonForm.setData(readerType);
+			extJsonForm.setData(null);
 			extJsonForm.setSuccess(true);
 			request.setAttribute("operateType", "删除");
 			request.setAttribute("funcName", "删除读者类型");

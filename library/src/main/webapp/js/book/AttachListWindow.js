@@ -36,8 +36,8 @@ Library.book.window.AttachListWindow = Ext.extend(Ext.Window, {
 				width : 100,
 				sortable : true,
 				align : 'center',
-				xtype : 'datecolumn',
-				format : 'Y-m-d',
+			    xtype : 'datecolumn',
+                format: 'Y-m-d',
 				dataIndex : 'attachmentUploadDate'
 			}, {
 				header : '上传人',
@@ -48,6 +48,8 @@ Library.book.window.AttachListWindow = Ext.extend(Ext.Window, {
 			} ]),
 			store : new Ext.data.JsonStore({
 				url : contextPath + '/attach/findByBookId.action',
+//				totalProperty : 'totalProperty',
+			    root : 'root',
 				fields : [ {
 					name : 'attachmentId',
 					type : 'int'
@@ -98,6 +100,8 @@ Library.book.window.AttachListWindow = Ext.extend(Ext.Window, {
 		
 		this.grid.on('rowdblclick', function(){
 			var record = this.getSelectionModel().getSelected();
+			
+			
 			window.open(contextPath + "/file/downloadFile.action?fileName=" + encodeURIComponent(record.get('attachmentSavePath')));
 		}, this.grid);
 		

@@ -121,6 +121,15 @@
 	    </action>
 		
     </package>
+    <!-- 附件 -->
+    <package name="attach" namespace="/attach" extends="library">
+       <action name="findByBookId" class="com.huan.library.web.action.AttachAction" method="findByBookId">
+         <result name="success" type="json">
+           <param name="root">extGridLoad</param>
+         </result>
+       </action>
+    </package>
+    
 </struts>
 
 

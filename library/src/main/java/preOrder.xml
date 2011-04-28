@@ -8,16 +8,24 @@
     <package name="" namespace="" extends="">
     
     </package>
-    <!-- 读者预约 -->    
-   <package name="preOrder" namespace="/preOrder" extends="library">
-   
-       
-       <action name="save" class="com.huan.library.web.action.PreOrderAction" method="save">
-          <result name="success" type="json">
-            <param name="root">extJsonForm</param>
-          </result>
-       </action>
-    </package>   
+     <!-- 预约统计 -->
+    <package name="preOreder" namespace="/preOreder" extends="library">
+      
+      
+      <action name="bookPreOrderMain" class="com.huan.library.web.action.PreOrderAction" method="bookPreOrderMain">
+         <result name="success">/module/borrowReturn/bookOrder.jsp</result>
+      </action>
+      
+      <action name="magazinePreOrderMain" class="com.huan.library.web.action.PreOrderAction" method="magazinePreOrderMain">
+         <result name="success">/module/borrowReturn/magazinePreOrder.jsp</result>
+      </action>
+      
+      <action name="findPreOrders" class="com.huan.library.web.action.PreOrderAction" method="findPreOrders">
+         <result name="success" type="json">
+           <param name="root">extGridLoad</param>
+         </result>
+      </action>
+    </package>  
  
 </struts>
 

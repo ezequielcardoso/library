@@ -57,6 +57,10 @@ public class DictItemAction extends BaseActionSupport {
 		this.dictItemService = dictItemService;
 	}
     
+	public String dictItemMain(){
+		return Action.SUCCESS;
+	}
+	
 	public String getChildrenByPid() {
 		try {
 			List<DictItem> dictItems = dictItemService.getChildrenByPid(pid, className);
