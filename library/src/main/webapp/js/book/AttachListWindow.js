@@ -102,7 +102,7 @@ Library.book.window.AttachListWindow = Ext.extend(Ext.Window, {
 			var record = this.getSelectionModel().getSelected();
 			
 			
-			window.open(contextPath + "/file/downloadFile.action?fileName=" + encodeURIComponent(record.get('attachmentSavePath')));
+			window.open(contextPath + "/file/downloadUploadFile.action?fileName=" + encodeURIComponent(record.get('attachmentSavePath')));
 		}, this.grid);
 		
 		this.grid.getStore().baseParams = {
