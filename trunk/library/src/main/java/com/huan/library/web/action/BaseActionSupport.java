@@ -100,8 +100,29 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
         }
         return SUCCESS;
     }
-
-
+    
+    public String downloadUploadFile() {//下载上传文件
+        try {
+        	//把要删除的文件设置到request中
+    		request.setAttribute("deleteFileName", this.getWebRoot() + fileName);
+        	fileStream = new FileInputStream(new File(this.getWebRoot() + fileName));
+        	fileName = "attachment;filename=\"" + StringAndUTF8.toUtf8String(
+        			fileName.substring(fileName.lastIndexOf(File.separator) + 1 )) + "\"";
+            if (fileName.indexOf(".xls") != -1) {
+                contentType = "application/vnd.ms-excel;charset=UTF-8";
+            } else if (fileName.indexOf(".pdf") != -1) {
+                contentType = "application/pdf;charset=ISO-8859-1";
+            } else if (fileName.indexOf(".doc") != -1) {
+                contentType = "application/msword;charset=UTF-8";
+            } else if (fileName.indexOf(".xml") != -1) {
+                contentType = "text/xml;charset=UTF-8";
+            }
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+        return SUCCESS;
+    }
+    
 	/**
 	 * 批量上传
 	 * @return

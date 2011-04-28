@@ -67,6 +67,21 @@
            	 <interceptor-ref name="fileDeleteInterceptor"/> 
 		</action>
 		
+		<!--文件上传下载--> 
+		<action name="downloadUploadFile" class="com.huan.library.web.action.BaseActionSupport"
+			method="downloadUploadFile">
+			<result name="success" type="stream">
+				<!-- 对应BaseActionSupport中的属性contentType -->  
+	            <param name="contentType">${contentType}</param> 
+	            <!-- BaseActionSupport中对应的InputStream的属性名 -->  
+	            <param name="inputName">fileStream</param>  
+	            <!-- 对应BaseActionSupport中的属性fileName，定义流输出格式 -->  
+	            <param name="contentDisposition">${fileName}</param>  
+	            <!-- 定义bufferSize，可选 -->  
+	            <param name="bufferSize">1024</param>  			
+			</result>
+		</action>
+		
 		<!--文件上传-->
 		<action name="uploadFile" class="com.huan.library.web.action.BaseActionSupport"
 			method="uploadFile">

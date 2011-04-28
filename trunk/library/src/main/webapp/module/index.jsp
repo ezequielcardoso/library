@@ -8,8 +8,8 @@
 <frameset rows="99,*,27" cols="*" frameborder="NO" border="0" framespacing="0">
    <frame src="<%=path%>/module/top.jsp" name="topFrame" scrolling="NO" noresize>
   <frameset cols="138,11,*"  frameborder="NO" border="0" framespacing="0" id="indexFrame"> 
-    <!-- <frame src="<%=path%>/function/findModules.action" name="leftFrame" scrolling="no" noresize id="leftFrame">-->
-	    <frame src="<%=path%>/module/left_backup.jsp" name="leftFrame" scrolling="no" noresize id="leftFrame"> 
+     <frame src="<%=path%>/function/findModules.action" name="leftFrame" scrolling="no" noresize id="leftFrame"> 
+	    <!-- <frame src="<%=path%>/module/left_backup.jsp" name="leftFrame" scrolling="no" noresize id="leftFrame"> -->
     <frame src="<%=path%>/module/callleftmenu.jsp" name="leftbarFrame" scrolling="NO" noresize>
     <frame src="<%=path%>/module/main.htm" name="mainFrame" noresize scrolling="yes">
   </frameset>
