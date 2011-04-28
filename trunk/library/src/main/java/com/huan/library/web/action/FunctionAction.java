@@ -44,6 +44,10 @@ public class FunctionAction extends BaseActionSupport {
 		this.functionService = functionService;
 	}
 
+	public String functionMain(){
+		return Action.SUCCESS;
+	}
+	
 	public String remove(){
 		Function oldFunc = this.functionService.getById(function);
 		Function parent = this.functionService.getById(oldFunc.getParent());
