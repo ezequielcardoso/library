@@ -74,16 +74,16 @@
 		</action>
 		
 		<!-- 读者借阅记录统计 -->
-		<action name="readerStatic" class="com.huan.library.web.action.ReaderAction" method="readerStatic">
+		<action name="readerStaticMain" class="com.huan.library.web.action.ReaderAction" method="readerStaticMain">
 		   <result name="success">/module/statistics/readerBorrowed.jsp</result>
 		</action>
 		
-		<action name="readerStaticCharts" class="com.huan.library.web.action.ReaderAction" method="readerStaticCharts">
+		<action name="readerStaticChartsMain" class="com.huan.library.web.action.ReaderAction" method="readerStaticChartsMain">
 		   <result name="success">/module/statistics/readerCharts.jsp</result>
 		</action>
 		
 		<!-- 读者账单 -->
-		<action name="readerAccount" class="com.huan.library.web.action.ReaderAction" method="readerAccount">
+		<action name="readerAccountMain" class="com.huan.library.web.action.ReaderAction" method="readerAccountMain">
 		   <result name="success">/module/reader/readerAccount.jsp</result>
 		</action>
     </package>
