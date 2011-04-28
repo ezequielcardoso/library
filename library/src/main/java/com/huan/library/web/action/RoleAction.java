@@ -179,8 +179,9 @@ public class RoleAction extends BaseActionSupport {
 			role.setRoleId(roleView.getRoleId());
 			if(roleView.getChecked()){
 				user.getRoles().add(role);
+			} else {
+				user.getRoles().remove(role);
 			}
-			user.getRoles().remove(role);
 			userService.save(user);
 			extJsonForm.setSuccess(true);
 			extJsonForm.setMsg("设置成功！");
