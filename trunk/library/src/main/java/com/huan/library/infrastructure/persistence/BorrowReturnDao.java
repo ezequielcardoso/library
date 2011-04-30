@@ -47,5 +47,10 @@ public interface BorrowReturnDao extends BaseDao<BorrowReturn>{
 	 * @return
 	 * @
 	 */
-	public List<BorrowReturn> selectBorrowReturn(BorrowReturnView borrowReturnView) ; 
+	public List<BorrowReturn> selectBorrowReturn(BorrowReturnView borrowReturnView) ;
+	/**
+	 * 查找将要逾期的记录
+	 * @return
+	 */
+	public List<BorrowReturn> aboutToDueBorrowReturn() ;
 }

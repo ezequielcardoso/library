@@ -57,6 +57,10 @@ public class BorrowReturnServiceImpl implements BorrowReturnService {
 			BorrowReturnView borrowReturnView)  {
 		return borrowReturnDao.selectBorrowReturns(borrowReturnView);
 	}
+	
+	public List<BorrowReturn> aboutToDueBorrowReturns() {
+		return borrowReturnDao.aboutToDueBorrowReturn();
+	}
 
 	public String exportExcel(String rootDir, BorrowReturnView borrowReturnView)
 			 {

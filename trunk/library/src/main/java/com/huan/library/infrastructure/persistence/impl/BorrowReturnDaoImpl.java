@@ -355,7 +355,7 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
 
 		return borrowReturns;
 	}
-
+	
 	public BorrowReturn selectBRById(Long id) {
 		BorrowReturn borrowReturn = new BorrowReturn();
 
@@ -370,5 +370,15 @@ public class BorrowReturnDaoImpl extends BaseDaoImpl<BorrowReturn> implements
 
 		return borrowReturn;
 	}
-
+ 
+	public List<BorrowReturn> aboutToDueBorrowReturn() {
+		List<BorrowReturn> borrowReturns = new ArrayList<BorrowReturn>();
+		StringBuilder sql = new StringBuilder();
+		sql.append(" from BorrowReturn br ");
+		sql.append(" left join fetch br.reader t_r ");
+		sql.append("  where (br.duetoReturnDate - br.borrowedDate) < 3 ");
+		borrowReturns = (List<BorrowReturn>)getHibernateTemplate().find(sql.toString());
+		return borrowReturns;
+	}
+	
 }

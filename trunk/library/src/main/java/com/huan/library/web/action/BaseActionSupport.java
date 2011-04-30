@@ -142,8 +142,12 @@ public class BaseActionSupport extends ActionSupport implements ServletRequestAw
 	    		attach.setAttachmentSavePath("upload" + File.separator + filelistFileName.get(i));
 	    		attach.setAttachmentSize(file.getTotalSpace());
 	    		attach.setAttachmentUploadDate(new Date());
-	    		User currUser = (User)session.get("currUser");
-	    		attach.setAttachmentUploadMan(currUser.getUserName());
+	    		User currUser = (User)this.session.get("currUser");
+	    		if(currUser!= null && currUser.getUserName() !=null){
+	    			attach.setAttachmentUploadMan(currUser.getUserName());
+	    		}else{
+	    			attach.setAttachmentUploadMan("管理员");
+	    		}
 	    		Book book = new Book();
 	    		book.setBookId(bookId);
 	    		attach.setBook(book);

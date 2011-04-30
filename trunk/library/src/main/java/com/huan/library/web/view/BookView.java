@@ -31,17 +31,17 @@ public class BookView extends ExtGridPost implements Serializable {
 	private String allStage; // 总第几期
 	private Integer pages; // 页数
 	private Float price; // 价格
-	private Date publisherDate; // 出版日期
+	private String publisherDate; // 出版日期
 	private Integer quantity; // 数量
 	private String location; //存放位置
 	private Integer revision; // 版次
 	private String searchBookId; // 索书号
 	private String speciesId; // 种次号
 	private String spell; // 拼音
-	private Date orderDate;  //预约时间
-	private Date endOrderDate; //结束入库时间  检索图书入库的统计的
-	private Date storeDate; // 入库时间
-	private Date endStoreDate; //结束时间  检索图书入库的统计的
+	private String orderDate;  //预约时间
+	private String endOrderDate; //结束入库时间  检索图书入库的统计的
+	private String storeDate; // 入库时间
+	private String endStoreDate; //结束时间  检索图书入库的统计的
 	private String bookNo; // 图书编号
 	private String operator;  //录入人员
 	private Integer isBook; // 类型1:表示图书 0:表示期刊
@@ -193,14 +193,6 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.price = price;
 	}
 
-	public Date getPublisherDate() {
-		return publisherDate;
-	}
-
-	public void setPublisherDate(Date publisherDate) {
-		this.publisherDate = publisherDate;
-	}
-
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -232,14 +224,6 @@ public class BookView extends ExtGridPost implements Serializable {
 	public void setSearchBookId(String searchBookId) {
 		this.searchBookId = searchBookId;
 	}
-    
-	public Date getEndOrderDate() {
-		return endOrderDate;
-	}
-
-	public void setEndOrderDate(Date endOrderDate) {
-		this.endOrderDate = endOrderDate;
-	}
 
 	public String getSpeciesId() {
 		return speciesId;
@@ -257,13 +241,6 @@ public class BookView extends ExtGridPost implements Serializable {
 		this.spell = spell;
 	}
 
-	public Date getStoreDate() {
-		return storeDate;
-	}
-
-	public void setStoreDate(Date storeDate) {
-		this.storeDate = storeDate;
-	}
 
 	public String getBookNo() {
 		return bookNo;
@@ -277,13 +254,6 @@ public class BookView extends ExtGridPost implements Serializable {
 		return isBook;
 	}
 
-	public Date getOrderDate() {
-		return orderDate;
-	}
-
-	public void setOrderDate(Date orderDate) {
-		this.orderDate = orderDate;
-	}
 
 	public void setIsBook(Integer isBook) {
 		this.isBook = isBook;
@@ -293,14 +263,6 @@ public class BookView extends ExtGridPost implements Serializable {
 		return firstCategoryId;
 	}
 	
-
-	public Date getEndStoreDate() {
-		return endStoreDate;
-	}
-
-	public void setEndStoreDate(Date endStoreDate) {
-		this.endStoreDate = endStoreDate;
-	}
 
 	public void setFirstCategoryId(String firstCategoryId) {
 		this.firstCategoryId = firstCategoryId;
@@ -473,6 +435,48 @@ public class BookView extends ExtGridPost implements Serializable {
 	public void setBookSourceName(String bookSourceName) {
 		this.bookSourceName = bookSourceName;
 	}
+
+	public String getPublisherDate() {
+		return publisherDate;
+	}
+
+	public void setPublisherDate(String publisherDate) {
+		this.publisherDate = publisherDate;
+	}
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public String getEndOrderDate() {
+		return endOrderDate;
+	}
+
+	public void setEndOrderDate(String endOrderDate) {
+		this.endOrderDate = endOrderDate;
+	}
+
+	public String getStoreDate() {
+		return storeDate;
+	}
+
+	public void setStoreDate(String storeDate) {
+		this.storeDate = storeDate;
+	}
+
+	public String getEndStoreDate() {
+		return endStoreDate;
+	}
+
+	public void setEndStoreDate(String endStoreDate) {
+		this.endStoreDate = endStoreDate;
+	}
+	
+	
 
 
 }
