@@ -131,8 +131,8 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'float'
 		}, {
 			name : 'publisherDate',
-			type : 'date'
-//			dateFormat  : 'Y-m-d'
+			type : 'date',
+			dateFormat  : 'Y-m-d'
 		}, {
 			name : 'operator',
 			type : 'string'
@@ -156,11 +156,12 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		},  {
 			name : 'orderDate',
-			type : 'date'
+			type : 'date',
+			dateFormat  : 'Y-m-d'
 		},{
 			name : 'storeDate',
-			type : 'date'
-//			dateFormat  : 'Y-m-d'
+			type : 'date',
+			dateFormat  : 'Y-m-d'
 		}, {
 			name : 'bookNo',
 			type : 'string'
@@ -615,9 +616,7 @@ Library.book.grid.BookGridPanel = Ext.extend(Ext.grid.GridPanel, {
 												var obj = Ext.util.JSON
 														.decode(respText);
 												if (obj.success == true) {
-													Ext.Msg
-															.alert('提示',
-																	obj.msg);
+													Ext.Msg.alert('提示',obj.msg);
 													thiz.getStore().reload();
 												} else {
 													Ext.Msg

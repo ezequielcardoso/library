@@ -624,7 +624,7 @@ Library.reader.grid.ReaderGridPanel = Ext.extend(Ext.grid.EditorGridPanel, {
 										var obj = Ext.util.JSON
 												.decode(respText);
 										if (obj.success == true) {
-											Ext.Msg.alert('提示', obj.msg);
+//											Ext.Msg.alert('提示', obj.msg);
 											thiz.getStore().reload();
 										} else {
 											Ext.Msg.alert('提示', obj.msg);
