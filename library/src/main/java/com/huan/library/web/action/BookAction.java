@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.huan.library.domain.model.book.Book;
 import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.BookService;
+import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.BookView;
 import com.huan.library.web.view.form.ExtJsonForm;
 import com.huan.library.web.view.grid.ExtGridLoad;
@@ -317,7 +318,7 @@ public class BookAction extends BaseActionSupport {
 				view.setPrice(book.getPrice());
 			}
 			if (book.getPublisherDate() != null) {
-				view.setPublisherDate(book.getPublisherDate());
+				view.setPublisherDate(DateFormatUtil.format(book.getPublisherDate(), "yyyy-MM-dd"));
 			}
 			if (book.getQuantity() != null) {
 				view.setQuantity(book.getQuantity());
@@ -332,7 +333,7 @@ public class BookAction extends BaseActionSupport {
 				view.setSpeciesId(book.getSpeciesId());
 			}
 			if (book.getStoreDate() != null) {
-				view.setStoreDate(book.getStoreDate());
+				view.setStoreDate(DateFormatUtil.format(book.getStoreDate(), "yyyy-MM-dd"));
 			}
 			if (book.getBookNo() != null) {
 				view.setBookNo(book.getBookNo());
