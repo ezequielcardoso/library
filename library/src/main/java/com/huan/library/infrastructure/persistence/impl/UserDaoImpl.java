@@ -52,6 +52,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		User user = new User();
 
 		String hql = " from User u left join fetch u.dept left join fetch u.roles where u.userId=? ";
+		
 		user = (User) this.getHibernateTemplate().find(hql, userId).iterator()
 				.next();
 
