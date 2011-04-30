@@ -15,6 +15,7 @@ import com.huan.library.domain.model.rights.User;
 import com.huan.library.domain.service.BookService;
 import com.huan.library.domain.service.BorrowReturnService;
 import com.huan.library.domain.service.ReaderService;
+import com.huan.library.email.SendMailToSomeone;
 import com.huan.library.util.DateFormatUtil;
 import com.huan.library.web.view.BorrowReturnView;
 import com.huan.library.web.view.form.ExtJsonForm;
@@ -114,6 +115,7 @@ public class BorrowReturnAction extends BaseActionSupport {
 		return Action.SUCCESS;
 	}
 	
+	
 	/**
 	 * 图书借阅
 	 * @return
@@ -173,7 +175,6 @@ public class BorrowReturnAction extends BaseActionSupport {
 
 	/**
 	 * 书刊归还
-	 * 
 	 * @return
 	 */
 	public String bookReturn() {
@@ -263,6 +264,16 @@ public class BorrowReturnAction extends BaseActionSupport {
 		}
 		return Action.SUCCESS;
 	}
+	
+	
+//	public String aboutToDueBorrowReturns(){
+//		try {
+//		   List<BorrowReturn>	borrowReturnService.aboutToDueBorrowReturns();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		return Action.SUCCESS;
+//	}
 	
 	/**
 	 * 导出Excel

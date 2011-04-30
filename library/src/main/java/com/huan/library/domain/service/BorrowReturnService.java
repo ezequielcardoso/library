@@ -53,8 +53,12 @@ public interface BorrowReturnService {
 	 * @return
 	 * @
 	 */
-	public List<BorrowReturn> findBorrowReturns(BorrowReturnView borrowReturnView)
-			;
+	public List<BorrowReturn> findBorrowReturns(BorrowReturnView borrowReturnView);
+	/**
+	 * 查找将要逾期的记录
+	 * @return
+	 */
+	public List<BorrowReturn> aboutToDueBorrowReturns();
     
 	/**
 	 * 导出Excel

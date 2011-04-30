@@ -131,16 +131,25 @@ public class BookServiceImpl implements BookService {
 	            	ExcelOperate.addLabelToSheet(ws, 11, count, book.getCurrency().getItemName(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 12, count, book.getPages(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 13, count, book.getPrice(), ExcelStyle.getContentStyle());
-	            	
-	            	String publisherDate = DateFormatUtil.format(book.getPublisherDate(), "yyyy-MM-dd");
-					ExcelOperate.addLabelToSheet(ws, 14, count, DateFormatUtil.convertToDate(publisherDate), ExcelStyle.getDateStyle());
+	            	if(book.getPublisherDate()!=null){
+	            	  String publisherDate = DateFormatUtil.format(book.getPublisherDate(), "yyyy-MM-dd");
+	            	  ExcelOperate.addLabelToSheet(ws, 14, count, DateFormatUtil.convertToDate(publisherDate), ExcelStyle.getDateStyle());
+					}else{
+					  ExcelOperate.addLabelToSheet(ws, 14, count, "", ExcelStyle.getDateStyle());	
+					}
 //	            	ExcelOperate.addLabelToSheet(ws, 14, count, book.getPublisherDate(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 15, count, book.getQuantity(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 16, count, book.getLocation(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 17, count, book.getRevision(), ExcelStyle.getContentStyle());
 	            	
-	            	String storeDate = DateFormatUtil.format(book.getStoreDate(), "yyyy-MM-dd");
-					ExcelOperate.addLabelToSheet(ws, 18, count, DateFormatUtil.convertToDate(storeDate), ExcelStyle.getDateStyle());
+	            	
+	            	if(book.getStoreDate()!=null){
+	            		String storeDate = DateFormatUtil.format(book.getStoreDate(), "yyyy-MM-dd");
+	            		    ExcelOperate.addLabelToSheet(ws, 18, count, DateFormatUtil.convertToDate(storeDate), ExcelStyle.getDateStyle());
+						}else{
+							ExcelOperate.addLabelToSheet(ws, 18, count, "", ExcelStyle.getDateStyle());	
+						}
+					
 //	            	ExcelOperate.addLabelToSheet(ws, 18, count, book.getStoreDate(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 19, count, book.getOperator(), ExcelStyle.getContentStyle());
 	            	ExcelOperate.addLabelToSheet(ws, 20, count, book.getBookState().getItemName(), ExcelStyle.getContentStyle());
