@@ -1,10 +1,11 @@
-#Tue Apr 26 16:11:23 CST 2011
+#Thu Apr 28 14:02:26 CST 2011
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/java/com/huan/library/infrastructure/persistence/impl/DepartmentDaoImpl.java=UTF-8
 encoding//src/main/webapp/common/files/js/Files.SelectPanel.js=UTF-8
 encoding//src/main/webapp/common/files/js/Files.UploadWindow.js=UTF-8
 encoding//src/main/webapp/common/files/js/TestUpload.js=UTF-8
+encoding//src/main/webapp/js/book/AttachListWindow.js=UTF-8
 encoding//src/main/webapp/js/book/Book.js=UTF-8
 encoding//src/main/webapp/js/book/BookGridPanel.js=UTF-8
 encoding//src/main/webapp/js/book/BookOperation.js=UTF-8
