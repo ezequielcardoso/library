@@ -129,7 +129,8 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'float'
 		}, {
 			name : 'publisherDate',
-			type : 'date'
+			type : 'date',
+			dateFormat : 'Y-m-d'
 		}, {
 			name : 'quantity',
 			type : 'int'
@@ -150,7 +151,8 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			type : 'string'
 		}, {
 			name : 'storeDate',
-			type : 'date'
+			type : 'date',
+			dateFormat : 'Y-m-d'
 		}, {
 			name : 'bookNo',
 			type : 'string'
@@ -601,9 +603,7 @@ Library.magazine.grid.MagazineGridPanel = Ext.extend(Ext.grid.GridPanel, {
 												var obj = Ext.util.JSON
 														.decode(respText);
 												if (obj.success == true) {
-													Ext.Msg
-															.alert('提示',
-																	obj.msg);
+//													Ext.Msg.alert('提示',obj.msg);
 													thiz.getStore().reload();
 												} else {
 													Ext.Msg
